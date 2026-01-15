@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Extract Word Timings from Audio</title>
+	<style>
+		body {
+			font-family: system-ui, sans-serif;
+			max-width: 800px;
+			margin: 40px auto;
+			padding: 20px;
+			background: #1e293b;
+			color: #f1f5f9;
+		}
+		.upload-area {
+			border: 2px dashed #3b82f6;
+			border-radius: 8px;
+			padding: 40px;
+			text-align: center;
+			margin: 20px 0;
+			background: rgba(59, 130, 246, 0.1);
+		}
+		button {
+			background: #3b82f6;
+			color: white;
+			border: none;
+			padding: 12px 24px;
+			border-radius: 6px;
+			cursor: pointer;
+			font-size: 16px;
+			margin: 10px;
+		}
+		button:hover {
+			background: #2563eb;
+		}
+		button:disabled {
+			background: #64748b;
+			cursor: not-allowed;
+		}
+		textarea {
+			width: 100%;
+			min-height: 100px;
+			padding: 12px;
+			border-radius: 6px;
+			background: #0f172a;
+			color: #f1f5f9;
+			border: 1px solid #334155;
+			font-family: monospace;
+		}
+		.result {
+			margin-top: 20px;
+			padding: 20px;
+			background: #0f172a;
+			border-radius: 8px;
+			border: 1px solid #334155;
+		}
+		.word {
+			display: inline-block;
+			margin: 4px;
+			padding: 4px 8px;
+			background: #1e293b;
+			border-radius: 4px;
+		}
+		.error {
+			color: #ef4444;
+			background: rgba(239, 68, 68, 0.1);
+			padding: 12px;
+			border-radius: 6px;
+			margin: 10px 0;
+		}
+	</style>
+</head>
+<body>
+	<h1>Extract Word Timings from Audio</h1>
+	<p>This tool uses the browser's Web Speech API to extract word-level timings from your audio files.</p>
+	
+	<div class="upload-area">
+		<input type="file" id="audioFile" accept="audio/*" />
+		<p>Select an audio file (.wav, .mp3, etc.)</p>
+	</div>
+
+	<div>
+		<label>
+			<strong>Script (for reference):</strong>
+			<textarea id="script" placeholder="Paste the script text here..."></textarea>
+		</label>
+	</div>
+
+	<button id="startBtn" onclick="startRecognition()">Start Recognition</button>
+	<button id="stopBtn" onclick="stopRecognition()" disabled>Stop</button>
+	<button id="copyBtn" onclick="copyResult()" disabled>Copy JSON</button>
+
+	<div id="status"></div>
+	<div id="result" class="result" style="display: none;"></div>
+
+	<script>
+		let recognition = null;
+		let words = [];
+		let audioStartTime = 0;
+
+		function startRecognition() {
+			const fileInput = document.getElementById('audioFile');
+			const audioFile = fileInput.files[0];
+			
+			if (!audioFile) {
+				showError('Please select an audio file first');
+				return;
+			}
+
+			if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+				showError('Speech recognition not supported in this browser. Try Chrome or Edge.');
+				return;
+			}
+
+			const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+			recognition = new SpeechRecognition();
+			
+			recognition.continuous = true;
+			recognition.interimResults = false;
+			recognition.lang = 'en-US';
+
+			words = [];
+			audioStartTime = Date.now();
+
+			// Play audio and start recognition simultaneously
+			const audio = new Audio(URL.createObjectURL(audioFile));
+			audio.play();
+
+			recognition.onresult = (event) => {
+				const currentTime = (Date.now() - audioStartTime) / 1000;
+				
+				for (let i = event.resultIndex; i < event.results.length; i++) {
+					const result = event.results[i];
+					if (result.isFinal) {
+						const transcript = result[0].transcript.trim();
+						const wordsInPhrase = transcript.split(/\s+/);
+						
+						// Estimate timing (Web Speech API doesn't provide word-level timings)
+						// We'll split the time evenly across words
+						const duration = result[0].duration || 0;
+						const wordDuration = duration / wordsInPhrase.length;
+						
+						wordsInPhrase.forEach((word, idx) => {
+							words.push({
+								text: word,
+								start: currentTime + (idx * wordDuration),
+								end: currentTime + ((idx + 1) * wordDuration),
+							});
+						});
+					}
+				}
+
+				updateResult();
+			};
+
+			recognition.onerror = (event) => {
+				showError('Recognition error: ' + event.error);
+			};
+
+			recognition.onend = () => {
+				document.getElementById('startBtn').disabled = false;
+				document.getElementById('stopBtn').disabled = true;
+				updateStatus('Recognition complete');
+			};
+
+			recognition.start();
+			document.getElementById('startBtn').disabled = true;
+			document.getElementById('stopBtn').disabled = false;
+			updateStatus('Listening...');
+		}
+
+		function stopRecognition() {
+			if (recognition) {
+				recognition.stop();
+			}
+		}
+
+		function updateResult() {
+			const resultDiv = document.getElementById('result');
+			resultDiv.style.display = 'block';
+			document.getElementById('copyBtn').disabled = false;
+
+			const json = JSON.stringify(words, null, 2);
+			resultDiv.innerHTML = `
+				<h3>Word Timings (${words.length} words)</h3>
+				<pre style="background: #0f172a; padding: 12px; border-radius: 6px; overflow-x: auto;">${json}</pre>
+				<p><strong>Copy this JSON and paste it into:</strong></p>
+				<code>src/utils/wordTimings.ts</code>
+			`;
+		}
+
+		function copyResult() {
+			const json = JSON.stringify(words, null, 2);
+			navigator.clipboard.writeText(json).then(() => {
+				updateStatus('Copied to clipboard!');
+			});
+		}
+
+		function updateStatus(message) {
+			document.getElementById('status').textContent = message;
+		}
+
+		function showError(message) {
+			const status = document.getElementById('status');
+			status.innerHTML = `<div class="error">${message}</div>`;
+		}
+	</script>
+</body>
+</html>

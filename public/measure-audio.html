@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Measure Audio Durations</title>
+	<style>
+		body {
+			font-family: system-ui, sans-serif;
+			max-width: 800px;
+			margin: 40px auto;
+			padding: 20px;
+			background: #0f172a;
+			color: #e2e8f0;
+		}
+		button {
+			background: #3b82f6;
+			color: white;
+			border: none;
+			padding: 12px 24px;
+			font-size: 16px;
+			border-radius: 8px;
+			cursor: pointer;
+			margin: 10px 0;
+		}
+		button:hover {
+			background: #2563eb;
+		}
+		pre {
+			background: #1e293b;
+			padding: 20px;
+			border-radius: 8px;
+			overflow-x: auto;
+			border: 1px solid #334155;
+		}
+		.result {
+			margin: 20px 0;
+		}
+	</style>
+</head>
+<body>
+	<h1>Audio Duration Measurement Tool</h1>
+	<p>This tool measures all audio files and generates the configuration.</p>
+	<button onclick="measureAll()">Measure All Audio Files</button>
+	<div id="results"></div>
+	<div id="config" class="result"></div>
+
+	<script>
+		const audioFiles = [
+			"module1-title", "module1-whyIaC", "module1-comparison", "module1-workflow",
+			"module1-initCode", "module1-whyTypeScript", "module1-typescriptCode", "module1-summary"
+		];
+
+		async function measureAudio(fileName) {
+			return new Promise((resolve, reject) => {
+				const audio = new Audio(`audio/${fileName}.wav`);
+				
+				audio.addEventListener("loadedmetadata", () => {
+					const duration = Math.round(audio.duration * 100) / 100;
+					resolve({ name: fileName, duration });
+				});
+				
+				audio.addEventListener("error", (e) => {
+					reject(new Error(`Failed to load ${fileName}`));
+				});
+				
+				audio.load();
+			});
+		}
+
+		async function measureAll() {
+			const resultsDiv = document.getElementById("results");
+			const configDiv = document.getElementById("config");
+			
+			resultsDiv.innerHTML = "<h2>Measuring...</h2>";
+			configDiv.innerHTML = "";
+			
+			const results = {};
+			
+			for (const fileName of audioFiles) {
+				try {
+					const result = await measureAudio(fileName);
+					results[result.name] = result.duration;
+					resultsDiv.innerHTML += `<p>✓ ${result.name}: ${result.duration} seconds</p>`;
+				} catch (error) {
+					resultsDiv.innerHTML += `<p>✗ ${fileName}: Error - ${error.message}</p>`;
+					results[fileName] = 10; // Default
+				}
+			}
+			
+			// Generate configuration
+			const config = `export const audioDurations: Record<string, number> = {\n${audioFiles.map(name => `\t"${name}": ${results[name]},`).join("\n")}\n};`;
+			
+			configDiv.innerHTML = `
+				<h2>Configuration (copy this into src/utils/audioDuration.ts):</h2>
+				<pre id="configCode">${config}</pre>
+				<button onclick="copyConfig()">Copy to Clipboard</button>
+			`;
+			
+			// Calculate totals
+			const totalAudio = audioFiles.reduce((sum, name) => sum + (results[name] || 0), 0);
+			const totalWithTransitions = totalAudio + (audioFiles.length - 1) * 1;
+			
+			resultsDiv.innerHTML += `
+				<h3>Summary</h3>
+				<p>Total audio: ${totalAudio.toFixed(2)} seconds</p>
+				<p>With 1s transitions: ${totalWithTransitions.toFixed(2)} seconds</p>
+				<p>Total frames (30fps): ${Math.ceil(totalWithTransitions * 30)}</p>
+			`;
+		}
+
+		function copyConfig() {
+			const configCode = document.getElementById("configCode").textContent;
+			navigator.clipboard.writeText(configCode).then(() => {
+				alert("Configuration copied to clipboard! Paste it into src/utils/audioDuration.ts");
+			});
+		}
+
+		// Auto-run on load
+		window.addEventListener("load", () => {
+			setTimeout(measureAll, 500);
+		});
+	</script>
+</body>
+</html>

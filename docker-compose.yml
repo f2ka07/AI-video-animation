@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  gentle:
+    image: lowerquality/gentle
+    container_name: gentle-alignment
+    ports:
+      - "8765:8765"
+    restart: unless-stopped
+    # Optional: Add volume if you want to persist data
+    # volumes:
+    #   - ./gentle-data:/app/data

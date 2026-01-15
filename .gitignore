@@ -1,0 +1,12 @@
+node_modules/
+.DS_Store
+*.log
+.env
+.env.local
+public/audio/*.mp3
+out/
+.remotion/
+src/assets/*
+# Exclude markdown documentation files
+*.md
+!node_modules/**/*.md

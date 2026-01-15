@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Measure Audio Durations</title>
+</head>
+<body>
+	<h1>Audio Duration Measurement</h1>
+	<p>Open browser console (F12) to see results</p>
+	<button onclick="measureAll()">Measure All Audio Files</button>
+	<div id="results"></div>
+
+	<script>
+		const audioFiles = [
+			"module1-title",
+			"module1-whyIaC",
+			"module1-comparison",
+			"module1-workflow",
+			"module1-initCode",
+			"module1-whyTypeScript",
+			"module1-typescriptCode",
+			"module1-summary",
+		];
+
+		function measureAudioDuration(fileName) {
+			return new Promise((resolve, reject) => {
+				const audio = new Audio(`audio/${fileName}.wav`);
+				
+				audio.addEventListener("loadedmetadata", () => {
+					const duration = Math.round(audio.duration * 100) / 100;
+					resolve({ name: fileName, duration });
+				});
+				
+				audio.addEventListener("error", (e) => {
+					reject(new Error(`Failed to load ${fileName}`));
+				});
+				
+				audio.load();
+			});
+		}
+
+		async function measureAll() {
+			console.log("Measuring audio file durations...\n");
+			const results = {};
+			const resultsDiv = document.getElementById("results");
+			resultsDiv.innerHTML = "<h2>Results:</h2><pre>";
+
+			for (const fileName of audioFiles) {
+				try {
+					const result = await measureAudioDuration(fileName);
+					results[result.name] = result.duration;
+					console.log(`${result.name}: ${result.duration} seconds`);
+					resultsDiv.innerHTML += `${result.name}: ${result.duration} seconds\n`;
+				} catch (error) {
+					console.error(`Error measuring ${fileName}:`, error);
+					resultsDiv.innerHTML += `Error: ${fileName}\n`;
+				}
+			}
+
+			console.log("\n=== Copy this into src/utils/audioDuration.ts ===\n");
+			const config = "export const audioDurations: Record<string, number> = {\n" +
+				audioFiles.map(name => `\t"${name}": ${results[name] || 0},`).join("\n") +
+				"\n};";
+			
+			console.log(config);
+			resultsDiv.innerHTML += "\n\n=== Configuration ===\n<pre>" + config + "</pre>";
+		}
+
+		// Auto-run on load
+		window.addEventListener("load", () => {
+			setTimeout(measureAll, 500);
+		});
+	</script>
+</body>
+</html>

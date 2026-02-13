@@ -1,5 +1,10 @@
 node_modules/
 .DS_Store
+# AI/IDE tool config (local only)
+.agents/
+.codex/
+.cursor/
+.gemini/
 # Windows reserved device names
 nul
 con

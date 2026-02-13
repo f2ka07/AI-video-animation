@@ -53,6 +53,7 @@
     "render:course:draft": "tsx scripts/renderAllModules.ts --preset=draft",
     "render:course:fast": "tsx scripts/renderAllModules.ts --preset=fast",
     "render:course:max": "tsx scripts/renderAllModules.ts --preset=max",
+    "render:runpod": "tsx scripts/renderOnRunPod.ts",
     "ensure-browser": "npx @remotion/renderer ensure-chromium"
   },
   "keywords": [],

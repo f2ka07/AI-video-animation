@@ -1,11 +1,13 @@
 # Deploy Remotion + GUI + Gentle stack via Docker Compose
 # Trigger: push to main, or manual workflow_dispatch
 #
+# Deploy runs only on: manual trigger, OR push when DEPLOY_ENABLED=true
 # Required secrets (Settings > Secrets and variables > Actions):
 #   DEPLOY_HOST     - SSH hostname or IP (e.g. 1.2.3.4 or myserver.com)
 #   DEPLOY_USER     - SSH username (e.g. root, ubuntu)
 #   DEPLOY_SSH_KEY  - Private SSH key for deployment
 #   DEPLOY_PATH     - Path on server (e.g. /home/user/my-slides)
+# Optional variable: DEPLOY_ENABLED=true to run deploy on push to main
 
 name: Deploy Stack
 
@@ -58,6 +60,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Deploy to remote
+        if: github.event_name == 'workflow_dispatch' || vars.DEPLOY_ENABLED == 'true'
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.DEPLOY_HOST }}

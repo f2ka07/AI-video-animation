@@ -3,10 +3,11 @@ FROM node:20-slim
 
 WORKDIR /app
 
-# Install Chromium for Remotion headless rendering
+# Install Chromium for Remotion headless rendering + SSH for RunPod remote access
 RUN apt-get update && apt-get install -y \
     chromium \
     chromium-sandbox \
+    openssh-server \
     fonts-liberation \
     libasound2 \
     libatk-bridge2.0-0 \

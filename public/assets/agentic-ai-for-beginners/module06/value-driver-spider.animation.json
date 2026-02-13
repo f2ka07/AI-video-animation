@@ -1,0 +1,50 @@
+{
+  "diagram": "value-driver-spider.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 30,
+      "show": [
+        "main"
+      ],
+      "dim": [],
+      "highlight": []
+    },
+    {
+      "start": 30,
+      "end": 122.6,
+      "show": [
+        "main",
+        "section-1"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-1"
+      ]
+    },
+    {
+      "start": 122.6,
+      "end": 128.8,
+      "show": [
+        "main",
+        "section-2"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-2"
+      ]
+    },
+    {
+      "start": 128.8,
+      "end": 146.7,
+      "show": [
+        "main",
+        "section-3"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-3"
+      ]
+    }
+  ]
+}

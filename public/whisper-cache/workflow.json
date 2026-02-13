@@ -1,0 +1,227 @@
+{
+  "text": "The Pulumi workflow is simple. Initialize a project. Preview the changes. Apply them. And optionally destroy them. The commands map directly. PulumiEdge creates your project. Pulumi Preview shows planned changes. PulumiUp deploys to AWS. PulumiDestroy tears everything down. And PulumiConfig manages per-environment settings.",
+  "duration": 23.440000534057617,
+  "words": [
+    {
+      "word": "The",
+      "start": 0,
+      "end": 0.6399999856948853
+    },
+    {
+      "word": "Pulumi",
+      "start": 0.6399999856948853,
+      "end": 0.6399999856948853
+    },
+    {
+      "word": "workflow",
+      "start": 0.6399999856948853,
+      "end": 1.1799999475479126
+    },
+    {
+      "word": "is",
+      "start": 1.1799999475479126,
+      "end": 1.4600000381469727
+    },
+    {
+      "word": "simple",
+      "start": 1.4600000381469727,
+      "end": 1.7799999713897705
+    },
+    {
+      "word": "Initialize",
+      "start": 2.640000104904175,
+      "end": 2.799999952316284
+    },
+    {
+      "word": "a",
+      "start": 2.799999952316284,
+      "end": 3.4000000953674316
+    },
+    {
+      "word": "project",
+      "start": 3.4000000953674316,
+      "end": 3.4000000953674316
+    },
+    {
+      "word": "Preview",
+      "start": 4.079999923706055,
+      "end": 4.079999923706055
+    },
+    {
+      "word": "the",
+      "start": 4.079999923706055,
+      "end": 4.340000152587891
+    },
+    {
+      "word": "changes",
+      "start": 4.340000152587891,
+      "end": 4.699999809265137
+    },
+    {
+      "word": "Apply",
+      "start": 5.400000095367432,
+      "end": 5.400000095367432
+    },
+    {
+      "word": "them",
+      "start": 5.400000095367432,
+      "end": 5.920000076293945
+    },
+    {
+      "word": "And",
+      "start": 6.059999942779541,
+      "end": 6.400000095367432
+    },
+    {
+      "word": "optionally",
+      "start": 6.400000095367432,
+      "end": 6.739999771118164
+    },
+    {
+      "word": "destroy",
+      "start": 6.739999771118164,
+      "end": 7.099999904632568
+    },
+    {
+      "word": "them",
+      "start": 7.099999904632568,
+      "end": 7.400000095367432
+    },
+    {
+      "word": "The",
+      "start": 7.940000057220459,
+      "end": 8.140000343322754
+    },
+    {
+      "word": "commands",
+      "start": 8.140000343322754,
+      "end": 8.4399995803833
+    },
+    {
+      "word": "map",
+      "start": 8.4399995803833,
+      "end": 8.84000015258789
+    },
+    {
+      "word": "directly",
+      "start": 8.84000015258789,
+      "end": 9.34000015258789
+    },
+    {
+      "word": "PulumiEdge",
+      "start": 10.199999809265137,
+      "end": 10.579999923706055
+    },
+    {
+      "word": "creates",
+      "start": 10.579999923706055,
+      "end": 10.899999618530273
+    },
+    {
+      "word": "your",
+      "start": 10.899999618530273,
+      "end": 11.140000343322754
+    },
+    {
+      "word": "project",
+      "start": 11.140000343322754,
+      "end": 11.619999885559082
+    },
+    {
+      "word": "Pulumi",
+      "start": 12.380000114440918,
+      "end": 12.579999923706055
+    },
+    {
+      "word": "Preview",
+      "start": 12.579999923706055,
+      "end": 12.920000076293945
+    },
+    {
+      "word": "shows",
+      "start": 12.920000076293945,
+      "end": 13.260000228881836
+    },
+    {
+      "word": "planned",
+      "start": 13.260000228881836,
+      "end": 13.699999809265137
+    },
+    {
+      "word": "changes",
+      "start": 13.699999809265137,
+      "end": 14.199999809265137
+    },
+    {
+      "word": "PulumiUp",
+      "start": 14.819999694824219,
+      "end": 15.300000190734863
+    },
+    {
+      "word": "deploys",
+      "start": 15.300000190734863,
+      "end": 15.779999732971191
+    },
+    {
+      "word": "to",
+      "start": 15.779999732971191,
+      "end": 16.100000381469727
+    },
+    {
+      "word": "AWS",
+      "start": 16.100000381469727,
+      "end": 16.899999618530273
+    },
+    {
+      "word": "PulumiDestroy",
+      "start": 17.399999618530273,
+      "end": 18.200000762939453
+    },
+    {
+      "word": "tears",
+      "start": 18.200000762939453,
+      "end": 18.5
+    },
+    {
+      "word": "everything",
+      "start": 18.5,
+      "end": 19.079999923706055
+    },
+    {
+      "word": "down",
+      "start": 19.079999923706055,
+      "end": 19.5
+    },
+    {
+      "word": "And",
+      "start": 20.100000381469727,
+      "end": 20.5
+    },
+    {
+      "word": "PulumiConfig",
+      "start": 20.5,
+      "end": 21.299999237060547
+    },
+    {
+      "word": "manages",
+      "start": 21.299999237060547,
+      "end": 21.780000686645508
+    },
+    {
+      "word": "per",
+      "start": 21.780000686645508,
+      "end": 22.280000686645508
+    },
+    {
+      "word": "environment",
+      "start": 22.280000686645508,
+      "end": 22.760000228881836
+    },
+    {
+      "word": "settings",
+      "start": 22.760000228881836,
+      "end": 23.1200008392334
+    }
+  ],
+  "segments": []
+}

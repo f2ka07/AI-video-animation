@@ -1,0 +1,42 @@
+services:
+  whisper-svc:
+    build: ./whisper
+    container_name: whisper-svc
+    ports:
+      - "9090:9000"
+    volumes:
+      - whisper-cache:/root/.cache/whisper
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: ["gpu"]
+    environment:
+      - WHISPER_MODEL=${WHISPER_MODEL:-base.en}
+      - CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-}
+
+  orchestrator-svc:
+    build: ./orchestrator
+    container_name: orchestrator-svc
+    ports:
+      - "8000:8000"
+    environment:
+      - WHISPER_PROVIDER=${WHISPER_PROVIDER:-local}
+      - WHISPER_URL=${WHISPER_URL:-http://whisper-svc:9000/transcribe}
+      - WHISPER_API_KEY=${WHISPER_API_KEY:-}
+      # Azure
+      - AZURE_SPEECH_KEY=${AZURE_SPEECH_KEY:-}
+      - AZURE_SPEECH_REGION=${AZURE_SPEECH_REGION:-}
+      # Modes: "real" or "stub"
+      - AZURE_MODE=${AZURE_MODE:-stub}
+      - TTS_MODE=${TTS_MODE:-stub}
+      # style defaults
+      - DEFAULT_STYLE=${DEFAULT_STYLE:-instructor}
+      # TTS provider placeholders (real later)
+      - TTS_PROVIDER=${TTS_PROVIDER:-elevenlabs}
+      - TTS_API_KEY=${TTS_API_KEY:-}
+    depends_on:
+      - whisper-svc
+
+volumes:
+  whisper-cache:

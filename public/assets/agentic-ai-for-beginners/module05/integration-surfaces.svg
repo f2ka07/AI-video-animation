@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 550" width="1200" height="550">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/>
+    </marker>
+  </defs>
+  
+  <g id="main">
+    <rect width="1200" height="550" fill="#f8fafc"/>
+    <text x="600" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="600" fill="#1e293b">Integration Surfaces</text>
+    <text x="600" y="70" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">How agents connect to enterprise systems</text>
+    <rect x="450" y="180" width="300" height="150" rx="16" fill="#3b82f6" stroke="#2563eb" stroke-width="3"/>
+    <text x="600" y="240" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="600" fill="#ffffff">Agentic System</text>
+    <text x="600" y="270" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#dbeafe">Planning + LLM + Memory</text>
+    <text x="600" y="295" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#dbeafe">Safety + HITL</text>
+    <rect x="80" y="300" width="250" height="80" rx="10" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="205" y="345" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Enterprise Systems</text>
+    <line x1="330" y1="320" x2="450" y2="290" stroke="#64748b" stroke-width="1" stroke-dasharray="5,5"/>
+    <rect x="870" y="300" width="250" height="80" rx="10" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="995" y="345" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Data Sources</text>
+    <line x1="870" y1="320" x2="750" y2="290" stroke="#64748b" stroke-width="1" stroke-dasharray="5,5"/>
+    <text x="600" y="520" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Without robust integration surfaces, agents cannot act</text>
+  </g>
+  <g id="section-1">
+    <rect x="80" y="120" width="250" height="100" rx="10" fill="#10b981" stroke="#059669" stroke-width="2"/>
+    <text x="205" y="160" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#ffffff">API Integrations</text>
+    <text x="205" y="185" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#d1fae5">CRM, ERP, External APIs</text>
+    <text x="205" y="205" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#d1fae5">Auth, error handling, rate limits</text>
+    <line x1="330" y1="170" x2="450" y2="220" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
+  <g id="section-2">
+    <rect x="475" y="40" width="250" height="100" rx="10" fill="#8b5cf6" stroke="#7c3aed" stroke-width="2"/>
+    <text x="600" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#ffffff">Tool Interfaces</text>
+    <text x="600" y="105" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e9d5ff">SQL, code, search, email</text>
+    <text x="600" y="125" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#e9d5ff">Bridge reasoning to reality</text>
+    <line x1="600" y1="140" x2="600" y2="180" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
+  <g id="section-3">
+    <rect x="870" y="120" width="250" height="100" rx="10" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+    <text x="995" y="160" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#ffffff">Data Connectors</text>
+    <text x="995" y="185" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#fef3c7">Databases, warehouses, docs</text>
+    <text x="995" y="205" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#fef3c7">Vector DB for retrieval</text>
+    <line x1="870" y1="170" x2="750" y2="220" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
+  <g id="section-4">
+    <rect x="475" y="380" width="250" height="100" rx="10" fill="#ef4444" stroke="#dc2626" stroke-width="2"/>
+    <text x="600" y="420" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#ffffff">Policy Gateways</text>
+    <text x="600" y="445" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#fecaca">Access rules, approvals</text>
+    <text x="600" y="465" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#fecaca">Identity + compliance + audit</text>
+    <line x1="600" y1="330" x2="600" y2="380" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
+</svg>

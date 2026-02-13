@@ -4,7 +4,6 @@
 
 import * as fs from "fs";
 import * as path from "path";
-const mm = require("music-metadata");
 
 interface AudioMeasurement {
 	name: string;
@@ -13,8 +12,10 @@ interface AudioMeasurement {
 
 // Parse WAV file duration using music-metadata
 async function parseWavDuration(filePath: string): Promise<number | null> {
+	// Dynamic import for ESM-only package
+	const { parseFile } = await import("music-metadata");
 	try {
-		const metadata = await mm.parseFile(filePath);
+		const metadata = await parseFile(filePath);
 		const duration = metadata.format.duration;
 		
 		if (duration && isFinite(duration) && duration > 0) {

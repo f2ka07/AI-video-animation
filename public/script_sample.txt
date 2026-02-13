@@ -1,0 +1,21 @@
+<speak>
+Agentic AI is changing how we build intelligent systems. <break time="300ms"/>
+
+In the past, most people interacted with a model through a single call and a single response. <break time="300ms"/>
+
+Today, we build agents that can plan, take actions, and work through multi-step workflows. <break time="300ms"/>
+
+For many teams, this shift is more important than increasing model size. <break time="300ms"/>
+
+<emphasis level="moderate">The constraint is latency.</emphasis> <break time="300ms"/>
+
+<emphasis level="moderate">The failure mode is non-determinism.</emphasis> <break time="300ms"/>
+
+<emphasis level="moderate">The enterprise driver is traceability.</emphasis> <break time="400ms"/>
+
+This is why agentic systems need tools, memory, policy controls, and evaluation loops. <break time="300ms"/>
+
+When these pieces work together, the model becomes part of a system, rather than the entire system. <break time="300ms"/>
+
+This is the beginning of the transition to agentic AI.
+</speak>

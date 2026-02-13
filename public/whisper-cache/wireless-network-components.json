@@ -1,0 +1,177 @@
+{
+  "text": "Wireless networks consist of key components, access points that broadcast signals, client devices that connect, and routers that manage traffic. These parts work together to create a wireless environment where data flows without cables.",
+  "duration": 18.950000762939453,
+  "words": [
+    {
+      "word": "Wireless",
+      "start": 0,
+      "end": 0.5799999833106995
+    },
+    {
+      "word": "networks",
+      "start": 0.5799999833106995,
+      "end": 1.1200000047683716
+    },
+    {
+      "word": "consist",
+      "start": 1.1200000047683716,
+      "end": 1.7599999904632568
+    },
+    {
+      "word": "of",
+      "start": 1.7599999904632568,
+      "end": 2.0399999618530273
+    },
+    {
+      "word": "key",
+      "start": 2.0399999618530273,
+      "end": 2.319999933242798
+    },
+    {
+      "word": "components",
+      "start": 2.319999933242798,
+      "end": 3.0199999809265137
+    },
+    {
+      "word": "access",
+      "start": 3.9000000953674316,
+      "end": 4
+    },
+    {
+      "word": "points",
+      "start": 4,
+      "end": 4.340000152587891
+    },
+    {
+      "word": "that",
+      "start": 4.340000152587891,
+      "end": 4.679999828338623
+    },
+    {
+      "word": "broadcast",
+      "start": 4.679999828338623,
+      "end": 5.119999885559082
+    },
+    {
+      "word": "signals",
+      "start": 5.119999885559082,
+      "end": 5.699999809265137
+    },
+    {
+      "word": "client",
+      "start": 6.420000076293945,
+      "end": 6.460000038146973
+    },
+    {
+      "word": "devices",
+      "start": 6.460000038146973,
+      "end": 6.960000038146973
+    },
+    {
+      "word": "that",
+      "start": 6.960000038146973,
+      "end": 7.460000038146973
+    },
+    {
+      "word": "connect",
+      "start": 7.460000038146973,
+      "end": 7.820000171661377
+    },
+    {
+      "word": "and",
+      "start": 8.460000038146973,
+      "end": 8.859999656677246
+    },
+    {
+      "word": "routers",
+      "start": 8.859999656677246,
+      "end": 9.100000381469727
+    },
+    {
+      "word": "that",
+      "start": 9.100000381469727,
+      "end": 9.779999732971191
+    },
+    {
+      "word": "manage",
+      "start": 9.779999732971191,
+      "end": 10.0600004196167
+    },
+    {
+      "word": "traffic",
+      "start": 10.0600004196167,
+      "end": 10.579999923706055
+    },
+    {
+      "word": "These",
+      "start": 11.119999885559082,
+      "end": 11.399999618530273
+    },
+    {
+      "word": "parts",
+      "start": 11.399999618530273,
+      "end": 11.739999771118164
+    },
+    {
+      "word": "work",
+      "start": 11.739999771118164,
+      "end": 12.140000343322754
+    },
+    {
+      "word": "together",
+      "start": 12.140000343322754,
+      "end": 12.619999885559082
+    },
+    {
+      "word": "to",
+      "start": 12.619999885559082,
+      "end": 13.15999984741211
+    },
+    {
+      "word": "create",
+      "start": 13.15999984741211,
+      "end": 13.420000076293945
+    },
+    {
+      "word": "a",
+      "start": 13.420000076293945,
+      "end": 14.319999694824219
+    },
+    {
+      "word": "wireless",
+      "start": 14.319999694824219,
+      "end": 14.319999694824219
+    },
+    {
+      "word": "environment",
+      "start": 14.319999694824219,
+      "end": 15.380000114440918
+    },
+    {
+      "word": "where",
+      "start": 15.380000114440918,
+      "end": 16.360000610351562
+    },
+    {
+      "word": "data",
+      "start": 16.360000610351562,
+      "end": 16.959999084472656
+    },
+    {
+      "word": "flows",
+      "start": 16.959999084472656,
+      "end": 17.399999618530273
+    },
+    {
+      "word": "without",
+      "start": 17.399999618530273,
+      "end": 18.239999771118164
+    },
+    {
+      "word": "cables",
+      "start": 18.239999771118164,
+      "end": 18.799999237060547
+    }
+  ],
+  "segments": []
+}

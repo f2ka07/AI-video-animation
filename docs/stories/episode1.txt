@@ -1,0 +1,54 @@
+The apps we use every day live somewhere.
+Not on your phone. Not on your laptop.
+Somewhere else.
+
+When you book a flight, stream a movie, buy groceries or send a message, there is an invisible machine in the background doing the work.
+And that machine is huge.
+
+It stretches across buildings called data centers.
+It spans countries and continents.
+It connects through undersea cables, fiber, satellites and radio links.
+It runs on thousands of servers, storage systems and networks that never stop.
+
+This machine is the cloud.
+We talk about it like it is abstract, but it is very real.
+You could walk inside it.
+You could touch it.
+You could feel the heat of the hardware if you stepped close enough.
+
+Yet most of the time we never think about it.
+We open an app… and it just works.
+And if everything works, the cloud remains invisible.
+
+But here is the strange part.
+Even for people who build software, the cloud is still invisible.
+Not because it is secret, but because it is not rendered anywhere.
+
+There is no map.
+No diagram.
+No dashboard that shows the whole thing at once.
+Pieces live in consoles, logs, metrics, and mental models that engineers keep in their heads.
+
+And that invisibility matters.
+It affects how teams work.
+It changes how fast companies can ship.
+And it creates a world where some knowledge becomes tribal, undocumented and fragile.
+
+This is the starting point of our story.
+Infrastructure exists.
+It is physical.
+It is complex.
+And most of us never see it.
+
+But what if we could?
+What if we could take the cloud and make it visible?
+Not to overwhelm, but to understand.
+Not to study trivia, but to tell stories.
+
+That is where Infrastructure as Code enters the story.
+Because when infrastructure becomes code, it becomes describable.
+And when it becomes describable, it becomes mappable.
+And once it is mappable… it becomes visible.
+
+And when something becomes visible, it becomes teachable.
+And once it is teachable, anyone can enter the world that used to be hidden.

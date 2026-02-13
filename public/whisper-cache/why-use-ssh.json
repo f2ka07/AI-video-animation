@@ -1,0 +1,147 @@
+{
+  "text": "SSH matters because it keeps your remote sessions private and safe. Without SSH, data like passwords could be intercepted. It's essential for managing servers and cloud environments securely.",
+  "duration": 12.520000457763672,
+  "words": [
+    {
+      "word": "SSH",
+      "start": 0,
+      "end": 0.7400000095367432
+    },
+    {
+      "word": "matters",
+      "start": 0.7400000095367432,
+      "end": 1.0800000429153442
+    },
+    {
+      "word": "because",
+      "start": 1.0800000429153442,
+      "end": 1.440000057220459
+    },
+    {
+      "word": "it",
+      "start": 1.440000057220459,
+      "end": 1.659999966621399
+    },
+    {
+      "word": "keeps",
+      "start": 1.659999966621399,
+      "end": 1.840000033378601
+    },
+    {
+      "word": "your",
+      "start": 1.840000033378601,
+      "end": 2.0799999237060547
+    },
+    {
+      "word": "remote",
+      "start": 2.0799999237060547,
+      "end": 2.4000000953674316
+    },
+    {
+      "word": "sessions",
+      "start": 2.4000000953674316,
+      "end": 2.7799999713897705
+    },
+    {
+      "word": "private",
+      "start": 2.7799999713897705,
+      "end": 3.200000047683716
+    },
+    {
+      "word": "and",
+      "start": 3.200000047683716,
+      "end": 3.740000009536743
+    },
+    {
+      "word": "safe",
+      "start": 3.740000009536743,
+      "end": 4.039999961853027
+    },
+    {
+      "word": "Without",
+      "start": 4.960000038146973,
+      "end": 5
+    },
+    {
+      "word": "SSH",
+      "start": 5,
+      "end": 5.699999809265137
+    },
+    {
+      "word": "data",
+      "start": 6.099999904632568,
+      "end": 6.320000171661377
+    },
+    {
+      "word": "like",
+      "start": 6.320000171661377,
+      "end": 6.619999885559082
+    },
+    {
+      "word": "passwords",
+      "start": 6.619999885559082,
+      "end": 7.099999904632568
+    },
+    {
+      "word": "could",
+      "start": 7.099999904632568,
+      "end": 7.320000171661377
+    },
+    {
+      "word": "be",
+      "start": 7.320000171661377,
+      "end": 7.559999942779541
+    },
+    {
+      "word": "intercepted",
+      "start": 7.559999942779541,
+      "end": 8.460000038146973
+    },
+    {
+      "word": "It's",
+      "start": 8.65999984741211,
+      "end": 8.819999694824219
+    },
+    {
+      "word": "essential",
+      "start": 8.819999694824219,
+      "end": 9.140000343322754
+    },
+    {
+      "word": "for",
+      "start": 9.140000343322754,
+      "end": 9.520000457763672
+    },
+    {
+      "word": "managing",
+      "start": 9.520000457763672,
+      "end": 9.800000190734863
+    },
+    {
+      "word": "servers",
+      "start": 9.800000190734863,
+      "end": 10.279999732971191
+    },
+    {
+      "word": "and",
+      "start": 10.279999732971191,
+      "end": 10.579999923706055
+    },
+    {
+      "word": "cloud",
+      "start": 10.579999923706055,
+      "end": 10.819999694824219
+    },
+    {
+      "word": "environments",
+      "start": 10.819999694824219,
+      "end": 11.420000076293945
+    },
+    {
+      "word": "securely",
+      "start": 11.420000076293945,
+      "end": 12.119999885559082
+    }
+  ],
+  "segments": []
+}

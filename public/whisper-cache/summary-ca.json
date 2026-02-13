@@ -1,0 +1,112 @@
+{
+  "text": "We covered what certificate authorities do, the structure of certificates, and how trust chains validate your site. Next, we'll request certificates.",
+  "duration": 8.520000457763672,
+  "words": [
+    {
+      "word": "We",
+      "start": 0,
+      "end": 0.23999999463558197
+    },
+    {
+      "word": "covered",
+      "start": 0.23999999463558197,
+      "end": 0.5199999809265137
+    },
+    {
+      "word": "what",
+      "start": 0.5199999809265137,
+      "end": 0.8799999952316284
+    },
+    {
+      "word": "certificate",
+      "start": 0.8799999952316284,
+      "end": 1.3200000524520874
+    },
+    {
+      "word": "authorities",
+      "start": 1.3200000524520874,
+      "end": 1.7200000286102295
+    },
+    {
+      "word": "do",
+      "start": 1.7200000286102295,
+      "end": 2.0999999046325684
+    },
+    {
+      "word": "the",
+      "start": 2.5199999809265137,
+      "end": 2.559999942779541
+    },
+    {
+      "word": "structure",
+      "start": 2.559999942779541,
+      "end": 2.859999895095825
+    },
+    {
+      "word": "of",
+      "start": 2.859999895095825,
+      "end": 3.640000104904175
+    },
+    {
+      "word": "certificates",
+      "start": 3.640000104904175,
+      "end": 3.640000104904175
+    },
+    {
+      "word": "and",
+      "start": 3.940000057220459,
+      "end": 4.179999828338623
+    },
+    {
+      "word": "how",
+      "start": 4.179999828338623,
+      "end": 4.400000095367432
+    },
+    {
+      "word": "trust",
+      "start": 4.400000095367432,
+      "end": 4.71999979019165
+    },
+    {
+      "word": "chains",
+      "start": 4.71999979019165,
+      "end": 5.019999980926514
+    },
+    {
+      "word": "validate",
+      "start": 5.019999980926514,
+      "end": 5.440000057220459
+    },
+    {
+      "word": "your",
+      "start": 5.440000057220459,
+      "end": 5.699999809265137
+    },
+    {
+      "word": "site",
+      "start": 5.699999809265137,
+      "end": 6.119999885559082
+    },
+    {
+      "word": "Next",
+      "start": 6.679999828338623,
+      "end": 6.760000228881836
+    },
+    {
+      "word": "we'll",
+      "start": 6.860000133514404,
+      "end": 7.019999980926514
+    },
+    {
+      "word": "request",
+      "start": 7.019999980926514,
+      "end": 7.460000038146973
+    },
+    {
+      "word": "certificates",
+      "start": 7.460000038146973,
+      "end": 7.960000038146973
+    }
+  ],
+  "segments": []
+}

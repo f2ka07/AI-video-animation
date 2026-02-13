@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Processing - Skilleo AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .wizard-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .wizard-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .wizard-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--surface-light);
+            z-index: 0;
+        }
+
+        .wizard-step {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--surface-light);
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .wizard-step.complete .step-circle {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+
+        .wizard-step.active .step-circle {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .wizard-step.locked .step-circle {
+            background: var(--surface);
+            border-color: var(--border);
+            color: var(--text-muted);
+            opacity: 0.5;
+        }
+
+        .step-progress-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .step-progress-overlay.visible {
+            display: flex;
+        }
+        .step-progress-overlay-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 32px;
+            min-width: 320px;
+            max-width: 90vw;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        .step-progress-overlay-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        .step-progress-overlay-message {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            min-height: 1.4em;
+        }
+        .step-progress-overlay-bar-container {
+            height: 10px;
+            background: var(--surface-light);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .step-progress-overlay-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+        .step-progress-overlay-bar.indeterminate {
+            width: 40%;
+            animation: step-progress-indeterminate 1.2s ease-in-out infinite;
+        }
+        @keyframes step-progress-indeterminate {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(250%); }
+        }
+
+        .step-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .wizard-step.active .step-label {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .wizard-step.complete .step-label {
+            color: var(--success);
+        }
+
+        .wizard-content {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid var(--border);
+            min-height: 400px;
+        }
+
+        .step-content {
+            display: none;
+        }
+
+        .step-content.active {
+            display: block;
+        }
+
+        .step-header {
+            margin-bottom: 24px;
+        }
+
+        .step-header h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .step-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .step-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            justify-content: space-between;
+        }
+
+        .step-status {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .step-status.complete {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--success);
+        }
+
+        .step-status.incomplete {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--warning);
+        }
+
+        .step-info {
+            background: var(--surface-light);
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .step-info strong {
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-bar">
+            <a href="index.html" class="icon-button" style="text-decoration: none; color: inherit;" title="Back to Segments">
+                <span>←</span>
+            </a>
+            <h1 class="app-title">Video Processing Wizard</h1>
+            <div class="app-bar-actions">
+                <button class="icon-button" onclick="checkAllSteps()" title="Refresh Status">
+                    <span>🔄</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- No Active Courses Placeholder -->
+            <div id="no-active-courses" style="display: none; text-align: center; padding: 80px 20px;">
+                <div style="font-size: 64px; margin-bottom: 24px; opacity: 0.4;">--</div>
+                <h2 style="margin-bottom: 12px; color: var(--text-secondary);">No Active Videos</h2>
+                <p style="color: var(--text-muted); margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto;">
+                    All videos have been archived. Create a new video or restore one from the archive to continue processing.
+                </p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="index.html#create-video" class="btn btn-primary" style="text-decoration: none;">Create New Video</a>
+                    <a href="index.html#history" class="btn btn-secondary" style="text-decoration: none;">View Archived Videos</a>
+                </div>
+            </div>
+            
+            <div id="wizard-content" class="wizard-container">
+                <div style="margin-bottom: 24px; padding: 16px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 8px; font-size: 14px; color: var(--text-secondary);">
+                    <strong>Video Processing Workflow:</strong> Complete all 4 steps to finalize your video. Step 4 (Word Timings) is required for finalization. Use the step indicators above to navigate between steps.
+                </div>
+                
+                <!-- Video Selector -->
+                <div style="margin-bottom: 32px; padding: 20px; background: var(--surface); border-radius: 12px; border: 1px solid var(--border);">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Select Video</label>
+                    <select id="course-selector" onchange="changeCourse(this.value)" style="width: 100%; padding: 12px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 16px; font-weight: 600;">
+                        <option value="">Loading videos...</option>
+                    </select>
+                </div>
+                
+                <!-- Step Indicator -->
+                <div class="wizard-steps">
+                    <div class="wizard-step active" id="step-1-indicator" onclick="goToStep(1)" style="cursor: pointer;" title="Click to navigate">
+                        <div class="step-circle">1</div>
+                        <div class="step-label">Generate Segments</div>
+                    </div>
+                    <div class="wizard-step locked" id="step-2-indicator" onclick="goToStep(2)" style="cursor: pointer;" title="Click to navigate (locked until Step 1 complete)">
+                        <div class="step-circle">2</div>
+                        <div class="step-label">Generate Audio</div>
+                    </div>
+                    <div class="wizard-step locked" id="step-3-indicator" onclick="goToStep(3)" style="cursor: pointer;" title="Click to navigate (locked until Step 2 complete)">
+                        <div class="step-circle">3</div>
+                        <div class="step-label">Measure Audio</div>
+                    </div>
+                    <div class="wizard-step locked" id="step-4-indicator" onclick="goToStep(4)" style="cursor: pointer;" title="Click to navigate (locked until Step 3 complete)">
+                        <div class="step-circle">4</div>
+                        <div class="step-label">Extract Timings</div>
+                    </div>
+                </div>
+
+                <!-- Step Content -->
+                <div class="wizard-content">
+                    <!-- Step 1: Generate Segments -->
+                    <div class="step-content active" id="step-1">
+                        <div class="step-header">
+                            <h3>Step 1: Generate Segment Files</h3>
+                            <p class="step-description">
+                                Generate React components (ModuleX.tsx files) from your segment content. This creates the video structure that Remotion needs.
+                            </p>
+                        </div>
+
+                        <div class="step-info" id="step-1-info">
+                            <strong>Status:</strong> <span id="step-1-status-text">Checking...</span>
+                        </div>
+
+                        <div id="step-1-status" class="step-status" style="display: none;"></div>
+
+                        <div id="step-1-progress" class="segment-progress" style="margin-top: 16px; padding: 16px; background: var(--surface-light); border-radius: 8px; border: 1px solid var(--border);">
+                            <div class="progress-info" style="margin-bottom: 8px; font-weight: 500; color: var(--text-muted);">Checking...</div>
+                            <div class="progress-bar-container" style="height: 10px; background: var(--surface); border-radius: 6px; overflow: hidden;">
+                                <div id="step-1-progress-bar" class="segment-progress-bar" style="height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.3s ease;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Audio Mode Selection -->
+                        <div style="margin-top: 16px; padding: 16px; background: var(--surface-light); border-radius: 8px; border: 1px solid var(--border);">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 600;">Audio Mode</label>
+                            <div style="display: flex; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
+                                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 10px 16px; background: var(--surface); border: 2px solid var(--primary); border-radius: 8px; flex: 1; min-width: 200px;" id="audio-mode-slide-label">
+                                    <input type="radio" name="audio-mode" value="per-slide" id="audio-mode-slide" checked onchange="handleAudioModeChange('per-slide')">
+                                    <span><strong>Per Slide</strong><br><small style="color: var(--text-muted);">Individual audio per slide (default)</small></span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 10px 16px; background: var(--surface); border: 2px solid var(--border); border-radius: 8px; flex: 1; min-width: 200px;" id="audio-mode-module-label">
+                                    <input type="radio" name="audio-mode" value="per-module" id="audio-mode-module" onchange="handleAudioModeChange('per-module')">
+                                    <span><strong>Per Module</strong><br><small style="color: var(--text-muted);">Single audio file per module (advanced)</small></span>
+                                </label>
+                            </div>
+                            <div id="audio-mode-info" style="padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px; font-size: 13px; color: var(--text-muted);">
+                                <strong>Per Slide:</strong> Uses generic animated slides. Good for most courses.
+                            </div>
+                        </div>
+
+                        <!-- Scene Components (visible only for per-module mode) -->
+                        <div id="scene-components-section" style="margin-top: 16px; padding: 16px; background: #1a365d; border-radius: 8px; border: 2px solid var(--primary); display: none;">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 600; color: white;">Scene Components (Advanced)</label>
+                            <div id="scene-components-status" style="color: var(--text-muted); font-size: 13px;">
+                                Checking for pre-built scene components...
+                            </div>
+                            <small style="color: rgba(255,255,255,0.6); display: block; margin-top: 8px;">
+                                Per-module mode uses custom Remotion scenes from your course folder (e.g., Module01Intro.tsx, Module01Diagram1.tsx).
+                            </small>
+                        </div>
+
+                        <div style="margin-top: 16px; padding: 16px; background: var(--surface-light); border-radius: 8px; border: 1px solid var(--border);">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 600;">Upload Slide Images</label>
+                            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                                <select id="image-slide-selector" style="flex: 1; min-width: 200px; padding: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
+                                    <option value="">Select slide...</option>
+                                </select>
+                                <input type="file" id="image-file-input" accept=".png,.jpg,.jpeg,.gif,.webp,.svg" style="display: none;" onchange="handleImageUpload(this)" />
+                                <button class="btn btn-secondary" onclick="document.getElementById('image-file-input').click()" style="white-space: nowrap;">
+                                    Upload Image
+                                </button>
+                            </div>
+                            <div id="image-upload-status" style="margin-top: 8px; font-size: 13px; color: var(--text-muted);"></div>
+                            <small style="color: var(--text-muted); display: block; margin-top: 8px;">Upload images for content slides. Images appear on the right side of the slide.</small>
+                        </div>
+
+                        <div class="step-actions">
+                            <button class="btn btn-secondary" id="validate-content-btn" onclick="validateContent()" title="Check for missing properties in slides">
+                                Validate Content
+                            </button>
+                            <button class="btn btn-primary" id="step-1-btn" onclick="executeStep1()">
+                                Generate Segment Files
+                            </button>
+                        </div>
+                        <div id="validate-content-status" class="step-status" style="display: none; margin-top: 12px;"></div>
+                    </div>
+
+                    <!-- Step 2: Generate Audio -->
+                    <div class="step-content" id="step-2">
+                        <div class="step-header">
+                            <h3>Step 2: Generate Audio Files</h3>
+                            <p class="step-description">
+                                Generate audio narration from your scripts. Only missing files will be generated (existing files are never overwritten). If the process stops (e.g. API timeout), run the same button again to generate only the remaining files.
+                            </p>
+                        </div>
+
+                        <div class="step-info" id="step-2-info">
+                            <strong>Status:</strong> <span id="step-2-status-text">Waiting for Step 1...</span>
+                        </div>
+
+                        <div id="step-2-status" class="step-status" style="display: none;"></div>
+                        
+                        <div id="step-2-progress" class="segment-progress" style="margin-top: 16px; padding: 16px; background: var(--surface-light); border-radius: 8px; border: 1px solid var(--border);">
+                            <div class="progress-info" style="margin-bottom: 8px; font-weight: 500; color: var(--text-muted);">Checking...</div>
+                            <div class="progress-bar-container" style="height: 10px; background: var(--surface); border-radius: 6px; overflow: hidden;">
+                                <div id="step-2-progress-bar" class="segment-progress-bar" style="height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.3s ease;"></div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 16px; padding: 16px; background: var(--surface-light); border-radius: 8px; border: 1px solid var(--border);">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 600;">Voice Provider</label>
+                            <div style="display: flex; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
+                                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 10px 16px; background: var(--surface); border: 2px solid var(--border); border-radius: 8px; flex: 1; min-width: 140px;" id="provider-openai-label">
+                                    <input type="radio" name="voice-provider" value="openai" id="provider-openai" onchange="handleProviderChange('openai')">
+                                    <span><strong>OpenAI</strong><br><small style="color: var(--text-muted);">Reliable TTS</small></span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 10px 16px; background: var(--surface); border: 2px solid var(--border); border-radius: 8px; flex: 1; min-width: 140px;" id="provider-minimax-label">
+                                    <input type="radio" name="voice-provider" value="minimax" id="provider-minimax" onchange="handleProviderChange('minimax')">
+                                    <span><strong>Minimax</strong><br><small style="color: var(--text-muted);">Cloned voices</small></span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 10px 16px; background: var(--surface); border: 2px solid var(--border); border-radius: 8px; flex: 1; min-width: 140px;" id="provider-runpod-label">
+                                    <input type="radio" name="voice-provider" value="runpod" id="provider-runpod" onchange="handleProviderChange('runpod')">
+                                    <span><strong>RunPod</strong><br><small style="color: var(--text-muted);">Chatterbox</small></span>
+                                </label>
+                            </div>
+                            
+                            <label style="display: block; margin-bottom: 8px; font-weight: 600;">Voice Selection</label>
+                            <div style="display: flex; gap: 8px; align-items: center;">
+                                <select id="voice-selector" style="flex: 1; padding: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
+                                    <option value="andy" selected>Andy (Male, Professional)</option>
+                                </select>
+                                <button class="btn btn-secondary" onclick="testSelectedVoice()" style="white-space: nowrap;" title="Test this voice with a sample">
+                                    Test Voice
+                                </button>
+                            </div>
+                            <div id="voice-test-status" style="margin-top: 8px; display: none;"></div>
+                            <audio id="voice-test-audio" style="display: none;"></audio>
+                            <small style="color: var(--text-muted); display: block; margin-top: 8px;">Select the voice for audio generation. Minimax offers higher quality but requires API key.</small>
+                        </div>
+                        
+                        <div style="margin-top: 16px; padding: 16px; background: var(--surface-light); border-radius: 8px; border: 1px solid var(--border);">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 600;">Add Custom Voice</label>
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <input type="text" id="custom-voice-id" placeholder="Voice ID" style="flex: 1; min-width: 120px; padding: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary);">
+                                <input type="text" id="custom-voice-name" placeholder="Display Name" style="flex: 1; min-width: 120px; padding: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary);">
+                                <button class="btn btn-secondary" onclick="addCustomVoice()" style="white-space: nowrap;">
+                                    Add Voice
+                                </button>
+                            </div>
+                            <div id="custom-voice-status" style="margin-top: 8px; font-size: 13px;"></div>
+                            <small style="color: var(--text-muted); display: block; margin-top: 8px;">Add custom Minimax voice IDs. The voice will be tested before adding.</small>
+                        </div>
+
+                        <div style="margin-top: 16px; padding: 16px; background: var(--surface-light); border-radius: 8px; border: 1px solid var(--border);">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 600;">Or Upload Your Own Audio</label>
+                            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                                <select id="upload-slide-selector" style="flex: 1; min-width: 200px; padding: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
+                                    <option value="">Select slide...</option>
+                                </select>
+                                <input type="file" id="audio-file-input" accept=".wav,.mp3,.m4a,.ogg" style="display: none;" onchange="handleAudioUpload(this)" />
+                                <button class="btn btn-secondary" onclick="document.getElementById('audio-file-input').click()" style="white-space: nowrap;">
+                                    Choose File
+                                </button>
+                                <button class="btn btn-secondary" onclick="exportScripts()" style="white-space: nowrap;" title="Download all scripts as a text file for manual audio generation">
+                                    Export Scripts
+                                </button>
+                            </div>
+                            <div id="upload-status" style="margin-top: 8px; font-size: 13px; color: var(--text-muted);"></div>
+                            <small style="color: var(--text-muted); display: block; margin-top: 8px;">Upload audio for a specific slide, or export scripts to generate audio externally.</small>
+                        </div>
+
+                        <!-- Split Audio into Chunks -->
+                        <div style="margin-top: 16px; padding: 16px; background: rgba(99, 102, 241, 0.1); border-radius: 8px; border: 1px solid rgba(99, 102, 241, 0.3);">
+                            <label style="display: block; margin-bottom: 12px; font-weight: 600;">Split Audio into 10-Second Chunks</label>
+                            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+                                Upload a long audio file and split it into 10-second chunks. Each chunk will be saved as a separate file for use in multiple slides.
+                            </p>
+                            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 12px;">
+                                <select id="split-module-selector" style="flex: 1; min-width: 150px; padding: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
+                                    <option value="">Select module...</option>
+                                </select>
+                                <input type="text" id="split-slide-name" placeholder="Slide name (e.g., concept)" style="flex: 1; min-width: 150px; padding: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
+                                <input type="number" id="split-chunk-size" value="10" min="1" max="60" step="1" style="width: 100px; padding: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;" title="Chunk size in seconds">
+                                <span style="font-size: 13px; color: var(--text-muted);">seconds</span>
+                            </div>
+                            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                                <input type="file" id="split-audio-file-input" accept=".wav,.mp3,.m4a,.ogg" style="display: none;" onchange="handleSplitAudioUpload(this)" />
+                                <button class="btn btn-secondary" onclick="document.getElementById('split-audio-file-input').click()" style="white-space: nowrap;">
+                                    Choose Audio File
+                                </button>
+                                <button class="btn btn-primary" id="split-audio-btn" onclick="splitAudioFile()" disabled style="white-space: nowrap;">
+                                    Split Audio
+                                </button>
+                            </div>
+                            <div id="split-audio-status" style="margin-top: 12px; display: none;"></div>
+                            <div id="split-audio-results" style="margin-top: 12px; display: none;"></div>
+                            <small style="color: var(--text-muted); display: block; margin-top: 8px;">
+                                Files will be saved as: module{N}-{slide-name}-part01.wav, part02.wav, etc.
+                            </small>
+                        </div>
+
+                        <!-- Single Audio Generation -->
+                        <div style="margin-top: 16px; padding: 16px; background: #1a365d; border-radius: 8px; border: 2px solid var(--primary);">
+                            <label style="display: block; margin-bottom: 12px; font-weight: 600; color: white;">Generate Single Audio (Test First)</label>
+                            <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                <select id="single-audio-slide-selector" style="flex: 1; min-width: 250px; padding: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
+                                    <option value="">Select slide...</option>
+                                </select>
+                                <button class="btn btn-primary" onclick="generateSingleSlideAudio()" style="white-space: nowrap;">
+                                    Generate 1 Audio
+                                </button>
+                            </div>
+                            <div style="margin-top: 8px;">
+                                <label style="font-size: 12px; display: flex; align-items: center; gap: 4px; color: var(--text-muted);">
+                                    <input type="checkbox" id="single-audio-force">
+                                    Force regenerate (overwrite existing)
+                                </label>
+                            </div>
+                            <div id="single-audio-status" style="margin-top: 8px; display: none;"></div>
+                        </div>
+
+                        <div class="step-actions">
+                            <button class="btn btn-secondary" onclick="goToStep(1)">← Previous</button>
+                            <button class="btn btn-warning" id="step-2-btn" onclick="executeStep2()" disabled style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                                Generate ALL Audio (Bulk)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Measure Audio -->
+                    <div class="step-content" id="step-3">
+                        <div class="step-header">
+                            <h3>Step 3: Measure Audio Durations</h3>
+                            <p class="step-description">
+                                Measure the actual duration of generated audio files. This ensures accurate video timing.
+                            </p>
+                        </div>
+
+                        <div class="step-info" id="step-3-info">
+                            <strong>Status:</strong> <span id="step-3-status-text">Waiting for Step 2...</span>
+                        </div>
+
+                        <div id="step-3-status" class="step-status" style="display: none;"></div>
+
+                        <div id="step-3-progress" class="segment-progress" style="margin-top: 16px; padding: 16px; background: var(--surface-light); border-radius: 8px; border: 1px solid var(--border);">
+                            <div class="progress-info" style="margin-bottom: 8px; font-weight: 500; color: var(--text-muted);">Checking...</div>
+                            <div class="progress-bar-container" style="height: 10px; background: var(--surface); border-radius: 6px; overflow: hidden;">
+                                <div id="step-3-progress-bar" class="segment-progress-bar" style="height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.3s ease;"></div>
+                            </div>
+                        </div>
+
+                        <div class="step-actions">
+                            <button class="btn btn-secondary" onclick="goToStep(2)">← Previous</button>
+                            <button class="btn btn-secondary" id="validate-audio-btn" onclick="validateAudio()" title="Validate and convert audio files">
+                                1. Validate Audio
+                            </button>
+                            <button class="btn btn-primary" id="step-3-btn" onclick="executeStep3()" disabled title="Run validation first">
+                                2. Measure Audio
+                            </button>
+                        </div>
+                        <div id="validate-audio-status" class="step-status" style="display: none; margin-top: 12px;"></div>
+                        <small id="measure-hint" style="display: block; margin-top: 8px; color: var(--text-muted); text-align: center;">Run "Validate Audio" first to enable measuring.</small>
+                    </div>
+
+                    <!-- Step 4: Extract Word Timings -->
+                    <div class="step-content" id="step-4">
+                        <div class="step-header">
+                            <h3>Step 4: Extract Word Timings</h3>
+                            <p class="step-description">
+                                Extract precise word timings for audio synchronization. This enables word-by-word animations and is required for finalizing your video.
+                            </p>
+                        </div>
+
+                        <div class="step-info" id="step-4-info">
+                            <strong>Status:</strong> <span id="step-4-status-text">Waiting for Step 3...</span>
+                        </div>
+
+                        <div id="step-4-status" class="step-status" style="display: none;"></div>
+
+                        <div id="step-4-progress" class="segment-progress" style="margin-top: 16px; padding: 16px; background: var(--surface-light); border-radius: 8px; border: 1px solid var(--border);">
+                            <div class="progress-info" style="margin-bottom: 8px; font-weight: 500; color: var(--text-muted);">Checking...</div>
+                            <div class="progress-bar-container" style="height: 10px; background: var(--surface); border-radius: 6px; overflow: hidden;">
+                                <div id="step-4-progress-bar" class="segment-progress-bar" style="height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.3s ease;"></div>
+                            </div>
+                            <div id="step-4-details" style="margin-top: 12px; font-size: 12px; color: var(--text-muted); max-height: 200px; overflow-y: auto; display: none;"></div>
+                        </div>
+                        
+                        <div style="margin-top: 16px; padding: 12px; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; font-size: 13px; color: var(--warning);">
+                            <strong>⏱️ Time Estimate:</strong> This step takes 1-3 minutes per slide. Progress is shown in real-time below. <strong>This step must complete before you can finalize your video.</strong>
+                        </div>
+
+                        <div style="margin-bottom: 16px;">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-primary);">
+                                Extraction Method:
+                            </label>
+                            <select id="timing-method-selector" style="width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text-primary); font-size: 14px; font-weight: 500;">
+                                <option value="gentle" style="background: var(--surface); color: var(--text-primary);">Gentle (Forced Alignment) - Recommended</option>
+                                <option value="whisper" style="background: var(--surface); color: var(--text-primary);">Whisper (ASR) - Fallback</option>
+                            </select>
+                            <p style="margin-top: 8px; font-size: 12px; color: var(--text-secondary);">
+                                <strong>Gentle:</strong> Uses your script text for 100% accurate alignment. Requires Gentle server running (docker run -p 8765:8765 lowerquality/gentle).<br>
+                                <strong>Whisper:</strong> Automatic transcription. May have accuracy issues with accents. Costs ~$0.006/minute.
+                            </p>
+                        </div>
+                        <div class="step-actions">
+                            <button class="btn btn-secondary" onclick="goToStep(3)">← Previous</button>
+                            <button class="btn btn-primary" id="step-4-btn" onclick="executeStep4()" disabled>
+                                Extract Word Timings
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ready for Remotion Message (Basic Preview) -->
+                <div id="ready-for-remotion" class="card" style="display: none; margin-top: 24px; border: 2px solid var(--warning); background: rgba(245, 158, 11, 0.1);">
+                    <div style="text-align: center;">
+                        <h3 style="color: var(--warning); margin-bottom: 12px;">⚠ Basic Preview Ready (Animations Not Synchronized)</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 8px;">
+                            Your segment is ready for basic preview. Steps 1-3 are complete:
+                        </p>
+                        <ul style="text-align: left; display: inline-block; color: var(--text-secondary); margin: 12px 0 20px 0;">
+                            <li>✓ Segment files generated</li>
+                            <li>✓ Audio files created</li>
+                            <li>✓ Audio durations measured</li>
+                            <li style="color: var(--warning);">⚠ Word timings missing (Step 4 incomplete)</li>
+                        </ul>
+                        <div style="background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; padding: 12px; margin: 16px 0; text-align: left;">
+                            <p style="color: var(--text-primary); font-size: 13px; margin: 0 0 8px 0; font-weight: 600;">
+                                ⚠️ CRITICAL: Without word timings, animations will NOT sync with audio.
+                            </p>
+                            <p style="color: var(--text-secondary); font-size: 12px; margin: 0;">
+                                The video will work but animations will use even distribution instead of precise timing. Complete Step 4 (Word Timings) to enable proper animation synchronization.
+                            </p>
+                        </div>
+                        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">
+                            <strong>Next:</strong> Complete Step 4 (Word Timings) for synchronized animations, then click <strong>Finalize Video</strong> when all steps are done.
+                        </p>
+                        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                            <button class="btn btn-warning" onclick="goToStep(4)" style="font-size: 14px; padding: 10px 20px; background: var(--warning); color: white;">
+                                Complete Step 4 (Word Timings) →
+                            </button>
+                            <a href="http://localhost:3000" target="_blank" class="btn btn-secondary" style="text-decoration: none; display: inline-block; font-size: 14px; padding: 10px 20px;">
+                                Preview in Remotion (Basic) →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completion Message -->
+                <div id="completion-message" class="card" style="display: none; margin-top: 24px; text-align: center; border: 2px solid var(--success); background: rgba(16, 185, 129, 0.1);">
+                    <h3 style="color: var(--success); margin-bottom: 12px;">✓ All Steps Complete!</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 12px;">
+                        Your video is fully complete with word-level animations. All 4 steps are done:
+                    </p>
+                    <ul style="text-align: left; display: inline-block; color: var(--text-secondary); margin: 12px 0 20px 0;">
+                        <li>✓ Segment files generated</li>
+                        <li>✓ Audio files created</li>
+                        <li>✓ Audio durations measured</li>
+                        <li>✓ Word timings extracted</li>
+                    </ul>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px; font-weight: 600;">
+                        Click <strong>Finalize Video</strong> below to prepare everything and open Remotion Studio.
+                    </p>
+                    <p style="color: var(--text-muted); font-size: 12px; margin-bottom: 12px;">
+                        Finalize regenerates segment files. Add <code>// PRESERVE_MANUAL_EDITS</code> in ModuleN.tsx to skip overwriting manual edits.
+                    </p>
+                    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px;">
+                        <button class="btn btn-primary" id="finalize-video-btn" onclick="finalizeVideo()" style="font-size: 18px; padding: 14px 28px; font-weight: 600; min-width: 200px;">
+                            ✓ Finalize Video
+                        </button>
+                        <a href="http://localhost:3000" target="_blank" class="btn btn-secondary" style="text-decoration: none; display: inline-block; font-size: 16px; padding: 12px 24px;">
+                            Open Remotion Studio →
+                        </a>
+                    </div>
+                    <div style="border-top: 1px solid rgba(16, 185, 129, 0.3); padding-top: 20px; margin-top: 20px;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 12px; font-size: 18px;">Generate Final Video (MP4)</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 14px;">
+                            Select a module and render it to an MP4 file. This may take several minutes depending on video length.
+                        </p>
+                        <div style="margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                            <label for="render-module-select" style="color: var(--text-secondary); font-weight: 500;">Select Module:</label>
+                            <select id="render-module-select" style="padding: 10px 16px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px; min-width: 250px;">
+                                <option value="">Loading modules...</option>
+                            </select>
+                        </div>
+                        <div id="render-progress" style="display: none; margin-bottom: 16px;">
+                            <div style="background: var(--surface-light); border-radius: 8px; padding: 16px; margin-bottom: 12px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                    <span id="render-status-text" style="font-weight: 600;">Rendering...</span>
+                                    <span id="render-progress-percent" style="color: var(--text-muted); font-size: 12px;"></span>
+                                </div>
+                                <div class="progress-bar" style="height: 8px;">
+                                    <div id="render-progress-bar" class="progress-fill" style="width: 0%;"></div>
+                                </div>
+                                <div id="render-details" style="margin-top: 12px; font-size: 12px; color: var(--text-muted); max-height: 150px; overflow-y: auto;"></div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                            <button class="btn btn-primary" id="render-video-btn" onclick="renderVideo()" style="font-size: 16px; padding: 12px 24px; font-weight: 600;">
+                                Render Video to MP4
+                            </button>
+                            <a id="download-video-link" href="#" style="display: none; text-decoration: none;" class="btn btn-success" style="font-size: 16px; padding: 12px 24px;">
+                                Download MP4
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Overnight Batch Rendering (always visible so user can render without waiting for all steps) -->
+                <div id="batch-render-card" class="card" style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);">
+                    <h4 style="margin-bottom: 12px; color: var(--text-primary); font-size: 18px;">Render batch overnight</h4>
+                    <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">
+                        Render all modules in the course. Speed scales with your computer. Best run overnight.
+                    </p>
+                    <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
+                        View segments in Remotion before generating audio to get a feel for the course structure.
+                    </p>
+                    <div id="batch-render-progress" style="display: none; margin-bottom: 16px;">
+                        <div style="background: var(--surface-light); border-radius: 8px; padding: 16px;">
+                            <div style="font-weight: 600; margin-bottom: 12px;" id="batch-render-status">Starting...</div>
+                            <div id="batch-modules-list" style="font-family: monospace; font-size: 12px; max-height: 200px; overflow-y: auto;"></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <button class="btn btn-secondary" id="view-segments-btn" onclick="viewSegmentsInRemotion()" style="padding: 10px 20px; font-weight: 600;" title="Generate preview modules (15s per slide) and open Remotion. No audio needed. Run npm start first if Remotion is not running.">
+                            View Segments in Remotion
+                        </button>
+                        <button class="btn" id="render-course-btn" onclick="renderCourse()" style="background: var(--secondary); padding: 10px 20px; font-weight: 600;">
+                            Render Entire Course
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Persistent workflow error (shown when step check fails) -->
+                <div id="workflow-error-card" class="card" style="display: none; margin-top: 16px; border: 2px solid var(--error); background: rgba(239, 68, 68, 0.1);">
+                    <h4 style="color: var(--error); margin-bottom: 8px;">Step status error</h4>
+                    <p id="workflow-error-text" style="color: var(--text-primary); font-size: 13px; margin: 0 0 12px 0;"></p>
+                    <button type="button" class="btn btn-secondary" onclick="retryCheckSteps()" style="font-size: 13px;">Retry</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Progress overlay (all 4 steps) - avoids layout disruption -->
+    <div id="step-progress-overlay" class="step-progress-overlay" aria-hidden="true">
+        <div class="step-progress-overlay-card">
+            <div class="step-progress-overlay-title" id="step-progress-overlay-title">Step 1</div>
+            <div class="step-progress-overlay-message" id="step-progress-overlay-message">Preparing...</div>
+            <div class="step-progress-overlay-bar-container">
+                <div id="step-progress-overlay-bar" class="step-progress-overlay-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+    
+    <script src="wizard.js"></script>
+</body>
+</html>

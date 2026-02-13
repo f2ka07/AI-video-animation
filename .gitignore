@@ -5,8 +5,15 @@ node_modules/
 .env.local
 public/audio/*.mp3
 out/
+doc/
 .remotion/
-src/assets/*
+src/assets/aws/*
 # Exclude markdown documentation files
 *.md
 !node_modules/**/*.md
+
+# Generated content - platform only, do not push
+courses/
+courses.json
+public/audio/
+public/videos/

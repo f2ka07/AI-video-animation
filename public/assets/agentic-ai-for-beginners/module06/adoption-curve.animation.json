@@ -1,0 +1,62 @@
+{
+  "diagram": "adoption-curve.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 6.9,
+      "show": [
+        "main"
+      ],
+      "dim": [],
+      "highlight": []
+    },
+    {
+      "start": 6.9,
+      "end": 18.4,
+      "show": [
+        "main",
+        "section-1"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-1"
+      ]
+    },
+    {
+      "start": 18.4,
+      "end": 27.7,
+      "show": [
+        "main",
+        "section-2"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-2"
+      ]
+    },
+    {
+      "start": 27.7,
+      "end": 31.6,
+      "show": [
+        "main",
+        "section-3"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-3"
+      ]
+    },
+    {
+      "start": 31.6,
+      "end": 37.6,
+      "show": [
+        "main",
+        "section-4"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-4"
+      ]
+    }
+  ]
+}

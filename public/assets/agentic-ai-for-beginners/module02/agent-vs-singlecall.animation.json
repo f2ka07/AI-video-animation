@@ -1,0 +1,60 @@
+{
+  "diagram": "agent-vs-singlecall.svg",
+  "phases": [
+    {
+      "start": 24.3,
+      "end": 25.4,
+      "show": [
+        "single-call"
+      ],
+      "dim": [
+        "agent-flow",
+        "tools"
+      ],
+      "highlight": [
+        "single-call"
+      ],
+      "triggerWords": [
+        "single",
+        "call",
+        "one-shot"
+      ]
+    },
+    {
+      "start": 25.4,
+      "end": 58.4,
+      "show": [
+        "single-call",
+        "agent-flow"
+      ],
+      "dim": [
+        "tools"
+      ],
+      "highlight": [
+        "agent-flow"
+      ],
+      "triggerWords": [
+        "agent",
+        "loop",
+        "flow"
+      ]
+    },
+    {
+      "start": 58.4,
+      "end": 0,
+      "show": [
+        "single-call",
+        "agent-flow",
+        "tools"
+      ],
+      "dim": [],
+      "highlight": [
+        "tools"
+      ],
+      "triggerWords": [
+        "second",
+        "tools"
+      ]
+    }
+  ]
+}

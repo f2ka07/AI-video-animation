@@ -1,0 +1,737 @@
+{
+  "text": "battlefield environers and aliens with the LinkedIn nonprofitelpers for the certification you need to demonstrate understanding of where agentic AI applies and how enterprises adopt it. Expect questions that present scenarios and ask you to identify the appropriate use case category. Is this knowledge management, customer ops research or document automation? Understand the value drivers? Questions may ask you to identify which driver justifies a given deployment, automation, speed, consistency, traceability or scalability. Know the adoption stages. The exam may ask about what distinguishes pilot from integration or what's required for scale out. Pay attention to maturity indicators, platform standardization, governance frameworks and shared infrastructure are signs of mature adoption. The exam tests whether you can recognize these patterns. Finally, understand the adjacent domains. Robotics and simulation are mentioned in the curriculum. Know that agentic systems are expanding beyond traditional software into physical and simulated environments.",
+  "duration": 76.94000244140625,
+  "words": [
+    {
+      "word": "battlefield",
+      "start": 0,
+      "end": 0.30000001192092896
+    },
+    {
+      "word": "environers",
+      "start": 0.30000001192092896,
+      "end": 0.30000001192092896
+    },
+    {
+      "word": "and",
+      "start": 0.30000001192092896,
+      "end": 0.30000001192092896
+    },
+    {
+      "word": "aliens",
+      "start": 0.30000001192092896,
+      "end": 0.30000001192092896
+    },
+    {
+      "word": "with",
+      "start": 0.30000001192092896,
+      "end": 0.30000001192092896
+    },
+    {
+      "word": "the",
+      "start": 0.30000001192092896,
+      "end": 0.30000001192092896
+    },
+    {
+      "word": "LinkedIn",
+      "start": 0.30000001192092896,
+      "end": 0.30000001192092896
+    },
+    {
+      "word": "nonprofitelpers",
+      "start": 0.30000001192092896,
+      "end": 0.30000001192092896
+    },
+    {
+      "word": "for",
+      "start": 0.30000001192092896,
+      "end": 0.30000001192092896
+    },
+    {
+      "word": "the",
+      "start": 0.30000001192092896,
+      "end": 0.4000000059604645
+    },
+    {
+      "word": "certification",
+      "start": 0.4000000059604645,
+      "end": 1.1399999856948853
+    },
+    {
+      "word": "you",
+      "start": 1.1399999856948853,
+      "end": 1.840000033378601
+    },
+    {
+      "word": "need",
+      "start": 1.840000033378601,
+      "end": 2.119999885559082
+    },
+    {
+      "word": "to",
+      "start": 2.119999885559082,
+      "end": 2.319999933242798
+    },
+    {
+      "word": "demonstrate",
+      "start": 2.319999933242798,
+      "end": 2.940000057220459
+    },
+    {
+      "word": "understanding",
+      "start": 2.940000057220459,
+      "end": 3.819999933242798
+    },
+    {
+      "word": "of",
+      "start": 3.819999933242798,
+      "end": 4.199999809265137
+    },
+    {
+      "word": "where",
+      "start": 4.199999809265137,
+      "end": 4.539999961853027
+    },
+    {
+      "word": "agentic",
+      "start": 4.539999961853027,
+      "end": 5.179999828338623
+    },
+    {
+      "word": "AI",
+      "start": 5.179999828338623,
+      "end": 5.519999980926514
+    },
+    {
+      "word": "applies",
+      "start": 5.519999980926514,
+      "end": 6.139999866485596
+    },
+    {
+      "word": "and",
+      "start": 6.139999866485596,
+      "end": 6.800000190734863
+    },
+    {
+      "word": "how",
+      "start": 6.800000190734863,
+      "end": 7.179999828338623
+    },
+    {
+      "word": "enterprises",
+      "start": 7.179999828338623,
+      "end": 7.860000133514404
+    },
+    {
+      "word": "adopt",
+      "start": 7.860000133514404,
+      "end": 8.460000038146973
+    },
+    {
+      "word": "it",
+      "start": 8.460000038146973,
+      "end": 9.15999984741211
+    },
+    {
+      "word": "Expect",
+      "start": 9.720000267028809,
+      "end": 9.720000267028809
+    },
+    {
+      "word": "questions",
+      "start": 9.720000267028809,
+      "end": 10.300000190734863
+    },
+    {
+      "word": "that",
+      "start": 10.300000190734863,
+      "end": 10.84000015258789
+    },
+    {
+      "word": "present",
+      "start": 10.84000015258789,
+      "end": 11.140000343322754
+    },
+    {
+      "word": "scenarios",
+      "start": 11.140000343322754,
+      "end": 11.739999771118164
+    },
+    {
+      "word": "and",
+      "start": 11.739999771118164,
+      "end": 12.319999694824219
+    },
+    {
+      "word": "ask",
+      "start": 12.319999694824219,
+      "end": 12.699999809265137
+    },
+    {
+      "word": "you",
+      "start": 12.699999809265137,
+      "end": 12.859999656677246
+    },
+    {
+      "word": "to",
+      "start": 12.859999656677246,
+      "end": 13.760000228881836
+    },
+    {
+      "word": "identify",
+      "start": 13.760000228881836,
+      "end": 13.760000228881836
+    },
+    {
+      "word": "the",
+      "start": 13.760000228881836,
+      "end": 14.420000076293945
+    },
+    {
+      "word": "appropriate",
+      "start": 14.420000076293945,
+      "end": 15.119999885559082
+    },
+    {
+      "word": "use",
+      "start": 15.119999885559082,
+      "end": 15.899999618530273
+    },
+    {
+      "word": "case",
+      "start": 15.899999618530273,
+      "end": 16.360000610351562
+    },
+    {
+      "word": "category",
+      "start": 16.360000610351562,
+      "end": 16.81999969482422
+    },
+    {
+      "word": "Is",
+      "start": 17.440000534057617,
+      "end": 17.440000534057617
+    },
+    {
+      "word": "this",
+      "start": 17.440000534057617,
+      "end": 17.84000015258789
+    },
+    {
+      "word": "knowledge",
+      "start": 17.84000015258789,
+      "end": 18.059999465942383
+    },
+    {
+      "word": "management",
+      "start": 18.059999465942383,
+      "end": 18.65999984741211
+    },
+    {
+      "word": "customer",
+      "start": 19.260000228881836,
+      "end": 19.5
+    },
+    {
+      "word": "ops",
+      "start": 19.5,
+      "end": 20.020000457763672
+    },
+    {
+      "word": "research",
+      "start": 20.020000457763672,
+      "end": 20.899999618530273
+    },
+    {
+      "word": "or",
+      "start": 20.899999618530273,
+      "end": 21.34000015258789
+    },
+    {
+      "word": "document",
+      "start": 21.34000015258789,
+      "end": 21.739999771118164
+    },
+    {
+      "word": "automation",
+      "start": 21.739999771118164,
+      "end": 22.260000228881836
+    },
+    {
+      "word": "Understand",
+      "start": 22.780000686645508,
+      "end": 23.299999237060547
+    },
+    {
+      "word": "the",
+      "start": 23.299999237060547,
+      "end": 23.479999542236328
+    },
+    {
+      "word": "value",
+      "start": 23.479999542236328,
+      "end": 23.899999618530273
+    },
+    {
+      "word": "drivers",
+      "start": 23.899999618530273,
+      "end": 24.399999618530273
+    },
+    {
+      "word": "Questions",
+      "start": 25.260000228881836,
+      "end": 25.260000228881836
+    },
+    {
+      "word": "may",
+      "start": 25.260000228881836,
+      "end": 25.520000457763672
+    },
+    {
+      "word": "ask",
+      "start": 25.520000457763672,
+      "end": 25.780000686645508
+    },
+    {
+      "word": "you",
+      "start": 25.780000686645508,
+      "end": 25.920000076293945
+    },
+    {
+      "word": "to",
+      "start": 25.920000076293945,
+      "end": 26.739999771118164
+    },
+    {
+      "word": "identify",
+      "start": 26.739999771118164,
+      "end": 26.739999771118164
+    },
+    {
+      "word": "which",
+      "start": 26.739999771118164,
+      "end": 27.18000030517578
+    },
+    {
+      "word": "driver",
+      "start": 27.18000030517578,
+      "end": 27.559999465942383
+    },
+    {
+      "word": "justifies",
+      "start": 27.559999465942383,
+      "end": 28.34000015258789
+    },
+    {
+      "word": "a",
+      "start": 28.34000015258789,
+      "end": 28.81999969482422
+    },
+    {
+      "word": "given",
+      "start": 28.81999969482422,
+      "end": 29.020000457763672
+    },
+    {
+      "word": "deployment",
+      "start": 29.020000457763672,
+      "end": 29.639999389648438
+    },
+    {
+      "word": "automation",
+      "start": 30.18000030517578,
+      "end": 30.540000915527344
+    },
+    {
+      "word": "speed",
+      "start": 31.559999465942383,
+      "end": 31.559999465942383
+    },
+    {
+      "word": "consistency",
+      "start": 32.68000030517578,
+      "end": 32.68000030517578
+    },
+    {
+      "word": "traceability",
+      "start": 33.279998779296875,
+      "end": 33.900001525878906
+    },
+    {
+      "word": "or",
+      "start": 33.900001525878906,
+      "end": 34.720001220703125
+    },
+    {
+      "word": "scalability",
+      "start": 34.720001220703125,
+      "end": 35.439998626708984
+    },
+    {
+      "word": "Know",
+      "start": 36.36000061035156,
+      "end": 36.439998626708984
+    },
+    {
+      "word": "the",
+      "start": 36.439998626708984,
+      "end": 36.720001220703125
+    },
+    {
+      "word": "adoption",
+      "start": 36.720001220703125,
+      "end": 37.119998931884766
+    },
+    {
+      "word": "stages",
+      "start": 37.119998931884766,
+      "end": 37.65999984741211
+    },
+    {
+      "word": "The",
+      "start": 38.2400016784668,
+      "end": 38.34000015258789
+    },
+    {
+      "word": "exam",
+      "start": 38.34000015258789,
+      "end": 38.540000915527344
+    },
+    {
+      "word": "may",
+      "start": 38.540000915527344,
+      "end": 39.060001373291016
+    },
+    {
+      "word": "ask",
+      "start": 39.060001373291016,
+      "end": 39.36000061035156
+    },
+    {
+      "word": "about",
+      "start": 39.36000061035156,
+      "end": 39.779998779296875
+    },
+    {
+      "word": "what",
+      "start": 39.779998779296875,
+      "end": 40.220001220703125
+    },
+    {
+      "word": "distinguishes",
+      "start": 40.220001220703125,
+      "end": 40.900001525878906
+    },
+    {
+      "word": "pilot",
+      "start": 40.900001525878906,
+      "end": 41.58000183105469
+    },
+    {
+      "word": "from",
+      "start": 41.58000183105469,
+      "end": 42.08000183105469
+    },
+    {
+      "word": "integration",
+      "start": 42.08000183105469,
+      "end": 42.79999923706055
+    },
+    {
+      "word": "or",
+      "start": 42.79999923706055,
+      "end": 44.08000183105469
+    },
+    {
+      "word": "what's",
+      "start": 44.08000183105469,
+      "end": 44.70000076293945
+    },
+    {
+      "word": "required",
+      "start": 44.70000076293945,
+      "end": 45.040000915527344
+    },
+    {
+      "word": "for",
+      "start": 45.040000915527344,
+      "end": 45.5
+    },
+    {
+      "word": "scale",
+      "start": 45.5,
+      "end": 45.68000030517578
+    },
+    {
+      "word": "out",
+      "start": 45.68000030517578,
+      "end": 45.97999954223633
+    },
+    {
+      "word": "Pay",
+      "start": 46.52000045776367,
+      "end": 46.63999938964844
+    },
+    {
+      "word": "attention",
+      "start": 46.63999938964844,
+      "end": 47.02000045776367
+    },
+    {
+      "word": "to",
+      "start": 47.02000045776367,
+      "end": 48.279998779296875
+    },
+    {
+      "word": "maturity",
+      "start": 48.279998779296875,
+      "end": 48.279998779296875
+    },
+    {
+      "word": "indicators",
+      "start": 48.279998779296875,
+      "end": 48.959999084472656
+    },
+    {
+      "word": "platform",
+      "start": 48.959999084472656,
+      "end": 49.880001068115234
+    },
+    {
+      "word": "standardization",
+      "start": 49.880001068115234,
+      "end": 50.81999969482422
+    },
+    {
+      "word": "governance",
+      "start": 51.779998779296875,
+      "end": 51.79999923706055
+    },
+    {
+      "word": "frameworks",
+      "start": 51.79999923706055,
+      "end": 52.380001068115234
+    },
+    {
+      "word": "and",
+      "start": 52.68000030517578,
+      "end": 53.18000030517578
+    },
+    {
+      "word": "shared",
+      "start": 53.18000030517578,
+      "end": 53.52000045776367
+    },
+    {
+      "word": "infrastructure",
+      "start": 53.52000045776367,
+      "end": 54.13999938964844
+    },
+    {
+      "word": "are",
+      "start": 54.13999938964844,
+      "end": 54.619998931884766
+    },
+    {
+      "word": "signs",
+      "start": 54.619998931884766,
+      "end": 54.86000061035156
+    },
+    {
+      "word": "of",
+      "start": 54.86000061035156,
+      "end": 55.5
+    },
+    {
+      "word": "mature",
+      "start": 55.5,
+      "end": 55.5
+    },
+    {
+      "word": "adoption",
+      "start": 55.5,
+      "end": 56.060001373291016
+    },
+    {
+      "word": "The",
+      "start": 56.619998931884766,
+      "end": 56.779998779296875
+    },
+    {
+      "word": "exam",
+      "start": 56.779998779296875,
+      "end": 57.060001373291016
+    },
+    {
+      "word": "tests",
+      "start": 57.060001373291016,
+      "end": 57.58000183105469
+    },
+    {
+      "word": "whether",
+      "start": 57.58000183105469,
+      "end": 58.560001373291016
+    },
+    {
+      "word": "you",
+      "start": 58.560001373291016,
+      "end": 59.099998474121094
+    },
+    {
+      "word": "can",
+      "start": 59.099998474121094,
+      "end": 59.380001068115234
+    },
+    {
+      "word": "recognize",
+      "start": 59.380001068115234,
+      "end": 59.79999923706055
+    },
+    {
+      "word": "these",
+      "start": 59.79999923706055,
+      "end": 60.15999984741211
+    },
+    {
+      "word": "patterns",
+      "start": 60.15999984741211,
+      "end": 60.58000183105469
+    },
+    {
+      "word": "Finally",
+      "start": 61.5,
+      "end": 61.84000015258789
+    },
+    {
+      "word": "understand",
+      "start": 62.15999984741211,
+      "end": 62.65999984741211
+    },
+    {
+      "word": "the",
+      "start": 62.65999984741211,
+      "end": 63.040000915527344
+    },
+    {
+      "word": "adjacent",
+      "start": 63.040000915527344,
+      "end": 63.5
+    },
+    {
+      "word": "domains",
+      "start": 63.5,
+      "end": 64.05999755859375
+    },
+    {
+      "word": "Robotics",
+      "start": 64.86000061035156,
+      "end": 65.12000274658203
+    },
+    {
+      "word": "and",
+      "start": 65.12000274658203,
+      "end": 65.55999755859375
+    },
+    {
+      "word": "simulation",
+      "start": 65.55999755859375,
+      "end": 65.9800033569336
+    },
+    {
+      "word": "are",
+      "start": 65.9800033569336,
+      "end": 66.73999786376953
+    },
+    {
+      "word": "mentioned",
+      "start": 66.73999786376953,
+      "end": 67.08000183105469
+    },
+    {
+      "word": "in",
+      "start": 67.08000183105469,
+      "end": 67.5
+    },
+    {
+      "word": "the",
+      "start": 67.5,
+      "end": 67.77999877929688
+    },
+    {
+      "word": "curriculum",
+      "start": 67.77999877929688,
+      "end": 68.18000030517578
+    },
+    {
+      "word": "Know",
+      "start": 68.95999908447266,
+      "end": 69.0199966430664
+    },
+    {
+      "word": "that",
+      "start": 69.0199966430664,
+      "end": 69.5
+    },
+    {
+      "word": "agentic",
+      "start": 69.5,
+      "end": 70.26000213623047
+    },
+    {
+      "word": "systems",
+      "start": 70.26000213623047,
+      "end": 70.5999984741211
+    },
+    {
+      "word": "are",
+      "start": 70.5999984741211,
+      "end": 71.13999938964844
+    },
+    {
+      "word": "expanding",
+      "start": 71.13999938964844,
+      "end": 71.5199966430664
+    },
+    {
+      "word": "beyond",
+      "start": 71.5199966430664,
+      "end": 72.0199966430664
+    },
+    {
+      "word": "traditional",
+      "start": 72.0199966430664,
+      "end": 72.72000122070312
+    },
+    {
+      "word": "software",
+      "start": 72.72000122070312,
+      "end": 73.23999786376953
+    },
+    {
+      "word": "into",
+      "start": 73.23999786376953,
+      "end": 74.12000274658203
+    },
+    {
+      "word": "physical",
+      "start": 74.12000274658203,
+      "end": 74.68000030517578
+    },
+    {
+      "word": "and",
+      "start": 74.76000213623047,
+      "end": 75.76000213623047
+    },
+    {
+      "word": "simulated",
+      "start": 75.76000213623047,
+      "end": 75.76000213623047
+    },
+    {
+      "word": "environments",
+      "start": 75.76000213623047,
+      "end": 76.5
+    }
+  ],
+  "segments": []
+}

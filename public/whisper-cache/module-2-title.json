@@ -1,0 +1,52 @@
+{
+  "text": "Hini aniribu kwa mtueze sounds kwa mtueze sound donweza",
+  "duration": 13.479999542236328,
+  "words": [
+    {
+      "word": "Hini",
+      "start": 0,
+      "end": 0.3799999952316284
+    },
+    {
+      "word": "aniribu",
+      "start": 0.3799999952316284,
+      "end": 1
+    },
+    {
+      "word": "kwa",
+      "start": 1,
+      "end": 1
+    },
+    {
+      "word": "mtueze",
+      "start": 1,
+      "end": 1.0399999618530273
+    },
+    {
+      "word": "sounds",
+      "start": 1.0399999618530273,
+      "end": 1.059999942779541
+    },
+    {
+      "word": "kwa",
+      "start": 1.2599999904632568,
+      "end": 1.9800000190734863
+    },
+    {
+      "word": "mtueze",
+      "start": 1.9800000190734863,
+      "end": 2.319999933242798
+    },
+    {
+      "word": "sound",
+      "start": 2.319999933242798,
+      "end": 2.5399999618530273
+    },
+    {
+      "word": "donweza",
+      "start": 2.5399999618530273,
+      "end": 13.460000038146973
+    }
+  ],
+  "segments": []
+}

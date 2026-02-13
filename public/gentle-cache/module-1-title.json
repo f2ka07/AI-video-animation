@@ -1,0 +1,527 @@
+{
+  "text": "The age of typing prompts into a chat window is ending For the past two years the world has marveled at large language models We've asked them questions We've watched them write poems and debug code We've been impressed entertained and sometimes alarmed But here's what most people missed those interactions were never the destination They were the warmup The real shift is happening now And it's not about better prompts or smarter models It's about something far more consequential the transition from AI as a tool you talk to into AI as a system that works Welcome to the era of Agentic AI",
+  "duration": 42.24,
+  "words": [
+    {
+      "text": "The",
+      "start": 0.15,
+      "end": 0.35
+    },
+    {
+      "text": "age",
+      "start": 0.35,
+      "end": 0.53
+    },
+    {
+      "text": "of",
+      "start": 0.53,
+      "end": 0.66
+    },
+    {
+      "text": "typing",
+      "start": 0.7,
+      "end": 1.13
+    },
+    {
+      "text": "prompts",
+      "start": 1.15,
+      "end": 1.67
+    },
+    {
+      "text": "into",
+      "start": 1.73,
+      "end": 1.98
+    },
+    {
+      "text": "a",
+      "start": 1.98,
+      "end": 2.07
+    },
+    {
+      "text": "chat",
+      "start": 2.07,
+      "end": 2.33
+    },
+    {
+      "text": "window",
+      "start": 2.33,
+      "end": 2.58
+    },
+    {
+      "text": "is",
+      "start": 2.58,
+      "end": 2.74
+    },
+    {
+      "text": "ending",
+      "start": 2.77,
+      "end": 3.26
+    },
+    {
+      "text": "For",
+      "start": 3.98,
+      "end": 4.15
+    },
+    {
+      "text": "the",
+      "start": 4.15,
+      "end": 4.260000000000001
+    },
+    {
+      "text": "past",
+      "start": 4.28,
+      "end": 4.53
+    },
+    {
+      "text": "two",
+      "start": 4.53,
+      "end": 4.65
+    },
+    {
+      "text": "years",
+      "start": 4.65,
+      "end": 5.17
+    },
+    {
+      "text": "the",
+      "start": 5.63,
+      "end": 5.76
+    },
+    {
+      "text": "world",
+      "start": 5.76,
+      "end": 5.9799999999999995
+    },
+    {
+      "text": "has",
+      "start": 5.98,
+      "end": 6.15
+    },
+    {
+      "text": "marveled",
+      "start": 6.16,
+      "end": 6.65
+    },
+    {
+      "text": "at",
+      "start": 6.69,
+      "end": 6.880000000000001
+    },
+    {
+      "text": "large",
+      "start": 6.88,
+      "end": 7.15
+    },
+    {
+      "text": "language",
+      "start": 7.15,
+      "end": 7.590000000000001
+    },
+    {
+      "text": "models",
+      "start": 7.62,
+      "end": 8.23
+    },
+    {
+      "text": "We've",
+      "start": 8.74,
+      "end": 8.96
+    },
+    {
+      "text": "asked",
+      "start": 8.99,
+      "end": 9.22
+    },
+    {
+      "text": "them",
+      "start": 9.22,
+      "end": 9.430000000000001
+    },
+    {
+      "text": "questions",
+      "start": 9.429999,
+      "end": 10.139999
+    },
+    {
+      "text": "We've",
+      "start": 10.49,
+      "end": 10.74
+    },
+    {
+      "text": "watched",
+      "start": 10.74,
+      "end": 11.040000000000001
+    },
+    {
+      "text": "them",
+      "start": 11.04,
+      "end": 11.229999999999999
+    },
+    {
+      "text": "write",
+      "start": 11.23,
+      "end": 11.49
+    },
+    {
+      "text": "poems",
+      "start": 11.54,
+      "end": 11.959999999999999
+    },
+    {
+      "text": "and",
+      "start": 11.99,
+      "end": 12.15
+    },
+    {
+      "text": "debug",
+      "start": 12.15,
+      "end": 12.55
+    },
+    {
+      "text": "code",
+      "start": 12.55,
+      "end": 13
+    },
+    {
+      "text": "We've",
+      "start": 13.38,
+      "end": 13.67
+    },
+    {
+      "text": "been",
+      "start": 13.679999,
+      "end": 13.939999
+    },
+    {
+      "text": "impressed",
+      "start": 14.059999,
+      "end": 14.809999
+    },
+    {
+      "text": "entertained",
+      "start": 15.16,
+      "end": 15.95
+    },
+    {
+      "text": "and",
+      "start": 16.24,
+      "end": 16.439999999999998
+    },
+    {
+      "text": "sometimes",
+      "start": 16.440001,
+      "end": 17.080001
+    },
+    {
+      "text": "alarmed",
+      "start": 17.15,
+      "end": 17.689999999999998
+    },
+    {
+      "text": "But",
+      "start": 18.1,
+      "end": 18.310000000000002
+    },
+    {
+      "text": "here's",
+      "start": 18.309999,
+      "end": 18.679999000000002
+    },
+    {
+      "text": "what",
+      "start": 18.68,
+      "end": 19.06
+    },
+    {
+      "text": "most",
+      "start": 19.119999,
+      "end": 19.389999
+    },
+    {
+      "text": "people",
+      "start": 19.389999,
+      "end": 19.729999
+    },
+    {
+      "text": "missed",
+      "start": 19.869999,
+      "end": 20.209999
+    },
+    {
+      "text": "those",
+      "start": 20.699999,
+      "end": 20.949999
+    },
+    {
+      "text": "interactions",
+      "start": 20.979999,
+      "end": 21.879998999999998
+    },
+    {
+      "text": "were",
+      "start": 21.929999,
+      "end": 22.139999
+    },
+    {
+      "text": "never",
+      "start": 22.139999,
+      "end": 22.259999
+    },
+    {
+      "text": "the",
+      "start": 22.43,
+      "end": 22.54
+    },
+    {
+      "text": "destination",
+      "start": 22.54,
+      "end": 23.4
+    },
+    {
+      "text": "They",
+      "start": 23.759999999999998,
+      "end": 23.9
+    },
+    {
+      "text": "were",
+      "start": 23.9,
+      "end": 24.04
+    },
+    {
+      "text": "the",
+      "start": 24.04,
+      "end": 24.18
+    },
+    {
+      "text": "warmup",
+      "start": 24.18,
+      "end": 24.78
+    },
+    {
+      "text": "The",
+      "start": 25.13,
+      "end": 25.4
+    },
+    {
+      "text": "real",
+      "start": 25.44,
+      "end": 25.790000000000003
+    },
+    {
+      "text": "shift",
+      "start": 25.79,
+      "end": 26.279999999999998
+    },
+    {
+      "text": "is",
+      "start": 26.3,
+      "end": 26.52
+    },
+    {
+      "text": "happening",
+      "start": 26.55,
+      "end": 27.21
+    },
+    {
+      "text": "now",
+      "start": 27.21,
+      "end": 27.64
+    },
+    {
+      "text": "And",
+      "start": 28,
+      "end": 28.39
+    },
+    {
+      "text": "it's",
+      "start": 28.42,
+      "end": 28.650000000000002
+    },
+    {
+      "text": "not",
+      "start": 28.66,
+      "end": 28.89
+    },
+    {
+      "text": "about",
+      "start": 28.9,
+      "end": 29.279999999999998
+    },
+    {
+      "text": "better",
+      "start": 29.309998999999998,
+      "end": 29.629998999999998
+    },
+    {
+      "text": "prompts",
+      "start": 29.630000000000003,
+      "end": 30.060000000000002
+    },
+    {
+      "text": "or",
+      "start": 30.059998999999998,
+      "end": 30.199999
+    },
+    {
+      "text": "smarter",
+      "start": 30.2,
+      "end": 30.61
+    },
+    {
+      "text": "models",
+      "start": 30.61,
+      "end": 31.15
+    },
+    {
+      "text": "It's",
+      "start": 31.45,
+      "end": 31.669999999999998
+    },
+    {
+      "text": "about",
+      "start": 31.67,
+      "end": 32.02
+    },
+    {
+      "text": "something",
+      "start": 32.03,
+      "end": 32.660000000000004
+    },
+    {
+      "text": "far",
+      "start": 32.67,
+      "end": 32.97
+    },
+    {
+      "text": "more",
+      "start": 32.969999,
+      "end": 33.189999
+    },
+    {
+      "text": "consequential",
+      "start": 33.19,
+      "end": 34.01
+    },
+    {
+      "text": "the",
+      "start": 34.309999000000005,
+      "end": 34.449999000000005
+    },
+    {
+      "text": "transition",
+      "start": 34.449999,
+      "end": 35.059999
+    },
+    {
+      "text": "from",
+      "start": 35.08,
+      "end": 35.29
+    },
+    {
+      "text": "AI",
+      "start": 35.299999,
+      "end": 35.679999
+    },
+    {
+      "text": "as",
+      "start": 35.719999,
+      "end": 35.899999
+    },
+    {
+      "text": "a",
+      "start": 35.9,
+      "end": 35.98
+    },
+    {
+      "text": "tool",
+      "start": 35.980000000000004,
+      "end": 36.230000000000004
+    },
+    {
+      "text": "you",
+      "start": 36.230000000000004,
+      "end": 36.39
+    },
+    {
+      "text": "talk",
+      "start": 36.39,
+      "end": 36.660000000000004
+    },
+    {
+      "text": "to",
+      "start": 36.68,
+      "end": 36.95
+    },
+    {
+      "text": "into",
+      "start": 37.230000000000004,
+      "end": 37.57000000000001
+    },
+    {
+      "text": "AI",
+      "start": 37.6,
+      "end": 37.910000000000004
+    },
+    {
+      "text": "as",
+      "start": 37.95,
+      "end": 38.120000000000005
+    },
+    {
+      "text": "a",
+      "start": 38.12,
+      "end": 38.22
+    },
+    {
+      "text": "system",
+      "start": 38.23,
+      "end": 38.779999999999994
+    },
+    {
+      "text": "that",
+      "start": 38.78,
+      "end": 39.01
+    },
+    {
+      "text": "works",
+      "start": 39.01,
+      "end": 39.48
+    },
+    {
+      "text": "Welcome",
+      "start": 39.86,
+      "end": 40.33
+    },
+    {
+      "text": "to",
+      "start": 40.33,
+      "end": 40.47
+    },
+    {
+      "text": "the",
+      "start": 40.47,
+      "end": 40.6
+    },
+    {
+      "text": "era",
+      "start": 40.63,
+      "end": 40.93
+    },
+    {
+      "text": "of",
+      "start": 40.97,
+      "end": 41.21
+    },
+    {
+      "text": "Agentic",
+      "start": 41.3,
+      "end": 41.86
+    },
+    {
+      "text": "AI",
+      "start": 42.07,
+      "end": 42.24
+    }
+  ],
+  "raw": null
+}

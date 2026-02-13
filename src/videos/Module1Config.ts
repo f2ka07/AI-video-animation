@@ -1,38 +1,42 @@
 // Configuration for Module 1 video
-// This makes it easy to adjust timing and content
+// Auto-generated from moduleContent.ts - DO NOT EDIT MANUALLY
 
 import { getAudioDuration } from "../utils/audioDuration";
 
-// Calculate total duration based on audio durations
-// Pattern: audio plays fully, then whoosh (0.3s), then next slide (no gap)
 const audioDurations = [
-	getAudioDuration("module1-title"),
-	getAudioDuration("module1-whyIaC"),
-	getAudioDuration("module1-comparison"),
-	getAudioDuration("module1-workflow"),
-	getAudioDuration("module1-initCode"),
-	getAudioDuration("module1-whyTypeScript"),
-	getAudioDuration("module1-typescriptCode"),
-	getAudioDuration("module1-summary"),
+	getAudioDuration("agentic-ai-labs-deep-dive/module1-hook-intro-agentic-ai"),
+	getAudioDuration("agentic-ai-labs-deep-dive/module1-environment-smoke-test-overview"),
+	getAudioDuration("agentic-ai-labs-deep-dive/module1-explanation-environment-smoke-test"),
+	getAudioDuration("agentic-ai-labs-deep-dive/module1-environment-smoke-test-code"),
+	getAudioDuration("agentic-ai-labs-deep-dive/module1-code-flow-environment-smoke-test"),
+	getAudioDuration("agentic-ai-labs-deep-dive/module1-lab-1-1-in-practice-overview"),
+	getAudioDuration("agentic-ai-labs-deep-dive/module1-lab-1-1-actual-code"),
+	getAudioDuration("agentic-ai-labs-deep-dive/module1-lab-1-1-actual-flow"),
+	getAudioDuration("agentic-ai-labs-deep-dive/module1-minimal-acting-agent-intro"),
+	getAudioDuration("agentic-ai-labs-deep-dive/module1-explanation-minimal-acting-agent"),
+	getAudioDuration("agentic-ai-labs-deep-dive/module1-minimal-acting-agent-code"),
+	getAudioDuration("agentic-ai-labs-deep-dive/module1-code-flow-minimal-acting-agent"),
+	getAudioDuration("agentic-ai-labs-deep-dive/module1-lab-1-2-in-practice-overview"),
+	getAudioDuration("agentic-ai-labs-deep-dive/module1-lab-1-2-actual-code"),
+	getAudioDuration("agentic-ai-labs-deep-dive/module1-lab-1-2-actual-flow"),
+	getAudioDuration("agentic-ai-labs-deep-dive/module1-why-start-simple"),
+	getAudioDuration("agentic-ai-labs-deep-dive/module1-big-takeaway-agentic-ai-start")
 ];
 
-const whooshDuration = 0.3; // Whoosh transition duration
+const whooshDuration = 0.57;
+const summaryBuffer = 0.5;
 const totalDuration = audioDurations.reduce((sum, audioDur, index) => {
 	const isLastSlide = index === audioDurations.length - 1;
-	// Each slide: audio duration + whoosh (except last slide)
-	const slideDuration = audioDur + (isLastSlide ? 0 : whooshDuration);
-	console.log(`Slide ${index + 1}: ${audioDur}s audio + ${isLastSlide ? 0 : whooshDuration}s whoosh = ${slideDuration}s`);
-	return sum + slideDuration;
+	const slideDuration = audioDur + (isLastSlide ? summaryBuffer : 0);
+	const whooshTime = isLastSlide ? 0 : whooshDuration;
+	return sum + slideDuration + whooshTime;
 }, 0);
-
-console.log("Module1Config - Total duration:", totalDuration, "seconds");
-console.log("Module1Config - Total frames (30fps):", totalDuration * 30);
 
 export const Module1Config = {
 	id: "module-1",
-	title: "Module 1: Pulumi and IaC Fundamentals",
+	title: "Getting Started with Agentic AI Labs",
 	fps: 30,
 	width: 1920,
 	height: 1080,
-	totalDuration, // Total duration in seconds based on audio
+	totalDuration,
 };

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skilleo AI - Video Creator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Drawer -->
+    <nav class="drawer" id="drawer">
+        <div class="drawer-header">
+            <h2>Skilleo AI</h2>
+            <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">
+                <span>&times;</span>
+            </button>
+        </div>
+        <ul class="drawer-menu">
+            <li>
+                <div style="padding: 16px 20px; border-bottom: 1px solid var(--border);">
+                    <label style="display: block; margin-bottom: 8px; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Video</label>
+                    <select id="course-selector" onchange="changeCourse(this.value)" style="width: 100%; padding: 8px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-size: 14px;">
+                        <option value="">Loading...</option>
+                    </select>
+                </div>
+            </li>
+            <li><a href="#" onclick="showView('modules'); closeDrawer(); return false;" class="active">
+                <span class="icon">📚</span> Segments
+            </a></li>
+            <li><a href="processing-wizard.html" onclick="closeDrawer(); return true;">
+                <span class="icon">⚙️</span> Video Processing
+            </a></li>
+            <li><a href="#" onclick="showView('create-video'); closeDrawer(); return false;">
+                <span class="icon">🎬</span> Video
+            </a></li>
+            <li><a href="#" onclick="showView('create-module'); closeDrawer(); return false;">
+                <span class="icon">➕</span> Create Segment
+            </a></li>
+            <li style="border-top: 1px solid var(--border); margin-top: 12px; padding-top: 12px;">
+                <a href="#" onclick="showView('history'); closeDrawer(); return false;">
+                    <span class="icon">H</span> Archived Videos
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Overlay for drawer -->
+    <div class="overlay" id="overlay" onclick="closeDrawer()"></div>
+
+    <!-- Main App Container -->
+    <div class="app-container">
+        <!-- Top App Bar -->
+        <header class="app-bar">
+            <button class="menu-button" onclick="toggleDrawer()" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <h1 class="app-title">Skilleo AI</h1>
+            <div class="app-bar-actions">
+                <button class="icon-button" onclick="loadModules()" title="Refresh">
+                    <span>🔄</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Modules View -->
+            <div id="modules-view" class="view active">
+                <div class="page-header">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
+                        <div>
+                            <h2 id="course-title-header">Video Segments</h2>
+                            <p class="subtitle" id="course-description-header">Select a video to view segments</p>
+                            <div style="margin-top: 12px; display: flex; align-items: center; gap: 8px;">
+                                <label style="font-size: 13px; color: var(--text-muted);">Show:</label>
+                                <select id="content-type-filter" onchange="applyContentTypeFilter()" style="padding: 6px 10px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-size: 13px;">
+                                    <option value="all">All</option>
+                                    <option value="course">Courses</option>
+                                    <option value="shorts">Shorts</option>
+                                    <option value="video">Videos</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                            <button class="btn btn-secondary" onclick="showView('create-module')">+ New Module</button>
+                            <button class="btn" onclick="archiveCurrentCourse()" style="background: var(--surface-light); border: 1px solid var(--border);" title="Archive this video">
+                                Archive Video
+                            </button>
+                        </div>
+                    </div>
+                    <div id="workflow-summary" class="workflow-summary" style="margin-top: 16px;"></div>
+                    
+                    <div style="margin-bottom: 24px; padding: 16px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 8px; font-size: 14px; color: var(--text-secondary);">
+                        <strong>When is a module ready for Remotion?</strong>
+                        <ul style="margin: 8px 0 0 20px; line-height: 1.8;">
+                            <li><strong>Steps 1-3 Complete:</strong> Module is viewable in Remotion Studio (basic preview with audio)</li>
+                            <li><strong>Step 4 Complete:</strong> Full animations with word-level sync enabled</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="modules-container" class="modules-list-container">
+                    <div class="loading">Loading segments...</div>
+                </div>
+                
+                <!-- No Active Courses Placeholder -->
+                <div id="no-active-courses" style="display: none; text-align: center; padding: 60px 20px;">
+                    <div style="font-size: 48px; margin-bottom: 16px; opacity: 0.5;">--</div>
+                    <h3 style="margin-bottom: 8px; color: var(--text-secondary);">No Active Videos</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 24px;">
+                        All videos have been archived. Create a new video or restore one from the archive.
+                    </p>
+                    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                        <button class="btn btn-primary" onclick="showView('create-video')">Create New Video</button>
+                        <button class="btn btn-secondary" onclick="showView('history')">View Archived Videos</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Processing View -->
+            <div id="processing-view" class="view">
+                <div class="page-header">
+                    <h2>Video Processing</h2>
+                    <p class="subtitle">Step-by-step wizard for video creation</p>
+                </div>
+
+                <div class="card" style="text-align: center; padding: 40px;">
+                    <h3 style="margin-bottom: 16px;">Guided Video Processing</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 24px;">
+                        Use our step-by-step wizard to process your videos. Each step must be completed before moving to the next.
+                    </p>
+                    <button class="btn btn-primary" onclick="openProcessingWizard()">
+                        Open Processing Wizard →
+                    </button>
+                </div>
+
+                <div class="processing-cards" style="display: none;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Module Generation</h3>
+                            <span class="card-badge" id="module-badge">Auto</span>
+                        </div>
+                        <p class="card-description">Generate React components from moduleContent.ts</p>
+                        <div id="module-status-info" class="status-info"></div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" id="generate-modules-btn" onclick="generateModules()">
+                                <span>🚀</span> Generate Modules
+                            </button>
+                        </div>
+                        <div id="modules-status" class="status-message"></div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Audio Generation</h3>
+                            <span class="card-badge" id="audio-badge">TTS</span>
+                        </div>
+                        <p class="card-description">Generate audio using selected TTS provider. Choose single slide or all slides.</p>
+                        <div id="audio-status-info" class="status-info"></div>
+                        
+                        <!-- Single Audio Section -->
+                        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 12px; margin: 12px 0; background: #f9f9f9;">
+                            <h4 style="margin: 0 0 8px 0; font-size: 14px;">Generate Single Audio</h4>
+                            <div style="display: flex; gap: 8px; align-items: end; flex-wrap: wrap;">
+                                <div class="form-group" style="margin: 0; flex: 1; min-width: 80px;">
+                                    <label style="font-size: 12px;">Module</label>
+                                    <select id="audio-module-select" onchange="loadSlidesForModule()" style="width: 100%;">
+                                        <option value="">Select...</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin: 0; flex: 2; min-width: 150px;">
+                                    <label style="font-size: 12px;">Slide</label>
+                                    <select id="audio-slide-select" style="width: 100%;">
+                                        <option value="">Select module first...</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-primary" onclick="generateSingleAudio()" style="white-space: nowrap;">
+                                    Generate 1 Audio
+                                </button>
+                            </div>
+                            <div style="margin-top: 8px;">
+                                <label style="font-size: 12px; display: flex; align-items: center; gap: 4px;">
+                                    <input type="checkbox" id="force-single-audio" />
+                                    Force regenerate (overwrite existing)
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- All Audio Section -->
+                        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 12px; margin: 12px 0; background: #f9f9f9;">
+                            <h4 style="margin: 0 0 8px 0; font-size: 14px;">Generate All Audio</h4>
+                            <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                <button class="btn btn-secondary" id="generate-audio-btn" onclick="generateAllAudioMissing()">
+                                    Generate Missing Only
+                                </button>
+                                <button class="btn btn-warning" id="generate-audio-all-btn" onclick="generateAllAudioForce()">
+                                    Regenerate All (Costs Apply)
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="audio-status" class="status-message"></div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Full Course Generation</h3>
+                            <span class="card-badge">Batch</span>
+                        </div>
+                        <p class="card-description">Generate all modules and audio in one go</p>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" onclick="generateFullCourse()">
+                                <span>🎬</span> Generate Full Course
+                            </button>
+                        </div>
+                        <div id="full-course-status" class="status-message"></div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Audio Measurement</h3>
+                            <span class="card-badge">Analysis</span>
+                        </div>
+                        <p class="card-description">Measure actual audio durations</p>
+                        <div class="card-actions">
+                            <button class="btn btn-secondary" onclick="measureAudio()">
+                                <span>📊</span> Measure Audio
+                            </button>
+                        </div>
+                        <div id="measure-status" class="status-message"></div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Word Timings</h3>
+                            <span class="card-badge">Sync</span>
+                        </div>
+                        <p class="card-description">Extract word timings for audio sync</p>
+                        <div class="card-actions">
+                            <button class="btn btn-secondary" onclick="extractTimings()">
+                                <span>⏱️</span> Extract Timings
+                            </button>
+                        </div>
+                        <div id="timings-status" class="status-message"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Create Video View -->
+            <div id="create-video-view" class="view">
+                <div class="page-header">
+                    <h2>Create Video</h2>
+                    <p class="subtitle">Create a new video project - manually or with AI assistance</p>
+                </div>
+
+                <!-- AI Planner Section -->
+                <div class="card" style="border: 2px solid var(--primary); margin-bottom: 24px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <div>
+                            <h3 style="margin: 0;">AI Content Planner</h3>
+                            <p style="color: var(--text-muted); margin: 4px 0 0 0; font-size: 13px;">Generate content from a simple prompt (course, video, or shorts)</p>
+                        </div>
+                    </div>
+
+                    <!-- Type: Course, Video, or Shorts (separate; different tones and prompts) -->
+                    <div class="form-group">
+                        <label>Type</label>
+                        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                            <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                                <input type="radio" name="planner-type" value="course" id="planner-type-course" checked onchange="updatePlannerType()">
+                                Course
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                                <input type="radio" name="planner-type" value="video" id="planner-type-video" onchange="updatePlannerType()">
+                                Video
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                                <input type="radio" name="planner-type" value="shorts" id="planner-type-shorts" onchange="updatePlannerType()">
+                                Shorts
+                            </label>
+                        </div>
+                        <small style="color: var(--text-muted);">Course: in-depth learning (unchanged). Video: YouTube long-form, 5-20 min each, planner decides how many. Shorts: YouTube short-form, any number.</small>
+                    </div>
+                    
+                    <!-- Simple Prompt Mode -->
+                    <div id="planner-simple-mode">
+                        <div class="form-group">
+                            <label>What would you like to create?</label>
+                            <textarea id="planner-prompt" placeholder="e.g., Create a beginner-friendly series about Docker: installation, basic commands, Dockerfiles, and deployment" style="min-height: 80px;"></textarea>
+                            <small style="color: var(--text-muted);">Describe your idea in natural language</small>
+                        </div>
+                        <div class="form-group" id="planner-simple-count-group">
+                            <label id="planner-simple-count-label">Number of videos (optional)</label>
+                            <input type="number" id="planner-simple-count" min="1" max="20" placeholder="Auto (4-8)" />
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: center;">
+                            <button type="button" class="btn btn-primary" onclick="planCourse()" id="plan-course-btn">
+                                Generate Plan
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="togglePlannerMode()">
+                                Advanced Options
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Structured Mode (hidden by default) -->
+                    <div id="planner-structured-mode" style="display: none;">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" id="planner-title" placeholder="e.g., Docker Fundamentals" />
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="planner-description" placeholder="What will viewers learn?" style="min-height: 60px;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Target Audience</label>
+                            <input type="text" id="planner-audience" placeholder="e.g., Developers new to containers" />
+                        </div>
+                        <div class="form-group">
+                            <label>Key Topics (comma-separated)</label>
+                            <input type="text" id="planner-topics" placeholder="e.g., Installation, Basic Commands, Dockerfiles" />
+                        </div>
+                        <div class="form-group">
+                            <label id="planner-modules-label">Number of videos (optional)</label>
+                            <input type="number" id="planner-modules" min="1" max="20" placeholder="Auto (4-8)" />
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: center;">
+                            <button type="button" class="btn btn-primary" onclick="planCourseStructured()" id="plan-course-structured-btn">
+                                Generate Plan
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="togglePlannerMode()">
+                                Simple Mode
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Planner Status -->
+                    <div id="planner-status" style="display: none; margin-top: 16px; padding: 16px; background: var(--surface-light); border-radius: 8px;">
+                        <div id="planner-status-text">Planning...</div>
+                        <div id="planner-progress" style="margin-top: 8px;"></div>
+                    </div>
+                    
+                    <!-- Plan Preview -->
+                    <div id="plan-preview" style="display: none; margin-top: 16px;">
+                        <h4 style="margin-bottom: 12px;">Generated Plan</h4>
+                        <div id="plan-preview-content" style="background: var(--surface-light); border-radius: 8px; padding: 16px; max-height: 300px; overflow-y: auto;"></div>
+                        <div id="plan-warnings" style="display: none; margin-top: 12px; padding: 12px; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; font-size: 13px;"></div>
+                        <div style="margin-top: 16px; display: flex; gap: 12px;">
+                            <button type="button" class="btn btn-primary" onclick="savePlan()">Save and Continue</button>
+                            <button type="button" class="btn btn-secondary" onclick="clearPlan()">Start Over</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Manual Creation Section -->
+                <div class="card">
+                    <h3 style="margin-bottom: 16px; color: var(--text-muted);">Or Create Manually</h3>
+                    <form id="create-video-form" onsubmit="createVideo(event)">
+                        <div class="form-group">
+                            <label>Video Title *</label>
+                            <input type="text" id="video-title" required placeholder="e.g., Docker Fundamentals" />
+                        </div>
+                        <div class="form-group">
+                            <label>Description *</label>
+                            <textarea id="video-description" required placeholder="Brief description of your video project" style="min-height: 80px;"></textarea>
+                        </div>
+                        <div class="form-group" style="display: none;">
+                            <label>Video ID</label>
+                            <input type="text" id="video-id" placeholder="Auto-generated" />
+                        </div>
+                        <div class="card-actions" style="margin-top: 16px;">
+                            <button type="button" class="btn btn-secondary" onclick="showView('modules')">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Create Empty Video</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Create Segment View -->
+            <div id="create-module-view" class="view">
+                <div class="page-header">
+                    <h2>Create New Segment</h2>
+                    <p class="subtitle">Add a new segment to your video with slides</p>
+                </div>
+
+                <div class="card">
+                    <form id="create-module-form" onsubmit="createModule(event)">
+                        <h3 style="margin-bottom: 20px; color: var(--text-primary);">Segment Information</h3>
+                        
+                        <div class="form-group" style="display: none;">
+                            <label>Video</label>
+                            <select id="new-module-course" required style="width: 100%; padding: 12px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary);">
+                                <option value="">Select a video...</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="display: none;">
+                            <label>Segment Number</label>
+                            <input type="number" id="new-module-number" required min="1" placeholder="Auto-generated" />
+                            <small style="color: var(--text-muted);">Auto-generated</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Segment Title</label>
+                            <input type="text" id="new-module-title" required placeholder="e.g., Introduction to Docker" />
+                        </div>
+                        <div class="form-group">
+                            <label>Segment Subtitle</label>
+                            <input type="text" id="new-module-subtitle" required placeholder="e.g., Learn the basics of Docker" />
+                        </div>
+                        <div class="form-group">
+                            <label>Video Format</label>
+                            <select id="new-module-video-category" required style="width: 100%; padding: 12px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary);">
+                                <option value="standard">Standard (Landscape 1920x1080)</option>
+                                <option value="short">Short (Portrait 1080x1920, 5s slides, max 3 min)</option>
+                            </select>
+                            <small style="color: var(--text-muted);">Short videos use fixed 5-second slides in portrait format</small>
+                        </div>
+
+                        <hr style="margin: 24px 0; border: none; border-top: 1px solid var(--border);" />
+
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+                            <div>
+                                <h3 style="color: var(--text-primary); margin: 0 0 4px 0;">Content Slides</h3>
+                                <small style="color: var(--text-muted);">A title slide is created automatically. Add your narration scripts below.</small>
+                            </div>
+                            <button type="button" class="btn btn-secondary" onclick="addSlideToForm()" style="padding: 8px 16px; font-size: 14px;">+ Add Content Slide</button>
+                        </div>
+                        
+                        <div style="margin-bottom: 16px; padding: 12px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; font-size: 13px; color: var(--success);">
+                            <strong>Title Slide:</strong> Will be created automatically with your segment title and subtitle. You don't need to add it manually.
+                        </div>
+                        
+                        <div id="slides-form-container" style="display: flex; flex-direction: column; gap: 16px;">
+                            <!-- Content slides will be added here -->
+                        </div>
+
+                        <div style="margin-top: 24px; padding: 12px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 8px; font-size: 13px; color: var(--text-secondary);">
+                            <strong>Workflow:</strong> Add your narration scripts for each slide. Slide names and types are auto-generated. Click "Create Segment" to continue.
+                        </div>
+
+                        <div class="card-actions" style="margin-top: 24px;">
+                            <button type="button" class="btn btn-secondary" onclick="showView('modules')">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Create Segment</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- About View -->
+            <div id="about-view" class="view">
+                <div class="page-header">
+                    <h2>About</h2>
+                    <p class="subtitle">My Slides Video Creator</p>
+                </div>
+
+                <div class="card">
+                    <h3>Welcome to Skilleo AI</h3>
+                    <p>A user-friendly interface for creating professional video slides without coding.</p>
+                    
+                    <h4 style="margin-top: 24px;">Features</h4>
+                    <ul class="feature-list">
+                        <li>📝 Form-based module editing</li>
+                        <li>🎬 Video generation from content</li>
+                        <li>🎵 Automatic audio generation</li>
+                        <li>⚡ Auto-generation of React components</li>
+                        <li>📱 Mobile-friendly interface</li>
+                    </ul>
+
+                    <h4 style="margin-top: 24px;">Smart Workflow</h4>
+                    <p style="color: var(--text-secondary); margin-top: 8px;">
+                        Skilleo AI automatically detects what's already complete to prevent unnecessary regenerations and save costs. 
+                        Only missing resources are generated.
+                    </p>
+                    
+                    <h4 style="margin-top: 24px;">Quick Links</h4>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="openRemotionStudio()">
+                            Open Remotion Studio
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History/Archived Videos View -->
+            <div id="history-view" class="view">
+                <div class="page-header">
+                    <h2>Archived Videos</h2>
+                    <p class="subtitle">Previously completed videos. Restore to make active again.</p>
+                </div>
+                
+                <div id="archived-courses-list" class="modules-grid">
+                    <!-- Archived courses will be loaded here -->
+                    <div class="loading-placeholder" style="text-align: center; padding: 40px; color: var(--text-muted);">
+                        Loading archived videos...
+                    </div>
+                </div>
+                
+                <div id="no-archived-message" style="display: none; text-align: center; padding: 60px 20px; color: var(--text-muted);">
+                    <div style="font-size: 48px; margin-bottom: 16px;">H</div>
+                    <h3 style="margin-bottom: 8px; color: var(--text-secondary);">No Archived Videos</h3>
+                    <p>When you archive a video, it will appear here.</p>
+                    <p style="margin-top: 16px; font-size: 13px;">
+                        To archive a video, select it from the dropdown and click "Archive Video" in the segments view.
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

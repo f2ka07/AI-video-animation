@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stick Teacher Layout R</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --card-bg: #ffffff;
+        --accent: #2563eb;
+        --accent-soft: rgba(37, 99, 235, 0.12);
+        --accent-soft-strong: rgba(37, 99, 235, 0.2);
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --border-subtle: #e2e8f0;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: radial-gradient(circle at top left, #1e293b 0, #020617 55%);
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        color: var(--text-main);
+      }
+
+      .root {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        box-sizing: border-box;
+      }
+
+      .slide {
+        display: flex;
+        max-width: 1280px;
+        width: 100%;
+        height: min(720px, 100%);
+        background: var(--card-bg);
+        border-radius: 28px;
+        box-shadow:
+          0 22px 45px rgba(15, 23, 42, 0.45),
+          0 0 0 1px rgba(15, 23, 42, 0.05);
+        box-sizing: border-box;
+        padding: 32px 40px;
+        gap: 40px;
+      }
+
+      .left {
+        flex: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid var(--border-subtle);
+        padding-right: 32px;
+      }
+
+      .teacher-frame {
+        width: 100%;
+        height: 100%;
+        max-width: 440px;
+        max-height: 600px;
+        border-radius: 22px;
+        background: repeating-linear-gradient(
+          -45deg,
+          #f8fafc,
+          #f8fafc 6px,
+          #e2e8f0 6px,
+          #e2e8f0 7px
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .teacher-frame::after {
+        content: "";
+        position: absolute;
+        inset: 18px 20px;
+        border-radius: 18px;
+        border: 2px solid rgba(15, 23, 42, 0.1);
+      }
+
+      .teacher {
+        max-width: 80%;
+        max-height: 80%;
+        position: relative;
+        z-index: 1;
+        transition: opacity 0.35s ease;
+      }
+
+      .right {
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .header {
+        padding-bottom: 4px;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .eyebrow {
+        font-size: 13px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      .title-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .title {
+        font-size: 30px;
+        font-weight: 700;
+      }
+
+      .meta {
+        font-size: 14px;
+        color: var(--text-muted);
+      }
+
+      .subtitle {
+        margin-top: 6px;
+        font-size: 16px;
+        color: var(--text-muted);
+      }
+
+      .bullets {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-top: 12px;
+      }
+
+      .bullet {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        column-gap: 16px;
+        padding: 10px 14px;
+        border-radius: 16px;
+        transition:
+          background 0.25s ease,
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .bullet-index {
+        width: 30px;
+        height: 30px;
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        font-weight: 600;
+        background: #f1f5f9;
+        color: var(--text-muted);
+        transition:
+          background 0.25s ease,
+          color 0.25s ease,
+          transform 0.25s ease;
+      }
+
+      .bullet-text {
+        font-size: 18px;
+        line-height: 1.35;
+      }
+
+      .bullet.active {
+        background: var(--accent-soft);
+        transform: translateX(6px);
+        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+      }
+
+      .bullet.active .bullet-index {
+        background: var(--accent);
+        color: #ffffff;
+        transform: scale(1.05);
+      }
+
+      .bullet.active .bullet-text {
+        font-weight: 600;
+      }
+
+      .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 16px;
+        font-size: 13px;
+        color: var(--text-muted);
+      }
+
+      .progress-bar {
+        flex: 1;
+        height: 6px;
+        border-radius: 999px;
+        background: #e2e8f0;
+        overflow: hidden;
+        margin-left: 12px;
+      }
+
+      .progress {
+        height: 100%;
+        width: 0%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--accent), #22c55e);
+        transition: width 0.4s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="root">
+      <div class="slide">
+        <!-- Teacher on the left -->
+        <div class="left">
+          <div class="teacher-frame">
+            <img
+              id="teacher"
+              src="arm_0.png"
+              alt="Stick Teacher"
+              class="teacher"
+            />
+          </div>
+        </div>
+
+        <!-- Content on the right -->
+        <div class="right">
+          <div class="header">
+            <div class="eyebrow">Git for Beginners · Module 1</div>
+            <div class="title-row">
+              <div class="title">What is Version Control?</div>
+              <div class="meta" id="bulletLabel">Point 1 of 5</div>
+            </div>
+            <div class="subtitle">
+              Big picture overview of why we use Git before touching any
+              commands.
+            </div>
+          </div>
+
+          <div class="bullets">
+            <div class="bullet" id="b0">
+              <div class="bullet-index">1</div>
+              <div class="bullet-text">
+                Version control keeps a complete history of changes in your
+                project.
+              </div>
+            </div>
+            <div class="bullet" id="b1">
+              <div class="bullet-index">2</div>
+              <div class="bullet-text">
+                You can safely roll back when experiments or refactors break
+                things.
+              </div>
+            </div>
+            <div class="bullet" id="b2">
+              <div class="bullet-index">3</div>
+              <div class="bullet-text">
+                Multiple developers can work on the same files without
+                overwriting each other.
+              </div>
+            </div>
+            <div class="bullet" id="b3">
+              <div class="bullet-index">4</div>
+              <div class="bullet-text">
+                Every change is tagged with who made it and why, via commit
+                messages.
+              </div>
+            </div>
+            <div class="bullet" id="b4">
+              <div class="bullet-index">5</div>
+              <div class="bullet-text">
+                Your repository lives on your own machine, so you are not tied
+                to one server.
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <div>Slide 1 · Intro to Git</div>
+            <div style="display: flex; align-items: center; gap: 8px">
+              <span>Progress</span>
+              <div class="progress-bar">
+                <div id="progress" class="progress"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const total = 5;
+      let index = 0;
+      const teacher = document.getElementById("teacher");
+      const bulletLabel = document.getElementById("bulletLabel");
+      const progress = document.getElementById("progress");
+
+      function update() {
+        // highlight bullets
+        for (let i = 0; i < total; i++) {
+          document
+            .getElementById("b" + i)
+            .classList.toggle("active", i === index);
+        }
+
+        // bullet meta + progress
+        bulletLabel.textContent = `Point ${index + 1} of ${total}`;
+        const pct = ((index + 1) / total) * 100;
+        progress.style.width = `${pct}%`;
+
+        // swap teacher pose
+        teacher.style.opacity = 0;
+        setTimeout(() => {
+          teacher.src = `arm_${index}.png`;
+          teacher.style.opacity = 1;
+        }, 160);
+
+        index = (index + 1) % total;
+      }
+
+      update();
+      setInterval(update, 2300); // ~2.3s per point
+    </script>
+  </body>
+</html>

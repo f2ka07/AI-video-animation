@@ -77,10 +77,7 @@ export const TransitionSlide: React.FC<TransitionSlideProps> = ({
 					style={{
 						fontSize: 56,
 						fontWeight: 700,
-						background: "linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)",
-						WebkitBackgroundClip: "text",
-						WebkitTextFillColor: "transparent",
-						backgroundClip: "text",
+						color: "#ffffff",
 						letterSpacing: "0.02em",
 						margin: 0,
 					}}

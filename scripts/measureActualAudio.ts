@@ -62,21 +62,43 @@ async function measureWavDuration(filePath: string): Promise<number | null> {
 }
 
 async function measureAllAudio(): Promise<AudioMeasurement[]> {
-	const audioDir = path.join(__dirname, "../public/audio");
-	const files = fs.readdirSync(audioDir).filter((f) => f.endsWith(".wav") && f.startsWith("module1-"));
-	
+	const baseAudioDir = path.join(__dirname, "../public/audio");
 	const measurements: AudioMeasurement[] = [];
 	
-	for (const file of files) {
-		const filePath = path.join(audioDir, file);
-		const duration = await measureWavDuration(filePath);
-		
-		if (duration !== null) {
-			const name = file.replace(".wav", "");
-			measurements.push({ name, duration });
-			console.log(`✓ ${name}: ${duration}s`);
-		} else {
-			console.error(`✗ Failed to measure ${file}`);
+	// Scan course subdirectories
+	const entries = fs.readdirSync(baseAudioDir, { withFileTypes: true });
+	
+	for (const entry of entries) {
+		if (entry.isDirectory()) {
+			const courseId = entry.name;
+			const courseDir = path.join(baseAudioDir, courseId);
+			const files = fs.readdirSync(courseDir).filter((f) => f.endsWith(".wav") && f.startsWith("module") && !f.includes("whoosh"));
+			
+			for (const file of files) {
+				const filePath = path.join(courseDir, file);
+				const duration = await measureWavDuration(filePath);
+				
+				if (duration !== null) {
+					// Use courseId/moduleName as key for course isolation
+					const name = `${courseId}/${file.replace(".wav", "")}`;
+					measurements.push({ name, duration });
+					console.log(`  ${name}: ${duration}s`);
+				} else {
+					console.error(`  Failed to measure ${courseId}/${file}`);
+				}
+			}
+		} else if (entry.isFile() && entry.name.endsWith(".wav") && entry.name.startsWith("module")) {
+			// Legacy: files in root audio directory (without courseId)
+			const filePath = path.join(baseAudioDir, entry.name);
+			const duration = await measureWavDuration(filePath);
+			
+			if (duration !== null) {
+				const name = entry.name.replace(".wav", "");
+				measurements.push({ name, duration });
+				console.log(`  ${name}: ${duration}s (legacy)`);
+			} else {
+				console.error(`  Failed to measure ${entry.name}`);
+			}
 		}
 	}
 	

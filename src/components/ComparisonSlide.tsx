@@ -116,10 +116,7 @@ export const ComparisonSlide: React.FC<ComparisonSlideProps> = ({
 						transform: `translateY(${titleY}px)`,
 						fontWeight: 800,
 						textAlign: "center",
-						background: "linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%)",
-						WebkitBackgroundClip: "text",
-						WebkitTextFillColor: "transparent",
-						backgroundClip: "text",
+						color: "#ffffff",
 						letterSpacing: "-0.02em",
 					}}
 				>

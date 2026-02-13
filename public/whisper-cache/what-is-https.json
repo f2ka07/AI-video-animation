@@ -1,0 +1,107 @@
+{
+  "text": "HTTPS is HTTP secured by SSL-STLS encryption. It protects data exchange between browsers and servers, preventing eavesdropping and tampering.",
+  "duration": 9.399999618530273,
+  "words": [
+    {
+      "word": "HTTPS",
+      "start": 0,
+      "end": 0.8199999928474426
+    },
+    {
+      "word": "is",
+      "start": 0.8199999928474426,
+      "end": 1.0199999809265137
+    },
+    {
+      "word": "HTTP",
+      "start": 1.0199999809265137,
+      "end": 1.7000000476837158
+    },
+    {
+      "word": "secured",
+      "start": 1.7000000476837158,
+      "end": 2.140000104904175
+    },
+    {
+      "word": "by",
+      "start": 2.140000104904175,
+      "end": 2.4600000381469727
+    },
+    {
+      "word": "SSL",
+      "start": 2.4600000381469727,
+      "end": 3.0799999237060547
+    },
+    {
+      "word": "STLS",
+      "start": 3.0799999237060547,
+      "end": 3.7200000286102295
+    },
+    {
+      "word": "encryption",
+      "start": 3.7200000286102295,
+      "end": 4.199999809265137
+    },
+    {
+      "word": "It",
+      "start": 4.880000114440918,
+      "end": 4.880000114440918
+    },
+    {
+      "word": "protects",
+      "start": 4.880000114440918,
+      "end": 5.179999828338623
+    },
+    {
+      "word": "data",
+      "start": 5.179999828338623,
+      "end": 5.559999942779541
+    },
+    {
+      "word": "exchange",
+      "start": 5.559999942779541,
+      "end": 5.980000019073486
+    },
+    {
+      "word": "between",
+      "start": 5.980000019073486,
+      "end": 6.360000133514404
+    },
+    {
+      "word": "browsers",
+      "start": 6.360000133514404,
+      "end": 6.739999771118164
+    },
+    {
+      "word": "and",
+      "start": 6.739999771118164,
+      "end": 7.460000038146973
+    },
+    {
+      "word": "servers",
+      "start": 7.460000038146973,
+      "end": 7.460000038146973
+    },
+    {
+      "word": "preventing",
+      "start": 7.960000038146973,
+      "end": 7.960000038146973
+    },
+    {
+      "word": "eavesdropping",
+      "start": 7.960000038146973,
+      "end": 8.579999923706055
+    },
+    {
+      "word": "and",
+      "start": 8.579999923706055,
+      "end": 8.819999694824219
+    },
+    {
+      "word": "tampering",
+      "start": 8.819999694824219,
+      "end": 9.100000381469727
+    }
+  ],
+  "segments": []
+}

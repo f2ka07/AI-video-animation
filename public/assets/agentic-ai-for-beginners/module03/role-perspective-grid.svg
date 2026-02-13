@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500">
+  <!-- Background -->
+  <rect width="1200" height="500" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="600" fill="#1e293b">Platform Stack: Two Perspectives</text>
+  
+  <!-- Column Headers -->
+  <rect x="100" y="80" width="480" height="50" rx="8" fill="#3b82f6"/>
+  <text x="340" y="113" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="600" fill="#ffffff">Engineers</text>
+  
+  <rect x="620" y="80" width="480" height="50" rx="8" fill="#8b5cf6"/>
+  <text x="860" y="113" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="600" fill="#ffffff">Technical Leaders</text>
+  
+  <!-- Engineer items -->
+  <rect x="100" y="150" width="480" height="55" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="340" y="185" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Throughput, latency, memory constraints</text>
+  
+  <rect x="100" y="215" width="480" height="55" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="340" y="250" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">TensorRT optimization, model compilation</text>
+  
+  <rect x="100" y="280" width="480" height="55" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="340" y="315" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Triton batching, GPU scheduling</text>
+  
+  <rect x="100" y="345" width="480" height="55" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="340" y="380" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">NIM container deployment, API integration</text>
+  
+  <!-- Technical Leader items -->
+  <rect x="620" y="150" width="480" height="55" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="860" y="185" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Capital expenditure, vendor relationships</text>
+  
+  <rect x="620" y="215" width="480" height="55" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="860" y="250" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Long-term roadmap alignment</text>
+  
+  <rect x="620" y="280" width="480" height="55" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="860" y="315" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Risk reduction, enterprise support</text>
+  
+  <rect x="620" y="345" width="480" height="55" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="860" y="380" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Platform vs piecemeal solutions</text>
+  
+  <!-- Footer -->
+  <text x="600" y="450" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Unified stack reduces complexity for both perspectives</text>
+</svg>

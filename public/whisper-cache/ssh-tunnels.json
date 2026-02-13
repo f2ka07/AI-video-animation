@@ -1,0 +1,97 @@
+{
+  "text": "SSH tunnels create encrypted paths for network traffic. They protect data and can bypass firewalls or insecure networks.",
+  "duration": 7.679999828338623,
+  "words": [
+    {
+      "word": "SSH",
+      "start": 0,
+      "end": 0.7200000286102295
+    },
+    {
+      "word": "tunnels",
+      "start": 0.7200000286102295,
+      "end": 0.9399999976158142
+    },
+    {
+      "word": "create",
+      "start": 0.9399999976158142,
+      "end": 1.3200000524520874
+    },
+    {
+      "word": "encrypted",
+      "start": 1.3200000524520874,
+      "end": 1.8200000524520874
+    },
+    {
+      "word": "paths",
+      "start": 1.8200000524520874,
+      "end": 2.240000009536743
+    },
+    {
+      "word": "for",
+      "start": 2.240000009536743,
+      "end": 2.5199999809265137
+    },
+    {
+      "word": "network",
+      "start": 2.5199999809265137,
+      "end": 2.819999933242798
+    },
+    {
+      "word": "traffic",
+      "start": 2.819999933242798,
+      "end": 3.240000009536743
+    },
+    {
+      "word": "They",
+      "start": 3.940000057220459,
+      "end": 3.940000057220459
+    },
+    {
+      "word": "protect",
+      "start": 3.940000057220459,
+      "end": 4.239999771118164
+    },
+    {
+      "word": "data",
+      "start": 4.239999771118164,
+      "end": 4.599999904632568
+    },
+    {
+      "word": "and",
+      "start": 4.599999904632568,
+      "end": 4.940000057220459
+    },
+    {
+      "word": "can",
+      "start": 4.940000057220459,
+      "end": 5.139999866485596
+    },
+    {
+      "word": "bypass",
+      "start": 5.139999866485596,
+      "end": 5.5
+    },
+    {
+      "word": "firewalls",
+      "start": 5.5,
+      "end": 6.239999771118164
+    },
+    {
+      "word": "or",
+      "start": 6.239999771118164,
+      "end": 6.440000057220459
+    },
+    {
+      "word": "insecure",
+      "start": 6.440000057220459,
+      "end": 6.900000095367432
+    },
+    {
+      "word": "networks",
+      "start": 6.900000095367432,
+      "end": 7.360000133514404
+    }
+  ],
+  "segments": []
+}

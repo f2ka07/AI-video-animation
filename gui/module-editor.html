@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Editor - Skilleo AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional editor-specific styles */
+        .editor-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .editor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .editor-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .slide-editor {
+            margin-bottom: 20px;
+        }
+
+        .slide-editor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .slide-type-badge {
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .slide-content-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .points-editor {
+            margin-top: 12px;
+        }
+
+        .point-item {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .point-item input {
+            flex: 1;
+        }
+
+        .btn-remove {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--error);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 8px 16px;
+        }
+
+        .btn-remove:hover {
+            background: rgba(239, 68, 68, 0.3);
+        }
+
+        .btn-add-point {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 8px 16px;
+        }
+
+        .btn-add-point:hover {
+            background: rgba(16, 185, 129, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-bar">
+            <a href="index.html" class="icon-button" style="text-decoration: none; color: inherit;">
+                <span>←</span>
+            </a>
+            <h1 class="app-title">Module Editor</h1>
+            <div class="app-bar-actions">
+                <button class="btn btn-primary" onclick="saveModule()">Save Module</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="editor-container">
+                <div id="content">
+                    <div class="loading">Loading module...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const moduleNumber = urlParams.get('module');
+
+        let moduleData = null;
+
+        // Helper: Extract slides array content using bracket counting
+        // Properly handles nested arrays/objects and template literals
+        function extractSlidesContent(moduleBody) {
+            const slidesStart = moduleBody.indexOf('slides:');
+            if (slidesStart === -1) return null;
+            
+            const bracketStart = moduleBody.indexOf('[', slidesStart);
+            if (bracketStart === -1) return null;
+            
+            let bracketDepth = 0;
+            let inBacktick = false;
+            let slidesEnd = -1;
+            
+            for (let i = bracketStart; i < moduleBody.length; i++) {
+                const char = moduleBody[i];
+                const prevChar = i > 0 ? moduleBody[i - 1] : '';
+                
+                if (char === '`' && prevChar !== '\\') {
+                    inBacktick = !inBacktick;
+                    continue;
+                }
+                
+                if (inBacktick) continue;
+                
+                if (char === '[') {
+                    bracketDepth++;
+                } else if (char === ']') {
+                    bracketDepth--;
+                    if (bracketDepth === 0) {
+                        slidesEnd = i;
+                        break;
+                    }
+                }
+            }
+            
+            if (slidesEnd === -1) return null;
+            return moduleBody.substring(bracketStart + 1, slidesEnd);
+        }
+
+        async function loadModule() {
+            if (!moduleNumber) {
+                document.getElementById('content').innerHTML = '<div class="status-message error show">No module specified</div>';
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/modules/${moduleNumber}`);
+                const data = await response.json();
+                moduleData = parseModuleData(data.content, moduleNumber);
+                renderEditor();
+            } catch (error) {
+                document.getElementById('content').innerHTML = `<div class="status-message error show">Error loading module: ${error.message}</div>`;
+            }
+        }
+
+        function parseModuleData(content, moduleNum) {
+            const moduleRegex = new RegExp(`export const module${moduleNum}Content: ModuleContent = \\{([\\s\\S]*?)\\};`);
+            const match = content.match(moduleRegex);
+            
+            if (!match) {
+                return { moduleNumber: moduleNum, title: '', subtitle: '', slides: [] };
+            }
+
+            const moduleContent = match[1];
+            const titleMatch = moduleContent.match(/title:\s*"([^"]+)"/);
+            const subtitleMatch = moduleContent.match(/subtitle:\s*"([^"]+)"/);
+            
+            const slidesContent = extractSlidesContent(moduleContent);
+            const slides = [];
+            
+            if (slidesContent) {
+                
+                // Better parsing: find slide objects by matching braces properly
+                // Must track both double quotes AND backticks to avoid counting braces inside strings/code
+                let depth = 0;
+                let currentSlide = '';
+                let inString = false;
+                let inBacktick = false;
+                let escapeNext = false;
+                
+                for (let i = 0; i < slidesContent.length; i++) {
+                    const char = slidesContent[i];
+                    const prevChar = i > 0 ? slidesContent[i - 1] : '';
+                    
+                    if (escapeNext) {
+                        currentSlide += char;
+                        escapeNext = false;
+                        continue;
+                    }
+                    
+                    if (char === '\\' && !escapeNext) {
+                        escapeNext = true;
+                        currentSlide += char;
+                        continue;
+                    }
+                    
+                    // Track backticks (template literals containing code)
+                    if (char === '`' && !escapeNext) {
+                        inBacktick = !inBacktick;
+                        currentSlide += char;
+                        continue;
+                    }
+                    
+                    // Track double quotes (but not inside backticks)
+                    if (char === '"' && !escapeNext && !inBacktick) {
+                        inString = !inString;
+                        currentSlide += char;
+                        continue;
+                    }
+                    
+                    // Only count braces when NOT inside strings or backticks
+                    if (!inString && !inBacktick) {
+                        if (char === '{') {
+                            if (depth === 0) {
+                                currentSlide = '{';
+                            } else {
+                                currentSlide += char;
+                            }
+                            depth++;
+                        } else if (char === '}') {
+                            currentSlide += char;
+                            depth--;
+                            if (depth === 0) {
+                                // Complete slide object found
+                                const slideStr = currentSlide.trim();
+                                if (slideStr) {
+                                    const nameMatch = slideStr.match(/name:\s*"([^"]+)"/);
+                                    const typeMatch = slideStr.match(/type:\s*"([^"]+)"/);
+                                    const scriptMatch = slideStr.match(/script:\s*"([^"]+)"/);
+                                    const titleMatch = slideStr.match(/title:\s*"([^"]+)"/);
+                                    const subtitleMatch = slideStr.match(/subtitle:\s*"([^"]+)"/);
+                                    
+                                    // Extract points array
+                                    const pointsMatch = slideStr.match(/points:\s*\[([\s\S]*?)\]/);
+                                    const points = [];
+                                    if (pointsMatch) {
+                                        const pointsContent = pointsMatch[1];
+                                        const pointRegex = /"([^"]+)"/g;
+                                        let pointMatch;
+                                        while ((pointMatch = pointRegex.exec(pointsContent)) !== null) {
+                                            points.push(pointMatch[1]);
+                                        }
+                                    }
+                                    
+                                    // Extract code (template literal with backticks)
+                                    const codeMatch = slideStr.match(/code:\s*`([\s\S]*?)`/);
+                                    const languageMatch = slideStr.match(/language:\s*"([^"]+)"/);
+                                    
+                                    // Extract leftItems array
+                                    const leftItemsMatch = slideStr.match(/leftItems:\s*\[([\s\S]*?)\]/);
+                                    const leftItems = [];
+                                    if (leftItemsMatch) {
+                                        const leftContent = leftItemsMatch[1];
+                                        const itemRegex = /"([^"]+)"/g;
+                                        let itemMatch;
+                                        while ((itemMatch = itemRegex.exec(leftContent)) !== null) {
+                                            leftItems.push(itemMatch[1]);
+                                        }
+                                    }
+                                    
+                                    // Extract rightItems array
+                                    const rightItemsMatch = slideStr.match(/rightItems:\s*\[([\s\S]*?)\]/);
+                                    const rightItems = [];
+                                    if (rightItemsMatch) {
+                                        const rightContent = rightItemsMatch[1];
+                                        const itemRegex = /"([^"]+)"/g;
+                                        let itemMatch;
+                                        while ((itemMatch = itemRegex.exec(rightContent)) !== null) {
+                                            rightItems.push(itemMatch[1]);
+                                        }
+                                    }
+                                    
+                                    // Extract other properties
+                                    const leftTitleMatch = slideStr.match(/leftTitle:\s*"([^"]+)"/);
+                                    const rightTitleMatch = slideStr.match(/rightTitle:\s*"([^"]+)"/);
+                                    const imageSrcMatch = slideStr.match(/imageSrc:\s*"([^"]+)"/);
+                                    const svgPathMatch = slideStr.match(/svgPath:\s*"([^"]+)"/);
+                                    
+                                    slides.push({
+                                        name: nameMatch ? nameMatch[1] : `slide-${slides.length + 1}`,
+                                        type: typeMatch ? typeMatch[1] : 'content-single',
+                                        script: scriptMatch ? scriptMatch[1] : '',
+                                        title: titleMatch ? titleMatch[1] : '',
+                                        subtitle: subtitleMatch ? subtitleMatch[1] : '',
+                                        points: points,
+                                        code: codeMatch ? codeMatch[1] : undefined,
+                                        language: languageMatch ? languageMatch[1] : undefined,
+                                        leftItems: leftItems.length > 0 ? leftItems : undefined,
+                                        rightItems: rightItems.length > 0 ? rightItems : undefined,
+                                        leftTitle: leftTitleMatch ? leftTitleMatch[1] : undefined,
+                                        rightTitle: rightTitleMatch ? rightTitleMatch[1] : undefined,
+                                        imageSrc: imageSrcMatch ? imageSrcMatch[1] : undefined,
+                                        svgPath: svgPathMatch ? svgPathMatch[1] : undefined
+                                    });
+                                }
+                                currentSlide = '';
+                            }
+                        } else {
+                            if (depth > 0) {
+                                currentSlide += char;
+                            }
+                        }
+                    } else {
+                        currentSlide += char;
+                    }
+                }
+            }
+
+            return {
+                moduleNumber: moduleNum,
+                title: titleMatch ? titleMatch[1] : `Module ${moduleNum}`,
+                subtitle: subtitleMatch ? subtitleMatch[1] : '',
+                slides: slides
+            };
+        }
+
+        function renderEditor() {
+            if (!moduleData) return;
+
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <div class="editor-header">
+                    <div>
+                        <h2>Module ${moduleData.moduleNumber}</h2>
+                        <p class="subtitle">Edit module content and slides</p>
+                    </div>
+                    <div class="editor-actions">
+                        <button class="btn btn-secondary" onclick="window.location.href='index.html'">Back</button>
+                        <button class="btn btn-secondary" onclick="showImproveModal()" title="Add new slides based on improvement instructions. Only new slides need audio and timings.">Improve Module</button>
+                        <button class="btn btn-primary" onclick="saveModule()">Save Module</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 style="margin-bottom: 20px;">Module Information</h3>
+                    <div class="form-group">
+                        <label>Module Title</label>
+                        <input type="text" id="moduleTitle" value="${escapeHtml(moduleData.title)}" onchange="updateModule('title', this.value)" />
+                    </div>
+                    <div class="form-group">
+                        <label>Module Subtitle</label>
+                        <input type="text" id="moduleSubtitle" value="${escapeHtml(moduleData.subtitle)}" onchange="updateModule('subtitle', this.value)" />
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3>Slides (${moduleData.slides.length})</h3>
+                        <button class="btn btn-primary" onclick="addSlide()">+ Add Slide</button>
+                    </div>
+                    <div id="slidesList">
+                        ${moduleData.slides.map((slide, index) => renderSlide(slide, index)).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderSlide(slide, index) {
+            const slideTypes = ['title', 'content-single', 'content-two-card', 'code', 'code-diagram', 'comparison', 'sequential-bullet'];
+            const typeOptions = slideTypes.map(type => 
+                `<option value="${type}" ${slide.type === type ? 'selected' : ''}>${type.replace('-', ' ')}</option>`
+            ).join('');
+            const isDiagramType = slide.type === 'code-diagram' || slide.type === 'sequential-bullet';
+
+            return `
+                <div class="slide-editor card" data-index="${index}">
+                    <div class="slide-editor-header">
+                        <div>
+                            <span class="slide-type-badge">${slide.type}</span>
+                            <span style="margin-left: 12px; font-weight: 600;">${escapeHtml(slide.name)}</span>
+                        </div>
+                        <button class="btn btn-remove" onclick="removeSlide(${index})">Remove</button>
+                    </div>
+                    
+                    <div class="slide-content-grid">
+                        <div class="form-group">
+                            <label>Slide Name</label>
+                            <input type="text" data-field="name" value="${escapeHtml(slide.name)}" onchange="updateSlide(${index}, 'name', this.value)" />
+                        </div>
+                        <div class="form-group">
+                            <label>Slide Type</label>
+                            <select data-field="type" onchange="updateSlide(${index}, 'type', this.value)" style="width: 100%; padding: 12px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary);">
+                                ${typeOptions}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Narration Script</label>
+                            <textarea data-field="script" onchange="updateSlide(${index}, 'script', this.value)" style="min-height: 120px; resize: vertical;">${escapeHtml(slide.script)}</textarea>
+                        </div>
+                        ${slide.type !== 'title' ? `
+                            <div class="form-group">
+                                <label>Slide Title</label>
+                                <input type="text" data-field="title" value="${escapeHtml(slide.title || '')}" onchange="updateSlide(${index}, 'title', this.value)" />
+                            </div>
+                        ` : ''}
+                        ${(slide.type === 'content-single' || slide.type === 'content-two-card') ? `
+                            <div class="points-editor">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <label>Bullet Points</label>
+                                    <button class="btn btn-add-point" onclick="addPoint(${index})">+ Add Point</button>
+                                </div>
+                                <div id="points-${index}">
+                                    ${(slide.points || []).map((point, pIndex) => `
+                                        <div class="point-item">
+                                            <input type="text" data-field="point" value="${escapeHtml(point)}" onchange="updatePoint(${index}, ${pIndex}, this.value)" />
+                                            <button class="btn btn-remove" onclick="removePoint(${index}, ${pIndex})">Remove</button>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        ` : ''}
+                        ${isDiagramType ? `
+                            <div class="form-group">
+                                <label>SVG path (e.g. assets/agentic-ai-for-beginners/module01/foo.svg)</label>
+                                <input type="text" data-field="svgPath" value="${escapeHtml(slide.svgPath || '')}" placeholder="assets/course-id/moduleXX/diagram.svg" onchange="updateSlide(${index}, 'svgPath', this.value)" />
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateModule(field, value) {
+            if (moduleData) {
+                moduleData[field] = value;
+            }
+        }
+
+        function updateSlide(index, field, value) {
+            if (moduleData && moduleData.slides[index]) {
+                moduleData.slides[index][field] = value;
+                // Re-render if type changed
+                if (field === 'type') {
+                    renderEditor();
+                }
+            }
+        }
+
+        function addPoint(slideIndex) {
+            if (moduleData && moduleData.slides[slideIndex]) {
+                if (!moduleData.slides[slideIndex].points) {
+                    moduleData.slides[slideIndex].points = [];
+                }
+                moduleData.slides[slideIndex].points.push('');
+                renderEditor();
+            }
+        }
+
+        function updatePoint(slideIndex, pointIndex, value) {
+            if (moduleData && moduleData.slides[slideIndex] && moduleData.slides[slideIndex].points) {
+                moduleData.slides[slideIndex].points[pointIndex] = value;
+            }
+        }
+
+        function removePoint(slideIndex, pointIndex) {
+            if (moduleData && moduleData.slides[slideIndex] && moduleData.slides[slideIndex].points) {
+                moduleData.slides[slideIndex].points.splice(pointIndex, 1);
+                renderEditor();
+            }
+        }
+
+        function addSlide() {
+            if (!moduleData) return;
+            
+            moduleData.slides.push({
+                name: `slide-${moduleData.slides.length + 1}`,
+                type: 'content-single',
+                script: '',
+                title: '',
+                points: []
+            });
+            
+            renderEditor();
+        }
+
+        function removeSlide(index) {
+            if (!moduleData) return;
+            showModal(
+                'Remove Slide',
+                'Remove this slide?',
+                () => {
+                    moduleData.slides.splice(index, 1);
+                    renderEditor();
+                }
+            );
+        }
+        
+        function showImproveModal() {
+            const overlay = document.createElement('div');
+            overlay.className = 'modal-overlay';
+            overlay.id = 'improve-modal-overlay';
+            overlay.innerHTML = `
+                <div class="modal" style="max-width: 520px;">
+                    <div class="modal-header">Improve Module</div>
+                    <div class="modal-body">
+                        <p style="margin-bottom: 12px; color: var(--text-secondary); font-size: 13px;">
+                            Add new slides based on your instructions. Existing slides are preserved. Only new slides will need audio and timings when you finalize.
+                        </p>
+                        <label style="display: block; margin-bottom: 6px; font-weight: 600; font-size: 13px;">Improvement instructions</label>
+                        <textarea id="improve-instructions" placeholder="e.g., Add a code example for the authentication flow after the architecture slide. Add more detail on error handling." style="width: 100%; min-height: 100px; padding: 12px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px; resize: vertical;" rows="4"></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="modal-btn modal-btn-secondary" onclick="document.getElementById('improve-modal-overlay').remove()">Cancel</button>
+                        <button class="modal-btn modal-btn-primary" id="improve-confirm-btn">Add Slides</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+            overlay.querySelector('#improve-confirm-btn').onclick = () => improveModule(overlay);
+            overlay.onclick = (e) => {
+                if (e.target === overlay) overlay.remove();
+            };
+        }
+
+        async function improveModule(overlay) {
+            const textarea = overlay.querySelector('#improve-instructions');
+            const instructions = (textarea && textarea.value || '').trim();
+            if (!instructions) {
+                showToast('Please enter improvement instructions', 'warning');
+                return;
+            }
+            const btn = overlay.querySelector('#improve-confirm-btn');
+            btn.disabled = true;
+            btn.textContent = 'Generating...';
+            try {
+                const response = await fetch(`/api/modules/${moduleData.moduleNumber}/improve`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        moduleData: { title: moduleData.title, subtitle: moduleData.subtitle, slides: moduleData.slides },
+                        improvementInstructions: instructions
+                    })
+                });
+                const data = await response.json();
+                if (data.error) {
+                    showToast(`Error: ${data.error}`, 'error');
+                    btn.disabled = false;
+                    btn.textContent = 'Add Slides';
+                    return;
+                }
+                overlay.remove();
+                moduleData.slides = data.slides;
+                renderEditor();
+                showToast(data.message || `Added ${data.newSlidesCount} new slide(s). Save to apply.`, 'success');
+            } catch (error) {
+                showToast(`Error: ${error.message}`, 'error');
+            } finally {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.textContent = 'Add Slides';
+                }
+            }
+        }
+
+        // Custom Modal (replaces confirm dialogs)
+        function showModal(title, message, onConfirm, onCancel) {
+            const overlay = document.createElement('div');
+            overlay.className = 'modal-overlay';
+            overlay.innerHTML = `
+                <div class="modal">
+                    <div class="modal-header">${escapeHtml(title)}</div>
+                    <div class="modal-body">${escapeHtml(message)}</div>
+                    <div class="modal-actions">
+                        <button class="modal-btn modal-btn-secondary" onclick="this.closest('.modal-overlay').remove()">Cancel</button>
+                        <button class="modal-btn modal-btn-primary">Confirm</button>
+                    </div>
+                </div>
+            `;
+            
+            const confirmBtn = overlay.querySelector('.modal-btn-primary');
+            const cancelBtn = overlay.querySelector('.modal-btn-secondary');
+            
+            confirmBtn.onclick = () => {
+                overlay.remove();
+                if (onConfirm) onConfirm();
+            };
+            
+            cancelBtn.onclick = () => {
+                overlay.remove();
+                if (onCancel) onCancel();
+            };
+            
+            overlay.onclick = (e) => {
+                if (e.target === overlay) {
+                    overlay.remove();
+                    if (onCancel) onCancel();
+                }
+            };
+            
+            document.body.appendChild(overlay);
+        }
+        
+        // Toast Notification (replaces alert dialogs)
+        function showToast(message, type = 'info', duration = 5000) {
+            let container = document.getElementById('toast-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'toast-container';
+                container.className = 'toast-container';
+                document.body.appendChild(container);
+            }
+            
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            const title = type === 'error' ? 'Error' : type === 'success' ? 'Success' : type === 'warning' ? 'Warning' : 'Info';
+            
+            toast.innerHTML = `
+                <div class="toast-content">
+                    <div class="toast-title">${title}</div>
+                    <div class="toast-message">${escapeHtml(message)}</div>
+                </div>
+                <button class="toast-close" onclick="this.parentElement.remove()">&times;</button>
+            `;
+            
+            container.appendChild(toast);
+            
+            if (duration > 0) {
+                setTimeout(() => {
+                    if (toast.parentElement) {
+                        toast.style.animation = 'slideInRight 0.3s reverse';
+                        setTimeout(() => toast.remove(), 300);
+                    }
+                }, duration);
+            }
+        }
+
+        function syncSlidesFromDom() {
+            if (!moduleData) return;
+            document.querySelectorAll('.slide-editor[data-index]').forEach(card => {
+                const idx = parseInt(card.getAttribute('data-index'), 10);
+                const slide = moduleData.slides[idx];
+                if (!slide) return;
+                const nameInput = card.querySelector('input[data-field="name"]');
+                const typeSelect = card.querySelector('select[data-field="type"]');
+                const scriptInput = card.querySelector('textarea[data-field="script"]');
+                const titleInput = card.querySelector('input[data-field="title"]');
+                const svgPathInput = card.querySelector('input[data-field="svgPath"]');
+                if (nameInput) slide.name = nameInput.value.trim();
+                if (typeSelect) slide.type = typeSelect.value;
+                if (scriptInput) slide.script = scriptInput.value;
+                if (titleInput) slide.title = titleInput.value.trim();
+                if (svgPathInput) slide.svgPath = svgPathInput.value.trim() || undefined;
+                const pointInputs = card.querySelectorAll('input[data-field="point"]');
+                if (pointInputs.length) {
+                    slide.points = Array.from(pointInputs).map(p => p.value.trim()).filter(Boolean);
+                }
+            });
+        }
+
+        async function saveModule() {
+            if (!moduleData) {
+                showToast('No module data to save', 'warning');
+                return;
+            }
+            syncSlidesFromDom();
+            const titleEl = document.getElementById('moduleTitle');
+            const subtitleEl = document.getElementById('moduleSubtitle');
+            if (titleEl) moduleData.title = titleEl.value.trim();
+            if (subtitleEl) moduleData.subtitle = subtitleEl.value.trim();
+            
+            const saveButton = document.querySelector('button[onclick="saveModule()"]');
+            const originalText = saveButton.textContent;
+            saveButton.disabled = true;
+            saveButton.textContent = 'Saving...';
+            
+            try {
+                const response = await fetch(`/api/modules/${moduleData.moduleNumber}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        title: moduleData.title,
+                        subtitle: moduleData.subtitle,
+                        slides: moduleData.slides
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.error) {
+                    showToast(`Error: ${data.error}`, 'error');
+                } else {
+                    showToast('Module saved successfully!', 'success');
+                    // Reload to show updated content
+                    loadModule();
+                }
+            } catch (error) {
+                showToast(`Error: ${error.message}`, 'error');
+            } finally {
+                saveButton.disabled = false;
+                saveButton.textContent = originalText;
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        loadModule();
+    </script>
+    
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+</body>
+</html>

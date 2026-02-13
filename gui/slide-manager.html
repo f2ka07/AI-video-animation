@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Manager - Skilleo AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .manager-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .module-selector {
+            margin-bottom: 0;
+        }
+
+        .module-selector select {
+            width: 100%;
+            padding: 12px;
+            background: var(--surface-light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .selectors-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        @media (max-width: 768px) {
+            .selectors-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .slide-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .slide-card {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .slide-card:hover {
+            box-shadow: 0 4px 16px var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .slide-card.finalized {
+            border-left: 4px solid var(--success);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .slide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 16px;
+        }
+
+        .slide-title-section {
+            flex: 1;
+        }
+
+        .slide-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .slide-type {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .slide-status-overview {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .status-badge.complete {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--success);
+        }
+
+        .status-badge.pending {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--warning);
+        }
+
+        .status-badge.missing {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: var(--error);
+        }
+
+        .slide-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .action-group {
+            background: var(--surface-light);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .action-group-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+
+        .slide-script {
+            margin-top: 16px;
+            padding: 12px;
+            background: var(--surface-light);
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            max-height: 100px;
+            overflow-y: auto;
+        }
+
+        .module-summary {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .loading-slide {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-bar">
+            <a href="index.html" class="icon-button" style="text-decoration: none; color: inherit;" title="Back to Segments">
+                <span>←</span>
+            </a>
+            <h1 class="app-title">Slide Manager</h1>
+            <div class="app-bar-actions">
+                <button class="icon-button" onclick="loadSlides()" title="Refresh">
+                    <span>🔄</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- No Active Courses Placeholder -->
+            <div id="no-active-courses" style="display: none; text-align: center; padding: 80px 20px;">
+                <div style="font-size: 64px; margin-bottom: 24px; opacity: 0.4;">--</div>
+                <h2 style="margin-bottom: 12px; color: var(--text-secondary);">No Active Videos</h2>
+                <p style="color: var(--text-muted); margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto;">
+                    All videos have been archived. Create a new video or restore one from the archive.
+                </p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="index.html#create-video" class="btn btn-primary" style="text-decoration: none;">Create New Video</a>
+                    <a href="index.html#history" class="btn btn-secondary" style="text-decoration: none;">View Archived Videos</a>
+                </div>
+            </div>
+            
+            <div id="slide-manager-content" class="manager-container">
+                <div class="page-header" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
+                    <div style="flex: 1;">
+                        <h2>Slide-by-Slide Management</h2>
+                        <p class="subtitle">View and manage individual slides with full accountability</p>
+                    </div>
+                    <button class="btn btn-primary" id="next-to-processing-btn" onclick="goToVideoProcessing()" style="display: none; min-width: 240px; font-size: 16px; padding: 12px 24px; font-weight: 600;">
+                        Continue to Video Processing →
+                    </button>
+                </div>
+
+                <div class="selectors-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+                    <div class="module-selector">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">Select Video</label>
+                        <select id="course-selector" onchange="changeCourse(this.value)">
+                            <option value="">Loading videos...</option>
+                        </select>
+                    </div>
+                    <div class="module-selector">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">Select Segment</label>
+                        <select id="module-selector" onchange="loadSlides()">
+                            <option value="">Select a segment...</option>
+                        </select>
+                    </div>
+                    <div class="module-selector">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">Voice Selection</label>
+                        <select id="voice-selector-slide-manager" style="width: 100%; padding: 12px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
+                            <option value="andy" selected>Andy (Male, Professional)</option>
+                            <option value="sarah">Sarah (Female, Professional)</option>
+                            <option value="tom">Tom (Male, Casual)</option>
+                            <option value="lucy">Lucy (Female, Friendly)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 24px; padding: 16px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 8px; font-size: 14px; color: var(--text-secondary);">
+                    <strong>Full Accountability:</strong> Each slide shows its complete status. Green checkmarks (✓) mean that resource is finalized. Fix individual slides without regenerating everything.
+                </div>
+
+                <div id="module-summary" class="module-summary" style="display: none;">
+                    <h3 id="module-title">Segment</h3>
+                    <div class="summary-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="total-slides">0</div>
+                            <div class="stat-label">Total Slides</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="audio-complete">0</div>
+                            <div class="stat-label">Audio Complete</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="timings-complete">0</div>
+                            <div class="stat-label">Timings Complete</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="module-complete">0%</div>
+                            <div class="stat-label">Module Complete</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="slides-container">
+                    <div class="loading-slide">Select a segment to view slides</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+    
+    <script src="slide-manager.js"></script>
+</body>
+</html>

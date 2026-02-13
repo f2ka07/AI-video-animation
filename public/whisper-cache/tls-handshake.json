@@ -1,0 +1,77 @@
+{
+  "text": "The TLS handshake establishes secure communication by negotiating encryption keys and authenticating the server.",
+  "duration": 6.199999809265137,
+  "words": [
+    {
+      "word": "The",
+      "start": 0,
+      "end": 0.2800000011920929
+    },
+    {
+      "word": "TLS",
+      "start": 0.2800000011920929,
+      "end": 0.7200000286102295
+    },
+    {
+      "word": "handshake",
+      "start": 0.7200000286102295,
+      "end": 1.2000000476837158
+    },
+    {
+      "word": "establishes",
+      "start": 1.2000000476837158,
+      "end": 1.9800000190734863
+    },
+    {
+      "word": "secure",
+      "start": 1.9800000190734863,
+      "end": 2.259999990463257
+    },
+    {
+      "word": "communication",
+      "start": 2.259999990463257,
+      "end": 2.880000114440918
+    },
+    {
+      "word": "by",
+      "start": 2.880000114440918,
+      "end": 3.2200000286102295
+    },
+    {
+      "word": "negotiating",
+      "start": 3.2200000286102295,
+      "end": 3.759999990463257
+    },
+    {
+      "word": "encryption",
+      "start": 3.759999990463257,
+      "end": 4.21999979019165
+    },
+    {
+      "word": "keys",
+      "start": 4.21999979019165,
+      "end": 4.559999942779541
+    },
+    {
+      "word": "and",
+      "start": 4.559999942779541,
+      "end": 4.880000114440918
+    },
+    {
+      "word": "authenticating",
+      "start": 4.880000114440918,
+      "end": 5.480000019073486
+    },
+    {
+      "word": "the",
+      "start": 5.480000019073486,
+      "end": 5.679999828338623
+    },
+    {
+      "word": "server",
+      "start": 5.679999828338623,
+      "end": 5.880000114440918
+    }
+  ],
+  "segments": []
+}

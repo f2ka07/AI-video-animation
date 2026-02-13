@@ -1,0 +1,4 @@
+curl -X POST https://api.runpod.ai/v2/whisper-v3-large/run \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer WHISPER_API_KEY' \
+    -d '{"input":{"prompt":"","audio":"test.wav"}}'

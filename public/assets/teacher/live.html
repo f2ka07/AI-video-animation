@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stick Teacher · Aligned Body</title>
+    <style>
+      :root {
+        --accent: #2563eb;
+        --accent-soft: rgba(37, 99, 235, 0.12);
+        --accent-strong: rgba(37, 99, 235, 0.22);
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --border-subtle: #e2e8f0;
+        --card-bg: #ffffff;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: radial-gradient(circle at top left, #1e293b 0, #020617 55%);
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        color: var(--text-main);
+      }
+
+      .root {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        box-sizing: border-box;
+      }
+
+      .slide {
+        width: min(1200px, 100%);
+        aspect-ratio: 16 / 9;
+        background: var(--card-bg);
+        border-radius: 24px;
+        box-shadow:
+          0 22px 45px rgba(15, 23, 42, 0.45),
+          0 0 0 1px rgba(15, 23, 42, 0.06);
+        display: flex;
+        flex-direction: column;
+        padding: 24px 32px;
+        box-sizing: border-box;
+        gap: 12px;
+      }
+
+      .header {
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .eyebrow {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 16px;
+      }
+
+      .title {
+        font-size: clamp(22px, 2.4vw, 30px);
+        font-weight: 700;
+      }
+
+      .meta {
+        font-size: 13px;
+        color: var(--text-muted);
+        white-space: nowrap;
+      }
+
+      .subtitle {
+        margin-top: 4px;
+        font-size: 15px;
+        color: var(--text-muted);
+      }
+
+      .body-row {
+        flex: 1;
+        display: flex;
+        gap: 32px;
+        align-items: center;
+        min-height: 0;
+      }
+
+      .left {
+        flex: 0 0 36%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .teacher-frame {
+        width: 100%;
+        height: 100%;
+        max-width: 430px;
+        max-height: 100%;
+        border-radius: 20px;
+        background: #f8fafc;
+        position: relative;
+        overflow: hidden;
+        margin-right: -7%;
+      }
+
+      .teacher-frame::after {
+        content: "";
+        position: absolute;
+        inset: 14px 16px;
+        border-radius: 16px;
+        border: 2px solid rgba(15, 23, 42, 0.08);
+        pointer-events: none;
+        background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+        position: relative;
+      }
+
+      .teacher-frame::before {
+        content: "";
+        position: absolute;
+        inset: -2%;
+        border-radius: 20px;
+        background: radial-gradient(
+          circle at center,
+          transparent 40%,
+          rgba(0, 0, 0, 0.06) 100%
+        );
+        pointer-events: none;
+      }
+
+      .teacher-floor {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        height: 3px;
+        background: rgba(0, 0, 0, 0.15);
+        border-radius: 999px;
+        filter: blur(1px);
+      }
+
+      .teacher {
+        position: relative;
+        z-index: 1;
+        max-width: 82%;
+        max-height: 90%;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+        transition: opacity 0.25s ease;
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+      }
+
+      .right-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding-left: 0;
+      }
+
+      .bullets {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 0;
+        margin-left: 2%;
+      }
+
+      .bullet {
+        position: relative;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        column-gap: 12px;
+        padding: 8px 10px;
+        border-radius: 14px;
+        transition:
+          background 0.25s ease,
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .bullet::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: transparent;
+        pointer-events: none;
+        transition: background 0.25s ease;
+      }
+
+      .bullet-index {
+        width: 26px;
+        height: 26px;
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 600;
+        background: #f1f5f9;
+        color: var(--text-muted);
+        transition:
+          background 0.25s ease,
+          color 0.25s ease,
+          transform 0.25s ease;
+      }
+
+      .bullet-text {
+        font-size: clamp(15px, 1.5vw, 18px);
+        line-height: 1.35;
+      }
+
+      .bullet.active {
+        background: var(--accent-soft);
+        transform: translateX(4px);
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+      }
+
+      .bullet.active::before {
+        background: var(--accent-strong);
+        mix-blend-mode: multiply;
+      }
+
+      .bullet.active .bullet-index {
+        background: var(--accent);
+        color: #ffffff;
+        transform: scale(1.04);
+      }
+
+      .bullet.active .bullet-text {
+        font-weight: 600;
+      }
+
+      .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 4px;
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+
+      .teacher-frame {
+        padding-top: 12px;
+      }
+      .teacher {
+        transform: translateY(-20px); /* negative moves up */
+      }
+
+      .progress-wrap {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .progress-bar {
+        width: 140px;
+        max-width: 30vw;
+        height: 6px;
+        border-radius: 999px;
+        background: #e2e8f0;
+        overflow: hidden;
+      }
+
+      .progress {
+        height: 100%;
+        width: 0%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--accent), #22c55e);
+        transition: width 0.35s ease;
+      }
+
+      @media (max-width: 900px) {
+        .slide {
+          aspect-ratio: auto;
+          height: auto;
+          margin-top: -5px;
+        }
+
+        .body-row {
+          flex-direction: column;
+          align-items: stretch;
+          margin-top: -5px;
+        }
+
+        .left {
+          flex: 0 0 auto;
+        }
+
+        .teacher-frame {
+          margin-right: 0;
+          max-height: 260px;
+        }
+
+        .right-body {
+          align-items: stretch;
+        }
+
+        .bullets {
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="root">
+      <div class="slide">
+        <!-- HEADER -->
+        <div class="header">
+          <div class="eyebrow">Git for Beginners · Module 1</div>
+          <div class="title-row">
+            <div class="title">What is Version Control?</div>
+            <div class="meta" id="bulletLabel">Point 1 of 5</div>
+          </div>
+          <div class="subtitle">
+            Big-picture overview before we touch any Git commands.
+          </div>
+        </div>
+
+        <!-- BODY -->
+        <div class="body-row">
+          <div class="left">
+            <div class="teacher-frame">
+              <!-- start in REST pose -->
+              <img
+                id="teacher"
+                src="arm_5.png"
+                alt="Stick Teacher"
+                class="teacher"
+              />
+            </div>
+          </div>
+
+          <div class="right-body">
+            <div class="bullets">
+              <div class="bullet" id="b0">
+                <div class="bullet-index">1</div>
+                <div class="bullet-text">
+                  Version control keeps a complete history of changes in your
+                  project.
+                </div>
+              </div>
+              <div class="bullet" id="b1">
+                <div class="bullet-index">2</div>
+                <div class="bullet-text">
+                  You can safely roll back when experiments or refactors break
+                  things.
+                </div>
+              </div>
+              <div class="bullet" id="b2">
+                <div class="bullet-index">3</div>
+                <div class="bullet-text">
+                  Multiple developers can work on the same files without
+                  overwriting each other.
+                </div>
+              </div>
+              <div class="bullet" id="b3">
+                <div class="bullet-index">4</div>
+                <div class="bullet-text">
+                  Every change is tagged with who made it and why, via commit
+                  messages.
+                </div>
+              </div>
+              <div class="bullet" id="b4">
+                <div class="bullet-index">5</div>
+                <div class="bullet-text">
+                  Your repository lives on your own machine, not tied to a
+                  single server.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+          <div>Slide 1 · Intro to Git</div>
+          <div class="progress-wrap">
+            <span>Progress</span>
+            <div class="progress-bar">
+              <div id="progress" class="progress"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const total = 5;
+      let index = 0;
+
+      const teacher = document.getElementById("teacher");
+      const bulletLabel = document.getElementById("bulletLabel");
+      const progress = document.getElementById("progress");
+
+      // For now: 5s pointing + 5s narration per bullet (10s total cycle) for testing.
+      // In Remotion, these durations will be driven by accurate bullet start/end timings
+      // extracted from the narration audio instead of fixed constants.
+      const GESTURE_DURATION = 5000; // ms teacher pointing to bullet
+      const CYCLE_DURATION = 10000; // ms total per bullet (gesture + narration)
+      const REST_IMAGE = "arm_5.png";
+
+      function setActiveBullet(activeIndex) {
+        for (let i = 0; i < total; i++) {
+          document
+            .getElementById("b" + i)
+            .classList.toggle("active", i === activeIndex);
+        }
+      }
+
+      function showTeacher(src) {
+        teacher.style.opacity = 0;
+        setTimeout(() => {
+          teacher.src = src;
+          teacher.style.opacity = 1;
+        }, 120);
+      }
+
+      function advance() {
+        setActiveBullet(index);
+        bulletLabel.textContent = `Point ${index + 1} of ${total}`;
+        progress.style.width = `${((index + 1) / total) * 100}%`;
+
+        // brief gesture: point to current bullet
+        showTeacher(`arm_${index}.png`);
+
+        // then go back to rest for the narration window
+        setTimeout(() => {
+          showTeacher(REST_IMAGE);
+        }, GESTURE_DURATION);
+
+        index = (index + 1) % total;
+      }
+
+      // initial state: first bullet highlighted, teacher at rest
+      setActiveBullet(0);
+      bulletLabel.textContent = `Point 1 of ${total}`;
+      progress.style.width = `${(1 / total) * 100}%`;
+      showTeacher(REST_IMAGE);
+
+      // demo loop; in Remotion you replace this with frame-based logic and real timings
+      setTimeout(() => {
+        advance();
+        setInterval(advance, CYCLE_DURATION);
+      }, 500);
+    </script>
+  </body>
+</html>

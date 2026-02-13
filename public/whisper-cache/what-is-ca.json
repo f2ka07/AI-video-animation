@@ -1,0 +1,92 @@
+{
+  "text": "A Certificate Authority, or CA, is a trusted organization that issues digital certificates to verify website identities.",
+  "duration": 6.880000114440918,
+  "words": [
+    {
+      "word": "A",
+      "start": 0,
+      "end": 0.25999999046325684
+    },
+    {
+      "word": "Certificate",
+      "start": 0.25999999046325684,
+      "end": 0.7400000095367432
+    },
+    {
+      "word": "Authority",
+      "start": 0.7400000095367432,
+      "end": 1.100000023841858
+    },
+    {
+      "word": "or",
+      "start": 1.2599999904632568,
+      "end": 1.5199999809265137
+    },
+    {
+      "word": "CA",
+      "start": 1.5199999809265137,
+      "end": 1.8799999952316284
+    },
+    {
+      "word": "is",
+      "start": 2.1600000858306885,
+      "end": 2.2200000286102295
+    },
+    {
+      "word": "a",
+      "start": 2.2200000286102295,
+      "end": 2.380000114440918
+    },
+    {
+      "word": "trusted",
+      "start": 2.380000114440918,
+      "end": 2.7200000286102295
+    },
+    {
+      "word": "organization",
+      "start": 2.7200000286102295,
+      "end": 3.359999895095825
+    },
+    {
+      "word": "that",
+      "start": 3.359999895095825,
+      "end": 3.700000047683716
+    },
+    {
+      "word": "issues",
+      "start": 3.700000047683716,
+      "end": 3.9600000381469727
+    },
+    {
+      "word": "digital",
+      "start": 3.9600000381469727,
+      "end": 4.420000076293945
+    },
+    {
+      "word": "certificates",
+      "start": 4.420000076293945,
+      "end": 4.900000095367432
+    },
+    {
+      "word": "to",
+      "start": 4.900000095367432,
+      "end": 5.239999771118164
+    },
+    {
+      "word": "verify",
+      "start": 5.239999771118164,
+      "end": 5.679999828338623
+    },
+    {
+      "word": "website",
+      "start": 5.679999828338623,
+      "end": 6.119999885559082
+    },
+    {
+      "word": "identities",
+      "start": 6.119999885559082,
+      "end": 6.539999961853027
+    }
+  ],
+  "segments": []
+}

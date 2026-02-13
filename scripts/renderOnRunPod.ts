@@ -8,7 +8,7 @@
 //   npm run render:runpod -- --no-destroy            # Keep pod after render
 //
 // Required env: RUNPOD_API_KEY
-// Optional env: SLIDES_IMAGE, RUNPOD_REGISTRY_AUTH_ID, RUNPOD_SSH_KEY_PATH
+// Optional env: SLIDES_IMAGE, RUNPOD_REGISTRY_AUTH_ID, RUNPOD_SSH_KEY_PATH, RUNPOD_DATA_CENTERS
 
 require("dotenv").config();
 
@@ -18,9 +18,10 @@ import * as os from "os";
 import * as path from "path";
 
 const RUNPOD_API = "https://rest.runpod.io/v1";
-const POLL_INTERVAL_MS = 5000;
-const SSH_RETRY_ATTEMPTS = 12;
-const SSH_RETRY_DELAY_MS = 10000;
+const POLL_INTERVAL_MS = 10000;
+const POLL_MAX_ITERATIONS = 90;
+const SSH_RETRY_ATTEMPTS = 18;
+const SSH_RETRY_DELAY_MS = 15000;
 
 const args = process.argv.slice(2);
 const doBuild = args.includes("--build");
@@ -103,14 +104,19 @@ async function createPod(
 ): Promise<{ id: string; publicIp: string; sshPort: number }> {
 	const body: Record<string, unknown> = {
 		computeType: "CPU",
-		cpuFlavorIds: ["cpu5g", "cpu5m", "cpu3g"],
-		cpuFlavorPriority: "availability",
+		// Prefer larger CPU pods: cpu5g/cpu5m (8+ vCPU) before cpu3g (smaller)
+		cpuFlavorIds: ["cpu5g", "cpu5m", "cpu5c", "cpu3g", "cpu3m", "cpu3c"],
+		cpuFlavorPriority: "custom",
 		imageName: image,
 		name: "slides-render-ephemeral",
-		containerDiskInGb: 50,
+		containerDiskInGb: 20,
 		ports: ["22/tcp"],
 		supportPublicIp: true,
 		cloudType: "SECURE",
+		...(process.env.RUNPOD_DATA_CENTERS && {
+			dataCenterIds: process.env.RUNPOD_DATA_CENTERS.split(",").map((s) => s.trim()),
+			dataCenterPriority: "custom",
+		}),
 		env: {
 			SSH_PUBLIC_KEY: sshPublicKey,
 		},
@@ -146,7 +152,7 @@ async function createPod(
 }
 
 async function waitForRunning(podId: string): Promise<{ publicIp: string; sshPort: number }> {
-	for (let i = 0; i < 60; i++) {
+	for (let i = 0; i < POLL_MAX_ITERATIONS; i++) {
 		const pod = await runpodFetch(`/pods/${podId}`);
 		const publicIp = pod.publicIp || pod.machine?.publicIp || "";
 		const sshPort = pod.portMappings?.["22"] ?? 22;
@@ -157,6 +163,15 @@ async function waitForRunning(podId: string): Promise<{ publicIp: string; sshPor
 		await new Promise((r) => setTimeout(r, POLL_INTERVAL_MS));
 	}
 	throw new Error("Pod did not become ready in time");
+}
+
+async function destroyPod(podId: string): Promise<void> {
+	try {
+		await runpodFetch(`/pods/${podId}`, { method: "DELETE" });
+		console.log("Pod destroyed.");
+	} catch (e: any) {
+		console.error("Failed to destroy pod:", e.message);
+	}
 }
 
 function getSshKeyPath(): string {
@@ -219,14 +234,20 @@ async function main(): Promise<void> {
 
 	if (!publicIp || !sshPort) {
 		console.log("Waiting for pod to be ready...");
-		const ready = await waitForRunning(podInfo.id);
-		publicIp = ready.publicIp;
-		sshPort = ready.sshPort;
+		try {
+			const ready = await waitForRunning(podInfo.id);
+			publicIp = ready.publicIp;
+			sshPort = ready.sshPort;
+		} catch (e: any) {
+			console.error(e.message);
+			if (!noDestroy) await destroyPod(podInfo.id);
+			process.exit(1);
+		}
 	}
 
 	if (!publicIp) {
 		console.error("Could not get pod public IP. Check RunPod console.");
-		await runpodFetch(`/pods/${podInfo.id}`, { method: "DELETE" });
+		if (!noDestroy) await destroyPod(podInfo.id);
 		process.exit(1);
 	}
 
@@ -240,7 +261,7 @@ async function main(): Promise<void> {
 		}
 		if (attempt === SSH_RETRY_ATTEMPTS - 1) {
 			console.error("SSH connection failed after retries.");
-			if (!noDestroy) await runpodFetch(`/pods/${podInfo.id}`, { method: "DELETE" });
+			if (!noDestroy) await destroyPod(podInfo.id);
 			process.exit(1);
 		}
 		console.log(`SSH not ready, retrying in ${SSH_RETRY_DELAY_MS / 1000}s...`);
@@ -265,8 +286,7 @@ async function main(): Promise<void> {
 
 	if (!noDestroy) {
 		console.log("Destroying pod...");
-		await runpodFetch(`/pods/${podInfo.id}`, { method: "DELETE" });
-		console.log("Pod destroyed.");
+		await destroyPod(podInfo.id);
 	} else {
 		console.log("Pod kept (--no-destroy). Manual cleanup: RunPod console or API.");
 	}

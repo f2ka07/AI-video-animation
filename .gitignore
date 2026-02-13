@@ -1,5 +1,17 @@
 node_modules/
 .DS_Store
+# Windows reserved device names
+nul
+con
+prn
+aux
+com1
+com2
+com3
+com4
+lpt1
+lpt2
+lpt3
 *.log
 .env
 .env.local
@@ -13,7 +25,12 @@ src/assets/aws/*
 !node_modules/**/*.md
 
 # Generated content - platform only, do not push
+*.backup.*
 courses/
 courses.json
 public/audio/
 public/videos/
+public/assets/
+public/gentle-cache/
+public/whisper-cache/
+public/source_code/

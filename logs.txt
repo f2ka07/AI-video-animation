@@ -1,0 +1,264 @@
+2026-02-13T12:23:44.800429444Z Starting OpenBSD Secure Shell server: sshd.
+2026-02-13T12:23:45.221314108Z Skilleo AI GUI Server running on http://localhost:3001
+2026-02-13T12:23:45.221344004Z Remotion Studio should be on http://localhost:3000
+2026-02-13T12:24:32.424655639Z [api/courses] Found 1 total courses, filter: active
+2026-02-13T12:24:32.424679884Z [api/courses] Returning 1 courses after filter
+2026-02-13T12:24:41.650829487Z [api/courses] Found 1 total courses, filter: all
+2026-02-13T12:24:41.650836971Z [api/courses] Returning 1 courses after filter
+2026-02-13T12:24:42.501227111Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:42.501235767Z [slide-statuses] JSON file not found
+2026-02-13T12:24:42.888157113Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:42.888173684Z [slide-statuses] JSON file not found
+2026-02-13T12:24:43.055503856Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:43.055527600Z [slide-statuses] JSON file not found
+2026-02-13T12:24:43.429454065Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:43.429470205Z [slide-statuses] JSON file not found
+2026-02-13T12:24:43.489957533Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:43.489970958Z [slide-statuses] JSON file not found
+2026-02-13T12:24:43.668769414Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:43.668784201Z [slide-statuses] JSON file not found
+2026-02-13T12:24:43.805877627Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:43.805893176Z [slide-statuses] JSON file not found
+2026-02-13T12:24:43.891743418Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:43.891756533Z [slide-statuses] JSON file not found
+2026-02-13T12:24:44.098067453Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:44.098085677Z [slide-statuses] JSON file not found
+2026-02-13T12:24:44.212125256Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:44.212140645Z [slide-statuses] JSON file not found
+2026-02-13T12:24:44.294436667Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:44.294453278Z [slide-statuses] JSON file not found
+2026-02-13T12:24:44.308155228Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:44.308164025Z [slide-statuses] JSON file not found
+2026-02-13T12:24:44.513875326Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:44.513889352Z [slide-statuses] JSON file not found
+2026-02-13T12:24:44.602614257Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:44.602630257Z [slide-statuses] JSON file not found
+2026-02-13T12:24:44.715236683Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:44.715256930Z [slide-statuses] JSON file not found
+2026-02-13T12:24:44.720243302Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:44.720258421Z [slide-statuses] JSON file not found
+2026-02-13T12:24:44.767572544Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:44.767581341Z [slide-statuses] JSON file not found
+2026-02-13T12:24:44.913792295Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:44.913799038Z [slide-statuses] JSON file not found
+2026-02-13T12:24:45.027410358Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:45.027423823Z [slide-statuses] JSON file not found
+2026-02-13T12:24:45.124119337Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:45.124131670Z [slide-statuses] JSON file not found
+2026-02-13T12:24:45.131381985Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:45.131397645Z [slide-statuses] JSON file not found
+2026-02-13T12:24:45.192493588Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:45.192506372Z [slide-statuses] JSON file not found
+2026-02-13T12:24:45.419345096Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:45.419365003Z [slide-statuses] JSON file not found
+2026-02-13T12:24:45.540198426Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:45.540207904Z [slide-statuses] JSON file not found
+2026-02-13T12:24:45.541183604Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:45.541193893Z [slide-statuses] JSON file not found
+2026-02-13T12:24:45.646024603Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:45.646032789Z [slide-statuses] JSON file not found
+2026-02-13T12:24:45.647705639Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:45.647715347Z [slide-statuses] JSON file not found
+2026-02-13T12:24:45.829157746Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:45.829166562Z [slide-statuses] JSON file not found
+2026-02-13T12:24:45.993922802Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:45.993932240Z [slide-statuses] JSON file not found
+2026-02-13T12:24:46.046679068Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:46.046690560Z [slide-statuses] JSON file not found
+2026-02-13T12:24:46.047902761Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:46.047915345Z [slide-statuses] JSON file not found
+2026-02-13T12:24:46.247281309Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:46.247289093Z [slide-statuses] JSON file not found
+2026-02-13T12:24:46.377763101Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:46.377779361Z [slide-statuses] JSON file not found
+2026-02-13T12:24:46.452060061Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:46.452074457Z [slide-statuses] JSON file not found
+2026-02-13T12:24:46.457857596Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:46.457873255Z [slide-statuses] JSON file not found
+2026-02-13T12:24:46.546407204Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:46.546422963Z [slide-statuses] JSON file not found
+2026-02-13T12:24:46.649935384Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:46.649950262Z [slide-statuses] JSON file not found
+2026-02-13T12:24:46.761456755Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:46.761477043Z [slide-statuses] JSON file not found
+2026-02-13T12:24:46.864984495Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:46.864998401Z [slide-statuses] JSON file not found
+2026-02-13T12:24:46.866775526Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:46.866784723Z [slide-statuses] JSON file not found
+2026-02-13T12:24:47.270845272Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:47.270854860Z [slide-statuses] JSON file not found
+2026-02-13T12:24:47.279469751Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:47.279491922Z [slide-statuses] JSON file not found
+2026-02-13T12:24:47.293403584Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:47.293410297Z [slide-statuses] JSON file not found
+2026-02-13T12:24:47.294362583Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:47.294371770Z [slide-statuses] JSON file not found
+2026-02-13T12:24:47.457290072Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:47.457306673Z [slide-statuses] JSON file not found
+2026-02-13T12:24:47.681701628Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:47.681713561Z [slide-statuses] JSON file not found
+2026-02-13T12:24:47.683031199Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:47.683044303Z [slide-statuses] JSON file not found
+2026-02-13T12:24:47.686159805Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:47.686174382Z [slide-statuses] JSON file not found
+2026-02-13T12:24:47.887073717Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:47.887094676Z [slide-statuses] JSON file not found
+2026-02-13T12:24:47.896610037Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:47.896625896Z [slide-statuses] JSON file not found
+2026-02-13T12:24:48.097658830Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:48.097674730Z [slide-statuses] JSON file not found
+2026-02-13T12:24:48.099345316Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:48.099353962Z [slide-statuses] JSON file not found
+2026-02-13T12:24:48.296617515Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:48.296631691Z [slide-statuses] JSON file not found
+2026-02-13T12:24:48.435450986Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:48.435459482Z [slide-statuses] JSON file not found
+2026-02-13T12:24:48.513916703Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:48.513931961Z [slide-statuses] JSON file not found
+2026-02-13T12:24:48.599439735Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:48.599453891Z [slide-statuses] JSON file not found
+2026-02-13T12:24:48.694755455Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:48.694768760Z [slide-statuses] JSON file not found
+2026-02-13T12:24:48.826644101Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:48.826659750Z [slide-statuses] JSON file not found
+2026-02-13T12:24:49.005935447Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:49.005948150Z [slide-statuses] JSON file not found
+2026-02-13T12:24:49.017278507Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:49.017291681Z [slide-statuses] JSON file not found
+2026-02-13T12:24:49.112134209Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:49.112148115Z [slide-statuses] JSON file not found
+2026-02-13T12:24:49.242946086Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:49.242950164Z [slide-statuses] JSON file not found
+2026-02-13T12:24:49.412158279Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:49.412171033Z [slide-statuses] JSON file not found
+2026-02-13T12:24:49.417290984Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:49.417301063Z [slide-statuses] JSON file not found
+2026-02-13T12:24:49.431722606Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:49.431742573Z [slide-statuses] JSON file not found
+2026-02-13T12:24:49.620321044Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:49.620335871Z [slide-statuses] JSON file not found
+2026-02-13T12:24:49.623002406Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:49.623016191Z [slide-statuses] JSON file not found
+2026-02-13T12:24:49.827425173Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:49.827437476Z [slide-statuses] JSON file not found
+2026-02-13T12:24:49.832696186Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:49.832719580Z [slide-statuses] JSON file not found
+2026-02-13T12:24:49.838034705Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:49.838042720Z [slide-statuses] JSON file not found
+2026-02-13T12:24:50.246509058Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:50.246524106Z [slide-statuses] JSON file not found
+2026-02-13T12:24:50.253743724Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:50.253757770Z [slide-statuses] JSON file not found
+2026-02-13T12:24:50.257209049Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:50.257222824Z [slide-statuses] JSON file not found
+2026-02-13T12:24:50.449695539Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:50.449709716Z [slide-statuses] JSON file not found
+2026-02-13T12:24:50.473295635Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:50.473303089Z [slide-statuses] JSON file not found
+2026-02-13T12:24:50.658013203Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:50.658026487Z [slide-statuses] JSON file not found
+2026-02-13T12:24:50.664082835Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:50.664097182Z [slide-statuses] JSON file not found
+2026-02-13T12:24:50.761568243Z [render-course] Starting batch render: npx tsx "/app/scripts/renderAllModules.ts" --concurrency=4
+2026-02-13T12:24:50.855075600Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:50.855095196Z [slide-statuses] JSON file not found
+2026-02-13T12:24:50.864292504Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:50.864305668Z [slide-statuses] JSON file not found
+2026-02-13T12:24:51.055182867Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:51.055205238Z [slide-statuses] JSON file not found
+2026-02-13T12:24:51.064177386Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:51.064194177Z [slide-statuses] JSON file not found
+2026-02-13T12:24:51.270182205Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:51.270191843Z [slide-statuses] JSON file not found
+2026-02-13T12:24:51.285577805Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:51.285591410Z [slide-statuses] JSON file not found
+2026-02-13T12:24:51.464142234Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:51.464162742Z [slide-statuses] JSON file not found
+2026-02-13T12:24:51.470118633Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:51.470133581Z [slide-statuses] JSON file not found
+2026-02-13T12:24:51.682654726Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:51.682661799Z [slide-statuses] JSON file not found
+2026-02-13T12:24:51.688956512Z [slide-statuses] Checking: /app/courses/default/timings/module1.json
+2026-02-13T12:24:51.688969216Z [slide-statuses] JSON file not found
+2026-02-13T12:24:51.690945472Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:51.690953678Z [slide-statuses] JSON file not found
+2026-02-13T12:24:51.876848492Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:51.876862888Z [slide-statuses] JSON file not found
+2026-02-13T12:24:52.078498256Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:52.078510439Z [slide-statuses] JSON file not found
+2026-02-13T12:24:52.090669161Z [slide-statuses] Checking: /app/courses/default/timings/module2.json
+2026-02-13T12:24:52.090678138Z [slide-statuses] JSON file not found
+2026-02-13T12:24:52.104070851Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:52.104077444Z [slide-statuses] JSON file not found
+2026-02-13T12:24:52.487046206Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:52.487056095Z [slide-statuses] JSON file not found
+2026-02-13T12:24:52.501812162Z [slide-statuses] Checking: /app/courses/default/timings/module3.json
+2026-02-13T12:24:52.501822020Z [slide-statuses] JSON file not found
+2026-02-13T12:24:52.507461050Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:52.507467111Z [slide-statuses] JSON file not found
+2026-02-13T12:24:52.911363714Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:52.911370226Z [slide-statuses] JSON file not found
+2026-02-13T12:24:52.912601573Z [slide-statuses] Checking: /app/courses/default/timings/module4.json
+2026-02-13T12:24:52.912609258Z [slide-statuses] JSON file not found
+2026-02-13T12:24:53.530579261Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:53.530591624Z [slide-statuses] JSON file not found
+2026-02-13T12:24:53.929668587Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:53.929692641Z [slide-statuses] JSON file not found
+2026-02-13T12:24:54.443137675Z [slide-statuses] Checking: /app/courses/default/timings/module5.json
+2026-02-13T12:24:54.443144608Z [slide-statuses] JSON file not found
+2026-02-13T12:25:03.144192021Z [render-course] stderr: Error: Maximum for --concurrency is 2 (number of cores on this system)
+2026-02-13T12:25:03.144212599Z     at Object.resolveConcurrency (/app/node_modules/@remotion/renderer/dist/get-concurrency.js:20:15)
+2026-02-13T12:25:03.144215254Z     at getRenderDefaults (/app/node_modules/@remotion/cli/dist/get-render-defaults.js:16:52)
+2026-02-13T12:25:03.144217078Z     at bundleOnCli (/app/node_modules/@remotion/cli/dist/setup-cache.js:159:69)
+2026-02-13T12:25:03.144218951Z     at async bundleOnCliOrTakeServeUrl (/app/node_modules/@remotion/cli/dist/setup-cache.js:35:21)
+2026-02-13T12:25:03.144220785Z     at async renderVideoFlow (/app/node_modules/@remotion/cli/dist/render-flows/render.js:162:53)
+2026-02-13T12:25:03.144222468Z     at async render (/app/node_modules/@remotion/cli/dist/render.js:122:5)
+2026-02-13T12:25:03.144224391Z     at async cli (/app/node_modules/@remotion/cli/dist/index.js:95:13)
+2026-02-13T12:25:03.153973138Z [render-course] stderr: Module 1 FAILED after 12s
+2026-02-13T12:25:03.154048348Z [render-course] stderr: Error: Command failed: npx remotion render src/index.tsx module-1 "/app/out/agentic-ai-labs-deep-dive/module-1.mp4" --concurrency=4 --jpeg-quality=85
+2026-02-13T12:25:03.559719040Z [render-course] stderr: Error: Maximum for --concurrency is 2 (number of cores on this system)
+2026-02-13T12:25:03.559728007Z     at Object.resolveConcurrency (/app/node_modules/@remotion/renderer/dist/get-concurrency.js:20:15)
+2026-02-13T12:25:03.559730131Z     at getRenderDefaults (/app/node_modules/@remotion/cli/dist/get-render-defaults.js:16:52)
+2026-02-13T12:25:03.559731884Z     at bundleOnCli (/app/node_modules/@remotion/cli/dist/setup-cache.js:159:69)
+2026-02-13T12:25:03.559733628Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2026-02-13T12:25:03.559735401Z     at async bundleOnCliOrTakeServeUrl (/app/node_modules/@remotion/cli/dist/setup-cache.js:35:21)
+2026-02-13T12:25:03.559737084Z     at async renderVideoFlow (/app/node_modules/@remotion/cli/dist/render-flows/render.js:162:53)
+2026-02-13T12:25:03.559738737Z     at async render (/app/node_modules/@remotion/cli/dist/render.js:122:5)
+2026-02-13T12:25:03.559740651Z     at async cli (/app/node_modules/@remotion/cli/dist/index.js:95:13)
+2026-02-13T12:25:03.568374818Z [render-course] stderr: Module 2 FAILED after 0s
+2026-02-13T12:25:03.568416095Z [render-course] stderr: Error: Command failed: npx remotion render src/index.tsx module-2 "/app/out/agentic-ai-labs-deep-dive/module-2.mp4" --concurrency=4 --jpeg-quality=85
+2026-02-13T12:25:03.975997081Z [render-course] stderr: Error: Maximum for --concurrency is 2 (number of cores on this system)
+2026-02-13T12:25:03.976005587Z     at Object.resolveConcurrency (/app/node_modules/@remotion/renderer/dist/get-concurrency.js:20:15)
+2026-02-13T12:25:03.976007781Z     at getRenderDefaults (/app/node_modules/@remotion/cli/dist/get-render-defaults.js:16:52)
+2026-02-13T12:25:03.976009524Z     at bundleOnCli (/app/node_modules/@remotion/cli/dist/setup-cache.js:159:69)
+2026-02-13T12:25:03.976011388Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2026-02-13T12:25:03.976013141Z     at async bundleOnCliOrTakeServeUrl (/app/node_modules/@remotion/cli/dist/setup-cache.js:35:21)
+2026-02-13T12:25:03.976014804Z     at async renderVideoFlow (/app/node_modules/@remotion/cli/dist/render-flows/render.js:162:53)
+2026-02-13T12:25:03.976016467Z     at async render (/app/node_modules/@remotion/cli/dist/render.js:122:5)
+2026-02-13T12:25:03.976018210Z     at async cli (/app/node_modules/@remotion/cli/dist/index.js:95:13)
+2026-02-13T12:25:03.984592766Z [render-course] stderr: Module 3 FAILED after 0s
+2026-02-13T12:25:03.984638862Z [render-course] stderr: Error: Command failed: npx remotion render src/index.tsx module-3 "/app/out/agentic-ai-labs-deep-dive/module-3.mp4" --concurrency=4 --jpeg-quality=85
+2026-02-13T12:25:04.390571002Z [render-course] stderr: Error: Maximum for --concurrency is 2 (number of cores on this system)
+2026-02-13T12:25:04.390585740Z     at Object.resolveConcurrency (/app/node_modules/@remotion/renderer/dist/get-concurrency.js:20:15)
+2026-02-13T12:25:04.390587242Z     at getRenderDefaults (/app/node_modules/@remotion/cli/dist/get-render-defaults.js:16:52)
+2026-02-13T12:25:04.390588425Z     at bundleOnCli (/app/node_modules/@remotion/cli/dist/setup-cache.js:159:69)
+2026-02-13T12:25:04.390589797Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2026-02-13T12:25:04.390590929Z     at async bundleOnCliOrTakeServeUrl (/app/node_modules/@remotion/cli/dist/setup-cache.js:35:21)
+2026-02-13T12:25:04.390592041Z     at async renderVideoFlow (/app/node_modules/@remotion/cli/dist/render-flows/render.js:162:53)
+2026-02-13T12:25:04.390593274Z     at async render (/app/node_modules/@remotion/cli/dist/render.js:122:5)
+2026-02-13T12:25:04.390594346Z     at async cli (/app/node_modules/@remotion/cli/dist/index.js:95:13)
+2026-02-13T12:25:04.399485883Z [render-course] stderr: Module 4 FAILED after 0s
+2026-02-13T12:25:04.399518644Z [render-course] stderr: Error: Command failed: npx remotion render src/index.tsx module-4 "/app/out/agentic-ai-labs-deep-dive/module-4.mp4" --concurrency=4 --jpeg-quality=85
+2026-02-13T12:25:04.806186577Z [render-course] stderr: Error: Maximum for --concurrency is 2 (number of cores on this system)
+2026-02-13T12:25:04.806196575Z     at Object.resolveConcurrency (/app/node_modules/@remotion/renderer/dist/get-concurrency.js:20:15)
+2026-02-13T12:25:04.806199010Z     at getRenderDefaults (/app/node_modules/@remotion/cli/dist/get-render-defaults.js:16:52)
+2026-02-13T12:25:04.806202326Z     at bundleOnCli (/app/node_modules/@remotion/cli/dist/setup-cache.js:159:69)
+2026-02-13T12:25:04.806204280Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2026-02-13T12:25:04.806206223Z     at async bundleOnCliOrTakeServeUrl (/app/node_modules/@remotion/cli/dist/setup-cache.js:35:21)
+2026-02-13T12:25:04.806208367Z     at async renderVideoFlow (/app/node_modules/@remotion/cli/dist/render-flows/render.js:162:53)
+2026-02-13T12:25:04.806210271Z     at async render (/app/node_modules/@remotion/cli/dist/render.js:122:5)
+2026-02-13T12:25:04.806212205Z     at async cli (/app/node_modules/@remotion/cli/dist/index.js:95:13)
+2026-02-13T12:25:04.815396718Z [render-course] stderr: Module 5 FAILED after 0s
+2026-02-13T12:25:04.815434619Z [render-course] stderr: Error: Command failed: npx remotion render src/index.tsx module-5 "/app/out/agentic-ai-labs-deep-dive/module-5.mp4" --concurrency=4 --jpeg-quality=85
+2026-02-13T12:25:15.603269442Z [generate-preview-modules] Running: npx tsx scripts/generateModulesFromContent.ts all --preview
+2026-02-13T12:25:16.022759374Z [generate-preview-modules] Preview modules generated successfully

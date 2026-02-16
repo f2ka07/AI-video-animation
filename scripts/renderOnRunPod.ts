@@ -9,10 +9,12 @@
 //
 // Required env: RUNPOD_API_KEY
 // Optional env: SLIDES_IMAGE, RUNPOD_REGISTRY_AUTH_ID, RUNPOD_SSH_KEY_PATH, RUNPOD_DATA_CENTERS
+// Optional env: RUNPOD_USE_GPU=true (use GPU pod for more vCPU/RAM; ~$0.60+/hr vs CPU)
+// Optional env: RUNPOD_MIN_VCPU=9 (min vCPUs; for GPU pods use minVCPUPerGPU)
 
 require("dotenv").config();
 
-import { execSync } from "child_process";
+import { execSync, spawn } from "child_process";
 import * as fs from "fs";
 import * as os from "os";
 import * as path from "path";
@@ -26,14 +28,23 @@ const SSH_RETRY_DELAY_MS = 15000;
 const args = process.argv.slice(2);
 const doBuild = args.includes("--build");
 const noDestroy = args.includes("--no-destroy");
+if (args.includes("--gpu")) {
+	process.env.RUNPOD_USE_GPU = "true";
+}
 const presetArg = args.find((a) => a.startsWith("--preset="));
 const modulesArg = args.find((a) => a.startsWith("--modules="));
 
 const renderArgs = args.filter(
-	(a) => a !== "--build" && a !== "--no-destroy" && !a.startsWith("--preset=") && !a.startsWith("--modules=")
+	(a) => a !== "--build" && a !== "--no-destroy" && a !== "--gpu" && !a.startsWith("--preset=") && !a.startsWith("--modules=") && !a.startsWith("--concurrency=")
 );
 if (presetArg) renderArgs.push(presetArg);
 if (modulesArg) renderArgs.push(modulesArg);
+// GPU pods: use high concurrency to utilize all vCPUs (default 28 for 32 vCPU)
+const runpodConcurrency = process.env.RUNPOD_CONCURRENCY || (process.env.RUNPOD_USE_GPU === "true" ? "28" : "");
+if (runpodConcurrency) renderArgs.push(`--concurrency=${runpodConcurrency}`);
+// Optional: lower scale for speed (0.75 = 810p, 0.5 = 540p)
+const runpodScale = process.env.RUNPOD_SCALE;
+if (runpodScale) renderArgs.push(`--scale=${runpodScale}`);
 
 function requireEnv(name: string): string {
 	const v = process.env[name];
@@ -102,11 +113,10 @@ async function createPod(
 	image: string,
 	sshPublicKey: string
 ): Promise<{ id: string; publicIp: string; sshPort: number }> {
+	const useGpu = process.env.RUNPOD_USE_GPU === "true" || process.env.RUNPOD_USE_GPU === "1";
+	const minVcpu = parseInt(process.env.RUNPOD_MIN_VCPU || "16", 10) || 16;
+
 	const body: Record<string, unknown> = {
-		computeType: "CPU",
-		// Prefer larger CPU pods: cpu5g/cpu5m (8+ vCPU) before cpu3g (smaller)
-		cpuFlavorIds: ["cpu5g", "cpu5m", "cpu5c", "cpu3g", "cpu3m", "cpu3c"],
-		cpuFlavorPriority: "custom",
 		imageName: image,
 		name: "slides-render-ephemeral",
 		containerDiskInGb: 20,
@@ -134,6 +144,19 @@ async function createPod(
 		],
 	};
 
+	if (useGpu) {
+		body.computeType = "GPU";
+		body.gpuCount = 1;
+		body.gpuTypeIds = ["NVIDIA GeForce RTX 4090", "NVIDIA GeForce RTX 4080", "NVIDIA L40S"];
+		body.gpuTypePriority = "availability";
+		body.minVCPUPerGPU = minVcpu;
+		body.minRAMPerGPU = 16;
+	} else {
+		body.computeType = "CPU";
+		body.cpuFlavorIds = ["cpu5g", "cpu5m", "cpu5c", "cpu3g", "cpu3m", "cpu3c"];
+		body.cpuFlavorPriority = "custom";
+	}
+
 	const authId = process.env.RUNPOD_REGISTRY_AUTH_ID;
 	if (authId) {
 		body.containerRegistryAuthId = authId;
@@ -143,7 +166,10 @@ async function createPod(
 	if (!pod?.id) {
 		throw new Error("RunPod API did not return pod id");
 	}
-	console.log(`Created pod ${pod.id}`);
+	const podType = useGpu ? "GPU" : "CPU";
+	const vcpu = pod.vcpuCount ?? pod.machine?.cpuCount ?? "?";
+	const mem = pod.memoryInGb ?? pod.machine?.memoryInGb ?? "?";
+	console.log(`Created ${podType} pod ${pod.id} (${vcpu} vCPU, ${mem} GB)`);
 	return {
 		id: pod.id,
 		publicIp: pod.publicIp || pod.machine?.publicIp || "",
@@ -202,6 +228,27 @@ function sshExec(
 	}
 }
 
+function sshExecStream(
+	publicIp: string,
+	sshPort: number,
+	command: string
+): Promise<number> {
+	return new Promise((resolve) => {
+		const keyPath = getSshKeyPath();
+		const args = [
+			"-o", "StrictHostKeyChecking=no",
+			"-o", "UserKnownHostsFile=/dev/null",
+			"-o", "ConnectTimeout=10",
+			"-i", keyPath,
+			"-p", String(sshPort),
+			`root@${publicIp}`,
+			command,
+		];
+		const proc = spawn("ssh", args, { stdio: "inherit", shell: process.platform === "win32" });
+		proc.on("close", (code) => resolve(code ?? 0));
+	});
+}
+
 function scpFromPod(publicIp: string, sshPort: number, remotePath: string, localPath: string): void {
 	const keyPath = getSshKeyPath();
 	const cmd = `scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r -P ${sshPort} -i "${keyPath}" "root@${publicIp}:${remotePath}" "${localPath}"`;
@@ -220,7 +267,8 @@ async function main(): Promise<void> {
 		await buildAndPush(image);
 	}
 
-	console.log("Creating RunPod CPU pod...");
+	const useGpu = process.env.RUNPOD_USE_GPU === "true" || process.env.RUNPOD_USE_GPU === "1";
+	console.log(`Creating RunPod ${useGpu ? "GPU" : "CPU"} pod...`);
 	let podInfo: { id: string; publicIp: string; sshPort: number };
 	try {
 		podInfo = await createPod(image, sshPublicKey);
@@ -269,10 +317,9 @@ async function main(): Promise<void> {
 	}
 
 	const remoteCmd = `cd /app && npx tsx scripts/renderAllModules.ts ${renderArgs.join(" ")}`;
-	console.log("Running render on pod...");
-	const renderResult = sshExec(publicIp, sshPort, remoteCmd);
-	if (renderResult.stdout) console.log(renderResult.stdout);
-	if (renderResult.stderr) console.error(renderResult.stderr);
+	console.log("Running render on pod... (output streams below)");
+	console.log("Render args:", renderArgs.join(" "));
+	const renderCode = await sshExecStream(publicIp, sshPort, remoteCmd);
 
 	const localOut = path.join(__dirname, "..", "out");
 	const remoteOut = "/app/out";
@@ -293,7 +340,7 @@ async function main(): Promise<void> {
 
 	console.log("=".repeat(60));
 	console.log("Done.");
-	process.exit(renderResult.code);
+	process.exit(renderCode);
 }
 
 main().catch((e) => {

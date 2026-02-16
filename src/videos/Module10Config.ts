@@ -4,26 +4,22 @@
 import { getAudioDuration } from "../utils/audioDuration";
 
 const audioDurations = [
-	getAudioDuration("module10-title"),
-	getAudioDuration("module10-stackConfigBasics"),
-	getAudioDuration("module10-createStackConfig"),
-	getAudioDuration("module10-manageSecrets"),
-	getAudioDuration("module10-deployMultipleEnvironments"),
-	getAudioDuration("module10-summary")
+	getAudioDuration("agentic-ai-for-beginners/module10-module-10-title"),
+	getAudioDuration("agentic-ai-for-beginners/module10-module-10-concept"),
+	getAudioDuration("agentic-ai-for-beginners/module10-module-10-architecture"),
+	getAudioDuration("agentic-ai-for-beginners/module10-module-10-application"),
+	getAudioDuration("agentic-ai-for-beginners/module10-module-10-exam-mapping"),
+	getAudioDuration("agentic-ai-for-beginners/module10-module-10-recap")
 ];
 
 const whooshDuration = 0.57;
-const summaryBuffer = 0.5;
-const totalDuration = audioDurations.reduce((sum, audioDur, index) => {
-	const isLastSlide = index === audioDurations.length - 1;
-	const slideDuration = audioDur + (isLastSlide ? summaryBuffer : 0);
-	const whooshTime = isLastSlide ? 0 : whooshDuration;
-	return sum + slideDuration + whooshTime;
-}, 0);
+const slideBuffer = 1.0;
+const lastSlideBuffer = 1.2;
+const totalDuration = 417.11;
 
 export const Module10Config = {
 	id: "module-10",
-	title: "Multi-Environment Management",
+	title: "Knowledge Integration and RAG",
 	fps: 30,
 	width: 1920,
 	height: 1080,

@@ -4,6 +4,8 @@
 import * as fs from "fs";
 import * as path from "path";
 import { allModules, ModuleContent } from "../src/videos/moduleContent";
+import { loadSlideSplits, expandSlidesWithSplits, EffectiveSegment } from "./loadSlideSplits";
+import { getAudioDuration } from "../src/utils/audioDuration";
 
 /** Load code for a slide from content.json when moduleContent lacks it */
 function getCodeFromContentJson(courseId: string, moduleNumber: number, slideName: string): string | undefined {
@@ -121,6 +123,25 @@ export const Module${module.moduleNumber}Config = {
 			return `\t(${sumExpr})`;
 		});
 
+		// Check for slide splits - affects totalDuration when present
+		const splits = loadSlideSplits(courseId);
+		const getDur = (sn: string) => getAudioDuration(`${courseId}/module${module.moduleNumber}-${sn}`);
+		const effectiveSegments = expandSlidesWithSplits(module.slides, splits, getDur);
+		const hasSplits = effectiveSegments.length !== module.slides.length;
+
+		const totalDurationExpr = hasSplits
+			? effectiveSegments.reduce((sum, s) => {
+				const buf = s.isLastInModule ? 1.2 : 1.0;
+				const whoosh = s.isLastInGroup && !s.isLastInModule ? 0.57 : 0;
+				return sum + s.segmentDurationSeconds + buf + whoosh;
+			}, 0).toFixed(2)
+			: `audioDurations.reduce((sum, audioDur, index) => {
+	const isLastSlide = index === audioDurations.length - 1;
+	const slideDuration = audioDur + (isLastSlide ? lastSlideBuffer : slideBuffer);
+	const whooshTime = isLastSlide ? 0 : whooshDuration;
+	return sum + slideDuration + whooshTime;
+}, 0)`;
+
 		return `// Configuration for Module ${module.moduleNumber} video
 // Auto-generated from moduleContent.ts - DO NOT EDIT MANUALLY
 
@@ -131,13 +152,9 @@ ${audioDurationsEntries.join(",\n")}
 ];
 
 const whooshDuration = 0.57;
-const summaryBuffer = 0.5;
-const totalDuration = audioDurations.reduce((sum, audioDur, index) => {
-	const isLastSlide = index === audioDurations.length - 1;
-	const slideDuration = audioDur + (isLastSlide ? summaryBuffer : 0);
-	const whooshTime = isLastSlide ? 0 : whooshDuration;
-	return sum + slideDuration + whooshTime;
-}, 0);
+const slideBuffer = 1.0;
+const lastSlideBuffer = 1.2;
+const totalDuration = ${totalDurationExpr};
 
 export const Module${module.moduleNumber}Config = {
 	id: "module-${module.moduleNumber}",
@@ -204,45 +221,87 @@ function generateModuleFile(module: ModuleContent, previewMode: boolean = false)
 	// Determine if this is a short video
 	const isShort = module.videoCategory === "short";
 	const fixedSlideDuration = 5; // 5 seconds for short videos
-	
+
+	// For standard videos: check slide splits (content-single/content-two-card can be split into segments)
+	// Skip splits in preview mode (no audio files to measure)
+	const splits = !previewMode ? loadSlideSplits(courseId) : {};
+	const getDur = (sn: string) => {
+		if (previewMode) return fixedDur;
+		return getAudioDuration(`${courseId}/module${module.moduleNumber}-${sn}`);
+	};
+	const effectiveSegments = expandSlidesWithSplits(module.slides, splits, getDur);
+	const hasSplits = !previewMode && effectiveSegments.length !== module.slides.length;
+
 	// Generate slide timings
-	const slideTimings = slideNames
-		.map((name, index) => {
-			const isLast = index === slideNames.length - 1;
-			const varName = toValidIdentifier(name);
-			
-			if (isShort) {
-				// Short videos: fixed 5-second duration per slide
-				const slideDuration = fixedSlideDuration;
-				const whooshDuration = 0.57;
-				const start = index * (slideDuration + whooshDuration) * 30; // fps = 30
-				const duration = slideDuration * 30;
-				return `\tconst ${varName}Slide = {
+	const slideTimings = (() => {
+		if (isShort) {
+			return slideNames
+				.map((name, index) => {
+					const varName = toValidIdentifier(name);
+					const slideDuration = fixedSlideDuration;
+					const whooshDuration = 0.57;
+					const start = index * (slideDuration + whooshDuration) * 30;
+					const duration = slideDuration * 30;
+					return `\tconst ${varName}Slide = {
 		start: ${start},
 		duration: ${duration},
 		slideDuration: ${slideDuration},
 		audioDuration: ${slideDuration},
 		buffer: 0
 	};`;
-			} else {
-				// Standard videos: audio-based duration
-				// Add 0.3s buffer to all slides to prevent audio cutoff from WAV rounding/playback timing
-				const buffer = isLast ? ", true, 0.8" : ", false, 0.3";
-				const quotedName = quotePropertyName(name);
-				return `\tconst ${varName}Slide = addSlide(audioDurations[${quotedName}]${buffer});`;
-			}
-		})
-		.join("\n");
+				})
+				.join("\n");
+		}
+		if (hasSplits) {
+			// Use addSegment: whoosh only between slide groups (isLastInGroup && !isLastInModule)
+			return effectiveSegments
+				.map((seg, i) => {
+					const buf = seg.isLastInModule ? 1.2 : 1.0;
+					const args = `${seg.segmentDurationSeconds.toFixed(2)}, ${seg.isLastInGroup}, ${seg.isLastInModule}, ${buf}`;
+					return `\tconst seg${i} = addSegment(${args});`;
+				})
+				.join("\n");
+		}
+		// Standard: one addSlide per slide
+		return slideNames
+			.map((name, index) => {
+				const isLast = index === slideNames.length - 1;
+				const varName = toValidIdentifier(name);
+				const buffer = isLast ? ", true, 1.2" : ", false, 1.0";
+				return `\tconst ${varName}Slide = addSlide(audioDurations["${name.replace(/"/g, '\\"')}"]${buffer});`;
+			})
+			.join("\n");
+	})();
 
-	// Generate slide sequences
-	const sequences = module.slides
-		.map((slide, index) => {
-			const isFirst = index === 0;
-			const isLast = index === module.slides.length - 1;
-			const slideVar = `${toValidIdentifier(slide.name)}Slide`;
+	// Build list of items to render: effectiveSegments when hasSplits, else one "virtual segment" per slide
+	type RenderItem = { slide: typeof module.slides[0]; points: string[]; segmentStart: number; segmentDuration: number; slideVar: string; isFirst: boolean; isLast: boolean; needsWhoosh: boolean };
+	const renderItems: RenderItem[] = hasSplits
+		? effectiveSegments.map((seg, i) => ({
+			slide: seg.slide,
+			points: seg.points,
+			segmentStart: seg.segmentStartSeconds,
+			segmentDuration: seg.segmentDurationSeconds,
+			slideVar: `seg${i}`,
+			isFirst: i === 0,
+			isLast: seg.isLastInModule,
+			needsWhoosh: seg.isLastInGroup && !seg.isLastInModule,
+		}))
+		: module.slides.map((slide, i) => ({
+			slide,
+			points: slide.points || [],
+			segmentStart: 0,
+			segmentDuration: 0, // use slideVar.audioDuration at render
+			slideVar: `${toValidIdentifier(slide.name)}Slide`,
+			isFirst: i === 0,
+			isLast: i === module.slides.length - 1,
+			needsWhoosh: i < module.slides.length - 1,
+		}));
 
-			let slideComponent = "";
-			switch (slide.type) {
+	const sequences = renderItems.map((item) => {
+		const { slide, points, segmentStart, segmentDuration, slideVar, isFirst, isLast, needsWhoosh } = item;
+
+		let slideComponent = "";
+		switch (slide.type) {
 				case "title": {
 					const titleAnimationProp = slide.animation ? `animation="${slide.animation}"` : "";
 					const subtitleText = normalizeSubtitle(slide.subtitle || module.subtitle);
@@ -254,38 +313,40 @@ function generateModuleFile(module: ModuleContent, previewMode: boolean = false)
 					break;
 				}
 			case "content-two-card": {
-				const points = slide.points?.map((p) => `"${p.replace(/"/g, '\\"')}"`).join(",\n\t\t\t\t\t") || "";
+				const pointsStr = points.map((p) => `"${p.replace(/"/g, '\\"')}"`).join(",\n\t\t\t\t\t") || "";
 				const animationPropTwoCard = slide.animation ? `animation="${slide.animation}"` : "";
 				const imagePropTwoCard = !slide.animation && slide.imageSrc ? `imageSrc="${slide.imageSrc}"` : "";
 				const slideTitle = normalizeConclusionTitle(slide.title, isLast).replace(/"/g, '\\"');
+				const audioStartOffsetProp = hasSplits && segmentStart > 0 ? `\n\t\t\t\t\taudioStartOffset={${segmentStart.toFixed(2)}}` : "";
 				slideComponent = `<AnimatedContentSlide
 \t\t\t\t\ttitle="${slideTitle}"
 \t\t\t\t\tpoints={[
-\t\t\t\t\t\t${points}
+\t\t\t\t\t\t${pointsStr}
 \t\t\t\t\t]}
 \t\t\t\t\tslideName="${slide.name}"
 \t\t\t\t\taudioDuration={${slideVar}.audioDuration}
 \t\t\t\t\tmoduleNumber={${module.moduleNumber}}
 \t\t\t\t\t${animationPropTwoCard}
-\t\t\t\t\t${imagePropTwoCard}
+\t\t\t\t\t${imagePropTwoCard}${audioStartOffsetProp}
 \t\t\t\t/>`;
 				break;
 			}
 			case "content-single":
-				const pointsSingle = slide.points?.map((p) => `"${p.replace(/"/g, '\\"')}"`).join(",\n\t\t\t\t\t") || "";
+				const pointsSingleStr = points.map((p) => `"${p.replace(/"/g, '\\"')}"`).join(",\n\t\t\t\t\t") || "";
 				const animationProp = slide.animation ? `animation="${slide.animation}"` : "";
 				const imagePropSingle = !slide.animation && slide.imageSrc ? `imageSrc="${slide.imageSrc}"` : "";
+				const audioStartOffsetPropSingle = hasSplits && segmentStart > 0 ? `\n\t\t\t\t\taudioStartOffset={${segmentStart.toFixed(2)}}` : "";
 				slideComponent = `<AnimatedContentSlide
 \t\t\t\t\ttitle="${slide.title?.replace(/"/g, '\\"') || ""}"
 \t\t\t\t\tpoints={[
-\t\t\t\t\t\t${pointsSingle}
+\t\t\t\t\t\t${pointsSingleStr}
 \t\t\t\t\t]}
 \t\t\t\t\tslideName="${slide.name}"
 \t\t\t\t\taudioDuration={${slideVar}.audioDuration}
 \t\t\t\t\tmoduleNumber={${module.moduleNumber}}
 \t\t\t\t\t${animationProp}
-\t\t\t\t\t${imagePropSingle}
-\t\t\t/>`;
+\t\t\t\t\t${imagePropSingle}${audioStartOffsetPropSingle}
+\t\t/>`;
 				break;
 			case "bullets-code": {
 				const pointsBulletsCode = slide.points?.map((p) => `"${p.replace(/"/g, '\\"')}"`).join(",\n\t\t\t\t\t\t") || "";
@@ -393,7 +454,9 @@ function generateModuleFile(module: ModuleContent, previewMode: boolean = false)
 							: `Math.round((${Array.from({ length: i }, (_, j) => `audioDurations["${slide.name}-${j + 1}"]`).join(" + ")}) * fps)`;
 						return `\t\t\t\t<Sequence from={${fromFrames}}><Audio src={audioFiles[${qk}]} /></Sequence>`;
 					}).join("\n")
-				: `\t\t\t\t<Audio src={audioFiles["${slide.name}"]} />`;
+				: (hasSplits && segmentStart > 0
+					? `\t\t\t\t<Audio src={audioFiles["${slide.name}"]} startFrom={Math.round(${segmentStart.toFixed(2)} * fps)} />`
+					: `\t\t\t\t<Audio src={audioFiles["${slide.name}"]} />`);
 
 			return `\t\t\t{/* ${slide.title || slide.name} */}
 \t\t\t<Sequence
@@ -409,16 +472,16 @@ ${audioElements}
 \t\t\t\t\t${slideComponent}
 \t\t\t\t</CrossFadeWrapper>
 \t\t\t</Sequence>
-${isLast ? "" : `\t\t\t{/* Whoosh transition */}
+${needsWhoosh ? `\t\t\t{/* Whoosh transition */}
 \t\t\t<Sequence
 \t\t\t\tfrom={${slideVar}.start + ${slideVar}.duration}
 \t\t\t\tdurationInFrames={whooshDuration * fps}
 \t\t\t>
 \t\t\t\t<Audio src={audioFiles.whoosh} startFrom={0} />
 \t\t\t</Sequence>
-`}`;
-		})
-		.join("\n");
+` : ""}`;
+	})
+	.join("\n");
 
 	const imports = [
 		'import React from "react";',
@@ -465,7 +528,13 @@ ${audioDurations}
 \t\t\tcurrentFrame += slideDuration * fps;
 \t\t}
 \t\treturn { start, duration: slideDuration * fps, slideDuration, audioDuration, buffer };
-\t};`}
+\t};${hasSplits ? `
+\tconst addSegment = (audioDuration: number, isLastInGroup: boolean, isLastInModule: boolean, buffer: number) => {
+\t\tconst slideDuration = audioDuration + buffer;
+\t\tconst start = currentFrame;
+\t\tcurrentFrame += slideDuration * fps + (isLastInGroup && !isLastInModule ? whooshDuration * fps : 0);
+\t\treturn { start, duration: slideDuration * fps, slideDuration, audioDuration, buffer };
+\t};` : ""}`}
 
 ${slideTimings}
 
@@ -487,41 +556,36 @@ ${sequences}
 
 function updateRootFile(modules: ModuleContent[]): void {
 	const rootPath = path.join(__dirname, "../src/Root.tsx");
-	let rootContent = fs.readFileSync(rootPath, "utf-8");
+	const courseIds = [...new Set(modules.map((m) => m.courseId))];
+	const singleCourse = courseIds.length === 1 ? courseIds[0] : null;
 
-	// Remove old module imports and compositions
-	rootContent = rootContent.replace(/import.*Module\d+.*from.*\n/g, "");
-	rootContent = rootContent.replace(/import.*Module\d+Config.*from.*\n/g, "");
-	rootContent = rootContent.replace(/<Composition[\s\S]*?\/>\n/g, "");
-
-	// Add new imports
-	const imports = modules
-		.map(
-			(m) =>
-				`import { Module${m.moduleNumber} } from "./videos/Module${m.moduleNumber}";\nimport { Module${m.moduleNumber}Config } from "./videos/Module${m.moduleNumber}Config";`
-		)
-		.join("\n");
-
-	// Add compositions
 	const compositions = modules
-		.map(
-			(m) => `\t\t\t<Composition
-\t\t\t\tid={Module${m.moduleNumber}Config.id}
-\t\t\t\tcomponent={Module${m.moduleNumber}}
-\t\t\t\tdurationInFrames={secondsToFrames(Module${m.moduleNumber}Config.totalDuration, Module${m.moduleNumber}Config.fps)}
-\t\t\t\tfps={Module${m.moduleNumber}Config.fps}
-\t\t\t\twidth={Module${m.moduleNumber}Config.width}
-\t\t\t\theight={Module${m.moduleNumber}Config.height}
-\t\t\t/>`
-		)
+		.map((m) => {
+			const compId =
+				singleCourse && m.courseId === singleCourse
+					? `module-${m.moduleNumber}`
+					: `module-${m.courseId}-${m.moduleNumber}`;
+			return `\t\t\t<Composition
+\t\t\t\tkey="${compId}"
+\t\t\t\tid="${compId}"
+\t\t\t\tcomponent={GenericModule}
+\t\t\t\tdefaultProps={{ courseId: "${m.courseId}", moduleNumber: ${m.moduleNumber} }}
+\t\t\t\tdurationInFrames={secondsToFrames(getModuleConfig("${m.courseId}", ${m.moduleNumber}).totalDuration, getModuleConfig("${m.courseId}", ${m.moduleNumber}).fps)}
+\t\t\t\tfps={getModuleConfig("${m.courseId}", ${m.moduleNumber}).fps}
+\t\t\t\twidth={getModuleConfig("${m.courseId}", ${m.moduleNumber}).width}
+\t\t\t\theight={getModuleConfig("${m.courseId}", ${m.moduleNumber}).height}
+\t\t\t/>`;
+		})
 		.join("\n");
 
 	const newRoot = `import React from "react";
 import { Composition } from "remotion";
-${imports}
+import { GenericModule } from "./videos/GenericModule";
+import { getModuleConfig } from "./videos/GenericModuleConfig";
+import { allModules } from "./videos/moduleContent";
 import { secondsToFrames } from "./utils/calculateDuration";
 
-// Auto-generated from moduleContent.ts - DO NOT EDIT MANUALLY
+// Content-driven: GenericModule compositions from moduleContent.ts
 export const RemotionRoot: React.FC = () => {
 \treturn (
 \t\t<>

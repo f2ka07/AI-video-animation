@@ -4,26 +4,22 @@
 import { getAudioDuration } from "../utils/audioDuration";
 
 const audioDurations = [
-	getAudioDuration("module8-title"),
-	getAudioDuration("module8-rdsBasics"),
-	getAudioDuration("module8-createDBSubnetGroup"),
-	getAudioDuration("module8-createDBParameterGroup"),
-	getAudioDuration("module8-createDBInstance"),
-	getAudioDuration("module8-summary")
+	getAudioDuration("agentic-ai-for-beginners/module8-module-8-title"),
+	getAudioDuration("agentic-ai-for-beginners/module8-module-8-concept"),
+	getAudioDuration("agentic-ai-for-beginners/module8-module-8-architecture"),
+	getAudioDuration("agentic-ai-for-beginners/module8-module-8-application"),
+	getAudioDuration("agentic-ai-for-beginners/module8-module-8-exam-mapping"),
+	getAudioDuration("agentic-ai-for-beginners/module8-module-8-recap")
 ];
 
 const whooshDuration = 0.57;
-const summaryBuffer = 0.5;
-const totalDuration = audioDurations.reduce((sum, audioDur, index) => {
-	const isLastSlide = index === audioDurations.length - 1;
-	const slideDuration = audioDur + (isLastSlide ? summaryBuffer : 0);
-	const whooshTime = isLastSlide ? 0 : whooshDuration;
-	return sum + slideDuration + whooshTime;
-}, 0);
+const slideBuffer = 1.0;
+const lastSlideBuffer = 1.2;
+const totalDuration = 394.99;
 
 export const Module8Config = {
 	id: "module-8",
-	title: "RDS Database in Private Subnets",
+	title: "Reasoning, Planning, and Memory",
 	fps: 30,
 	width: 1920,
 	height: 1080,

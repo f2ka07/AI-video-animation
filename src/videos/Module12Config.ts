@@ -4,27 +4,22 @@
 import { getAudioDuration } from "../utils/audioDuration";
 
 const audioDurations = [
-	getAudioDuration("module12-title"),
-	getAudioDuration("module12-cicdBasics"),
-	getAudioDuration("module12-githubActionsWorkflow"),
-	getAudioDuration("module12-testingStrategies"),
-	getAudioDuration("module12-securityBestPractices"),
-	getAudioDuration("module12-productionChecklist"),
-	getAudioDuration("module12-summary")
+	getAudioDuration("agentic-ai-for-beginners/module12-module-12-title"),
+	getAudioDuration("agentic-ai-for-beginners/module12-module-12-concept"),
+	getAudioDuration("agentic-ai-for-beginners/module12-module-12-architecture"),
+	getAudioDuration("agentic-ai-for-beginners/module12-module-12-application"),
+	getAudioDuration("agentic-ai-for-beginners/module12-module-12-exam-mapping"),
+	getAudioDuration("agentic-ai-for-beginners/module12-module-12-recap")
 ];
 
 const whooshDuration = 0.57;
-const summaryBuffer = 0.5;
-const totalDuration = audioDurations.reduce((sum, audioDur, index) => {
-	const isLastSlide = index === audioDurations.length - 1;
-	const slideDuration = audioDur + (isLastSlide ? summaryBuffer : 0);
-	const whooshTime = isLastSlide ? 0 : whooshDuration;
-	return sum + slideDuration + whooshTime;
-}, 0);
+const slideBuffer = 1.0;
+const lastSlideBuffer = 1.2;
+const totalDuration = 418.39;
 
 export const Module12Config = {
 	id: "module-12",
-	title: "CI/CD Integration and Best Practices",
+	title: "Safety and Guardrails",
 	fps: 30,
 	width: 1920,
 	height: 1080,

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Processing - Skilleo AI</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="wizard.js" defer></script>
     <style>
         .wizard-container {
             max-width: 800px;
@@ -27,6 +28,7 @@
             height: 2px;
             background: var(--surface-light);
             z-index: 0;
+            pointer-events: none;
         }
 
         .wizard-step {
@@ -34,6 +36,8 @@
             position: relative;
             z-index: 1;
             text-align: center;
+            cursor: pointer;
+            pointer-events: auto;
         }
 
         .step-circle {
@@ -239,7 +243,7 @@
             
             <div id="wizard-content" class="wizard-container">
                 <div style="margin-bottom: 24px; padding: 16px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 8px; font-size: 14px; color: var(--text-secondary);">
-                    <strong>Video Processing Workflow:</strong> Complete all 4 steps to finalize your video. Step 4 (Word Timings) is required for finalization. Use the step indicators above to navigate between steps.
+                    <strong>Video Processing Workflow:</strong> Complete all 5 steps to finalize your video. Step 4 (Word Timings) is required before Step 5. Use the step indicators above to navigate between steps.
                 </div>
                 
                 <!-- Video Selector -->
@@ -252,22 +256,36 @@
                 
                 <!-- Step Indicator -->
                 <div class="wizard-steps">
-                    <div class="wizard-step active" id="step-1-indicator" onclick="goToStep(1)" style="cursor: pointer;" title="Click to navigate">
+                    <div class="wizard-step active" id="step-1-indicator" data-step="1" onclick="typeof goToStep==='function'&&goToStep(1)" role="button" tabindex="0" title="Step 1">
                         <div class="step-circle">1</div>
                         <div class="step-label">Generate Segments</div>
                     </div>
-                    <div class="wizard-step locked" id="step-2-indicator" onclick="goToStep(2)" style="cursor: pointer;" title="Click to navigate (locked until Step 1 complete)">
+                    <div class="wizard-step locked" id="step-2-indicator" data-step="2" onclick="typeof goToStep==='function'&&goToStep(2)" role="button" tabindex="0" title="Step 2">
                         <div class="step-circle">2</div>
                         <div class="step-label">Generate Audio</div>
                     </div>
-                    <div class="wizard-step locked" id="step-3-indicator" onclick="goToStep(3)" style="cursor: pointer;" title="Click to navigate (locked until Step 2 complete)">
+                    <div class="wizard-step locked" id="step-3-indicator" data-step="3" onclick="typeof goToStep==='function'&&goToStep(3)" role="button" tabindex="0" title="Step 3">
                         <div class="step-circle">3</div>
                         <div class="step-label">Measure Audio</div>
                     </div>
-                    <div class="wizard-step locked" id="step-4-indicator" onclick="goToStep(4)" style="cursor: pointer;" title="Click to navigate (locked until Step 3 complete)">
+                    <div class="wizard-step locked" id="step-4-indicator" data-step="4" onclick="typeof goToStep==='function'&&goToStep(4)" role="button" tabindex="0" title="Step 4">
                         <div class="step-circle">4</div>
                         <div class="step-label">Extract Timings</div>
                     </div>
+                    <div class="wizard-step locked" id="step-5-indicator" data-step="5" onclick="typeof goToStep==='function'&&goToStep(5)" role="button" tabindex="0" title="Step 5">
+                        <div class="step-circle">5</div>
+                        <div class="step-label">Diagram Pipeline</div>
+                    </div>
+                </div>
+
+                <!-- Step navigation bar (always visible - use if circles do not respond) -->
+                <div style="display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;">
+                    <span style="color: var(--text-muted); font-size: 13px; align-self: center;">Go to:</span>
+                    <button type="button" class="btn btn-secondary" style="padding: 6px 12px; font-size: 13px;" onclick="goToStep(1)">Step 1</button>
+                    <button type="button" class="btn btn-secondary" style="padding: 6px 12px; font-size: 13px;" onclick="goToStep(2)">Step 2</button>
+                    <button type="button" class="btn btn-secondary" style="padding: 6px 12px; font-size: 13px;" onclick="goToStep(3)">Step 3</button>
+                    <button type="button" class="btn btn-secondary" style="padding: 6px 12px; font-size: 13px;" onclick="goToStep(4)">Step 4</button>
+                    <button type="button" class="btn btn-secondary" style="padding: 6px 12px; font-size: 13px;" onclick="goToStep(5)">Step 5</button>
                 </div>
 
                 <!-- Step Content -->
@@ -338,6 +356,9 @@
                             <small style="color: var(--text-muted); display: block; margin-top: 8px;">Upload images for content slides. Images appear on the right side of the slide.</small>
                         </div>
 
+                        <div style="margin-top: 12px; padding: 10px; background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 6px; font-size: 12px; color: var(--text-muted);">
+                            Mermaid diagrams from Step 5 (Diagram Pipeline) are stored in slide-splits.json. Generate Segment Files reads from that file and preserves them. Add <code>// PRESERVE_MANUAL_EDITS</code> in ModuleN.tsx to skip overwriting manual edits.
+                        </div>
                         <div class="step-actions">
                             <button class="btn btn-secondary" id="validate-content-btn" onclick="validateContent()" title="Check for missing properties in slides">
                                 Validate Content
@@ -573,6 +594,49 @@
                             </button>
                         </div>
                     </div>
+
+                    <!-- Step 5: Diagram Pipeline (after word timings) -->
+                    <div class="step-content" id="step-5">
+                        <div class="step-header">
+                            <h3>Step 5: Diagram Pipeline</h3>
+                            <p class="step-description">
+                                Run the diagram pipeline: derive segment boundaries from script, derive bullets, classify slides (diagram vs bullets), generate Mermaid diagrams with highlights, and sync. Requires Step 4 (Word Timings) to be complete.
+                            </p>
+                        </div>
+
+                        <div class="step-info" id="step-5-info">
+                            <strong>Status:</strong> <span id="step-5-status-text">Waiting for Step 4...</span>
+                        </div>
+
+                        <div id="step-5-status" class="step-status" style="display: none;"></div>
+
+                        <div style="margin-bottom: 16px;">
+                            <label for="step-5-module" style="font-weight: 500; margin-right: 8px;">Run for:</label>
+                            <select id="step-5-module" style="padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); min-width: 180px;">
+                                <option value="">All modules</option>
+                            </select>
+                            <span style="margin-left: 8px; font-size: 12px; color: var(--text-muted);">Run one module at a time for incremental progress.</span>
+                        </div>
+
+                        <div id="step-5-progress" class="segment-progress" style="margin-top: 16px; padding: 16px; background: var(--surface-light); border-radius: 8px; border: 1px solid var(--border);">
+                            <div class="progress-info" style="margin-bottom: 8px; font-weight: 500; color: var(--text-muted);">Idle</div>
+                            <div class="progress-bar-container" style="height: 10px; background: var(--surface); border-radius: 6px; overflow: hidden;">
+                                <div id="step-5-progress-bar" class="segment-progress-bar" style="height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.3s ease;"></div>
+                            </div>
+                            <div id="step-5-details" style="margin-top: 12px; font-size: 12px; color: var(--text-muted); max-height: 200px; overflow-y: auto; display: none;"></div>
+                        </div>
+
+                        <div style="margin-top: 16px; padding: 12px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 8px; font-size: 13px; color: var(--text-secondary);">
+                            <strong>Pipeline order:</strong> derive-boundaries-from-script -> derive-bullets -> classify-slide-visual -> generate-mermaid-segments -> sync-slide-splits. Uses local heuristics only. No API key required.
+                        </div>
+
+                        <div class="step-actions">
+                            <button class="btn btn-secondary" onclick="goToStep(4)">← Previous</button>
+                            <button class="btn btn-primary" id="step-5-btn" onclick="executeStep5()" disabled>
+                                Run Diagram Pipeline
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Ready for Remotion Message (Basic Preview) -->
@@ -612,15 +676,16 @@
 
                 <!-- Completion Message -->
                 <div id="completion-message" class="card" style="display: none; margin-top: 24px; text-align: center; border: 2px solid var(--success); background: rgba(16, 185, 129, 0.1);">
-                    <h3 style="color: var(--success); margin-bottom: 12px;">✓ All Steps Complete!</h3>
+                    <h3 style="color: var(--success); margin-bottom: 12px;">All Steps Complete!</h3>
                     <p style="color: var(--text-secondary); margin-bottom: 12px;">
-                        Your video is fully complete with word-level animations. All 4 steps are done:
+                        Your video is fully complete with word-level animations. All 5 steps are done:
                     </p>
                     <ul style="text-align: left; display: inline-block; color: var(--text-secondary); margin: 12px 0 20px 0;">
-                        <li>✓ Segment files generated</li>
-                        <li>✓ Audio files created</li>
-                        <li>✓ Audio durations measured</li>
-                        <li>✓ Word timings extracted</li>
+                        <li>Segment files generated</li>
+                        <li>Audio files created</li>
+                        <li>Audio durations measured</li>
+                        <li>Word timings extracted</li>
+                        <li>Diagram pipeline run (classify + mermaid)</li>
                     </ul>
                     <p style="color: var(--text-secondary); margin-bottom: 20px; font-weight: 600;">
                         Click <strong>Finalize Video</strong> below to prepare everything and open Remotion Studio.
@@ -641,10 +706,15 @@
                         <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 14px;">
                             Select a module and render it to an MP4 file. This may take several minutes depending on video length.
                         </p>
-                        <div style="margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                        <div style="margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
                             <label for="render-module-select" style="color: var(--text-secondary); font-weight: 500;">Select Module:</label>
                             <select id="render-module-select" style="padding: 10px 16px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px; min-width: 250px;">
                                 <option value="">Loading modules...</option>
+                            </select>
+                            <label style="color: var(--text-secondary); font-weight: 500;">Render on:</label>
+                            <select id="render-target-select" style="padding: 10px 16px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
+                                <option value="runpod" selected>RunPod</option>
+                                <option value="local">Local</option>
                             </select>
                         </div>
                         <div id="render-progress" style="display: none; margin-bottom: 16px;">
@@ -670,6 +740,19 @@
                     </div>
                 </div>
 
+                <!-- Slide Splits: define splits for long slides before Finalize (shown when audio exists) -->
+                <div id="slide-splits-card" class="card" style="display: none; margin-top: 24px; text-align: left; border: 1px solid var(--border);">
+                    <h4 style="margin-bottom: 8px; color: var(--text-primary); font-size: 16px;">Define Slide Splits (Optional)</h4>
+                    <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px;">
+                        Split long slides into shorter segments. Only content slides can be split.
+                    </p>
+                    <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
+                        <strong>Visual only:</strong> Splits change which bullets show when; audio plays continuously (no cuts). Enter cut points in seconds, comma-separated. E.g. for a 99s slide to show different bullets every ~10s, enter: <code>10, 20, 30, 40, 50, 60, 70, 80, 90</code>. Check the box and click Save. <strong>Refresh Remotion Studio</strong> after saving.
+                    </p>
+                    <div id="slide-splits-list" style="max-height: 280px; overflow-y: auto; margin-bottom: 12px;"></div>
+                    <button class="btn btn-secondary" id="slide-splits-save-btn" onclick="saveSlideSplits()" style="font-size: 14px;">Save Splits</button>
+                </div>
+
                 <!-- Overnight Batch Rendering (always visible so user can render without waiting for all steps) -->
                 <div id="batch-render-card" class="card" style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);">
                     <h4 style="margin-bottom: 12px; color: var(--text-primary); font-size: 18px;">Render batch overnight</h4>
@@ -685,6 +768,13 @@
                             <div id="batch-modules-list" style="font-family: monospace; font-size: 12px; max-height: 200px; overflow-y: auto;"></div>
                         </div>
                     </div>
+                    <div style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                        <label style="color: var(--text-secondary); font-weight: 500;">Render on:</label>
+                        <select id="batch-render-target-select" style="padding: 8px 14px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
+                            <option value="runpod" selected>RunPod</option>
+                            <option value="local">Local</option>
+                        </select>
+                    </div>
                     <div style="display: flex; gap: 12px; flex-wrap: wrap;">
                         <button class="btn btn-secondary" id="view-segments-btn" onclick="viewSegmentsInRemotion()" style="padding: 10px 20px; font-weight: 600;" title="Generate preview modules (15s per slide) and open Remotion. No audio needed. Run npm start first if Remotion is not running.">
                             View Segments in Remotion
@@ -693,6 +783,15 @@
                             Render Entire Course
                         </button>
                     </div>
+                </div>
+
+                <!-- Rendered videos on server (for GUI on RunPod - download from server) -->
+                <div id="rendered-videos-card" class="card" style="display: none; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);">
+                    <h4 style="margin-bottom: 12px; color: var(--text-primary); font-size: 18px;">Download rendered videos</h4>
+                    <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">
+                        Videos rendered on this server. Click to download.
+                    </p>
+                    <div id="rendered-videos-list" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
                 </div>
 
                 <!-- Persistent workflow error (shown when step check fails) -->
@@ -718,7 +817,5 @@
 
     <!-- Toast Container -->
     <div id="toast-container" class="toast-container"></div>
-    
-    <script src="wizard.js"></script>
 </body>
 </html>

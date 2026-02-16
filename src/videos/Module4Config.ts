@@ -4,41 +4,22 @@
 import { getAudioDuration } from "../utils/audioDuration";
 
 const audioDurations = [
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-hook-learning-planning"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-lab-7-1-overview"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-lab-7-1-code"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-code-flow-lab-7-1"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-lab-7-1-in-practice-overview"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-lab-7-1-actual-code"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-lab-7-1-actual-flow"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-lab-8-1-overview"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-lab-8-1-code"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-code-flow-lab-8-1"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-lab-8-1-in-practice-overview"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-lab-8-1-actual-code"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-lab-8-1-actual-flow"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-lab-9-1-overview"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-lab-9-1-code"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-code-flow-lab-9-1"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-lab-9-1-in-practice-overview"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-lab-9-1-actual-code"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-lab-9-1-actual-flow"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-why-learn-plan-goal"),
-	getAudioDuration("agentic-ai-labs-deep-dive/module4-conclusion-learning-planning")
+	getAudioDuration("agentic-ai-for-beginners/module4-module-4-title"),
+	getAudioDuration("agentic-ai-for-beginners/module4-module-4-concept"),
+	getAudioDuration("agentic-ai-for-beginners/module4-module-4-architecture"),
+	getAudioDuration("agentic-ai-for-beginners/module4-module-4-application"),
+	getAudioDuration("agentic-ai-for-beginners/module4-module-4-exam-mapping"),
+	getAudioDuration("agentic-ai-for-beginners/module4-module-4-recap")
 ];
 
 const whooshDuration = 0.57;
-const summaryBuffer = 0.5;
-const totalDuration = audioDurations.reduce((sum, audioDur, index) => {
-	const isLastSlide = index === audioDurations.length - 1;
-	const slideDuration = audioDur + (isLastSlide ? summaryBuffer : 0);
-	const whooshTime = isLastSlide ? 0 : whooshDuration;
-	return sum + slideDuration + whooshTime;
-}, 0);
+const slideBuffer = 1.0;
+const lastSlideBuffer = 1.2;
+const totalDuration = 735.50;
 
 export const Module4Config = {
 	id: "module-4",
-	title: "Agentic AI Labs 7.1 to 9.1: Learning and Planning",
+	title: "Workloads and Inference Pipelines",
 	fps: 30,
 	width: 1920,
 	height: 1080,

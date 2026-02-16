@@ -44,7 +44,7 @@ function generateModuleContentTs(plan: any, courseId: string): string {
 		``,
 		`export interface SlideContent {`,
 		`	name: string;`,
-		`	type: "title" | "content-two-card" | "content-single" | "code" | "code-diagram" | "comparison";`,
+		`	type: "title" | "content-two-card" | "content-single" | "code" | "code-diagram" | "comparison" | "mermaid";`,
 		`	script?: string;`,
 		`	scripts?: string[];`,
 		`	title?: string;`,
@@ -99,7 +99,8 @@ function generateModuleContentTs(plan: any, courseId: string): string {
 			if (slide.leftItems) lines.push(`			leftItems: ${JSON.stringify(slide.leftItems)},`);
 			if (slide.rightTitle) lines.push(`			rightTitle: ${JSON.stringify(slide.rightTitle)},`);
 			if (slide.rightItems) lines.push(`			rightItems: ${JSON.stringify(slide.rightItems)},`);
-			
+			if (slide.mermaidSource) lines.push(`			mermaidSource: ${JSON.stringify(slide.mermaidSource)},`);
+
 			lines.push(`		},`);
 		}
 		

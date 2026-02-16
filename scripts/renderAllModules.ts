@@ -47,7 +47,9 @@ if (modulesArg) {
 
 // Parse individual overrides (override preset values)
 const concurrencyArg = args.find(a => a.startsWith('--concurrency='));
-const concurrency = concurrencyArg ? parseInt(concurrencyArg.split('=')[1]) : preset.concurrency;
+const requestedConcurrency = concurrencyArg ? parseInt(concurrencyArg.split('=')[1]) : preset.concurrency;
+const maxCores = os.cpus().length;
+const concurrency = Math.min(requestedConcurrency, maxCores);
 
 const scaleArg = args.find(a => a.startsWith('--scale='));
 const scale = scaleArg ? parseFloat(scaleArg.split('=')[1]) : preset.scale;

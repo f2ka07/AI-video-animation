@@ -1831,12 +1831,19 @@ function renderPlanPreview(plan, stats, warnings) {
     // Show warnings if any
     if (warnings && warnings.length > 0) {
         warningsDiv.style.display = 'block';
+        const items = warnings.map(w => {
+            if (w.type === 'long') return `<li>Module ${w.module}, "${w.slide}": ${w.words} words (~${w.estimatedSeconds}s) - may cause audio distortion</li>`;
+            if (w.type === 'short') return `<li>Module ${w.module}, "${w.slide}": ${w.words} words - too short</li>`;
+            if (w.type === 'truncated') return `<li>Module ${w.module}, "${w.slide}": script may be truncated</li>`;
+            if (w.type === 'slide-type') return `<li>Module ${w.module}, "${w.slide}": ${w.message}</li>`;
+            if (w.type === 'variety') return `<li>${w.message}</li>`;
+            return `<li>${w.message || JSON.stringify(w)}</li>`;
+        });
         warningsDiv.innerHTML = `
-            <strong>Warning:</strong> ${warnings.length} slide(s) exceed the 60-word limit and may cause audio distortion:
+            <strong>Warnings (${warnings.length}):</strong>
             <ul style="margin: 8px 0 0 20px; font-size: 12px;">
-                ${warnings.map(w => `<li>Module ${w.module}, "${w.slide}": ${w.words} words (~${w.estimatedSeconds}s)</li>`).join('')}
+                ${items.join('')}
             </ul>
-            <div style="margin-top: 8px; font-size: 12px;">Consider editing these scripts after saving.</div>
         `;
     } else {
         warningsDiv.style.display = 'none';

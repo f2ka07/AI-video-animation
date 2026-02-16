@@ -18,64 +18,22 @@ export const Module5: React.FC = () => {
 	const whooshDuration = 0.57;
 
 	const audioFiles = {
-		"hook-final-labs-capstone": staticFile("audio/agentic-ai-labs-deep-dive/module5-hook-final-labs-capstone.wav"),
-		"lab-10-1-overview": staticFile("audio/agentic-ai-labs-deep-dive/module5-lab-10-1-overview.wav"),
-		"lab-10-1-code": staticFile("audio/agentic-ai-labs-deep-dive/module5-lab-10-1-code.wav"),
-		"code-flow-lab-10-1": staticFile("audio/agentic-ai-labs-deep-dive/module5-code-flow-lab-10-1.wav"),
-		"lab-10-1-in-practice-overview": staticFile("audio/agentic-ai-labs-deep-dive/module5-lab-10-1-in-practice-overview.wav"),
-		"lab-10-1-actual-code": staticFile("audio/agentic-ai-labs-deep-dive/module5-lab-10-1-actual-code.wav"),
-		"lab-10-1-actual-flow": staticFile("audio/agentic-ai-labs-deep-dive/module5-lab-10-1-actual-flow.wav"),
-		"lab-10-2-overview": staticFile("audio/agentic-ai-labs-deep-dive/module5-lab-10-2-overview.wav"),
-		"lab-10-2-code": staticFile("audio/agentic-ai-labs-deep-dive/module5-lab-10-2-code.wav"),
-		"code-flow-lab-10-2": staticFile("audio/agentic-ai-labs-deep-dive/module5-code-flow-lab-10-2.wav"),
-		"lab-10-2-in-practice-overview": staticFile("audio/agentic-ai-labs-deep-dive/module5-lab-10-2-in-practice-overview.wav"),
-		"lab-10-2-actual-code": staticFile("audio/agentic-ai-labs-deep-dive/module5-lab-10-2-actual-code.wav"),
-		"lab-10-2-actual-flow": staticFile("audio/agentic-ai-labs-deep-dive/module5-lab-10-2-actual-flow.wav"),
-		"lab-10-3-overview": staticFile("audio/agentic-ai-labs-deep-dive/module5-lab-10-3-overview.wav"),
-		"lab-10-3-code": staticFile("audio/agentic-ai-labs-deep-dive/module5-lab-10-3-code.wav"),
-		"code-flow-lab-10-3": staticFile("audio/agentic-ai-labs-deep-dive/module5-code-flow-lab-10-3.wav"),
-		"lab-10-3-in-practice-overview": staticFile("audio/agentic-ai-labs-deep-dive/module5-lab-10-3-in-practice-overview.wav"),
-		"lab-10-3-actual-code": staticFile("audio/agentic-ai-labs-deep-dive/module5-lab-10-3-actual-code.wav"),
-		"lab-10-3-actual-flow": staticFile("audio/agentic-ai-labs-deep-dive/module5-lab-10-3-actual-flow.wav"),
-		"capstone-overview": staticFile("audio/agentic-ai-labs-deep-dive/module5-capstone-overview.wav"),
-		"capstone-code": staticFile("audio/agentic-ai-labs-deep-dive/module5-capstone-code.wav"),
-		"code-flow-capstone": staticFile("audio/agentic-ai-labs-deep-dive/module5-code-flow-capstone.wav"),
-		"capstone-in-practice-overview": staticFile("audio/agentic-ai-labs-deep-dive/module5-capstone-in-practice-overview.wav"),
-		"capstone-actual-code": staticFile("audio/agentic-ai-labs-deep-dive/module5-capstone-actual-code.wav"),
-		"capstone-actual-flow": staticFile("audio/agentic-ai-labs-deep-dive/module5-capstone-actual-flow.wav"),
-		"final-thoughts": staticFile("audio/agentic-ai-labs-deep-dive/module5-final-thoughts.wav"),
-		"final-big-takeaway": staticFile("audio/agentic-ai-labs-deep-dive/module5-final-big-takeaway.wav"),
+		"module-5-title": staticFile("audio/agentic-ai-for-beginners/module5-module-5-title.wav"),
+		"module-5-concept": staticFile("audio/agentic-ai-for-beginners/module5-module-5-concept.wav"),
+		"module-5-architecture": staticFile("audio/agentic-ai-for-beginners/module5-module-5-architecture.wav"),
+		"module-5-application": staticFile("audio/agentic-ai-for-beginners/module5-module-5-application.wav"),
+		"module-5-exam-mapping": staticFile("audio/agentic-ai-for-beginners/module5-module-5-exam-mapping.wav"),
+		"module-5-recap": staticFile("audio/agentic-ai-for-beginners/module5-module-5-recap.wav"),
 		whoosh: staticFile("audio/whoosh.wav"),
 	};
 
 	const audioDurations = {
-		"hook-final-labs-capstone": getAudioDuration("agentic-ai-labs-deep-dive/module5-hook-final-labs-capstone"),
-		"lab-10-1-overview": getAudioDuration("agentic-ai-labs-deep-dive/module5-lab-10-1-overview"),
-		"lab-10-1-code": getAudioDuration("agentic-ai-labs-deep-dive/module5-lab-10-1-code"),
-		"code-flow-lab-10-1": getAudioDuration("agentic-ai-labs-deep-dive/module5-code-flow-lab-10-1"),
-		"lab-10-1-in-practice-overview": getAudioDuration("agentic-ai-labs-deep-dive/module5-lab-10-1-in-practice-overview"),
-		"lab-10-1-actual-code": getAudioDuration("agentic-ai-labs-deep-dive/module5-lab-10-1-actual-code"),
-		"lab-10-1-actual-flow": getAudioDuration("agentic-ai-labs-deep-dive/module5-lab-10-1-actual-flow"),
-		"lab-10-2-overview": getAudioDuration("agentic-ai-labs-deep-dive/module5-lab-10-2-overview"),
-		"lab-10-2-code": getAudioDuration("agentic-ai-labs-deep-dive/module5-lab-10-2-code"),
-		"code-flow-lab-10-2": getAudioDuration("agentic-ai-labs-deep-dive/module5-code-flow-lab-10-2"),
-		"lab-10-2-in-practice-overview": getAudioDuration("agentic-ai-labs-deep-dive/module5-lab-10-2-in-practice-overview"),
-		"lab-10-2-actual-code": getAudioDuration("agentic-ai-labs-deep-dive/module5-lab-10-2-actual-code"),
-		"lab-10-2-actual-flow": getAudioDuration("agentic-ai-labs-deep-dive/module5-lab-10-2-actual-flow"),
-		"lab-10-3-overview": getAudioDuration("agentic-ai-labs-deep-dive/module5-lab-10-3-overview"),
-		"lab-10-3-code": getAudioDuration("agentic-ai-labs-deep-dive/module5-lab-10-3-code"),
-		"code-flow-lab-10-3": getAudioDuration("agentic-ai-labs-deep-dive/module5-code-flow-lab-10-3"),
-		"lab-10-3-in-practice-overview": getAudioDuration("agentic-ai-labs-deep-dive/module5-lab-10-3-in-practice-overview"),
-		"lab-10-3-actual-code": getAudioDuration("agentic-ai-labs-deep-dive/module5-lab-10-3-actual-code"),
-		"lab-10-3-actual-flow": getAudioDuration("agentic-ai-labs-deep-dive/module5-lab-10-3-actual-flow"),
-		"capstone-overview": getAudioDuration("agentic-ai-labs-deep-dive/module5-capstone-overview"),
-		"capstone-code": getAudioDuration("agentic-ai-labs-deep-dive/module5-capstone-code"),
-		"code-flow-capstone": getAudioDuration("agentic-ai-labs-deep-dive/module5-code-flow-capstone"),
-		"capstone-in-practice-overview": getAudioDuration("agentic-ai-labs-deep-dive/module5-capstone-in-practice-overview"),
-		"capstone-actual-code": getAudioDuration("agentic-ai-labs-deep-dive/module5-capstone-actual-code"),
-		"capstone-actual-flow": getAudioDuration("agentic-ai-labs-deep-dive/module5-capstone-actual-flow"),
-		"final-thoughts": getAudioDuration("agentic-ai-labs-deep-dive/module5-final-thoughts"),
-		"final-big-takeaway": getAudioDuration("agentic-ai-labs-deep-dive/module5-final-big-takeaway"),
+		"module-5-title": getAudioDuration("agentic-ai-for-beginners/module5-module-5-title"),
+		"module-5-concept": getAudioDuration("agentic-ai-for-beginners/module5-module-5-concept"),
+		"module-5-architecture": getAudioDuration("agentic-ai-for-beginners/module5-module-5-architecture"),
+		"module-5-application": getAudioDuration("agentic-ai-for-beginners/module5-module-5-application"),
+		"module-5-exam-mapping": getAudioDuration("agentic-ai-for-beginners/module5-module-5-exam-mapping"),
+		"module-5-recap": getAudioDuration("agentic-ai-for-beginners/module5-module-5-recap"),
 	};
 
 	let currentFrame = 0;
@@ -90,34 +48,77 @@ export const Module5: React.FC = () => {
 		}
 		return { start, duration: slideDuration * fps, slideDuration, audioDuration, buffer };
 	};
+	const addSegment = (audioDuration: number, isLastInGroup: boolean, isLastInModule: boolean, buffer: number) => {
+		const slideDuration = audioDuration + buffer;
+		const start = currentFrame;
+		currentFrame += slideDuration * fps + (isLastInGroup && !isLastInModule ? whooshDuration * fps : 0);
+		return { start, duration: slideDuration * fps, slideDuration, audioDuration, buffer };
+	};
 
-	const hook_final_labs_capstoneSlide = addSlide(audioDurations["hook-final-labs-capstone"], false, 0.3);
-	const lab_10_1_overviewSlide = addSlide(audioDurations["lab-10-1-overview"], false, 0.3);
-	const lab_10_1_codeSlide = addSlide(audioDurations["lab-10-1-code"], false, 0.3);
-	const code_flow_lab_10_1Slide = addSlide(audioDurations["code-flow-lab-10-1"], false, 0.3);
-	const lab_10_1_in_practice_overviewSlide = addSlide(audioDurations["lab-10-1-in-practice-overview"], false, 0.3);
-	const lab_10_1_actual_codeSlide = addSlide(audioDurations["lab-10-1-actual-code"], false, 0.3);
-	const lab_10_1_actual_flowSlide = addSlide(audioDurations["lab-10-1-actual-flow"], false, 0.3);
-	const lab_10_2_overviewSlide = addSlide(audioDurations["lab-10-2-overview"], false, 0.3);
-	const lab_10_2_codeSlide = addSlide(audioDurations["lab-10-2-code"], false, 0.3);
-	const code_flow_lab_10_2Slide = addSlide(audioDurations["code-flow-lab-10-2"], false, 0.3);
-	const lab_10_2_in_practice_overviewSlide = addSlide(audioDurations["lab-10-2-in-practice-overview"], false, 0.3);
-	const lab_10_2_actual_codeSlide = addSlide(audioDurations["lab-10-2-actual-code"], false, 0.3);
-	const lab_10_2_actual_flowSlide = addSlide(audioDurations["lab-10-2-actual-flow"], false, 0.3);
-	const lab_10_3_overviewSlide = addSlide(audioDurations["lab-10-3-overview"], false, 0.3);
-	const lab_10_3_codeSlide = addSlide(audioDurations["lab-10-3-code"], false, 0.3);
-	const code_flow_lab_10_3Slide = addSlide(audioDurations["code-flow-lab-10-3"], false, 0.3);
-	const lab_10_3_in_practice_overviewSlide = addSlide(audioDurations["lab-10-3-in-practice-overview"], false, 0.3);
-	const lab_10_3_actual_codeSlide = addSlide(audioDurations["lab-10-3-actual-code"], false, 0.3);
-	const lab_10_3_actual_flowSlide = addSlide(audioDurations["lab-10-3-actual-flow"], false, 0.3);
-	const capstone_overviewSlide = addSlide(audioDurations["capstone-overview"], false, 0.3);
-	const capstone_codeSlide = addSlide(audioDurations["capstone-code"], false, 0.3);
-	const code_flow_capstoneSlide = addSlide(audioDurations["code-flow-capstone"], false, 0.3);
-	const capstone_in_practice_overviewSlide = addSlide(audioDurations["capstone-in-practice-overview"], false, 0.3);
-	const capstone_actual_codeSlide = addSlide(audioDurations["capstone-actual-code"], false, 0.3);
-	const capstone_actual_flowSlide = addSlide(audioDurations["capstone-actual-flow"], false, 0.3);
-	const final_thoughtsSlide = addSlide(audioDurations["final-thoughts"], false, 0.3);
-	const final_big_takeawaySlide = addSlide(audioDurations["final-big-takeaway"], true, 0.8);
+	const seg0 = addSegment(61.88, true, false, 1);
+	const seg1 = addSegment(10.50, false, false, 1);
+	const seg2 = addSegment(9.56, false, false, 1);
+	const seg3 = addSegment(10.60, false, false, 1);
+	const seg4 = addSegment(9.76, false, false, 1);
+	const seg5 = addSegment(8.38, false, false, 1);
+	const seg6 = addSegment(11.28, false, false, 1);
+	const seg7 = addSegment(10.14, false, false, 1);
+	const seg8 = addSegment(10.16, false, false, 1);
+	const seg9 = addSegment(9.44, false, false, 1);
+	const seg10 = addSegment(10.40, false, false, 1);
+	const seg11 = addSegment(9.88, false, false, 1);
+	const seg12 = addSegment(10.30, false, false, 1);
+	const seg13 = addSegment(9.36, false, false, 1);
+	const seg14 = addSegment(10.76, false, false, 1);
+	const seg15 = addSegment(9.94, false, false, 1);
+	const seg16 = addSegment(9.96, false, false, 1);
+	const seg17 = addSegment(9.92, false, false, 1);
+	const seg18 = addSegment(9.74, false, false, 1);
+	const seg19 = addSegment(8.13, true, false, 1);
+	const seg20 = addSegment(10.50, false, false, 1);
+	const seg21 = addSegment(8.50, false, false, 1);
+	const seg22 = addSegment(10.46, false, false, 1);
+	const seg23 = addSegment(10.72, false, false, 1);
+	const seg24 = addSegment(9.88, false, false, 1);
+	const seg25 = addSegment(8.94, false, false, 1);
+	const seg26 = addSegment(10.34, false, false, 1);
+	const seg27 = addSegment(11.02, false, false, 1);
+	const seg28 = addSegment(9.00, false, false, 1);
+	const seg29 = addSegment(11.16, false, false, 1);
+	const seg30 = addSegment(8.66, false, false, 1);
+	const seg31 = addSegment(11.28, false, false, 1);
+	const seg32 = addSegment(9.64, false, false, 1);
+	const seg33 = addSegment(0.48, true, false, 1);
+	const seg34 = addSegment(10.20, false, false, 1);
+	const seg35 = addSegment(9.89, false, false, 1);
+	const seg36 = addSegment(9.97, false, false, 1);
+	const seg37 = addSegment(10.11, false, false, 1);
+	const seg38 = addSegment(9.56, false, false, 1);
+	const seg39 = addSegment(10.24, false, false, 1);
+	const seg40 = addSegment(10.35, false, false, 1);
+	const seg41 = addSegment(9.86, false, false, 1);
+	const seg42 = addSegment(9.94, false, false, 1);
+	const seg43 = addSegment(10.19, false, false, 1);
+	const seg44 = addSegment(9.77, false, false, 1);
+	const seg45 = addSegment(9.96, false, false, 1);
+	const seg46 = addSegment(0.29, true, false, 1);
+	const seg47 = addSegment(10.44, false, false, 1);
+	const seg48 = addSegment(9.58, false, false, 1);
+	const seg49 = addSegment(10.40, false, false, 1);
+	const seg50 = addSegment(9.68, false, false, 1);
+	const seg51 = addSegment(10.16, false, false, 1);
+	const seg52 = addSegment(9.28, false, false, 1);
+	const seg53 = addSegment(10.90, false, false, 1);
+	const seg54 = addSegment(10.08, false, false, 1);
+	const seg55 = addSegment(2.64, true, false, 1);
+	const seg56 = addSegment(10.35, false, false, 1);
+	const seg57 = addSegment(9.75, false, false, 1);
+	const seg58 = addSegment(10.09, false, false, 1);
+	const seg59 = addSegment(10.00, false, false, 1);
+	const seg60 = addSegment(9.87, false, false, 1);
+	const seg61 = addSegment(10.22, false, false, 1);
+	const seg62 = addSegment(9.87, false, false, 1);
+	const seg63 = addSegment(0.29, true, true, 1.2);
 
 	return (
 		<div
@@ -128,930 +129,1744 @@ export const Module5: React.FC = () => {
 			position: "relative",
 		}}
 		>
-			{/* Bringing It All Together */}
+			{/* Deployment and Integration Models */}
 			<Sequence
-				from={hook_final_labs_capstoneSlide.start}
-				durationInFrames={hook_final_labs_capstoneSlide.duration}
+				from={seg0.start}
+				durationInFrames={seg0.duration}
 			>
-				<Audio src={audioFiles["hook-final-labs-capstone"]} />
+				<Audio src={audioFiles["module-5-title"]} />
 				<CrossFadeWrapper
-					totalDuration={hook_final_labs_capstoneSlide.slideDuration}
+					totalDuration={seg0.slideDuration}
 					fadeInDuration={0.5}
 					fadeOutDuration={crossFadeDuration}
 			>
 					<TitleSlide 
-					title="Final Labs and Capstone: Mastery of Agentic AI" 
-					subtitle="Integrating everything with labs 10.1 to 10.3 and the Capstone project"
+					title="Deployment and Integration Models" 
+					subtitle="Deployment and Integration Models"
 					
 				/>
 				</CrossFadeWrapper>
 			</Sequence>
 			{/* Whoosh transition */}
 			<Sequence
-				from={hook_final_labs_capstoneSlide.start + hook_final_labs_capstoneSlide.duration}
+				from={seg0.start + seg0.duration}
 				durationInFrames={whooshDuration * fps}
 			>
 				<Audio src={audioFiles.whoosh} startFrom={0} />
 			</Sequence>
 
-			{/* Lab 10.1: Multi-Goal Agents */}
+			{/* Concept */}
 			<Sequence
-				from={lab_10_1_overviewSlide.start}
-				durationInFrames={lab_10_1_overviewSlide.duration}
+				from={seg1.start}
+				durationInFrames={seg1.duration}
 			>
-				<Audio src={audioFiles["lab-10-1-overview"]} />
+				<Audio src={audioFiles["module-5-concept"]} />
 				<CrossFadeWrapper
-					totalDuration={lab_10_1_overviewSlide.slideDuration}
+					totalDuration={seg1.slideDuration}
 					fadeInDuration={crossFadeDuration}
 					fadeOutDuration={crossFadeDuration}
 			>
 					<AnimatedContentSlide
-					title="Lab 10.1: Multi-Goal Agents"
+					title="Concept"
 					points={[
-						"Manage multiple goals",
-					"Prioritize effectively",
-					"Handle goal conflicts"
+						"Let's start with deployment models",
+					"A deployment model defines where your AI system runs",
+					"who operates it and what infrastructure supports"
 					]}
-					slideName="lab-10-1-overview"
-					audioDuration={lab_10_1_overviewSlide.audioDuration}
+					slideName="module-5-concept"
+					audioDuration={seg1.audioDuration}
 					moduleNumber={5}
 					
 					
-				/>
+		/>
 				</CrossFadeWrapper>
 			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={lab_10_1_overviewSlide.start + lab_10_1_overviewSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
 
-			{/* Goal Prioritization Code */}
+			{/* Concept */}
 			<Sequence
-				from={lab_10_1_codeSlide.start}
-				durationInFrames={lab_10_1_codeSlide.duration}
+				from={seg2.start}
+				durationInFrames={seg2.duration}
 			>
-				<Audio src={audioFiles["lab-10-1-code"]} />
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(10.50 * fps)} />
 				<CrossFadeWrapper
-					totalDuration={lab_10_1_codeSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Goal Prioritization Code"
-					code={`goals = [{'name': 'A', 'priority': 2}, {'name': 'B', 'priority': 5}]
-goals.sort(key=lambda g: g['priority'], reverse=True)
-current_goal = goals[0]`}
-					language="python"
-					slideName="lab-10-1-code"
-					audioStartFrame={lab_10_1_codeSlide.start}
-					audioDuration={lab_10_1_codeSlide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={lab_10_1_codeSlide.start + lab_10_1_codeSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Lab 10.1 Code Flow */}
-			<Sequence
-				from={code_flow_lab_10_1Slide.start}
-				durationInFrames={code_flow_lab_10_1Slide.duration}
-			>
-				<Audio src={audioFiles["code-flow-lab-10-1"]} />
-				<CrossFadeWrapper
-					totalDuration={code_flow_lab_10_1Slide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<BulletsAndCodeSlide
-					title="Lab 10.1 Code Flow"
-					points={[
-						"Maintain list of goals with priorities",
-						"Sort by priority descending",
-						"Select top goal as current focus"
-					]}
-					code={`goals = [{'name': 'A', 'priority': 2}, {'name': 'B', 'priority': 5}]
-goals.sort(key=lambda g: g['priority'], reverse=True)
-current_goal = goals[0]`}
-					language="python"
-					codeContext="Lab 10.1: goal prioritization - multi-goal selection"
-					slideName="code-flow-lab-10-1"
-					audioDuration={code_flow_lab_10_1Slide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={code_flow_lab_10_1Slide.start + code_flow_lab_10_1Slide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Lab 10.1 in Practice */}
-			<Sequence
-				from={lab_10_1_in_practice_overviewSlide.start}
-				durationInFrames={lab_10_1_in_practice_overviewSlide.duration}
-			>
-				<Audio src={audioFiles["lab-10-1-in-practice-overview"]} />
-				<CrossFadeWrapper
-					totalDuration={lab_10_1_in_practice_overviewSlide.slideDuration}
+					totalDuration={seg2.slideDuration}
 					fadeInDuration={crossFadeDuration}
 					fadeOutDuration={crossFadeDuration}
 			>
 					<AnimatedContentSlide
-					title="Lab 10.1 in Practice"
+					title="Concept"
 					points={[
-						"send_email tool requires approval",
-					"Collect pending_actions from tool_calls",
-					"Prompt user: Approve? Execute only if yes"
+						"There are four primary models",
+					"each with distinct trade offs",
+					"SaaS Vendor Hosted AI In this model"
 					]}
-					slideName="lab-10-1-in-practice-overview"
-					audioDuration={lab_10_1_in_practice_overviewSlide.audioDuration}
+					slideName="module-5-concept"
+					audioDuration={seg2.audioDuration}
 					moduleNumber={5}
 					
 					
-			/>
+					audioStartOffset={10.50}
+		/>
 				</CrossFadeWrapper>
 			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={lab_10_1_in_practice_overviewSlide.start + lab_10_1_in_practice_overviewSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
 
-			{/* Lab 10.1 Actual Code */}
+			{/* Concept */}
 			<Sequence
-				from={lab_10_1_actual_codeSlide.start}
-				durationInFrames={lab_10_1_actual_codeSlide.duration}
+				from={seg3.start}
+				durationInFrames={seg3.duration}
 			>
-				<Audio src={audioFiles["lab-10-1-actual-code"]} />
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(20.06 * fps)} />
 				<CrossFadeWrapper
-					totalDuration={lab_10_1_actual_codeSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Lab 10.1 Actual Code"
-					code={`for tool_call in response.tool_calls:
-    if tool_call.tool_name == "send_email":
-        pending_actions.append(tool_call)
-for action in pending_actions:
-    approval = input("Approve this action? (yes/no): ")
-    if approval == "yes":
-        result = await tool.handler(**action.arguments)`}
-					language="python"
-					slideName="lab-10-1-actual-code"
-					audioStartFrame={lab_10_1_actual_codeSlide.start}
-					audioDuration={lab_10_1_actual_codeSlide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={lab_10_1_actual_codeSlide.start + lab_10_1_actual_codeSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Lab 10.1 Actual Flow */}
-			<Sequence
-				from={lab_10_1_actual_flowSlide.start}
-				durationInFrames={lab_10_1_actual_flowSlide.duration}
-			>
-				<Audio src={audioFiles["lab-10-1-actual-flow"]} />
-				<CrossFadeWrapper
-					totalDuration={lab_10_1_actual_flowSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<BulletsAndCodeSlide
-					title="Lab 10.1 Actual Flow"
-					points={[
-						"Filter tool_calls for approval-required tools",
-						"Prompt user for each pending action",
-						"Execute only on approval"
-					]}
-					code={`pending_actions = [tc for tc in response.tool_calls if tc.tool_name == "send_email"]
-approval = input("Approve? (yes/no)")
-if approval == "yes": await tool.handler(**action.arguments)`}
-					language="python"
-					codeContext="Lab 10.1: send_email, HITL approval flow"
-					slideName="lab-10-1-actual-flow"
-					audioDuration={lab_10_1_actual_flowSlide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={lab_10_1_actual_flowSlide.start + lab_10_1_actual_flowSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Lab 10.2: Robustness and Adaptability */}
-			<Sequence
-				from={lab_10_2_overviewSlide.start}
-				durationInFrames={lab_10_2_overviewSlide.duration}
-			>
-				<Audio src={audioFiles["lab-10-2-overview"]} />
-				<CrossFadeWrapper
-					totalDuration={lab_10_2_overviewSlide.slideDuration}
+					totalDuration={seg3.slideDuration}
 					fadeInDuration={crossFadeDuration}
 					fadeOutDuration={crossFadeDuration}
 			>
 					<AnimatedContentSlide
-					title="Lab 10.2: Robustness and Adaptability"
+					title="Concept"
 					points={[
-						"Failure recovery",
-					"Plan adjustment",
-					"Optimize goals"
+						"AI through a third party service You call an API",
+					"The vendor runs the infrastructure Examples include OpenAI's API"
 					]}
-					slideName="lab-10-2-overview"
-					audioDuration={lab_10_2_overviewSlide.audioDuration}
+					slideName="module-5-concept"
+					audioDuration={seg3.audioDuration}
 					moduleNumber={5}
 					
 					
-				/>
+					audioStartOffset={20.06}
+		/>
 				</CrossFadeWrapper>
 			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={lab_10_2_overviewSlide.start + lab_10_2_overviewSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
 
-			{/* Failure Recovery Code */}
+			{/* Concept */}
 			<Sequence
-				from={lab_10_2_codeSlide.start}
-				durationInFrames={lab_10_2_codeSlide.duration}
+				from={seg4.start}
+				durationInFrames={seg4.duration}
 			>
-				<Audio src={audioFiles["lab-10-2-code"]} />
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(30.66 * fps)} />
 				<CrossFadeWrapper
-					totalDuration={lab_10_2_codeSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Failure Recovery Code"
-					code={`if env.failed:
-    plan = replanner.replan(state)`}
-					language="python"
-					slideName="lab-10-2-code"
-					audioStartFrame={lab_10_2_codeSlide.start}
-					audioDuration={lab_10_2_codeSlide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={lab_10_2_codeSlide.start + lab_10_2_codeSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Lab 10.2 Code Flow */}
-			<Sequence
-				from={code_flow_lab_10_2Slide.start}
-				durationInFrames={code_flow_lab_10_2Slide.duration}
-			>
-				<Audio src={audioFiles["code-flow-lab-10-2"]} />
-				<CrossFadeWrapper
-					totalDuration={code_flow_lab_10_2Slide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<BulletsAndCodeSlide
-					title="Lab 10.2 Code Flow"
-					points={[
-						"Detect failure from environment",
-						"Trigger replan with current state",
-						"Replace plan with adapted one"
-					]}
-					code={`if env.failed:
-    plan = replanner.replan(state)`}
-					language="python"
-					codeContext="Lab 10.2: failure recovery - replanning trigger"
-					slideName="code-flow-lab-10-2"
-					audioDuration={code_flow_lab_10_2Slide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={code_flow_lab_10_2Slide.start + code_flow_lab_10_2Slide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Lab 10.2 in Practice */}
-			<Sequence
-				from={lab_10_2_in_practice_overviewSlide.start}
-				durationInFrames={lab_10_2_in_practice_overviewSlide.duration}
-			>
-				<Audio src={audioFiles["lab-10-2-in-practice-overview"]} />
-				<CrossFadeWrapper
-					totalDuration={lab_10_2_in_practice_overviewSlide.slideDuration}
+					totalDuration={seg4.slideDuration}
 					fadeInDuration={crossFadeDuration}
 					fadeOutDuration={crossFadeDuration}
 			>
 					<AnimatedContentSlide
-					title="Lab 10.2 in Practice"
+					title="Concept"
 					points={[
-						"ResearcherAgent, CriticAgent, WriterAgent",
-					"MultiAgentOrchestrator with agents dict",
-					"run_round with order: researcher, critic, writer"
+						"Anthropx Cloud API and various cloud hosted services",
+					"SaaS is the fastest path to production",
+					"You don't manage GPUs"
 					]}
-					slideName="lab-10-2-in-practice-overview"
-					audioDuration={lab_10_2_in_practice_overviewSlide.audioDuration}
+					slideName="module-5-concept"
+					audioDuration={seg4.audioDuration}
 					moduleNumber={5}
 					
 					
-			/>
+					audioStartOffset={30.66}
+		/>
 				</CrossFadeWrapper>
 			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={lab_10_2_in_practice_overviewSlide.start + lab_10_2_in_practice_overviewSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
 
-			{/* Lab 10.2 Actual Code */}
+			{/* Concept */}
 			<Sequence
-				from={lab_10_2_actual_codeSlide.start}
-				durationInFrames={lab_10_2_actual_codeSlide.duration}
+				from={seg5.start}
+				durationInFrames={seg5.duration}
 			>
-				<Audio src={audioFiles["lab-10-2-actual-code"]} />
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(40.42 * fps)} />
 				<CrossFadeWrapper
-					totalDuration={lab_10_2_actual_codeSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Lab 10.2 Actual Code"
-					code={`researcher = ResearcherAgent(AgentConfig(role="researcher", ...))
-critic = CriticAgent(AgentConfig(role="critic", ...))
-writer = WriterAgent(AgentConfig(role="writer", ...))
-orchestrator = MultiAgentOrchestrator(agents={"researcher": researcher, ...})
-responses = await orchestrator.run_round(history, order=["researcher", "critic", "writer"])`}
-					language="python"
-					slideName="lab-10-2-actual-code"
-					audioStartFrame={lab_10_2_actual_codeSlide.start}
-					audioDuration={lab_10_2_actual_codeSlide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={lab_10_2_actual_codeSlide.start + lab_10_2_actual_codeSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Lab 10.2 Actual Flow */}
-			<Sequence
-				from={lab_10_2_actual_flowSlide.start}
-				durationInFrames={lab_10_2_actual_flowSlide.duration}
-			>
-				<Audio src={audioFiles["lab-10-2-actual-flow"]} />
-				<CrossFadeWrapper
-					totalDuration={lab_10_2_actual_flowSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<BulletsAndCodeSlide
-					title="Lab 10.2 Actual Flow"
-					points={[
-						"Create ResearcherAgent, CriticAgent, WriterAgent",
-						"orchestrator.run_round(history, order)",
-						"Each agent adds to history in sequence"
-					]}
-					code={`orchestrator = MultiAgentOrchestrator(agents={...})
-responses = await orchestrator.run_round(history, order=["researcher", "critic", "writer"])`}
-					language="python"
-					codeContext="Lab 10.2: ResearcherAgent, CriticAgent, WriterAgent, MultiAgentOrchestrator"
-					slideName="lab-10-2-actual-flow"
-					audioDuration={lab_10_2_actual_flowSlide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={lab_10_2_actual_flowSlide.start + lab_10_2_actual_flowSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Lab 10.3: Multimodal Agent Capabilities */}
-			<Sequence
-				from={lab_10_3_overviewSlide.start}
-				durationInFrames={lab_10_3_overviewSlide.duration}
-			>
-				<Audio src={audioFiles["lab-10-3-overview"]} />
-				<CrossFadeWrapper
-					totalDuration={lab_10_3_overviewSlide.slideDuration}
+					totalDuration={seg5.slideDuration}
 					fadeInDuration={crossFadeDuration}
 					fadeOutDuration={crossFadeDuration}
 			>
 					<AnimatedContentSlide
-					title="Lab 10.3: Multimodal Agent Capabilities"
+					title="Concept"
 					points={[
-						"process_image for vision input",
-					"process_audio for audio input",
-					"Combined multimodal prompts"
+						"you don't configure servers you just integrate and go",
+					"But there are limitations You are subject to the vendor's rate limits"
 					]}
-					slideName="lab-10-3-overview"
-					audioDuration={lab_10_3_overviewSlide.audioDuration}
+					slideName="module-5-concept"
+					audioDuration={seg5.audioDuration}
 					moduleNumber={5}
 					
 					
-				/>
+					audioStartOffset={40.42}
+		/>
 				</CrossFadeWrapper>
 			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={lab_10_3_overviewSlide.start + lab_10_3_overviewSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
 
-			{/* Lab 10.3 Code */}
+			{/* Concept */}
 			<Sequence
-				from={lab_10_3_codeSlide.start}
-				durationInFrames={lab_10_3_codeSlide.duration}
+				from={seg6.start}
+				durationInFrames={seg6.duration}
 			>
-				<Audio src={audioFiles["lab-10-3-code"]} />
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(48.80 * fps)} />
 				<CrossFadeWrapper
-					totalDuration={lab_10_3_codeSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Lab 10.3 Code"
-					code={`image_description = await process_image(image_path)
-audio_transcription = await process_audio(audio_path)
-combined_prompt = f"Image: {image_description}\nAudio: {transcription}\nHow do these relate?"
-response = await run_chat("planner", [Message(role="user", content=combined_prompt)])`}
-					language="python"
-					slideName="lab-10-3-code"
-					audioStartFrame={lab_10_3_codeSlide.start}
-					audioDuration={lab_10_3_codeSlide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={lab_10_3_codeSlide.start + lab_10_3_codeSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Lab 10.3 Code Flow */}
-			<Sequence
-				from={code_flow_lab_10_3Slide.start}
-				durationInFrames={code_flow_lab_10_3Slide.duration}
-			>
-				<Audio src={audioFiles["code-flow-lab-10-3"]} />
-				<CrossFadeWrapper
-					totalDuration={code_flow_lab_10_3Slide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<BulletsAndCodeSlide
-					title="Lab 10.3 Code Flow"
-					points={[
-						"process_image: path to description",
-						"process_audio: path to transcription",
-						"Combine in prompt, run_chat or agent.act"
-					]}
-					code={`image_desc = await process_image(path)
-transcription = await process_audio(path)
-prompt = f"Image: {image_desc}\nAudio: {transcription}"`}
-					language="python"
-					codeContext="Lab 10.3: process_image, process_audio, multimodal prompts"
-					slideName="code-flow-lab-10-3"
-					audioDuration={code_flow_lab_10_3Slide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={code_flow_lab_10_3Slide.start + code_flow_lab_10_3Slide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Lab 10.3 in Practice */}
-			<Sequence
-				from={lab_10_3_in_practice_overviewSlide.start}
-				durationInFrames={lab_10_3_in_practice_overviewSlide.duration}
-			>
-				<Audio src={audioFiles["lab-10-3-in-practice-overview"]} />
-				<CrossFadeWrapper
-					totalDuration={lab_10_3_in_practice_overviewSlide.slideDuration}
+					totalDuration={seg6.slideDuration}
 					fadeInDuration={crossFadeDuration}
 					fadeOutDuration={crossFadeDuration}
 			>
 					<AnimatedContentSlide
-					title="Lab 10.3 in Practice"
+					title="Concept"
 					points={[
-						"Scenario 1: process_image, planner for photography plan",
-					"Scenario 2: process_audio, agent for transcription-based response",
-					"Scenario 3: combined prompt for cross-modal reasoning"
+						"Your data goes to their servers",
+					"which raises compliance and privacy concerns and you have no control over the model's behavior beyond what"
 					]}
-					slideName="lab-10-3-in-practice-overview"
-					audioDuration={lab_10_3_in_practice_overviewSlide.audioDuration}
+					slideName="module-5-concept"
+					audioDuration={seg6.audioDuration}
 					moduleNumber={5}
 					
 					
-			/>
+					audioStartOffset={48.80}
+		/>
 				</CrossFadeWrapper>
 			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={lab_10_3_in_practice_overviewSlide.start + lab_10_3_in_practice_overviewSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
 
-			{/* Lab 10.3 Actual Code */}
+			{/* Concept */}
 			<Sequence
-				from={lab_10_3_actual_codeSlide.start}
-				durationInFrames={lab_10_3_actual_codeSlide.duration}
+				from={seg7.start}
+				durationInFrames={seg7.duration}
 			>
-				<Audio src={audioFiles["lab-10-3-actual-code"]} />
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(60.08 * fps)} />
 				<CrossFadeWrapper
-					totalDuration={lab_10_3_actual_codeSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Lab 10.3 Actual Code"
-					code={`image_description = await process_image("sample_image.jpg")
-planner_prompt = f"Based on: {image_description}. Create a plan."
-audio_transcription = await process_audio("sample_audio.wav")
-combined = f"Image: {image_description}\nAudio: {transcription}\nHow do these relate?"`}
-					language="python"
-					slideName="lab-10-3-actual-code"
-					audioStartFrame={lab_10_3_actual_codeSlide.start}
-					audioDuration={lab_10_3_actual_codeSlide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={lab_10_3_actual_codeSlide.start + lab_10_3_actual_codeSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Lab 10.3 Actual Flow */}
-			<Sequence
-				from={lab_10_3_actual_flowSlide.start}
-				durationInFrames={lab_10_3_actual_flowSlide.duration}
-			>
-				<Audio src={audioFiles["lab-10-3-actual-flow"]} />
-				<CrossFadeWrapper
-					totalDuration={lab_10_3_actual_flowSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<BulletsAndCodeSlide
-					title="Lab 10.3 Actual Flow"
-					points={[
-						"process_image, process_audio return text",
-						"Planner: image-only; Agent: audio-only",
-						"Combined: both in one prompt"
-					]}
-					code={`image_desc = await process_image(path)
-transcription = await process_audio(path)
-combined = f"Image: {image_desc}\nAudio: {transcription}"`}
-					language="python"
-					codeContext="Lab 10.3: process_image, process_audio, multimodal scenarios"
-					slideName="lab-10-3-actual-flow"
-					audioDuration={lab_10_3_actual_flowSlide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={lab_10_3_actual_flowSlide.start + lab_10_3_actual_flowSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Capstone Project Overview */}
-			<Sequence
-				from={capstone_overviewSlide.start}
-				durationInFrames={capstone_overviewSlide.duration}
-			>
-				<Audio src={audioFiles["capstone-overview"]} />
-				<CrossFadeWrapper
-					totalDuration={capstone_overviewSlide.slideDuration}
+					totalDuration={seg7.slideDuration}
 					fadeInDuration={crossFadeDuration}
 					fadeOutDuration={crossFadeDuration}
 			>
 					<AnimatedContentSlide
-					title="Capstone Project Overview"
+					title="Concept"
 					points={[
-						"Integrate all skills",
-					"Handle complex environments",
-					"Achieve multi-goal success"
+						"API exposes Cloud GPU rental",
+					"In this model you run your own inference infrastructure",
+					"but on rented cloud GPUs",
+					"Providers like"
 					]}
-					slideName="capstone-overview"
-					audioDuration={capstone_overviewSlide.audioDuration}
+					slideName="module-5-concept"
+					audioDuration={seg7.audioDuration}
 					moduleNumber={5}
 					
 					
-				/>
+					audioStartOffset={60.08}
+		/>
 				</CrossFadeWrapper>
 			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={capstone_overviewSlide.start + capstone_overviewSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
 
-			{/* Capstone Main Loop Code */}
+			{/* Concept */}
 			<Sequence
-				from={capstone_codeSlide.start}
-				durationInFrames={capstone_codeSlide.duration}
+				from={seg8.start}
+				durationInFrames={seg8.duration}
 			>
-				<Audio src={audioFiles["capstone-code"]} />
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(70.22 * fps)} />
 				<CrossFadeWrapper
-					totalDuration={capstone_codeSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Capstone Main Loop Code"
-					code={`while True:
-    state = agent.update_state(env.observe())
-    goal = agent.select_goal(state)
-    plan = agent.plan(goal)
-    action = plan.next()
-    env.step(action)
-    agent.learn(env.feedback())`}
-					language="python"
-					slideName="capstone-code"
-					audioStartFrame={capstone_codeSlide.start}
-					audioDuration={capstone_codeSlide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={capstone_codeSlide.start + capstone_codeSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Capstone Main Loop Flow */}
-			<Sequence
-				from={code_flow_capstoneSlide.start}
-				durationInFrames={code_flow_capstoneSlide.duration}
-			>
-				<Audio src={audioFiles["code-flow-capstone"]} />
-				<CrossFadeWrapper
-					totalDuration={code_flow_capstoneSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<BulletsAndCodeSlide
-					title="Capstone Main Loop Flow"
-					points={[
-						"Observe and update state",
-						"Select goal, plan, get action",
-						"Act, then learn from feedback"
-					]}
-					code={`while True:
-    state = agent.update_state(env.observe())
-    goal = agent.select_goal(state)
-    plan = agent.plan(goal)
-    action = plan.next()
-    env.step(action)
-    agent.learn(env.feedback())`}
-					language="python"
-					codeContext="Capstone: main loop - full agent integration"
-					slideName="code-flow-capstone"
-					audioDuration={code_flow_capstoneSlide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={code_flow_capstoneSlide.start + code_flow_capstoneSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Capstone in Practice */}
-			<Sequence
-				from={capstone_in_practice_overviewSlide.start}
-				durationInFrames={capstone_in_practice_overviewSlide.duration}
-			>
-				<Audio src={audioFiles["capstone-in-practice-overview"]} />
-				<CrossFadeWrapper
-					totalDuration={capstone_in_practice_overviewSlide.slideDuration}
+					totalDuration={seg8.slideDuration}
 					fadeInDuration={crossFadeDuration}
 					fadeOutDuration={crossFadeDuration}
 			>
 					<AnimatedContentSlide
-					title="Capstone in Practice"
+					title="Concept"
 					points={[
-						"AutonomousResearchPipeline: planner + RAG + multi-agent",
-					"FastAPI: /health, /v1/research",
-					"execute_research(query, session_id)"
+						"AWS GCP and Azure offer GPU instances",
+					"You deploy your models using tools like Triton and Nim You control the configuration"
 					]}
-					slideName="capstone-in-practice-overview"
-					audioDuration={capstone_in_practice_overviewSlide.audioDuration}
+					slideName="module-5-concept"
+					audioDuration={seg8.audioDuration}
 					moduleNumber={5}
 					
 					
-			/>
+					audioStartOffset={70.22}
+		/>
 				</CrossFadeWrapper>
 			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={capstone_in_practice_overviewSlide.start + capstone_in_practice_overviewSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
 
-			{/* Capstone Actual Code */}
+			{/* Concept */}
 			<Sequence
-				from={capstone_actual_codeSlide.start}
-				durationInFrames={capstone_actual_codeSlide.duration}
+				from={seg9.start}
+				durationInFrames={seg9.duration}
 			>
-				<Audio src={audioFiles["capstone-actual-code"]} />
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(80.38 * fps)} />
 				<CrossFadeWrapper
-					totalDuration={capstone_actual_codeSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Capstone Actual Code"
-					code={`app = FastAPI()
-pipeline = AutonomousResearchPipeline()
-@app.get("/health") ...
-@app.post("/v1/research")
-async def research(request):
-    result = await pipeline.execute_research(request.query, request.session_id)
-    return AgentInvokeResponse(response=result["response"], ...)`}
-					language="python"
-					slideName="capstone-actual-code"
-					audioStartFrame={capstone_actual_codeSlide.start}
-					audioDuration={capstone_actual_codeSlide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={capstone_actual_codeSlide.start + capstone_actual_codeSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Capstone Actual Flow */}
-			<Sequence
-				from={capstone_actual_flowSlide.start}
-				durationInFrames={capstone_actual_flowSlide.duration}
-			>
-				<Audio src={audioFiles["capstone-actual-flow"]} />
-				<CrossFadeWrapper
-					totalDuration={capstone_actual_flowSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<BulletsAndCodeSlide
-					title="Capstone Actual Flow"
-					points={[
-						"execute_research: plan, RAG, multi-agent, policy",
-						"/v1/research endpoint",
-						"Full integration of labs 5.1, 5.2, 6.1, 9.1, 10.2"
-					]}
-					code={`result = await pipeline.execute_research(request.query, request.session_id)
-return AgentInvokeResponse(response=result["response"], ...)`}
-					language="python"
-					codeContext="Capstone: AutonomousResearchPipeline, /v1/research"
-					slideName="capstone-actual-flow"
-					audioDuration={capstone_actual_flowSlide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={capstone_actual_flowSlide.start + capstone_actual_flowSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Why Mastery Matters */}
-			<Sequence
-				from={final_thoughtsSlide.start}
-				durationInFrames={final_thoughtsSlide.duration}
-			>
-				<Audio src={audioFiles["final-thoughts"]} />
-				<CrossFadeWrapper
-					totalDuration={final_thoughtsSlide.slideDuration}
+					totalDuration={seg9.slideDuration}
 					fadeInDuration={crossFadeDuration}
 					fadeOutDuration={crossFadeDuration}
 			>
 					<AnimatedContentSlide
-					title="Why Mastery Matters"
+					title="Concept"
 					points={[
-						"Integrate diverse skills",
-					"Build resilient agents",
-					"Prepare for real AI tasks"
+						"but you don't own the hardware",
+					"This model offers flexibility You can scale up and down based on demand"
 					]}
-					slideName="final-thoughts"
-					audioDuration={final_thoughtsSlide.audioDuration}
+					slideName="module-5-concept"
+					audioDuration={seg9.audioDuration}
 					moduleNumber={5}
 					
 					
-				/>
+					audioStartOffset={80.38}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Concept */}
+			<Sequence
+				from={seg10.start}
+				durationInFrames={seg10.duration}
+			>
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(89.82 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg10.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"You can run custom models with custom optimizations",
+					"But you're still dependent on cloud availability",
+					"and costs can escalate quickly at scale"
+					]}
+					slideName="module-5-concept"
+					audioDuration={seg10.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={89.82}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Concept */}
+			<Sequence
+				from={seg11.start}
+				durationInFrames={seg11.duration}
+			>
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(100.22 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg11.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"Enterprise on premises In this model you run AI on infrastructure you own The hardware sits"
+					]}
+					slideName="module-5-concept"
+					audioDuration={seg11.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={100.22}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Concept */}
+			<Sequence
+				from={seg12.start}
+				durationInFrames={seg12.duration}
+			>
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(110.10 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg12.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"The GPUs the network the software stack On premises",
+					"sovereignty",
+					"Some industries"
+					]}
+					slideName="module-5-concept"
+					audioDuration={seg12.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={110.10}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Concept */}
+			<Sequence
+				from={seg13.start}
+				durationInFrames={seg13.duration}
+			>
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(120.40 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg13.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"infrastructure"
+					]}
+					slideName="module-5-concept"
+					audioDuration={seg13.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={120.40}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Concept */}
+			<Sequence
+				from={seg14.start}
+				durationInFrames={seg14.duration}
+			>
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(129.76 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg14.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"On prem is the only option that fully satisfies those requirements The trade off is capital expenditure"
+					]}
+					slideName="module-5-concept"
+					audioDuration={seg14.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={129.76}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Concept */}
+			<Sequence
+				from={seg15.start}
+				durationInFrames={seg15.duration}
+			>
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(140.52 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg15.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"You need hardware you need a team to manage",
+					"And upgrades require planning Hybrid and Edge Hybrid models"
+					]}
+					slideName="module-5-concept"
+					audioDuration={seg15.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={140.52}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Concept */}
+			<Sequence
+				from={seg16.start}
+				durationInFrames={seg16.duration}
+			>
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(150.46 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg16.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"combine cloud and on prem",
+					"You might train in the cloud and deploy on prem",
+					"Or run primary inference in the cloud with on-prem"
+					]}
+					slideName="module-5-concept"
+					audioDuration={seg16.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={150.46}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Concept */}
+			<Sequence
+				from={seg17.start}
+				durationInFrames={seg17.duration}
+			>
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(160.42 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg17.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"Edge deployment pushes inference to devices at the network edge",
+					"Robots vehicles industrial equipment"
+					]}
+					slideName="module-5-concept"
+					audioDuration={seg17.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={160.42}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Concept */}
+			<Sequence
+				from={seg18.start}
+				durationInFrames={seg18.duration}
+			>
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(170.34 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg18.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"This minimizes latency and enables autonomous operation when connectivity is limited",
+					"Each deployment model is a"
+					]}
+					slideName="module-5-concept"
+					audioDuration={seg18.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={170.34}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Concept */}
+			<Sequence
+				from={seg19.start}
+				durationInFrames={seg19.duration}
+			>
+				<Audio src={audioFiles["module-5-concept"]} startFrom={Math.round(180.08 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg19.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"There's no universal answer The right choice depends on your cons..."
+					]}
+					slideName="module-5-concept"
+					audioDuration={seg19.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={180.08}
+		/>
 				</CrossFadeWrapper>
 			</Sequence>
 			{/* Whoosh transition */}
 			<Sequence
-				from={final_thoughtsSlide.start + final_thoughtsSlide.duration}
+				from={seg19.start + seg19.duration}
 				durationInFrames={whooshDuration * fps}
 			>
 				<Audio src={audioFiles.whoosh} startFrom={0} />
 			</Sequence>
 
-			{/* Your Agentic AI Journey Complete */}
+			{/* Architecture */}
 			<Sequence
-				from={final_big_takeawaySlide.start}
-				durationInFrames={final_big_takeawaySlide.duration}
+				from={seg20.start}
+				durationInFrames={seg20.duration}
 			>
-				<Audio src={audioFiles["final-big-takeaway"]} />
+				<Audio src={audioFiles["module-5-architecture"]} />
 				<CrossFadeWrapper
-					totalDuration={final_big_takeawaySlide.slideDuration}
+					totalDuration={seg20.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"Deployment is only half the challenge",
+					"The other half is integration",
+					"An agentic system that can't connect to enterprise data"
+					]}
+					slideName="module-5-architecture"
+					audioDuration={seg20.audioDuration}
+					moduleNumber={5}
+					
+					
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg21.start}
+				durationInFrames={seg21.duration}
+			>
+				<Audio src={audioFiles["module-5-architecture"]} startFrom={Math.round(10.50 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg21.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"Integration surfaces are the interfaces that make that connection possible"
+					]}
+					slideName="module-5-architecture"
+					audioDuration={seg21.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={10.50}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg22.start}
+				durationInFrames={seg22.duration}
+			>
+				<Audio src={audioFiles["module-5-architecture"]} startFrom={Math.round(19.00 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg22.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"API integrations The most common integration surface is the API",
+					"Your agent calls external APIs to retrieve data"
+					]}
+					slideName="module-5-architecture"
+					audioDuration={seg22.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={19.00}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg23.start}
+				durationInFrames={seg23.duration}
+			>
+				<Audio src={audioFiles["module-5-architecture"]} startFrom={Math.round(29.46 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg23.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"This includes both internal APIs like your CRM or ERP"
+					]}
+					slideName="module-5-architecture"
+					audioDuration={seg23.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={29.46}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg24.start}
+				durationInFrames={seg24.duration}
+			>
+				<Audio src={audioFiles["module-5-architecture"]} startFrom={Math.round(40.18 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg24.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"API integration requires authentication",
+					"versioning"
+					]}
+					slideName="module-5-architecture"
+					audioDuration={seg24.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={40.18}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg25.start}
+				durationInFrames={seg25.duration}
+			>
+				<Audio src={audioFiles["module-5-architecture"]} startFrom={Math.round(50.06 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg25.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"It's not just about making calls",
+					"It's about making calls reliably",
+					"Tool interfaces For agentic systems"
+					]}
+					slideName="module-5-architecture"
+					audioDuration={seg25.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={50.06}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg26.start}
+				durationInFrames={seg26.duration}
+			>
+				<Audio src={audioFiles["module-5-architecture"]} startFrom={Math.round(59.00 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg26.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"integration",
+					"A tool is a function the agent can invoke",
+					"SQL query execute code"
+					]}
+					slideName="module-5-architecture"
+					audioDuration={seg26.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={59.00}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg27.start}
+				durationInFrames={seg27.duration}
+			>
+				<Audio src={audioFiles["module-5-architecture"]} startFrom={Math.round(69.34 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg27.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"search a knowledge base send an email",
+					"Tool interfaces define what the agent can do",
+					"They are the bridge between language model reasoning and real world action"
+					]}
+					slideName="module-5-architecture"
+					audioDuration={seg27.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={69.34}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg28.start}
+				durationInFrames={seg28.duration}
+			>
+				<Audio src={audioFiles["module-5-architecture"]} startFrom={Math.round(80.36 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg28.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"Data connectors Agents often need access to structured data",
+					"Databases data warehouses"
+					]}
+					slideName="module-5-architecture"
+					audioDuration={seg28.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={80.36}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg29.start}
+				durationInFrames={seg29.duration}
+			>
+				<Audio src={audioFiles["module-5-architecture"]} startFrom={Math.round(89.36 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg29.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"Data connectors provide that access They handle authentication",
+					"formatting"
+					]}
+					slideName="module-5-architecture"
+					audioDuration={seg29.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={89.36}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg30.start}
+				durationInFrames={seg30.duration}
+			>
+				<Audio src={audioFiles["module-5-architecture"]} startFrom={Math.round(100.52 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg30.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"For retrieval augmented generation vector database connectors are essential",
+					"Policy gateways"
+					]}
+					slideName="module-5-architecture"
+					audioDuration={seg30.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={100.52}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg31.start}
+				durationInFrames={seg31.duration}
+			>
+				<Audio src={audioFiles["module-5-architecture"]} startFrom={Math.round(109.18 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg31.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"In enterprise environments not all actions are permitted",
+					"Policy gateways enforce rules about what the agent can access and what actions require approval",
+					"They integrate with identity"
+					]}
+					slideName="module-5-architecture"
+					audioDuration={seg31.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={109.18}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg32.start}
+				durationInFrames={seg32.duration}
+			>
+				<Audio src={audioFiles["module-5-architecture"]} startFrom={Math.round(120.46 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg32.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"identity systems compliance engines and audit logs",
+					"Policy isn't separate from integration",
+					"It's part of"
+					]}
+					slideName="module-5-architecture"
+					audioDuration={seg32.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={120.46}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg33.start}
+				durationInFrames={seg33.duration}
+			>
+				<Audio src={audioFiles["module-5-architecture"]} startFrom={Math.round(130.10 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg33.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"Policy isn't separate from integration",
+					"It's part of"
+					]}
+					slideName="module-5-architecture"
+					audioDuration={seg33.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={130.10}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+			{/* Whoosh transition */}
+			<Sequence
+				from={seg33.start + seg33.duration}
+				durationInFrames={whooshDuration * fps}
+			>
+				<Audio src={audioFiles.whoosh} startFrom={0} />
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg34.start}
+				durationInFrames={seg34.duration}
+			>
+				<Audio src={audioFiles["module-5-application"]} />
+				<CrossFadeWrapper
+					totalDuration={seg34.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"Let's connect deployment and integration to business drivers SaaS for Velocity",
+					"Startups and innovation teams choose SaaS because"
+					]}
+					slideName="module-5-application"
+					audioDuration={seg34.audioDuration}
+					moduleNumber={5}
+					
+					
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg35.start}
+				durationInFrames={seg35.duration}
+			>
+				<Audio src={audioFiles["module-5-application"]} startFrom={Math.round(10.20 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg35.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"You can have a working prototype in days The tradeoff is that you're locked into the",
+					"the vendor's capabilities and pricing For early"
+					]}
+					slideName="module-5-application"
+					audioDuration={seg35.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={10.20}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg36.start}
+				durationInFrames={seg36.duration}
+			>
+				<Audio src={audioFiles["module-5-application"]} startFrom={Math.round(20.09 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg36.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"For production scale it may not be Cloud for Flexibility Teams that need custom"
+					]}
+					slideName="module-5-application"
+					audioDuration={seg36.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={20.09}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg37.start}
+				durationInFrames={seg37.duration}
+			>
+				<Audio src={audioFiles["module-5-application"]} startFrom={Math.round(30.06 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg37.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"GPU rental You get the control of self hosting without the capital expense of owned hardware"
+					]}
+					slideName="module-5-application"
+					audioDuration={seg37.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={30.06}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg38.start}
+				durationInFrames={seg38.duration}
+			>
+				<Audio src={audioFiles["module-5-application"]} startFrom={Math.round(40.17 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg38.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"You scale up for peaks and down for troughs On Prem for Compliance and Sovereignty Regulated"
+					]}
+					slideName="module-5-application"
+					audioDuration={seg38.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={40.17}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg39.start}
+				durationInFrames={seg39.duration}
+			>
+				<Audio src={audioFiles["module-5-application"]} startFrom={Math.round(49.73 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg39.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"The driver isn't cost It's control When you can't"
+					]}
+					slideName="module-5-application"
+					audioDuration={seg39.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={49.73}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg40.start}
+				durationInFrames={seg40.duration}
+			>
+				<Audio src={audioFiles["module-5-application"]} startFrom={Math.round(59.97 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg40.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"Edge for Latency and Autonomy",
+					"Industrial applications autonomous systems"
+					]}
+					slideName="module-5-application"
+					audioDuration={seg40.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={59.97}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg41.start}
+				durationInFrames={seg41.duration}
+			>
+				<Audio src={audioFiles["module-5-application"]} startFrom={Math.round(70.32 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg41.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"When network latency is unacceptable or connectivity is unreliable you run"
+					]}
+					slideName="module-5-application"
+					audioDuration={seg41.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={70.32}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg42.start}
+				durationInFrames={seg42.duration}
+			>
+				<Audio src={audioFiles["module-5-application"]} startFrom={Math.round(80.18 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg42.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"Enterprise Blockers Deployment decisions aren't just technical They're organizational Common blocke..."
+					]}
+					slideName="module-5-application"
+					audioDuration={seg42.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={80.18}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg43.start}
+				durationInFrames={seg43.duration}
+			>
+				<Audio src={audioFiles["module-5-application"]} startFrom={Math.round(90.12 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg43.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"Compliance requirements that limit cloud options Safety alignme..."
+					]}
+					slideName="module-5-application"
+					audioDuration={seg43.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={90.12}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg44.start}
+				durationInFrames={seg44.duration}
+			>
+				<Audio src={audioFiles["module-5-application"]} startFrom={Math.round(100.31 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg44.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"SaaS And integration debt",
+					"the accumulated complexity of connecting to legacy systems de facto"
+					]}
+					slideName="module-5-application"
+					audioDuration={seg44.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={100.31}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg45.start}
+				durationInFrames={seg45.duration}
+			>
+				<Audio src={audioFiles["module-5-application"]} startFrom={Math.round(110.08 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg45.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"For engineers deployment is about infrastructure",
+					"For technical leaders it's about risk cost and organizational readiness"
+					]}
+					slideName="module-5-application"
+					audioDuration={seg45.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={110.08}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg46.start}
+				durationInFrames={seg46.duration}
+			>
+				<Audio src={audioFiles["module-5-application"]} startFrom={Math.round(120.04 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg46.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"For technical leaders it's about risk cost and organizational readiness"
+					]}
+					slideName="module-5-application"
+					audioDuration={seg46.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={120.04}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+			{/* Whoosh transition */}
+			<Sequence
+				from={seg46.start + seg46.duration}
+				durationInFrames={whooshDuration * fps}
+			>
+				<Audio src={audioFiles.whoosh} startFrom={0} />
+			</Sequence>
+
+			{/* Exam Mapping */}
+			<Sequence
+				from={seg47.start}
+				durationInFrames={seg47.duration}
+			>
+				<Audio src={audioFiles["module-5-exam-mapping"]} />
+				<CrossFadeWrapper
+					totalDuration={seg47.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Exam Mapping"
+					points={[
+						"Expect questions that ask"
+					]}
+					slideName="module-5-exam-mapping"
+					audioDuration={seg47.audioDuration}
+					moduleNumber={5}
+					
+					
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Exam Mapping */}
+			<Sequence
+				from={seg48.start}
+				durationInFrames={seg48.duration}
+			>
+				<Audio src={audioFiles["module-5-exam-mapping"]} startFrom={Math.round(10.44 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg48.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Exam Mapping"
+					points={[
+						"If it describes rapid iteration the answer is likely"
+					]}
+					slideName="module-5-exam-mapping"
+					audioDuration={seg48.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={10.44}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Exam Mapping */}
+			<Sequence
+				from={seg49.start}
+				durationInFrames={seg49.duration}
+			>
+				<Audio src={audioFiles["module-5-exam-mapping"]} startFrom={Math.round(20.02 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg49.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Exam Mapping"
+					points={[
+						"SaaS Understand The Tradeoffs cloud offers flexibility but ongoing cost On prem offers control but requires capital SaaS"
+					]}
+					slideName="module-5-exam-mapping"
+					audioDuration={seg49.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={20.02}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Exam Mapping */}
+			<Sequence
+				from={seg50.start}
+				durationInFrames={seg50.duration}
+			>
+				<Audio src={audioFiles["module-5-exam-mapping"]} startFrom={Math.round(30.42 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg50.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Exam Mapping"
+					points={[
+						"Edge offers low latency but constrained resources Know the integration surfaces"
+					]}
+					slideName="module-5-exam-mapping"
+					audioDuration={seg50.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={30.42}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Exam Mapping */}
+			<Sequence
+				from={seg51.start}
+				durationInFrames={seg51.duration}
+			>
+				<Audio src={audioFiles["module-5-exam-mapping"]} startFrom={Math.round(40.10 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg51.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Exam Mapping"
+					points={[
+						"APIs tools data connectors and policy gateways are all testable You should be able to describe what each"
+					]}
+					slideName="module-5-exam-mapping"
+					audioDuration={seg51.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={40.10}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Exam Mapping */}
+			<Sequence
+				from={seg52.start}
+				durationInFrames={seg52.duration}
+			>
+				<Audio src={audioFiles["module-5-exam-mapping"]} startFrom={Math.round(50.26 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg52.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Exam Mapping"
+					points={[
+						"Pay attention to operational concerns The exam may ask about SLAs",
+					"monitoring"
+					]}
+					slideName="module-5-exam-mapping"
+					audioDuration={seg52.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={50.26}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Exam Mapping */}
+			<Sequence
+				from={seg53.start}
+				durationInFrames={seg53.duration}
+			>
+				<Audio src={audioFiles["module-5-exam-mapping"]} startFrom={Math.round(59.54 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg53.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Exam Mapping"
+					points={[
+						"Deployment isn't just about getting the system running It's about keeping it running ...",
+					"understand"
+					]}
+					slideName="module-5-exam-mapping"
+					audioDuration={seg53.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={59.54}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Exam Mapping */}
+			<Sequence
+				from={seg54.start}
+				durationInFrames={seg54.duration}
+			>
+				<Audio src={audioFiles["module-5-exam-mapping"]} startFrom={Math.round(70.44 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg54.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Exam Mapping"
+					points={[
+						"Agents need tools Tools require integration Without robust i..."
+					]}
+					slideName="module-5-exam-mapping"
+					audioDuration={seg54.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={70.44}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Exam Mapping */}
+			<Sequence
+				from={seg55.start}
+				durationInFrames={seg55.duration}
+			>
+				<Audio src={audioFiles["module-5-exam-mapping"]} startFrom={Math.round(80.52 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg55.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Exam Mapping"
+					points={[
+						"agents can't act"
+					]}
+					slideName="module-5-exam-mapping"
+					audioDuration={seg55.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={80.52}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+			{/* Whoosh transition */}
+			<Sequence
+				from={seg55.start + seg55.duration}
+				durationInFrames={whooshDuration * fps}
+			>
+				<Audio src={audioFiles.whoosh} startFrom={0} />
+			</Sequence>
+
+			{/* Recap */}
+			<Sequence
+				from={seg56.start}
+				durationInFrames={seg56.duration}
+			>
+				<Audio src={audioFiles["module-5-recap"]} />
+				<CrossFadeWrapper
+					totalDuration={seg56.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Recap"
+					points={[
+						"Let's lock in the key points",
+					"Deployment models define where your AI runs",
+					"SaaS is fastest but least controlled",
+					"Cloud offers flexibility agentic"
+					]}
+					slideName="module-5-recap"
+					audioDuration={seg56.audioDuration}
+					moduleNumber={5}
+					
+					
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Recap */}
+			<Sequence
+				from={seg57.start}
+				durationInFrames={seg57.duration}
+			>
+				<Audio src={audioFiles["module-5-recap"]} startFrom={Math.round(10.35 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg57.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Recap"
+					points={[
+						"On prem offers control and compliance",
+					"Edge offers low latency for autonomous systems Choose based"
+					]}
+					slideName="module-5-recap"
+					audioDuration={seg57.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={10.35}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Recap */}
+			<Sequence
+				from={seg58.start}
+				durationInFrames={seg58.duration}
+			>
+				<Audio src={audioFiles["module-5-recap"]} startFrom={Math.round(20.10 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg58.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Recap"
+					points={[
+						"Integration surfaces are how agentic systems connect to the enterprise APIs",
+					"Tools for agent actions"
+					]}
+					slideName="module-5-recap"
+					audioDuration={seg58.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={20.10}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Recap */}
+			<Sequence
+				from={seg59.start}
+				durationInFrames={seg59.duration}
+			>
+				<Audio src={audioFiles["module-5-recap"]} startFrom={Math.round(30.19 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg59.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Recap"
+					points={[
+						"Data connectors for retrieval Policy gateways for governance Business drivers shape deployment choices Velocity pushes"
+					]}
+					slideName="module-5-recap"
+					audioDuration={seg59.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={30.19}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Recap */}
+			<Sequence
+				from={seg60.start}
+				durationInFrames={seg60.duration}
+			>
+				<Audio src={audioFiles["module-5-recap"]} startFrom={Math.round(40.19 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg60.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Recap"
+					points={[
+						"SaaS Flexibility pushes toward cloud Compliance pushes toward on prem Latency pushes toward edge Deployment is..."
+					]}
+					slideName="module-5-recap"
+					audioDuration={seg60.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={40.19}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Recap */}
+			<Sequence
+				from={seg61.start}
+				durationInFrames={seg61.duration}
+			>
+				<Audio src={audioFiles["module-5-recap"]} startFrom={Math.round(50.06 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg61.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Recap"
+					points={[
+						"It's where models become systems And for AI it's where the loop connects to the world"
+					]}
+					slideName="module-5-recap"
+					audioDuration={seg61.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={50.06}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Recap */}
+			<Sequence
+				from={seg62.start}
+				durationInFrames={seg62.duration}
+			>
+				<Audio src={audioFiles["module-5-recap"]} startFrom={Math.round(60.28 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg62.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Recap"
+					points={[
+						"This is the bridge from architecture",
+					"You've now crossed"
+					]}
+					slideName="module-5-recap"
+					audioDuration={seg62.audioDuration}
+					moduleNumber={5}
+					
+					
+					audioStartOffset={60.28}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Recap */}
+			<Sequence
+				from={seg63.start}
+				durationInFrames={seg63.duration}
+			>
+				<Audio src={audioFiles["module-5-recap"]} startFrom={Math.round(70.15 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg63.slideDuration}
 					fadeInDuration={crossFadeDuration}
 					fadeOutDuration={0}
 			>
 					<AnimatedContentSlide
-					title="Your Agentic AI Journey Complete"
+					title="Recap"
 					points={[
-						"Stepwise skill building",
-					"From simple to complex",
-					"Agents ready for real world"
+						"You've now crossed"
 					]}
-					slideName="final-big-takeaway"
-					audioDuration={final_big_takeawaySlide.audioDuration}
+					slideName="module-5-recap"
+					audioDuration={seg63.audioDuration}
 					moduleNumber={5}
 					
 					
-				/>
+					audioStartOffset={70.15}
+		/>
 				</CrossFadeWrapper>
 			</Sequence>
 

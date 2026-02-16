@@ -2,7 +2,7 @@
 // Runs on port 3001, separate from Remotion Studio (port 3000)
 
 const express = require('express');
-const { exec, execSync } = require('child_process');
+const { exec, execSync, spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
@@ -28,9 +28,18 @@ const PORT = 3001;
 
 app.use(cors());
 app.use(express.json());
+// Disable caching for GUI HTML/JS/CSS so changes are visible without hard refresh
+app.use((req, res, next) => {
+	if (/\.(html|js|css)$/.test(req.path)) {
+		res.set('Cache-Control', 'no-store, no-cache, must-revalidate');
+	}
+	next();
+});
 app.use(express.static(path.join(__dirname, 'gui')));
 // Serve audio files from public/audio
 app.use('/audio', express.static(path.join(__dirname, 'public', 'audio')));
+// Serve rendered videos (for GUI on RunPod - download from server)
+app.use('/out', express.static(path.join(__dirname, 'out')));
 
 // Course storage file path
 const COURSES_JSON_PATH = path.join(__dirname, 'courses.json');
@@ -50,6 +59,33 @@ function readCoursesJson() {
 		courses: [{ id: 'default', title: 'Default Course', description: '', moduleCount: 0, status: 'active', archivedAt: null }],
 		courseModuleMapping: { 'default': [] }
 	};
+}
+
+// Helper: Get module range string for a course (e.g. "1-12" or "1,2,3")
+// Uses courseStructure.ts first, then courses.json as fallback
+function getModuleRangeForCourse(courseId) {
+	if (!courseId) return null;
+	let moduleNumbers = [];
+	try {
+		const coursePath = path.join(__dirname, 'src', 'videos', 'courseStructure.ts');
+		if (fs.existsSync(coursePath)) {
+			const courseContent = fs.readFileSync(coursePath, 'utf-8');
+			const mappingMatch = courseContent.match(new RegExp(`'${courseId.replace(/'/g, "\\'")}':\\s*\\[([\\d,\\s]+)\\]`));
+			if (mappingMatch) {
+				moduleNumbers = mappingMatch[1].split(',').map(n => parseInt(n.trim())).filter(n => !isNaN(n));
+			}
+		}
+		if (moduleNumbers.length === 0) {
+			const coursesData = readCoursesJson();
+			moduleNumbers = coursesData.courseModuleMapping?.[courseId] || [];
+		}
+		if (moduleNumbers.length > 0) {
+			return moduleNumbers.length === 1 ? moduleNumbers[0].toString() : `${Math.min(...moduleNumbers)}-${Math.max(...moduleNumbers)}`;
+		}
+	} catch (e) {
+		console.error('Error getting course modules:', e);
+	}
+	return null;
 }
 
 // Helper: Get active course from moduleContent.ts (source of truth for Remotion)
@@ -198,6 +234,13 @@ AUDIO CONSTRAINTS FOR SHORTS:
 - Maximum: 25 words per slide
 - 5-10 slides per short so the argument can build (not just 3-4 punchy lines)
 
+AUDIO / NARRATION OPTIMIZATION:
+- Scripts will be spoken aloud (TTS or voiceover). Write for the ear, not the eye.
+- Use contractions (it's, we're, don't) - they sound more natural when spoken.
+- Spell out acronyms on first use when it helps (e.g., "RAG, or Retrieval-Augmented Generation").
+- Avoid tongue-twisters and dense jargon. One clear idea per sentence.
+- End with a line worth remembering - a phrase the listener can quote.
+
 SLIDE TYPES:
 1. "title" - Script = one or two full sentences (the hook). Title field = short label for the slide.
 2. "content-two-card" - Script = the main content (one full sentence). points[] OPTIONAL: 0-2 phrases only if they add clarity; script carries the meaning.
@@ -231,7 +274,7 @@ OUTPUT FORMAT (same JSON shape as courses):
       "slides": [
         {
           "name": "unique-slide-name",
-          "type": "title|content-two-card|code|comparison",
+          "type": "title|content-single|content-two-card|code|code-diagram|comparison|bullets-code|sequential-bullet",
           "script": "One full essay-style sentence (15-22 words). Complete thought.",
           "title": "Slide Title",
           "points": ["short phrase", "another"],
@@ -298,6 +341,15 @@ VOICE AND TONE (YouTube long-form, not course):
 - Phrases like: "Here's the thing...", "So what does that mean for you?", "Quick tip:", "The key takeaway..."
 - No "In this module we will..." - jump into the content
 
+AUDIO / NARRATION OPTIMIZATION:
+- Scripts will be spoken aloud (TTS or voiceover). Write for the ear, not the eye.
+- Vary sentence length: mix short punchy sentences with longer explanatory ones. Avoid long run-ons.
+- Hook the first sentence of each slide: start with the insight or question, not setup.
+- Spell out acronyms on first use when it helps clarity (e.g., "RAG, or Retrieval-Augmented Generation").
+- Use contractions (it's, we're, don't) - they sound more natural when spoken.
+- Avoid tongue-twisters and dense jargon clusters. If technical, follow with plain-language restatement.
+- End key slides with a clear takeaway phrase the listener can remember.
+
 STRUCTURE:
 - Organized like a course: same concept covered across many videos (modules). No cap on number of videos - let the topic dictate how many. Often 20+ videos for a full series.
 - Each module = one YouTube video; each video 5-20 minutes long (roughly 6-25 slides per video depending on depth).
@@ -324,7 +376,7 @@ OUTPUT FORMAT:
       "slides": [
         {
           "name": "unique-slide-name",
-          "type": "title|content-two-card|code|comparison",
+          "type": "title|content-single|content-two-card|code|code-diagram|comparison|bullets-code|sequential-bullet",
           "script": "40-55 word narration, YouTube tone...",
           "title": "Slide Title",
           "points": ["phrase from script", "another phrase"],
@@ -376,10 +428,26 @@ SCRIPT LENGTH (per slide):
 
 SLIDE TYPES:
 1. "title" - Module intro (what we'll learn, why it matters)
-2. "content-two-card" - Explanation with bullet points (title, script, points[])
-3. "code" - Code example WITH full explanation in script (title, script, code, language)
-4. "code-diagram" - Code with visual (title, script, code, language, scene)
-5. "comparison" - Two-column (title, script, leftTitle, leftItems[], rightTitle, rightItems[])
+2. "content-single" - Single-column bullet layout. Use when no comparison or code. Pure conceptual explanation.
+3. "content-two-card" - Two-panel layout (e.g. text + image or animation). Use when you have an image or animation.
+4. "code" - Code example WITH full explanation in script (title, script, code, language)
+5. "code-diagram" - Code with visual (title, script, code, language, scene)
+6. "comparison" - Two-column (title, script, leftTitle, leftItems[], rightTitle, rightItems[])
+7. "bullets-code" - Bullets on left, code on right. Use for "here's the idea" + "here's the code" side-by-side.
+8. "sequential-bullet" - Bullets appear one at a time. Use for step-by-step processes.
+
+SLIDE TYPE SELECTION (choose based on content):
+- "comparison": When comparing two approaches, options, or tradeoffs (e.g. "SaaS vs On-Prem", "X vs Y"). Use leftTitle/leftItems, rightTitle/rightItems.
+- "code": When the slide teaches or demonstrates code. Include actual code in the "code" field. Use for: commands, snippets, implementations.
+- "code-diagram": When code is shown alongside a visual diagram (e.g. architecture, flow).
+- "bullets-code": When explaining a concept with a code example side-by-side (bullets left, code right).
+- "content-single" or "content-two-card": For pure conceptual explanation with bullet points. Use content-single for single-column; content-two-card when you have an image.
+- "sequential-bullet": When bullets should appear one at a time (e.g. step-by-step process).
+
+MANDATORY VARIETY:
+- Technical courses: At least 35% code, code-diagram, or bullets-code slides. Every concept that involves code MUST have a code slide.
+- When comparing two things: use "comparison", not content-single.
+- Avoid long content-single slides (over 60s). Prefer splitting or using comparison/code to break up.
 
 BULLET POINTS (for timing sync):
 - Extract from script using EXACT phrases (3-8 words each). Max 4 per slide.
@@ -414,7 +482,7 @@ OUTPUT FORMAT (JSON):
       "slides": [
         {
           "name": "unique-slide-name",
-          "type": "title|content-two-card|code|comparison",
+          "type": "title|content-single|content-two-card|code|code-diagram|comparison|bullets-code|sequential-bullet",
           "script": "50-90 word narration. Explain fully. No jargon without definition.",
           "title": "Slide Title",
           "points": ["phrase from script", "another phrase"],
@@ -437,6 +505,15 @@ SCRIPT STYLE:
 - For code: "This line does X. The next line does Y. Together they..."
 - Never: "In this slide we will..." - just explain.
 
+AUDIO / NARRATION OPTIMIZATION:
+- Scripts will be spoken aloud (TTS or voiceover). Write for the ear, not the eye.
+- Vary sentence length: mix short punchy sentences with longer explanatory ones. Avoid long run-ons.
+- Hook the first sentence of each slide: start with the insight or question, not setup.
+- Spell out acronyms on first use when it helps clarity (e.g., "RAG, or Retrieval-Augmented Generation").
+- Use contractions (it's, we're, don't) - they sound more natural when spoken.
+- Avoid tongue-twisters and dense jargon clusters. If technical, follow with plain-language restatement.
+- End key slides with a clear takeaway phrase the listener can remember.
+
 CRITICAL - AVOID:
 - Shallow slides (under 40 words when concept needs more)
 - Code slides without actual code
@@ -445,7 +522,16 @@ CRITICAL - AVOID:
 - Assuming prior knowledge`;
 
 			// Build user prompt for course only
+			const promptLower = (prompt || '').toLowerCase();
+			const isTechnicalHint = /\b(hands-on|with code|developer|programming|coding|implementation|tutorial)\b/.test(promptLower);
+			const isConceptualHint = /\b(conceptual|overview|introduction|theory)\b/.test(promptLower);
 			if (prompt && !title) {
+				let techNote = '';
+				if (isTechnicalHint) {
+					techNote = '\n- CRITICAL: This is a technical course. Use 35%+ code/bullets-code/code-diagram slides. Include actual code for every code slide. Use comparison slides for "X vs Y" topics.';
+				} else if (isConceptualHint) {
+					techNote = '\n- Use comparison slides when comparing two approaches (e.g. "SaaS vs On-Prem"). Vary slide types; avoid long content-single slides.';
+				}
 				userPrompt = `Create a Udemy-quality video course based on this request:
 
 "${prompt}"
@@ -459,7 +545,7 @@ Requirements:
 - 35%+ code slides for technical topics. Every concept needs working code - include actual code, not placeholders.
 - 50-90 words per slide. Use as many as needed to explain fully.
 - Assume zero prior knowledge. Define every term. Include analogies and "why".
-- Depth over breadth. Split complex concepts across multiple slides.`;
+- Depth over breadth. Split complex concepts across multiple slides.${techNote}`;
 			} else {
 				userPrompt = 'Create a Udemy-quality video course with the following specifications:\n\n';
 				if (title) userPrompt += `Title: ${title}\n`;
@@ -577,6 +663,47 @@ Requirements:
 						maxWords: maxWordsForSlide,
 						message: `Script too long (${words} words, max ${maxWordsForSlide})`,
 						estimatedSeconds: estimateDuration(slide.script)
+					});
+				}
+
+				// Slide type validation: suggest comparison when script compares two things
+				if (contentKind === 'course' && slide.type === 'content-single' && slide.script) {
+					const scriptLower = slide.script.toLowerCase();
+					if (/\b(vs\.?|versus|compared to|either\.\.\.or|on one hand|on the other)\b/.test(scriptLower) ||
+						(/\bvs\b/.test(scriptLower) && scriptLower.includes(' and '))) {
+						warnings.push({
+							type: 'slide-type',
+							module: mod.moduleNumber,
+							slide: slide.name,
+							message: 'Consider changing to "comparison" slide - script compares two approaches',
+							suggestedType: 'comparison'
+						});
+					}
+				}
+			}
+		}
+
+		// Course: validate slide type variety (code-like slides for technical content)
+		if (contentKind === 'course' && planOutput.modules) {
+			let totalSlides = 0;
+			let codeLikeSlides = 0;
+			const codeTypes = ['code', 'code-diagram', 'bullets-code'];
+			for (const mod of planOutput.modules) {
+				for (const slide of mod.slides || []) {
+					totalSlides++;
+					if (codeTypes.includes(slide.type)) codeLikeSlides++;
+				}
+			}
+			const codePct = totalSlides > 0 ? codeLikeSlides / totalSlides : 0;
+			if (totalSlides >= 10 && codePct < 0.35) {
+				const promptLower = (req.body.prompt || '').toLowerCase();
+				const isTechnical = /\b(hands-on|with code|developer|programming|coding|implementation|tutorial|docker|aws|api)\b/.test(promptLower);
+				if (isTechnical) {
+					warnings.push({
+						type: 'variety',
+						message: `Only ${Math.round(codePct * 100)}% code/bullets-code slides. Technical courses should have 35%+ code slides for engagement.`,
+						codeLikeSlides,
+						totalSlides
 					});
 				}
 			}
@@ -1520,6 +1647,159 @@ app.get('/api/modules/:moduleNumber', async (req, res) => {
 	}
 });
 
+// API: Get slide splits for a course
+app.get('/api/slide-splits', (req, res) => {
+	try {
+		const courseId = req.query.course;
+		if (!courseId) {
+			return res.status(400).json({ error: 'course query parameter is required' });
+		}
+		const splitsPath = path.join(__dirname, 'courses', courseId, 'slide-splits.json');
+		if (!fs.existsSync(splitsPath)) {
+			return res.json({ splits: {}, courseId });
+		}
+		const raw = JSON.parse(fs.readFileSync(splitsPath, 'utf-8'));
+		const splits = {};
+		for (const [key, val] of Object.entries(raw)) {
+			if (key.startsWith('_')) continue;
+			if (val && Array.isArray(val.splitAt) && val.splitAt.length >= 1) {
+				splits[key] = val;
+			}
+		}
+		res.json({ splits, courseId });
+	} catch (error) {
+		console.error('[slide-splits] GET error:', error);
+		res.status(500).json({ error: error.message });
+	}
+});
+
+// API: Save slide splits for a course
+app.post('/api/slide-splits', (req, res) => {
+	try {
+		const { courseId, splits } = req.body;
+		if (!courseId) {
+			return res.status(400).json({ error: 'courseId is required' });
+		}
+		const courseDir = path.join(__dirname, 'courses', courseId);
+		if (!fs.existsSync(courseDir)) {
+			return res.status(404).json({ error: `Course not found: ${courseId}` });
+		}
+		const splitsPath = path.join(courseDir, 'slide-splits.json');
+		let existing = {};
+		if (fs.existsSync(splitsPath)) {
+			try {
+				existing = JSON.parse(fs.readFileSync(splitsPath, 'utf-8'));
+			} catch (e) { /* ignore */ }
+		}
+		const toWrite = { _comment: existing._comment || 'Define slide splits. splitAt = seconds where to cut. Omit segments to auto-distribute points.' };
+		if (splits && typeof splits === 'object') {
+			for (const [key, val] of Object.entries(splits)) {
+				if (key.startsWith('_')) continue;
+				if (val && Array.isArray(val.splitAt) && val.splitAt.length >= 1) {
+					const prev = existing[key];
+					toWrite[key] = {
+						splitAt: val.splitAt,
+						segments: val.segments ?? prev?.segments,
+						keyWords: val.keyWords ?? prev?.keyWords,
+					};
+				}
+			}
+		}
+		fs.writeFileSync(splitsPath, JSON.stringify(toWrite, null, 2), 'utf-8');
+		// Sync to slideSplitsData.ts for GenericModule (inline - no subprocess)
+		try {
+			const coursesDir = path.join(__dirname, 'courses');
+			const slideSplitsDataPath = path.join(__dirname, 'src', 'utils', 'slideSplitsData.ts');
+			const result = {};
+			if (fs.existsSync(coursesDir)) {
+				for (const cid of fs.readdirSync(coursesDir)) {
+					const sp = path.join(coursesDir, cid, 'slide-splits.json');
+					if (!fs.existsSync(sp)) continue;
+					try {
+						const raw = JSON.parse(fs.readFileSync(sp, 'utf-8'));
+						const filtered = {};
+						for (const [k, v] of Object.entries(raw)) {
+							if (k.startsWith('_')) continue;
+							if (v && Array.isArray(v.splitAt) && v.splitAt.length >= 1) filtered[k] = v;
+						}
+						if (Object.keys(filtered).length > 0) result[cid] = filtered;
+					} catch (e) { console.warn('[slide-splits] read', sp, e.message); }
+				}
+			}
+			const tsContent = `// Slide splits per course - synced from courses/{courseId}/slide-splits.json
+// Updated when Save Splits is clicked in the wizard
+// Used by GenericModule at runtime (browser-compatible)
+
+import type { SlideSplitsConfig } from "./expandSlidesWithSplits";
+
+export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = ${JSON.stringify(result, null, 2)};
+`;
+			fs.writeFileSync(slideSplitsDataPath, tsContent, 'utf-8');
+			console.log('[slide-splits] Synced to slideSplitsData.ts:', Object.keys(result).length, 'course(s)');
+		} catch (e) {
+			console.warn('[slide-splits] sync to slideSplitsData.ts failed:', e.message);
+		}
+		res.json({ success: true, courseId, splits: toWrite });
+	} catch (error) {
+		console.error('[slide-splits] POST error:', error);
+		res.status(500).json({ error: error.message });
+	}
+});
+
+// Helper: Parse audio durations from audioDuration.ts
+function getAudioDurationsMap() {
+	const audioPath = path.join(__dirname, 'src', 'utils', 'audioDuration.ts');
+	if (!fs.existsSync(audioPath)) return {};
+	const content = fs.readFileSync(audioPath, 'utf-8');
+	const map = {};
+	const regex = /"([^"]+)"\s*:\s*([\d.]+)/g;
+	let m;
+	while ((m = regex.exec(content)) !== null) {
+		map[m[1]] = parseFloat(m[2]);
+	}
+	return map;
+}
+
+// API: Get slides with durations for a course/module (for slide splits UI)
+app.get('/api/slides-with-durations', (req, res) => {
+	try {
+		const courseId = req.query.course;
+		const moduleNumber = req.query.module ? parseInt(req.query.module, 10) : null;
+		if (!courseId) {
+			return res.status(400).json({ error: 'course query parameter is required' });
+		}
+		const contentPath = path.join(__dirname, 'courses', courseId, 'content.json');
+		if (!fs.existsSync(contentPath)) {
+			return res.status(404).json({ error: `content.json not found for course: ${courseId}` });
+		}
+		const plan = JSON.parse(fs.readFileSync(contentPath, 'utf-8'));
+		const durationsMap = getAudioDurationsMap();
+		const slides = [];
+		const modules = plan.modules || [];
+		const modsToProcess = moduleNumber != null ? modules.filter(m => m.moduleNumber === moduleNumber) : modules;
+		for (const mod of modsToProcess) {
+			const modNum = mod.moduleNumber;
+			for (const slide of mod.slides || []) {
+				const key = `${courseId}/module${modNum}-${slide.name}`;
+				const duration = durationsMap[key];
+				const canSplit = slide.type === 'content-single' || slide.type === 'content-two-card';
+				slides.push({
+					name: slide.name,
+					title: slide.title || slide.name,
+					type: slide.type,
+					moduleNumber: modNum,
+					durationSeconds: duration != null ? duration : null,
+					canSplit,
+				});
+			}
+		}
+		res.json({ slides, courseId });
+	} catch (error) {
+		console.error('[slides-with-durations] error:', error);
+		res.status(500).json({ error: error.message });
+	}
+});
+
 // API: Create new module
 app.post('/api/modules', (req, res) => {
 	try {
@@ -1930,29 +2210,7 @@ app.post('/api/generate-modules', (req, res) => {
 	}
 	
 	// If course is provided, get module range from course
-	let finalModuleRange = moduleRange;
-	if (course && !moduleRange) {
-		try {
-			const coursePath = path.join(__dirname, 'src', 'videos', 'courseStructure.ts');
-			if (fs.existsSync(coursePath)) {
-				const courseContent = fs.readFileSync(coursePath, 'utf-8');
-				const mappingMatch = courseContent.match(new RegExp(`'${course}':\\s*\\[([\\d,\\s]+)\\]`));
-				if (mappingMatch) {
-					const moduleNumbers = mappingMatch[1].split(',').map(n => parseInt(n.trim())).filter(n => !isNaN(n));
-					if (moduleNumbers.length > 0) {
-						// Format as range if sequential, otherwise comma-separated
-						if (moduleNumbers.length === 1) {
-							finalModuleRange = moduleNumbers[0].toString();
-						} else {
-							finalModuleRange = moduleNumbers.join(',');
-						}
-					}
-				}
-			}
-		} catch (e) {
-			console.error('Error getting course modules:', e);
-		}
-	}
+	let finalModuleRange = moduleRange || (course ? getModuleRangeForCourse(course) : null);
 	
 	// Pre-flight validation: Check audio files and durations before generating modules
 	const validation = validateBeforeModuleGeneration(course, finalModuleRange);
@@ -1999,7 +2257,12 @@ app.post('/api/generate-modules', (req, res) => {
 			console.error('Module generation error:', error);
 			return res.status(500).json({ error: error.message, stderr: stderr || stdout });
 		}
-		
+		// Sync slide splits to slideSplitsData.ts for GenericModule
+		try {
+			require('child_process').execSync('npx tsx scripts/syncSlideSplitsToTs.ts', { cwd: __dirname, stdio: 'pipe' });
+		} catch (e) {
+			console.warn('[generate-modules] syncSlideSplitsToTs failed:', e.message);
+		}
 		// Also regenerate line mappings to ensure code highlighting works (skip for per-module mode)
 		if (audioMode !== 'per-module') {
 			const lineMappingScript = path.join(__dirname, 'scripts', 'generateLineMappingsFromContent.ts');
@@ -2249,29 +2512,7 @@ app.post('/api/generate-audio', async (req, res) => {
 		return;
 	}
 	
-	// Fallback to script for other providers
-	let finalModuleRange = moduleRange;
-	if (course && !moduleRange) {
-		try {
-			const coursePath = path.join(__dirname, 'src', 'videos', 'courseStructure.ts');
-			if (fs.existsSync(coursePath)) {
-				const courseContent = fs.readFileSync(coursePath, 'utf-8');
-				const mappingMatch = courseContent.match(new RegExp(`'${course}':\\s*\\[([\\d,\\s]+)\\]`));
-				if (mappingMatch) {
-					const moduleNumbers = mappingMatch[1].split(',').map(n => parseInt(n.trim())).filter(n => !isNaN(n));
-					if (moduleNumbers.length > 0) {
-						if (moduleNumbers.length === 1) {
-							finalModuleRange = moduleNumbers[0].toString();
-						} else {
-							finalModuleRange = moduleNumbers.join(',');
-						}
-					}
-				}
-			}
-		} catch (e) {
-			console.error('Error getting course modules:', e);
-		}
-	}
+	let finalModuleRange = moduleRange || (course ? getModuleRangeForCourse(course) : null);
 	
 	const command = finalModuleRange
 		? `npx tsx "${path.join(__dirname, 'scripts', 'generateAudioFromContent.ts')}" ${finalModuleRange} ${finalVoice}`
@@ -2446,25 +2687,7 @@ app.post('/api/regenerate-modules', (req, res) => {
 		}
 	}
 	
-	// Use same logic as generate-modules endpoint
-	let finalModuleRange = moduleRange;
-	if (courseId && !moduleRange) {
-		try {
-			const coursePath = path.join(__dirname, 'src', 'videos', 'courseStructure.ts');
-			if (fs.existsSync(coursePath)) {
-				const courseContent = fs.readFileSync(coursePath, 'utf-8');
-				const mappingMatch = courseContent.match(new RegExp(`'${courseId}':\\s*\\[([\\d,\\s]+)\\]`));
-				if (mappingMatch) {
-					const moduleNumbers = mappingMatch[1].split(',').map(n => parseInt(n.trim())).filter(n => !isNaN(n));
-					if (moduleNumbers.length > 0) {
-						finalModuleRange = moduleNumbers.length === 1 ? moduleNumbers[0].toString() : moduleNumbers.join(',');
-					}
-				}
-			}
-		} catch (e) {
-			console.error('Error getting course modules:', e);
-		}
-	}
+	let finalModuleRange = moduleRange || (courseId ? getModuleRangeForCourse(courseId) : null);
 	
 	// Choose script based on audio mode
 	let scriptPath;
@@ -3598,29 +3821,7 @@ app.post('/api/validate-audio', (req, res) => {
 app.post('/api/generate-and-measure-audio', (req, res) => {
 	const { moduleRange, course, voice, provider } = req.body;
 	
-	// If course is provided, get module range from course
-	let finalModuleRange = moduleRange;
-	if (course && !moduleRange) {
-		try {
-			const coursePath = path.join(__dirname, 'src', 'videos', 'courseStructure.ts');
-			if (fs.existsSync(coursePath)) {
-				const courseContent = fs.readFileSync(coursePath, 'utf-8');
-				const mappingMatch = courseContent.match(new RegExp(`'${course}':\\s*\\[([\\d,\\s]+)\\]`));
-				if (mappingMatch) {
-					const moduleNumbers = mappingMatch[1].split(',').map(n => parseInt(n.trim())).filter(n => !isNaN(n));
-					if (moduleNumbers.length > 0) {
-						if (moduleNumbers.length === 1) {
-							finalModuleRange = moduleNumbers[0].toString();
-						} else {
-							finalModuleRange = moduleNumbers.join(',');
-						}
-					}
-				}
-			}
-		} catch (e) {
-			console.error('Error getting course modules:', e);
-		}
-	}
+	let finalModuleRange = moduleRange || (course ? getModuleRangeForCourse(course) : null);
 	
 	const scriptPath = path.join(__dirname, 'scripts', 'generateAndMeasureAudio.ts');
 	const finalVoice = voice || 'andy';
@@ -3849,29 +4050,7 @@ app.post('/api/extract-timings', (req, res) => {
 	}
 	const effectiveCourseId = targetCourseId || activeCourseId;
 
-	// If course is provided, get module range from course
-	let finalModuleRange = moduleRange;
-	if (effectiveCourseId && !moduleRange) {
-		try {
-			const coursePath = path.join(__dirname, 'src', 'videos', 'courseStructure.ts');
-			if (fs.existsSync(coursePath)) {
-				const courseContent = fs.readFileSync(coursePath, 'utf-8');
-				const mappingMatch = courseContent.match(new RegExp(`'${effectiveCourseId}':\\s*\\[([\\d,\\s]+)\\]`));
-				if (mappingMatch) {
-					const moduleNumbers = mappingMatch[1].split(',').map(n => parseInt(n.trim())).filter(n => !isNaN(n));
-					if (moduleNumbers.length > 0) {
-						if (moduleNumbers.length === 1) {
-							finalModuleRange = moduleNumbers[0].toString();
-						} else {
-							finalModuleRange = moduleNumbers.join(',');
-						}
-					}
-				}
-			}
-		} catch (e) {
-			console.error('Error getting course modules:', e);
-		}
-	}
+	let finalModuleRange = moduleRange || (effectiveCourseId ? getModuleRangeForCourse(effectiveCourseId) : null);
 	
 	// Choose script based on method
 	const scriptName = method === 'gentle' 
@@ -4361,7 +4540,12 @@ app.get('/api/slide-statuses', (req, res) => {
 
 // API: Get workflow status (check what's complete/incomplete)
 app.get('/api/workflow-status', (req, res) => {
-	const courseId = req.query.course || 'default';
+	let courseId = req.query.course || 'default';
+	// When course is default/null/empty, use active course from moduleContent (where timings actually live)
+	if (!courseId || courseId === 'default') {
+		const activeCourse = getActiveCourseFromModuleContent();
+		if (activeCourse) courseId = activeCourse;
+	}
 	try {
 		// Use course-specific audio directory
 		const audioDir = path.join(__dirname, 'public', 'audio', courseId);
@@ -4388,20 +4572,42 @@ app.get('/api/workflow-status', (req, res) => {
 			const coursePath = path.join(__dirname, 'src', 'videos', 'courseStructure.ts');
 			if (fs.existsSync(coursePath)) {
 				const courseContent = fs.readFileSync(coursePath, 'utf-8');
-				const mappingMatch = courseContent.match(new RegExp(`'${courseId}':\\s*\\[([\\d,\\s]+)\\]`));
+				const mappingMatch = courseContent.match(new RegExp(`'${courseId.replace(/'/g, "\\'")}':\\s*\\[([\\d,\\s]+)\\]`));
 				if (mappingMatch) {
 					moduleNumbers = mappingMatch[1].split(',').map(n => parseInt(n.trim())).filter(n => !isNaN(n));
 				}
+			}
+			if (moduleNumbers.length === 0) {
+				const coursesData = readCoursesJson();
+				moduleNumbers = coursesData.courseModuleMapping?.[courseId] || [];
 			}
 		} catch (e) {
 			// Fallback: include all modules
 		}
 		
-		// If no course mapping, include all modules
+		// If no course mapping, derive from content.json or include all modules
 		if (moduleNumbers.length === 0) {
-			moduleNumbers = moduleMatches.map((_, i) => i + 1);
+			const contentJsonPath = path.join(__dirname, 'courses', courseId, 'content.json');
+			if (fs.existsSync(contentJsonPath)) {
+				try {
+					const cj = JSON.parse(fs.readFileSync(contentJsonPath, 'utf-8'));
+					if (cj.modules) moduleNumbers = cj.modules.map((m) => m.moduleNumber).filter((n) => !isNaN(n));
+				} catch (e2) { /* ignore */ }
+			}
+			if (moduleNumbers.length === 0) {
+				moduleNumbers = moduleMatches.map((_, i) => i + 1);
+			}
 		}
 		
+		// Load content.json for course (fallback when moduleContent has different course)
+		let contentJson = null;
+		const contentJsonPath = path.join(__dirname, 'courses', courseId, 'content.json');
+		if (fs.existsSync(contentJsonPath)) {
+			try {
+				contentJson = JSON.parse(fs.readFileSync(contentJsonPath, 'utf-8'));
+			} catch (e) { /* ignore */ }
+		}
+
 		// Check each module
 		moduleMatches.forEach((match, index) => {
 			const moduleNumber = index + 1;
@@ -4410,9 +4616,22 @@ app.get('/api/workflow-status', (req, res) => {
 			if (!moduleNumbers.includes(moduleNumber)) {
 				return;
 			}
+			const moduleCourseId = match.match(/courseId:\s*["']([^"']+)["']/)?.[1];
+			// Prefer slide names from moduleContent when course matches; else use content.json
+			let slideNames = [];
+			if (moduleCourseId === courseId) {
+				const slidesContent = extractSlidesContent(match);
+				slideNames = slidesContent ? extractSlideNames(slidesContent) : [];
+			}
+			if (slideNames.length === 0 && contentJson?.modules) {
+				const mod = contentJson.modules.find((m) => m.moduleNumber === moduleNumber);
+				if (mod?.slides) slideNames = mod.slides.map((s) => s.name).filter(Boolean);
+			}
+			if (slideNames.length === 0) {
+				const slidesContent = extractSlidesContent(match);
+				slideNames = slidesContent ? extractSlideNames(slidesContent) : [];
+			}
 			const titleMatch = match.match(/title:\s*"([^"]+)"/);
-			const slidesContent = extractSlidesContent(match);
-			const slideNames = slidesContent ? extractSlideNames(slidesContent) : [];
 			
 			// Check if module files exist
 			const moduleFile = path.join(videosDir, `Module${moduleNumber}.tsx`);
@@ -4477,7 +4696,7 @@ app.get('/api/workflow-status', (req, res) => {
 				}
 			}
 			
-			// Determine status: basicPreview (Steps 1-3) vs fullyAnimated (Steps 1-4)
+			// Determine status: basicPreview (Steps 1-3) vs fullyAnimated (Steps 1-4) vs diagramReady (Steps 1-5)
 			const basicPreview = moduleGenerated && audioComplete === slideNames.length && audioMeasured;
 			// Fully animated requires ALL slides to have word timings
 			const fullyAnimated = basicPreview && timingsExtracted;
@@ -4506,12 +4725,218 @@ app.get('/api/workflow-status', (req, res) => {
 			? ((workflowStatus.summary.modulesGenerated / workflowStatus.summary.totalModules) * 50 +
 			   (workflowStatus.summary.audioFilesGenerated / workflowStatus.summary.totalAudioFiles) * 50)
 			: 0;
+
+		// Diagram pipeline (Step 5) - course-level
+		const courseDir = path.join(__dirname, 'courses', courseId);
+		const classificationPath = path.join(courseDir, 'slide-visual-classification.json');
+		const splitsPath = path.join(courseDir, 'slide-splits.json');
+		let diagramPipelineComplete = false;
+		if (fs.existsSync(classificationPath) && fs.existsSync(splitsPath)) {
+			try {
+				const splits = JSON.parse(fs.readFileSync(splitsPath, 'utf-8'));
+				diagramPipelineComplete = Object.values(splits).some((v) => {
+					if (!v || typeof v !== 'object') return false;
+					const segs = v.segments;
+					return Array.isArray(segs) && segs.some((s) => s && s.mermaidSource);
+				});
+			} catch (e) { /* ignore */ }
+		}
+		workflowStatus.summary.diagramPipelineComplete = diagramPipelineComplete;
+		// Propagate to all modules for consistency
+		workflowStatus.modules.forEach((m) => { m.diagramPipelineComplete = diagramPipelineComplete; });
 		
 		res.json(workflowStatus);
 	} catch (error) {
 		console.error('Error getting workflow status:', error);
 		res.status(500).json({ error: error.message });
 	}
+});
+
+// API: Check OpenAI API key and quota before running diagram pipeline
+app.get('/api/check-openai', async (req, res) => {
+	try {
+		const apiKey = process.env.OPENAI_API_KEY;
+		if (!apiKey) {
+			return res.json({ ok: false, error: 'OPENAI_API_KEY not set in .env' });
+		}
+		const response = await fetch('https://api.openai.com/v1/chat/completions', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${apiKey}`,
+			},
+			body: JSON.stringify({
+				model: 'gpt-4o-mini',
+				messages: [{ role: 'user', content: 'Say OK' }],
+				max_tokens: 5,
+			}),
+		});
+		if (!response.ok) {
+			const errText = await response.text();
+			let msg = `OpenAI API error: ${response.status}`;
+			if (response.status === 429) {
+				msg = 'OpenAI rate limit or quota exceeded (429). Add credits at platform.openai.com or wait and retry.';
+			} else if (errText.toLowerCase().includes('insufficient_quota')) {
+				msg = 'OpenAI account has insufficient quota. Add credits at platform.openai.com.';
+			} else if (errText) {
+				try {
+					const err = JSON.parse(errText);
+					msg = err.error?.message || msg;
+				} catch (_) {}
+			}
+			return res.json({ ok: false, error: msg });
+		}
+		res.json({ ok: true });
+	} catch (err) {
+		res.json({ ok: false, error: err.message || 'Failed to reach OpenAI API' });
+	}
+});
+
+// API: Run diagram pipeline (Step 5) - streaming progress
+// Body: { course, courseId, improve?, module? }
+// If module is set, run pipeline for that module only (lower cost, incremental progress).
+app.post('/api/diagram-pipeline', (req, res) => {
+	const { course, courseId, module: moduleNum } = req.body;
+	const targetCourseId = courseId || course || 'default';
+	const runForModule = moduleNum != null && moduleNum !== '' ? parseInt(String(moduleNum), 10) : null;
+
+	res.setHeader('Content-Type', 'text/event-stream');
+	res.setHeader('Cache-Control', 'no-cache');
+	res.setHeader('Connection', 'keep-alive');
+	res.setHeader('X-Accel-Buffering', 'no');
+	res.flushHeaders();
+
+	const send = (type, message) => {
+		res.write(`data: ${JSON.stringify({ type, message })}\n\n`);
+		if (typeof res.flush === 'function') res.flush();
+	};
+
+	const courseDir = path.join(__dirname, 'courses', targetCourseId);
+	const contentPath = path.join(courseDir, 'content.json');
+	const splitsPath = path.join(courseDir, 'slide-splits.json');
+	const courseTimingsDir = path.join(courseDir, 'timings');
+	const publicTimingsDir = path.join(__dirname, 'public', 'timings');
+
+	if (!fs.existsSync(contentPath)) {
+		send('error', `content.json not found for course: ${targetCourseId}`);
+		res.end();
+		return;
+	}
+
+	(async () => {
+		try {
+			send('progress', runForModule != null ? `Starting diagram pipeline for Module ${runForModule}...` : 'Starting diagram pipeline...');
+			console.log('[diagram-pipeline] Starting for course:', targetCourseId, runForModule != null ? `(module ${runForModule} only)` : '(all modules)');
+
+			// Copy course timings to public/timings so scripts can find them
+			if (fs.existsSync(courseTimingsDir)) {
+				send('progress', 'Copying timings to public...');
+				if (!fs.existsSync(publicTimingsDir)) fs.mkdirSync(publicTimingsDir, { recursive: true });
+				const files = fs.readdirSync(courseTimingsDir).filter((f) => f.endsWith('.json'));
+				for (const f of files) {
+					fs.copyFileSync(path.join(courseTimingsDir, f), path.join(publicTimingsDir, f));
+				}
+				send('progress', `Copied ${files.length} timing file(s)`);
+			}
+
+			// Bootstrap slide-splits.json if missing
+			if (!fs.existsSync(splitsPath)) {
+				send('progress', 'Bootstrapping slide-splits.json...');
+				const content = JSON.parse(fs.readFileSync(contentPath, 'utf-8'));
+				const audioDurationPath = path.join(__dirname, 'src', 'utils', 'audioDuration.ts');
+				const audioContent = fs.existsSync(audioDurationPath) ? fs.readFileSync(audioDurationPath, 'utf-8') : '';
+				const splits = { _comment: 'Auto-bootstrapped from content + audio durations' };
+				for (const mod of content.modules || []) {
+					for (const slide of mod.slides || []) {
+						if (slide.type !== 'content-single' && slide.type !== 'content-two-card') continue;
+						const key = `${targetCourseId}/module${mod.moduleNumber}-${slide.name}`;
+						const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+						const match = audioContent.match(new RegExp(`"${escaped}"\\s*:\\s*([\\d.]+)`));
+						const dur = match ? parseFloat(match[1]) : 60;
+						splits[slide.name] = { splitAt: [dur / 2] };
+					}
+				}
+				fs.writeFileSync(splitsPath, JSON.stringify(splits, null, 2), 'utf-8');
+				send('progress', 'Bootstrap complete');
+			}
+
+			// Improve mode: skip derive-boundaries and derive-bullets to preserve existing mermaid.
+			// Only re-classify and add/improve mermaid (add highlighting, convert more slides to diagrams).
+			const improveMode = !!req.body.improve;
+			const modArg = runForModule != null ? ` --module ${runForModule}` : '';
+			const modArgBullets = runForModule != null ? ` ${runForModule}` : ' all';
+			const steps = improveMode
+				? [
+					{ name: 'classify-slide-visual', cmd: `npx tsx scripts/classifySlideVisual.ts ${targetCourseId} --refine${modArg}`, timeoutMs: 10 * 60 * 1000 },
+					{ name: 'generate-mermaid-segments', cmd: `npx tsx scripts/generateMermaidSegments.ts ${targetCourseId} --include-content --add-highlights${modArg}`, timeoutMs: 30 * 60 * 1000 },
+					{ name: 'sync-slide-splits', cmd: 'npx tsx scripts/syncSlideSplitsToTs.ts', timeoutMs: 60 * 1000 }
+				]
+				: [
+					{ name: 'derive-boundaries-from-script', cmd: `npx tsx scripts/deriveBoundariesFromScript.ts ${targetCourseId}${modArg}`, timeoutMs: 5 * 60 * 1000 },
+					{ name: 'derive-bullets', cmd: `npx tsx scripts/deriveBulletsFromWordTimings.ts ${targetCourseId}${modArgBullets}`, timeoutMs: 5 * 60 * 1000 },
+					{ name: 'classify-slide-visual', cmd: `npx tsx scripts/classifySlideVisual.ts ${targetCourseId} --refine${modArg}`, timeoutMs: 10 * 60 * 1000 },
+					{ name: 'generate-mermaid-segments', cmd: `npx tsx scripts/generateMermaidSegments.ts ${targetCourseId} --include-content${modArg}`, timeoutMs: 30 * 60 * 1000 },
+					{ name: 'sync-slide-splits', cmd: 'npx tsx scripts/syncSlideSplitsToTs.ts', timeoutMs: 60 * 1000 }
+				];
+
+			const runStep = (step, i) => new Promise((resolve, reject) => {
+				const stepTimeout = step.timeoutMs ?? 5 * 60 * 1000;
+				send('progress', `Running ${step.name} (${i + 1}/${steps.length})...`);
+				const proc = spawn(step.cmd, [], {
+					cwd: __dirname,
+					stdio: ['ignore', 'pipe', 'pipe'],
+					shell: true
+				});
+				let stdout = '';
+				let stderr = '';
+				const timeout = setTimeout(() => {
+					proc.kill('SIGTERM');
+					reject(new Error(`${step.name} timed out after ${stepTimeout / 1000}s`));
+				}, stepTimeout);
+				proc.stdout.on('data', (chunk) => {
+					const s = String(chunk).trim();
+					if (s) {
+						stdout += s + '\n';
+						send('progress', `[${step.name}] ${s.split('\n')[0]}`);
+					}
+				});
+				proc.stderr.on('data', (chunk) => {
+					const s = String(chunk).trim();
+					if (s) stderr += s + '\n';
+				});
+				proc.on('close', (code) => {
+					clearTimeout(timeout);
+					if (code === 0) {
+						send('progress', `${step.name} done`);
+						resolve();
+					} else {
+						reject(new Error(`${step.name} exited ${code}${stderr ? '\n' + stderr.trim().slice(-500) : ''}`));
+					}
+				});
+				proc.on('error', (err) => {
+					clearTimeout(timeout);
+					reject(err);
+				});
+			});
+
+			for (let i = 0; i < steps.length; i++) {
+				try {
+					await runStep(steps[i], i);
+				} catch (e) {
+					send('error', `${steps[i].name} failed: ${e.message || e}`);
+					console.error('[diagram-pipeline]', steps[i].name, 'failed:', e.message);
+					res.end();
+					return;
+				}
+			}
+
+			send('complete', 'Diagram pipeline completed successfully');
+		} catch (err) {
+			send('error', err.message || String(err));
+		} finally {
+			res.end();
+		}
+	})();
 });
 
 // API: Get checkpoint status for batch operations
@@ -4768,7 +5193,7 @@ function validateExportedVideo(moduleNumber, courseId, videoPath, fileSize) {
 // API: Render video to MP4
 app.post('/api/render-video', (req, res) => {
 	const { moduleNumber, courseId } = req.body;
-	
+	console.log('[render-video] LOCAL RENDER - using local CPU (Chromium + ffmpeg)');
 	if (!moduleNumber) {
 		return res.status(400).json({ error: 'Module number is required' });
 	}
@@ -5117,6 +5542,29 @@ app.get('/api/download-video', (req, res) => {
 	});
 });
 
+// API: List rendered videos (for GUI on RunPod - browse/download from server)
+app.get('/api/rendered-videos', (req, res) => {
+	const course = req.query.course || 'default';
+	const outDir = path.join(__dirname, 'out', course);
+	const videos = [];
+	if (fs.existsSync(outDir)) {
+		const files = fs.readdirSync(outDir);
+		for (const f of files) {
+			if (f.endsWith('.mp4')) {
+				const stat = fs.statSync(path.join(outDir, f));
+				videos.push({
+					name: f,
+					url: `/out/${course}/${f}`,
+					size: stat.size,
+					mtime: stat.mtimeMs
+				});
+			}
+		}
+		videos.sort((a, b) => a.name.localeCompare(b.name));
+	}
+	res.json({ course, videos });
+});
+
 // API: Generate preview modules (fixed durations, no audio) and prepare for Remotion
 // Lets user view segments in Remotion Studio before generating audio
 app.post('/api/generate-preview-modules', (req, res) => {
@@ -5158,7 +5606,7 @@ app.post('/api/generate-preview-modules', (req, res) => {
 // API: Render all modules (batch/overnight rendering)
 app.post('/api/render-course', (req, res) => {
 	const { modules, concurrency, scale, course } = req.body;
-	
+	console.log('[render-course] LOCAL BATCH RENDER - using local CPU');
 	// Build command arguments
 	let args = [];
 	if (modules && Array.isArray(modules) && modules.length > 0) {
@@ -5267,6 +5715,103 @@ app.post('/api/render-course', (req, res) => {
 		res.end();
 	});
 	
+	childProcess.on('error', (error) => {
+		res.write(`data: ${JSON.stringify({ type: 'error', message: error.message })}\n\n`);
+		res.end();
+	});
+});
+
+// API: Render on RunPod (ephemeral GPU/CPU pod)
+app.post('/api/render-runpod', (req, res) => {
+	const { modules, course, preset, useGpu } = req.body;
+	console.log('[render-runpod] REMOTE RENDER - spawning RunPod GPU pod');
+	let resolvedModules = modules && Array.isArray(modules) && modules.length > 0
+		? modules
+		: null;
+	if (!resolvedModules && course) {
+		try {
+			const coursePath = path.join(__dirname, 'src', 'videos', 'courseStructure.ts');
+			if (fs.existsSync(coursePath)) {
+				const courseContent = fs.readFileSync(coursePath, 'utf-8');
+				const mappingMatch = courseContent.match(new RegExp(`'${course}':\\s*\\[([\\d,\\s]+)\\]`));
+				if (mappingMatch) {
+					resolvedModules = mappingMatch[1].split(',').map(n => parseInt(n.trim())).filter(n => !isNaN(n));
+				}
+			}
+		} catch (e) {
+			console.error('[render-runpod] Error getting course modules:', e);
+		}
+	}
+
+	let args = [];
+	if (resolvedModules && resolvedModules.length > 0) {
+		args.push(`--modules=${resolvedModules.join(',')}`);
+	}
+	if (preset) {
+		args.push(`--preset=${preset}`);
+	}
+
+	const spawnEnv = { ...process.env };
+	if (useGpu) {
+		spawnEnv.RUNPOD_USE_GPU = 'true';
+		spawnEnv.RUNPOD_MIN_VCPU = spawnEnv.RUNPOD_MIN_VCPU || '16';
+		spawnEnv.RUNPOD_CONCURRENCY = spawnEnv.RUNPOD_CONCURRENCY || '28';
+	} else {
+		delete spawnEnv.RUNPOD_USE_GPU;
+	}
+
+	const scriptPath = path.join(__dirname, 'scripts', 'renderOnRunPod.ts');
+	const command = `npx tsx "${scriptPath}" ${args.join(' ')}`;
+
+	console.log('[render-runpod] Starting:', command, 'useGpu:', !!useGpu);
+
+	res.setHeader('Content-Type', 'text/event-stream');
+	res.setHeader('Cache-Control', 'no-cache');
+	res.setHeader('Connection', 'keep-alive');
+
+	res.write(`data: ${JSON.stringify({ type: 'start', message: 'Starting RunPod render...' })}\n\n`);
+
+	const childProcess = exec(command, {
+		cwd: __dirname,
+		maxBuffer: 50 * 1024 * 1024,
+		timeout: 0,
+		env: spawnEnv
+	});
+
+	let currentModule = '';
+
+	function sendLine(line, isStderr = false) {
+		if (!line.trim()) return;
+		res.write(`data: ${JSON.stringify({ type: 'progress', message: line.trim(), isStderr })}\n\n`);
+
+		const modStart = line.match(/Rendering Module (\d+)/);
+		if (modStart) {
+			currentModule = modStart[1];
+			res.write(`data: ${JSON.stringify({ type: 'module_start', module: currentModule })}\n\n`);
+		}
+		const modComplete = line.match(/Module (\d+) completed in (\d+)s/);
+		if (modComplete) {
+			res.write(`data: ${JSON.stringify({ type: 'module_complete', module: modComplete[1], duration: parseInt(modComplete[2]) })}\n\n`);
+		}
+	}
+
+	childProcess.stdout.on('data', (data) => {
+		data.toString().split('\n').forEach(line => sendLine(line));
+	});
+
+	childProcess.stderr.on('data', (data) => {
+		data.toString().split('\n').forEach(line => sendLine(line, true));
+	});
+
+	childProcess.on('close', (code) => {
+		res.write(`data: ${JSON.stringify({
+			type: 'done',
+			success: code === 0,
+			message: code === 0 ? 'RunPod render complete!' : `RunPod render failed with code ${code}`
+		})}\n\n`);
+		res.end();
+	});
+
 	childProcess.on('error', (error) => {
 		res.write(`data: ${JSON.stringify({ type: 'error', message: error.message })}\n\n`);
 		res.end();
@@ -5616,7 +6161,7 @@ app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'gui', 'index.html'));
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
 	console.log(`Skilleo AI GUI Server running on http://localhost:${PORT}`);
 	console.log(`Remotion Studio should be on http://localhost:3000`);
 });

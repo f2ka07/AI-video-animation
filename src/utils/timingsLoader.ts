@@ -64,6 +64,13 @@ export async function loadModuleTimings(moduleNumber: number): Promise<ModuleTim
         return null;
       }
 
+      const contentType = response.headers.get("content-type") || "";
+      if (!contentType.includes("application/json")) {
+        console.warn(`Timings for module ${moduleNumber} returned non-JSON (${contentType})`);
+        timingsCache[moduleNumber] = null;
+        return null;
+      }
+
       const data: ModuleTimings = await response.json();
       timingsCache[moduleNumber] = data;
       return data;

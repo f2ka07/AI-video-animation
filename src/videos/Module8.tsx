@@ -3,34 +3,37 @@ import { Sequence, useVideoConfig, Audio, staticFile } from "remotion";
 import { TitleSlide } from "../components/TitleSlide";
 import { AnimatedContentSlide } from "../components/AnimatedContentSlide";
 import { AnimatedCodeSlide } from "../components/AnimatedCodeSlide";
+import { BulletsAndCodeSlide } from "../components/BulletsAndCodeSlide";
 import { AnimatedComparisonSlide } from "../components/AnimatedComparisonSlide";
+import { SequentialBulletSlide } from "../components/SequentialBulletSlide";
 import { CodeAndDiagram } from "../compositions/CodeAndDiagram";
 import { CrossFadeWrapper } from "../components/CrossFadeWrapper";
 import { getAudioDuration } from "../utils/audioDuration";
 
 // Auto-generated from moduleContent.ts - DO NOT EDIT MANUALLY
+
 export const Module8: React.FC = () => {
 	const { fps } = useVideoConfig();
 	const crossFadeDuration = 0.3;
 	const whooshDuration = 0.57;
 
 	const audioFiles = {
-		title: staticFile("audio/module8-title.wav"),
-		rdsBasics: staticFile("audio/module8-rdsBasics.wav"),
-		createDBSubnetGroup: staticFile("audio/module8-createDBSubnetGroup.wav"),
-		createDBParameterGroup: staticFile("audio/module8-createDBParameterGroup.wav"),
-		createDBInstance: staticFile("audio/module8-createDBInstance.wav"),
-		summary: staticFile("audio/module8-summary.wav"),
+		"module-8-title": staticFile("audio/agentic-ai-for-beginners/module8-module-8-title.wav"),
+		"module-8-concept": staticFile("audio/agentic-ai-for-beginners/module8-module-8-concept.wav"),
+		"module-8-architecture": staticFile("audio/agentic-ai-for-beginners/module8-module-8-architecture.wav"),
+		"module-8-application": staticFile("audio/agentic-ai-for-beginners/module8-module-8-application.wav"),
+		"module-8-exam-mapping": staticFile("audio/agentic-ai-for-beginners/module8-module-8-exam-mapping.wav"),
+		"module-8-recap": staticFile("audio/agentic-ai-for-beginners/module8-module-8-recap.wav"),
 		whoosh: staticFile("audio/whoosh.wav"),
 	};
 
 	const audioDurations = {
-		title: getAudioDuration("module8-title"),
-		rdsBasics: getAudioDuration("module8-rdsBasics"),
-		createDBSubnetGroup: getAudioDuration("module8-createDBSubnetGroup"),
-		createDBParameterGroup: getAudioDuration("module8-createDBParameterGroup"),
-		createDBInstance: getAudioDuration("module8-createDBInstance"),
-		summary: getAudioDuration("module8-summary"),
+		"module-8-title": getAudioDuration("agentic-ai-for-beginners/module8-module-8-title"),
+		"module-8-concept": getAudioDuration("agentic-ai-for-beginners/module8-module-8-concept"),
+		"module-8-architecture": getAudioDuration("agentic-ai-for-beginners/module8-module-8-architecture"),
+		"module-8-application": getAudioDuration("agentic-ai-for-beginners/module8-module-8-application"),
+		"module-8-exam-mapping": getAudioDuration("agentic-ai-for-beginners/module8-module-8-exam-mapping"),
+		"module-8-recap": getAudioDuration("agentic-ai-for-beginners/module8-module-8-recap"),
 	};
 
 	let currentFrame = 0;
@@ -45,13 +48,44 @@ export const Module8: React.FC = () => {
 		}
 		return { start, duration: slideDuration * fps, slideDuration, audioDuration, buffer };
 	};
+	const addSegment = (audioDuration: number, isLastInGroup: boolean, isLastInModule: boolean, buffer: number) => {
+		const slideDuration = audioDuration + buffer;
+		const start = currentFrame;
+		currentFrame += slideDuration * fps + (isLastInGroup && !isLastInModule ? whooshDuration * fps : 0);
+		return { start, duration: slideDuration * fps, slideDuration, audioDuration, buffer };
+	};
 
-	const titleSlide = addSlide(audioDurations["title"]);
-	const rdsBasicsSlide = addSlide(audioDurations["rdsBasics"]);
-	const createDBSubnetGroupSlide = addSlide(audioDurations["createDBSubnetGroup"]);
-	const createDBParameterGroupSlide = addSlide(audioDurations["createDBParameterGroup"]);
-	const createDBInstanceSlide = addSlide(audioDurations["createDBInstance"]);
-	const summarySlide = addSlide(audioDurations["summary"], true, 0.5);
+	const seg0 = addSegment(27.47, true, false, 1);
+	const seg1 = addSegment(8.90, false, false, 1);
+	const seg2 = addSegment(11.34, false, false, 1);
+	const seg3 = addSegment(9.75, false, false, 1);
+	const seg4 = addSegment(9.97, false, false, 1);
+	const seg5 = addSegment(10.05, false, false, 1);
+	const seg6 = addSegment(10.55, false, false, 1);
+	const seg7 = addSegment(9.87, false, false, 1);
+	const seg8 = addSegment(6.05, true, false, 1);
+	const seg9 = addSegment(10.40, false, false, 1);
+	const seg10 = addSegment(9.50, false, false, 1);
+	const seg11 = addSegment(10.19, false, false, 1);
+	const seg12 = addSegment(33.37, false, false, 1);
+	const seg13 = addSegment(0.50, false, false, 1);
+	const seg14 = addSegment(0.50, false, false, 1);
+	const seg15 = addSegment(5.04, false, false, 1);
+	const seg16 = addSegment(10.84, false, false, 1);
+	const seg17 = addSegment(10.24, false, false, 1);
+	const seg18 = addSegment(8.99, false, false, 1);
+	const seg19 = addSegment(6.78, true, false, 1);
+	const seg20 = addSegment(10.03, false, false, 1);
+	const seg21 = addSegment(10.08, false, false, 1);
+	const seg22 = addSegment(10.04, false, false, 1);
+	const seg23 = addSegment(10.19, false, false, 1);
+	const seg24 = addSegment(9.85, false, false, 1);
+	const seg25 = addSegment(9.97, false, false, 1);
+	const seg26 = addSegment(10.13, false, false, 1);
+	const seg27 = addSegment(10.12, false, false, 1);
+	const seg28 = addSegment(0.28, true, false, 1);
+	const seg29 = addSegment(34.48, true, false, 1);
+	const seg30 = addSegment(35.47, true, true, 1.2);
 
 	return (
 		<div
@@ -62,232 +96,849 @@ export const Module8: React.FC = () => {
 			position: "relative",
 		}}
 		>
-			{/* title */}
+			{/* Reasoning, Planning, and Memory */}
 			<Sequence
-				from={titleSlide.start}
-				durationInFrames={titleSlide.duration}
+				from={seg0.start}
+				durationInFrames={seg0.duration}
 			>
-				<Audio src={audioFiles["title"]} />
+				<Audio src={audioFiles["module-8-title"]} />
 				<CrossFadeWrapper
-					totalDuration={titleSlide.slideDuration}
+					totalDuration={seg0.slideDuration}
 					fadeInDuration={0.5}
 					fadeOutDuration={crossFadeDuration}
 			>
-					<TitleSlide title="RDS Database in Private Subnets" subtitle="Module 8: Secure Database Deployment" />
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={titleSlide.start + titleSlide.audioDuration * fps}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Amazon RDS: Managed Database Service */}
-			<Sequence
-				from={rdsBasicsSlide.start}
-				durationInFrames={rdsBasicsSlide.duration}
-			>
-				<Audio src={audioFiles["rdsBasics"]} />
-				<CrossFadeWrapper
-					totalDuration={rdsBasicsSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Amazon RDS: Managed Database Service"
-					points={[
-						"Managed service for relational databases",
-					"Supports MySQL, PostgreSQL, MariaDB, Oracle, SQL Server",
-					"Automatic backups, patching, and monitoring",
-					"Multi-AZ for high availability",
-					"Always deploy in private subnets"
-					]}
-					slideName="rdsBasics"
-					imageSrc="assets/vpc.svg"
-					audioDuration={audioDurations["rdsBasics"]}
+					<TitleSlide 
+					title="Reasoning, Planning, and Memory" 
+					subtitle="Reasoning, Planning, and Memory"
+					
 				/>
 				</CrossFadeWrapper>
 			</Sequence>
 			{/* Whoosh transition */}
 			<Sequence
-				from={rdsBasicsSlide.start + rdsBasicsSlide.audioDuration * fps}
+				from={seg0.start + seg0.duration}
 				durationInFrames={whooshDuration * fps}
 			>
 				<Audio src={audioFiles.whoosh} startFrom={0} />
 			</Sequence>
 
-			{/* Create DB Subnet Group */}
+			{/* Concept */}
 			<Sequence
-				from={createDBSubnetGroupSlide.start}
-				durationInFrames={createDBSubnetGroupSlide.duration}
+				from={seg1.start}
+				durationInFrames={seg1.duration}
 			>
-				<Audio src={audioFiles["createDBSubnetGroup"]} />
+				<Audio src={audioFiles["module-8-concept"]} />
 				<CrossFadeWrapper
-					totalDuration={createDBSubnetGroupSlide.slideDuration}
+					totalDuration={seg1.slideDuration}
 					fadeInDuration={crossFadeDuration}
 					fadeOutDuration={crossFadeDuration}
 			>
-					<AnimatedCodeSlide
-					title="Create DB Subnet Group"
-					code={`// DB Subnet Group defines which subnets RDS can use
-// Must span at least 2 AZs for high availability
-const dbSubnetGroup = new aws.rds.SubnetGroup("db-subnet-group", {
-    name: "main-db-subnet-group",
-    subnetIds: [privateSubnet1.id, privateSubnet2.id],
-    tags: {
-        Name: "main-db-subnet-group",
-    },
-});`}
-					language="typescript"
-					slideName="createDBSubnetGroup"
-				audioStartFrame={createDBSubnetGroupSlide.start}
-				moduleNumber={8}
-				audioDuration={audioDurations["createDBSubnetGroup"]}
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"Let's talk about how agents reason and where it breaks Task decomposition is the first step The agent"
+					]}
+					slideName="module-8-concept"
+					audioDuration={seg1.audioDuration}
+					moduleNumber={8}
+					
+					
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Concept */}
+			<Sequence
+				from={seg2.start}
+				durationInFrames={seg2.duration}
+			>
+				<Audio src={audioFiles["module-8-concept"]} startFrom={Math.round(8.90 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg2.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"Summarize this document becomes retrieve the document extract key sections synthesize format Step planning can be exp..."
+					]}
+					slideName="module-8-concept"
+					audioDuration={seg2.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={8.90}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Concept */}
+			<Sequence
+				from={seg3.start}
+				durationInFrames={seg3.duration}
+			>
+				<Audio src={audioFiles["module-8-concept"]} startFrom={Math.round(20.24 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg3.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"a structured planner outputs a list or implicit the language model reasons through steps in one pass Explicit"
+					]}
+					slideName="module-8-concept"
+					audioDuration={seg3.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={20.24}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Concept */}
+			<Sequence
+				from={seg4.start}
+				durationInFrames={seg4.duration}
+			>
+				<Audio src={audioFiles["module-8-concept"]} startFrom={Math.round(29.99 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg4.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"Implicit is more flexible Most production systems use a hybrid",
+					"high level plan from a planner flexible execution from the model"
+					]}
+					slideName="module-8-concept"
+					audioDuration={seg4.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={29.99}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Concept */}
+			<Sequence
+				from={seg5.start}
+				durationInFrames={seg5.duration}
+			>
+				<Audio src={audioFiles["module-8-concept"]} startFrom={Math.round(39.96 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg5.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"Reflection and self correction are what separate robust agents from brittle ones After an action the agent can"
+					]}
+					slideName="module-8-concept"
+					audioDuration={seg5.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={39.96}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Concept */}
+			<Sequence
+				from={seg6.start}
+				durationInFrames={seg6.duration}
+			>
+				<Audio src={audioFiles["module-8-concept"]} startFrom={Math.round(50.01 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg6.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"Is the format correct Did I miss something Reflection patterns include generate then critique where a critic model"
+					]}
+					slideName="module-8-concept"
+					audioDuration={seg6.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={50.01}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Concept */}
+			<Sequence
+				from={seg7.start}
+				durationInFrames={seg7.duration}
+			>
+				<Audio src={audioFiles["module-8-concept"]} startFrom={Math.round(60.56 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg7.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"chain of verification where the agent checks its own reasoning and iterative refinement where the agent loops until"
+					]}
+					slideName="module-8-concept"
+					audioDuration={seg7.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={60.56}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Concept */}
+			<Sequence
+				from={seg8.start}
+				durationInFrames={seg8.duration}
+			>
+				<Audio src={audioFiles["module-8-concept"]} startFrom={Math.round(70.43 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg8.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Concept"
+					points={[
+						"These patterns reduce hallucination",
+					"and improve accuracy"
+					]}
+					slideName="module-8-concept"
+					audioDuration={seg8.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={70.43}
 		/>
 				</CrossFadeWrapper>
 			</Sequence>
 			{/* Whoosh transition */}
 			<Sequence
-				from={createDBSubnetGroupSlide.start + createDBSubnetGroupSlide.audioDuration * fps}
+				from={seg8.start + seg8.duration}
 				durationInFrames={whooshDuration * fps}
 			>
 				<Audio src={audioFiles.whoosh} startFrom={0} />
 			</Sequence>
 
-			{/* Create DB Parameter Group */}
+			{/* Architecture */}
 			<Sequence
-				from={createDBParameterGroupSlide.start}
-				durationInFrames={createDBParameterGroupSlide.duration}
+				from={seg9.start}
+				durationInFrames={seg9.duration}
 			>
-				<Audio src={audioFiles["createDBParameterGroup"]} />
+				<Audio src={audioFiles["module-8-architecture"]} />
 				<CrossFadeWrapper
-					totalDuration={createDBParameterGroupSlide.slideDuration}
+					totalDuration={seg9.slideDuration}
 					fadeInDuration={crossFadeDuration}
 					fadeOutDuration={crossFadeDuration}
 			>
-					<AnimatedCodeSlide
-					title="Create DB Parameter Group"
-					code={`// Parameter Group customizes database engine settings
-const dbParameterGroup = new aws.rds.ParameterGroup("db-params", {
-    family: "mysql8.0",
-    name: "main-db-params",
-    parameters: [
-        {
-            name: "max_connections",
-            value: "100",
-        },
-        {
-            name: "character_set_server",
-            value: "utf8mb4",
-        },
-    ],
-    tags: {
-        Name: "main-db-params",
-    },
-});`}
-					language="typescript"
-					slideName="createDBParameterGroup"
-				audioStartFrame={createDBParameterGroupSlide.start}
-				moduleNumber={8}
-				audioDuration={audioDurations["createDBParameterGroup"]}
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"Now let's map memory to failure modes",
+					"Working memory holds the current task context the goal what's been done what's pending observed no"
+					]}
+					slideName="module-8-architecture"
+					audioDuration={seg9.audioDuration}
+					moduleNumber={8}
+					
+					
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg10.start}
+				durationInFrames={seg10.duration}
+			>
+				<Audio src={audioFiles["module-8-architecture"]} startFrom={Math.round(10.40 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg10.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"It's a conversation buffer or session state When does reasoning fail When the agent forgets the original"
+					]}
+					slideName="module-8-architecture"
+					audioDuration={seg10.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={10.40}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg11.start}
+				durationInFrames={seg11.duration}
+			>
+				<Audio src={audioFiles["module-8-architecture"]} startFrom={Math.round(19.90 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg11.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"Summarize in bullet points gets lost after three tool calls",
+					"Fix keep the instruction in working memory and re inject it at each"
+					]}
+					slideName="module-8-architecture"
+					audioDuration={seg11.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={19.90}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg12.start}
+				durationInFrames={seg12.duration}
+			>
+				<Audio src={audioFiles["module-8-architecture"]} startFrom={Math.round(30.09 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg12.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"Working memory solves the forgotten instruction problem Long term memory persists across sessions It's vector st...",
+					"What did we decide about the project timeline if it's not in the model's context window the agent",
+					"No Context"
+					]}
+					slideName="module-8-architecture"
+					audioDuration={seg12.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={30.09}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg13.start}
+				durationInFrames={seg13.duration}
+			>
+				<Audio src={audioFiles["module-8-architecture"]} startFrom={Math.round(63.46 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg13.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"What did we decide about the project timeline",
+					"Fix store important outcomes in long"
+					]}
+					slideName="module-8-architecture"
+					audioDuration={seg13.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={63.46}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg14.start}
+				durationInFrames={seg14.duration}
+			>
+				<Audio src={audioFiles["module-8-architecture"]} startFrom={Math.round(63.96 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg14.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"Long term memory solves the context problem"
+					]}
+					slideName="module-8-architecture"
+					audioDuration={seg14.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={63.96}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg15.start}
+				durationInFrames={seg15.duration}
+			>
+				<Audio src={audioFiles["module-8-architecture"]} startFrom={Math.round(64.46 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg15.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"Session context bridges the two It's the rolling window of recent turns"
+					]}
+					slideName="module-8-architecture"
+					audioDuration={seg15.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={64.46}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg16.start}
+				durationInFrames={seg16.duration}
+			>
+				<Audio src={audioFiles["module-8-architecture"]} startFrom={Math.round(69.50 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg16.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"When does reasoning fail When the agent loops repeating the same action or reasoning without progress Fix detect"
+					]}
+					slideName="module-8-architecture"
+					audioDuration={seg16.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={69.50}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg17.start}
+				durationInFrames={seg17.duration}
+			>
+				<Audio src={audioFiles["module-8-architecture"]} startFrom={Math.round(80.34 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg17.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"Session context helps with the looping reasoning problem Memory hygiene"
+					]}
+					slideName="module-8-architecture"
+					audioDuration={seg17.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={80.34}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg18.start}
+				durationInFrames={seg18.duration}
+			>
+				<Audio src={audioFiles["module-8-architecture"]} startFrom={Math.round(90.58 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg18.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"Use TTL time to live for ephemeral data Filter retrieval by relevance"
+					]}
+					slideName="module-8-architecture"
+					audioDuration={seg18.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={90.58}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Architecture */}
+			<Sequence
+				from={seg19.start}
+				durationInFrames={seg19.duration}
+			>
+				<Audio src={audioFiles["module-8-architecture"]} startFrom={Math.round(99.57 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg19.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Architecture"
+					points={[
+						"Without hygiene memory becomes noisy and retrieval returns irrelevant results"
+					]}
+					slideName="module-8-architecture"
+					audioDuration={seg19.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={99.57}
 		/>
 				</CrossFadeWrapper>
 			</Sequence>
 			{/* Whoosh transition */}
 			<Sequence
-				from={createDBParameterGroupSlide.start + createDBParameterGroupSlide.audioDuration * fps}
+				from={seg19.start + seg19.duration}
 				durationInFrames={whooshDuration * fps}
 			>
 				<Audio src={audioFiles.whoosh} startFrom={0} />
 			</Sequence>
 
-			{/* Create RDS MySQL Database Instance */}
+			{/* Application */}
 			<Sequence
-				from={createDBInstanceSlide.start}
-				durationInFrames={createDBInstanceSlide.duration}
+				from={seg20.start}
+				durationInFrames={seg20.duration}
 			>
-				<Audio src={audioFiles["createDBInstance"]} />
+				<Audio src={audioFiles["module-8-application"]} />
 				<CrossFadeWrapper
-					totalDuration={createDBInstanceSlide.slideDuration}
+					totalDuration={seg20.slideDuration}
 					fadeInDuration={crossFadeDuration}
 					fadeOutDuration={crossFadeDuration}
 			>
-					<AnimatedCodeSlide
-					title="Create RDS MySQL Database Instance"
-					code={`// RDS MySQL database instance in private subnets
-const dbInstance = new aws.rds.Instance("main-db", {
-    engine: "mysql",
-    engineVersion: "8.0",
-    instanceClass: "db.t3.micro",
-    allocatedStorage: 20,
-    storageType: "gp3",
-    
-    dbName: "appdb",
-    username: "admin",
-    password: "ChangeMe123!", // Use Pulumi secrets in production
-    
-    dbSubnetGroupName: dbSubnetGroup.name,
-    vpcSecurityGroupIds: [dbSg.id],
-    parameterGroupName: dbParameterGroup.name,
-    
-    publiclyAccessible: false, // Security best practice
-    multiAz: false, // Enable for production
-    backupRetentionPeriod: 7,
-    backupWindow: "03:00-04:00",
-    maintenanceWindow: "sun:04:00-sun:05:00",
-    
-    deletionProtection: false, // Set to true in production
-    skipFinalSnapshot: true, // Set to false in production
-    
-    tags: {
-        Name: "main-database",
-    },
-});
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"How do you implement these patterns in practice For reflection add a critique step after each major output"
+					]}
+					slideName="module-8-application"
+					audioDuration={seg20.audioDuration}
+					moduleNumber={8}
+					
+					
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
 
-// Export database endpoint for application connection
-export const dbEndpoint = dbInstance.endpoint;`}
-					language="typescript"
-					slideName="createDBInstance"
-				audioStartFrame={createDBInstanceSlide.start}
-				moduleNumber={8}
-				audioDuration={audioDurations["createDBInstance"]}
+			{/* Application */}
+			<Sequence
+				from={seg21.start}
+				durationInFrames={seg21.duration}
+			>
+				<Audio src={audioFiles["module-8-application"]} startFrom={Math.round(10.03 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg21.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"If it fails the agent retries with the feedback This adds latency but improves quality"
+					]}
+					slideName="module-8-application"
+					audioDuration={seg21.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={10.03}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg22.start}
+				durationInFrames={seg22.duration}
+			>
+				<Audio src={audioFiles["module-8-application"]} startFrom={Math.round(20.11 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg22.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"For working memory maintain a structured state object Include goal steps completed current step i..."
+					]}
+					slideName="module-8-application"
+					audioDuration={seg22.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={20.11}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg23.start}
+				durationInFrames={seg23.duration}
+			>
+				<Audio src={audioFiles["module-8-application"]} startFrom={Math.round(30.15 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg23.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"Re inject the instruction into every model call Don't assume the model remembers after five tool calls",
+					"It won't For long term memory"
+					]}
+					slideName="module-8-application"
+					audioDuration={seg23.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={30.15}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg24.start}
+				durationInFrames={seg24.duration}
+			>
+				<Audio src={audioFiles["module-8-application"]} startFrom={Math.round(40.34 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg24.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"On retrieval apply freshness filters"
+					]}
+					slideName="module-8-application"
+					audioDuration={seg24.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={40.34}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg25.start}
+				durationInFrames={seg25.duration}
+			>
+				<Audio src={audioFiles["module-8-application"]} startFrom={Math.round(50.19 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg25.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"This grounds responses and reduces hallucination For ant..."
+					]}
+					slideName="module-8-application"
+					audioDuration={seg25.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={50.19}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg26.start}
+				durationInFrames={seg26.duration}
+			>
+				<Audio src={audioFiles["module-8-application"]} startFrom={Math.round(60.16 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg26.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"If the same tool is called with the same args three times",
+					"or the same reasoning pattern repeats",
+					"trigger a stop"
+					]}
+					slideName="module-8-application"
+					audioDuration={seg26.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={60.16}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg27.start}
+				durationInFrames={seg27.duration}
+			>
+				<Audio src={audioFiles["module-8-application"]} startFrom={Math.round(70.29 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg27.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"Max step limits are a simple guard",
+					"N steps stop or escalate regardless"
+					]}
+					slideName="module-8-application"
+					audioDuration={seg27.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={70.29}
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+
+			{/* Application */}
+			<Sequence
+				from={seg28.start}
+				durationInFrames={seg28.duration}
+			>
+				<Audio src={audioFiles["module-8-application"]} startFrom={Math.round(80.41 * fps)} />
+				<CrossFadeWrapper
+					totalDuration={seg28.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Application"
+					points={[
+						"N steps stop or escalate regardless"
+					]}
+					slideName="module-8-application"
+					audioDuration={seg28.audioDuration}
+					moduleNumber={8}
+					
+					
+					audioStartOffset={80.41}
 		/>
 				</CrossFadeWrapper>
 			</Sequence>
 			{/* Whoosh transition */}
 			<Sequence
-				from={createDBInstanceSlide.start + createDBInstanceSlide.audioDuration * fps}
+				from={seg28.start + seg28.duration}
 				durationInFrames={whooshDuration * fps}
 			>
 				<Audio src={audioFiles.whoosh} startFrom={0} />
 			</Sequence>
 
-			{/* Module 8 Summary */}
+			{/* Exam Mapping */}
 			<Sequence
-				from={summarySlide.start}
-				durationInFrames={summarySlide.duration}
+				from={seg29.start}
+				durationInFrames={seg29.duration}
 			>
-				<Audio src={audioFiles["summary"]} />
+				<Audio src={audioFiles["module-8-exam-mapping"]} />
 				<CrossFadeWrapper
-					totalDuration={summarySlide.slideDuration}
+					totalDuration={seg29.slideDuration}
+					fadeInDuration={crossFadeDuration}
+					fadeOutDuration={crossFadeDuration}
+			>
+					<AnimatedContentSlide
+					title="Exam Mapping"
+					points={[
+						"The certification will test your understanding of reasoning failures and memory solutions Key terms task decompositio...",
+					"You'll need to match failure modes to fixes forgotten instruction",
+					"Looping session context and stop conditions"
+					]}
+					slideName="module-8-exam-mapping"
+					audioDuration={seg29.audioDuration}
+					moduleNumber={8}
+					
+					
+		/>
+				</CrossFadeWrapper>
+			</Sequence>
+			{/* Whoosh transition */}
+			<Sequence
+				from={seg29.start + seg29.duration}
+				durationInFrames={whooshDuration * fps}
+			>
+				<Audio src={audioFiles.whoosh} startFrom={0} />
+			</Sequence>
+
+			{/* Recap */}
+			<Sequence
+				from={seg30.start}
+				durationInFrames={seg30.duration}
+			>
+				<Audio src={audioFiles["module-8-recap"]} />
+				<CrossFadeWrapper
+					totalDuration={seg30.slideDuration}
 					fadeInDuration={crossFadeDuration}
 					fadeOutDuration={0}
 			>
 					<AnimatedContentSlide
-					title="Module 8 Summary"
+					title="Recap"
 					points={[
-						"DB Subnet Group spans private subnets in multiple AZs",
-					"DB Parameter Group customizes database engine settings",
-					"RDS instance in private subnets with database security group",
-					"Automated backups and Multi-AZ support available",
-					"Next: Outputs and Stack References"
+						"Reasoning fails in predictable ways forgotten instructions missing context looping",
+					"Working memory fixes forgotten instructions",
+					"Long term memory fixes missing context",
+					"Session context and anti loop guards fix looping Reflection patterns critique verification refinement improve output ...",
+					"Memory hygiene summarization TTL retrieval filtering keeps memory useful Design your memory model for the failures yo..."
 					]}
-					slideName="summary"
-					imageSrc="assets/vpc.svg"
-					audioDuration={audioDurations["summary"]}
-				/>
+					slideName="module-8-recap"
+					audioDuration={seg30.audioDuration}
+					moduleNumber={8}
+					
+					
+		/>
 				</CrossFadeWrapper>
 			</Sequence>
 

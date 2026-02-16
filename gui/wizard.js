@@ -10,7 +10,8 @@ let stepStatus = {
     1: { complete: false, locked: false },
     2: { complete: false, locked: true },
     3: { complete: false, locked: true },
-    4: { complete: false, locked: true }
+    4: { complete: false, locked: true },
+    5: { complete: false, locked: true }
 };
 
 // Custom Modal (replaces confirm dialogs)
@@ -216,13 +217,25 @@ async function finalizeVideo() {
             }
         }
         
-        // For per-module mode, generate ALL modules, not just one
+        // For per-module mode, generate ALL modules for the course (from courseModuleMapping)
         // For per-slide mode, generate the specified module
         let moduleRangeToGenerate = moduleNumber;
         if (audioMode === 'per-module') {
-            // Generate all modules (1-6) for the course
-            moduleRangeToGenerate = '1-6';
-            console.log(`[finalizeVideo] Per-module mode: generating all modules (1-6) for course ${courseId}`);
+            try {
+                const modulesResponse = await fetch(`/api/modules?course=${courseId}`);
+                const modulesData = await modulesResponse.json();
+                const modules = modulesData.modules || [];
+                if (modules.length > 0) {
+                    const nums = modules.map(m => m.moduleNumber).sort((a, b) => a - b);
+                    moduleRangeToGenerate = nums.length === 1 ? nums[0].toString() : `${nums[0]}-${nums[nums.length - 1]}`;
+                } else {
+                    moduleRangeToGenerate = '1-6';
+                }
+                console.log(`[finalizeVideo] Per-module mode: generating modules ${moduleRangeToGenerate} for course ${courseId}`);
+            } catch (e) {
+                moduleRangeToGenerate = '1-6';
+                console.warn('[finalizeVideo] Could not fetch course modules, using 1-6:', e);
+            }
         } else {
             console.log(`[finalizeVideo] Per-slide mode: generating module ${moduleNumber} for course ${courseId}`);
         }
@@ -291,15 +304,26 @@ async function renderVideo() {
     const detailsDiv = document.getElementById('render-details');
     const downloadLink = document.getElementById('download-video-link');
     const moduleSelector = document.getElementById('render-module-select');
+    const targetSelect = document.getElementById('render-target-select');
     
-    // Get module from dropdown selector
     const moduleNumber = moduleSelector ? moduleSelector.value : null;
     
     if (!moduleNumber) {
         showToast('Please select a module to render.', 'error');
         return;
     }
-    
+
+    const target = targetSelect ? targetSelect.value : null;
+    console.log('[renderVideo] targetSelect:', !!targetSelect, 'value:', target);
+    if (targetSelect && target === 'runpod') {
+        renderRunpod([parseInt(moduleNumber)], { useSingleModuleUI: true });
+        return;
+    }
+    if (!targetSelect) {
+        showToast('Render target selector not found. Refresh the page and try again.', 'error');
+        return;
+    }
+
     if (renderBtn) {
         renderBtn.disabled = true;
         renderBtn.textContent = 'Rendering...';
@@ -464,7 +488,7 @@ async function renderVideo() {
                                         downloadLink.style.display = 'inline-block';
                                         downloadLink.textContent = `Download MP4 (${(data.fileSize / 1024 / 1024).toFixed(1)}MB)`;
                                     }
-                                    
+                                    loadRenderedVideos();
                                     updateRenderDetails();
                                     
                                     // Show validation status in toast
@@ -546,10 +570,22 @@ async function viewSegmentsInRemotion() {
 // Batch render all modules in the course (for overnight rendering)
 async function renderCourse() {
     const renderCourseBtn = document.getElementById('render-course-btn');
+    const targetSelect = document.getElementById('batch-render-target-select');
     const progressDiv = document.getElementById('batch-render-progress');
     const statusText = document.getElementById('batch-render-status');
     const modulesList = document.getElementById('batch-modules-list');
-    
+
+    const target = targetSelect ? targetSelect.value : null;
+    console.log('[renderCourse] targetSelect:', !!targetSelect, 'value:', target);
+    if (targetSelect && target === 'runpod') {
+        renderRunpod(null, { useSingleModuleUI: false, course: currentCourseId });
+        return;
+    }
+    if (!targetSelect) {
+        showToast('Render target selector not found. Refresh the page and try again.', 'error');
+        return;
+    }
+
     if (renderCourseBtn) {
         renderCourseBtn.disabled = true;
         renderCourseBtn.textContent = 'Rendering Course...';
@@ -645,6 +681,7 @@ async function renderCourse() {
                                 if (data.success) {
                                     statusText.textContent = 'All modules rendered successfully!';
                                     showToast('Batch render complete!', 'success');
+                                    loadRenderedVideos();
                                 } else {
                                     statusText.textContent = 'Batch render completed with errors';
                                     showToast('Some modules failed to render', 'warning');
@@ -677,14 +714,176 @@ async function renderCourse() {
     }
 }
 
+// RunPod render (single module or batch)
+async function renderRunpod(modules, options = {}) {
+    const { useSingleModuleUI = false, course = null } = options;
+    const renderBtn = useSingleModuleUI
+        ? document.getElementById('render-video-btn')
+        : document.getElementById('render-course-btn');
+    const progressDiv = useSingleModuleUI
+        ? document.getElementById('render-progress')
+        : document.getElementById('batch-render-progress');
+    const statusText = useSingleModuleUI
+        ? document.getElementById('render-status-text')
+        : document.getElementById('batch-render-status');
+    const detailsDiv = useSingleModuleUI
+        ? document.getElementById('render-details')
+        : document.getElementById('batch-modules-list');
+    const progressBar = useSingleModuleUI ? document.getElementById('render-progress-bar') : null;
+    const progressPercent = useSingleModuleUI ? document.getElementById('render-progress-percent') : null;
+    const downloadLink = useSingleModuleUI ? document.getElementById('download-video-link') : null;
+
+    if (renderBtn) {
+        renderBtn.disabled = true;
+        renderBtn.textContent = 'Rendering on RunPod...';
+    }
+    progressDiv.style.display = 'block';
+    statusText.textContent = 'Starting RunPod render...';
+    if (detailsDiv) detailsDiv.innerHTML = '';
+    if (progressBar) progressBar.style.width = '0%';
+    if (progressPercent) progressPercent.textContent = '';
+    if (downloadLink) downloadLink.style.display = 'none';
+
+    const moduleStatus = {};
+    function updateModuleList() {
+        if (!detailsDiv || useSingleModuleUI) return;
+        const items = Object.entries(moduleStatus).map(([mod, s]) => {
+            const icon = s.state === 'complete' ? '[OK]' : s.state === 'rendering' ? '[...]' : '[ ]';
+            const color = s.state === 'complete' ? 'var(--success)' : s.state === 'rendering' ? 'var(--primary)' : 'var(--muted)';
+            return `<div style="color: ${color}; padding: 4px 0;">${icon} Module ${mod}${s.duration ? ` (${s.duration}s)` : ''}</div>`;
+        });
+        detailsDiv.innerHTML = items.join('');
+    }
+
+    try {
+        const body = { preset: 'fast', useGpu: true };
+        if (modules && modules.length > 0) {
+            body.modules = modules;
+        } else if (course) {
+            body.course = course;
+        } else {
+            showToast('No modules or course selected.', 'error');
+            if (renderBtn) { renderBtn.disabled = false; renderBtn.textContent = useSingleModuleUI ? 'Render Video to MP4' : 'Render Entire Course'; }
+            return;
+        }
+
+        const response = await fetch('/api/render-runpod', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split('\n');
+            buffer = lines.pop() || '';
+
+            for (const line of lines) {
+                if (!line.startsWith('data: ')) continue;
+                try {
+                    const data = JSON.parse(line.substring(6));
+                    switch (data.type) {
+                        case 'start':
+                            statusText.textContent = data.message;
+                            break;
+                        case 'progress':
+                            if (data.message) {
+                                statusText.textContent = data.message;
+                                if (useSingleModuleUI && detailsDiv) {
+                                    detailsDiv.innerHTML += `<div style="margin-bottom: 4px; padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 12px;">${data.message}</div>`;
+                                    detailsDiv.scrollTop = detailsDiv.scrollHeight;
+                                }
+                            }
+                            break;
+                        case 'module_start':
+                            moduleStatus[data.module] = { state: 'rendering' };
+                            statusText.textContent = `Rendering Module ${data.module}...`;
+                            if (!useSingleModuleUI) updateModuleList();
+                            break;
+                        case 'module_complete':
+                            moduleStatus[data.module] = { state: 'complete', duration: data.duration };
+                            statusText.textContent = `Module ${data.module} completed in ${data.duration}s`;
+                            if (!useSingleModuleUI) updateModuleList();
+                            break;
+                        case 'done':
+                            statusText.textContent = data.success ? 'RunPod render complete!' : 'RunPod render failed';
+                            if (data.success) {
+                                showToast('RunPod render complete! Download videos below.', 'success');
+                                if (progressBar) progressBar.style.width = '100%';
+                                loadRenderedVideos();
+                            } else {
+                                showToast(data.message || 'RunPod render failed', 'error');
+                            }
+                            if (renderBtn) {
+                                renderBtn.disabled = false;
+                                renderBtn.textContent = useSingleModuleUI ? 'Render Video to MP4' : 'Render Entire Course';
+                            }
+                            break;
+                        case 'error':
+                            showToast(`RunPod error: ${data.message}`, 'error');
+                            break;
+                    }
+                } catch (e) {
+                    console.error('Error parsing RunPod SSE:', e);
+                }
+            }
+        }
+    } catch (error) {
+        showToast(`RunPod render error: ${error.message}`, 'error');
+        statusText.textContent = 'RunPod render failed';
+        if (renderBtn) {
+            renderBtn.disabled = false;
+            renderBtn.textContent = useSingleModuleUI ? 'Render Video to MP4' : 'Render Entire Course';
+        }
+    }
+}
+
 // Get course ID from URL or localStorage (loadCourses will validate and set if invalid)
 const urlParams = new URLSearchParams(window.location.search);
 currentCourseId = urlParams.get('course') || localStorage.getItem('currentCourse') || null;
 console.log(`[wizard] Initial courseId: ${currentCourseId}`);
 
-// Initialize
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('[wizard] DOMContentLoaded - starting initialization');
+// Initialize - run immediately if DOM ready, else on DOMContentLoaded (script at end of body may miss the event)
+function initWizard() {
+    console.log('[wizard] initWizard - starting');
+
+    // Event delegation for step indicators (must run - script at body end can miss DOMContentLoaded)
+    const wizardSteps = document.querySelector('.wizard-steps');
+    if (wizardSteps) {
+        wizardSteps.addEventListener('click', (e) => {
+            const indicator = e.target.closest('.wizard-step[data-step]');
+            if (indicator) {
+                const stepNum = parseInt(indicator.getAttribute('data-step'), 10);
+                if (stepNum >= 1 && stepNum <= 5) {
+                    goToStep(stepNum);
+                }
+            }
+        });
+    }
+
+    // Wire step action buttons explicitly (fallback when inline onclick does not resolve)
+    for (let i = 1; i <= 5; i++) {
+        const btn = document.getElementById(`step-${i}-btn`);
+        if (btn && !btn.hasAttribute('data-click-wired')) {
+            btn.setAttribute('data-click-wired', 'true');
+            btn.addEventListener('click', (e) => {
+                if (btn.disabled) return;
+                const fn = [executeStep1, executeStep2, executeStep3, executeStep4, executeStep5][i - 1];
+                if (typeof fn === 'function') fn();
+            });
+        }
+    }
+
     loadCourses().then(() => {
         console.log('[wizard] Courses loaded, currentCourseId:', currentCourseId);
         
@@ -718,11 +917,13 @@ document.addEventListener('DOMContentLoaded', () => {
             loadSplitModuleSelector();
             loadImageSlideSelector();
             initVoiceSettings();
+            loadRenderedVideos();
         } else {
             console.log('[wizard] No course selected, skipping selector loading');
             // Still update UI and initialize voice settings even without a course
             updateUI();
             initVoiceSettings();
+            loadRenderedVideos();
         }
     }).catch(error => {
         console.error('[wizard] Error initializing wizard:', error);
@@ -734,7 +935,38 @@ document.addEventListener('DOMContentLoaded', () => {
         // Still try to update UI
         updateUI();
     });
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWizard);
+} else {
+    initWizard();
+}
+
+// Load rendered videos list (for GUI on RunPod - download from server)
+async function loadRenderedVideos() {
+    const card = document.getElementById('rendered-videos-card');
+    const list = document.getElementById('rendered-videos-list');
+    if (!card || !list) return;
+    try {
+        const course = currentCourseId || 'default';
+        const response = await fetch(`/api/rendered-videos?course=${encodeURIComponent(course)}`);
+        if (!response.ok) return;
+        const data = await response.json();
+        const videos = data.videos || [];
+        if (videos.length === 0) {
+            card.style.display = 'none';
+            return;
+        }
+        card.style.display = 'block';
+        list.innerHTML = videos.map(v => {
+            const sizeMb = (v.size / (1024 * 1024)).toFixed(1);
+            return `<a href="${escapeHtml(v.url)}" download="${escapeHtml(v.name)}" class="btn btn-secondary" style="padding: 8px 14px; font-size: 13px;">${escapeHtml(v.name)} (${sizeMb} MB)</a>`;
+        }).join('');
+    } catch (e) {
+        card.style.display = 'none';
+    }
+}
 
 // Load modules for the render selector dropdown
 async function loadRenderModuleSelector() {
@@ -869,9 +1101,10 @@ function changeCourse(courseId) {
     // Reset step status and recheck
     stepStatus = {
         1: { complete: false, locked: false },
-        2: { complete: false, locked: true },
-        3: { complete: false, locked: true },
-        4: { complete: false, locked: true }
+        2: { complete: false, locked: false },
+        3: { complete: false, locked: false },
+        4: { complete: false, locked: false },
+        5: { complete: false, locked: false }
     };
     
     // Go back to step 1
@@ -888,6 +1121,7 @@ function changeCourse(courseId) {
         ]).catch(error => {
             console.error('Error reloading selectors:', error);
         });
+        loadRenderedVideos();
     }).catch(error => {
         console.error('Error checking steps:', error);
         // Still try to load selectors even if checkAllSteps fails
@@ -899,6 +1133,7 @@ function changeCourse(courseId) {
         ]).catch(err => {
             console.error('Error reloading selectors:', err);
         });
+        loadRenderedVideos();
     });
     updateUI();
 }
@@ -942,6 +1177,7 @@ async function checkAllSteps() {
             
             stepStatus[3].complete = moduleStatus.audioMeasured || false;
             stepStatus[4].complete = moduleStatus.timingsExtracted || false;
+            stepStatus[5].complete = data.summary?.diagramPipelineComplete || false;
         } else {
             // Fallback to summary status if no module found
             stepStatus[1].complete = data.summary.modulesGenerated > 0;
@@ -956,14 +1192,15 @@ async function checkAllSteps() {
             // For step 3, check if any modules have measured audio
             stepStatus[3].complete = data.modules.some(m => m.audioMeasured) || false;
             stepStatus[4].complete = data.modules.some(m => m.timingsExtracted) || false;
+            stepStatus[5].complete = data.summary?.diagramPipelineComplete || false;
         }
         
-        // REMOVED: Step locking - all steps are always accessible
-        // Users can work on any step independently. Only final video rendering is blocked.
+        // All steps are always accessible for navigation; run buttons are disabled until prerequisites are met
         stepStatus[1].locked = false;
         stepStatus[2].locked = false;
         stepStatus[3].locked = false;
         stepStatus[4].locked = false;
+        stepStatus[5].locked = false;
         
         // Debug logging to help diagnose issues
         if (window.location.search.includes('debug=true')) {
@@ -981,9 +1218,10 @@ async function checkAllSteps() {
     } catch (error) {
         console.error('Error checking steps:', error);
         stepStatus[1].locked = false;
-        stepStatus[2].locked = !stepStatus[1].complete && !stepStatus[2].complete;
-        stepStatus[3].locked = !stepStatus[2].complete && !stepStatus[3].complete;
-        stepStatus[4].locked = !stepStatus[3].complete && !stepStatus[4].complete;
+        stepStatus[2].locked = false;
+        stepStatus[3].locked = false;
+        stepStatus[4].locked = false;
+        stepStatus[5].locked = false;
         showWorkflowError(error && error.message ? error.message : 'Could not load step status. Check that a course is selected and the server is running.');
         updateUI();
     }
@@ -1014,11 +1252,12 @@ function updateUI() {
         1: 'Generate Segments',
         2: 'Generate Audio',
         3: 'Measure Audio',
-        4: 'Extract Timings'
+        4: 'Extract Timings',
+        5: 'Diagram Pipeline'
     };
 
     // Update step indicators and show incomplete/complete state clearly
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 1; i <= 5; i++) {
         const indicator = document.getElementById(`step-${i}-indicator`);
         const status = stepStatus[i];
         if (!indicator) continue;
@@ -1049,13 +1288,13 @@ function updateUI() {
         }
     }
     
-    // Update step content visibility
-    for (let i = 1; i <= 4; i++) {
+    // Update step content visibility (use both class and style to ensure it works)
+    for (let i = 1; i <= 5; i++) {
         const content = document.getElementById(`step-${i}`);
-        if (i === currentStep) {
-            content.classList.add('active');
-        } else {
-            content.classList.remove('active');
+        if (content) {
+            const isActive = i === currentStep;
+            content.classList.toggle('active', isActive);
+            content.style.display = isActive ? 'block' : 'none';
         }
     }
     
@@ -1067,6 +1306,8 @@ function updateUI() {
         } else if (currentStep === 2) {
             loadUploadSlideSelector();
             populateSingleAudioSlides();
+        } else if (currentStep === 5) {
+            populateStep5ModuleSelector();
         }
     }
     
@@ -1075,24 +1316,38 @@ function updateUI() {
     updateStepInfo(2);
     updateStepInfo(3);
     updateStepInfo(4);
+    updateStepInfo(5);
     
-    // Show status: basicPreview (Steps 1-3) vs fullyAnimated (Steps 1-4)
+    // Show status: basicPreview (Steps 1-3) vs fullyAnimated (Steps 1-4) vs diagramReady (Steps 1-5)
     const basicPreview = stepStatus[1].complete && stepStatus[2].complete && stepStatus[3].complete;
     const fullyAnimated = basicPreview && stepStatus[4].complete;
+    const diagramReady = fullyAnimated && stepStatus[5].complete;
     const readyForRemotion = basicPreview; // Legacy support
     
     const completionMsg = document.getElementById('completion-message');
     const readyMsg = document.getElementById('ready-for-remotion');
-    
-    if (fullyAnimated) {
+    // Only show completion/ready cards when viewing the final step (4 or 5), so step-specific content is visible when clicking earlier steps
+    const showCompletionCards = currentStep >= 4;
+    if (showCompletionCards && diagramReady) {
         if (completionMsg) completionMsg.style.display = 'block';
         if (readyMsg) readyMsg.style.display = 'none';
-    } else if (readyForRemotion) {
+    } else if (showCompletionCards && fullyAnimated) {
+        if (completionMsg) completionMsg.style.display = 'none';
+        if (readyMsg) readyMsg.style.display = 'block';
+    } else if (showCompletionCards && readyForRemotion) {
         if (completionMsg) completionMsg.style.display = 'none';
         if (readyMsg) readyMsg.style.display = 'block';
     } else {
         if (completionMsg) completionMsg.style.display = 'none';
         if (readyMsg) readyMsg.style.display = 'none';
+    }
+
+    const slideSplitsCard = document.getElementById('slide-splits-card');
+    if (slideSplitsCard) {
+        slideSplitsCard.style.display = (basicPreview && currentCourseId) ? 'block' : 'none';
+        if (basicPreview && currentCourseId) {
+            loadSlideSplitsUI();
+        }
     }
 }
 
@@ -1138,6 +1393,13 @@ function getStepProgressSummary(stepNum) {
                 return { text: 'Complete – ' + totalModules + ' module' + (totalModules !== 1 ? 's' : '') + ' have word timings', percent: 100 };
             }
             return { text: 'Incomplete – ' + extracted + ' of ' + totalModules + ' modules have word timings', percent: pct };
+        }
+        case 5: {
+            const done = summary.diagramPipelineComplete ? 1 : 0;
+            if (done) {
+                return { text: 'Complete – diagram pipeline run (classify + mermaid)', percent: 100 };
+            }
+            return { text: 'Incomplete – run diagram pipeline (classify slides, generate mermaid)', percent: 0 };
         }
         default:
             return { text: 'Checking...', percent: 0 };
@@ -1186,16 +1448,16 @@ function updateStepInfo(stepNum) {
         if (btn) {
             btn.disabled = false;
             // Show "Regenerate" option but with clear indication it's already done
-            btn.textContent = stepNum === 1 ? 'Regenerate Segments' : (stepNum === 2 ? 'Regenerate Audio' : (stepNum === 3 ? 'Re-measure Audio' : 'Re-extract Timings'));
+            btn.textContent = stepNum === 1 ? 'Regenerate Segments' : (stepNum === 2 ? 'Regenerate Audio' : (stepNum === 3 ? 'Re-measure Audio' : (stepNum === 4 ? 'Re-extract Timings' : 'Re-run Diagram Pipeline')));
             btn.classList.remove('btn-primary');
             btn.classList.add('btn-secondary');
             btn.style.opacity = '1';
             btn.style.cursor = 'pointer';
         }
-    } else if (status.locked) {
-        // Check if step is locked due to dependencies (only for incomplete steps)
+    } else if (status.locked || (stepNum === 5 && !stepStatus[4].complete)) {
+        // Step locked due to dependencies, or Step 5 requires Step 4
         const requiredStep = stepNum - 1;
-        statusText.textContent = `Locked - Complete Step ${requiredStep} first`;
+        statusText.textContent = `Complete Step ${requiredStep} first`;
         statusText.style.color = 'var(--text-muted)';
         statusText.style.fontWeight = 'normal';
         if (info) {
@@ -1207,7 +1469,7 @@ function updateStepInfo(stepNum) {
             btn.disabled = true;
             btn.textContent = stepNum === 1 ? 'Generate Segments' : 
                              (stepNum === 2 ? 'Generate Audio' : 
-                              (stepNum === 3 ? 'Measure Audio' : 'Extract Timings'));
+                              (stepNum === 3 ? 'Measure Audio' : (stepNum === 4 ? 'Extract Timings' : 'Run Diagram Pipeline')));
             btn.classList.remove('btn-primary', 'btn-secondary');
             btn.classList.add('btn-secondary');
             btn.style.opacity = '0.5';
@@ -1217,7 +1479,7 @@ function updateStepInfo(stepNum) {
         statusText.textContent = stepNum === 1 ? 'Ready - Generate segment files' : 
                                   (stepNum === 2 ? 'Ready - Generate audio files' : 
                                    (stepNum === 3 ? 'Ready - Measure audio durations' : 
-                                    'Ready - Extract word timings'));
+                                    (stepNum === 4 ? 'Ready - Extract word timings' : 'Ready - Run diagram pipeline')));
         statusText.style.color = 'var(--warning)';
         statusText.style.fontWeight = 'normal';
         if (info) {
@@ -1229,7 +1491,7 @@ function updateStepInfo(stepNum) {
             btn.disabled = false;
             btn.textContent = stepNum === 1 ? 'Generate Segment Files' : 
                              (stepNum === 2 ? 'Generate ALL Audio (Bulk)' : 
-                              (stepNum === 3 ? 'Measure Audio' : 'Extract Timings'));
+                              (stepNum === 3 ? 'Measure Audio' : (stepNum === 4 ? 'Extract Timings' : 'Run Diagram Pipeline')));
             btn.classList.remove('btn-secondary');
             if (stepNum === 2) {
                 btn.classList.remove('btn-primary');
@@ -1243,26 +1505,109 @@ function updateStepInfo(stepNum) {
     }
 }
 
-// Navigate to step
+// Navigate to step (exposed globally for onclick)
 function goToStep(stepNum) {
-    // Prevent navigation to locked steps
-    if (stepStatus[stepNum] && stepStatus[stepNum].locked) {
-        const requiredStep = stepNum - 1;
-        showToast(`Step ${stepNum} is locked. Complete Step ${requiredStep} first.`, 'warning');
-        // Navigate to the required step instead
-        if (stepStatus[requiredStep] && !stepStatus[requiredStep].locked) {
-            stepNum = requiredStep;
-        } else {
-            return; // Can't navigate anywhere
-        }
-    }
-    // Allow navigation to any step - the step itself will check if prerequisites are met
-    // This allows users to see what's needed even if previous steps aren't complete
+    // Allow navigation to any step - user can view content even when locked (button will be disabled)
     currentStep = stepNum;
     updateUI();
-    
+
+    if (stepStatus[stepNum] && stepStatus[stepNum].locked) {
+        showToast(`Step ${stepNum} is locked. Complete Step ${stepNum - 1} first to run it.`, 'warning');
+    }
+
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Slide splits: load slides with durations and existing splits, render UI
+async function loadSlideSplitsUI() {
+    const listEl = document.getElementById('slide-splits-list');
+    if (!listEl || !currentCourseId) return;
+    try {
+        const [slidesRes, splitsRes] = await Promise.all([
+            fetch(`/api/slides-with-durations?course=${encodeURIComponent(currentCourseId)}`),
+            fetch(`/api/slide-splits?course=${encodeURIComponent(currentCourseId)}`)
+        ]);
+        if (!slidesRes.ok || !splitsRes.ok) {
+            listEl.innerHTML = '<p style="color: var(--text-muted); font-size: 13px;">Could not load slides. Ensure audio is generated and measured.</p>';
+            return;
+        }
+        const { slides } = await slidesRes.json();
+        const { splits } = await splitsRes.json();
+        const splittable = slides.filter(s => s.canSplit);
+        if (splittable.length === 0) {
+            listEl.innerHTML = '<p style="color: var(--text-muted); font-size: 13px;">No content slides found, or durations not yet measured.</p>';
+            return;
+        }
+        listEl.innerHTML = splittable.map(s => {
+            const dur = s.durationSeconds != null ? Math.round(s.durationSeconds) + 's' : '?';
+            const isLong = s.durationSeconds != null && s.durationSeconds > 40;
+            const existing = splits[s.name];
+            const segLen = 10;
+            const suggested = (s.durationSeconds != null && s.durationSeconds > segLen)
+                ? Array.from({ length: Math.floor(s.durationSeconds / segLen) }, (_, i) => (i + 1) * segLen).filter(n => n < s.durationSeconds)
+                : [];
+            const splitAtVal = existing && existing.splitAt ? existing.splitAt.join(', ') : (
+                isLong && suggested.length > 0 ? suggested.join(', ') : ''
+            );
+            const checked = !!existing && !!existing.splitAt && existing.splitAt.length >= 1;
+            const segCount = existing && existing.splitAt ? existing.splitAt.length + 1 : 0;
+            const modLabel = s.moduleNumber != null ? `Module ${s.moduleNumber}: ` : '';
+            return `
+                <div class="slide-split-row" data-name="${escapeHtml(s.name)}" style="padding: 10px 12px; margin-bottom: 8px; background: var(--surface-light); border-radius: 8px; border: 1px solid var(--border);">
+                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                        <label style="flex: 1; min-width: 200px; cursor: pointer;">
+                            <input type="checkbox" class="slide-split-toggle" ${checked ? 'checked' : ''} data-name="${escapeHtml(s.name)}">
+                            <span style="font-weight: 500;">${escapeHtml(modLabel)}${escapeHtml(s.title || s.name)}</span>
+                            <span style="color: var(--text-muted); font-size: 12px; margin-left: 6px;">(${dur})</span>
+                            ${isLong ? '<span style="color: var(--warning); font-size: 11px; margin-left: 4px;">long</span>' : ''}
+                            ${segCount > 0 ? `<span style="color: var(--primary); font-size: 11px; margin-left: 6px;">${segCount} segments</span>` : ''}
+                        </label>
+                        <input type="text" class="slide-split-at" placeholder="e.g. 10, 20, 30..." value="${escapeHtml(splitAtVal)}" data-name="${escapeHtml(s.name)}" style="width: 200px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; background: var(--surface); color: var(--text-primary);">
+                    </div>
+                </div>
+            `;
+        }).join('');
+    } catch (e) {
+        console.error('loadSlideSplitsUI error:', e);
+        listEl.innerHTML = '<p style="color: var(--warning); font-size: 13px;">Error loading slides.</p>';
+    }
+}
+
+async function saveSlideSplits() {
+    const btn = document.getElementById('slide-splits-save-btn');
+    if (!currentCourseId || !btn) return;
+    btn.disabled = true;
+    btn.textContent = 'Saving...';
+    try {
+        const toggles = document.querySelectorAll('.slide-split-toggle:checked');
+        const splits = {};
+        toggles.forEach(t => {
+            const name = t.getAttribute('data-name');
+            const input = document.querySelector(`.slide-split-at[data-name="${name}"]`);
+            const val = input ? input.value.trim() : '';
+            const splitAt = val ? val.split(/[,\s]+/).map(s => parseFloat(s.trim())).filter(n => !isNaN(n) && n > 0) : [];
+            if (splitAt.length >= 1) {
+                splits[name] = { splitAt };
+            }
+        });
+        const res = await fetch('/api/slide-splits', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ courseId: currentCourseId, splits })
+        });
+        if (!res.ok) {
+            const err = await res.json().catch(() => ({}));
+            throw new Error(err.error || res.statusText);
+        }
+        await loadSlideSplitsUI();
+        showToast('Slide splits saved. Refresh Remotion Studio (F5 or restart) to see the split in the video.', 'success');
+    } catch (e) {
+        showToast('Failed to save: ' + e.message, 'error');
+    } finally {
+        btn.disabled = false;
+        btn.textContent = 'Save Splits';
+    }
 }
 
 // Allow clicking on step indicators to navigate (if unlocked)
@@ -1349,6 +1694,10 @@ async function validateContent() {
 
 // Execute Step 1: Generate Modules
 async function executeStep1() {
+    if (!currentCourseId) {
+        showToast('Select a video first', 'warning');
+        return;
+    }
     // Check if already complete - don't regenerate unless user explicitly wants to
     if (stepStatus[1].complete) {
         showModal(
@@ -1367,6 +1716,7 @@ async function executeStep1Confirmed() {
     const progressBar = document.getElementById('step-1-progress-bar');
     const progressInfo = progressEl ? progressEl.querySelector('.progress-info') : null;
     const btn = document.getElementById('step-1-btn');
+    if (!btn) return;
 
     btn.disabled = true;
     btn.textContent = 'Generating...';
@@ -1460,6 +1810,10 @@ async function executeStep1Confirmed() {
 
 // Execute Step 2: Generate Audio - with cost preview
 async function executeStep2() {
+    if (!currentCourseId) {
+        showToast('Select a video first', 'warning');
+        return;
+    }
     // REMOVED: Step locking check - steps are always accessible
     // Use workflow status to show what will be generated
     if (!workflowStatus || !workflowStatus.modules) {
@@ -1665,6 +2019,10 @@ async function executeStep2Confirmed() {
 
 // Execute Step 3: Measure Audio - no API cost, just local file measurement
 async function executeStep3() {
+    if (!currentCourseId) {
+        showToast('Select a video first', 'warning');
+        return;
+    }
     // This step has NO API cost - just reads local WAV files
     // Check if already complete
     if (stepStatus[3].complete) {
@@ -1679,13 +2037,13 @@ async function executeStep3() {
 }
 
 async function executeStep3Confirmed() {
-    
     const statusEl = document.getElementById('step-3-status');
     const btn = document.getElementById('step-3-btn');
     const progressEl = document.getElementById('step-3-progress');
     const progressBar = document.getElementById('step-3-progress-bar');
     const progressInfo = progressEl ? progressEl.querySelector('.progress-info') : null;
-    
+    if (!btn) return;
+
     btn.disabled = true;
     btn.textContent = 'Measuring...';
     showStatus(statusEl, 'loading', 'Measuring audio durations...');
@@ -2674,6 +3032,10 @@ async function validateAudio() {
 
 // Execute Step 4: Extract Timings with progress tracking
 async function executeStep4() {
+    if (!currentCourseId) {
+        showToast('Select a video first', 'warning');
+        return;
+    }
     // Check if step is locked
     if (stepStatus[4].locked) {
         showToast('Step 4 is locked. Complete Step 3 first.', 'warning');
@@ -2909,6 +3271,155 @@ async function executeStep4Confirmed() {
             detailsEl.innerHTML = recent.map(d => `<div style="margin-bottom: 4px; padding: 4px 0; border-bottom: 1px solid var(--border);">${d}</div>`).join('');
             detailsEl.scrollTop = detailsEl.scrollHeight;
         }
+    }
+}
+
+// Populate Step 5 module selector (run one module at a time to control cost)
+async function populateStep5ModuleSelector() {
+    const sel = document.getElementById('step-5-module');
+    if (!sel || !currentCourseId) return;
+    let modules = (workflowStatus && workflowStatus.modules) ? workflowStatus.modules : [];
+    if (modules.length === 0) {
+        try {
+            const res = await fetch(`/api/modules?course=${currentCourseId}`);
+            if (res.ok) {
+                const data = await res.json();
+                modules = data.modules || [];
+            }
+        } catch (e) { /* ignore */ }
+    }
+    const currentVal = sel.value;
+    sel.innerHTML = '<option value="">All modules</option>';
+    const nums = modules.map(m => m.moduleNumber).sort((a, b) => a - b);
+    nums.forEach(n => {
+        const opt = document.createElement('option');
+        opt.value = String(n);
+        opt.textContent = `Module ${n} only`;
+        sel.appendChild(opt);
+    });
+    if (currentVal && nums.includes(parseInt(currentVal, 10))) sel.value = currentVal;
+}
+
+// Step 5: Diagram Pipeline (with cost modal)
+function executeStep5() {
+    if (!currentCourseId) {
+        showToast('Select a course first', 'warning');
+        return;
+    }
+    if (stepStatus[5].locked) {
+        showToast('Complete Step 4 (Extract Timings) first', 'warning');
+        return;
+    }
+
+    const moduleSel = document.getElementById('step-5-module');
+    const moduleVal = moduleSel ? moduleSel.value : '';
+    const forModule = moduleVal ? parseInt(moduleVal, 10) : null;
+    const estimateMsg = `Run the diagram pipeline: derive boundaries, derive bullets, classify slides (diagram vs bullets), generate Mermaid diagrams, and sync.\n\nUses local heuristics only. No API key or cost required.\n\nProceed?`;
+    showModal(
+        'Run Diagram Pipeline?',
+        estimateMsg,
+        () => executeStep5Confirmed(forModule)
+    );
+}
+
+async function executeStep5Confirmed(moduleNum) {
+    const statusEl = document.getElementById('step-5-status');
+    const btn = document.getElementById('step-5-btn');
+    btn.disabled = true;
+    btn.textContent = 'Running...';
+
+    const progressEl = document.getElementById('step-5-progress');
+    const progressInfo = progressEl ? progressEl.querySelector('.progress-info') : null;
+    const progressBarEl = document.getElementById('step-5-progress-bar');
+    const detailsEl = document.getElementById('step-5-details');
+    if (progressEl) progressEl.style.borderColor = 'var(--primary)';
+    if (progressInfo) {
+        progressInfo.textContent = 'Starting...';
+        progressInfo.style.color = 'var(--primary)';
+    }
+    if (progressBarEl) progressBarEl.style.width = '0%';
+    if (detailsEl) {
+        detailsEl.style.display = 'block';
+        detailsEl.innerHTML = '';
+    }
+
+    showStatus(statusEl, 'loading', 'Running diagram pipeline...');
+    showProgressOverlay(5, 'Step 5: Diagram Pipeline', 'Running diagram pipeline...', 0);
+
+    try {
+        showStatus(statusEl, 'loading', 'Running diagram pipeline...');
+        updateProgressOverlay('Running diagram pipeline...', 0);
+
+        const body = { course: currentCourseId, courseId: currentCourseId, improve: true };
+        if (moduleNum != null) body.module = moduleNum;
+        const response = await fetch('/api/diagram-pipeline', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+        let progress = 0;
+
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split('\n');
+            buffer = lines.pop() || '';
+
+            for (const line of lines) {
+                if (!line.startsWith('data: ')) continue;
+                try {
+                    const data = JSON.parse(line.substring(6));
+                    if (data.type === 'progress') {
+                        progress = Math.min(progress + 15, 90);
+                        updateProgressOverlay(data.message, progress);
+                        if (progressInfo) progressInfo.textContent = data.message;
+                    } else if (data.type === 'complete') {
+                        hideProgressOverlay();
+                        btn.disabled = false;
+                        btn.textContent = 'Run Diagram Pipeline';
+                        showStatus(statusEl, 'success', 'Diagram pipeline completed!');
+                        if (progressInfo) {
+                            progressInfo.textContent = 'Complete';
+                            progressInfo.style.color = 'var(--success)';
+                        }
+                        if (progressBarEl) {
+                            progressBarEl.style.width = '100%';
+                            progressBarEl.className = 'segment-progress-bar success';
+                        }
+                        if (progressEl) progressEl.style.borderColor = 'var(--success)';
+                        await checkAllSteps();
+                        updateUI();
+                        showToast('Diagram pipeline completed', 'success');
+                    } else if (data.type === 'error') {
+                        hideProgressOverlay();
+                        btn.disabled = false;
+                        btn.textContent = 'Run Diagram Pipeline';
+                        showStatus(statusEl, 'error', data.message);
+                        showToast(data.message, 'error');
+                        await checkAllSteps();
+                        updateUI();
+                    }
+                } catch (e) {
+                    console.error('Error parsing diagram pipeline SSE:', e);
+                }
+            }
+        }
+    } catch (error) {
+        hideProgressOverlay();
+        btn.disabled = false;
+        btn.textContent = 'Run Diagram Pipeline';
+        showStatus(statusEl, 'error', `Error: ${error.message}`);
+        showToast(`Error: ${error.message}`, 'error');
+        await checkAllSteps();
+        updateUI();
     }
 }
 
@@ -3196,4 +3707,16 @@ async function generateSingleSlideAudio() {
         if (statusEl) statusEl.innerHTML = `<span style="color: var(--error);">Error: ${error.message}</span>`;
         showToast(`Error: ${error.message}`, 'error');
     }
+}
+
+// Expose functions on window for inline onclick (some environments need this)
+if (typeof window !== 'undefined') {
+    window.goToStep = goToStep;
+    window.executeStep1 = executeStep1;
+    window.executeStep2 = executeStep2;
+    window.executeStep3 = executeStep3;
+    window.executeStep4 = executeStep4;
+    window.executeStep5 = executeStep5;
+    window.validateContent = validateContent;
+    window.checkAllSteps = checkAllSteps;
 }

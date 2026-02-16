@@ -48,12 +48,13 @@ export const courses: Course[] = [
 
 // Course-to-module mapping
 // This maps which modules belong to which course
-export const courseModuleMapping: Record<string, number[]> = {'aws-pulumi': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-	// Add more mappings:
-	// 'docker-fundamentals': [1, 2, 3, 4, 5, 6, 7, 8],
-		'tech-news': [20, 19],
-		'the-one-person-company-era-just-started': [],
-		'iac-story': []
+// Keep in sync with courses.json courseModuleMapping
+export const courseModuleMapping: Record<string, number[]> = {
+	'agentic-ai-for-beginners': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+	'aws-pulumi': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+	'tech-news': [20, 19],
+	'the-one-person-company-era-just-started': [],
+	'iac-story': []
 };
 
 // Get modules for a course

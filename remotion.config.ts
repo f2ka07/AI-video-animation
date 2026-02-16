@@ -31,8 +31,8 @@ Config.overrideWebpackConfig((config) => {
 		cache: {
 			type: "filesystem",
 		},
-		// Faster source maps for development
-		devtool: false,
+		// Source maps required for Remotion Studio timeline (Sequence source location)
+		devtool: "eval-source-map",
 	};
 });
 

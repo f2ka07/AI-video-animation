@@ -233,6 +233,15 @@ OUTPUT FORMAT:
 
 LAST SLIDE: Creative conclusion title (e.g. "The Big Takeaway"). No "Module Summary". Professor-level insight.
 
+AUDIO / NARRATION OPTIMIZATION:
+- Scripts will be spoken aloud (TTS or voiceover). Write for the ear, not the eye.
+- Vary sentence length: mix short punchy sentences with longer explanatory ones. Avoid long run-ons.
+- Hook the first sentence of each slide: start with the insight or question, not setup.
+- Spell out acronyms on first use when it helps clarity (e.g., "RAG, or Retrieval-Augmented Generation").
+- Use contractions (it's, we're, don't) - they sound more natural when spoken.
+- Avoid tongue-twisters and dense jargon clusters. If technical, follow with plain-language restatement.
+- End key slides with a clear takeaway phrase the listener can remember.
+
 CRITICAL - AVOID:
 - Shallow slides (under 40 words when concept needs more)
 - Code slides without actual code

@@ -8,22 +8,50 @@ import { useModuleTimings } from "../hooks/useModuleTimings";
 // Available animation types
 type AnimationType = "git-machine" | "none";
 
+interface PhraseTime {
+	start: number;
+	end: number;
+}
+
 interface AnimatedContentSlideProps {
 	title: string;
 	points: string[];
+	keyWords?: string[][];
+	phraseTimes?: (PhraseTime | undefined)[];
 	slideName: string;
 	audioStartFrame?: number;
+	audioStartOffset?: number; // Seconds into the narration (for split-slide segments)
 	imageSrc?: string;
 	audioDuration?: number; // Total audio duration in seconds for proper sync
 	moduleNumber?: number; // For loading word timings (cues)
 	animation?: AnimationType; // Use animated visualization instead of static image
 }
 
+function renderPointWithEmphasis(point: string, keyWords: string[]): React.ReactNode {
+	if (!keyWords || keyWords.length === 0) return point;
+	const escaped = keyWords.map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+	const pattern = new RegExp(`\\b(${escaped.join("|")})\\b`, "gi");
+	const parts = point.split(pattern);
+	return parts.map((part, i) => {
+		const isMatch = keyWords.some((kw) => part.toLowerCase() === kw.toLowerCase());
+		return isMatch ? (
+			<strong key={i} style={{ fontWeight: 600, color: "#93c5fd" }}>
+				{part}
+			</strong>
+		) : (
+			<React.Fragment key={i}>{part}</React.Fragment>
+		);
+	});
+}
+
 export const AnimatedContentSlide: React.FC<AnimatedContentSlideProps> = ({
 	title,
 	points,
+	keyWords,
+	phraseTimes,
 	slideName,
 	audioStartFrame = 0,
+	audioStartOffset = 0,
 	imageSrc,
 	audioDuration,
 	moduleNumber = 1,
@@ -84,19 +112,82 @@ export const AnimatedContentSlide: React.FC<AnimatedContentSlideProps> = ({
 		});
 	};
 
-	// Progressive bullet highlighting - use word timings (cues) when available, else audioDuration heuristic
+	// Progressive bullet highlighting - use phrase-matched word timings when available
 	const currentTimeSeconds = frame / fps;
+	const effectiveTimeSeconds = currentTimeSeconds + audioStartOffset;
 	const entranceTime = 0.3;
+
+	// Find when a bullet phrase appears in transcript (phrase-based cue sync)
+	const findPhraseTime = (
+		phrase: string,
+		wordList: Array<{ text: string; start: number; end: number }>,
+		minStartFrom: number = 0
+	): { start: number; end: number } | null => {
+		if (!phrase || wordList.length === 0) return null;
+		const normalize = (s: string) => s.toLowerCase().replace(/[.,!?;:'"()[\]]/g, "").trim();
+		const phraseWords = phrase.split(/\s+/).map(normalize).filter((w) => w.length >= 2);
+		if (phraseWords.length === 0) return null;
+		const matchLen = Math.min(3, phraseWords.length);
+		const searchWords = phraseWords.slice(0, matchLen);
+		for (let i = 0; i <= wordList.length - searchWords.length; i++) {
+			if (wordList[i].start < minStartFrom) continue;
+			let matched = true;
+			for (let j = 0; j < searchWords.length; j++) {
+				const w = normalize(wordList[i + j].text);
+				if (w !== searchWords[j] && !w.includes(searchWords[j]) && !searchWords[j].includes(w)) {
+					matched = false;
+					break;
+				}
+			}
+			if (matched) {
+				const start = wordList[i].start;
+				const endIdx = Math.min(i + searchWords.length + 5, wordList.length - 1);
+				const end = wordList[endIdx]?.end ?? wordList[wordList.length - 1]?.end ?? start + 2;
+				return { start, end };
+			}
+		}
+		return null;
+	};
+
+	// Precompute phrase-based ranges: prefer stored phraseTimes (from derive-bullets), else phrase match, else fallback
+	const phraseRanges = React.useMemo(() => {
+		if (points.length === 0) return null;
+		const ranges: Array<{ start: number; end: number }> = [];
+		let minFrom = audioStartOffset;
+		for (let i = 0; i < points.length; i++) {
+			const stored = phraseTimes?.[i];
+			if (stored && typeof stored.start === "number" && typeof stored.end === "number") {
+				ranges.push({ start: stored.start, end: stored.end });
+				minFrom = stored.start + 0.1;
+			} else if (words.length > 0) {
+				const r = findPhraseTime(points[i], words, minFrom);
+				if (r) {
+					ranges.push(r);
+					minFrom = r.start + 0.1;
+				} else {
+					return null;
+				}
+			} else {
+				return null;
+			}
+		}
+		if (ranges.length !== points.length) return null;
+		return ranges;
+	}, [words, points, audioStartOffset, phraseTimes]);
 
 	const getPointHighlight = (index: number): number => {
 		if (!audioDuration || audioDuration <= 0) return 0;
-		if (currentTimeSeconds < entranceTime) return 0;
+		if (effectiveTimeSeconds < entranceTime) return 0;
 
 		let pointStartTime: number;
 		let pointEndTime: number;
 
-		// Use word timings when available (accurate cues)
-		if (words.length > 0) {
+		if (phraseRanges && phraseRanges[index]) {
+			pointStartTime = phraseRanges[index].start;
+			pointEndTime = index + 1 < phraseRanges.length
+				? phraseRanges[index + 1].start
+				: Math.max(phraseRanges[index].end + 0.3, (words[words.length - 1]?.end ?? audioDuration) - 0.3);
+		} else if (words.length > 0) {
 			const wordsPerPoint = Math.ceil(words.length / points.length);
 			const startWordIndex = index * wordsPerPoint;
 			const endWordIndex = Math.min((index + 1) * wordsPerPoint - 1, words.length - 1);
@@ -106,13 +197,11 @@ export const AnimatedContentSlide: React.FC<AnimatedContentSlideProps> = ({
 				pointStartTime = startWord.start;
 				pointEndTime = endWord.end;
 			} else {
-				// Fallback: distribute evenly
 				const timePerPoint = audioDuration / points.length;
 				pointStartTime = index * timePerPoint;
 				pointEndTime = (index + 1) * timePerPoint;
 			}
 		} else {
-			// No word timings: use percentage heuristic
 			const introTime = audioDuration * 0.15;
 			const contentDuration = audioDuration * 0.80;
 			const timePerPoint = contentDuration / points.length;
@@ -120,11 +209,11 @@ export const AnimatedContentSlide: React.FC<AnimatedContentSlideProps> = ({
 			pointEndTime = pointStartTime + timePerPoint;
 		}
 
-		if (currentTimeSeconds < pointStartTime) return 0;
-		if (currentTimeSeconds > pointEndTime) return 0.12;
+		if (effectiveTimeSeconds < pointStartTime) return 0;
+		if (effectiveTimeSeconds > pointEndTime) return 0.12;
 
 		const duration = pointEndTime - pointStartTime;
-		const progress = (currentTimeSeconds - pointStartTime) / duration;
+		const progress = duration > 0 ? (effectiveTimeSeconds - pointStartTime) / duration : 0;
 		if (progress < 0.12) return interpolate(progress, [0, 0.12], [0, 1]);
 		if (progress > 0.88) return interpolate(progress, [0.88, 1], [1, 0.12]);
 		return 1;
@@ -374,6 +463,7 @@ export const AnimatedContentSlide: React.FC<AnimatedContentSlideProps> = ({
 					</h2>
 					<div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 20 }}>
 					{points.map((point, index) => {
+						const pointKeyWords = keyWords?.[index] ?? [];
 						const pointSpring = getPointSpring(index);
 						const pointOpacity = pointSpring;
 						const pointX = interpolate(pointSpring, [0, 1], [-30, 0]);
@@ -457,10 +547,10 @@ export const AnimatedContentSlide: React.FC<AnimatedContentSlideProps> = ({
 										fontWeight: isActive ? 500 : 400,
 										wordWrap: "break-word",
 										overflowWrap: "break-word",
-									}}
-								>
-									{point}
-								</p>
+								}}
+							>
+								{renderPointWithEmphasis(point, pointKeyWords)}
+							</p>
 							</div>
 						);
 					})}

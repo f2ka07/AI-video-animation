@@ -13,7 +13,9 @@ if (modules.length === 0) {
 }
 
 const courseNames: Record<string, string> = {
+	"agentic-ai-for-beginners": "Agentic AI for Beginners",
 	"agentic-ai-labs-deep-dive": "Agentic AI Labs Deep Dive",
+	"cisco-ai-technical-practitioner": "Cisco AI Technical Practitioner",
 };
 const plan = {
 	courseName: courseNames[courseId] || courseId,

@@ -1,0 +1,1631 @@
+{
+  "moduleNumber": 2,
+  "title": "Prompt Engineering and Security",
+  "slides": {
+    "module-2-title": {
+      "words": [
+        {
+          "text": "Welcome",
+          "start": 0.14,
+          "end": 0.63
+        },
+        {
+          "text": "to",
+          "start": 0.66,
+          "end": 0.81
+        },
+        {
+          "text": "Module",
+          "start": 0.82,
+          "end": 1.17
+        },
+        {
+          "text": "2",
+          "start": 1.58,
+          "end": 1.59
+        },
+        {
+          "text": "Prompt",
+          "start": 1.92,
+          "end": 2.29
+        },
+        {
+          "text": "Engineering",
+          "start": 2.35,
+          "end": 3.05
+        },
+        {
+          "text": "and",
+          "start": 3.09,
+          "end": 3.28
+        },
+        {
+          "text": "Security",
+          "start": 3.28,
+          "end": 4.02
+        },
+        {
+          "text": "You",
+          "start": 4.68,
+          "end": 4.88
+        },
+        {
+          "text": "will",
+          "start": 4.88,
+          "end": 5.05
+        },
+        {
+          "text": "learn",
+          "start": 5.05,
+          "end": 5.37
+        },
+        {
+          "text": "prompt",
+          "start": 5.42,
+          "end": 5.77
+        },
+        {
+          "text": "principles",
+          "start": 5.81,
+          "end": 6.43
+        },
+        {
+          "text": "and",
+          "start": 6.46,
+          "end": 6.7
+        },
+        {
+          "text": "patterns",
+          "start": 6.7,
+          "end": 7.33
+        },
+        {
+          "text": "prompting",
+          "start": 7.81,
+          "end": 8.299999999999999
+        },
+        {
+          "text": "techniques",
+          "start": 8.3,
+          "end": 8.88
+        },
+        {
+          "text": "for",
+          "start": 8.889999,
+          "end": 9.069999
+        },
+        {
+          "text": "text",
+          "start": 9.07,
+          "end": 9.57
+        },
+        {
+          "text": "and",
+          "start": 9.61,
+          "end": 9.87
+        },
+        {
+          "text": "images",
+          "start": 9.9,
+          "end": 10.55
+        },
+        {
+          "text": "prompt",
+          "start": 10.96,
+          "end": 11.340000000000002
+        },
+        {
+          "text": "injection",
+          "start": 11.389999,
+          "end": 11.969999
+        },
+        {
+          "text": "attacks",
+          "start": 12.02,
+          "end": 12.629999999999999
+        },
+        {
+          "text": "and",
+          "start": 12.98,
+          "end": 13.25
+        },
+        {
+          "text": "defensive",
+          "start": 13.25,
+          "end": 13.83
+        },
+        {
+          "text": "strategies",
+          "start": 13.83,
+          "end": 14.65
+        }
+      ]
+    },
+    "prompt-principles-patterns": {
+      "words": [
+        {
+          "text": "Apply",
+          "start": 0.15,
+          "end": 0.54
+        },
+        {
+          "text": "clarity",
+          "start": 0.54,
+          "end": 1.27
+        },
+        {
+          "text": "specificity",
+          "start": 1.49,
+          "end": 2.52
+        },
+        {
+          "text": "structure",
+          "start": 2.86,
+          "end": 3.57
+        },
+        {
+          "text": "and",
+          "start": 3.88,
+          "end": 4.05
+        },
+        {
+          "text": "examples",
+          "start": 4.05,
+          "end": 4.57
+        },
+        {
+          "text": "in",
+          "start": 4.57,
+          "end": 4.74
+        },
+        {
+          "text": "prompts",
+          "start": 4.76,
+          "end": 5.26
+        },
+        {
+          "text": "Use",
+          "start": 5.62,
+          "end": 5.99
+        },
+        {
+          "text": "role",
+          "start": 5.99,
+          "end": 6.17
+        },
+        {
+          "text": "assignment",
+          "start": 6.21,
+          "end": 7
+        },
+        {
+          "text": "such",
+          "start": 7.25,
+          "end": 7.59
+        },
+        {
+          "text": "as",
+          "start": 7.59,
+          "end": 7.84
+        },
+        {
+          "text": "you",
+          "start": 7.84,
+          "end": 7.9799999999999995
+        },
+        {
+          "text": "are",
+          "start": 7.98,
+          "end": 8.07
+        },
+        {
+          "text": "an",
+          "start": 8.09,
+          "end": 8.25
+        },
+        {
+          "text": "expert",
+          "start": 8.26,
+          "end": 8.83
+        },
+        {
+          "text": "Add",
+          "start": 9.23,
+          "end": 9.42
+        },
+        {
+          "text": "instruction",
+          "start": 9.45,
+          "end": 10.129999999999999
+        },
+        {
+          "text": "blocks",
+          "start": 10.13,
+          "end": 10.58
+        },
+        {
+          "text": "with",
+          "start": 10.87,
+          "end": 11.08
+        },
+        {
+          "text": "numbered",
+          "start": 11.08,
+          "end": 11.49
+        },
+        {
+          "text": "steps",
+          "start": 11.49,
+          "end": 12
+        },
+        {
+          "text": "and",
+          "start": 12.3,
+          "end": 12.48
+        },
+        {
+          "text": "conditional",
+          "start": 12.5,
+          "end": 13.11
+        },
+        {
+          "text": "logic",
+          "start": 13.11,
+          "end": 13.61
+        },
+        {
+          "text": "Include",
+          "start": 14.09,
+          "end": 14.66
+        },
+        {
+          "text": "constraints",
+          "start": 14.66,
+          "end": 15.32
+        },
+        {
+          "text": "for",
+          "start": 15.33,
+          "end": 15.48
+        },
+        {
+          "text": "format",
+          "start": 15.48,
+          "end": 16.22
+        },
+        {
+          "text": "length",
+          "start": 16.619999,
+          "end": 17.099999
+        },
+        {
+          "text": "tone",
+          "start": 17.25,
+          "end": 17.65
+        },
+        {
+          "text": "and",
+          "start": 17.709999,
+          "end": 17.849999
+        },
+        {
+          "text": "exclusions",
+          "start": 17.85,
+          "end": 18.650000000000002
+        },
+        {
+          "text": "Use",
+          "start": 19.16,
+          "end": 19.53
+        },
+        {
+          "text": "prompt",
+          "start": 19.58,
+          "end": 19.9
+        },
+        {
+          "text": "templates",
+          "start": 19.9,
+          "end": 20.38
+        },
+        {
+          "text": "with",
+          "start": 20.71,
+          "end": 20.94
+        },
+        {
+          "text": "variable",
+          "start": 20.95,
+          "end": 21.57
+        },
+        {
+          "text": "injection",
+          "start": 21.6,
+          "end": 22.380000000000003
+        },
+        {
+          "text": "and",
+          "start": 22.48,
+          "end": 22.75
+        },
+        {
+          "text": "validation",
+          "start": 22.759999999999998,
+          "end": 23.599999999999998
+        },
+        {
+          "text": "Iterative",
+          "start": 23.87,
+          "end": 24.290000000000003
+        },
+        {
+          "text": "refinement",
+          "start": 24.34,
+          "end": 25.169999999999998
+        },
+        {
+          "text": "versioning",
+          "start": 25.25,
+          "end": 26.02
+        },
+        {
+          "text": "and",
+          "start": 26.189999999999998,
+          "end": 26.45
+        },
+        {
+          "text": "A",
+          "start": 26.509999999999998,
+          "end": 26.889999999999997
+        },
+        {
+          "text": "B",
+          "start": 27,
+          "end": 27.43
+        },
+        {
+          "text": "testing",
+          "start": 27.509999999999998,
+          "end": 28.089999999999996
+        },
+        {
+          "text": "improve",
+          "start": 28.17,
+          "end": 28.880000000000003
+        },
+        {
+          "text": "reproducibility",
+          "start": 28.96,
+          "end": 30.11
+        }
+      ]
+    },
+    "prompting-techniques": {
+      "words": [
+        {
+          "text": "Use",
+          "start": 0.06,
+          "end": 0.48
+        },
+        {
+          "text": "iterative",
+          "start": 0.55,
+          "end": 1.23
+        },
+        {
+          "text": "and",
+          "start": 1.31,
+          "end": 1.53
+        },
+        {
+          "text": "sequential",
+          "start": 1.53,
+          "end": 2.2
+        },
+        {
+          "text": "prompting",
+          "start": 2.26,
+          "end": 2.9099999999999997
+        },
+        {
+          "text": "to",
+          "start": 3.05,
+          "end": 3.21
+        },
+        {
+          "text": "refine",
+          "start": 3.21,
+          "end": 3.8
+        },
+        {
+          "text": "outputs",
+          "start": 3.87,
+          "end": 4.5200000000000005
+        },
+        {
+          "text": "step",
+          "start": 4.53,
+          "end": 4.88
+        },
+        {
+          "text": "by",
+          "start": 4.93,
+          "end": 5.16
+        },
+        {
+          "text": "step",
+          "start": 5.17,
+          "end": 5.61
+        },
+        {
+          "text": "Chained",
+          "start": 5.78,
+          "end": 6.17
+        },
+        {
+          "text": "prompts",
+          "start": 6.23,
+          "end": 6.83
+        },
+        {
+          "text": "pass",
+          "start": 7.01,
+          "end": 7.34
+        },
+        {
+          "text": "the",
+          "start": 7.36,
+          "end": 7.5200000000000005
+        },
+        {
+          "text": "output",
+          "start": 7.56,
+          "end": 8.11
+        },
+        {
+          "text": "of",
+          "start": 8.2,
+          "end": 8.399999999999999
+        },
+        {
+          "text": "one",
+          "start": 8.4,
+          "end": 8.66
+        },
+        {
+          "text": "step",
+          "start": 8.66,
+          "end": 9.120000000000001
+        },
+        {
+          "text": "as",
+          "start": 9.23,
+          "end": 9.51
+        },
+        {
+          "text": "input",
+          "start": 9.559999,
+          "end": 10.009998999999999
+        },
+        {
+          "text": "to",
+          "start": 10.099999,
+          "end": 10.219999
+        },
+        {
+          "text": "the",
+          "start": 10.219999,
+          "end": 10.349999
+        },
+        {
+          "text": "next",
+          "start": 10.349999,
+          "end": 10.849999
+        },
+        {
+          "text": "Few",
+          "start": 11.15,
+          "end": 11.39
+        },
+        {
+          "text": "shot",
+          "start": 11.389999,
+          "end": 11.639999
+        },
+        {
+          "text": "learning",
+          "start": 11.66,
+          "end": 12.03
+        },
+        {
+          "text": "provides",
+          "start": 12.03,
+          "end": 12.59
+        },
+        {
+          "text": "one",
+          "start": 12.59,
+          "end": 12.89
+        },
+        {
+          "text": "shot",
+          "start": 12.889999,
+          "end": 13.269999
+        },
+        {
+          "text": "three",
+          "start": 13.69,
+          "end": 13.94
+        },
+        {
+          "text": "shot",
+          "start": 13.94,
+          "end": 14.299999999999999
+        },
+        {
+          "text": "or",
+          "start": 14.799999,
+          "end": 15.079998999999999
+        },
+        {
+          "text": "N",
+          "start": 15.12,
+          "end": 15.34
+        },
+        {
+          "text": "shot",
+          "start": 15.339999,
+          "end": 15.619999
+        },
+        {
+          "text": "in",
+          "start": 15.639999,
+          "end": 15.829998999999999
+        },
+        {
+          "text": "context",
+          "start": 15.87,
+          "end": 16.39
+        },
+        {
+          "text": "examples",
+          "start": 16.389999,
+          "end": 17.229999
+        },
+        {
+          "text": "Use",
+          "start": 17.67,
+          "end": 17.91
+        },
+        {
+          "text": "zero",
+          "start": 17.91,
+          "end": 18.22
+        },
+        {
+          "text": "shot",
+          "start": 18.22,
+          "end": 18.74
+        },
+        {
+          "text": "when",
+          "start": 18.75,
+          "end": 19.04
+        },
+        {
+          "text": "the",
+          "start": 19.04,
+          "end": 19.14
+        },
+        {
+          "text": "task",
+          "start": 19.14,
+          "end": 19.46
+        },
+        {
+          "text": "is",
+          "start": 19.46,
+          "end": 19.580000000000002
+        },
+        {
+          "text": "simple",
+          "start": 19.59,
+          "end": 20.13
+        },
+        {
+          "text": "use",
+          "start": 20.56,
+          "end": 20.849999999999998
+        },
+        {
+          "text": "few",
+          "start": 20.86,
+          "end": 21.13
+        },
+        {
+          "text": "shot",
+          "start": 21.13,
+          "end": 21.68
+        },
+        {
+          "text": "when",
+          "start": 21.75,
+          "end": 22.05
+        },
+        {
+          "text": "you",
+          "start": 22.05,
+          "end": 22.17
+        },
+        {
+          "text": "need",
+          "start": 22.17,
+          "end": 22.41
+        },
+        {
+          "text": "consistent",
+          "start": 22.41,
+          "end": 23.01
+        },
+        {
+          "text": "format",
+          "start": 23.009999999999998,
+          "end": 23.209999999999997
+        },
+        {
+          "text": "or",
+          "start": 23.63,
+          "end": 23.84
+        },
+        {
+          "text": "domain",
+          "start": 23.84,
+          "end": 24.43
+        },
+        {
+          "text": "specific",
+          "start": 24.7,
+          "end": 25.349999999999998
+        },
+        {
+          "text": "output",
+          "start": 25.36,
+          "end": 25.91
+        },
+        {
+          "text": "For",
+          "start": 26.439999999999998,
+          "end": 26.639999999999997
+        },
+        {
+          "text": "text",
+          "start": 26.639999,
+          "end": 27.259999
+        },
+        {
+          "text": "support",
+          "start": 27.469999,
+          "end": 27.909999000000003
+        },
+        {
+          "text": "completion",
+          "start": 27.939999999999998,
+          "end": 28.839999999999996
+        },
+        {
+          "text": "chat",
+          "start": 29.08,
+          "end": 29.65
+        },
+        {
+          "text": "and",
+          "start": 29.78,
+          "end": 29.990000000000002
+        },
+        {
+          "text": "structured",
+          "start": 29.990000000000002,
+          "end": 30.51
+        },
+        {
+          "text": "output",
+          "start": 30.53,
+          "end": 31.09
+        },
+        {
+          "text": "like",
+          "start": 31.369999999999997,
+          "end": 31.63
+        },
+        {
+          "text": "JSON",
+          "start": 31.66,
+          "end": 32.29
+        },
+        {
+          "text": "or",
+          "start": 32.36,
+          "end": 32.55
+        },
+        {
+          "text": "XML",
+          "start": 32.58,
+          "end": 33.28
+        },
+        {
+          "text": "For",
+          "start": 33.599999,
+          "end": 33.859998999999995
+        },
+        {
+          "text": "images",
+          "start": 33.889999,
+          "end": 34.72999900000001
+        },
+        {
+          "text": "use",
+          "start": 35.09,
+          "end": 35.38
+        },
+        {
+          "text": "negative",
+          "start": 35.379999,
+          "end": 35.889998999999996
+        },
+        {
+          "text": "prompts",
+          "start": 35.949999,
+          "end": 36.509999
+        },
+        {
+          "text": "and",
+          "start": 36.61,
+          "end": 36.8
+        },
+        {
+          "text": "control",
+          "start": 36.84,
+          "end": 37.28
+        },
+        {
+          "text": "style",
+          "start": 37.3,
+          "end": 37.61
+        },
+        {
+          "text": "and",
+          "start": 37.79,
+          "end": 37.97
+        },
+        {
+          "text": "composition",
+          "start": 38,
+          "end": 38.79
+        },
+        {
+          "text": "For",
+          "start": 38.96,
+          "end": 39.18
+        },
+        {
+          "text": "audio",
+          "start": 39.22,
+          "end": 39.74
+        },
+        {
+          "text": "use",
+          "start": 39.87,
+          "end": 40.11
+        },
+        {
+          "text": "descriptive",
+          "start": 40.11,
+          "end": 40.78
+        },
+        {
+          "text": "prompts",
+          "start": 40.81,
+          "end": 41.35
+        },
+        {
+          "text": "for",
+          "start": 41.57,
+          "end": 41.79
+        },
+        {
+          "text": "TTS",
+          "start": 41.84,
+          "end": 42.46
+        },
+        {
+          "text": "and",
+          "start": 42.519999999999996,
+          "end": 42.74999999999999
+        },
+        {
+          "text": "music",
+          "start": 42.76,
+          "end": 43.339999999999996
+        }
+      ]
+    },
+    "prompt-injection-types": {
+      "words": [
+        {
+          "text": "Prompt",
+          "start": 0.12,
+          "end": 0.41
+        },
+        {
+          "text": "injection",
+          "start": 0.41,
+          "end": 0.87
+        },
+        {
+          "text": "attacks",
+          "start": 0.87,
+          "end": 1.35
+        },
+        {
+          "text": "include",
+          "start": 1.43,
+          "end": 1.8399999999999999
+        },
+        {
+          "text": "direct",
+          "start": 1.85,
+          "end": 2.24
+        },
+        {
+          "text": "injection",
+          "start": 2.24,
+          "end": 2.89
+        },
+        {
+          "text": "where",
+          "start": 3.02,
+          "end": 3.23
+        },
+        {
+          "text": "user",
+          "start": 3.23,
+          "end": 3.55
+        },
+        {
+          "text": "content",
+          "start": 3.55,
+          "end": 3.9699999999999998
+        },
+        {
+          "text": "overrides",
+          "start": 4.01,
+          "end": 4.59
+        },
+        {
+          "text": "system",
+          "start": 4.59,
+          "end": 5.04
+        },
+        {
+          "text": "instructions",
+          "start": 5.04,
+          "end": 5.75
+        },
+        {
+          "text": "Indirect",
+          "start": 6.05,
+          "end": 6.59
+        },
+        {
+          "text": "injection",
+          "start": 6.59,
+          "end": 7.1
+        },
+        {
+          "text": "hides",
+          "start": 7.1,
+          "end": 7.43
+        },
+        {
+          "text": "malicious",
+          "start": 7.43,
+          "end": 7.99
+        },
+        {
+          "text": "content",
+          "start": 8.01,
+          "end": 8.459999999999999
+        },
+        {
+          "text": "in",
+          "start": 8.49,
+          "end": 8.67
+        },
+        {
+          "text": "retrieved",
+          "start": 8.67,
+          "end": 9.08
+        },
+        {
+          "text": "documents",
+          "start": 9.09,
+          "end": 9.74
+        },
+        {
+          "text": "web",
+          "start": 9.86,
+          "end": 10.129999999999999
+        },
+        {
+          "text": "pages",
+          "start": 10.13,
+          "end": 10.680000000000001
+        },
+        {
+          "text": "or",
+          "start": 10.8,
+          "end": 10.98
+        },
+        {
+          "text": "emails",
+          "start": 11.01,
+          "end": 11.6
+        },
+        {
+          "text": "Multi",
+          "start": 12.059999,
+          "end": 12.409999
+        },
+        {
+          "text": "vector",
+          "start": 12.41,
+          "end": 12.7
+        },
+        {
+          "text": "injection",
+          "start": 12.7,
+          "end": 13.239999999999998
+        },
+        {
+          "text": "combines",
+          "start": 13.27,
+          "end": 13.75
+        },
+        {
+          "text": "multiple",
+          "start": 13.77,
+          "end": 14.379999999999999
+        },
+        {
+          "text": "attack",
+          "start": 14.38,
+          "end": 14.700000000000001
+        },
+        {
+          "text": "paths",
+          "start": 14.73,
+          "end": 15.18
+        },
+        {
+          "text": "Attack",
+          "start": 15.589999,
+          "end": 16.009999
+        },
+        {
+          "text": "vectors",
+          "start": 16.01,
+          "end": 16.53
+        },
+        {
+          "text": "include",
+          "start": 16.529999,
+          "end": 17.149999
+        },
+        {
+          "text": "delimiter",
+          "start": 17.369999,
+          "end": 17.879999
+        },
+        {
+          "text": "abuse",
+          "start": 17.91,
+          "end": 18.61
+        },
+        {
+          "text": "role",
+          "start": 19.01,
+          "end": 19.34
+        },
+        {
+          "text": "hijacking",
+          "start": 19.35,
+          "end": 20.16
+        },
+        {
+          "text": "instruction",
+          "start": 20.34,
+          "end": 21.13
+        },
+        {
+          "text": "override",
+          "start": 21.18,
+          "end": 21.89
+        },
+        {
+          "text": "and",
+          "start": 22.3,
+          "end": 22.59
+        },
+        {
+          "text": "output",
+          "start": 22.64,
+          "end": 23.18
+        },
+        {
+          "text": "manipulation",
+          "start": 23.23,
+          "end": 24.13
+        },
+        {
+          "text": "Impact",
+          "start": 24.57,
+          "end": 25.16
+        },
+        {
+          "text": "ranges",
+          "start": 25.18,
+          "end": 25.74
+        },
+        {
+          "text": "from",
+          "start": 25.75,
+          "end": 26.03
+        },
+        {
+          "text": "data",
+          "start": 26.03,
+          "end": 26.240000000000002
+        },
+        {
+          "text": "exfiltration",
+          "start": 26.240000000000002,
+          "end": 27.250000000000004
+        },
+        {
+          "text": "and",
+          "start": 27.689999999999998,
+          "end": 27.979999999999997
+        },
+        {
+          "text": "PII",
+          "start": 28.02,
+          "end": 28.22
+        },
+        {
+          "text": "exposure",
+          "start": 28.73,
+          "end": 29.490000000000002
+        },
+        {
+          "text": "to",
+          "start": 29.880000000000003,
+          "end": 30.050000000000004
+        },
+        {
+          "text": "jailbreaking",
+          "start": 30.059998999999998,
+          "end": 30.979999
+        },
+        {
+          "text": "and",
+          "start": 31.179999000000002,
+          "end": 31.449999000000002
+        },
+        {
+          "text": "unintended",
+          "start": 31.490000000000002,
+          "end": 32.330000000000005
+        },
+        {
+          "text": "behavior",
+          "start": 32.33,
+          "end": 32.96
+        },
+        {
+          "text": "Familiarize",
+          "start": 33.269999999999996,
+          "end": 33.949999999999996
+        },
+        {
+          "text": "yourself",
+          "start": 33.96,
+          "end": 34.52
+        },
+        {
+          "text": "with",
+          "start": 34.519999999999996,
+          "end": 34.65
+        },
+        {
+          "text": "the",
+          "start": 34.67,
+          "end": 35.050000000000004
+        },
+        {
+          "text": "OWASP",
+          "start": 35.17,
+          "end": 35.68
+        },
+        {
+          "text": "LLM",
+          "start": 35.93,
+          "end": 36.32
+        },
+        {
+          "text": "Top",
+          "start": 36.38,
+          "end": 36.650000000000006
+        },
+        {
+          "text": "10",
+          "start": 36.730000000000004,
+          "end": 37.07000000000001
+        },
+        {
+          "text": "for",
+          "start": 37.1,
+          "end": 37.35
+        },
+        {
+          "text": "real",
+          "start": 37.36,
+          "end": 37.6
+        },
+        {
+          "text": "world",
+          "start": 37.64,
+          "end": 38.01
+        },
+        {
+          "text": "attack",
+          "start": 38.08,
+          "end": 38.51
+        },
+        {
+          "text": "patterns",
+          "start": 38.58,
+          "end": 39.17
+        }
+      ]
+    },
+    "defensive-prompting": {
+      "words": [
+        {
+          "text": "Defensive",
+          "start": 0.16,
+          "end": 0.79
+        },
+        {
+          "text": "prompting",
+          "start": 0.82,
+          "end": 1.44
+        },
+        {
+          "text": "includes",
+          "start": 1.75,
+          "end": 2.67
+        },
+        {
+          "text": "input",
+          "start": 2.98,
+          "end": 3.41
+        },
+        {
+          "text": "sanitization",
+          "start": 3.44,
+          "end": 4.4399999999999995
+        },
+        {
+          "text": "output",
+          "start": 4.83,
+          "end": 5.37
+        },
+        {
+          "text": "constraints",
+          "start": 5.4,
+          "end": 6.32
+        },
+        {
+          "text": "and",
+          "start": 6.45,
+          "end": 6.680000000000001
+        },
+        {
+          "text": "boundary",
+          "start": 6.68,
+          "end": 7.12
+        },
+        {
+          "text": "enforcement",
+          "start": 7.12,
+          "end": 7.99
+        },
+        {
+          "text": "Mitigate",
+          "start": 8.349999,
+          "end": 8.979999000000001
+        },
+        {
+          "text": "hallucinations",
+          "start": 9.17,
+          "end": 10.16
+        },
+        {
+          "text": "by",
+          "start": 10.2,
+          "end": 10.41
+        },
+        {
+          "text": "grounding",
+          "start": 10.41,
+          "end": 10.99
+        },
+        {
+          "text": "with",
+          "start": 10.99,
+          "end": 11.24
+        },
+        {
+          "text": "RAG",
+          "start": 11.24,
+          "end": 11.67
+        },
+        {
+          "text": "requiring",
+          "start": 12.009999,
+          "end": 12.729999000000001
+        },
+        {
+          "text": "citations",
+          "start": 12.73,
+          "end": 13.620000000000001
+        },
+        {
+          "text": "and",
+          "start": 13.86,
+          "end": 14.04
+        },
+        {
+          "text": "using",
+          "start": 14.059999,
+          "end": 14.439999
+        },
+        {
+          "text": "confidence",
+          "start": 14.469999,
+          "end": 15.099999
+        },
+        {
+          "text": "framing",
+          "start": 15.11,
+          "end": 15.629999999999999
+        },
+        {
+          "text": "Use",
+          "start": 15.889999,
+          "end": 16.179999
+        },
+        {
+          "text": "guardrails",
+          "start": 16.18,
+          "end": 16.71
+        },
+        {
+          "text": "for",
+          "start": 16.719999,
+          "end": 16.909999000000003
+        },
+        {
+          "text": "output",
+          "start": 16.940001,
+          "end": 17.370001
+        },
+        {
+          "text": "filtering",
+          "start": 17.4,
+          "end": 18
+        },
+        {
+          "text": "PII",
+          "start": 18.71,
+          "end": 19.07
+        },
+        {
+          "text": "redaction",
+          "start": 19.28,
+          "end": 20.02
+        },
+        {
+          "text": "and",
+          "start": 20.2,
+          "end": 20.41
+        },
+        {
+          "text": "content",
+          "start": 20.44,
+          "end": 20.89
+        },
+        {
+          "text": "policy",
+          "start": 20.92,
+          "end": 21.490000000000002
+        },
+        {
+          "text": "Add",
+          "start": 21.9,
+          "end": 22.02
+        },
+        {
+          "text": "schema",
+          "start": 22.02,
+          "end": 22.759999999999998
+        },
+        {
+          "text": "validation",
+          "start": 22.759999999999998,
+          "end": 23.36
+        },
+        {
+          "text": "fact",
+          "start": 23.52,
+          "end": 23.91
+        },
+        {
+          "text": "checking",
+          "start": 23.93,
+          "end": 24.34
+        },
+        {
+          "text": "pipelines",
+          "start": 24.38,
+          "end": 25.06
+        },
+        {
+          "text": "and",
+          "start": 25.29,
+          "end": 25.52
+        },
+        {
+          "text": "human",
+          "start": 25.53,
+          "end": 25.92
+        },
+        {
+          "text": "review",
+          "start": 25.92,
+          "end": 26.28
+        },
+        {
+          "text": "triggers",
+          "start": 26.33,
+          "end": 26.779999999999998
+        },
+        {
+          "text": "for",
+          "start": 26.78,
+          "end": 26.990000000000002
+        },
+        {
+          "text": "high",
+          "start": 26.990000000000002,
+          "end": 27.240000000000002
+        },
+        {
+          "text": "stakes",
+          "start": 27.240000000000002,
+          "end": 27.64
+        },
+        {
+          "text": "outputs",
+          "start": 27.719999,
+          "end": 28.359999000000002
+        },
+        {
+          "text": "Implement",
+          "start": 28.490000000000002,
+          "end": 29.090000000000003
+        },
+        {
+          "text": "error",
+          "start": 29.130000000000003,
+          "end": 29.410000000000004
+        },
+        {
+          "text": "handling",
+          "start": 29.41,
+          "end": 29.91
+        },
+        {
+          "text": "with",
+          "start": 29.91,
+          "end": 30.14
+        },
+        {
+          "text": "graceful",
+          "start": 30.16,
+          "end": 30.93
+        },
+        {
+          "text": "degradation",
+          "start": 31.059998999999998,
+          "end": 32.009999
+        },
+        {
+          "text": "fallback",
+          "start": 32.279999000000004,
+          "end": 32.779999000000004
+        },
+        {
+          "text": "behavior",
+          "start": 32.849999000000004,
+          "end": 33.569999
+        },
+        {
+          "text": "and",
+          "start": 33.91,
+          "end": 34.129999999999995
+        },
+        {
+          "text": "logging",
+          "start": 34.139999,
+          "end": 34.659999000000006
+        },
+        {
+          "text": "and",
+          "start": 34.699999,
+          "end": 34.879999
+        },
+        {
+          "text": "monitoring",
+          "start": 34.889999,
+          "end": 35.609999
+        }
+      ]
+    },
+    "module-2-recap": {
+      "words": [
+        {
+          "text": "You",
+          "start": 0.15,
+          "end": 0.29000000000000004
+        },
+        {
+          "text": "now",
+          "start": 0.32,
+          "end": 0.51
+        },
+        {
+          "text": "understand",
+          "start": 0.51,
+          "end": 1.1400000000000001
+        },
+        {
+          "text": "prompt",
+          "start": 1.19,
+          "end": 1.52
+        },
+        {
+          "text": "engineering",
+          "start": 1.52,
+          "end": 2.05
+        },
+        {
+          "text": "principles",
+          "start": 2.05,
+          "end": 2.79
+        },
+        {
+          "text": "techniques",
+          "start": 2.88,
+          "end": 3.65
+        },
+        {
+          "text": "injection",
+          "start": 3.75,
+          "end": 4.37
+        },
+        {
+          "text": "risks",
+          "start": 4.37,
+          "end": 4.86
+        },
+        {
+          "text": "and",
+          "start": 4.99,
+          "end": 5.3
+        },
+        {
+          "text": "defensive",
+          "start": 5.34,
+          "end": 5.87
+        },
+        {
+          "text": "strategies",
+          "start": 5.87,
+          "end": 6.59
+        },
+        {
+          "text": "Use",
+          "start": 6.83,
+          "end": 7.15
+        },
+        {
+          "text": "these",
+          "start": 7.15,
+          "end": 7.41
+        },
+        {
+          "text": "to",
+          "start": 7.41,
+          "end": 7.5600000000000005
+        },
+        {
+          "text": "build",
+          "start": 7.56,
+          "end": 7.859999999999999
+        },
+        {
+          "text": "secure",
+          "start": 7.86,
+          "end": 8.55
+        },
+        {
+          "text": "reliable",
+          "start": 8.63,
+          "end": 9.34
+        },
+        {
+          "text": "AI",
+          "start": 9.41,
+          "end": 9.74
+        },
+        {
+          "text": "applications",
+          "start": 9.74,
+          "end": 10.58
+        },
+        {
+          "text": "that",
+          "start": 10.63,
+          "end": 10.850000000000001
+        },
+        {
+          "text": "resist",
+          "start": 10.849999,
+          "end": 11.319999000000001
+        },
+        {
+          "text": "manipulation",
+          "start": 11.32,
+          "end": 12.19
+        },
+        {
+          "text": "and",
+          "start": 12.25,
+          "end": 12.59
+        },
+        {
+          "text": "reduce",
+          "start": 12.66,
+          "end": 13.09
+        },
+        {
+          "text": "errors",
+          "start": 13.13,
+          "end": 13.620000000000001
+        }
+      ]
+    }
+  },
+  "lineMappings": {}
+}

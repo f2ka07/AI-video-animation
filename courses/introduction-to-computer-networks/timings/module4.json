@@ -1,0 +1,1159 @@
+{
+  "moduleNumber": 4,
+  "title": "Network Security Basics",
+  "slides": {
+    "security-introduction": {
+      "words": [
+        {
+          "text": "Imagine",
+          "start": 0.16,
+          "end": 0.58
+        },
+        {
+          "text": "leaving",
+          "start": 0.58,
+          "end": 0.86
+        },
+        {
+          "text": "your",
+          "start": 0.86,
+          "end": 1.01
+        },
+        {
+          "text": "front",
+          "start": 1.01,
+          "end": 1.32
+        },
+        {
+          "text": "door",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "text": "unlocked",
+          "start": 1.54,
+          "end": 2.18
+        },
+        {
+          "text": "That's",
+          "start": 2.25,
+          "end": 2.51
+        },
+        {
+          "text": "what",
+          "start": 2.51,
+          "end": 2.6599999999999997
+        },
+        {
+          "text": "happens",
+          "start": 2.67,
+          "end": 3.09
+        },
+        {
+          "text": "to",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "text": "networks",
+          "start": 3.25,
+          "end": 3.7800000000000002
+        },
+        {
+          "text": "without",
+          "start": 3.78,
+          "end": 4.06
+        },
+        {
+          "text": "security",
+          "start": 4.06,
+          "end": 4.59
+        },
+        {
+          "text": "measures",
+          "start": 4.59,
+          "end": 5.08
+        },
+        {
+          "text": "Network",
+          "start": 5.36,
+          "end": 5.84
+        },
+        {
+          "text": "security",
+          "start": 5.84,
+          "end": 6.43
+        },
+        {
+          "text": "protects",
+          "start": 6.44,
+          "end": 6.95
+        },
+        {
+          "text": "data",
+          "start": 6.96,
+          "end": 7.37
+        },
+        {
+          "text": "from",
+          "start": 7.37,
+          "end": 7.640000000000001
+        },
+        {
+          "text": "unauthorized",
+          "start": 7.7,
+          "end": 8.38
+        },
+        {
+          "text": "access",
+          "start": 8.429999,
+          "end": 8.889999000000001
+        },
+        {
+          "text": "and",
+          "start": 8.929999,
+          "end": 9.129999
+        },
+        {
+          "text": "damage",
+          "start": 9.13,
+          "end": 9.670000000000002
+        }
+      ]
+    },
+    "encryption": {
+      "words": [
+        {
+          "text": "Encryption",
+          "start": 0.16,
+          "end": 0.8300000000000001
+        },
+        {
+          "text": "converts",
+          "start": 0.88,
+          "end": 1.3900000000000001
+        },
+        {
+          "text": "data",
+          "start": 1.4,
+          "end": 1.75
+        },
+        {
+          "text": "into",
+          "start": 1.78,
+          "end": 2.08
+        },
+        {
+          "text": "a",
+          "start": 2.08,
+          "end": 2.17
+        },
+        {
+          "text": "code",
+          "start": 2.17,
+          "end": 2.59
+        },
+        {
+          "text": "to",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "text": "prevent",
+          "start": 2.91,
+          "end": 3.4400000000000004
+        },
+        {
+          "text": "unauthorized",
+          "start": 3.49,
+          "end": 4.32
+        },
+        {
+          "text": "access",
+          "start": 4.38,
+          "end": 5
+        },
+        {
+          "text": "It's",
+          "start": 5.47,
+          "end": 5.74
+        },
+        {
+          "text": "like",
+          "start": 5.74,
+          "end": 5.970000000000001
+        },
+        {
+          "text": "locking",
+          "start": 5.97,
+          "end": 6.3
+        },
+        {
+          "text": "your",
+          "start": 6.3,
+          "end": 6.45
+        },
+        {
+          "text": "data",
+          "start": 6.45,
+          "end": 6.8500000000000005
+        },
+        {
+          "text": "in",
+          "start": 6.86,
+          "end": 7.04
+        },
+        {
+          "text": "a",
+          "start": 7.04,
+          "end": 7.14
+        },
+        {
+          "text": "safe",
+          "start": 7.15,
+          "end": 7.69
+        },
+        {
+          "text": "only",
+          "start": 7.98,
+          "end": 8.280000000000001
+        },
+        {
+          "text": "accessible",
+          "start": 8.28,
+          "end": 8.979999999999999
+        },
+        {
+          "text": "with",
+          "start": 8.99,
+          "end": 9.18
+        },
+        {
+          "text": "the",
+          "start": 9.179999,
+          "end": 9.279999
+        },
+        {
+          "text": "right",
+          "start": 9.28,
+          "end": 9.559999999999999
+        },
+        {
+          "text": "key",
+          "start": 9.58,
+          "end": 9.92
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 0.16,
+          "end": 3.4400000000000004
+        },
+        {
+          "start": 1.78,
+          "end": 4.32
+        },
+        {
+          "start": 5.74,
+          "end": 8.979999999999999
+        }
+      ]
+    },
+    "firewalls": {
+      "words": [
+        {
+          "text": "Firewalls",
+          "start": 0.14,
+          "end": 0.76
+        },
+        {
+          "text": "act",
+          "start": 0.98,
+          "end": 1.22
+        },
+        {
+          "text": "as",
+          "start": 1.24,
+          "end": 1.41
+        },
+        {
+          "text": "barriers",
+          "start": 1.42,
+          "end": 2
+        },
+        {
+          "text": "controlling",
+          "start": 2.3,
+          "end": 2.8899999999999997
+        },
+        {
+          "text": "incoming",
+          "start": 2.9,
+          "end": 3.62
+        },
+        {
+          "text": "and",
+          "start": 3.8,
+          "end": 4.07
+        },
+        {
+          "text": "outgoing",
+          "start": 4.13,
+          "end": 4.68
+        },
+        {
+          "text": "network",
+          "start": 4.68,
+          "end": 5.02
+        },
+        {
+          "text": "traffic",
+          "start": 5.05,
+          "end": 5.529999999999999
+        },
+        {
+          "text": "based",
+          "start": 5.73,
+          "end": 6.0200000000000005
+        },
+        {
+          "text": "on",
+          "start": 6.02,
+          "end": 6.199999999999999
+        },
+        {
+          "text": "predetermined",
+          "start": 6.21,
+          "end": 6.87
+        },
+        {
+          "text": "security",
+          "start": 6.87,
+          "end": 7.24
+        },
+        {
+          "text": "rules",
+          "start": 7.42,
+          "end": 7.76
+        },
+        {
+          "text": "They're",
+          "start": 8.099999,
+          "end": 8.299999
+        },
+        {
+          "text": "like",
+          "start": 8.3,
+          "end": 8.540000000000001
+        },
+        {
+          "text": "security",
+          "start": 8.54,
+          "end": 9.02
+        },
+        {
+          "text": "guards",
+          "start": 9.02,
+          "end": 9.45
+        },
+        {
+          "text": "for",
+          "start": 9.58,
+          "end": 9.75
+        },
+        {
+          "text": "your",
+          "start": 9.75,
+          "end": 9.88
+        },
+        {
+          "text": "network",
+          "start": 9.88,
+          "end": 10.420000000000002
+        },
+        {
+          "text": "allowing",
+          "start": 10.53,
+          "end": 11.02
+        },
+        {
+          "text": "safe",
+          "start": 11.02,
+          "end": 11.29
+        },
+        {
+          "text": "data",
+          "start": 11.29,
+          "end": 11.649999999999999
+        },
+        {
+          "text": "in",
+          "start": 11.679999,
+          "end": 12.039999
+        },
+        {
+          "text": "and",
+          "start": 12.179999,
+          "end": 12.429999
+        },
+        {
+          "text": "keeping",
+          "start": 12.429999,
+          "end": 12.809999000000001
+        },
+        {
+          "text": "threats",
+          "start": 12.83,
+          "end": 13.19
+        },
+        {
+          "text": "out",
+          "start": 13.2,
+          "end": 13.559999999999999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 0.14,
+          "end": 5.02
+        },
+        {
+          "start": 2.3,
+          "end": 5.529999999999999
+        },
+        {
+          "start": 8.3,
+          "end": 11.29
+        }
+      ]
+    },
+    "antivirus-software": {
+      "words": [
+        {
+          "text": "Antivirus",
+          "start": 0.15,
+          "end": 0.8300000000000001
+        },
+        {
+          "text": "software",
+          "start": 0.85,
+          "end": 1.49
+        },
+        {
+          "text": "detects",
+          "start": 1.76,
+          "end": 2.26
+        },
+        {
+          "text": "and",
+          "start": 2.26,
+          "end": 2.5199999999999996
+        },
+        {
+          "text": "removes",
+          "start": 2.52,
+          "end": 2.94
+        },
+        {
+          "text": "malicious",
+          "start": 2.95,
+          "end": 3.56
+        },
+        {
+          "text": "software",
+          "start": 3.56,
+          "end": 4.12
+        },
+        {
+          "text": "It's",
+          "start": 4.72,
+          "end": 4.9399999999999995
+        },
+        {
+          "text": "like",
+          "start": 4.94,
+          "end": 5.170000000000001
+        },
+        {
+          "text": "having",
+          "start": 5.17,
+          "end": 5.51
+        },
+        {
+          "text": "a",
+          "start": 5.51,
+          "end": 5.59
+        },
+        {
+          "text": "digital",
+          "start": 5.61,
+          "end": 6.12
+        },
+        {
+          "text": "health",
+          "start": 6.13,
+          "end": 6.5
+        },
+        {
+          "text": "checkup",
+          "start": 6.5,
+          "end": 7.09
+        },
+        {
+          "text": "scanning",
+          "start": 7.27,
+          "end": 7.75
+        },
+        {
+          "text": "for",
+          "start": 7.75,
+          "end": 7.91
+        },
+        {
+          "text": "viruses",
+          "start": 7.91,
+          "end": 8.67
+        },
+        {
+          "text": "and",
+          "start": 8.73,
+          "end": 9.030000000000001
+        },
+        {
+          "text": "eliminating",
+          "start": 9.07,
+          "end": 9.81
+        },
+        {
+          "text": "them",
+          "start": 9.809999,
+          "end": 9.999998999999999
+        },
+        {
+          "text": "before",
+          "start": 10,
+          "end": 10.38
+        },
+        {
+          "text": "they",
+          "start": 10.38,
+          "end": 10.540000000000001
+        },
+        {
+          "text": "cause",
+          "start": 10.57,
+          "end": 10.870000000000001
+        },
+        {
+          "text": "harm",
+          "start": 10.88,
+          "end": 11.3
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 0.15,
+          "end": 4.9399999999999995
+        },
+        {
+          "start": 2.52,
+          "end": 6.12
+        },
+        {
+          "start": 4.94,
+          "end": 7.09
+        }
+      ]
+    },
+    "story-beat-security-recap": {
+      "words": [
+        {
+          "text": "Where",
+          "start": 0.14,
+          "end": 0.41000000000000003
+        },
+        {
+          "text": "we",
+          "start": 0.41,
+          "end": 0.6
+        },
+        {
+          "text": "are",
+          "start": 0.6,
+          "end": 0.8899999999999999
+        },
+        {
+          "text": "We've",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "text": "discussed",
+          "start": 1.75,
+          "end": 2.2
+        },
+        {
+          "text": "encryption",
+          "start": 2.38,
+          "end": 2.9899999999999998
+        },
+        {
+          "text": "firewalls",
+          "start": 3.14,
+          "end": 3.95
+        },
+        {
+          "text": "and",
+          "start": 4.1,
+          "end": 4.27
+        },
+        {
+          "text": "antivirus",
+          "start": 4.31,
+          "end": 4.97
+        },
+        {
+          "text": "software",
+          "start": 4.97,
+          "end": 5.62
+        },
+        {
+          "text": "These",
+          "start": 6.21,
+          "end": 6.66
+        },
+        {
+          "text": "are",
+          "start": 6.74,
+          "end": 6.87
+        },
+        {
+          "text": "foundational",
+          "start": 6.87,
+          "end": 7.68
+        },
+        {
+          "text": "tools",
+          "start": 7.72,
+          "end": 8.28
+        },
+        {
+          "text": "for",
+          "start": 8.29,
+          "end": 8.52
+        },
+        {
+          "text": "protecting",
+          "start": 8.53,
+          "end": 9.19
+        },
+        {
+          "text": "networks",
+          "start": 9.19,
+          "end": 9.82
+        },
+        {
+          "text": "from",
+          "start": 10.11,
+          "end": 10.42
+        },
+        {
+          "text": "cyber",
+          "start": 10.42,
+          "end": 10.82
+        },
+        {
+          "text": "threats",
+          "start": 10.82,
+          "end": 11.3
+        }
+      ]
+    },
+    "security-policies": {
+      "words": [
+        {
+          "text": "Security",
+          "start": 0.17,
+          "end": 0.7200000000000001
+        },
+        {
+          "text": "policies",
+          "start": 0.72,
+          "end": 1.46
+        },
+        {
+          "text": "are",
+          "start": 1.62,
+          "end": 1.75
+        },
+        {
+          "text": "the",
+          "start": 1.75,
+          "end": 1.88
+        },
+        {
+          "text": "rules",
+          "start": 1.88,
+          "end": 2.1799999999999997
+        },
+        {
+          "text": "and",
+          "start": 2.21,
+          "end": 2.38
+        },
+        {
+          "text": "procedures",
+          "start": 2.38,
+          "end": 3.09
+        },
+        {
+          "text": "designed",
+          "start": 3.28,
+          "end": 3.69
+        },
+        {
+          "text": "to",
+          "start": 3.69,
+          "end": 3.78
+        },
+        {
+          "text": "protect",
+          "start": 3.78,
+          "end": 4.21
+        },
+        {
+          "text": "network",
+          "start": 4.22,
+          "end": 4.62
+        },
+        {
+          "text": "integrity",
+          "start": 4.62,
+          "end": 5.35
+        },
+        {
+          "text": "They",
+          "start": 5.81,
+          "end": 6
+        },
+        {
+          "text": "outline",
+          "start": 6,
+          "end": 6.6
+        },
+        {
+          "text": "how",
+          "start": 6.68,
+          "end": 6.989999999999999
+        },
+        {
+          "text": "data",
+          "start": 7,
+          "end": 7.29
+        },
+        {
+          "text": "should",
+          "start": 7.29,
+          "end": 7.51
+        },
+        {
+          "text": "be",
+          "start": 7.52,
+          "end": 7.6499999999999995
+        },
+        {
+          "text": "handled",
+          "start": 7.65,
+          "end": 8.18
+        },
+        {
+          "text": "and",
+          "start": 8.46,
+          "end": 8.670000000000002
+        },
+        {
+          "text": "who",
+          "start": 8.67,
+          "end": 8.84
+        },
+        {
+          "text": "can",
+          "start": 8.84,
+          "end": 9.03
+        },
+        {
+          "text": "access",
+          "start": 9.05,
+          "end": 9.440000000000001
+        },
+        {
+          "text": "it",
+          "start": 9.469999,
+          "end": 9.779999
+        },
+        {
+          "text": "Consider",
+          "start": 10.25,
+          "end": 10.72
+        },
+        {
+          "text": "them",
+          "start": 10.719999,
+          "end": 10.959999
+        },
+        {
+          "text": "the",
+          "start": 10.969999,
+          "end": 11.159999
+        },
+        {
+          "text": "rulebook",
+          "start": 11.16,
+          "end": 11.66
+        },
+        {
+          "text": "for",
+          "start": 11.77,
+          "end": 11.99
+        },
+        {
+          "text": "network",
+          "start": 11.99,
+          "end": 12.39
+        },
+        {
+          "text": "safety",
+          "start": 12.389999,
+          "end": 12.869999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 0.17,
+          "end": 3.69
+        },
+        {
+          "start": 3.28,
+          "end": 6.989999999999999
+        },
+        {
+          "start": 10.969999,
+          "end": 12.869999
+        }
+      ]
+    },
+    "vpn": {
+      "words": [
+        {
+          "text": "A",
+          "start": 0.15,
+          "end": 0.25
+        },
+        {
+          "text": "Virtual",
+          "start": 0.25,
+          "end": 0.7
+        },
+        {
+          "text": "Private",
+          "start": 0.74,
+          "end": 1.24
+        },
+        {
+          "text": "Network",
+          "start": 1.26,
+          "end": 2.02
+        },
+        {
+          "text": "VPN",
+          "start": 2.46,
+          "end": 3.07
+        },
+        {
+          "text": "creates",
+          "start": 3.28,
+          "end": 3.67
+        },
+        {
+          "text": "a",
+          "start": 3.7,
+          "end": 3.8000000000000003
+        },
+        {
+          "text": "secure",
+          "start": 3.8,
+          "end": 4.2
+        },
+        {
+          "text": "connection",
+          "start": 4.22,
+          "end": 4.85
+        },
+        {
+          "text": "over",
+          "start": 4.88,
+          "end": 5.15
+        },
+        {
+          "text": "the",
+          "start": 5.15,
+          "end": 5.2700000000000005
+        },
+        {
+          "text": "internet",
+          "start": 5.27,
+          "end": 6.05
+        },
+        {
+          "text": "It",
+          "start": 6.26,
+          "end": 6.47
+        },
+        {
+          "text": "masks",
+          "start": 6.49,
+          "end": 6.96
+        },
+        {
+          "text": "your",
+          "start": 6.96,
+          "end": 7.11
+        },
+        {
+          "text": "IP",
+          "start": 7.33,
+          "end": 7.51
+        },
+        {
+          "text": "address",
+          "start": 7.55,
+          "end": 8.15
+        },
+        {
+          "text": "making",
+          "start": 8.26,
+          "end": 8.629999999999999
+        },
+        {
+          "text": "online",
+          "start": 8.639999,
+          "end": 9.049999
+        },
+        {
+          "text": "actions",
+          "start": 9.099999,
+          "end": 9.669999
+        },
+        {
+          "text": "virtually",
+          "start": 9.71,
+          "end": 10.24
+        },
+        {
+          "text": "untraceable",
+          "start": 10.27,
+          "end": 11.139999999999999
+        },
+        {
+          "text": "Think",
+          "start": 11.42,
+          "end": 11.65
+        },
+        {
+          "text": "of",
+          "start": 11.65,
+          "end": 11.8
+        },
+        {
+          "text": "it",
+          "start": 11.8,
+          "end": 11.930000000000001
+        },
+        {
+          "text": "as",
+          "start": 11.95,
+          "end": 12.11
+        },
+        {
+          "text": "a",
+          "start": 12.11,
+          "end": 12.229999999999999
+        },
+        {
+          "text": "private",
+          "start": 12.259999,
+          "end": 12.699999
+        },
+        {
+          "text": "tunnel",
+          "start": 12.77,
+          "end": 13.34
+        },
+        {
+          "text": "through",
+          "start": 13.46,
+          "end": 13.66
+        },
+        {
+          "text": "the",
+          "start": 13.66,
+          "end": 13.77
+        },
+        {
+          "text": "public",
+          "start": 13.79,
+          "end": 14.18
+        },
+        {
+          "text": "internet",
+          "start": 14.19,
+          "end": 14.6
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 2.46,
+          "end": 5.2700000000000005
+        },
+        {
+          "start": 6.49,
+          "end": 11.139999999999999
+        },
+        {
+          "start": 12.259999,
+          "end": 14.6
+        }
+      ]
+    },
+    "network-security-conclusion": {
+      "words": [
+        {
+          "text": "The",
+          "start": 0.15,
+          "end": 0.28
+        },
+        {
+          "text": "Big",
+          "start": 0.28,
+          "end": 0.47000000000000003
+        },
+        {
+          "text": "Takeaway",
+          "start": 0.5,
+          "end": 1.06
+        },
+        {
+          "text": "Network",
+          "start": 1.65,
+          "end": 2.05
+        },
+        {
+          "text": "security",
+          "start": 2.05,
+          "end": 2.67
+        },
+        {
+          "text": "is",
+          "start": 2.7,
+          "end": 2.8600000000000003
+        },
+        {
+          "text": "about",
+          "start": 2.86,
+          "end": 3.25
+        },
+        {
+          "text": "layers",
+          "start": 3.26,
+          "end": 3.69
+        },
+        {
+          "text": "of",
+          "start": 3.74,
+          "end": 3.93
+        },
+        {
+          "text": "protection",
+          "start": 3.96,
+          "end": 4.68
+        },
+        {
+          "text": "By",
+          "start": 4.99,
+          "end": 5.19
+        },
+        {
+          "text": "understanding",
+          "start": 5.21,
+          "end": 6
+        },
+        {
+          "text": "and",
+          "start": 6.05,
+          "end": 6.21
+        },
+        {
+          "text": "implementing",
+          "start": 6.21,
+          "end": 6.83
+        },
+        {
+          "text": "these",
+          "start": 6.84,
+          "end": 7.04
+        },
+        {
+          "text": "defenses",
+          "start": 7.04,
+          "end": 7.8100000000000005
+        },
+        {
+          "text": "you",
+          "start": 8.01,
+          "end": 8.16
+        },
+        {
+          "text": "safeguard",
+          "start": 8.16,
+          "end": 8.71
+        },
+        {
+          "text": "data",
+          "start": 8.71,
+          "end": 9.280000000000001
+        },
+        {
+          "text": "and",
+          "start": 9.36,
+          "end": 9.57
+        },
+        {
+          "text": "maintain",
+          "start": 9.57,
+          "end": 10.05
+        },
+        {
+          "text": "trust",
+          "start": 10.08,
+          "end": 10.44
+        },
+        {
+          "text": "in",
+          "start": 10.45,
+          "end": 10.61
+        },
+        {
+          "text": "digital",
+          "start": 10.61,
+          "end": 11.059999999999999
+        },
+        {
+          "text": "communications",
+          "start": 11.07,
+          "end": 12.05
+        }
+      ]
+    }
+  },
+  "lineMappings": {}
+}

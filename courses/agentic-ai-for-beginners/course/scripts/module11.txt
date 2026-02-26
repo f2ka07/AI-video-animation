@@ -1,0 +1,76 @@
+Module 11: Evaluation and Monitoring
+
+Metadata
+Target Runtime: 12-15 minutes
+Script Length: 1000-1400 words
+Voice: Hybrid (V2 intro, V1 body)
+
+---
+
+[CINEMATIC INTRO]
+
+In Module 05 we covered deployment and integration. But deployment is only half the story. Once your agent is live, how do you know it's working? How do you detect when it suddenly produces worse outputs? And how do you diagnose failures?
+
+This module covers evaluation harnesses, monitoring, telemetry, and failure diagnosis. It's how you keep agentic systems reliable in production.
+
+---
+
+[CONCEPT]
+
+Let's define what we mean by evaluation.
+
+An evaluation harness is a system that runs your agent against test cases and measures quality. Correctness: did the agent produce the right answer? Structure: does the output match the expected format—valid JSON, required fields? Grounding: is the response supported by retrieved context or tool results, or did the agent hallucinate? Regression: did a change make things worse? Run the same test set before and after. If scores drop, you've introduced a regression.
+
+Automated evaluators can check these dimensions. For correctness, you might use a model-as-judge: a separate model scores the output. For structure, use a parser: valid JSON or schema validation. For grounding, check that citations reference actual retrieved chunks or tool outputs. For hallucination, verify that factual claims appear in the context. These checks can run in CI: every pull request triggers the harness. Fail the build if regression is detected.
+
+---
+
+[ARCHITECTURE]
+
+What does production monitoring look like?
+
+Latency tracking: Log every request's end-to-end latency. Track p50, p95, p99. Agent workloads have variable latency—more steps mean more time. But sudden spikes indicate problems: model slowdown, tool timeouts, or queue backup. Alert when p95 exceeds a threshold.
+
+Cost awareness: Log token usage per request. Agents consume more tokens than single-call systems. Track cost per request and cost per user. Set budgets and alert when you're trending over. Cost spikes often correlate with loops or runaway retries.
+
+Output stability: For deterministic workflows, log whether the output changed. If the same input suddenly produces different output, something shifted—model update, retrieval change, or config drift. Detect and investigate.
+
+Telemetry and tracing: Instrument the agent loop. Log each step: plan, tool call, observation, next action. Use trace IDs to follow a request through the pipeline. When a user reports a bad response, you can reconstruct exactly what happened. Tracing is essential for debugging agent behavior.
+
+---
+
+[APPLICATION]
+
+How do you implement these patterns?
+
+Evaluation harness: Build a test set of inputs and expected behaviors. For each test case, run the agent, capture the output, and score it. Automate: correctness via model-as-judge or rule-based check, structure via schema validation, grounding via citation verification. Run on every deploy. Block releases that regress.
+
+Monitoring: Use a logging and metrics platform—Datadog, Prometheus, or cloud-native options. Emit metrics: request count, latency histogram, token count, error rate. Create dashboards. Set alerts: latency spike, error rate increase, cost threshold. For agents, add custom metrics: steps per request, tool call count, retrieval hit rate.
+
+Failure diagnosis: When alerts fire, use traces to diagnose. Find the request. Follow the trace. Did the planner produce a bad plan? Did a tool timeout? Did retrieval return irrelevant chunks? Did the model hallucinate despite good context? Traces tell you where it broke. Add more logging at that layer.
+
+Detecting hallucinations: Compare model output to context. If the model states a fact not in the retrieved chunks or tool results, flag it. Automated checks can catch obvious cases. Human review catches subtle ones. Combine both.
+
+---
+
+[EXAM MAPPING]
+
+The certification will test how to detect hallucinations, performance degradation, and system instability.
+
+Key terms: evaluation harness, correctness, structure, grounding, regression, telemetry, tracing, latency, cost awareness, failure diagnosis.
+
+You'll need to explain what each evaluation dimension measures and how monitoring detects production issues.
+
+---
+
+[RECAP]
+
+Evaluation harnesses measure correctness, structure, grounding, and regression. Automate checks and run them in CI. Block releases that regress.
+
+Monitoring tracks latency, cost, and output stability. Telemetry and tracing let you follow requests through the pipeline. When something breaks, traces show where.
+
+Design for observability from the start. It's not optional for production agents.
+
+---
+
+Word Count: ~620 words

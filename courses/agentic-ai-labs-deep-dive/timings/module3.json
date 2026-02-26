@@ -1,0 +1,4622 @@
+{
+  "moduleNumber": 3,
+  "title": "Mastering Advanced Agent Skills: Labs 4.1 to 6.1",
+  "slides": {
+    "hook-advanced-agent-skills": {
+      "words": [
+        {
+          "text": "You’ve",
+          "start": 0.08,
+          "end": 0.27
+        },
+        {
+          "text": "got",
+          "start": 0.27,
+          "end": 0.4
+        },
+        {
+          "text": "the",
+          "start": 0.41,
+          "end": 0.54
+        },
+        {
+          "text": "basics",
+          "start": 0.55,
+          "end": 1
+        },
+        {
+          "text": "down",
+          "start": 1,
+          "end": 1.41
+        },
+        {
+          "text": "now",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "text": "let’s",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "text": "tackle",
+          "start": 2.24,
+          "end": 2.62
+        },
+        {
+          "text": "Labs",
+          "start": 2.62,
+          "end": 3.0700000000000003
+        },
+        {
+          "text": "4",
+          "start": 3.29,
+          "end": 4.29
+        },
+        {
+          "text": "1",
+          "start": 0,
+          "end": 0
+        },
+        {
+          "text": "through",
+          "start": 4.44,
+          "end": 4.66
+        },
+        {
+          "text": "6",
+          "start": 0,
+          "end": 0
+        },
+        {
+          "text": "1",
+          "start": 4.67,
+          "end": 5.63
+        },
+        {
+          "text": "We’ll",
+          "start": 5.82,
+          "end": 6.07
+        },
+        {
+          "text": "dive",
+          "start": 6.08,
+          "end": 6.33
+        },
+        {
+          "text": "into",
+          "start": 6.33,
+          "end": 6.62
+        },
+        {
+          "text": "advanced",
+          "start": 6.65,
+          "end": 7.19
+        },
+        {
+          "text": "state",
+          "start": 7.19,
+          "end": 7.45
+        },
+        {
+          "text": "management",
+          "start": 7.45,
+          "end": 8.15
+        },
+        {
+          "text": "smarter",
+          "start": 8.4,
+          "end": 8.860000000000001
+        },
+        {
+          "text": "action",
+          "start": 8.91,
+          "end": 9.33
+        },
+        {
+          "text": "policies",
+          "start": 9.33,
+          "end": 10.01
+        },
+        {
+          "text": "and",
+          "start": 10.3,
+          "end": 10.58
+        },
+        {
+          "text": "deeper",
+          "start": 10.58,
+          "end": 10.91
+        },
+        {
+          "text": "environment",
+          "start": 10.94,
+          "end": 11.649999999999999
+        },
+        {
+          "text": "interactions",
+          "start": 11.67,
+          "end": 12.5
+        },
+        {
+          "text": "Ready",
+          "start": 12.719999,
+          "end": 12.979999
+        },
+        {
+          "text": "to",
+          "start": 12.98,
+          "end": 13.14
+        },
+        {
+          "text": "see",
+          "start": 13.139999,
+          "end": 13.349999
+        },
+        {
+          "text": "how",
+          "start": 13.349999,
+          "end": 13.559999000000001
+        },
+        {
+          "text": "agents",
+          "start": 13.599999,
+          "end": 14.029999
+        },
+        {
+          "text": "get",
+          "start": 14.049999,
+          "end": 14.319999
+        },
+        {
+          "text": "really",
+          "start": 14.33,
+          "end": 14.6
+        },
+        {
+          "text": "powerful",
+          "start": 14.599999,
+          "end": 15.159999000000001
+        }
+      ]
+    },
+    "lab-4-1-overview": {
+      "words": [
+        {
+          "text": "Lab",
+          "start": 0.16,
+          "end": 0.45999999999999996
+        },
+        {
+          "text": "4",
+          "start": 0,
+          "end": 0
+        },
+        {
+          "text": "1",
+          "start": 0.47,
+          "end": 1.42
+        },
+        {
+          "text": "focuses",
+          "start": 1.43,
+          "end": 1.98
+        },
+        {
+          "text": "on",
+          "start": 1.99,
+          "end": 2.22
+        },
+        {
+          "text": "managing",
+          "start": 2.22,
+          "end": 2.6900000000000004
+        },
+        {
+          "text": "complex",
+          "start": 2.69,
+          "end": 3.1799999999999997
+        },
+        {
+          "text": "agent",
+          "start": 3.19,
+          "end": 3.54
+        },
+        {
+          "text": "states",
+          "start": 3.54,
+          "end": 4.09
+        },
+        {
+          "text": "including",
+          "start": 4.2,
+          "end": 4.84
+        },
+        {
+          "text": "nested",
+          "start": 4.85,
+          "end": 5.239999999999999
+        },
+        {
+          "text": "data",
+          "start": 5.25,
+          "end": 5.83
+        },
+        {
+          "text": "and",
+          "start": 5.97,
+          "end": 6.279999999999999
+        },
+        {
+          "text": "timers",
+          "start": 6.36,
+          "end": 6.970000000000001
+        },
+        {
+          "text": "This",
+          "start": 7.27,
+          "end": 7.55
+        },
+        {
+          "text": "helps",
+          "start": 7.55,
+          "end": 7.89
+        },
+        {
+          "text": "agents",
+          "start": 7.97,
+          "end": 8.379999999999999
+        },
+        {
+          "text": "handle",
+          "start": 8.389999,
+          "end": 8.809999
+        },
+        {
+          "text": "tasks",
+          "start": 8.86,
+          "end": 9.43
+        },
+        {
+          "text": "over",
+          "start": 9.49,
+          "end": 9.78
+        },
+        {
+          "text": "multiple",
+          "start": 9.78,
+          "end": 10.32
+        },
+        {
+          "text": "steps",
+          "start": 10.34,
+          "end": 10.89
+        },
+        {
+          "text": "and",
+          "start": 11.059999,
+          "end": 11.319999
+        },
+        {
+          "text": "keep",
+          "start": 11.32,
+          "end": 11.530000000000001
+        },
+        {
+          "text": "track",
+          "start": 11.58,
+          "end": 11.86
+        },
+        {
+          "text": "of",
+          "start": 11.969999,
+          "end": 12.269999
+        },
+        {
+          "text": "progress",
+          "start": 12.349999,
+          "end": 12.929999
+        },
+        {
+          "text": "or",
+          "start": 12.969999,
+          "end": 13.149999
+        },
+        {
+          "text": "delays",
+          "start": 13.15,
+          "end": 13.8
+        }
+      ]
+    },
+    "lab-4-1-code": {
+      "words": [
+        {
+          "text": "See",
+          "start": 0.16,
+          "end": 0.58
+        },
+        {
+          "text": "this",
+          "start": 0.77,
+          "end": 1.07
+        },
+        {
+          "text": "snippet",
+          "start": 1.07,
+          "end": 1.76
+        },
+        {
+          "text": "where",
+          "start": 1.88,
+          "end": 2.1399999999999997
+        },
+        {
+          "text": "the",
+          "start": 2.17,
+          "end": 2.34
+        },
+        {
+          "text": "agent",
+          "start": 2.34,
+          "end": 2.9099999999999997
+        },
+        {
+          "text": "manages",
+          "start": 3.1,
+          "end": 3.83
+        },
+        {
+          "text": "a",
+          "start": 4.07,
+          "end": 4.21
+        },
+        {
+          "text": "countdown",
+          "start": 4.21,
+          "end": 4.65
+        },
+        {
+          "text": "timer",
+          "start": 4.65,
+          "end": 5.15
+        },
+        {
+          "text": "within",
+          "start": 5.32,
+          "end": 5.800000000000001
+        },
+        {
+          "text": "its",
+          "start": 5.84,
+          "end": 6.29
+        },
+        {
+          "text": "state",
+          "start": 6.41,
+          "end": 6.99
+        },
+        {
+          "text": "useful",
+          "start": 7.21,
+          "end": 7.7
+        },
+        {
+          "text": "for",
+          "start": 7.72,
+          "end": 7.95
+        },
+        {
+          "text": "delaying",
+          "start": 7.95,
+          "end": 8.44
+        },
+        {
+          "text": "actions",
+          "start": 8.47,
+          "end": 9.06
+        },
+        {
+          "text": "or",
+          "start": 9.08,
+          "end": 9.34
+        },
+        {
+          "text": "waiting",
+          "start": 9.34,
+          "end": 9.8
+        },
+        {
+          "text": "periods",
+          "start": 9.8,
+          "end": 10.46
+        }
+      ]
+    },
+    "code-flow-lab-4-1": {
+      "words": [
+        {
+          "text": "The",
+          "start": 0.14,
+          "end": 0.30000000000000004
+        },
+        {
+          "text": "timer",
+          "start": 0.33,
+          "end": 0.65
+        },
+        {
+          "text": "flow",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "text": "uses",
+          "start": 1.07,
+          "end": 1.7200000000000002
+        },
+        {
+          "text": "lazy",
+          "start": 1.81,
+          "end": 2.18
+        },
+        {
+          "text": "initialization",
+          "start": 2.18,
+          "end": 3.35
+        },
+        {
+          "text": "First",
+          "start": 3.68,
+          "end": 4.19
+        },
+        {
+          "text": "we",
+          "start": 4.23,
+          "end": 4.37
+        },
+        {
+          "text": "check",
+          "start": 4.37,
+          "end": 4.63
+        },
+        {
+          "text": "if",
+          "start": 4.63,
+          "end": 4.78
+        },
+        {
+          "text": "the",
+          "start": 4.78,
+          "end": 4.890000000000001
+        },
+        {
+          "text": "timer",
+          "start": 4.91,
+          "end": 5.22
+        },
+        {
+          "text": "key",
+          "start": 5.22,
+          "end": 5.529999999999999
+        },
+        {
+          "text": "exists",
+          "start": 5.58,
+          "end": 6.24
+        },
+        {
+          "text": "in",
+          "start": 6.34,
+          "end": 6.57
+        },
+        {
+          "text": "state",
+          "start": 6.57,
+          "end": 7.03
+        },
+        {
+          "text": "If",
+          "start": 7.23,
+          "end": 7.45
+        },
+        {
+          "text": "not",
+          "start": 7.45,
+          "end": 7.8100000000000005
+        },
+        {
+          "text": "we",
+          "start": 7.91,
+          "end": 8.15
+        },
+        {
+          "text": "initialize",
+          "start": 8.15,
+          "end": 8.76
+        },
+        {
+          "text": "it",
+          "start": 8.79,
+          "end": 9.04
+        },
+        {
+          "text": "to",
+          "start": 9.139999,
+          "end": 9.289999
+        },
+        {
+          "text": "five",
+          "start": 9.29,
+          "end": 9.719999999999999
+        },
+        {
+          "text": "If",
+          "start": 9.88,
+          "end": 10.06
+        },
+        {
+          "text": "it",
+          "start": 10.059999,
+          "end": 10.199999
+        },
+        {
+          "text": "does",
+          "start": 10.2,
+          "end": 10.5
+        },
+        {
+          "text": "exist",
+          "start": 10.5,
+          "end": 11.15
+        },
+        {
+          "text": "we",
+          "start": 11.28,
+          "end": 11.459999999999999
+        },
+        {
+          "text": "decrement",
+          "start": 11.46,
+          "end": 12.030000000000001
+        },
+        {
+          "text": "it",
+          "start": 12.03,
+          "end": 12.139999999999999
+        },
+        {
+          "text": "by",
+          "start": 12.17,
+          "end": 12.32
+        },
+        {
+          "text": "one",
+          "start": 12.32,
+          "end": 12.76
+        },
+        {
+          "text": "This",
+          "start": 12.96,
+          "end": 13.190000000000001
+        },
+        {
+          "text": "pattern",
+          "start": 13.219999,
+          "end": 13.719999
+        },
+        {
+          "text": "lets",
+          "start": 13.849999,
+          "end": 14.249999
+        },
+        {
+          "text": "the",
+          "start": 14.25,
+          "end": 14.42
+        },
+        {
+          "text": "agent",
+          "start": 14.42,
+          "end": 14.8
+        },
+        {
+          "text": "track",
+          "start": 14.86,
+          "end": 15.26
+        },
+        {
+          "text": "multi",
+          "start": 15.32,
+          "end": 15.74
+        },
+        {
+          "text": "step",
+          "start": 15.75,
+          "end": 16.08
+        },
+        {
+          "text": "delays",
+          "start": 16.08,
+          "end": 16.58
+        },
+        {
+          "text": "for",
+          "start": 16.59,
+          "end": 16.82
+        },
+        {
+          "text": "example",
+          "start": 16.82,
+          "end": 17.48
+        },
+        {
+          "text": "waiting",
+          "start": 17.59,
+          "end": 18.02
+        },
+        {
+          "text": "a",
+          "start": 18.02,
+          "end": 18.11
+        },
+        {
+          "text": "few",
+          "start": 18.109999,
+          "end": 18.329998999999997
+        },
+        {
+          "text": "steps",
+          "start": 18.33,
+          "end": 18.74
+        },
+        {
+          "text": "before",
+          "start": 18.779999,
+          "end": 19.269999
+        },
+        {
+          "text": "performing",
+          "start": 19.33,
+          "end": 19.79
+        },
+        {
+          "text": "an",
+          "start": 19.93,
+          "end": 19.95
+        },
+        {
+          "text": "action",
+          "start": 19.95,
+          "end": 20.349999999999998
+        },
+        {
+          "text": "The",
+          "start": 20.61,
+          "end": 20.759999999999998
+        },
+        {
+          "text": "state",
+          "start": 20.759999999999998,
+          "end": 21.069999999999997
+        },
+        {
+          "text": "survives",
+          "start": 21.07,
+          "end": 21.61
+        },
+        {
+          "text": "across",
+          "start": 21.66,
+          "end": 22.09
+        },
+        {
+          "text": "steps",
+          "start": 22.1,
+          "end": 22.580000000000002
+        },
+        {
+          "text": "so",
+          "start": 22.83,
+          "end": 23.11
+        },
+        {
+          "text": "the",
+          "start": 23.11,
+          "end": 23.24
+        },
+        {
+          "text": "countdown",
+          "start": 23.259999999999998,
+          "end": 23.74
+        },
+        {
+          "text": "persists",
+          "start": 23.77,
+          "end": 24.18
+        }
+      ]
+    },
+    "lab-4-1-in-practice-overview": {
+      "words": [
+        {
+          "text": "Lab",
+          "start": 0.07,
+          "end": 0.41000000000000003
+        },
+        {
+          "text": "4",
+          "start": 0,
+          "end": 0
+        },
+        {
+          "text": "1",
+          "start": 0.42,
+          "end": 1.45
+        },
+        {
+          "text": "in",
+          "start": 1.45,
+          "end": 1.47
+        },
+        {
+          "text": "the",
+          "start": 1.64,
+          "end": 1.7799999999999998
+        },
+        {
+          "text": "actual",
+          "start": 1.8,
+          "end": 2.15
+        },
+        {
+          "text": "codebase",
+          "start": 2.19,
+          "end": 2.66
+        },
+        {
+          "text": "is",
+          "start": 2.7,
+          "end": 2.89
+        },
+        {
+          "text": "about",
+          "start": 2.93,
+          "end": 3.68
+        },
+        {
+          "text": "Deployment",
+          "start": 3.89,
+          "end": 4.54
+        },
+        {
+          "text": "exposing",
+          "start": 4.54,
+          "end": 5.17
+        },
+        {
+          "text": "your",
+          "start": 5.17,
+          "end": 5.38
+        },
+        {
+          "text": "agent",
+          "start": 5.45,
+          "end": 6.140000000000001
+        },
+        {
+          "text": "as",
+          "start": 6.37,
+          "end": 6.71
+        },
+        {
+          "text": "a",
+          "start": 6.97,
+          "end": 7.279999999999999
+        },
+        {
+          "text": "FastAPI",
+          "start": 7.55,
+          "end": 8.04
+        },
+        {
+          "text": "service",
+          "start": 9.33,
+          "end": 9.72
+        },
+        {
+          "text": "You",
+          "start": 9.99,
+          "end": 10.17
+        },
+        {
+          "text": "define",
+          "start": 10.17,
+          "end": 10.92
+        },
+        {
+          "text": "health",
+          "start": 11.05,
+          "end": 11.46
+        },
+        {
+          "text": "for",
+          "start": 11.46,
+          "end": 11.850000000000001
+        },
+        {
+          "text": "readiness",
+          "start": 12.05,
+          "end": 12.84
+        },
+        {
+          "text": "and",
+          "start": 13.12,
+          "end": 13.67
+        },
+        {
+          "text": "v1",
+          "start": 13.94,
+          "end": 14.53
+        },
+        {
+          "text": "agent",
+          "start": 15.79,
+          "end": 16.49
+        },
+        {
+          "text": "invoke",
+          "start": 16.82,
+          "end": 17.4
+        },
+        {
+          "text": "or",
+          "start": 17.41,
+          "end": 17.79
+        },
+        {
+          "text": "v1",
+          "start": 18.95,
+          "end": 19.509999999999998
+        },
+        {
+          "text": "agent",
+          "start": 19.84,
+          "end": 20.46
+        },
+        {
+          "text": "stream",
+          "start": 20.7,
+          "end": 21.24
+        },
+        {
+          "text": "for",
+          "start": 21.259999999999998,
+          "end": 21.68
+        },
+        {
+          "text": "agent",
+          "start": 21.86,
+          "end": 22.259999999999998
+        },
+        {
+          "text": "requests",
+          "start": 22.32,
+          "end": 22.92
+        },
+        {
+          "text": "This",
+          "start": 23.12,
+          "end": 23.37
+        },
+        {
+          "text": "moves",
+          "start": 23.38,
+          "end": 23.72
+        },
+        {
+          "text": "from",
+          "start": 23.72,
+          "end": 24.029999999999998
+        },
+        {
+          "text": "local",
+          "start": 24.03,
+          "end": 24.380000000000003
+        },
+        {
+          "text": "scripts",
+          "start": 24.39,
+          "end": 25
+        },
+        {
+          "text": "to",
+          "start": 25.06,
+          "end": 25.209999999999997
+        },
+        {
+          "text": "production",
+          "start": 25.21,
+          "end": 25.810000000000002
+        },
+        {
+          "text": "ready",
+          "start": 25.81,
+          "end": 26.169999999999998
+        },
+        {
+          "text": "APIs",
+          "start": 26.17,
+          "end": 26.8
+        }
+      ]
+    },
+    "lab-4-1-actual-code": {
+      "words": [
+        {
+          "text": "Here's",
+          "start": 0.15,
+          "end": 0.32
+        },
+        {
+          "text": "the",
+          "start": 0.33,
+          "end": 0.44
+        },
+        {
+          "text": "deployment",
+          "start": 0.44,
+          "end": 0.94
+        },
+        {
+          "text": "pattern",
+          "start": 0.95,
+          "end": 1.39
+        },
+        {
+          "text": "A",
+          "start": 1.87,
+          "end": 1.9800000000000002
+        },
+        {
+          "text": "FastAPI",
+          "start": 1.98,
+          "end": 2.82
+        },
+        {
+          "text": "app",
+          "start": 2.88,
+          "end": 3.11
+        },
+        {
+          "text": "exposes",
+          "start": 3.14,
+          "end": 3.7800000000000002
+        },
+        {
+          "text": "health",
+          "start": 3.81,
+          "end": 4.17
+        },
+        {
+          "text": "returning",
+          "start": 4.17,
+          "end": 4.65
+        },
+        {
+          "text": "status",
+          "start": 4.65,
+          "end": 5.260000000000001
+        },
+        {
+          "text": "The",
+          "start": 5.76,
+          "end": 5.97
+        },
+        {
+          "text": "agent",
+          "start": 5.97,
+          "end": 6.21
+        },
+        {
+          "text": "endpoint",
+          "start": 6.21,
+          "end": 6.91
+        },
+        {
+          "text": "receives",
+          "start": 6.91,
+          "end": 7.32
+        },
+        {
+          "text": "a",
+          "start": 7.54,
+          "end": 7.55
+        },
+        {
+          "text": "request",
+          "start": 7.55,
+          "end": 8.129999999999999
+        },
+        {
+          "text": "calls",
+          "start": 8.7,
+          "end": 8.989999999999998
+        },
+        {
+          "text": "the",
+          "start": 9.01,
+          "end": 9.14
+        },
+        {
+          "text": "pipeline",
+          "start": 9.139999,
+          "end": 9.719999
+        },
+        {
+          "text": "or",
+          "start": 10.02,
+          "end": 10.209999999999999
+        },
+        {
+          "text": "agent",
+          "start": 10.24,
+          "end": 10.83
+        },
+        {
+          "text": "and",
+          "start": 11.3,
+          "end": 11.5
+        },
+        {
+          "text": "returns",
+          "start": 11.5,
+          "end": 11.96
+        },
+        {
+          "text": "the",
+          "start": 11.96,
+          "end": 12.090000000000002
+        },
+        {
+          "text": "response",
+          "start": 12.09,
+          "end": 12.72
+        },
+        {
+          "text": "Optionally",
+          "start": 13.009999,
+          "end": 13.659999000000001
+        },
+        {
+          "text": "stream",
+          "start": 13.67,
+          "end": 14.06
+        },
+        {
+          "text": "for",
+          "start": 14.08,
+          "end": 14.27
+        },
+        {
+          "text": "token",
+          "start": 14.27,
+          "end": 14.76
+        },
+        {
+          "text": "by",
+          "start": 14.759999,
+          "end": 14.959999
+        },
+        {
+          "text": "token",
+          "start": 14.99,
+          "end": 15.370000000000001
+        },
+        {
+          "text": "output",
+          "start": 15.41,
+          "end": 15.6
+        },
+        {
+          "text": "CORS",
+          "start": 15.599999,
+          "end": 16.149999
+        },
+        {
+          "text": "middleware",
+          "start": 16.48,
+          "end": 16.97
+        },
+        {
+          "text": "enables",
+          "start": 17.799999,
+          "end": 18.569999
+        },
+        {
+          "text": "frontend",
+          "start": 18.84,
+          "end": 19.5
+        },
+        {
+          "text": "access",
+          "start": 19.58,
+          "end": 20.119999999999997
+        }
+      ]
+    },
+    "lab-4-1-actual-flow": {
+      "words": [
+        {
+          "text": "The",
+          "start": 0.07,
+          "end": 0.23
+        },
+        {
+          "text": "actual",
+          "start": 0.28,
+          "end": 0.5800000000000001
+        },
+        {
+          "text": "flow",
+          "start": 0.58,
+          "end": 0.97
+        },
+        {
+          "text": "create",
+          "start": 1.2,
+          "end": 1.53
+        },
+        {
+          "text": "FastAPI",
+          "start": 1.53,
+          "end": 1.99
+        },
+        {
+          "text": "app",
+          "start": 2.03,
+          "end": 2.38
+        },
+        {
+          "text": "add",
+          "start": 2.61,
+          "end": 2.82
+        },
+        {
+          "text": "CORS",
+          "start": 2.85,
+          "end": 3.19
+        },
+        {
+          "text": "health",
+          "start": 3.7,
+          "end": 3.99
+        },
+        {
+          "text": "returns",
+          "start": 3.99,
+          "end": 4.5
+        },
+        {
+          "text": "healthy",
+          "start": 4.54,
+          "end": 4.88
+        },
+        {
+          "text": "for",
+          "start": 4.88,
+          "end": 5.04
+        },
+        {
+          "text": "load",
+          "start": 5.04,
+          "end": 5.22
+        },
+        {
+          "text": "balancers",
+          "start": 5.23,
+          "end": 5.83
+        },
+        {
+          "text": "v1",
+          "start": 6.06,
+          "end": 6.89
+        },
+        {
+          "text": "agent",
+          "start": 7.23,
+          "end": 7.960000000000001
+        },
+        {
+          "text": "invoke",
+          "start": 8.26,
+          "end": 8.81
+        },
+        {
+          "text": "accepts",
+          "start": 8.86,
+          "end": 9.41
+        },
+        {
+          "text": "query",
+          "start": 9.41,
+          "end": 9.59
+        },
+        {
+          "text": "and",
+          "start": 9.59,
+          "end": 9.62
+        },
+        {
+          "text": "session_id",
+          "start": 9.62,
+          "end": 10.489999999999998
+        },
+        {
+          "text": "runs",
+          "start": 11.9,
+          "end": 12.25
+        },
+        {
+          "text": "the",
+          "start": 12.25,
+          "end": 12.41
+        },
+        {
+          "text": "agent",
+          "start": 12.41,
+          "end": 12.790000000000001
+        },
+        {
+          "text": "or",
+          "start": 12.799999,
+          "end": 12.949999
+        },
+        {
+          "text": "pipeline",
+          "start": 12.95,
+          "end": 13.59
+        },
+        {
+          "text": "returns",
+          "start": 13.929999,
+          "end": 14.449999
+        },
+        {
+          "text": "response",
+          "start": 14.48,
+          "end": 15.18
+        },
+        {
+          "text": "and",
+          "start": 15.24,
+          "end": 15.47
+        },
+        {
+          "text": "metadata",
+          "start": 15.469999,
+          "end": 16.109999
+        },
+        {
+          "text": "v1",
+          "start": 16.369999,
+          "end": 17.199999
+        },
+        {
+          "text": "agent",
+          "start": 18.78,
+          "end": 18.830000000000002
+        },
+        {
+          "text": "stream",
+          "start": 18.83,
+          "end": 19.369999999999997
+        },
+        {
+          "text": "does",
+          "start": 19.59,
+          "end": 19.82
+        },
+        {
+          "text": "the",
+          "start": 19.82,
+          "end": 19.95
+        },
+        {
+          "text": "same",
+          "start": 19.96,
+          "end": 20.240000000000002
+        },
+        {
+          "text": "but",
+          "start": 20.240000000000002,
+          "end": 20.55
+        },
+        {
+          "text": "yields",
+          "start": 20.65,
+          "end": 21.13
+        },
+        {
+          "text": "tokens",
+          "start": 21.18,
+          "end": 21.85
+        },
+        {
+          "text": "Deploy",
+          "start": 22.15,
+          "end": 22.5
+        },
+        {
+          "text": "with",
+          "start": 22.5,
+          "end": 22.53
+        },
+        {
+          "text": "uvicorn",
+          "start": 22.53,
+          "end": 23.28
+        },
+        {
+          "text": "or",
+          "start": 23.29,
+          "end": 23.43
+        },
+        {
+          "text": "Docker",
+          "start": 23.43,
+          "end": 23.87
+        }
+      ]
+    },
+    "lab-5-1-overview": {
+      "words": [
+        {
+          "text": "Lab",
+          "start": 0.21,
+          "end": 0.62
+        },
+        {
+          "text": "5",
+          "start": 0,
+          "end": 0
+        },
+        {
+          "text": "1",
+          "start": 0.63,
+          "end": 1.45
+        },
+        {
+          "text": "introduces",
+          "start": 1.47,
+          "end": 2.2
+        },
+        {
+          "text": "action",
+          "start": 2.27,
+          "end": 2.69
+        },
+        {
+          "text": "policies",
+          "start": 2.69,
+          "end": 3.26
+        },
+        {
+          "text": "rules",
+          "start": 3.26,
+          "end": 3.67
+        },
+        {
+          "text": "that",
+          "start": 4,
+          "end": 4.2
+        },
+        {
+          "text": "guide",
+          "start": 4.23,
+          "end": 4.510000000000001
+        },
+        {
+          "text": "the",
+          "start": 4.54,
+          "end": 4.71
+        },
+        {
+          "text": "agent’s",
+          "start": 4.71,
+          "end": 5.12
+        },
+        {
+          "text": "choices",
+          "start": 5.12,
+          "end": 5.66
+        },
+        {
+          "text": "based",
+          "start": 5.67,
+          "end": 5.99
+        },
+        {
+          "text": "on",
+          "start": 6.01,
+          "end": 6.2
+        },
+        {
+          "text": "state",
+          "start": 6.2,
+          "end": 6.5600000000000005
+        },
+        {
+          "text": "and",
+          "start": 6.58,
+          "end": 6.76
+        },
+        {
+          "text": "observation",
+          "start": 6.76,
+          "end": 7.52
+        },
+        {
+          "text": "Think",
+          "start": 7.71,
+          "end": 7.96
+        },
+        {
+          "text": "of",
+          "start": 7.97,
+          "end": 8.15
+        },
+        {
+          "text": "policies",
+          "start": 8.15,
+          "end": 8.75
+        },
+        {
+          "text": "as",
+          "start": 8.8,
+          "end": 8.98
+        },
+        {
+          "text": "the",
+          "start": 8.99,
+          "end": 9.15
+        },
+        {
+          "text": "agent’s",
+          "start": 9.15,
+          "end": 9.5
+        },
+        {
+          "text": "strategy",
+          "start": 9.5,
+          "end": 10.07
+        },
+        {
+          "text": "to",
+          "start": 10.07,
+          "end": 10.200000000000001
+        },
+        {
+          "text": "decide",
+          "start": 10.2,
+          "end": 10.66
+        },
+        {
+          "text": "what",
+          "start": 10.66,
+          "end": 10.870000000000001
+        },
+        {
+          "text": "to",
+          "start": 10.87,
+          "end": 10.959999999999999
+        },
+        {
+          "text": "do",
+          "start": 10.96,
+          "end": 11.16
+        },
+        {
+          "text": "next",
+          "start": 11.16,
+          "end": 11.63
+        }
+      ]
+    },
+    "lab-5-1-code": {
+      "words": [
+        {
+          "text": "Here’s",
+          "start": 0.15,
+          "end": 0.41000000000000003
+        },
+        {
+          "text": "a",
+          "start": 0.41,
+          "end": 0.5
+        },
+        {
+          "text": "policy",
+          "start": 0.52,
+          "end": 0.91
+        },
+        {
+          "text": "function",
+          "start": 0.91,
+          "end": 1.53
+        },
+        {
+          "text": "that",
+          "start": 2,
+          "end": 2.23
+        },
+        {
+          "text": "picks",
+          "start": 2.29,
+          "end": 2.5300000000000002
+        },
+        {
+          "text": "an",
+          "start": 2.53,
+          "end": 2.6999999999999997
+        },
+        {
+          "text": "action",
+          "start": 2.7,
+          "end": 3.0900000000000003
+        },
+        {
+          "text": "based",
+          "start": 3.1,
+          "end": 3.39
+        },
+        {
+          "text": "on",
+          "start": 3.39,
+          "end": 3.54
+        },
+        {
+          "text": "a",
+          "start": 3.54,
+          "end": 3.62
+        },
+        {
+          "text": "simple",
+          "start": 3.63,
+          "end": 4.02
+        },
+        {
+          "text": "heuristic",
+          "start": 4.05,
+          "end": 4.77
+        },
+        {
+          "text": "if",
+          "start": 5.23,
+          "end": 5.5
+        },
+        {
+          "text": "the",
+          "start": 5.5,
+          "end": 5.62
+        },
+        {
+          "text": "path",
+          "start": 5.66,
+          "end": 5.9
+        },
+        {
+          "text": "is",
+          "start": 5.93,
+          "end": 6.12
+        },
+        {
+          "text": "clear",
+          "start": 6.12,
+          "end": 6.59
+        },
+        {
+          "text": "move",
+          "start": 6.76,
+          "end": 7.06
+        },
+        {
+          "text": "forward",
+          "start": 7.07,
+          "end": 7.54
+        },
+        {
+          "text": "otherwise",
+          "start": 7.82,
+          "end": 8.36
+        },
+        {
+          "text": "turn",
+          "start": 8.46,
+          "end": 8.9
+        }
+      ]
+    },
+    "code-flow-lab-5-1": {
+      "words": [
+        {
+          "text": "The",
+          "start": 0.07,
+          "end": 0.25
+        },
+        {
+          "text": "policy",
+          "start": 0.25,
+          "end": 0.6599999999999999
+        },
+        {
+          "text": "flow",
+          "start": 0.66,
+          "end": 0.93
+        },
+        {
+          "text": "maps",
+          "start": 0.93,
+          "end": 1.28
+        },
+        {
+          "text": "observations",
+          "start": 1.28,
+          "end": 1.96
+        },
+        {
+          "text": "to",
+          "start": 1.96,
+          "end": 2.12
+        },
+        {
+          "text": "actions",
+          "start": 2.12,
+          "end": 2.7600000000000002
+        },
+        {
+          "text": "The",
+          "start": 3,
+          "end": 3.18
+        },
+        {
+          "text": "function",
+          "start": 3.18,
+          "end": 3.62
+        },
+        {
+          "text": "takes",
+          "start": 3.65,
+          "end": 3.8899999999999997
+        },
+        {
+          "text": "state",
+          "start": 3.89,
+          "end": 4.21
+        },
+        {
+          "text": "and",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "text": "observation",
+          "start": 4.39,
+          "end": 5.16
+        },
+        {
+          "text": "If",
+          "start": 5.56,
+          "end": 5.83
+        },
+        {
+          "text": "the",
+          "start": 5.83,
+          "end": 5.93
+        },
+        {
+          "text": "observation",
+          "start": 5.93,
+          "end": 6.529999999999999
+        },
+        {
+          "text": "indicates",
+          "start": 6.53,
+          "end": 7.08
+        },
+        {
+          "text": "a",
+          "start": 7.08,
+          "end": 7.19
+        },
+        {
+          "text": "clear",
+          "start": 7.22,
+          "end": 7.529999999999999
+        },
+        {
+          "text": "path",
+          "start": 7.53,
+          "end": 7.970000000000001
+        },
+        {
+          "text": "we",
+          "start": 8.139999,
+          "end": 8.329998999999999
+        },
+        {
+          "text": "return",
+          "start": 8.33,
+          "end": 8.92
+        },
+        {
+          "text": "move_forward",
+          "start": 9,
+          "end": 9.42
+        },
+        {
+          "text": "Otherwise",
+          "start": 10.75,
+          "end": 11.22
+        },
+        {
+          "text": "we",
+          "start": 11.219999,
+          "end": 11.359999
+        },
+        {
+          "text": "default",
+          "start": 11.36,
+          "end": 11.809999999999999
+        },
+        {
+          "text": "to",
+          "start": 11.84,
+          "end": 11.9
+        },
+        {
+          "text": "turn_right",
+          "start": 12.91,
+          "end": 13.38
+        },
+        {
+          "text": "This",
+          "start": 13.66,
+          "end": 13.870000000000001
+        },
+        {
+          "text": "is",
+          "start": 13.88,
+          "end": 14.040000000000001
+        },
+        {
+          "text": "the",
+          "start": 14.08,
+          "end": 14.24
+        },
+        {
+          "text": "agent's",
+          "start": 14.24,
+          "end": 14.59
+        },
+        {
+          "text": "strategy",
+          "start": 14.599999,
+          "end": 15.249999
+        },
+        {
+          "text": "a",
+          "start": 15.29,
+          "end": 15.399999999999999
+        },
+        {
+          "text": "deterministic",
+          "start": 15.4,
+          "end": 16.28
+        },
+        {
+          "text": "mapping",
+          "start": 16.279999,
+          "end": 16.519999
+        },
+        {
+          "text": "from",
+          "start": 16.52,
+          "end": 16.75
+        },
+        {
+          "text": "what",
+          "start": 16.75,
+          "end": 16.96
+        },
+        {
+          "text": "it",
+          "start": 16.959999,
+          "end": 17.109999
+        },
+        {
+          "text": "sees",
+          "start": 17.109999,
+          "end": 17.519999
+        },
+        {
+          "text": "to",
+          "start": 17.559999,
+          "end": 17.689999
+        },
+        {
+          "text": "what",
+          "start": 17.690001,
+          "end": 17.880001
+        },
+        {
+          "text": "it",
+          "start": 17.879999,
+          "end": 18.019999000000002
+        },
+        {
+          "text": "does",
+          "start": 18.02,
+          "end": 18.4
+        },
+        {
+          "text": "The",
+          "start": 18.83,
+          "end": 19
+        },
+        {
+          "text": "policy",
+          "start": 19.02,
+          "end": 19.52
+        },
+        {
+          "text": "encapsulates",
+          "start": 19.52,
+          "end": 19.64
+        },
+        {
+          "text": "the",
+          "start": 20.37,
+          "end": 20.48
+        },
+        {
+          "text": "decision",
+          "start": 20.48,
+          "end": 21
+        },
+        {
+          "text": "logic",
+          "start": 21.009999999999998,
+          "end": 21.4
+        },
+        {
+          "text": "in",
+          "start": 21.41,
+          "end": 21.6
+        },
+        {
+          "text": "one",
+          "start": 21.6,
+          "end": 21.830000000000002
+        },
+        {
+          "text": "place",
+          "start": 21.86,
+          "end": 22.29
+        }
+      ]
+    },
+    "lab-5-1-in-practice-overview": {
+      "words": [
+        {
+          "text": "Lab",
+          "start": 0.22,
+          "end": 0.5
+        },
+        {
+          "text": "5",
+          "start": 0,
+          "end": 0
+        },
+        {
+          "text": "1",
+          "start": 0.51,
+          "end": 1.61
+        },
+        {
+          "text": "in",
+          "start": 1.61,
+          "end": 1.6300000000000001
+        },
+        {
+          "text": "practice",
+          "start": 1.64,
+          "end": 2.08
+        },
+        {
+          "text": "is",
+          "start": 2.08,
+          "end": 2.23
+        },
+        {
+          "text": "Planning",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "text": "and",
+          "start": 2.63,
+          "end": 2.81
+        },
+        {
+          "text": "Task",
+          "start": 2.81,
+          "end": 3.09
+        },
+        {
+          "text": "Decomposition",
+          "start": 3.09,
+          "end": 3.9699999999999998
+        },
+        {
+          "text": "It's",
+          "start": 4.37,
+          "end": 4.5600000000000005
+        },
+        {
+          "text": "not",
+          "start": 4.57,
+          "end": 4.7700000000000005
+        },
+        {
+          "text": "a",
+          "start": 4.79,
+          "end": 4.87
+        },
+        {
+          "text": "simple",
+          "start": 4.87,
+          "end": 5.26
+        },
+        {
+          "text": "policy",
+          "start": 5.29,
+          "end": 5.88
+        },
+        {
+          "text": "it's",
+          "start": 5.94,
+          "end": 6.16
+        },
+        {
+          "text": "LLMPlanner",
+          "start": 6.98,
+          "end": 7.140000000000001
+        },
+        {
+          "text": "creating",
+          "start": 7.21,
+          "end": 7.68
+        },
+        {
+          "text": "a",
+          "start": 7.68,
+          "end": 7.76
+        },
+        {
+          "text": "Plan",
+          "start": 7.76,
+          "end": 8.1
+        },
+        {
+          "text": "with",
+          "start": 8.099999,
+          "end": 8.279999
+        },
+        {
+          "text": "steps",
+          "start": 8.29,
+          "end": 8.829999999999998
+        },
+        {
+          "text": "dependencies",
+          "start": 8.95,
+          "end": 9.86
+        },
+        {
+          "text": "and",
+          "start": 10.01,
+          "end": 10.27
+        },
+        {
+          "text": "tool",
+          "start": 10.27,
+          "end": 10.53
+        },
+        {
+          "text": "calls",
+          "start": 10.53,
+          "end": 11.01
+        },
+        {
+          "text": "You",
+          "start": 11.4,
+          "end": 11.58
+        },
+        {
+          "text": "pass",
+          "start": 11.599999,
+          "end": 11.869999
+        },
+        {
+          "text": "a",
+          "start": 11.929999,
+          "end": 12.069999000000001
+        },
+        {
+          "text": "goal",
+          "start": 12.07,
+          "end": 12.43
+        },
+        {
+          "text": "like",
+          "start": 12.5,
+          "end": 13.12
+        },
+        {
+          "text": "'Create",
+          "start": 13.13,
+          "end": 13.14
+        },
+        {
+          "text": "a",
+          "start": 13.759999,
+          "end": 13.769999
+        },
+        {
+          "text": "7",
+          "start": 13.77,
+          "end": 14.209999999999999
+        },
+        {
+          "text": "day",
+          "start": 14.219999,
+          "end": 14.379999
+        },
+        {
+          "text": "fitness",
+          "start": 14.38,
+          "end": 14.870000000000001
+        },
+        {
+          "text": "plan",
+          "start": 14.87,
+          "end": 15.28
+        },
+        {
+          "text": "and",
+          "start": 15.719999,
+          "end": 15.929999
+        },
+        {
+          "text": "the",
+          "start": 15.929999,
+          "end": 16.029999
+        },
+        {
+          "text": "planner",
+          "start": 16.029999,
+          "end": 16.399999
+        },
+        {
+          "text": "returns",
+          "start": 16.539999,
+          "end": 17.159999000000003
+        },
+        {
+          "text": "a",
+          "start": 17.299999,
+          "end": 17.439999
+        },
+        {
+          "text": "structured",
+          "start": 17.440001,
+          "end": 17.890000999999998
+        },
+        {
+          "text": "plan",
+          "start": 18.07,
+          "end": 18.35
+        },
+        {
+          "text": "with",
+          "start": 18.36,
+          "end": 18.52
+        },
+        {
+          "text": "step",
+          "start": 18.549999,
+          "end": 18.819999
+        },
+        {
+          "text": "IDs",
+          "start": 18.82,
+          "end": 19.39
+        },
+        {
+          "text": "and",
+          "start": 19.79,
+          "end": 20.02
+        },
+        {
+          "text": "depends_on",
+          "start": 20.02,
+          "end": 20.79
+        }
+      ]
+    },
+    "lab-5-1-actual-code": {
+      "words": [
+        {
+          "text": "Here's",
+          "start": 0.06,
+          "end": 0.36
+        },
+        {
+          "text": "the",
+          "start": 0.37,
+          "end": 0.54
+        },
+        {
+          "text": "real",
+          "start": 0.54,
+          "end": 0.8600000000000001
+        },
+        {
+          "text": "Lab",
+          "start": 0.87,
+          "end": 1.21
+        },
+        {
+          "text": "5",
+          "start": 1.22,
+          "end": 1.66
+        },
+        {
+          "text": "1",
+          "start": 1.71,
+          "end": 2.35
+        },
+        {
+          "text": "code",
+          "start": 2.41,
+          "end": 2.8200000000000003
+        },
+        {
+          "text": "LLMPlanner",
+          "start": 3.53,
+          "end": 4.67
+        },
+        {
+          "text": "creates",
+          "start": 4.81,
+          "end": 5.2299999999999995
+        },
+        {
+          "text": "a",
+          "start": 5.23,
+          "end": 5.3500000000000005
+        },
+        {
+          "text": "plan",
+          "start": 5.38,
+          "end": 5.72
+        },
+        {
+          "text": "from",
+          "start": 5.73,
+          "end": 6.0200000000000005
+        },
+        {
+          "text": "a",
+          "start": 6.02,
+          "end": 6.1
+        },
+        {
+          "text": "goal",
+          "start": 6.1,
+          "end": 6.5
+        },
+        {
+          "text": "Each",
+          "start": 7.25,
+          "end": 7.51
+        },
+        {
+          "text": "step",
+          "start": 7.51,
+          "end": 8.02
+        },
+        {
+          "text": "has",
+          "start": 8.02,
+          "end": 8.49
+        },
+        {
+          "text": "id",
+          "start": 8.8,
+          "end": 9.370000000000001
+        },
+        {
+          "text": "description",
+          "start": 9.67,
+          "end": 10.52
+        },
+        {
+          "text": "optional",
+          "start": 11.01,
+          "end": 11.57
+        },
+        {
+          "text": "tool_name",
+          "start": 11.62,
+          "end": 11.989999999999998
+        },
+        {
+          "text": "and",
+          "start": 12.639999,
+          "end": 12.869999
+        },
+        {
+          "text": "arguments",
+          "start": 12.92,
+          "end": 13.64
+        },
+        {
+          "text": "and",
+          "start": 14.11,
+          "end": 14.309999999999999
+        },
+        {
+          "text": "depends_on",
+          "start": 15.52,
+          "end": 15.889999999999999
+        },
+        {
+          "text": "You",
+          "start": 16.24,
+          "end": 16.47
+        },
+        {
+          "text": "execute",
+          "start": 16.49,
+          "end": 17.16
+        },
+        {
+          "text": "in",
+          "start": 17.190001,
+          "end": 17.410000999999998
+        },
+        {
+          "text": "order",
+          "start": 17.440001,
+          "end": 17.960001
+        },
+        {
+          "text": "checking",
+          "start": 18.449999,
+          "end": 18.869999
+        },
+        {
+          "text": "dependencies",
+          "start": 18.869999,
+          "end": 19.789999
+        },
+        {
+          "text": "Results",
+          "start": 20.099999,
+          "end": 20.629999
+        },
+        {
+          "text": "feed",
+          "start": 20.629999,
+          "end": 20.929999000000002
+        },
+        {
+          "text": "into",
+          "start": 20.949999000000002,
+          "end": 21.279999
+        },
+        {
+          "text": "context",
+          "start": 21.279999,
+          "end": 21.909999000000003
+        },
+        {
+          "text": "for",
+          "start": 21.919999,
+          "end": 22.129999
+        },
+        {
+          "text": "subsequent",
+          "start": 22.129999,
+          "end": 22.709999000000003
+        },
+        {
+          "text": "steps",
+          "start": 22.709999000000003,
+          "end": 23.209999000000003
+        }
+      ]
+    },
+    "lab-5-1-actual-flow": {
+      "words": [
+        {
+          "text": "The",
+          "start": 0.16,
+          "end": 0.41000000000000003
+        },
+        {
+          "text": "actual",
+          "start": 0.48,
+          "end": 1.03
+        },
+        {
+          "text": "flow",
+          "start": 1.04,
+          "end": 1.48
+        },
+        {
+          "text": "create",
+          "start": 2.22,
+          "end": 2.6700000000000004
+        },
+        {
+          "text": "LLMPlanner",
+          "start": 2.74,
+          "end": 3.6900000000000004
+        },
+        {
+          "text": "call",
+          "start": 4.24,
+          "end": 4.61
+        },
+        {
+          "text": "create_plan",
+          "start": 5.77,
+          "end": 6.13
+        },
+        {
+          "text": "with",
+          "start": 6.14,
+          "end": 6.34
+        },
+        {
+          "text": "goal",
+          "start": 6.38,
+          "end": 6.79
+        },
+        {
+          "text": "Iterate",
+          "start": 7.46,
+          "end": 8.02
+        },
+        {
+          "text": "over",
+          "start": 8.059999,
+          "end": 8.299999
+        },
+        {
+          "text": "plan",
+          "start": 8.3,
+          "end": 8.82
+        },
+        {
+          "text": "steps",
+          "start": 9.55,
+          "end": 10.180000000000001
+        },
+        {
+          "text": "For",
+          "start": 10.719999,
+          "end": 11.009998999999999
+        },
+        {
+          "text": "each",
+          "start": 11.059999,
+          "end": 11.289999
+        },
+        {
+          "text": "step",
+          "start": 11.29,
+          "end": 11.829999999999998
+        },
+        {
+          "text": "check",
+          "start": 12.08,
+          "end": 12.36
+        },
+        {
+          "text": "depends_on",
+          "start": 12.42,
+          "end": 13.01
+        },
+        {
+          "text": "skip",
+          "start": 13.71,
+          "end": 14.180000000000001
+        },
+        {
+          "text": "if",
+          "start": 14.23,
+          "end": 14.43
+        },
+        {
+          "text": "dependencies",
+          "start": 14.469999,
+          "end": 15.229999
+        },
+        {
+          "text": "not",
+          "start": 15.24,
+          "end": 15.540000000000001
+        },
+        {
+          "text": "in",
+          "start": 15.57,
+          "end": 15.74
+        },
+        {
+          "text": "results",
+          "start": 15.77,
+          "end": 16.36
+        },
+        {
+          "text": "Execute",
+          "start": 16.84,
+          "end": 17.35
+        },
+        {
+          "text": "the",
+          "start": 17.389999,
+          "end": 17.539998999999998
+        },
+        {
+          "text": "step",
+          "start": 17.549999,
+          "end": 18.059999
+        },
+        {
+          "text": "store",
+          "start": 18.279999,
+          "end": 18.649999
+        },
+        {
+          "text": "result",
+          "start": 18.65,
+          "end": 19.369999999999997
+        },
+        {
+          "text": "This",
+          "start": 19.659999999999997,
+          "end": 19.889999999999997
+        },
+        {
+          "text": "is",
+          "start": 19.909999999999997,
+          "end": 20.08
+        },
+        {
+          "text": "task",
+          "start": 20.119999999999997,
+          "end": 20.369999999999997
+        },
+        {
+          "text": "decomposition",
+          "start": 20.369999999999997,
+          "end": 21.179999999999996
+        },
+        {
+          "text": "not",
+          "start": 21.189999999999998,
+          "end": 21.369999999999997
+        },
+        {
+          "text": "a",
+          "start": 21.369999999999997,
+          "end": 21.459999999999997
+        },
+        {
+          "text": "single",
+          "start": 21.47,
+          "end": 21.869999999999997
+        },
+        {
+          "text": "policy",
+          "start": 21.909999999999997,
+          "end": 22.22
+        },
+        {
+          "text": "call",
+          "start": 22.39,
+          "end": 22.78
+        }
+      ]
+    },
+    "lab-5-2-overview": {
+      "words": [
+        {
+          "text": "Lab",
+          "start": 0.16,
+          "end": 0.42000000000000004
+        },
+        {
+          "text": "5",
+          "start": 0,
+          "end": 0
+        },
+        {
+          "text": "2",
+          "start": 0.43,
+          "end": 1.44
+        },
+        {
+          "text": "focuses",
+          "start": 1.46,
+          "end": 2.09
+        },
+        {
+          "text": "on",
+          "start": 2.16,
+          "end": 2.5
+        },
+        {
+          "text": "Memory",
+          "start": 2.51,
+          "end": 3.09
+        },
+        {
+          "text": "and",
+          "start": 3.15,
+          "end": 3.4699999999999998
+        },
+        {
+          "text": "State",
+          "start": 3.48,
+          "end": 3.9
+        },
+        {
+          "text": "Persistence",
+          "start": 3.95,
+          "end": 4.78
+        },
+        {
+          "text": "Agents",
+          "start": 5.53,
+          "end": 6.1000000000000005
+        },
+        {
+          "text": "need",
+          "start": 6.14,
+          "end": 6.449999999999999
+        },
+        {
+          "text": "to",
+          "start": 6.5,
+          "end": 6.63
+        },
+        {
+          "text": "remember",
+          "start": 6.63,
+          "end": 7.15
+        },
+        {
+          "text": "across",
+          "start": 7.19,
+          "end": 7.6000000000000005
+        },
+        {
+          "text": "sessions",
+          "start": 7.6,
+          "end": 8.23
+        },
+        {
+          "text": "and",
+          "start": 8.3,
+          "end": 8.680000000000001
+        },
+        {
+          "text": "iterations",
+          "start": 8.73,
+          "end": 9.440000000000001
+        },
+        {
+          "text": "This",
+          "start": 10.03,
+          "end": 10.33
+        },
+        {
+          "text": "lab",
+          "start": 10.33,
+          "end": 10.69
+        },
+        {
+          "text": "introduces",
+          "start": 10.75,
+          "end": 11.58
+        },
+        {
+          "text": "MemoryStore",
+          "start": 11.61,
+          "end": 12.49
+        },
+        {
+          "text": "for",
+          "start": 12.63,
+          "end": 12.83
+        },
+        {
+          "text": "tasks",
+          "start": 12.88,
+          "end": 13.430000000000001
+        },
+        {
+          "text": "and",
+          "start": 13.82,
+          "end": 14.030000000000001
+        },
+        {
+          "text": "memories",
+          "start": 14.03,
+          "end": 14.58
+        },
+        {
+          "text": "create_task",
+          "start": 14.62,
+          "end": 15.26
+        },
+        {
+          "text": "add_memory",
+          "start": 18.23,
+          "end": 18.71
+        },
+        {
+          "text": "get_memories",
+          "start": 19.12,
+          "end": 19.69
+        },
+        {
+          "text": "enabling",
+          "start": 19.72,
+          "end": 20.349999999999998
+        },
+        {
+          "text": "long",
+          "start": 20.36,
+          "end": 20.64
+        },
+        {
+          "text": "horizon",
+          "start": 20.65,
+          "end": 21.2
+        },
+        {
+          "text": "reasoning",
+          "start": 21.2,
+          "end": 21.82
+        },
+        {
+          "text": "and",
+          "start": 22.06,
+          "end": 22.31
+        },
+        {
+          "text": "refinement",
+          "start": 22.33,
+          "end": 22.97
+        },
+        {
+          "text": "loops",
+          "start": 23.07,
+          "end": 23.41
+        }
+      ]
+    },
+    "lab-5-2-code": {
+      "words": [
+        {
+          "text": "Lab",
+          "start": 0.12,
+          "end": 0.43
+        },
+        {
+          "text": "5",
+          "start": 0.44,
+          "end": 1.28
+        },
+        {
+          "text": "2",
+          "start": 1.36,
+          "end": 1.72
+        },
+        {
+          "text": "uses",
+          "start": 1.87,
+          "end": 2.31
+        },
+        {
+          "text": "MemoryStore",
+          "start": 2.92,
+          "end": 3.11
+        },
+        {
+          "text": "to",
+          "start": 3.16,
+          "end": 3.2800000000000002
+        },
+        {
+          "text": "persist",
+          "start": 3.28,
+          "end": 3.86
+        },
+        {
+          "text": "plan",
+          "start": 3.9,
+          "end": 4.21
+        },
+        {
+          "text": "state",
+          "start": 4.21,
+          "end": 4.57
+        },
+        {
+          "text": "across",
+          "start": 4.63,
+          "end": 5.07
+        },
+        {
+          "text": "iterations",
+          "start": 5.13,
+          "end": 5.87
+        },
+        {
+          "text": "You",
+          "start": 6.27,
+          "end": 6.43
+        },
+        {
+          "text": "create_task",
+          "start": 6.47,
+          "end": 7.13
+        },
+        {
+          "text": "with",
+          "start": 7.84,
+          "end": 8.05
+        },
+        {
+          "text": "a",
+          "start": 8.05,
+          "end": 8.120000000000001
+        },
+        {
+          "text": "goal",
+          "start": 8.12,
+          "end": 8.459999999999999
+        },
+        {
+          "text": "add_memory",
+          "start": 9.29,
+          "end": 9.809999999999999
+        },
+        {
+          "text": "to",
+          "start": 9.84,
+          "end": 9.959999999999999
+        },
+        {
+          "text": "log",
+          "start": 9.969999,
+          "end": 10.299999
+        },
+        {
+          "text": "what",
+          "start": 10.34,
+          "end": 10.58
+        },
+        {
+          "text": "happened",
+          "start": 10.59,
+          "end": 11.04
+        },
+        {
+          "text": "and",
+          "start": 11.11,
+          "end": 11.299999999999999
+        },
+        {
+          "text": "use",
+          "start": 11.3,
+          "end": 11.530000000000001
+        },
+        {
+          "text": "planner",
+          "start": 11.58,
+          "end": 12.05
+        },
+        {
+          "text": "refine_plan",
+          "start": 13.09,
+          "end": 13.52
+        },
+        {
+          "text": "to",
+          "start": 13.65,
+          "end": 13.94
+        },
+        {
+          "text": "improve",
+          "start": 13.99,
+          "end": 14.63
+        },
+        {
+          "text": "the",
+          "start": 14.73,
+          "end": 14.89
+        },
+        {
+          "text": "plan",
+          "start": 14.889999,
+          "end": 15.249998999999999
+        },
+        {
+          "text": "based",
+          "start": 15.259999,
+          "end": 15.539999
+        },
+        {
+          "text": "on",
+          "start": 15.54,
+          "end": 15.68
+        },
+        {
+          "text": "feedback",
+          "start": 15.679999,
+          "end": 16.219999
+        },
+        {
+          "text": "Task",
+          "start": 16.619999,
+          "end": 17.019999
+        },
+        {
+          "text": "results",
+          "start": 17.02,
+          "end": 17.59
+        },
+        {
+          "text": "and",
+          "start": 17.76,
+          "end": 18.01
+        },
+        {
+          "text": "memories",
+          "start": 18.01,
+          "end": 18.55
+        },
+        {
+          "text": "survive",
+          "start": 18.559999,
+          "end": 19.069999000000003
+        },
+        {
+          "text": "across",
+          "start": 19.119999,
+          "end": 19.639999
+        },
+        {
+          "text": "the",
+          "start": 19.779999,
+          "end": 19.829999
+        },
+        {
+          "text": "session",
+          "start": 19.829999,
+          "end": 20.409999
+        }
+      ]
+    },
+    "code-flow-lab-5-2": {
+      "words": [
+        {
+          "text": "The",
+          "start": 0.07,
+          "end": 0.19
+        },
+        {
+          "text": "flow",
+          "start": 0.19,
+          "end": 0.6
+        },
+        {
+          "text": "create",
+          "start": 0.71,
+          "end": 0.98
+        },
+        {
+          "text": "a",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "text": "task",
+          "start": 1.12,
+          "end": 1.5100000000000002
+        },
+        {
+          "text": "with",
+          "start": 1.61,
+          "end": 1.8
+        },
+        {
+          "text": "create_task",
+          "start": 1.86,
+          "end": 2.42
+        },
+        {
+          "text": "Add",
+          "start": 3.73,
+          "end": 3.94
+        },
+        {
+          "text": "memories",
+          "start": 3.94,
+          "end": 4.6
+        },
+        {
+          "text": "as",
+          "start": 4.71,
+          "end": 4.89
+        },
+        {
+          "text": "you",
+          "start": 4.89,
+          "end": 5.02
+        },
+        {
+          "text": "go",
+          "start": 5.02,
+          "end": 5.319999999999999
+        },
+        {
+          "text": "Call",
+          "start": 5.5,
+          "end": 5.95
+        },
+        {
+          "text": "refine_plan",
+          "start": 6.79,
+          "end": 7.26
+        },
+        {
+          "text": "with",
+          "start": 7.32,
+          "end": 7.57
+        },
+        {
+          "text": "feedback",
+          "start": 7.57,
+          "end": 8.18
+        },
+        {
+          "text": "to",
+          "start": 8.25,
+          "end": 8.37
+        },
+        {
+          "text": "improve",
+          "start": 8.37,
+          "end": 8.76
+        },
+        {
+          "text": "the",
+          "start": 8.76,
+          "end": 8.85
+        },
+        {
+          "text": "plan",
+          "start": 8.849999,
+          "end": 9.239999000000001
+        },
+        {
+          "text": "Update",
+          "start": 9.639999,
+          "end": 9.999998999999999
+        },
+        {
+          "text": "the",
+          "start": 10.04,
+          "end": 10.2
+        },
+        {
+          "text": "task",
+          "start": 10.23,
+          "end": 10.700000000000001
+        },
+        {
+          "text": "with",
+          "start": 10.79,
+          "end": 10.979999999999999
+        },
+        {
+          "text": "new",
+          "start": 10.99,
+          "end": 11.200000000000001
+        },
+        {
+          "text": "results",
+          "start": 11.24,
+          "end": 11.81
+        },
+        {
+          "text": "Retrieve",
+          "start": 12.11,
+          "end": 12.67
+        },
+        {
+          "text": "memories",
+          "start": 12.67,
+          "end": 13.35
+        },
+        {
+          "text": "with",
+          "start": 13.49,
+          "end": 13.92
+        },
+        {
+          "text": "get_memories",
+          "start": 14.09,
+          "end": 14.44
+        },
+        {
+          "text": "and",
+          "start": 15.88,
+          "end": 16.29
+        },
+        {
+          "text": "task",
+          "start": 16.609999,
+          "end": 16.979999
+        },
+        {
+          "text": "state",
+          "start": 16.98,
+          "end": 17.48
+        },
+        {
+          "text": "with",
+          "start": 17.76,
+          "end": 18.200000000000003
+        },
+        {
+          "text": "get_task",
+          "start": 18.43,
+          "end": 18.75
+        },
+        {
+          "text": "Persistence",
+          "start": 19.38,
+          "end": 19.59
+        },
+        {
+          "text": "enables",
+          "start": 19.69,
+          "end": 19.76
+        },
+        {
+          "text": "multi",
+          "start": 19.76,
+          "end": 19.81
+        },
+        {
+          "text": "iteration",
+          "start": 20.11,
+          "end": 22.759999999999998
+        },
+        {
+          "text": "refinement",
+          "start": 23.2,
+          "end": 23.49
+        }
+      ]
+    },
+    "lab-6-1-overview": {
+      "words": [
+        {
+          "text": "Lab",
+          "start": 0.16,
+          "end": 0.4
+        },
+        {
+          "text": "6",
+          "start": 0,
+          "end": 0
+        },
+        {
+          "text": "1",
+          "start": 0.42,
+          "end": 1.29
+        },
+        {
+          "text": "expands",
+          "start": 1.35,
+          "end": 1.92
+        },
+        {
+          "text": "environment",
+          "start": 1.95,
+          "end": 2.56
+        },
+        {
+          "text": "interaction",
+          "start": 2.58,
+          "end": 3.48
+        },
+        {
+          "text": "by",
+          "start": 3.57,
+          "end": 3.7399999999999998
+        },
+        {
+          "text": "letting",
+          "start": 3.74,
+          "end": 4.1000000000000005
+        },
+        {
+          "text": "agents",
+          "start": 4.14,
+          "end": 4.529999999999999
+        },
+        {
+          "text": "query",
+          "start": 4.53,
+          "end": 4.9
+        },
+        {
+          "text": "environment",
+          "start": 4.91,
+          "end": 5.54
+        },
+        {
+          "text": "info",
+          "start": 5.58,
+          "end": 6.09
+        },
+        {
+          "text": "and",
+          "start": 6.19,
+          "end": 6.420000000000001
+        },
+        {
+          "text": "adapt",
+          "start": 6.45,
+          "end": 6.88
+        },
+        {
+          "text": "actions",
+          "start": 6.93,
+          "end": 7.5
+        },
+        {
+          "text": "accordingly",
+          "start": 7.57,
+          "end": 8.290000000000001
+        },
+        {
+          "text": "This",
+          "start": 8.45,
+          "end": 8.719999999999999
+        },
+        {
+          "text": "interaction",
+          "start": 8.75,
+          "end": 9.42
+        },
+        {
+          "text": "loop",
+          "start": 9.42,
+          "end": 9.76
+        },
+        {
+          "text": "makes",
+          "start": 9.77,
+          "end": 10.11
+        },
+        {
+          "text": "agents",
+          "start": 10.16,
+          "end": 10.59
+        },
+        {
+          "text": "more",
+          "start": 10.59,
+          "end": 10.79
+        },
+        {
+          "text": "responsive",
+          "start": 10.79,
+          "end": 11.459999999999999
+        },
+        {
+          "text": "and",
+          "start": 11.49,
+          "end": 11.68
+        },
+        {
+          "text": "effective",
+          "start": 11.679999,
+          "end": 12.369999
+        }
+      ]
+    },
+    "lab-6-1-code": {
+      "words": [
+        {
+          "text": "Check",
+          "start": 0.12,
+          "end": 0.32
+        },
+        {
+          "text": "out",
+          "start": 0.32,
+          "end": 0.51
+        },
+        {
+          "text": "this",
+          "start": 0.52,
+          "end": 0.73
+        },
+        {
+          "text": "snippet",
+          "start": 0.74,
+          "end": 1.31
+        },
+        {
+          "text": "where",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "text": "the",
+          "start": 1.96,
+          "end": 2.07
+        },
+        {
+          "text": "agent",
+          "start": 2.09,
+          "end": 2.5599999999999996
+        },
+        {
+          "text": "queries",
+          "start": 2.6,
+          "end": 3.0300000000000002
+        },
+        {
+          "text": "environment",
+          "start": 3.03,
+          "end": 3.71
+        },
+        {
+          "text": "sensors",
+          "start": 3.72,
+          "end": 4.33
+        },
+        {
+          "text": "and",
+          "start": 4.62,
+          "end": 4.7700000000000005
+        },
+        {
+          "text": "adjusts",
+          "start": 4.77,
+          "end": 5.35
+        },
+        {
+          "text": "its",
+          "start": 5.42,
+          "end": 5.71
+        },
+        {
+          "text": "move",
+          "start": 5.71,
+          "end": 6.1
+        },
+        {
+          "text": "based",
+          "start": 6.33,
+          "end": 6.78
+        },
+        {
+          "text": "on",
+          "start": 6.83,
+          "end": 7.01
+        },
+        {
+          "text": "detected",
+          "start": 7.01,
+          "end": 7.64
+        },
+        {
+          "text": "obstacles",
+          "start": 7.68,
+          "end": 8.129999999999999
+        }
+      ]
+    },
+    "code-flow-lab-6-1": {
+      "words": [
+        {
+          "text": "The",
+          "start": 0.13,
+          "end": 0.24
+        },
+        {
+          "text": "environment",
+          "start": 0.24,
+          "end": 0.77
+        },
+        {
+          "text": "interaction",
+          "start": 0.77,
+          "end": 1.4
+        },
+        {
+          "text": "flow",
+          "start": 1.4,
+          "end": 1.7999999999999998
+        },
+        {
+          "text": "starts",
+          "start": 2.02,
+          "end": 2.39
+        },
+        {
+          "text": "with",
+          "start": 2.39,
+          "end": 2.5300000000000002
+        },
+        {
+          "text": "a",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "text": "query",
+          "start": 2.66,
+          "end": 3.04
+        },
+        {
+          "text": "We",
+          "start": 3.32,
+          "end": 3.48
+        },
+        {
+          "text": "call",
+          "start": 3.48,
+          "end": 3.78
+        },
+        {
+          "text": "env",
+          "start": 5.06,
+          "end": 5.409999999999999
+        },
+        {
+          "text": "get_sensors",
+          "start": 5.67,
+          "end": 6.31
+        },
+        {
+          "text": "to",
+          "start": 6.51,
+          "end": 6.66
+        },
+        {
+          "text": "read",
+          "start": 6.66,
+          "end": 6.91
+        },
+        {
+          "text": "the",
+          "start": 6.91,
+          "end": 7.01
+        },
+        {
+          "text": "current",
+          "start": 7.01,
+          "end": 7.35
+        },
+        {
+          "text": "state",
+          "start": 7.35,
+          "end": 7.68
+        },
+        {
+          "text": "here",
+          "start": 7.68,
+          "end": 8.129999999999999
+        },
+        {
+          "text": "we",
+          "start": 8.389999,
+          "end": 8.559999
+        },
+        {
+          "text": "care",
+          "start": 8.559999,
+          "end": 8.799999
+        },
+        {
+          "text": "about",
+          "start": 8.8,
+          "end": 9.22
+        },
+        {
+          "text": "the",
+          "start": 9.309999,
+          "end": 9.489999
+        },
+        {
+          "text": "front",
+          "start": 9.49,
+          "end": 9.78
+        },
+        {
+          "text": "sensor",
+          "start": 9.78,
+          "end": 10.28
+        },
+        {
+          "text": "If",
+          "start": 10.5,
+          "end": 10.73
+        },
+        {
+          "text": "it's",
+          "start": 10.73,
+          "end": 10.99
+        },
+        {
+          "text": "clear",
+          "start": 10.99,
+          "end": 11.46
+        },
+        {
+          "text": "we",
+          "start": 11.599999,
+          "end": 11.789999
+        },
+        {
+          "text": "set",
+          "start": 11.79,
+          "end": 12.03
+        },
+        {
+          "text": "action",
+          "start": 12.09,
+          "end": 12.64
+        },
+        {
+          "text": "to",
+          "start": 12.889999,
+          "end": 13.049999
+        },
+        {
+          "text": "move_forward",
+          "start": 13.049999,
+          "end": 13.429999
+        },
+        {
+          "text": "Otherwise",
+          "start": 14.719999,
+          "end": 15.189999
+        },
+        {
+          "text": "we",
+          "start": 15.19,
+          "end": 15.33
+        },
+        {
+          "text": "choose",
+          "start": 15.33,
+          "end": 15.91
+        },
+        {
+          "text": "turn_left",
+          "start": 17.26,
+          "end": 17.94
+        },
+        {
+          "text": "The",
+          "start": 18.18,
+          "end": 18.33
+        },
+        {
+          "text": "key",
+          "start": 18.33,
+          "end": 18.59
+        },
+        {
+          "text": "is",
+          "start": 18.609999,
+          "end": 18.809998999999998
+        },
+        {
+          "text": "that",
+          "start": 18.81,
+          "end": 19.279999999999998
+        },
+        {
+          "text": "the",
+          "start": 19.45,
+          "end": 19.63
+        },
+        {
+          "text": "agent",
+          "start": 19.63,
+          "end": 20.27
+        },
+        {
+          "text": "actively",
+          "start": 20.43,
+          "end": 20.93
+        },
+        {
+          "text": "queries",
+          "start": 20.93,
+          "end": 21.63
+        },
+        {
+          "text": "the",
+          "start": 21.7,
+          "end": 21.81
+        },
+        {
+          "text": "environment",
+          "start": 21.81,
+          "end": 22.7
+        },
+        {
+          "text": "instead",
+          "start": 22.92,
+          "end": 23.380000000000003
+        },
+        {
+          "text": "of",
+          "start": 23.41,
+          "end": 23.59
+        },
+        {
+          "text": "passively",
+          "start": 23.64,
+          "end": 24.25
+        },
+        {
+          "text": "receiving",
+          "start": 24.38,
+          "end": 25.009999999999998
+        },
+        {
+          "text": "observations",
+          "start": 25.11,
+          "end": 26.03
+        },
+        {
+          "text": "This",
+          "start": 26.259999999999998,
+          "end": 26.47
+        },
+        {
+          "text": "enables",
+          "start": 26.5,
+          "end": 27.21
+        },
+        {
+          "text": "richer",
+          "start": 27.34,
+          "end": 27.93
+        },
+        {
+          "text": "adaptive",
+          "start": 28.179999000000002,
+          "end": 28.709999000000003
+        },
+        {
+          "text": "behavior",
+          "start": 28.71,
+          "end": 29.1
+        }
+      ]
+    },
+    "lab-6-1-in-practice-overview": {
+      "words": [
+        {
+          "text": "Lab",
+          "start": 0.1,
+          "end": 0.4
+        },
+        {
+          "text": "6",
+          "start": 0.52,
+          "end": 1.13
+        },
+        {
+          "text": "1",
+          "start": 1.21,
+          "end": 1.42
+        },
+        {
+          "text": "in",
+          "start": 1.45,
+          "end": 1.6199999999999999
+        },
+        {
+          "text": "practice",
+          "start": 1.85,
+          "end": 2.42
+        },
+        {
+          "text": "is",
+          "start": 2.56,
+          "end": 2.9
+        },
+        {
+          "text": "Retrieval",
+          "start": 3.07,
+          "end": 3.8499999999999996
+        },
+        {
+          "text": "Augmented",
+          "start": 3.94,
+          "end": 4.51
+        },
+        {
+          "text": "Generation",
+          "start": 4.52,
+          "end": 5.2299999999999995
+        },
+        {
+          "text": "RAG",
+          "start": 5.23,
+          "end": 5.6000000000000005
+        },
+        {
+          "text": "It's",
+          "start": 5.79,
+          "end": 6
+        },
+        {
+          "text": "not",
+          "start": 6.01,
+          "end": 6.24
+        },
+        {
+          "text": "sensor",
+          "start": 6.24,
+          "end": 6.65
+        },
+        {
+          "text": "queries",
+          "start": 6.65,
+          "end": 7.29
+        },
+        {
+          "text": "You",
+          "start": 7.62,
+          "end": 7.83
+        },
+        {
+          "text": "use",
+          "start": 7.83,
+          "end": 8.08
+        },
+        {
+          "text": "VectorStore",
+          "start": 8.97,
+          "end": 9.31
+        },
+        {
+          "text": "to",
+          "start": 9.469999,
+          "end": 9.549999
+        },
+        {
+          "text": "add_texts",
+          "start": 9.55,
+          "end": 10.040000000000001
+        },
+        {
+          "text": "search",
+          "start": 10.25,
+          "end": 10.59
+        },
+        {
+          "text": "by",
+          "start": 10.61,
+          "end": 10.799999999999999
+        },
+        {
+          "text": "query",
+          "start": 10.8,
+          "end": 11.290000000000001
+        },
+        {
+          "text": "and",
+          "start": 11.46,
+          "end": 11.66
+        },
+        {
+          "text": "augment",
+          "start": 11.66,
+          "end": 12.1
+        },
+        {
+          "text": "the",
+          "start": 12.12,
+          "end": 12.28
+        },
+        {
+          "text": "LLM",
+          "start": 12.34,
+          "end": 12.8
+        },
+        {
+          "text": "prompt",
+          "start": 12.82,
+          "end": 13.23
+        },
+        {
+          "text": "with",
+          "start": 13.27,
+          "end": 13.54
+        },
+        {
+          "text": "retrieved",
+          "start": 13.54,
+          "end": 14.059999999999999
+        },
+        {
+          "text": "context",
+          "start": 14.09,
+          "end": 14.8
+        },
+        {
+          "text": "The",
+          "start": 15.03,
+          "end": 15.209999999999999
+        },
+        {
+          "text": "agent",
+          "start": 15.21,
+          "end": 15.670000000000002
+        },
+        {
+          "text": "answers",
+          "start": 15.719999,
+          "end": 16.339999
+        },
+        {
+          "text": "using",
+          "start": 16.609999,
+          "end": 17.099998999999997
+        },
+        {
+          "text": "only",
+          "start": 17.15,
+          "end": 17.65
+        },
+        {
+          "text": "the",
+          "start": 17.73,
+          "end": 17.86
+        },
+        {
+          "text": "provided",
+          "start": 17.859999,
+          "end": 18.459999
+        },
+        {
+          "text": "context",
+          "start": 18.52,
+          "end": 19.05
+        },
+        {
+          "text": "grounding",
+          "start": 19.049999,
+          "end": 19.649999
+        },
+        {
+          "text": "in",
+          "start": 19.79,
+          "end": 19.96
+        },
+        {
+          "text": "external",
+          "start": 19.96,
+          "end": 20.5
+        },
+        {
+          "text": "knowledge",
+          "start": 20.5,
+          "end": 21.09
+        }
+      ]
+    },
+    "lab-6-1-actual-code": {
+      "words": [
+        {
+          "text": "Here's",
+          "start": 0.17,
+          "end": 0.37
+        },
+        {
+          "text": "the",
+          "start": 0.42,
+          "end": 0.55
+        },
+        {
+          "text": "real",
+          "start": 0.59,
+          "end": 0.8999999999999999
+        },
+        {
+          "text": "Lab",
+          "start": 0.91,
+          "end": 1.2
+        },
+        {
+          "text": "6",
+          "start": 0,
+          "end": 0
+        },
+        {
+          "text": "1",
+          "start": 1.22,
+          "end": 2.06
+        },
+        {
+          "text": "code",
+          "start": 2.09,
+          "end": 2.48
+        },
+        {
+          "text": "VectorStore",
+          "start": 2.87,
+          "end": 3.4000000000000004
+        },
+        {
+          "text": "indexes",
+          "start": 3.4,
+          "end": 3.98
+        },
+        {
+          "text": "documents",
+          "start": 3.99,
+          "end": 4.82
+        },
+        {
+          "text": "with",
+          "start": 4.85,
+          "end": 5.1
+        },
+        {
+          "text": "add_texts",
+          "start": 6.64,
+          "end": 6.85
+        },
+        {
+          "text": "search",
+          "start": 6.85,
+          "end": 6.9799999999999995
+        },
+        {
+          "text": "returns",
+          "start": 6.98,
+          "end": 7.680000000000001
+        },
+        {
+          "text": "top",
+          "start": 8.059999,
+          "end": 8.369999
+        },
+        {
+          "text": "results",
+          "start": 8.37,
+          "end": 9.1
+        },
+        {
+          "text": "You",
+          "start": 9.469999,
+          "end": 9.639999
+        },
+        {
+          "text": "build",
+          "start": 9.639999,
+          "end": 9.949999
+        },
+        {
+          "text": "an",
+          "start": 9.95,
+          "end": 10.11
+        },
+        {
+          "text": "augmented",
+          "start": 10.11,
+          "end": 10.68
+        },
+        {
+          "text": "prompt",
+          "start": 10.71,
+          "end": 11.21
+        },
+        {
+          "text": "Context",
+          "start": 11.57,
+          "end": 12.11
+        },
+        {
+          "text": "plus",
+          "start": 12.12,
+          "end": 12.399999999999999
+        },
+        {
+          "text": "Question",
+          "start": 12.4,
+          "end": 12.940000000000001
+        },
+        {
+          "text": "run_chat",
+          "start": 13.38,
+          "end": 13.940000000000001
+        },
+        {
+          "text": "answers",
+          "start": 14.799999,
+          "end": 15.359999
+        },
+        {
+          "text": "using",
+          "start": 15.7,
+          "end": 16.05
+        },
+        {
+          "text": "only",
+          "start": 16.08,
+          "end": 16.36
+        },
+        {
+          "text": "that",
+          "start": 16.389999,
+          "end": 16.609999
+        },
+        {
+          "text": "context",
+          "start": 16.65,
+          "end": 17.27
+        },
+        {
+          "text": "Citations",
+          "start": 17.389999,
+          "end": 18.319999
+        },
+        {
+          "text": "come",
+          "start": 18.57,
+          "end": 18.830000000000002
+        },
+        {
+          "text": "from",
+          "start": 0,
+          "end": 0
+        },
+        {
+          "text": "metadata",
+          "start": 18.58,
+          "end": 19.86
+        }
+      ]
+    },
+    "lab-6-1-actual-flow": {
+      "words": [
+        {
+          "text": "The",
+          "start": 0.06,
+          "end": 0.25
+        },
+        {
+          "text": "actual",
+          "start": 0.28,
+          "end": 0.71
+        },
+        {
+          "text": "flow",
+          "start": 0.71,
+          "end": 1.1199999999999999
+        },
+        {
+          "text": "create",
+          "start": 1.52,
+          "end": 1.79
+        },
+        {
+          "text": "VectorStore",
+          "start": 2.97,
+          "end": 3.4400000000000004
+        },
+        {
+          "text": "add_texts",
+          "start": 3.81,
+          "end": 4.16
+        },
+        {
+          "text": "to",
+          "start": 4.4,
+          "end": 4.57
+        },
+        {
+          "text": "index",
+          "start": 4.59,
+          "end": 5.29
+        },
+        {
+          "text": "On",
+          "start": 5.58,
+          "end": 5.79
+        },
+        {
+          "text": "query",
+          "start": 5.82,
+          "end": 6.37
+        },
+        {
+          "text": "search",
+          "start": 6.54,
+          "end": 6.87
+        },
+        {
+          "text": "returns",
+          "start": 6.88,
+          "end": 7.34
+        },
+        {
+          "text": "top",
+          "start": 7.34,
+          "end": 7.59
+        },
+        {
+          "text": "k",
+          "start": 7.63,
+          "end": 8.02
+        },
+        {
+          "text": "Build",
+          "start": 8.26,
+          "end": 8.66
+        },
+        {
+          "text": "augmented",
+          "start": 8.73,
+          "end": 9.34
+        },
+        {
+          "text": "prompt",
+          "start": 9.34,
+          "end": 9.93
+        },
+        {
+          "text": "with",
+          "start": 10.03,
+          "end": 10.29
+        },
+        {
+          "text": "context",
+          "start": 10.309999,
+          "end": 11.089998999999999
+        },
+        {
+          "text": "Call",
+          "start": 11.34,
+          "end": 11.83
+        },
+        {
+          "text": "run_chat",
+          "start": 12.11,
+          "end": 12.709999999999999
+        },
+        {
+          "text": "The",
+          "start": 13.77,
+          "end": 13.95
+        },
+        {
+          "text": "LLM",
+          "start": 13.99,
+          "end": 14.46
+        },
+        {
+          "text": "answers",
+          "start": 14.52,
+          "end": 15.1
+        },
+        {
+          "text": "from",
+          "start": 15.15,
+          "end": 15.48
+        },
+        {
+          "text": "context",
+          "start": 15.48,
+          "end": 15.9
+        },
+        {
+          "text": "only",
+          "start": 15.92,
+          "end": 16.34
+        },
+        {
+          "text": "no",
+          "start": 16.41,
+          "end": 16.68
+        },
+        {
+          "text": "hallucination",
+          "start": 16.68,
+          "end": 17.35
+        },
+        {
+          "text": "from",
+          "start": 17.369999,
+          "end": 17.589999
+        },
+        {
+          "text": "training",
+          "start": 17.59,
+          "end": 17.95
+        },
+        {
+          "text": "data",
+          "start": 17.949999,
+          "end": 18.399998999999998
+        },
+        {
+          "text": "This",
+          "start": 18.609999,
+          "end": 18.879998999999998
+        },
+        {
+          "text": "is",
+          "start": 18.879999,
+          "end": 19.119999
+        },
+        {
+          "text": "RAG",
+          "start": 19.379999,
+          "end": 19.539999
+        },
+        {
+          "text": "not",
+          "start": 19.779999,
+          "end": 19.959999000000003
+        },
+        {
+          "text": "environment",
+          "start": 19.959999000000003,
+          "end": 20.459999000000003
+        },
+        {
+          "text": "sensors",
+          "start": 20.459999000000003,
+          "end": 20.959999000000003
+        }
+      ]
+    },
+    "advanced-skills-importance": {
+      "words": [
+        {
+          "text": "Why",
+          "start": 0.14,
+          "end": 0.35
+        },
+        {
+          "text": "get",
+          "start": 0.35,
+          "end": 0.57
+        },
+        {
+          "text": "comfortable",
+          "start": 0.6,
+          "end": 1.0899999999999999
+        },
+        {
+          "text": "with",
+          "start": 1.09,
+          "end": 1.2200000000000002
+        },
+        {
+          "text": "these",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "advanced",
+          "start": 1.48,
+          "end": 1.87
+        },
+        {
+          "text": "skills",
+          "start": 1.87,
+          "end": 2.5100000000000002
+        },
+        {
+          "text": "Because",
+          "start": 2.72,
+          "end": 3.06
+        },
+        {
+          "text": "real",
+          "start": 3.07,
+          "end": 3.32
+        },
+        {
+          "text": "world",
+          "start": 3.32,
+          "end": 3.59
+        },
+        {
+          "text": "agents",
+          "start": 3.63,
+          "end": 4.08
+        },
+        {
+          "text": "deal",
+          "start": 4.09,
+          "end": 4.39
+        },
+        {
+          "text": "with",
+          "start": 4.4,
+          "end": 4.630000000000001
+        },
+        {
+          "text": "complex",
+          "start": 4.64,
+          "end": 5.069999999999999
+        },
+        {
+          "text": "states",
+          "start": 5.07,
+          "end": 5.550000000000001
+        },
+        {
+          "text": "and",
+          "start": 5.67,
+          "end": 5.84
+        },
+        {
+          "text": "unpredictable",
+          "start": 5.87,
+          "end": 6.69
+        },
+        {
+          "text": "environments",
+          "start": 6.69,
+          "end": 7.550000000000001
+        },
+        {
+          "text": "Mastering",
+          "start": 7.89,
+          "end": 8.44
+        },
+        {
+          "text": "these",
+          "start": 8.45,
+          "end": 8.69
+        },
+        {
+          "text": "labs",
+          "start": 8.69,
+          "end": 9.02
+        },
+        {
+          "text": "means",
+          "start": 9.02,
+          "end": 9.459999999999999
+        },
+        {
+          "text": "your",
+          "start": 9.67,
+          "end": 9.89
+        },
+        {
+          "text": "agents",
+          "start": 9.929999,
+          "end": 10.379999
+        },
+        {
+          "text": "can",
+          "start": 10.38,
+          "end": 10.600000000000001
+        },
+        {
+          "text": "handle",
+          "start": 10.599999,
+          "end": 11.079999
+        },
+        {
+          "text": "real",
+          "start": 11.2,
+          "end": 11.459999999999999
+        },
+        {
+          "text": "challenges",
+          "start": 11.509999,
+          "end": 12.229999000000001
+        }
+      ]
+    },
+    "conclusion-advanced-agent-skills": {
+      "words": [
+        {
+          "text": "Labs",
+          "start": 0.1,
+          "end": 0.69
+        },
+        {
+          "text": "4",
+          "start": 0.74,
+          "end": 1.3900000000000001
+        },
+        {
+          "text": "1",
+          "start": 0,
+          "end": 0
+        },
+        {
+          "text": "to",
+          "start": 1.4,
+          "end": 1.45
+        },
+        {
+          "text": "6",
+          "start": 0,
+          "end": 0
+        },
+        {
+          "text": "1",
+          "start": 1.45,
+          "end": 2.44
+        },
+        {
+          "text": "unlock",
+          "start": 2.59,
+          "end": 3.01
+        },
+        {
+          "text": "your",
+          "start": 3.01,
+          "end": 3.1199999999999997
+        },
+        {
+          "text": "agent’s",
+          "start": 3.12,
+          "end": 3.5300000000000002
+        },
+        {
+          "text": "potential",
+          "start": 3.53,
+          "end": 4.25
+        },
+        {
+          "text": "with",
+          "start": 4.37,
+          "end": 4.57
+        },
+        {
+          "text": "smarter",
+          "start": 4.57,
+          "end": 4.96
+        },
+        {
+          "text": "state",
+          "start": 4.97,
+          "end": 5.3
+        },
+        {
+          "text": "handling",
+          "start": 5.3,
+          "end": 5.84
+        },
+        {
+          "text": "policies",
+          "start": 6.01,
+          "end": 6.76
+        },
+        {
+          "text": "and",
+          "start": 6.86,
+          "end": 7.03
+        },
+        {
+          "text": "environment",
+          "start": 7.03,
+          "end": 7.63
+        },
+        {
+          "text": "awareness",
+          "start": 7.63,
+          "end": 8.3
+        },
+        {
+          "text": "This",
+          "start": 8.44,
+          "end": 8.719999999999999
+        },
+        {
+          "text": "is",
+          "start": 8.72,
+          "end": 8.9
+        },
+        {
+          "text": "where",
+          "start": 8.9,
+          "end": 9.06
+        },
+        {
+          "text": "your",
+          "start": 9.059999,
+          "end": 9.209999
+        },
+        {
+          "text": "AI",
+          "start": 9.23,
+          "end": 9.59
+        },
+        {
+          "text": "starts",
+          "start": 9.599999,
+          "end": 9.909999000000001
+        },
+        {
+          "text": "to",
+          "start": 9.91,
+          "end": 10.03
+        },
+        {
+          "text": "feel",
+          "start": 10.03,
+          "end": 10.299999999999999
+        },
+        {
+          "text": "truly",
+          "start": 10.36,
+          "end": 10.83
+        },
+        {
+          "text": "agentic",
+          "start": 10.83,
+          "end": 11.370000000000001
+        },
+        {
+          "text": "and",
+          "start": 11.38,
+          "end": 11.520000000000001
+        },
+        {
+          "text": "effective",
+          "start": 11.52,
+          "end": 12.03
+        }
+      ]
+    }
+  },
+  "lineMappings": {
+    "lab-4-1-code": [
+      {
+        "id": "timer",
+        "line": 1,
+        "wordRange": [
+          9,
+          9
+        ]
+      },
+      {
+        "id": "state",
+        "line": 2,
+        "wordRange": [
+          12,
+          12
+        ]
+      },
+      {
+        "id": "state",
+        "line": 4,
+        "wordRange": [
+          12,
+          12
+        ]
+      }
+    ],
+    "lab-4-1-actual-code": [
+      {
+        "id": "request",
+        "line": 6,
+        "wordRange": [
+          16,
+          16
+        ]
+      }
+    ],
+    "lab-5-1-actual-code": [
+      {
+        "id": "plan",
+        "line": 2,
+        "wordRange": [
+          10,
+          10
+        ]
+      },
+      {
+        "id": "results",
+        "line": 6,
+        "wordRange": [
+          31,
+          31
+        ]
+      },
+      {
+        "id": "results",
+        "line": 8,
+        "wordRange": [
+          31,
+          31
+        ]
+      }
+    ],
+    "lab-6-1-code": [
+      {
+        "id": "sensors",
+        "line": 1,
+        "wordRange": [
+          9,
+          9
+        ]
+      }
+    ],
+    "lab-6-1-actual-code": [
+      {
+        "id": "results",
+        "line": 3,
+        "wordRange": [
+          15,
+          15
+        ]
+      },
+      {
+        "id": "context",
+        "line": 4,
+        "wordRange": [
+          21,
+          21
+        ]
+      },
+      {
+        "id": "context",
+        "line": 5,
+        "wordRange": [
+          21,
+          21
+        ]
+      }
+    ]
+  }
+}

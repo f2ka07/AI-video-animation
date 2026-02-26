@@ -1,0 +1,106 @@
+Module 01: The Agentic AI Transition
+
+Metadata
+Target Runtime: 12-15 minutes
+Script Length: 1000-1500 words
+Voice: Hybrid (V2 intro, V1 body)
+
+---
+
+[CINEMATIC INTRO]
+
+The age of typing prompts into a chat window is ending.
+
+For the past two years, the world has marveled at large language models. We've asked them questions. We've watched them write poems and debug code. We've been impressed, entertained, and sometimes alarmed.
+
+But here's what most people missed: those interactions were never the destination. They were the warmup.
+
+The real shift is happening now. And it's not about better prompts or smarter models. It's about something far more consequential: the transition from AI as a tool you talk to, into AI as a system that works.
+
+Welcome to the era of Agentic AI.
+
+---
+
+[CONCEPT]
+
+Let's start by understanding what we're leaving behind.
+
+When you type a prompt into ChatGPT or Claude, you're making a single call to a language model. You send input, the model generates output, and the interaction ends. This is called single-call inference. It's useful. It's accessible. And for production workloads, it's fundamentally limited.
+
+Single-call systems have no memory between interactions. They cannot plan across multiple steps. They cannot use external tools. They cannot verify their own outputs. And they cannot adapt based on feedback.
+
+In short, they respond. They don't work.
+
+Agentic AI is different. An agent is not a chatbot with extra features. It's a system architecture. It's a pipeline that orchestrates language models alongside planning, memory, tool use, safety checks, and human oversight.
+
+When we say "agentic," we mean the AI can perceive its environment, reason about goals, take actions, observe results, and iterate. It operates in loops, not single shots. It retrieves information when needed. It calls external tools. It remembers context across steps. And critically, it can be interrupted, corrected, and supervised.
+
+This is the transition: from AI as interface, to AI as infrastructure.
+
+---
+
+[ARCHITECTURE]
+
+What does an agentic system actually look like?
+
+At the highest level, an agent is a pipeline with five core components.
+
+First, planning. The agent must decompose a goal into subtasks, decide on an execution order, and adapt when things go wrong. This is where reasoning models earn their value. Planning isn't just thinking. It's structured decision-making under uncertainty.
+
+Second, tools. An agent without tools is just a language model with extra steps. Tools are the interfaces that let agents interact with the real world: APIs, databases, file systems, code interpreters, search engines, and more. Tool use is what makes agents useful beyond conversation.
+
+Third, memory. Agents need to retain information across steps. Short-term memory holds the current task context. Long-term memory stores knowledge that persists across sessions. Without memory, agents would repeat mistakes indefinitely.
+
+Fourth, safety loops. This includes guardrails that filter harmful outputs, policy checks that enforce business rules, and evaluation layers that assess whether the agent is on track. Safety isn't optional in production. It's load-bearing.
+
+Fifth, human-in-the-loop. Not every decision should be automated. Agentic systems must know when to pause, escalate, and defer to human judgment. This is especially critical for high-stakes domains like healthcare, finance, and legal.
+
+Here's the mental model that matters: agents are pipelines, not personas. They're not characters you chat with. They're systems you deploy.
+
+---
+
+[APPLICATION]
+
+Why are enterprises making this transition now?
+
+Three drivers dominate.
+
+First, reliability. Single-call systems are brittle. They hallucinate. They miss context. They can't recover from errors. Agentic architectures introduce checkpoints, retries, and verification steps. They're designed for failure tolerance, not just accuracy.
+
+Second, traceability. In regulated industries, you need to know what the AI did, why it did it, and what data it used. Agentic systems can log every step, every tool call, every memory access. This audit trail is non-negotiable for compliance.
+
+Third, integration. Enterprises don't run isolated models. They run systems that connect to CRMs, ERPs, data warehouses, and internal APIs. Agentic architectures are built for integration. They treat external tools as first-class citizens.
+
+The result is a new category of workload: AI that doesn't just answer questions, but executes workflows. AI that doesn't just generate content, but manages processes. AI that doesn't just assist, but operates.
+
+---
+
+[EXAM MAPPING]
+
+If you're preparing for the NVIDIA certification, this module maps to several key areas.
+
+You'll need to understand why the industry is shifting from prompt-based interaction to agentic architectures. You'll need to recognize the limitations of single-call inference and articulate why loops, tools, and memory are essential.
+
+You'll also need vocabulary alignment. Terms like "agent loop," "tool use," "grounding," and "human-in-the-loop" appear throughout the exam. This module establishes the conceptual foundation for those terms.
+
+Think of this as the orientation layer. The rest of the course builds on these ideas.
+
+---
+
+[RECAP]
+
+Let's lock in the key points.
+
+Prompting was never the product. It was the user interface for early adoption. The real value of large language models emerges when they're embedded in pipelines, not chat windows.
+
+Agents are not chatbots. They're architectures. They combine planning, tools, memory, safety, and human oversight into systems that can execute real work.
+
+Enterprises are adopting agentic AI because they need reliability, traceability, and integration. These aren't nice-to-haves. They're requirements.
+
+And NVIDIA is at the center of this transition. The certification you're preparing for is designed to validate that you understand not just how models work, but how agentic systems are built, deployed, and operated.
+
+This is the new baseline. Let's build on it.
+
+---
+
+Word Count: ~1,020 words

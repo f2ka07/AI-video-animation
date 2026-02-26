@@ -1,0 +1,62 @@
+{
+  "diagram": "inference-pipeline.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 3.2,
+      "show": [
+        "main"
+      ],
+      "dim": [],
+      "highlight": []
+    },
+    {
+      "start": 3.2,
+      "end": 5.2,
+      "show": [
+        "main",
+        "section-1"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-1"
+      ]
+    },
+    {
+      "start": 5.2,
+      "end": 11.7,
+      "show": [
+        "main",
+        "section-2"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-2"
+      ]
+    },
+    {
+      "start": 11.7,
+      "end": 16.8,
+      "show": [
+        "main",
+        "section-3"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-3"
+      ]
+    },
+    {
+      "start": 16.8,
+      "end": 69.9,
+      "show": [
+        "main",
+        "section-4"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-4"
+      ]
+    }
+  ]
+}

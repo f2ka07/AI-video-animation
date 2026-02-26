@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<speak version="1.1" xmlns="http://www.w3.org/2001/10/synthesis">
+
+<voice name="V2">
+<prosody rate="95%" pitch="-2st">
+
+When most people hear NVIDIA, <break time="300ms"/> they think of graphics cards. <break time="200ms"/> Gamers. <break time="200ms"/> GPUs.
+
+<break time="600ms"/>
+
+But that is the old story.
+
+<break time="500ms"/>
+
+The new story is this. <break time="400ms"/> NVIDIA is no longer just a hardware company. <break time="300ms"/> It is a <emphasis level="strong">full-stack AI platform provider</emphasis>.
+
+<break time="500ms"/>
+
+From the silicon in the data center to the APIs developers call in production. <break time="300ms"/> NVIDIA now touches every layer of the AI system.
+
+<break time="700ms"/>
+
+If you want to understand how agentic AI gets deployed at scale, <break time="300ms"/> you need to understand this stack. <break time="300ms"/> Not as marketing. <break time="300ms"/> As <emphasis level="strong">architecture</emphasis>.
+
+<break time="600ms"/>
+
+This module walks you through the layers. <break time="300ms"/> From hardware to application. <break time="300ms"/> From CUDA to NIM.
+
+<break time="1200ms"/>
+
+</prosody>
+</voice>
+
+<voice name="V1">
+<prosody rate="100%">
+
+Section: The Problem of Production AI.
+
+<break time="500ms"/>
+
+Let us frame the problem before we introduce the solution.
+
+<break time="500ms"/>
+
+Building AI systems at production scale is hard. <break time="300ms"/> Not because the models are hard. <break time="300ms"/> Because the infrastructure is complex.
+
+<break time="400ms"/>
+
+You need GPUs. <break time="200ms"/> You need software that extracts performance from those GPUs. <break time="200ms"/> You need inference servers that handle requests at scale. <break time="200ms"/> You need integration surfaces for enterprise systems.
+
+<break time="500ms"/>
+
+Failure mode: fragile infrastructure. <break time="300ms"/> Every layer is a potential failure point.
+
+<break time="500ms"/>
+
+Historically, companies built this themselves. <break time="300ms"/> They stitched together open-source tools and custom scripts. <break time="300ms"/> It worked but was fragile. <break time="300ms"/> Every upgrade was a risk.
+
+<break time="600ms"/>
+
+Definition: The NVIDIA AI Platform Stack is a unified platform where each layer is designed to work with the others.
+
+<break time="500ms"/>
+
+Enterprise driver: reduced complexity. <break time="300ms"/> Let engineers focus on applications, not infrastructure plumbing.
+
+<break time="800ms"/>
+
+</prosody>
+</voice>
+
+<voice name="V1">
+<prosody rate="100%">
+
+Section: The Five Layers.
+
+<break time="500ms"/>
+
+The stack has five major layers.
+
+<break time="600ms"/>
+
+<emphasis level="moderate">Layer 1: Hardware.</emphasis>
+
+<break time="400ms"/>
+
+At the base is NVIDIA GPU hardware. <break time="300ms"/> Data center GPUs like H100 and Blackwell. <break time="200ms"/> Networking fabric like NVLink and InfiniBand. <break time="200ms"/> High-bandwidth memory for large models.
+
+<break time="400ms"/>
+
+For engineers: this layer is about throughput, latency, and memory constraints.
+
+<break time="400ms"/>
+
+For product and technical leaders: this layer is about capital expenditure and roadmap alignment.
+
+<break time="600ms"/>
+
+<emphasis level="moderate">Layer 2: Acceleration.</emphasis>
+
+<break time="400ms"/>
+
+On top of hardware sits the acceleration layer. <break time="300ms"/> This is where CUDA lives.
+
+<break time="400ms"/>
+
+Definition: CUDA is NVIDIA's parallel computing platform for GPU code execution.
+
+<break time="400ms"/>
+
+Raw CUDA is low-level. <break time="300ms"/> Most AI workloads use libraries built on CUDA. <break time="200ms"/> cuDNN for deep learning. <break time="200ms"/> cuBLAS for linear algebra. <break time="300ms"/> And <emphasis level="moderate">TensorRT</emphasis> for inference optimization.
+
+<break time="400ms"/>
+
+Definition: TensorRT compiles trained models into optimized execution graphs for faster inference.
+
+<break time="400ms"/>
+
+Constraint: TensorRT is what makes production inference economically viable.
+
+<break time="600ms"/>
+
+<emphasis level="moderate">Layer 3: Inference Serving.</emphasis>
+
+<break time="400ms"/>
+
+Once you have an optimized model, you need to serve it.
+
+<break time="400ms"/>
+
+Definition: Triton Inference Server is NVIDIA's platform for running models in production.
+
+<break time="400ms"/>
+
+Triton handles request batching. <break time="200ms"/> Model versioning. <break time="200ms"/> Multi-model serving. <break time="200ms"/> GPU scheduling. <break time="200ms"/> Health monitoring.
+
+<break time="400ms"/>
+
+For engineers: Triton supports TensorRT, PyTorch, TensorFlow, and ONNX formats.
+
+<break time="400ms"/>
+
+Enterprise driver: operational reliability.
+
+<break time="600ms"/>
+
+<emphasis level="moderate">Layer 4: Model and Runtime Surfaces.</emphasis>
+
+<break time="400ms"/>
+
+This is where NeMo and NIM enter the picture.
+
+<break time="400ms"/>
+
+Definition: NeMo is NVIDIA's framework for building and customizing large language models.
+
+<break time="400ms"/>
+
+Definition: NIM is NVIDIA Inference Microservices. <break time="200ms"/> Pre-packaged, optimized containers for production deployment.
+
+<break time="400ms"/>
+
+You pull a NIM, run it, and you have a production-ready endpoint. <break time="300ms"/> No manual optimization. <break time="200ms"/> No infrastructure configuration.
+
+<break time="400ms"/>
+
+For product and technical leaders: NIMs reduce time-to-production significantly.
+
+<break time="400ms"/>
+
+Constraint: NIMs are designed for agentic workloads with streaming and function calling support.
+
+<break time="600ms"/>
+
+<emphasis level="moderate">Layer 5: Application Layer.</emphasis>
+
+<break time="400ms"/>
+
+At the top sits the application layer. <break time="300ms"/> This is where your agentic system lives. <break time="300ms"/> You orchestrate NIMs with planning logic, tool integrations, and safety layers.
+
+<break time="400ms"/>
+
+NVIDIA provides blueprints and reference architectures. <break time="300ms"/> But this layer is where your differentiation happens.
+
+<break time="400ms"/>
+
+The stack below is platform. <break time="300ms"/> The application layer is where you build.
+
+<break time="800ms"/>
+
+</prosody>
+</voice>
+
+<voice name="V1">
+<prosody rate="100%">
+
+Section: Why the Stack Matters for Agents.
+
+<break time="500ms"/>
+
+Why does this stack matter for agentic AI?
+
+<break time="500ms"/>
+
+Agents are latency-sensitive. <break time="200ms"/> Compute-intensive. <break time="200ms"/> Operationally complex. <break time="300ms"/> They make multiple model calls per user interaction.
+
+<break time="400ms"/>
+
+Constraint: fast inference is required for responsive agent loops.
+
+<break time="500ms"/>
+
+TensorRT optimizes the model. <break time="200ms"/> Triton handles serving at scale. <break time="200ms"/> NIM packages everything for deployment.
+
+<break time="500ms"/>
+
+Compare this to calling a third-party API for every inference. <break time="300ms"/> You are subject to their latency, rate limits, and pricing.
+
+<break time="400ms"/>
+
+Enterprise driver: control. <break time="300ms"/> Run inference yourself with tooling designed for the task.
+
+<break time="500ms"/>
+
+For engineers: the stack reduces time-to-production. <break time="300ms"/> You focus on application logic.
+
+<break time="400ms"/>
+
+For product and technical leaders: the stack reduces risk. <break time="300ms"/> You build on a supported platform with enterprise support.
+
+<break time="800ms"/>
+
+</prosody>
+</voice>
+
+<voice name="V1">
+<prosody rate="100%">
+
+Section: Certification Alignment.
+
+<break time="500ms"/>
+
+The certification expects you to understand the platform stack at a conceptual level.
+
+<break time="500ms"/>
+
+Expect questions about the role of each layer. <break time="300ms"/> What does TensorRT do? <break time="200ms"/> What problem does Triton solve? <break time="200ms"/> What is a NIM?
+
+<break time="500ms"/>
+
+This aligns with NVIDIA exam domains around platform components and deployment contexts.
+
+<break time="500ms"/>
+
+You should understand the relationship between layers. <break time="300ms"/> TensorRT optimizes. <break time="200ms"/> Triton serves. <break time="200ms"/> NIM packages both. <break time="300ms"/> That flow is testable.
+
+<break time="500ms"/>
+
+The certification also covers on-premises versus cloud versus edge deployment. <break time="300ms"/> Understand the tradeoffs.
+
+<break time="500ms"/>
+
+NIM is particularly important. <break time="300ms"/> It is NVIDIA's primary interface for agentic deployment.
+
+<break time="800ms"/>
+
+</prosody>
+</voice>
+
+<voice name="V1">
+<prosody rate="98%">
+
+Section: Key Takeaways.
+
+<break time="600ms"/>
+
+NVIDIA is a full-stack AI platform provider. <break time="300ms"/> From hardware to application.
+
+<break time="500ms"/>
+
+The five layers are hardware, acceleration, inference serving, model surfaces, and application.
+
+<break time="500ms"/>
+
+For agentic workloads, this stack provides low-latency, high-throughput infrastructure.
+
+<break time="500ms"/>
+
+NIMs are the deployment surface for agentic AI. <break time="300ms"/> Optimized containers ready for production.
+
+<break time="500ms"/>
+
+Know the layers. <break time="200ms"/> Know the components. <break time="200ms"/> Know why they matter.
+
+<break time="600ms"/>
+
+This is the platform that agentic AI runs on. <break time="400ms"/> Now you know how it works.
+
+<break time="1000ms"/>
+
+</prosody>
+</voice>
+
+</speak>

@@ -244,7 +244,29 @@ async function activateCourse(courseId: string) {
 	
 	writeCoursesJson(coursesData);
 	console.log(`  courses.json updated`);
-	
+
+	// Step 6: Update .gitignore to track only this course's audio
+	console.log("\nStep 6: Updating .gitignore (audio exception)...");
+	const gitignorePath = path.join(__dirname, "../.gitignore");
+	if (fs.existsSync(gitignorePath)) {
+		let content = fs.readFileSync(gitignorePath, "utf-8");
+		const newLine = `!public/audio/${courseId}/`;
+		const replaced = content.replace(
+			/!public\/audio\/[a-z0-9-]+\//,
+			newLine
+		);
+		if (replaced === content && !content.includes(newLine)) {
+			content = content.replace(
+				/(!public\/audio\/whoosh\.wav)/,
+				`$1\n${newLine}`
+			);
+		} else {
+			content = replaced;
+		}
+		fs.writeFileSync(gitignorePath, content);
+		console.log(`  .gitignore: now tracking public/audio/${courseId}/`);
+	}
+
 	console.log(`\n========================================`);
 	console.log(`Course "${courseId}" is now active!`);
 	console.log(`========================================\n`);

@@ -1,0 +1,429 @@
+{
+  "courses": [
+    {
+      "id": "agentic-ai-for-beginners",
+      "title": "Agentic AI for Beginners",
+      "description": "NVIDIA Agentic AI Professional - Certification Prep & Applied Skills (12 modules)",
+      "moduleCount": 12,
+      "status": "archived",
+      "archivedAt": "2026-02-16T23:26:15.684Z"
+    },
+    {
+      "id": "aws-pulumi",
+      "title": "AWS Infrastructure as Code with Pulumi",
+      "description": "Complete course on building AWS infrastructure using Pulumi and TypeScript",
+      "moduleCount": 12,
+      "status": "archived",
+      "archivedAt": "2026-02-19T08:52:37.353Z"
+    },
+    {
+      "id": "tech-news",
+      "title": "Are Solo Developers Replacing Small Companies?",
+      "description": "This angle hits three strong psychological levers for general audiences: fear, novelty and identity. It also avoids the sleaze of side-hustle content.",
+      "moduleCount": 2,
+      "status": "archived",
+      "archivedAt": "2026-01-24T10:55:05.331Z"
+    },
+    {
+      "id": "the-one-person-company-era-just-started",
+      "title": "The One-Person Company Era Just Started",
+      "description": "Companies with fifty employees used to build software like this. Now one developer with a laptop and an AI stack can do the same job in a weekend. No offices, no meetings and no fundraising. This is not a prediction. It is already happening.",
+      "moduleCount": 0,
+      "status": "archived",
+      "archivedAt": "2026-01-24T10:56:17.842Z"
+    },
+    {
+      "id": "iac-story",
+      "title": "IaC Story",
+      "description": "Infrastructure as Code Story",
+      "moduleCount": 0,
+      "status": "archived",
+      "archivedAt": "2026-01-24T10:56:08.817Z"
+    },
+    {
+      "id": "secure-shell-layer-for-beginners",
+      "title": "Secure Shell Layer for Beginners",
+      "description": "AI-generated course: Secure Shell Layer for Beginners",
+      "moduleCount": 5,
+      "status": "archived",
+      "archivedAt": "2026-01-24T13:49:39.416Z"
+    },
+    {
+      "id": "securing-websites-with-ssl",
+      "title": "Securing Websites with SSL",
+      "description": "AI-generated course: Securing Websites with SSL",
+      "moduleCount": 5,
+      "status": "archived",
+      "archivedAt": "2026-01-25T00:24:38.099Z"
+    },
+    {
+      "id": "securing-websites-with-ssl-tls",
+      "title": "Securing Websites with SSL/TLS",
+      "description": "AI-generated course: Securing Websites with SSL/TLS",
+      "moduleCount": 8,
+      "status": "archived",
+      "archivedAt": "2026-01-25T00:25:25.570Z"
+    },
+    {
+      "id": "docker-containers-for-beginners",
+      "title": "Docker Containers for Beginners",
+      "description": "AI-generated course: Docker Containers for Beginners",
+      "moduleCount": 5,
+      "status": "archived",
+      "archivedAt": "2026-01-25T00:52:18.883Z"
+    },
+    {
+      "id": "git-for-beginners",
+      "title": "Git for Beginners",
+      "description": "AI-generated course: Git for Beginners",
+      "moduleCount": 6,
+      "status": "archived",
+      "archivedAt": "2026-01-26T00:42:18.813Z"
+    },
+    {
+      "id": "how-ai-agents-are-quietly-replacing-entry-level-jobs",
+      "title": "How AI Agents Are Quietly Replacing Entry-Level Jobs",
+      "description": "How AI Agents Are Quietly Replacing Entry-Level Jobs",
+      "moduleCount": 0,
+      "status": "archived",
+      "archivedAt": "2026-01-27T11:56:06.829Z"
+    },
+    {
+      "id": "comprehensive-wireless-networks",
+      "title": "Comprehensive Wireless Networks",
+      "description": "AI-generated course: Comprehensive Wireless Networks",
+      "moduleCount": 4,
+      "status": "archived",
+      "archivedAt": "2026-02-07T11:22:49.533Z"
+    },
+    {
+      "id": "understanding-agentic-ai-clawdbot-hype",
+      "title": "Understanding Agentic AI through the Clawdbot Hype",
+      "description": "AI-generated course: Understanding Agentic AI through the Clawdbot Hype",
+      "moduleCount": 5,
+      "status": "archived",
+      "archivedAt": "2026-02-13T00:19:10.644Z"
+    },
+    {
+      "id": "understanding-agentic-ai-and-clawdbot",
+      "title": "Understanding Agentic AI and the Clawdbot Phenomenon",
+      "description": "Shorts: Understanding Agentic AI and the Clawdbot Phenomenon",
+      "moduleCount": 5,
+      "status": "archived",
+      "archivedAt": "2026-01-29T09:19:42.745Z",
+      "contentType": "shorts"
+    },
+    {
+      "id": "agentic-ai-software-engineering",
+      "title": "Agentic AI in Software Engineering",
+      "description": "AI-generated course: Agentic AI in Software Engineering",
+      "moduleCount": 5,
+      "status": "archived",
+      "archivedAt": "2026-01-29T09:29:43.631Z"
+    },
+    {
+      "id": "clawdbot-shorts",
+      "title": "Clawdbot Shorts",
+      "description": "Shorts: Clawdbot Shorts",
+      "moduleCount": 1,
+      "status": "archived",
+      "archivedAt": "2026-02-07T12:43:42.969Z",
+      "contentType": "shorts"
+    },
+    {
+      "id": "ai-solo-hustle-shorts",
+      "title": "AI Solo Hustle Shorts",
+      "description": "Shorts: AI Solo Hustle Shorts",
+      "moduleCount": 1,
+      "status": "archived",
+      "archivedAt": "2026-01-31T10:39:06.153Z",
+      "contentType": "shorts"
+    },
+    {
+      "id": "ai-developer-boost-shorts",
+      "title": "AI Developer Boost Shorts",
+      "description": "Shorts: AI Developer Boost Shorts",
+      "moduleCount": 1,
+      "status": "archived",
+      "archivedAt": "2026-01-29T09:55:33.399Z",
+      "contentType": "shorts"
+    },
+    {
+      "id": "rag-for-code-search-codebase-like-cursor",
+      "title": "RAG for Code: Search Your Codebase Like Cursor",
+      "description": "Video: RAG for Code: Search Your Codebase Like Cursor",
+      "moduleCount": 7,
+      "status": "archived",
+      "archivedAt": "2026-02-08T02:38:23.480Z",
+      "contentType": "video"
+    },
+    {
+      "id": "agentic-ai-labs-deep-dive",
+      "title": "Agentic AI Labs Deep Dive",
+      "description": "Video: Agentic AI Labs Deep Dive",
+      "moduleCount": 5,
+      "status": "archived",
+      "archivedAt": "2026-02-13T14:29:00.760Z",
+      "contentType": "video"
+    },
+    {
+      "id": "agentic-ai-labs-mastery",
+      "title": "Agentic AI Labs Mastery",
+      "description": "AI-generated course: Agentic AI Labs Mastery",
+      "moduleCount": 4,
+      "status": "archived",
+      "archivedAt": "2026-02-13T02:00:21.058Z",
+      "contentType": "course"
+    },
+    {
+      "id": "cisco-ai-technical-practitioner",
+      "title": "Cisco AI Technical Practitioner",
+      "description": "AI-generated course: Cisco AI Technical Practitioner",
+      "moduleCount": 2,
+      "status": "archived",
+      "archivedAt": "2026-02-14T00:10:00.975Z",
+      "contentType": "course"
+    },
+    {
+      "id": "mastering-firewalls-security-concepts",
+      "title": "Mastering Firewalls and Security Concepts",
+      "description": "AI-generated course: Mastering Firewalls and Security Concepts",
+      "moduleCount": 3,
+      "status": "archived",
+      "archivedAt": "2026-02-17T12:45:49.311Z",
+      "contentType": "course"
+    },
+    {
+      "id": "fix-ai-wrong-answers",
+      "title": "Fix AI Wrong Answers",
+      "description": "Video: Fix AI Wrong Answers",
+      "moduleCount": 5,
+      "status": "archived",
+      "archivedAt": "2026-02-17T13:05:47.424Z",
+      "contentType": "video"
+    },
+    {
+      "id": "clawdbot-ai-series",
+      "title": "Mastering ClawdBot AI",
+      "description": "Video: Mastering ClawdBot AI",
+      "moduleCount": 4,
+      "status": "archived",
+      "archivedAt": "2026-02-18T23:57:01.125Z",
+      "contentType": "video"
+    },
+    {
+      "id": "ai-security-crash-course-2026",
+      "title": "AI Security Crash Course 2026",
+      "description": "AI-generated course: AI Security Crash Course 2026",
+      "moduleCount": 6,
+      "status": "archived",
+      "archivedAt": "2026-02-19T09:32:26.455Z",
+      "contentType": "course"
+    },
+    {
+      "id": "modern-network-automation-python-ai",
+      "title": "Modern Network Automation with Python and AI",
+      "description": "Video: Modern Network Automation with Python and AI",
+      "moduleCount": 2,
+      "status": "archived",
+      "archivedAt": "2026-02-26T04:56:45.674Z",
+      "contentType": "video"
+    },
+    {
+      "id": "mastering-computer-networks",
+      "title": "Mastering Computer Networks",
+      "description": "Video: Mastering Computer Networks",
+      "moduleCount": 2,
+      "status": "archived",
+      "archivedAt": "2026-02-26T04:59:56.649Z",
+      "contentType": "video"
+    },
+    {
+      "id": "introduction-to-computer-networks",
+      "title": "Introduction to Computer Networks",
+      "description": "AI-generated course: Introduction to Computer Networks",
+      "moduleCount": 4,
+      "status": "active",
+      "archivedAt": null,
+      "contentType": "course"
+    }
+  ],
+  "courseModuleMapping": {
+    "agentic-ai-for-beginners": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "aws-pulumi": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "tech-news": [
+      20,
+      19
+    ],
+    "the-one-person-company-era-just-started": [],
+    "iac-story": [],
+    "secure-shell-layer-for-beginners": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "securing-websites-with-ssl": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "securing-websites-with-ssl-tls": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "docker-containers-for-beginners": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "git-for-beginners": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "how-ai-agents-are-quietly-replacing-entry-level-jobs": [],
+    "comprehensive-wireless-networks": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "understanding-agentic-ai-clawdbot-hype": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "understanding-agentic-ai-and-clawdbot": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "agentic-ai-software-engineering": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "clawdbot-shorts": [
+      1
+    ],
+    "ai-solo-hustle-shorts": [
+      1
+    ],
+    "ai-developer-boost-shorts": [
+      1
+    ],
+    "rag-for-code-search-codebase-like-cursor": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "agentic-ai-labs-deep-dive": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "agentic-ai-labs-mastery": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "cisco-ai-technical-practitioner": [
+      1,
+      2
+    ],
+    "mastering-firewalls-security-concepts": [
+      1,
+      2,
+      3
+    ],
+    "fix-ai-wrong-answers": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "clawdbot-ai-series": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ai-security-crash-course-2026": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "modern-network-automation-python-ai": [
+      1,
+      2
+    ],
+    "mastering-computer-networks": [
+      1,
+      2
+    ],
+    "introduction-to-computer-networks": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}

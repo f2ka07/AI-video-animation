@@ -1,0 +1,72 @@
+Module 09: NVIDIA Inference Optimization
+
+Metadata
+Target Runtime: 12-15 minutes
+Script Length: 1000-1400 words
+Voice: Hybrid (V2 intro, V1 body)
+
+---
+
+[CINEMATIC INTRO]
+
+In Module 03 we walked through the NVIDIA AI Platform Stack: hardware, CUDA, TensorRT, Triton, and NIM. But we didn't dig into the levers that actually move the needle: batching, concurrency, and the tradeoffs between latency and throughput.
+
+When you deploy agents at scale, inference cost and latency dominate. This module covers how GPU inference behaves differently from CPU, and when optimization techniques improve latency or scale.
+
+---
+
+[CONCEPT]
+
+Let's frame the problem.
+
+Agents make multiple model calls per user interaction. A single request might trigger five, ten, or twenty inference calls as the agent plans, retrieves, acts, and reflects. Each call has latency. Each call has cost. At scale, small improvements compound. A ten percent latency reduction across ten calls saves a second per request. A ten percent cost reduction across millions of requests saves real money.
+
+GPU inference behaves differently from CPU. GPUs are built for parallel computation. They excel at batch processing: run many requests together, and throughput goes up. But batching adds latency—you wait for the batch to fill. So there's a tradeoff: low latency with small batches, high throughput with large batches. The right choice depends on your workload.
+
+---
+
+[ARCHITECTURE]
+
+How do Triton and TensorRT fit into this?
+
+Triton Inference Server handles the mechanics of serving. It manages model loading, request routing, and GPU scheduling. Triton supports dynamic batching: incoming requests are queued and batched together before inference. You configure min and max batch sizes, and Triton finds the sweet spot. Turn on batching, and throughput can increase by two to five times. The cost: added latency from waiting for the batch. For agent workloads with variable arrival rates, dynamic batching is often worth it.
+
+Triton also supports concurrent model execution. Multiple models can run on the same GPU, or requests can be distributed across multiple GPUs. Concurrency increases throughput when you have multiple models—for example, a planner model and an executor model—or when you're serving many users. The tradeoff: GPU memory. Each model instance consumes memory. You need to balance concurrency with memory limits.
+
+TensorRT optimizes the model itself. It compiles the model into an optimized execution graph. The result: faster inference, lower latency, and often lower memory use. TensorRT is especially effective for production deployment where the model is fixed and you want maximum performance. The tradeoff: compilation time and some flexibility. You optimize for a specific GPU and batch size. Change the target, and you may need to recompile.
+
+---
+
+[APPLICATION]
+
+When does each technique help?
+
+Batching: Use it when throughput matters more than latency. Batch size of four or eight often doubles throughput with modest latency increase. For background processing, research pipelines, or high-volume APIs, batching is essential. For real-time chat where every millisecond counts, use smaller batches or no batching.
+
+Concurrency: Use it when you serve multiple models or many concurrent users. Run two model instances on one GPU if memory allows. Scale out to multiple GPUs when a single GPU is saturated. Monitor GPU utilization—if it's below eighty percent, you have headroom for more concurrency.
+
+TensorRT: Use it when latency and cost are critical. The compilation step is one-time. The gains are permanent. For agent workloads, TensorRT can cut latency by twenty to forty percent. That directly improves user experience and reduces cost per request.
+
+Baseline first. Measure latency, throughput, and cost before optimizing. Then turn on batching and compare. Then add TensorRT and compare. The numbers will tell you what's worth it.
+
+---
+
+[EXAM MAPPING]
+
+The NVIDIA certification will ask why GPU inference behaves differently from CPU, and when optimization techniques improve latency or scale.
+
+Key terms: batching, dynamic batching, concurrency, throughput, latency, TensorRT, Triton, GPU utilization, batch size.
+
+You'll need to explain the latency-throughput tradeoff: batching increases throughput but can add latency. And you'll need to know when TensorRT and Triton optimizations apply.
+
+---
+
+[RECAP]
+
+GPU inference excels at parallel, batched workloads. Batching increases throughput; the cost is latency. Concurrency scales when you have multiple models or many users. TensorRT optimizes the model for lower latency and cost.
+
+Measure first. Then apply batching, concurrency, and TensorRT based on your workload. For agents, the combination of Triton batching and TensorRT optimization is the default path to production performance.
+
+---
+
+Word Count: ~620 words

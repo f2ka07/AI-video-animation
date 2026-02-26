@@ -1,0 +1,1261 @@
+{
+  "moduleNumber": 3,
+  "title": "Wireless Network Protocols and Data Transmission",
+  "slides": {
+    "wireless-protocols-overview": {
+      "words": [
+        {
+          "text": "Wireless",
+          "start": 0.14,
+          "end": 0.63
+        },
+        {
+          "text": "protocols",
+          "start": 0.65,
+          "end": 1.17
+        },
+        {
+          "text": "define",
+          "start": 1.17,
+          "end": 1.64
+        },
+        {
+          "text": "rules",
+          "start": 1.64,
+          "end": 1.89
+        },
+        {
+          "text": "for",
+          "start": 1.89,
+          "end": 2.02
+        },
+        {
+          "text": "communication",
+          "start": 2.04,
+          "end": 2.87
+        },
+        {
+          "text": "They",
+          "start": 3.35,
+          "end": 3.58
+        },
+        {
+          "text": "ensure",
+          "start": 3.58,
+          "end": 4
+        },
+        {
+          "text": "data",
+          "start": 4,
+          "end": 4.44
+        },
+        {
+          "text": "is",
+          "start": 4.45,
+          "end": 4.65
+        },
+        {
+          "text": "sent",
+          "start": 4.66,
+          "end": 5.08
+        },
+        {
+          "text": "and",
+          "start": 5.12,
+          "end": 5.3500000000000005
+        },
+        {
+          "text": "received",
+          "start": 5.35,
+          "end": 5.85
+        },
+        {
+          "text": "correctly",
+          "start": 5.9,
+          "end": 6.42
+        },
+        {
+          "text": "over",
+          "start": 6.44,
+          "end": 6.69
+        },
+        {
+          "text": "the",
+          "start": 6.69,
+          "end": 6.840000000000001
+        },
+        {
+          "text": "air",
+          "start": 6.84,
+          "end": 7.17
+        },
+        {
+          "text": "Examples",
+          "start": 7.71,
+          "end": 8.28
+        },
+        {
+          "text": "include",
+          "start": 8.28,
+          "end": 8.74
+        },
+        {
+          "text": "Wi",
+          "start": 8.79,
+          "end": 9.079999999999998
+        },
+        {
+          "text": "Fi",
+          "start": 9.08,
+          "end": 9.3
+        },
+        {
+          "text": "protocols",
+          "start": 9.3,
+          "end": 9.950000000000001
+        },
+        {
+          "text": "like",
+          "start": 9.95,
+          "end": 10.209999999999999
+        },
+        {
+          "text": "802",
+          "start": 10.23,
+          "end": 10.85
+        },
+        {
+          "text": "11",
+          "start": 10.889999,
+          "end": 11.939999
+        },
+        {
+          "text": "standards",
+          "start": 12.3,
+          "end": 12.9
+        },
+        {
+          "text": "and",
+          "start": 13.23,
+          "end": 13.47
+        },
+        {
+          "text": "Bluetooth",
+          "start": 13.469999,
+          "end": 14.029999
+        },
+        {
+          "text": "Understanding",
+          "start": 14.509999,
+          "end": 15.139999000000001
+        },
+        {
+          "text": "these",
+          "start": 15.139999,
+          "end": 15.419998999999999
+        },
+        {
+          "text": "helps",
+          "start": 15.44,
+          "end": 15.82
+        },
+        {
+          "text": "you",
+          "start": 15.82,
+          "end": 15.99
+        },
+        {
+          "text": "grasp",
+          "start": 15.99,
+          "end": 16.44
+        },
+        {
+          "text": "how",
+          "start": 16.449999,
+          "end": 16.709999
+        },
+        {
+          "text": "devices",
+          "start": 16.73,
+          "end": 17.47
+        },
+        {
+          "text": "talk",
+          "start": 17.51,
+          "end": 17.92
+        },
+        {
+          "text": "wirelessly",
+          "start": 17.93,
+          "end": 17.94
+        }
+      ]
+    },
+    "wireless-data-transmission-concepts": {
+      "words": [
+        {
+          "text": "Data",
+          "start": 0.14,
+          "end": 0.56
+        },
+        {
+          "text": "travels",
+          "start": 0.56,
+          "end": 1.1
+        },
+        {
+          "text": "wirelessly",
+          "start": 1.11,
+          "end": 1.9000000000000001
+        },
+        {
+          "text": "in",
+          "start": 1.95,
+          "end": 2.19
+        },
+        {
+          "text": "packets",
+          "start": 2.23,
+          "end": 2.91
+        },
+        {
+          "text": "small",
+          "start": 3.27,
+          "end": 3.64
+        },
+        {
+          "text": "chunks",
+          "start": 3.64,
+          "end": 4.01
+        },
+        {
+          "text": "of",
+          "start": 4.04,
+          "end": 4.25
+        },
+        {
+          "text": "information",
+          "start": 4.25,
+          "end": 5.04
+        },
+        {
+          "text": "Protocols",
+          "start": 5.57,
+          "end": 6.23
+        },
+        {
+          "text": "control",
+          "start": 6.23,
+          "end": 6.73
+        },
+        {
+          "text": "packet",
+          "start": 6.79,
+          "end": 7.14
+        },
+        {
+          "text": "size",
+          "start": 7.14,
+          "end": 7.619999999999999
+        },
+        {
+          "text": "timing",
+          "start": 7.9,
+          "end": 8.48
+        },
+        {
+          "text": "and",
+          "start": 8.74,
+          "end": 9.040000000000001
+        },
+        {
+          "text": "error",
+          "start": 9.11,
+          "end": 9.399999999999999
+        },
+        {
+          "text": "checking",
+          "start": 9.4,
+          "end": 9.940000000000001
+        },
+        {
+          "text": "This",
+          "start": 10.38,
+          "end": 10.66
+        },
+        {
+          "text": "organized",
+          "start": 10.71,
+          "end": 11.32
+        },
+        {
+          "text": "flow",
+          "start": 11.33,
+          "end": 11.74
+        },
+        {
+          "text": "keeps",
+          "start": 11.91,
+          "end": 12.26
+        },
+        {
+          "text": "wireless",
+          "start": 12.259999,
+          "end": 12.629999
+        },
+        {
+          "text": "communication",
+          "start": 12.66,
+          "end": 13.39
+        },
+        {
+          "text": "efficient",
+          "start": 13.389999,
+          "end": 14.049999
+        },
+        {
+          "text": "and",
+          "start": 14.16,
+          "end": 14.39
+        },
+        {
+          "text": "reliable",
+          "start": 14.4,
+          "end": 15.07
+        },
+        {
+          "text": "despite",
+          "start": 15.13,
+          "end": 15.700000000000001
+        },
+        {
+          "text": "interference",
+          "start": 15.759999,
+          "end": 16.649999
+        },
+        {
+          "text": "or",
+          "start": 16.719999,
+          "end": 16.969999
+        },
+        {
+          "text": "obstacles",
+          "start": 17.039999,
+          "end": 17.899999
+        }
+      ]
+    },
+    "send-receive-udp-python": {
+      "words": [
+        {
+          "text": "This",
+          "start": 0.07,
+          "end": 0.33
+        },
+        {
+          "text": "Python",
+          "start": 0.33,
+          "end": 0.6799999999999999
+        },
+        {
+          "text": "example",
+          "start": 0.68,
+          "end": 1.21
+        },
+        {
+          "text": "demonstrates",
+          "start": 1.23,
+          "end": 1.85
+        },
+        {
+          "text": "sending",
+          "start": 1.85,
+          "end": 2.44
+        },
+        {
+          "text": "and",
+          "start": 2.49,
+          "end": 2.7100000000000004
+        },
+        {
+          "text": "receiving",
+          "start": 2.71,
+          "end": 3.2199999999999998
+        },
+        {
+          "text": "data",
+          "start": 3.22,
+          "end": 3.64
+        },
+        {
+          "text": "over",
+          "start": 3.69,
+          "end": 4.03
+        },
+        {
+          "text": "a",
+          "start": 4.09,
+          "end": 4.18
+        },
+        {
+          "text": "wireless",
+          "start": 4.18,
+          "end": 4.609999999999999
+        },
+        {
+          "text": "network",
+          "start": 4.61,
+          "end": 5.180000000000001
+        },
+        {
+          "text": "using",
+          "start": 5.28,
+          "end": 5.71
+        },
+        {
+          "text": "UDP",
+          "start": 0,
+          "end": 0
+        },
+        {
+          "text": "sockets",
+          "start": 5.72,
+          "end": 6.6
+        },
+        {
+          "text": "One",
+          "start": 7.3,
+          "end": 7.57
+        },
+        {
+          "text": "script",
+          "start": 7.57,
+          "end": 7.98
+        },
+        {
+          "text": "sends",
+          "start": 7.99,
+          "end": 8.31
+        },
+        {
+          "text": "a",
+          "start": 8.309999,
+          "end": 8.369999
+        },
+        {
+          "text": "message",
+          "start": 8.37,
+          "end": 8.979999999999999
+        },
+        {
+          "text": "and",
+          "start": 9.38,
+          "end": 9.55
+        },
+        {
+          "text": "another",
+          "start": 9.55,
+          "end": 9.91
+        },
+        {
+          "text": "listens",
+          "start": 9.91,
+          "end": 10.44
+        },
+        {
+          "text": "and",
+          "start": 10.469999,
+          "end": 10.709999
+        },
+        {
+          "text": "prints",
+          "start": 10.71,
+          "end": 11.040000000000001
+        },
+        {
+          "text": "it",
+          "start": 11.04,
+          "end": 11.309999999999999
+        },
+        {
+          "text": "showing",
+          "start": 11.57,
+          "end": 12
+        },
+        {
+          "text": "basic",
+          "start": 12.009999,
+          "end": 12.469999000000001
+        },
+        {
+          "text": "wireless",
+          "start": 12.469999,
+          "end": 12.879999
+        },
+        {
+          "text": "data",
+          "start": 12.88,
+          "end": 13.16
+        },
+        {
+          "text": "transmission",
+          "start": 13.16,
+          "end": 13.84
+        },
+        {
+          "text": "in",
+          "start": 13.86,
+          "end": 14.059999999999999
+        },
+        {
+          "text": "action",
+          "start": 14.059999,
+          "end": 14.459999
+        }
+      ]
+    },
+    "explain-udp-send-code": {
+      "words": [
+        {
+          "text": "This",
+          "start": 0.1,
+          "end": 0.32
+        },
+        {
+          "text": "code",
+          "start": 0.32,
+          "end": 0.64
+        },
+        {
+          "text": "creates",
+          "start": 0.64,
+          "end": 1.06
+        },
+        {
+          "text": "a",
+          "start": 1.1,
+          "end": 1.1900000000000002
+        },
+        {
+          "text": "UDP",
+          "start": 1.19,
+          "end": 1.6199999999999999
+        },
+        {
+          "text": "socket",
+          "start": 1.63,
+          "end": 2.19
+        },
+        {
+          "text": "to",
+          "start": 2.33,
+          "end": 2.47
+        },
+        {
+          "text": "send",
+          "start": 2.47,
+          "end": 2.7800000000000002
+        },
+        {
+          "text": "a",
+          "start": 2.8,
+          "end": 2.9
+        },
+        {
+          "text": "broadcast",
+          "start": 2.9,
+          "end": 3.41
+        },
+        {
+          "text": "message",
+          "start": 3.41,
+          "end": 3.91
+        },
+        {
+          "text": "It",
+          "start": 4.15,
+          "end": 4.340000000000001
+        },
+        {
+          "text": "defines",
+          "start": 4.34,
+          "end": 4.84
+        },
+        {
+          "text": "the",
+          "start": 4.85,
+          "end": 4.97
+        },
+        {
+          "text": "broadcast",
+          "start": 4.97,
+          "end": 5.26
+        },
+        {
+          "text": "IP",
+          "start": 5.76,
+          "end": 6.029999999999999
+        },
+        {
+          "text": "and",
+          "start": 6.21,
+          "end": 6.42
+        },
+        {
+          "text": "port",
+          "start": 6.42,
+          "end": 6.89
+        },
+        {
+          "text": "then",
+          "start": 6.99,
+          "end": 7.23
+        },
+        {
+          "text": "sends",
+          "start": 7.23,
+          "end": 7.57
+        },
+        {
+          "text": "a",
+          "start": 7.61,
+          "end": 7.71
+        },
+        {
+          "text": "simple",
+          "start": 7.71,
+          "end": 8.09
+        },
+        {
+          "text": "text",
+          "start": 8.13,
+          "end": 8.430000000000001
+        },
+        {
+          "text": "message",
+          "start": 8.429999,
+          "end": 8.939999
+        },
+        {
+          "text": "UDP",
+          "start": 9.22,
+          "end": 9.8
+        },
+        {
+          "text": "is",
+          "start": 9.83,
+          "end": 10.040000000000001
+        },
+        {
+          "text": "connectionless",
+          "start": 10.04,
+          "end": 10.75
+        },
+        {
+          "text": "making",
+          "start": 11.179999,
+          "end": 11.609999
+        },
+        {
+          "text": "it",
+          "start": 11.61,
+          "end": 11.77
+        },
+        {
+          "text": "fast",
+          "start": 11.77,
+          "end": 12.19
+        },
+        {
+          "text": "for",
+          "start": 12.2,
+          "end": 12.42
+        },
+        {
+          "text": "real",
+          "start": 12.42,
+          "end": 12.69
+        },
+        {
+          "text": "time",
+          "start": 12.73,
+          "end": 13.030000000000001
+        },
+        {
+          "text": "wireless",
+          "start": 13.03,
+          "end": 13.459999999999999
+        },
+        {
+          "text": "communication",
+          "start": 13.49,
+          "end": 14.35
+        },
+        {
+          "text": "but",
+          "start": 14.45,
+          "end": 14.729999999999999
+        },
+        {
+          "text": "without",
+          "start": 14.73,
+          "end": 15.13
+        },
+        {
+          "text": "guaranteed",
+          "start": 15.16,
+          "end": 15.83
+        },
+        {
+          "text": "delivery",
+          "start": 15.88,
+          "end": 16.57
+        }
+      ]
+    },
+    "receive-udp-python": {
+      "words": [
+        {
+          "text": "Here",
+          "start": 0.16,
+          "end": 0.43000000000000005
+        },
+        {
+          "text": "is",
+          "start": 0.44,
+          "end": 0.5800000000000001
+        },
+        {
+          "text": "the",
+          "start": 0.59,
+          "end": 0.74
+        },
+        {
+          "text": "listening",
+          "start": 0.75,
+          "end": 1.4100000000000001
+        },
+        {
+          "text": "Python",
+          "start": 1.48,
+          "end": 1.92
+        },
+        {
+          "text": "script",
+          "start": 1.92,
+          "end": 2.3899999999999997
+        },
+        {
+          "text": "for",
+          "start": 2.41,
+          "end": 2.6
+        },
+        {
+          "text": "UDP",
+          "start": 3,
+          "end": 3.23
+        },
+        {
+          "text": "It",
+          "start": 3.77,
+          "end": 3.97
+        },
+        {
+          "text": "binds",
+          "start": 4.01,
+          "end": 4.38
+        },
+        {
+          "text": "to",
+          "start": 4.38,
+          "end": 4.54
+        },
+        {
+          "text": "a",
+          "start": 4.54,
+          "end": 4.61
+        },
+        {
+          "text": "port",
+          "start": 4.61,
+          "end": 4.98
+        },
+        {
+          "text": "and",
+          "start": 5.27,
+          "end": 5.539999999999999
+        },
+        {
+          "text": "waits",
+          "start": 5.54,
+          "end": 5.84
+        },
+        {
+          "text": "for",
+          "start": 5.85,
+          "end": 6
+        },
+        {
+          "text": "messages",
+          "start": 6,
+          "end": 6.73
+        },
+        {
+          "text": "When",
+          "start": 7.19,
+          "end": 7.420000000000001
+        },
+        {
+          "text": "a",
+          "start": 7.42,
+          "end": 7.5
+        },
+        {
+          "text": "message",
+          "start": 7.5,
+          "end": 7.92
+        },
+        {
+          "text": "arrives",
+          "start": 7.96,
+          "end": 8.61
+        },
+        {
+          "text": "it",
+          "start": 8.88,
+          "end": 9.090000000000002
+        },
+        {
+          "text": "prints",
+          "start": 9.13,
+          "end": 9.520000000000001
+        },
+        {
+          "text": "the",
+          "start": 9.52,
+          "end": 9.54
+        },
+        {
+          "text": "sender’s",
+          "start": 9.54,
+          "end": 10.2
+        },
+        {
+          "text": "address",
+          "start": 10.27,
+          "end": 10.93
+        },
+        {
+          "text": "and",
+          "start": 11.34,
+          "end": 11.54
+        },
+        {
+          "text": "the",
+          "start": 11.54,
+          "end": 11.639999999999999
+        },
+        {
+          "text": "content",
+          "start": 11.69,
+          "end": 12.37
+        },
+        {
+          "text": "illustrating",
+          "start": 12.809999,
+          "end": 13.709999
+        },
+        {
+          "text": "simple",
+          "start": 13.719999,
+          "end": 14.179999
+        },
+        {
+          "text": "wireless",
+          "start": 14.19,
+          "end": 14.74
+        },
+        {
+          "text": "reception",
+          "start": 14.759999,
+          "end": 15.529999
+        }
+      ]
+    },
+    "explain-udp-receive-code": {
+      "words": [
+        {
+          "text": "This",
+          "start": 0.15,
+          "end": 0.43999999999999995
+        },
+        {
+          "text": "script",
+          "start": 0.45,
+          "end": 1.1
+        },
+        {
+          "text": "listens",
+          "start": 1.38,
+          "end": 1.98
+        },
+        {
+          "text": "on",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "text": "a",
+          "start": 2.19,
+          "end": 2.25
+        },
+        {
+          "text": "UDP",
+          "start": 2.25,
+          "end": 2.73
+        },
+        {
+          "text": "port",
+          "start": 2.73,
+          "end": 3.24
+        },
+        {
+          "text": "for",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "text": "incoming",
+          "start": 3.66,
+          "end": 4.18
+        },
+        {
+          "text": "messages",
+          "start": 4.18,
+          "end": 4.84
+        },
+        {
+          "text": "It",
+          "start": 5.2,
+          "end": 5.44
+        },
+        {
+          "text": "waits",
+          "start": 5.44,
+          "end": 5.82
+        },
+        {
+          "text": "indefinitely",
+          "start": 5.87,
+          "end": 6.82
+        },
+        {
+          "text": "and",
+          "start": 6.88,
+          "end": 7.15
+        },
+        {
+          "text": "prints",
+          "start": 7.15,
+          "end": 7.46
+        },
+        {
+          "text": "information",
+          "start": 7.46,
+          "end": 8.26
+        },
+        {
+          "text": "when",
+          "start": 8.309999,
+          "end": 8.589998999999999
+        },
+        {
+          "text": "data",
+          "start": 8.59,
+          "end": 9.05
+        },
+        {
+          "text": "arrives",
+          "start": 9.13,
+          "end": 9.700000000000001
+        },
+        {
+          "text": "This",
+          "start": 10.24,
+          "end": 10.6
+        },
+        {
+          "text": "models",
+          "start": 10.599999,
+          "end": 11.119999
+        },
+        {
+          "text": "how",
+          "start": 11.139999,
+          "end": 11.359999
+        },
+        {
+          "text": "wireless",
+          "start": 11.36,
+          "end": 11.82
+        },
+        {
+          "text": "devices",
+          "start": 11.82,
+          "end": 12.48
+        },
+        {
+          "text": "can",
+          "start": 12.52,
+          "end": 12.75
+        },
+        {
+          "text": "receive",
+          "start": 12.75,
+          "end": 13.18
+        },
+        {
+          "text": "broadcast",
+          "start": 13.19,
+          "end": 13.809999999999999
+        },
+        {
+          "text": "messages",
+          "start": 13.809999,
+          "end": 14.459999
+        },
+        {
+          "text": "without",
+          "start": 14.759999,
+          "end": 15.219999000000001
+        },
+        {
+          "text": "needing",
+          "start": 15.25,
+          "end": 15.74
+        },
+        {
+          "text": "a",
+          "start": 15.79,
+          "end": 15.899999999999999
+        },
+        {
+          "text": "fixed",
+          "start": 15.9,
+          "end": 16.28
+        },
+        {
+          "text": "connection",
+          "start": 16.289999,
+          "end": 16.909999000000003
+        }
+      ]
+    },
+    "wireless-errors-and-corrections": {
+      "words": [
+        {
+          "text": "Wireless",
+          "start": 0.14,
+          "end": 0.67
+        },
+        {
+          "text": "data",
+          "start": 0.67,
+          "end": 1.25
+        },
+        {
+          "text": "can",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "text": "be",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "text": "corrupted",
+          "start": 1.81,
+          "end": 2.56
+        },
+        {
+          "text": "by",
+          "start": 2.68,
+          "end": 2.9000000000000004
+        },
+        {
+          "text": "noise",
+          "start": 2.9,
+          "end": 3.3899999999999997
+        },
+        {
+          "text": "or",
+          "start": 3.57,
+          "end": 3.98
+        },
+        {
+          "text": "interference",
+          "start": 4.18,
+          "end": 5.08
+        },
+        {
+          "text": "Protocols",
+          "start": 5.71,
+          "end": 6.58
+        },
+        {
+          "text": "use",
+          "start": 6.75,
+          "end": 7.21
+        },
+        {
+          "text": "error",
+          "start": 7.28,
+          "end": 7.53
+        },
+        {
+          "text": "detection",
+          "start": 7.53,
+          "end": 8.3
+        },
+        {
+          "text": "and",
+          "start": 8.52,
+          "end": 8.93
+        },
+        {
+          "text": "correction",
+          "start": 9.03,
+          "end": 9.59
+        },
+        {
+          "text": "techniques",
+          "start": 9.59,
+          "end": 10.2
+        },
+        {
+          "text": "such",
+          "start": 10.24,
+          "end": 10.57
+        },
+        {
+          "text": "as",
+          "start": 10.57,
+          "end": 10.74
+        },
+        {
+          "text": "checksums",
+          "start": 10.78,
+          "end": 11.399999999999999
+        },
+        {
+          "text": "and",
+          "start": 11.559999,
+          "end": 11.949999
+        },
+        {
+          "text": "retransmissions",
+          "start": 12.05,
+          "end": 12.450000000000001
+        },
+        {
+          "text": "to",
+          "start": 13.349999,
+          "end": 13.489999000000001
+        },
+        {
+          "text": "ensure",
+          "start": 13.49,
+          "end": 14.1
+        },
+        {
+          "text": "data",
+          "start": 14.21,
+          "end": 14.680000000000001
+        },
+        {
+          "text": "integrity",
+          "start": 14.7,
+          "end": 15.5
+        },
+        {
+          "text": "This",
+          "start": 15.98,
+          "end": 16.22
+        },
+        {
+          "text": "keeps",
+          "start": 16.219999,
+          "end": 16.519999000000002
+        },
+        {
+          "text": "wireless",
+          "start": 16.52,
+          "end": 16.87
+        },
+        {
+          "text": "communication",
+          "start": 16.869999,
+          "end": 17.729999
+        },
+        {
+          "text": "reliable",
+          "start": 18.01,
+          "end": 18.62
+        },
+        {
+          "text": "even",
+          "start": 18.719999,
+          "end": 19.009999
+        },
+        {
+          "text": "in",
+          "start": 19.01,
+          "end": 19.16
+        },
+        {
+          "text": "noisy",
+          "start": 19.16,
+          "end": 19.5
+        },
+        {
+          "text": "environments",
+          "start": 19.57,
+          "end": 20.3
+        }
+      ]
+    }
+  },
+  "lineMappings": {
+    "send-receive-udp-python": [
+      {
+        "id": "message",
+        "line": 5,
+        "wordRange": [
+          19,
+          19
+        ]
+      }
+    ],
+    "explain-udp-send-code": [
+      {
+        "id": "message",
+        "line": 5,
+        "wordRange": [
+          10,
+          10
+        ]
+      }
+    ],
+    "explain-udp-receive-code": [
+      {
+        "id": "data",
+        "line": 8,
+        "wordRange": [
+          17,
+          17
+        ]
+      }
+    ]
+  }
+}

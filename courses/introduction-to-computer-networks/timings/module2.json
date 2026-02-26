@@ -1,0 +1,1692 @@
+{
+  "moduleNumber": 2,
+  "title": "Network Hardware",
+  "slides": {
+    "hardware-introduction": {
+      "words": [
+        {
+          "text": "Ever",
+          "start": 0.15,
+          "end": 0.41000000000000003
+        },
+        {
+          "text": "wondered",
+          "start": 0.41,
+          "end": 0.84
+        },
+        {
+          "text": "what",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "allows",
+          "start": 1.05,
+          "end": 1.4100000000000001
+        },
+        {
+          "text": "your",
+          "start": 1.41,
+          "end": 1.54
+        },
+        {
+          "text": "computer",
+          "start": 1.54,
+          "end": 2.02
+        },
+        {
+          "text": "to",
+          "start": 2.08,
+          "end": 2.17
+        },
+        {
+          "text": "connect",
+          "start": 2.17,
+          "end": 2.54
+        },
+        {
+          "text": "to",
+          "start": 2.56,
+          "end": 2.68
+        },
+        {
+          "text": "the",
+          "start": 2.68,
+          "end": 2.83
+        },
+        {
+          "text": "internet",
+          "start": 2.83,
+          "end": 3.42
+        },
+        {
+          "text": "The",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "text": "answer",
+          "start": 4.16,
+          "end": 4.5200000000000005
+        },
+        {
+          "text": "lies",
+          "start": 4.52,
+          "end": 4.859999999999999
+        },
+        {
+          "text": "in",
+          "start": 4.88,
+          "end": 5.03
+        },
+        {
+          "text": "network",
+          "start": 5.03,
+          "end": 5.45
+        },
+        {
+          "text": "hardware",
+          "start": 5.45,
+          "end": 5.94
+        },
+        {
+          "text": "These",
+          "start": 6.38,
+          "end": 6.67
+        },
+        {
+          "text": "physical",
+          "start": 6.67,
+          "end": 7.09
+        },
+        {
+          "text": "components",
+          "start": 7.09,
+          "end": 7.72
+        },
+        {
+          "text": "form",
+          "start": 7.73,
+          "end": 8.030000000000001
+        },
+        {
+          "text": "the",
+          "start": 8.03,
+          "end": 8.16
+        },
+        {
+          "text": "bridge",
+          "start": 8.17,
+          "end": 8.58
+        },
+        {
+          "text": "between",
+          "start": 8.61,
+          "end": 8.959999999999999
+        },
+        {
+          "text": "devices",
+          "start": 8.96,
+          "end": 9.680000000000001
+        },
+        {
+          "text": "and",
+          "start": 9.74,
+          "end": 9.92
+        },
+        {
+          "text": "the",
+          "start": 9.92,
+          "end": 10
+        },
+        {
+          "text": "digital",
+          "start": 10,
+          "end": 10.4
+        },
+        {
+          "text": "world",
+          "start": 10.4,
+          "end": 10.48
+        }
+      ]
+    },
+    "network-interface-cards": {
+      "words": [
+        {
+          "text": "A",
+          "start": 0.14,
+          "end": 0.21000000000000002
+        },
+        {
+          "text": "Network",
+          "start": 0.21,
+          "end": 0.64
+        },
+        {
+          "text": "Interface",
+          "start": 0.66,
+          "end": 1.23
+        },
+        {
+          "text": "Card",
+          "start": 1.28,
+          "end": 1.73
+        },
+        {
+          "text": "NIC",
+          "start": 1.96,
+          "end": 1.99
+        },
+        {
+          "text": "is",
+          "start": 1.99,
+          "end": 2.01
+        },
+        {
+          "text": "the",
+          "start": 2.01,
+          "end": 2.07
+        },
+        {
+          "text": "hardware",
+          "start": 3.0599999999999996,
+          "end": 3.57
+        },
+        {
+          "text": "that",
+          "start": 3.7699999999999996,
+          "end": 4
+        },
+        {
+          "text": "connects",
+          "start": 4.07,
+          "end": 4.32
+        },
+        {
+          "text": "a",
+          "start": 4.63,
+          "end": 4.76
+        },
+        {
+          "text": "computer",
+          "start": 4.76,
+          "end": 5.3
+        },
+        {
+          "text": "to",
+          "start": 5.34,
+          "end": 5.46
+        },
+        {
+          "text": "a",
+          "start": 5.46,
+          "end": 5.55
+        },
+        {
+          "text": "network",
+          "start": 5.55,
+          "end": 6.18
+        },
+        {
+          "text": "It",
+          "start": 6.7,
+          "end": 6.88
+        },
+        {
+          "text": "converts",
+          "start": 6.93,
+          "end": 7.4399999999999995
+        },
+        {
+          "text": "data",
+          "start": 7.46,
+          "end": 7.93
+        },
+        {
+          "text": "into",
+          "start": 8.01,
+          "end": 8.32
+        },
+        {
+          "text": "a",
+          "start": 8.32,
+          "end": 8.41
+        },
+        {
+          "text": "format",
+          "start": 8.41,
+          "end": 8.99
+        },
+        {
+          "text": "suitable",
+          "start": 9.09,
+          "end": 9.65
+        },
+        {
+          "text": "for",
+          "start": 9.69,
+          "end": 9.85
+        },
+        {
+          "text": "the",
+          "start": 9.849999,
+          "end": 9.949999
+        },
+        {
+          "text": "network",
+          "start": 9.95,
+          "end": 10.42
+        },
+        {
+          "text": "medium",
+          "start": 10.42,
+          "end": 10.94
+        },
+        {
+          "text": "Think",
+          "start": 11.2,
+          "end": 11.43
+        },
+        {
+          "text": "of",
+          "start": 11.44,
+          "end": 11.59
+        },
+        {
+          "text": "it",
+          "start": 11.59,
+          "end": 11.73
+        },
+        {
+          "text": "as",
+          "start": 11.75,
+          "end": 11.88
+        },
+        {
+          "text": "the",
+          "start": 11.889999,
+          "end": 12.029999
+        },
+        {
+          "text": "translator",
+          "start": 12.03,
+          "end": 12.709999999999999
+        },
+        {
+          "text": "between",
+          "start": 12.71,
+          "end": 13.16
+        },
+        {
+          "text": "a",
+          "start": 13.179999,
+          "end": 13.309999000000001
+        },
+        {
+          "text": "computer",
+          "start": 13.349999,
+          "end": 14.039999
+        },
+        {
+          "text": "and",
+          "start": 14.09,
+          "end": 14.31
+        },
+        {
+          "text": "the",
+          "start": 14.309999,
+          "end": 14.399999
+        },
+        {
+          "text": "network",
+          "start": 14.4,
+          "end": 15.07
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 1.96,
+          "end": 5.46
+        },
+        {
+          "start": 4.07,
+          "end": 6.18
+        },
+        {
+          "start": 11.2,
+          "end": 14.31
+        }
+      ]
+    },
+    "hubs-and-switches": {
+      "words": [
+        {
+          "text": "Hubs",
+          "start": 0.14,
+          "end": 0.44
+        },
+        {
+          "text": "and",
+          "start": 0.44,
+          "end": 0.62
+        },
+        {
+          "text": "switches",
+          "start": 0.62,
+          "end": 1.22
+        },
+        {
+          "text": "are",
+          "start": 1.37,
+          "end": 1.4800000000000002
+        },
+        {
+          "text": "devices",
+          "start": 1.48,
+          "end": 2.07
+        },
+        {
+          "text": "that",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "connect",
+          "start": 2.25,
+          "end": 2.66
+        },
+        {
+          "text": "multiple",
+          "start": 2.68,
+          "end": 3.1900000000000004
+        },
+        {
+          "text": "computers",
+          "start": 3.2,
+          "end": 3.8800000000000003
+        },
+        {
+          "text": "on",
+          "start": 3.99,
+          "end": 4.16
+        },
+        {
+          "text": "a",
+          "start": 4.16,
+          "end": 4.24
+        },
+        {
+          "text": "network",
+          "start": 4.24,
+          "end": 4.8100000000000005
+        },
+        {
+          "text": "Hubs",
+          "start": 4.94,
+          "end": 5.29
+        },
+        {
+          "text": "broadcast",
+          "start": 5.3,
+          "end": 5.84
+        },
+        {
+          "text": "data",
+          "start": 5.84,
+          "end": 6.34
+        },
+        {
+          "text": "to",
+          "start": 6.43,
+          "end": 6.59
+        },
+        {
+          "text": "all",
+          "start": 6.61,
+          "end": 6.840000000000001
+        },
+        {
+          "text": "connected",
+          "start": 6.87,
+          "end": 7.34
+        },
+        {
+          "text": "devices",
+          "start": 7.34,
+          "end": 8.06
+        },
+        {
+          "text": "while",
+          "start": 8.33,
+          "end": 8.6
+        },
+        {
+          "text": "switches",
+          "start": 8.61,
+          "end": 9.07
+        },
+        {
+          "text": "intelligently",
+          "start": 9.07,
+          "end": 9.870000000000001
+        },
+        {
+          "text": "direct",
+          "start": 9.87,
+          "end": 10.28
+        },
+        {
+          "text": "data",
+          "start": 10.28,
+          "end": 10.79
+        },
+        {
+          "text": "to",
+          "start": 10.88,
+          "end": 11.030000000000001
+        },
+        {
+          "text": "specific",
+          "start": 11.03,
+          "end": 11.61
+        },
+        {
+          "text": "devices",
+          "start": 11.639999,
+          "end": 12.329998999999999
+        },
+        {
+          "text": "This",
+          "start": 12.66,
+          "end": 12.9
+        },
+        {
+          "text": "distinction",
+          "start": 12.92,
+          "end": 13.71
+        },
+        {
+          "text": "makes",
+          "start": 13.889999,
+          "end": 14.259998999999999
+        },
+        {
+          "text": "switches",
+          "start": 14.259999,
+          "end": 14.839999
+        },
+        {
+          "text": "more",
+          "start": 14.96,
+          "end": 15.23
+        },
+        {
+          "text": "efficient",
+          "start": 15.25,
+          "end": 15.98
+        }
+      ]
+    },
+    "routers": {
+      "words": [
+        {
+          "text": "Routers",
+          "start": 0.15,
+          "end": 0.58
+        },
+        {
+          "text": "are",
+          "start": 0.64,
+          "end": 0.78
+        },
+        {
+          "text": "the",
+          "start": 0.78,
+          "end": 0.89
+        },
+        {
+          "text": "traffic",
+          "start": 0.89,
+          "end": 1.32
+        },
+        {
+          "text": "directors",
+          "start": 1.32,
+          "end": 1.8800000000000001
+        },
+        {
+          "text": "of",
+          "start": 1.89,
+          "end": 2.1399999999999997
+        },
+        {
+          "text": "the",
+          "start": 2.14,
+          "end": 2.22
+        },
+        {
+          "text": "internet",
+          "start": 2.22,
+          "end": 2.89
+        },
+        {
+          "text": "They",
+          "start": 3.15,
+          "end": 3.3
+        },
+        {
+          "text": "connect",
+          "start": 3.34,
+          "end": 3.82
+        },
+        {
+          "text": "multiple",
+          "start": 3.82,
+          "end": 4.37
+        },
+        {
+          "text": "networks",
+          "start": 4.39,
+          "end": 4.96
+        },
+        {
+          "text": "and",
+          "start": 4.99,
+          "end": 5.24
+        },
+        {
+          "text": "direct",
+          "start": 5.24,
+          "end": 5.720000000000001
+        },
+        {
+          "text": "data",
+          "start": 5.76,
+          "end": 6.18
+        },
+        {
+          "text": "between",
+          "start": 6.19,
+          "end": 6.65
+        },
+        {
+          "text": "them",
+          "start": 6.65,
+          "end": 6.94
+        },
+        {
+          "text": "Imagine",
+          "start": 7.33,
+          "end": 7.82
+        },
+        {
+          "text": "them",
+          "start": 7.82,
+          "end": 8.11
+        },
+        {
+          "text": "as",
+          "start": 8.17,
+          "end": 8.33
+        },
+        {
+          "text": "the",
+          "start": 8.34,
+          "end": 8.459999999999999
+        },
+        {
+          "text": "air",
+          "start": 8.46,
+          "end": 8.65
+        },
+        {
+          "text": "traffic",
+          "start": 8.65,
+          "end": 8.96
+        },
+        {
+          "text": "controllers",
+          "start": 8.98,
+          "end": 9.55
+        },
+        {
+          "text": "of",
+          "start": 9.55,
+          "end": 9.73
+        },
+        {
+          "text": "the",
+          "start": 9.73,
+          "end": 9.82
+        },
+        {
+          "text": "digital",
+          "start": 9.83,
+          "end": 10.25
+        },
+        {
+          "text": "world",
+          "start": 10.25,
+          "end": 10.63
+        },
+        {
+          "text": "ensuring",
+          "start": 10.99,
+          "end": 11.66
+        },
+        {
+          "text": "data",
+          "start": 11.66,
+          "end": 11.96
+        },
+        {
+          "text": "packets",
+          "start": 11.96,
+          "end": 12.540000000000001
+        },
+        {
+          "text": "reach",
+          "start": 12.65,
+          "end": 12.99
+        },
+        {
+          "text": "their",
+          "start": 12.99,
+          "end": 13.18
+        },
+        {
+          "text": "destinations",
+          "start": 13.179999,
+          "end": 14.079999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 0.15,
+          "end": 3.82
+        },
+        {
+          "start": 3.34,
+          "end": 6.94
+        },
+        {
+          "start": 7.33,
+          "end": 9.73
+        }
+      ]
+    },
+    "story-beat-routers": {
+      "words": [
+        {
+          "text": "Here's",
+          "start": 0.14,
+          "end": 0.35
+        },
+        {
+          "text": "the",
+          "start": 0.37,
+          "end": 0.51
+        },
+        {
+          "text": "twist",
+          "start": 0.51,
+          "end": 1.01
+        },
+        {
+          "text": "Many",
+          "start": 1.38,
+          "end": 1.75
+        },
+        {
+          "text": "people",
+          "start": 1.75,
+          "end": 2.08
+        },
+        {
+          "text": "confuse",
+          "start": 2.09,
+          "end": 2.6599999999999997
+        },
+        {
+          "text": "routers",
+          "start": 2.66,
+          "end": 3.13
+        },
+        {
+          "text": "with",
+          "start": 3.16,
+          "end": 3.3600000000000003
+        },
+        {
+          "text": "modems",
+          "start": 3.37,
+          "end": 3.97
+        },
+        {
+          "text": "While",
+          "start": 4.34,
+          "end": 4.6
+        },
+        {
+          "text": "both",
+          "start": 4.61,
+          "end": 4.91
+        },
+        {
+          "text": "connect",
+          "start": 4.91,
+          "end": 5.23
+        },
+        {
+          "text": "to",
+          "start": 5.26,
+          "end": 5.37
+        },
+        {
+          "text": "the",
+          "start": 5.37,
+          "end": 5.51
+        },
+        {
+          "text": "internet",
+          "start": 5.53,
+          "end": 6.15
+        },
+        {
+          "text": "routers",
+          "start": 6.43,
+          "end": 6.84
+        },
+        {
+          "text": "manage",
+          "start": 6.86,
+          "end": 7.3100000000000005
+        },
+        {
+          "text": "traffic",
+          "start": 7.31,
+          "end": 7.7299999999999995
+        },
+        {
+          "text": "within",
+          "start": 7.73,
+          "end": 8.040000000000001
+        },
+        {
+          "text": "networks",
+          "start": 8.04,
+          "end": 8.67
+        },
+        {
+          "text": "whereas",
+          "start": 8.75,
+          "end": 9.15
+        },
+        {
+          "text": "modems",
+          "start": 9.15,
+          "end": 9.610000000000001
+        },
+        {
+          "text": "connect",
+          "start": 9.61,
+          "end": 9.969999999999999
+        },
+        {
+          "text": "your",
+          "start": 9.969999,
+          "end": 10.109999
+        },
+        {
+          "text": "network",
+          "start": 10.11,
+          "end": 10.549999999999999
+        },
+        {
+          "text": "to",
+          "start": 10.599999,
+          "end": 10.729999000000001
+        },
+        {
+          "text": "the",
+          "start": 10.73,
+          "end": 10.860000000000001
+        },
+        {
+          "text": "wider",
+          "start": 10.86,
+          "end": 11.1
+        },
+        {
+          "text": "internet",
+          "start": 11.24,
+          "end": 11.86
+        }
+      ]
+    },
+    "cables-and-connectors": {
+      "words": [
+        {
+          "text": "Cables",
+          "start": 0.15,
+          "end": 0.5
+        },
+        {
+          "text": "and",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "connectors",
+          "start": 0.7,
+          "end": 1.3199999999999998
+        },
+        {
+          "text": "are",
+          "start": 1.39,
+          "end": 1.5099999999999998
+        },
+        {
+          "text": "the",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "physical",
+          "start": 1.63,
+          "end": 2.17
+        },
+        {
+          "text": "pathways",
+          "start": 2.22,
+          "end": 2.74
+        },
+        {
+          "text": "for",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "text": "data",
+          "start": 2.91,
+          "end": 3.24
+        },
+        {
+          "text": "transmission",
+          "start": 3.29,
+          "end": 4.09
+        },
+        {
+          "text": "Ethernet",
+          "start": 4.64,
+          "end": 5.069999999999999
+        },
+        {
+          "text": "cables",
+          "start": 5.11,
+          "end": 5.59
+        },
+        {
+          "text": "are",
+          "start": 5.68,
+          "end": 5.8
+        },
+        {
+          "text": "the",
+          "start": 5.8,
+          "end": 5.8999999999999995
+        },
+        {
+          "text": "most",
+          "start": 5.9,
+          "end": 6.19
+        },
+        {
+          "text": "common",
+          "start": 6.2,
+          "end": 6.73
+        },
+        {
+          "text": "providing",
+          "start": 6.85,
+          "end": 7.41
+        },
+        {
+          "text": "a",
+          "start": 7.41,
+          "end": 7.47
+        },
+        {
+          "text": "reliable",
+          "start": 7.47,
+          "end": 8.03
+        },
+        {
+          "text": "connection",
+          "start": 8.05,
+          "end": 8.65
+        },
+        {
+          "text": "between",
+          "start": 8.66,
+          "end": 9.02
+        },
+        {
+          "text": "devices",
+          "start": 9.02,
+          "end": 9.65
+        },
+        {
+          "text": "They're",
+          "start": 10.08,
+          "end": 10.38
+        },
+        {
+          "text": "like",
+          "start": 10.38,
+          "end": 10.64
+        },
+        {
+          "text": "the",
+          "start": 10.65,
+          "end": 10.81
+        },
+        {
+          "text": "roads",
+          "start": 10.809999,
+          "end": 11.099998999999999
+        },
+        {
+          "text": "on",
+          "start": 11.12,
+          "end": 11.309999999999999
+        },
+        {
+          "text": "which",
+          "start": 11.309999,
+          "end": 11.529999
+        },
+        {
+          "text": "data",
+          "start": 11.559999,
+          "end": 11.859999
+        },
+        {
+          "text": "travels",
+          "start": 11.929999,
+          "end": 12.439999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 0.15,
+          "end": 3.24
+        },
+        {
+          "start": 4.64,
+          "end": 7.47
+        },
+        {
+          "start": 10.38,
+          "end": 11.859999
+        }
+      ]
+    },
+    "wireless-access-points": {
+      "words": [
+        {
+          "text": "Wireless",
+          "start": 0.14,
+          "end": 0.67
+        },
+        {
+          "text": "Access",
+          "start": 0.74,
+          "end": 1.21
+        },
+        {
+          "text": "Points",
+          "start": 1.21,
+          "end": 1.7799999999999998
+        },
+        {
+          "text": "WAPs",
+          "start": 2.72,
+          "end": 3.2300000000000004
+        },
+        {
+          "text": "extend",
+          "start": 3.27,
+          "end": 3.7800000000000002
+        },
+        {
+          "text": "a",
+          "start": 3.82,
+          "end": 3.9099999999999997
+        },
+        {
+          "text": "network's",
+          "start": 3.91,
+          "end": 4.45
+        },
+        {
+          "text": "reach",
+          "start": 4.45,
+          "end": 4.7700000000000005
+        },
+        {
+          "text": "without",
+          "start": 4.82,
+          "end": 5.19
+        },
+        {
+          "text": "cables",
+          "start": 5.24,
+          "end": 5.88
+        },
+        {
+          "text": "They",
+          "start": 6.5,
+          "end": 6.68
+        },
+        {
+          "text": "convert",
+          "start": 6.68,
+          "end": 7.1499999999999995
+        },
+        {
+          "text": "wired",
+          "start": 7.18,
+          "end": 7.569999999999999
+        },
+        {
+          "text": "signals",
+          "start": 7.57,
+          "end": 8.14
+        },
+        {
+          "text": "to",
+          "start": 8.139999,
+          "end": 8.259998999999999
+        },
+        {
+          "text": "wireless",
+          "start": 8.26,
+          "end": 8.9
+        },
+        {
+          "text": "allowing",
+          "start": 9.28,
+          "end": 9.69
+        },
+        {
+          "text": "devices",
+          "start": 9.69,
+          "end": 10.219999999999999
+        },
+        {
+          "text": "like",
+          "start": 10.23,
+          "end": 10.46
+        },
+        {
+          "text": "phones",
+          "start": 10.46,
+          "end": 10.870000000000001
+        },
+        {
+          "text": "and",
+          "start": 10.87,
+          "end": 11.059999999999999
+        },
+        {
+          "text": "laptops",
+          "start": 11.059999,
+          "end": 11.539999
+        },
+        {
+          "text": "to",
+          "start": 11.54,
+          "end": 11.69
+        },
+        {
+          "text": "connect",
+          "start": 11.69,
+          "end": 12.29
+        },
+        {
+          "text": "It's",
+          "start": 12.59,
+          "end": 12.879999999999999
+        },
+        {
+          "text": "like",
+          "start": 12.88,
+          "end": 13.16
+        },
+        {
+          "text": "adding",
+          "start": 13.34,
+          "end": 13.72
+        },
+        {
+          "text": "a",
+          "start": 13.719999,
+          "end": 13.829998999999999
+        },
+        {
+          "text": "Wi",
+          "start": 13.83,
+          "end": 14.13
+        },
+        {
+          "text": "Fi",
+          "start": 14.16,
+          "end": 14.42
+        },
+        {
+          "text": "hotspot",
+          "start": 14.44,
+          "end": 15.25
+        },
+        {
+          "text": "to",
+          "start": 15.42,
+          "end": 15.56
+        },
+        {
+          "text": "your",
+          "start": 15.559999,
+          "end": 15.719999
+        },
+        {
+          "text": "home",
+          "start": 15.719999,
+          "end": 15.929999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 2.72,
+          "end": 5.88
+        },
+        {
+          "start": 6.68,
+          "end": 10.46
+        },
+        {
+          "start": 12.88,
+          "end": 15.56
+        }
+      ]
+    },
+    "story-beat-hardware-recap": {
+      "words": [
+        {
+          "text": "Where",
+          "start": 0.05,
+          "end": 0.29
+        },
+        {
+          "text": "we",
+          "start": 0.29,
+          "end": 0.48
+        },
+        {
+          "text": "are",
+          "start": 0.48,
+          "end": 0.71
+        },
+        {
+          "text": "We've",
+          "start": 0.83,
+          "end": 1.06
+        },
+        {
+          "text": "explored",
+          "start": 1.06,
+          "end": 1.62
+        },
+        {
+          "text": "key",
+          "start": 1.69,
+          "end": 2
+        },
+        {
+          "text": "hardware",
+          "start": 2,
+          "end": 2.39
+        },
+        {
+          "text": "components",
+          "start": 2.39,
+          "end": 3.12
+        },
+        {
+          "text": "NICs",
+          "start": 3.17,
+          "end": 3.66
+        },
+        {
+          "text": "hubs",
+          "start": 3.73,
+          "end": 4.29
+        },
+        {
+          "text": "switches",
+          "start": 4.38,
+          "end": 4.99
+        },
+        {
+          "text": "routers",
+          "start": 5.18,
+          "end": 5.76
+        },
+        {
+          "text": "cables",
+          "start": 5.89,
+          "end": 6.47
+        },
+        {
+          "text": "and",
+          "start": 6.56,
+          "end": 6.739999999999999
+        },
+        {
+          "text": "WAPs",
+          "start": 6.74,
+          "end": 7.15
+        },
+        {
+          "text": "Understanding",
+          "start": 7.71,
+          "end": 8.4
+        },
+        {
+          "text": "these",
+          "start": 8.4,
+          "end": 8.74
+        },
+        {
+          "text": "is",
+          "start": 8.8,
+          "end": 9.030000000000001
+        },
+        {
+          "text": "crucial",
+          "start": 9.03,
+          "end": 9.639999999999999
+        },
+        {
+          "text": "for",
+          "start": 9.719999,
+          "end": 9.909999
+        },
+        {
+          "text": "setting",
+          "start": 9.91,
+          "end": 10.3
+        },
+        {
+          "text": "up",
+          "start": 10.3,
+          "end": 10.49
+        },
+        {
+          "text": "and",
+          "start": 10.54,
+          "end": 10.75
+        },
+        {
+          "text": "managing",
+          "start": 10.75,
+          "end": 11.2
+        },
+        {
+          "text": "networks",
+          "start": 11.2,
+          "end": 11.44
+        }
+      ]
+    },
+    "firewalls": {
+      "words": [
+        {
+          "text": "Firewalls",
+          "start": 0.15,
+          "end": 0.65
+        },
+        {
+          "text": "are",
+          "start": 0.68,
+          "end": 0.81
+        },
+        {
+          "text": "security",
+          "start": 0.81,
+          "end": 1.28
+        },
+        {
+          "text": "devices",
+          "start": 1.28,
+          "end": 1.8900000000000001
+        },
+        {
+          "text": "that",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "text": "monitor",
+          "start": 2.11,
+          "end": 2.55
+        },
+        {
+          "text": "and",
+          "start": 2.55,
+          "end": 2.7399999999999998
+        },
+        {
+          "text": "control",
+          "start": 2.77,
+          "end": 3.24
+        },
+        {
+          "text": "incoming",
+          "start": 3.27,
+          "end": 3.89
+        },
+        {
+          "text": "and",
+          "start": 3.9,
+          "end": 4.12
+        },
+        {
+          "text": "outgoing",
+          "start": 4.13,
+          "end": 4.65
+        },
+        {
+          "text": "network",
+          "start": 4.65,
+          "end": 4.99
+        },
+        {
+          "text": "traffic",
+          "start": 5.04,
+          "end": 5.6
+        },
+        {
+          "text": "They",
+          "start": 5.95,
+          "end": 6.11
+        },
+        {
+          "text": "act",
+          "start": 6.14,
+          "end": 6.38
+        },
+        {
+          "text": "as",
+          "start": 6.4,
+          "end": 6.590000000000001
+        },
+        {
+          "text": "barriers",
+          "start": 6.6,
+          "end": 7.21
+        },
+        {
+          "text": "protecting",
+          "start": 7.42,
+          "end": 8.03
+        },
+        {
+          "text": "networks",
+          "start": 8.03,
+          "end": 8.549999999999999
+        },
+        {
+          "text": "from",
+          "start": 8.559999,
+          "end": 8.809999
+        },
+        {
+          "text": "unauthorized",
+          "start": 8.84,
+          "end": 9.47
+        },
+        {
+          "text": "access",
+          "start": 9.51,
+          "end": 10.129999999999999
+        },
+        {
+          "text": "Think",
+          "start": 10.44,
+          "end": 10.67
+        },
+        {
+          "text": "of",
+          "start": 10.67,
+          "end": 10.86
+        },
+        {
+          "text": "them",
+          "start": 10.86,
+          "end": 11.08
+        },
+        {
+          "text": "as",
+          "start": 11.13,
+          "end": 11.25
+        },
+        {
+          "text": "the",
+          "start": 11.259999,
+          "end": 11.379999
+        },
+        {
+          "text": "security",
+          "start": 11.38,
+          "end": 11.91
+        },
+        {
+          "text": "guards",
+          "start": 11.91,
+          "end": 12.26
+        },
+        {
+          "text": "of",
+          "start": 12.29,
+          "end": 12.5
+        },
+        {
+          "text": "the",
+          "start": 12.5,
+          "end": 12.59
+        },
+        {
+          "text": "network",
+          "start": 12.59,
+          "end": 13.129999999999999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 0.15,
+          "end": 3.89
+        },
+        {
+          "start": 2.11,
+          "end": 5.6
+        },
+        {
+          "start": 10.44,
+          "end": 12.59
+        }
+      ]
+    },
+    "network-hardware-conclusion": {
+      "words": [
+        {
+          "text": "The",
+          "start": 0.14,
+          "end": 0.27
+        },
+        {
+          "text": "Big",
+          "start": 0.28,
+          "end": 0.56
+        },
+        {
+          "text": "Takeaway",
+          "start": 0.61,
+          "end": 1.19
+        },
+        {
+          "text": "Network",
+          "start": 1.78,
+          "end": 2.25
+        },
+        {
+          "text": "hardware",
+          "start": 2.25,
+          "end": 2.64
+        },
+        {
+          "text": "is",
+          "start": 2.66,
+          "end": 2.7800000000000002
+        },
+        {
+          "text": "the",
+          "start": 2.81,
+          "end": 2.92
+        },
+        {
+          "text": "foundation",
+          "start": 2.92,
+          "end": 3.53
+        },
+        {
+          "text": "of",
+          "start": 3.55,
+          "end": 3.7199999999999998
+        },
+        {
+          "text": "connectivity",
+          "start": 3.74,
+          "end": 4.6000000000000005
+        },
+        {
+          "text": "Knowing",
+          "start": 5.19,
+          "end": 5.57
+        },
+        {
+          "text": "how",
+          "start": 5.57,
+          "end": 5.7700000000000005
+        },
+        {
+          "text": "these",
+          "start": 5.8,
+          "end": 6
+        },
+        {
+          "text": "components",
+          "start": 6.03,
+          "end": 6.640000000000001
+        },
+        {
+          "text": "work",
+          "start": 6.64,
+          "end": 6.89
+        },
+        {
+          "text": "together",
+          "start": 6.89,
+          "end": 7.41
+        },
+        {
+          "text": "helps",
+          "start": 7.76,
+          "end": 8.06
+        },
+        {
+          "text": "you",
+          "start": 8.059999,
+          "end": 8.189999
+        },
+        {
+          "text": "understand",
+          "start": 8.21,
+          "end": 8.75
+        },
+        {
+          "text": "the",
+          "start": 8.76,
+          "end": 8.879999999999999
+        },
+        {
+          "text": "physical",
+          "start": 8.88,
+          "end": 9.39
+        },
+        {
+          "text": "side",
+          "start": 9.4,
+          "end": 9.73
+        },
+        {
+          "text": "of",
+          "start": 9.74,
+          "end": 9.9
+        },
+        {
+          "text": "networking",
+          "start": 9.9,
+          "end": 10.530000000000001
+        },
+        {
+          "text": "which",
+          "start": 10.8,
+          "end": 11.030000000000001
+        },
+        {
+          "text": "is",
+          "start": 11.03,
+          "end": 11.18
+        },
+        {
+          "text": "vital",
+          "start": 11.179999,
+          "end": 11.639999000000001
+        },
+        {
+          "text": "for",
+          "start": 11.65,
+          "end": 11.9
+        },
+        {
+          "text": "any",
+          "start": 11.969999,
+          "end": 12.279999
+        },
+        {
+          "text": "IT",
+          "start": 12.42,
+          "end": 12.51
+        },
+        {
+          "text": "professional",
+          "start": 12.75,
+          "end": 13.47
+        }
+      ]
+    }
+  },
+  "lineMappings": {}
+}

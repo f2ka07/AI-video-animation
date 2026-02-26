@@ -1,0 +1,1345 @@
+{
+  "moduleNumber": 1,
+  "title": "Introduction to Wireless Networks",
+  "slides": {
+    "intro-wireless-networks": {
+      "words": [
+        {
+          "text": "Wireless",
+          "start": 0.01,
+          "end": 0.43
+        },
+        {
+          "text": "networks",
+          "start": 0.43,
+          "end": 0.89
+        },
+        {
+          "text": "let",
+          "start": 0.89,
+          "end": 1.06
+        },
+        {
+          "text": "devices",
+          "start": 1.06,
+          "end": 1.56
+        },
+        {
+          "text": "communicate",
+          "start": 1.56,
+          "end": 2.14
+        },
+        {
+          "text": "without",
+          "start": 2.14,
+          "end": 2.43
+        },
+        {
+          "text": "wires",
+          "start": 2.43,
+          "end": 2.91
+        },
+        {
+          "text": "using",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "text": "radio",
+          "start": 3.27,
+          "end": 3.59
+        },
+        {
+          "text": "waves",
+          "start": 3.59,
+          "end": 4.06
+        },
+        {
+          "text": "This",
+          "start": 4.38,
+          "end": 4.61
+        },
+        {
+          "text": "module",
+          "start": 4.61,
+          "end": 5.04
+        },
+        {
+          "text": "explores",
+          "start": 5.04,
+          "end": 5.51
+        },
+        {
+          "text": "what",
+          "start": 5.51,
+          "end": 5.6899999999999995
+        },
+        {
+          "text": "wireless",
+          "start": 5.71,
+          "end": 6.1899999999999995
+        },
+        {
+          "text": "networks",
+          "start": 6.19,
+          "end": 6.6000000000000005
+        },
+        {
+          "text": "are",
+          "start": 6.62,
+          "end": 7.0600000000000005
+        },
+        {
+          "text": "why",
+          "start": 7.49,
+          "end": 7.76
+        },
+        {
+          "text": "they",
+          "start": 7.76,
+          "end": 7.93
+        },
+        {
+          "text": "matter",
+          "start": 7.93,
+          "end": 8.42
+        },
+        {
+          "text": "and",
+          "start": 8.75,
+          "end": 8.89
+        },
+        {
+          "text": "the",
+          "start": 8.889999,
+          "end": 8.959999
+        },
+        {
+          "text": "basic",
+          "start": 8.96,
+          "end": 9.270000000000001
+        },
+        {
+          "text": "components",
+          "start": 9.28,
+          "end": 9.77
+        },
+        {
+          "text": "involved",
+          "start": 9.77,
+          "end": 10.379999999999999
+        },
+        {
+          "text": "You'll",
+          "start": 10.66,
+          "end": 10.97
+        },
+        {
+          "text": "learn"
+        },
+        {
+          "text": "how"
+        },
+        {
+          "text": "wireless"
+        },
+        {
+          "text": "technology"
+        },
+        {
+          "text": "connects"
+        },
+        {
+          "text": "us"
+        },
+        {
+          "text": "seamlessly"
+        },
+        {
+          "text": "in"
+        },
+        {
+          "text": "everyday"
+        },
+        {
+          "text": "life"
+        }
+      ]
+    },
+    "wireless-networks-why-important": {
+      "words": [
+        {
+          "text": "Wireless",
+          "start": 0,
+          "end": 0.6600000262260437
+        },
+        {
+          "text": "networks",
+          "start": 0.6600000262260437,
+          "end": 1.100000023841858
+        },
+        {
+          "text": "are",
+          "start": 1.100000023841858,
+          "end": 1.6399999856948853
+        },
+        {
+          "text": "important",
+          "start": 1.6399999856948853,
+          "end": 2.140000104904175
+        },
+        {
+          "text": "because",
+          "start": 2.140000104904175,
+          "end": 2.880000114440918
+        },
+        {
+          "text": "they",
+          "start": 2.880000114440918,
+          "end": 3.319999933242798
+        },
+        {
+          "text": "provide",
+          "start": 3.319999933242798,
+          "end": 3.640000104904175
+        },
+        {
+          "text": "mobility",
+          "start": 3.640000104904175,
+          "end": 4.239999771118164
+        },
+        {
+          "text": "flexibility",
+          "start": 5.300000190734863,
+          "end": 5.300000190734863
+        },
+        {
+          "text": "and",
+          "start": 5.659999847412109,
+          "end": 6.139999866485596
+        },
+        {
+          "text": "ease",
+          "start": 6.139999866485596,
+          "end": 6.260000228881836
+        },
+        {
+          "text": "of",
+          "start": 6.260000228881836,
+          "end": 7.119999885559082
+        },
+        {
+          "text": "installation",
+          "start": 7.119999885559082,
+          "end": 7.119999885559082
+        },
+        {
+          "text": "They",
+          "start": 7.920000076293945,
+          "end": 8.020000457763672
+        },
+        {
+          "text": "enable",
+          "start": 8.020000457763672,
+          "end": 8.359999656677246
+        },
+        {
+          "text": "devices",
+          "start": 8.359999656677246,
+          "end": 8.819999694824219
+        },
+        {
+          "text": "like",
+          "start": 8.819999694824219,
+          "end": 9.220000267028809
+        },
+        {
+          "text": "smartphones",
+          "start": 9.220000267028809,
+          "end": 9.760000228881836
+        },
+        {
+          "text": "and",
+          "start": 9.760000228881836,
+          "end": 10.319999694824219
+        },
+        {
+          "text": "laptops",
+          "start": 10.319999694824219,
+          "end": 10.720000267028809
+        },
+        {
+          "text": "to",
+          "start": 10.720000267028809,
+          "end": 11.199999809265137
+        },
+        {
+          "text": "connect",
+          "start": 11.199999809265137,
+          "end": 11.460000038146973
+        },
+        {
+          "text": "anywhere",
+          "start": 11.460000038146973,
+          "end": 12.0600004196167
+        },
+        {
+          "text": "This",
+          "start": 12.640000343322754,
+          "end": 12.880000114440918
+        },
+        {
+          "text": "freedom",
+          "start": 12.880000114440918,
+          "end": 13.300000190734863
+        },
+        {
+          "text": "powers",
+          "start": 13.300000190734863,
+          "end": 14.100000381469727
+        },
+        {
+          "text": "modern",
+          "start": 14.100000381469727,
+          "end": 14.800000190734863
+        },
+        {
+          "text": "communication",
+          "start": 14.800000190734863,
+          "end": 15.5
+        },
+        {
+          "text": "smart",
+          "start": 16.399999618530273,
+          "end": 16.65999984741211
+        },
+        {
+          "text": "homes",
+          "start": 16.65999984741211,
+          "end": 16.84000015258789
+        },
+        {
+          "text": "and",
+          "start": 17.440000534057617,
+          "end": 17.860000610351562
+        },
+        {
+          "text": "IoT",
+          "start": 17.860000610351562,
+          "end": 18.1200008392334
+        },
+        {
+          "text": "devices",
+          "start": 18.1200008392334,
+          "end": 18.780000686645508
+        },
+        {
+          "text": "that",
+          "start": 18.780000686645508,
+          "end": 19.520000457763672
+        },
+        {
+          "text": "rely",
+          "start": 19.520000457763672,
+          "end": 19.739999771118164
+        },
+        {
+          "text": "on",
+          "start": 19.739999771118164,
+          "end": 20.540000915527344
+        },
+        {
+          "text": "wireless",
+          "start": 20.540000915527344,
+          "end": 20.540000915527344
+        },
+        {
+          "text": "connectivity",
+          "start": 20.540000915527344,
+          "end": 21.239999771118164
+        }
+      ]
+    },
+    "wireless-network-components": {
+      "words": [
+        {
+          "text": "Wireless",
+          "start": 0,
+          "end": 0.5799999833106995
+        },
+        {
+          "text": "networks",
+          "start": 0.5799999833106995,
+          "end": 1.1200000047683716
+        },
+        {
+          "text": "consist",
+          "start": 1.1200000047683716,
+          "end": 1.7599999904632568
+        },
+        {
+          "text": "of",
+          "start": 1.7599999904632568,
+          "end": 2.0399999618530273
+        },
+        {
+          "text": "key",
+          "start": 2.0399999618530273,
+          "end": 2.319999933242798
+        },
+        {
+          "text": "components",
+          "start": 2.319999933242798,
+          "end": 3.0199999809265137
+        },
+        {
+          "text": "access",
+          "start": 3.9000000953674316,
+          "end": 4
+        },
+        {
+          "text": "points",
+          "start": 4,
+          "end": 4.340000152587891
+        },
+        {
+          "text": "that",
+          "start": 4.340000152587891,
+          "end": 4.679999828338623
+        },
+        {
+          "text": "broadcast",
+          "start": 4.679999828338623,
+          "end": 5.119999885559082
+        },
+        {
+          "text": "signals",
+          "start": 5.119999885559082,
+          "end": 5.699999809265137
+        },
+        {
+          "text": "client",
+          "start": 6.420000076293945,
+          "end": 6.460000038146973
+        },
+        {
+          "text": "devices",
+          "start": 6.460000038146973,
+          "end": 6.960000038146973
+        },
+        {
+          "text": "that",
+          "start": 6.960000038146973,
+          "end": 7.460000038146973
+        },
+        {
+          "text": "connect",
+          "start": 7.460000038146973,
+          "end": 7.820000171661377
+        },
+        {
+          "text": "and",
+          "start": 8.460000038146973,
+          "end": 8.859999656677246
+        },
+        {
+          "text": "routers",
+          "start": 8.859999656677246,
+          "end": 9.100000381469727
+        },
+        {
+          "text": "that",
+          "start": 9.100000381469727,
+          "end": 9.779999732971191
+        },
+        {
+          "text": "manage",
+          "start": 9.779999732971191,
+          "end": 10.0600004196167
+        },
+        {
+          "text": "traffic",
+          "start": 10.0600004196167,
+          "end": 10.579999923706055
+        },
+        {
+          "text": "These",
+          "start": 11.119999885559082,
+          "end": 11.399999618530273
+        },
+        {
+          "text": "parts",
+          "start": 11.399999618530273,
+          "end": 11.739999771118164
+        },
+        {
+          "text": "work",
+          "start": 11.739999771118164,
+          "end": 12.140000343322754
+        },
+        {
+          "text": "together",
+          "start": 12.140000343322754,
+          "end": 12.619999885559082
+        },
+        {
+          "text": "to",
+          "start": 12.619999885559082,
+          "end": 13.15999984741211
+        },
+        {
+          "text": "create",
+          "start": 13.15999984741211,
+          "end": 13.420000076293945
+        },
+        {
+          "text": "a",
+          "start": 13.420000076293945,
+          "end": 14.319999694824219
+        },
+        {
+          "text": "wireless",
+          "start": 14.319999694824219,
+          "end": 14.319999694824219
+        },
+        {
+          "text": "environment",
+          "start": 14.319999694824219,
+          "end": 15.380000114440918
+        },
+        {
+          "text": "where",
+          "start": 15.380000114440918,
+          "end": 16.360000610351562
+        },
+        {
+          "text": "data",
+          "start": 16.360000610351562,
+          "end": 16.959999084472656
+        },
+        {
+          "text": "flows",
+          "start": 16.959999084472656,
+          "end": 17.399999618530273
+        },
+        {
+          "text": "without",
+          "start": 17.399999618530273,
+          "end": 18.239999771118164
+        },
+        {
+          "text": "cables",
+          "start": 18.239999771118164,
+          "end": 18.799999237060547
+        }
+      ]
+    },
+    "simple-wireless-connection-python": {
+      "words": [
+        {
+          "text": "This",
+          "start": 0.13,
+          "end": 0.45
+        },
+        {
+          "text": "Python",
+          "start": 0.45,
+          "end": 0.8500000000000001
+        },
+        {
+          "text": "script",
+          "start": 0.85,
+          "end": 1.4100000000000001
+        },
+        {
+          "text": "scans",
+          "start": 1.52,
+          "end": 1.96
+        },
+        {
+          "text": "for",
+          "start": 1.96,
+          "end": 2.2
+        },
+        {
+          "text": "available",
+          "start": 2.21,
+          "end": 2.71
+        },
+        {
+          "text": "Wi",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "text": "Fi",
+          "start": 2.93,
+          "end": 3.1
+        },
+        {
+          "text": "networks",
+          "start": 3.1,
+          "end": 3.7800000000000002
+        },
+        {
+          "text": "using",
+          "start": 4.07,
+          "end": 4.430000000000001
+        },
+        {
+          "text": "the",
+          "start": 4.43,
+          "end": 4.55
+        },
+        {
+          "text": "platform's",
+          "start": 4.57,
+          "end": 5.12
+        },
+        {
+          "text": "wireless",
+          "start": 5.13,
+          "end": 5.54
+        },
+        {
+          "text": "tools",
+          "start": 5.57,
+          "end": 6.11
+        },
+        {
+          "text": "First",
+          "start": 6.51,
+          "end": 7.13
+        },
+        {
+          "text": "it",
+          "start": 7.32,
+          "end": 7.470000000000001
+        },
+        {
+          "text": "runs",
+          "start": 7.52,
+          "end": 7.76
+        },
+        {
+          "text": "a",
+          "start": 7.77,
+          "end": 7.859999999999999
+        },
+        {
+          "text": "system",
+          "start": 7.86,
+          "end": 8.33
+        },
+        {
+          "text": "command",
+          "start": 8.33,
+          "end": 8.85
+        },
+        {
+          "text": "to",
+          "start": 9.07,
+          "end": 9.22
+        },
+        {
+          "text": "list",
+          "start": 9.22,
+          "end": 9.610000000000001
+        },
+        {
+          "text": "networks",
+          "start": 9.639999,
+          "end": 10.319999
+        },
+        {
+          "text": "Then",
+          "start": 10.599999,
+          "end": 11.029999
+        },
+        {
+          "text": "it",
+          "start": 11.41,
+          "end": 11.6
+        },
+        {
+          "text": "parses",
+          "start": 11.679999,
+          "end": 12.239999000000001
+        },
+        {
+          "text": "and",
+          "start": 12.42,
+          "end": 12.66
+        },
+        {
+          "text": "prints",
+          "start": 12.66,
+          "end": 13.08
+        },
+        {
+          "text": "the",
+          "start": 13.08,
+          "end": 13.22
+        },
+        {
+          "text": "network",
+          "start": 13.219999,
+          "end": 13.719999
+        },
+        {
+          "text": "names",
+          "start": 13.719999,
+          "end": 14.159999
+        },
+        {
+          "text": "helping",
+          "start": 14.53,
+          "end": 14.959999999999999
+        },
+        {
+          "text": "you",
+          "start": 14.96,
+          "end": 15.15
+        },
+        {
+          "text": "see",
+          "start": 15.15,
+          "end": 15.540000000000001
+        },
+        {
+          "text": "nearby",
+          "start": 15.58,
+          "end": 16.18
+        },
+        {
+          "text": "wireless",
+          "start": 16.199999,
+          "end": 16.769999
+        },
+        {
+          "text": "options",
+          "start": 16.82,
+          "end": 17.5
+        }
+      ]
+    },
+    "explain-python-wifi-scan": {
+      "words": [
+        {
+          "text": "This",
+          "start": 0.07,
+          "end": 0.33
+        },
+        {
+          "text": "code",
+          "start": 0.33,
+          "end": 0.64
+        },
+        {
+          "text": "runs",
+          "start": 0.64,
+          "end": 1.01
+        },
+        {
+          "text": "a",
+          "start": 1.07,
+          "end": 1.1800000000000002
+        },
+        {
+          "text": "command",
+          "start": 1.18,
+          "end": 1.58
+        },
+        {
+          "text": "line",
+          "start": 1.58,
+          "end": 1.8
+        },
+        {
+          "text": "tool",
+          "start": 1.8,
+          "end": 2.12
+        },
+        {
+          "text": "to",
+          "start": 2.16,
+          "end": 2.29
+        },
+        {
+          "text": "list",
+          "start": 2.29,
+          "end": 2.56
+        },
+        {
+          "text": "Wi",
+          "start": 2.56,
+          "end": 2.85
+        },
+        {
+          "text": "Fi",
+          "start": 2.85,
+          "end": 3.0300000000000002
+        },
+        {
+          "text": "networks",
+          "start": 3.03,
+          "end": 3.7699999999999996
+        },
+        {
+          "text": "It",
+          "start": 4.2,
+          "end": 4.41
+        },
+        {
+          "text": "captures",
+          "start": 4.41,
+          "end": 4.83
+        },
+        {
+          "text": "the",
+          "start": 4.84,
+          "end": 4.96
+        },
+        {
+          "text": "output",
+          "start": 4.99,
+          "end": 5.15
+        },
+        {
+          "text": "decodes",
+          "start": 5.92,
+          "end": 6.55
+        },
+        {
+          "text": "it",
+          "start": 6.55,
+          "end": 6.67
+        },
+        {
+          "text": "from",
+          "start": 6.71,
+          "end": 7.03
+        },
+        {
+          "text": "bytes",
+          "start": 7.03,
+          "end": 7.37
+        },
+        {
+          "text": "to",
+          "start": 7.37,
+          "end": 7.53
+        },
+        {
+          "text": "text",
+          "start": 7.53,
+          "end": 8.040000000000001
+        },
+        {
+          "text": "and",
+          "start": 8.309999,
+          "end": 8.489999
+        },
+        {
+          "text": "separates",
+          "start": 8.49,
+          "end": 9.07
+        },
+        {
+          "text": "each",
+          "start": 9.13,
+          "end": 9.38
+        },
+        {
+          "text": "network",
+          "start": 9.389999,
+          "end": 9.889999
+        },
+        {
+          "text": "name",
+          "start": 9.889999,
+          "end": 10.259998999999999
+        },
+        {
+          "text": "Finally",
+          "start": 10.59,
+          "end": 11.27
+        },
+        {
+          "text": "it",
+          "start": 11.469999,
+          "end": 11.649999
+        },
+        {
+          "text": "prints",
+          "start": 11.7,
+          "end": 12.069999999999999
+        },
+        {
+          "text": "each",
+          "start": 12.11,
+          "end": 12.37
+        },
+        {
+          "text": "network",
+          "start": 12.38,
+          "end": 13.040000000000001
+        },
+        {
+          "text": "This",
+          "start": 13.21,
+          "end": 13.46
+        },
+        {
+          "text": "shows",
+          "start": 13.46,
+          "end": 13.780000000000001
+        },
+        {
+          "text": "how",
+          "start": 13.79,
+          "end": 14.02
+        },
+        {
+          "text": "software",
+          "start": 14.02,
+          "end": 14.57
+        },
+        {
+          "text": "can",
+          "start": 14.57,
+          "end": 14.75
+        },
+        {
+          "text": "interact",
+          "start": 14.75,
+          "end": 15.27
+        },
+        {
+          "text": "with",
+          "start": 15.27,
+          "end": 15.44
+        },
+        {
+          "text": "wireless",
+          "start": 15.45,
+          "end": 15.91
+        },
+        {
+          "text": "hardware",
+          "start": 15.91,
+          "end": 16.31
+        },
+        {
+          "text": "to",
+          "start": 16.309999,
+          "end": 16.439999
+        },
+        {
+          "text": "discover",
+          "start": 16.440001,
+          "end": 16.900001
+        },
+        {
+          "text": "networks",
+          "start": 16.9,
+          "end": 17.52
+        }
+      ]
+    },
+    "wireless-standards-overview": {
+      "words": [
+        {
+          "text": "Wireless",
+          "start": 0.14,
+          "end": 0.62
+        },
+        {
+          "text": "networks",
+          "start": 0.62,
+          "end": 1.25
+        },
+        {
+          "text": "follow",
+          "start": 1.51,
+          "end": 1.85
+        },
+        {
+          "text": "standards",
+          "start": 1.85,
+          "end": 2.45
+        },
+        {
+          "text": "like",
+          "start": 2.48,
+          "end": 2.92
+        },
+        {
+          "text": "IEEE",
+          "start": 3.28,
+          "end": 4.14
+        },
+        {
+          "text": "802",
+          "start": 4.59,
+          "end": 5.7299999999999995
+        },
+        {
+          "text": "11",
+          "start": 5.84,
+          "end": 6.7
+        },
+        {
+          "text": "which",
+          "start": 7.02,
+          "end": 7.3
+        },
+        {
+          "text": "define",
+          "start": 7.33,
+          "end": 7.82
+        },
+        {
+          "text": "how",
+          "start": 7.83,
+          "end": 8.14
+        },
+        {
+          "text": "devices",
+          "start": 8.15,
+          "end": 8.91
+        },
+        {
+          "text": "communicate",
+          "start": 9.05,
+          "end": 9.850000000000001
+        },
+        {
+          "text": "Different",
+          "start": 10.23,
+          "end": 10.73
+        },
+        {
+          "text": "versions",
+          "start": 10.74,
+          "end": 11.49
+        },
+        {
+          "text": "such",
+          "start": 11.54,
+          "end": 11.899999999999999
+        },
+        {
+          "text": "as",
+          "start": 11.9,
+          "end": 12.19
+        },
+        {
+          "text": "802",
+          "start": 12.509999,
+          "end": 13.619999
+        },
+        {
+          "text": "11b",
+          "start": 14.009999,
+          "end": 14.819999000000001
+        },
+        {
+          "text": "g",
+          "start": 15.059999,
+          "end": 15.449999
+        },
+        {
+          "text": "n",
+          "start": 15.52,
+          "end": 15.9
+        },
+        {
+          "text": "and",
+          "start": 16.190001,
+          "end": 16.460001
+        },
+        {
+          "text": "ac",
+          "start": 16.5,
+          "end": 17.04
+        },
+        {
+          "text": "vary",
+          "start": 17.299999,
+          "end": 17.699999
+        },
+        {
+          "text": "in",
+          "start": 17.709999,
+          "end": 17.939999
+        },
+        {
+          "text": "speed",
+          "start": 17.940001,
+          "end": 18.360001
+        },
+        {
+          "text": "and",
+          "start": 18.379999,
+          "end": 18.649999
+        },
+        {
+          "text": "range",
+          "start": 18.65,
+          "end": 19.11
+        },
+        {
+          "text": "Understanding",
+          "start": 19.45,
+          "end": 20.16
+        },
+        {
+          "text": "these",
+          "start": 20.17,
+          "end": 20.330000000000002
+        },
+        {
+          "text": "standards",
+          "start": 20.34,
+          "end": 20.98
+        },
+        {
+          "text": "helps",
+          "start": 21.14,
+          "end": 21.53
+        },
+        {
+          "text": "you",
+          "start": 21.53,
+          "end": 21.68
+        },
+        {
+          "text": "choose",
+          "start": 21.68,
+          "end": 22.03
+        },
+        {
+          "text": "the",
+          "start": 22.04,
+          "end": 22.23
+        },
+        {
+          "text": "right",
+          "start": 22.23,
+          "end": 22.53
+        },
+        {
+          "text": "wireless",
+          "start": 23.16,
+          "end": 23.63
+        },
+        {
+          "text": "technology",
+          "start": 23.63,
+          "end": 24.259999999999998
+        },
+        {
+          "text": "for",
+          "start": 24.27,
+          "end": 24.43
+        },
+        {
+          "text": "your",
+          "start": 24.43,
+          "end": 24.58
+        },
+        {
+          "text": "needs",
+          "start": 24.58,
+          "end": 25.02
+        }
+      ]
+    },
+    "wifi-standard-comparison": {
+      "words": [
+        {
+          "text": "Let's",
+          "start": 0.15,
+          "end": 0.43999999999999995
+        },
+        {
+          "text": "compare",
+          "start": 0.44,
+          "end": 0.9099999999999999
+        },
+        {
+          "text": "popular",
+          "start": 0.94,
+          "end": 1.33
+        },
+        {
+          "text": "Wi",
+          "start": 1.33,
+          "end": 1.6
+        },
+        {
+          "text": "Fi",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "standards",
+          "start": 1.76,
+          "end": 2.35
+        },
+        {
+          "text": "to",
+          "start": 2.35,
+          "end": 2.5
+        },
+        {
+          "text": "see",
+          "start": 2.51,
+          "end": 2.7199999999999998
+        },
+        {
+          "text": "their",
+          "start": 2.72,
+          "end": 2.9000000000000004
+        },
+        {
+          "text": "differences",
+          "start": 2.9,
+          "end": 3.7199999999999998
+        },
+        {
+          "text": "in",
+          "start": 3.79,
+          "end": 4
+        },
+        {
+          "text": "speed",
+          "start": 4,
+          "end": 4.42
+        },
+        {
+          "text": "and",
+          "start": 4.43,
+          "end": 4.71
+        },
+        {
+          "text": "range",
+          "start": 4.71,
+          "end": 5.15
+        },
+        {
+          "text": "This",
+          "start": 5.48,
+          "end": 5.73
+        },
+        {
+          "text": "helps",
+          "start": 5.76,
+          "end": 6.1899999999999995
+        },
+        {
+          "text": "clarify",
+          "start": 6.19,
+          "end": 6.82
+        },
+        {
+          "text": "why",
+          "start": 6.83,
+          "end": 7.09
+        },
+        {
+          "text": "newer",
+          "start": 7.11,
+          "end": 7.41
+        },
+        {
+          "text": "standards",
+          "start": 7.41,
+          "end": 8.02
+        },
+        {
+          "text": "improve",
+          "start": 8.09,
+          "end": 8.56
+        },
+        {
+          "text": "performance",
+          "start": 8.59,
+          "end": 9.32
+        },
+        {
+          "text": "and",
+          "start": 9.679999,
+          "end": 9.879999
+        },
+        {
+          "text": "support",
+          "start": 9.88,
+          "end": 10.33
+        },
+        {
+          "text": "more",
+          "start": 10.37,
+          "end": 10.559999999999999
+        },
+        {
+          "text": "devices",
+          "start": 10.559999,
+          "end": 11.259998999999999
+        },
+        {
+          "text": "simultaneously",
+          "start": 11.349999,
+          "end": 12.149999000000001
+        }
+      ]
+    }
+  },
+  "lineMappings": {
+    "simple-wireless-connection-python": [
+      {
+        "id": "networks",
+        "line": 13,
+        "wordRange": [
+          8,
+          8
+        ]
+      },
+      {
+        "id": "networks",
+        "line": 18,
+        "wordRange": [
+          8,
+          8
+        ]
+      },
+      {
+        "id": "networks",
+        "line": 27,
+        "wordRange": [
+          8,
+          8
+        ]
+      },
+      {
+        "id": "networks",
+        "line": 34,
+        "wordRange": [
+          8,
+          8
+        ]
+      }
+    ],
+    "explain-python-wifi-scan": [
+      {
+        "id": "networks",
+        "line": 7,
+        "wordRange": [
+          11,
+          11
+        ]
+      }
+    ]
+  }
+}

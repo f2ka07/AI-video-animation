@@ -1,0 +1,17 @@
+{
+  "what-are-firewalls": "diagram",
+  "firewall-operations": "bullets",
+  "blocked-ports-protocols": "diagram",
+  "common-firewall-mistakes": "diagram",
+  "firewalls-takeaway": "diagram",
+  "cia-triad": "diagram",
+  "aaa-framework": "diagram",
+  "multifactor-authentication": "diagram",
+  "encryption-and-certificates": "diagram",
+  "identity-stores": "diagram",
+  "threats-and-vulnerabilities": "diagram",
+  "security-concepts-takeaway": "diagram",
+  "wpa-standards": "diagram",
+  "wireless-security-best-practices": "diagram",
+  "wireless-security-takeaway": "diagram"
+}

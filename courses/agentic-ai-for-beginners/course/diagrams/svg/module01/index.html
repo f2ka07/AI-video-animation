@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Agentic AI Transition</title>
+    <style>
+      body {
+        margin: 0;
+        background: #020617;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        color: #e5e7eb;
+      }
+
+      .visual-wrapper {
+        width: 960px;
+        height: 540px;
+        background: radial-gradient(circle at top left, #111827, #020617);
+        border-radius: 24px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        padding: 32px;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .visual {
+        width: 100%;
+        height: 100%;
+      }
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .part {
+        transition:
+          transform 0.4s ease,
+          opacity 0.4s ease,
+          filter 0.4s ease;
+      }
+
+      .link {
+        transition:
+          stroke 0.4s ease,
+          stroke-dashoffset 0.4s linear;
+      }
+
+      /* Base idle */
+      [data-phase="0"] .part {
+        opacity: 0.9;
+        filter: none;
+      }
+
+      /* Phase 1: chat era glowing */
+      [data-phase="1"] .part-chat {
+        transform: translateY(-4px);
+        filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.9));
+      }
+
+      /* Phase 2: tools / APIs lighting and connections pulsing */
+      @keyframes link-flow {
+        from {
+          stroke-dashoffset: 24;
+        }
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      [data-phase="2"] .part-tools rect {
+        transform: translateY(-2px);
+        filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.9));
+      }
+
+      [data-phase="2"] .link-chat-tools {
+        stroke: #38bdf8;
+        stroke-dasharray: 4 4;
+        animation: link-flow 0.6s linear infinite;
+      }
+
+      /* Phase 3: agent brain glowing + central pulse */
+      @keyframes brain-pulse {
+        0% {
+          transform: scale(1);
+          filter: drop-shadow(0 0 10px rgba(244, 114, 182, 0.9));
+        }
+        50% {
+          transform: scale(1.05);
+          filter: drop-shadow(0 0 18px rgba(244, 114, 182, 1));
+        }
+        100% {
+          transform: scale(1);
+          filter: drop-shadow(0 0 10px rgba(244, 114, 182, 0.9));
+        }
+      }
+
+      [data-phase="3"] .part-agent {
+        animation: brain-pulse 1.2s ease-in-out infinite;
+      }
+
+      [data-phase="3"] .link-tools-agent {
+        stroke: #c4b5fd;
+        stroke-dasharray: 4 4;
+        animation: link-flow 0.6s linear infinite;
+      }
+
+      /* Phase 4: real-world effects glowing */
+      [data-phase="4"] .part-actions rect {
+        transform: translateY(-4px);
+        filter: drop-shadow(0 0 16px rgba(34, 197, 94, 0.95));
+      }
+
+      [data-phase="4"] .link-agent-actions {
+        stroke: #22c55e;
+        stroke-dasharray: 4 4;
+        animation: link-flow 0.5s linear infinite;
+      }
+
+      .phase-label {
+        position: absolute;
+        bottom: 12px;
+        left: 20px;
+        font-size: 11px;
+        color: #9ca3af;
+        pointer-events: none;
+      }
+
+      .controls {
+        position: absolute;
+        bottom: 12px;
+        right: 20px;
+        display: flex;
+        gap: 8px;
+        font-size: 11px;
+      }
+
+      .controls button {
+        border-radius: 999px;
+        border: 1px solid #4b5563;
+        background: #020617;
+        color: #e5e7eb;
+        padding: 4px 10px;
+        cursor: pointer;
+      }
+
+      .controls button:hover {
+        border-color: #9ca3af;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="visual-wrapper" id="agentic-visual" data-phase="0">
+      <div class="visual">
+        <svg viewBox="0 0 380 260">
+          <!-- Background -->
+          <defs>
+            <radialGradient id="bgHalo" cx="0.3" cy="0.1" r="0.9">
+              <stop offset="0%" stop-color="#1f2937" stop-opacity="1" />
+              <stop offset="100%" stop-color="#020617" stop-opacity="0" />
+            </radialGradient>
+            <radialGradient id="agentGlow" cx="0.5" cy="0.4" r="0.7">
+              <stop offset="0%" stop-color="#f472b6" stop-opacity="0.8" />
+              <stop offset="100%" stop-color="#020617" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+
+          <rect x="0" y="0" width="380" height="260" fill="url(#bgHalo)" />
+
+          <!-- Ground -->
+          <rect
+            x="20"
+            y="190"
+            width="340"
+            height="30"
+            rx="8"
+            fill="#020617"
+            stroke="#374151"
+            stroke-width="1.3"
+          />
+
+          <!-- Chat era (left) -->
+          <g class="part part-chat">
+            <!-- chat window -->
+            <rect
+              x="30"
+              y="120"
+              width="90"
+              height="60"
+              rx="10"
+              fill="#0f172a"
+              stroke="#4b5563"
+              stroke-width="1"
+            />
+            <rect
+              x="36"
+              y="126"
+              width="78"
+              height="12"
+              rx="6"
+              fill="#111827"
+            />
+            <!-- prompt input -->
+            <rect
+              x="36"
+              y="158"
+              width="78"
+              height="16"
+              rx="8"
+              fill="#020617"
+              stroke="#4b5563"
+              stroke-width="1"
+            />
+            <text
+              x="46"
+              y="170"
+              font-size="8"
+              fill="#6b7280"
+            >
+              &gt; type prompt...
+            </text>
+            <!-- bubbles -->
+            <rect
+              x="38"
+              y="140"
+              width="38"
+              height="10"
+              rx="4"
+              fill="#1f2937"
+            />
+            <rect
+              x="76"
+              y="140"
+              width="34"
+              height="10"
+              rx="4"
+              fill="#111827"
+            />
+          </g>
+
+          <!-- Tools / APIs (middle top) -->
+          <g class="part part-tools">
+            <rect
+              x="150"
+              y="60"
+              width="80"
+              height="24"
+              rx="6"
+              fill="#0f172a"
+              stroke="#4b5563"
+              stroke-width="1"
+            />
+            <rect
+              x="145"
+              y="95"
+              width="38"
+              height="20"
+              rx="6"
+              fill="#111827"
+              stroke="#4b5563"
+              stroke-width="1"
+            />
+            <rect
+              x="177"
+              y="95"
+              width="38"
+              height="20"
+              rx="6"
+              fill="#111827"
+              stroke="#4b5563"
+              stroke-width="1"
+            />
+            <rect
+              x="209"
+              y="95"
+              width="38"
+              height="20"
+              rx="6"
+              fill="#111827"
+              stroke="#4b5563"
+              stroke-width="1"
+            />
+            <text
+              x="190"
+              y="76"
+              font-size="9"
+              fill="#e5e7eb"
+              text-anchor="middle"
+            >
+              APIs & tools
+            </text>
+            <text
+              x="164"
+              y="108"
+              font-size="7"
+              fill="#9ca3af"
+              text-anchor="middle"
+            >
+              DB
+            </text>
+            <text
+              x="196"
+              y="108"
+              font-size="7"
+              fill="#9ca3af"
+              text-anchor="middle"
+            >
+              Scripts
+            </text>
+            <text
+              x="228"
+              y="108"
+              font-size="7"
+              fill="#9ca3af"
+              text-anchor="middle"
+            >
+              APIs
+            </text>
+          </g>
+
+          <!-- Agent brain (center) -->
+          <g class="part part-agent">
+            <circle
+              cx="190"
+              cy="150"
+              r="40"
+              fill="#020617"
+              stroke="#4b5563"
+              stroke-width="1.5"
+            />
+            <circle
+              cx="190"
+              cy="150"
+              r="35"
+              fill="url(#agentGlow)"
+            />
+            <!-- simple network inside -->
+            <circle cx="176" cy="140" r="4" fill="#e5e7eb" />
+            <circle cx="204" cy="140" r="4" fill="#e5e7eb" />
+            <circle cx="170" cy="158" r="4" fill="#e5e7eb" />
+            <circle cx="210" cy="162" r="4" fill="#e5e7eb" />
+            <circle cx="190" cy="150" r="5" fill="#f97316" />
+            <line
+              x1="176"
+              y1="140"
+              x2="190"
+              y2="150"
+              stroke="#e5e7eb"
+              stroke-width="1"
+            />
+            <line
+              x1="204"
+              y1="140"
+              x2="190"
+              y2="150"
+              stroke="#e5e7eb"
+              stroke-width="1"
+            />
+            <line
+              x1="170"
+              y1="158"
+              x2="190"
+              y2="150"
+              stroke="#e5e7eb"
+              stroke-width="1"
+            />
+            <line
+              x1="210"
+              y1="162"
+              x2="190"
+              y2="150"
+              stroke="#e5e7eb"
+              stroke-width="1"
+            />
+          </g>
+
+          <!-- Real-world actions (right) -->
+          <g class="part part-actions">
+            <rect
+              x="260"
+              y="110"
+              width="90"
+              height="64"
+              rx="10"
+              fill="#0f172a"
+              stroke="#4b5563"
+              stroke-width="1"
+            />
+            <!-- bars as dashboards -->
+            <rect
+              x="268"
+              y="120"
+              width="28"
+              height="8"
+              rx="3"
+              fill="#22c55e"
+            />
+            <rect
+              x="268"
+              y="133"
+              width="20"
+              height="6"
+              rx="3"
+              fill="#eab308"
+            />
+            <rect
+              x="268"
+              y="144"
+              width="34"
+              height="6"
+              rx="3"
+              fill="#38bdf8"
+            />
+
+            <!-- list items -->
+            <rect
+              x="302"
+              y="120"
+              width="40"
+              height="6"
+              rx="3"
+              fill="#111827"
+            />
+            <rect
+              x="302"
+              y="131"
+              width="40"
+              height="6"
+              rx="3"
+              fill="#111827"
+            />
+            <rect
+              x="302"
+              y="142"
+              width="40"
+              height="6"
+              rx="3"
+              fill="#111827"
+            />
+            <text
+              x="305"
+              y="166"
+              font-size="7"
+              fill="#9ca3af"
+            >
+              Actions: deploy, email, trade...
+            </text>
+          </g>
+
+          <!-- Links -->
+          <line
+            class="link link-chat-tools"
+            x1="120"
+            y1="150"
+            x2="150"
+            y2="72"
+            stroke="#4b5563"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <line
+            class="link link-tools-agent"
+            x1="190"
+            y1="84"
+            x2="190"
+            y2="110"
+            stroke="#4b5563"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <line
+            class="link link-agent-actions"
+            x1="220"
+            y1="150"
+            x2="260"
+            y2="142"
+            stroke="#4b5563"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+
+          <!-- Labels -->
+          <text
+            x="75"
+            y="200"
+            font-size="10"
+            fill="#9ca3af"
+            text-anchor="middle"
+          >
+            Chat-era prompts
+          </text>
+          <text
+            x="190"
+            y="52"
+            font-size="10"
+            fill="#9ca3af"
+            text-anchor="middle"
+          >
+            Tools & APIs
+          </text>
+          <text
+            x="190"
+            y="210"
+            font-size="10"
+            fill="#9ca3af"
+            text-anchor="middle"
+          >
+            Agentic controller
+          </text>
+          <text
+            x="305"
+            y="200"
+            font-size="10"
+            fill="#9ca3af"
+            text-anchor="middle"
+          >
+            Real-world impact
+          </text>
+
+          <!-- Tiny badge -->
+          <g transform="translate(28 28)">
+            <rect
+              x="0"
+              y="0"
+              width="110"
+              height="22"
+              rx="11"
+              fill="#0f172a"
+              stroke="#4b5563"
+              stroke-width="1"
+            />
+            <circle cx="14" cy="11" r="6" fill="#22c55e" />
+            <text x="30" y="14" font-size="9" fill="#e5e7eb">
+              Agentic AI system
+            </text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="phase-label">Phase: <span id="phase-value">0</span></div>
+      <div class="controls">
+        <button onclick="setPhase(0)">Idle</button>
+        <button onclick="setPhase(1)">Chat</button>
+        <button onclick="setPhase(2)">Tools</button>
+        <button onclick="setPhase(3)">Agent</button>
+        <button onclick="setPhase(4)">Actions</button>
+      </div>
+    </div>
+
+    <script>
+      function setPhase(n) {
+        const root = document.getElementById("agentic-visual");
+        root.dataset.phase = String(n);
+        const label = document.getElementById("phase-value");
+        if (label) label.textContent = String(n);
+      }
+
+      // Example wiring to your narration / grouped timings:
+      /*
+      const groups = [
+        { start: 0.0, end: 3.0, phase: 1 }, // "The age of typing prompts..."
+        { start: 3.0, end: 7.0, phase: 2 }, // "For the past two years..."
+        { start: 7.0, end: 11.0, phase: 3 }, // "But that was never..."
+        { start: 11.0, end: 16.0, phase: 4 } // "AI is moving from..."
+      ];
+
+      const audio = document.getElementById("voice");
+
+      audio.ontimeupdate = () => {
+        const t = audio.currentTime;
+        let phase = 0;
+        for (const g of groups) {
+          if (t >= g.start && t < g.end) {
+            phase = g.phase;
+            break;
+          }
+        }
+        setPhase(phase);
+      };
+      */
+    </script>
+  </body>
+</html>

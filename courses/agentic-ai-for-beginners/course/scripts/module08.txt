@@ -1,0 +1,76 @@
+Module 08: Reasoning, Planning, and Memory
+
+Metadata
+Target Runtime: 12-15 minutes
+Script Length: 1000-1400 words
+Voice: Hybrid (V2 intro, V1 body)
+
+---
+
+[CINEMATIC INTRO]
+
+In Module 02 we covered the agent loop and its six components. But here's what we didn't fully address: how reasoning fails, and how memory fixes it.
+
+Agents don't just need to reason. They need to reason correctly, recover when they're wrong, and remember what matters. In this module we go deeper: reflection patterns, failure modes, and which memory model solves which problem.
+
+---
+
+[CONCEPT]
+
+Let's talk about how agents reason and where it breaks.
+
+Task decomposition is the first step. The agent receives a goal and breaks it into subtasks. "Summarize this document" becomes: retrieve the document, extract key sections, synthesize, format. Step planning can be explicit—a structured planner outputs a list—or implicit—the language model reasons through steps in one pass. Explicit planning is more traceable. Implicit is more flexible. Most production systems use a hybrid: high-level plan from a planner, flexible execution from the model.
+
+Reflection and self-correction are what separate robust agents from brittle ones. After an action, the agent can critique its output: "Did that answer the question? Is the format correct? Did I miss something?" Reflection patterns include: generate-then-critique, where a critic model reviews the output; chain-of-verification, where the agent checks its own reasoning; and iterative refinement, where the agent loops until a quality threshold is met. These patterns reduce hallucination and improve accuracy.
+
+---
+
+[ARCHITECTURE]
+
+Now let's map memory to failure modes.
+
+Working memory holds the current task context: the goal, what's been done, what's pending, observed results. It's a conversation buffer or session state. When does reasoning fail? When the agent forgets the original instruction. "Summarize in bullet points" gets lost after three tool calls. Fix: keep the instruction in working memory and re-inject it at each step. Working memory solves the "forgotten instruction" problem.
+
+Long-term memory persists across sessions. It's vector stores for semantic search, or databases for structured facts. When does reasoning fail? When the agent lacks relevant context. "What did we decide about the project timeline?"—if it's not in the model's context window, the agent can't answer. Fix: store important outcomes in long-term memory and retrieve when needed. Long-term memory solves the "no context" problem.
+
+Session context bridges the two. It's the rolling window of recent turns. When does reasoning fail? When the agent loops—repeating the same action or reasoning without progress. Fix: detect repetition in session context, trigger a stop or escalation. Session context helps with the "looping reasoning" problem.
+
+Memory hygiene matters. Summarize old context to avoid drift. Use TTL—time-to-live—for ephemeral data. Filter retrieval by relevance and freshness. Without hygiene, memory becomes noisy and retrieval returns irrelevant results.
+
+---
+
+[APPLICATION]
+
+How do you implement these patterns in practice?
+
+For reflection: add a critique step after each major output. The critic checks correctness, completeness, and format. If it fails, the agent retries with the feedback. This adds latency but improves quality. Use it for high-stakes outputs.
+
+For working memory: maintain a structured state object. Include: goal, steps completed, current step, instruction. Re-inject the instruction into every model call. Don't assume the model remembers after five tool calls. It won't.
+
+For long-term memory: use a vector store for semantic search, or a database for structured facts. On retrieval, apply freshness filters—prefer recent documents—and citation requirements—always return the source. This grounds responses and reduces hallucination.
+
+For anti-loop: track recent actions in session state. If the same tool is called with the same args three times, or the same reasoning pattern repeats, trigger a stop or human escalation. Max-step limits are a simple guard: after N steps, stop or escalate regardless.
+
+---
+
+[EXAM MAPPING]
+
+The certification will test your understanding of reasoning failures and memory solutions.
+
+Key terms: task decomposition, step planning, reflection, self-correction, working memory, long-term memory, session context, memory hygiene, TTL, retrieval filtering, anti-loop guard, max-step limit.
+
+You'll need to match failure modes to fixes: forgotten instruction—working memory. No context—long-term retrieval. Looping—session context and stop conditions.
+
+---
+
+[RECAP]
+
+Reasoning fails in predictable ways: forgotten instructions, missing context, looping. Working memory fixes forgotten instructions. Long-term memory fixes missing context. Session context and anti-loop guards fix looping.
+
+Reflection patterns—critique, verification, refinement—improve output quality. Memory hygiene—summarization, TTL, retrieval filtering—keeps memory useful.
+
+Design your memory model for the failures you expect. Then add the guards.
+
+---
+
+Word Count: ~680 words

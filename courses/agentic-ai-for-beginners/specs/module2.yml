@@ -1,0 +1,57 @@
+MODULE 02 SPEC
+
+name: Agent Fundamentals
+
+id: module02
+title: Agent Fundamentals: From Single Calls to Agent Loops
+runtime_target: 15m
+script_length: 1400-1800 words
+layout: cinematic_intro -> concept -> architecture -> application -> exam_mapping -> recap
+voice: Hybrid
+role_signaling: integrated
+ssml_required: yes
+deliverables:
+  - narration_script
+  - narration_ssml
+  - diagrams_svg
+  - remotion_scenes
+  - mp4_export
+  - repurposed_outputs
+
+concept_scope:
+
+- define what an agent is
+- introduce agent loop pattern
+
+architecture_scope:
+
+- planning
+- tool use
+- memory
+- retrieval/grounding
+- safety/policy
+- human-in-the-loop
+
+application_scope:
+
+- how loops enable real workloads
+- how enterprises view agentic systems
+
+exam_mapping:
+
+- agent loop understanding
+- components recognition
+- one-shot vs agentic distinction
+
+required_diagrams:
+
+- agent-vs-singlecall.svg
+- agent-components.svg
+- agent-loop-pattern.svg
+- agent-roles-grid.svg
+
+recap_keypoints:
+
+- demos use single calls
+- workloads use loops
+- agents enable workflows

@@ -21,6 +21,10 @@ lpt3
 .env
 .env.local
 public/audio/*.mp3
+# Audio: only track active course + shared assets (updated by activateCourse.ts)
+public/audio/*
+!public/audio/whoosh.wav
+!public/audio/introduction-to-computer-networks/
 out/
 doc/
 .remotion/
@@ -31,9 +35,6 @@ src/assets/aws/*
 
 # Generated content - platform only, do not push
 *.backup.*
-courses/
-courses.json
-public/audio/
 public/videos/
 public/assets/
 public/gentle-cache/

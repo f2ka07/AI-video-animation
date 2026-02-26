@@ -1,0 +1,62 @@
+{
+  "diagram": "workload-matrix.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 4.6,
+      "show": [
+        "main"
+      ],
+      "dim": [],
+      "highlight": []
+    },
+    {
+      "start": 4.6,
+      "end": 17.9,
+      "show": [
+        "main",
+        "section-1"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-1"
+      ]
+    },
+    {
+      "start": 17.9,
+      "end": 20.4,
+      "show": [
+        "main",
+        "section-2"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-2"
+      ]
+    },
+    {
+      "start": 20.4,
+      "end": 27.9,
+      "show": [
+        "main",
+        "section-3"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-3"
+      ]
+    },
+    {
+      "start": 27.9,
+      "end": 32.6,
+      "show": [
+        "main",
+        "section-4"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-4"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "courseName": "Fix AI Wrong Answers",
+  "courseId": "fix-ai-wrong-answers",
+  "modules": [
+    {
+      "moduleNumber": 1,
+      "title": "AI Lies Fixed with RAG",
+      "subtitle": "Stop AI from giving wrong answers using RAG.",
+      "thumbnailText": "FIX AI",
+      "slides": [
+        {
+          "name": "attack-hook",
+          "type": "title",
+          "script": "Your AI is confidently wrong. Here's why.",
+          "title": "AI Lies Problem",
+          "points": []
+        },
+        {
+          "name": "the-promise",
+          "type": "content-two-card",
+          "script": "By the end, you'll know how to stop AI lies.",
+          "title": "Stop AI Lies",
+          "points": [
+            "how to stop AI lies"
+          ]
+        },
+        {
+          "name": "show-result-first",
+          "type": "code-diagram",
+          "script": "RAG architecture ensures factual AI responses.",
+          "title": "RAG Architecture",
+          "points": []
+        }
+      ]
+    },
+    {
+      "moduleNumber": 2,
+      "title": "Prevent AI Errors with Data Validation",
+      "subtitle": "Use data validation to correct AI errors.",
+      "thumbnailText": "VALIDATE DATA",
+      "slides": [
+        {
+          "name": "attack-hook",
+          "type": "title",
+          "script": "AI errors come from unchecked data.",
+          "title": "AI Error Source",
+          "points": []
+        },
+        {
+          "name": "the-promise",
+          "type": "content-two-card",
+          "script": "Learn to validate data to prevent AI mistakes.",
+          "title": "Validate Data",
+          "points": [
+            "prevent AI mistakes"
+          ]
+        },
+        {
+          "name": "show-result-first",
+          "type": "content-two-card",
+          "script": "Data validation flow stops bad inputs early.",
+          "title": "Validation Flow",
+          "points": []
+        }
+      ]
+    },
+    {
+      "moduleNumber": 3,
+      "title": "Boost AI Accuracy Using Feedback Loops",
+      "subtitle": "Implement feedback loops for better AI accuracy.",
+      "thumbnailText": "FEEDBACK LOOPS",
+      "slides": [
+        {
+          "name": "attack-hook",
+          "type": "title",
+          "script": "AI accuracy drops without feedback.",
+          "title": "Accuracy Drop",
+          "points": []
+        },
+        {
+          "name": "the-promise",
+          "type": "content-two-card",
+          "script": "You'll add feedback loops for precise AI.",
+          "title": "Add Feedback",
+          "points": [
+            "precise AI"
+          ]
+        },
+        {
+          "name": "show-result-first",
+          "type": "comparison",
+          "script": "Feedback loops enhance AI accuracy over time.",
+          "title": "Feedback Impact",
+          "points": []
+        }
+      ]
+    },
+    {
+      "moduleNumber": 4,
+      "title": "Stop AI Hallucinations with Model Tuning",
+      "subtitle": "Fine-tune models to prevent hallucinations.",
+      "thumbnailText": "TUNE MODELS",
+      "slides": [
+        {
+          "name": "attack-hook",
+          "type": "title",
+          "script": "AI hallucinations mislead decisions.",
+          "title": "Hallucination Issue",
+          "points": []
+        },
+        {
+          "name": "the-promise",
+          "type": "content-two-card",
+          "script": "Learn to fine-tune models to stop hallucinations.",
+          "title": "Fine-Tune Models",
+          "points": [
+            "stop hallucinations"
+          ]
+        },
+        {
+          "name": "show-result-first",
+          "type": "content-single",
+          "script": "Model tuning aligns AI with reality.",
+          "title": "Tuning Results",
+          "points": []
+        }
+      ]
+    },
+    {
+      "moduleNumber": 5,
+      "title": "Correct AI Mistakes with Contextual Memory",
+      "subtitle": "Use memory for contextual AI responses.",
+      "thumbnailText": "ADD MEMORY",
+      "slides": [
+        {
+          "name": "attack-hook",
+          "type": "title",
+          "script": "AI forgets context, makes errors.",
+          "title": "Context Loss",
+          "points": []
+        },
+        {
+          "name": "the-promise",
+          "type": "content-two-card",
+          "script": "You'll use memory for contextual AI answers.",
+          "title": "Use Memory",
+          "points": [
+            "contextual AI answers"
+          ]
+        },
+        {
+          "name": "show-result-first",
+          "type": "sequential-bullet",
+          "script": "Contextual memory reduces AI mistakes.",
+          "title": "Memory Impact",
+          "points": []
+        }
+      ]
+    }
+  ],
+  "savedAt": "2026-02-17T12:46:49.346Z"
+}

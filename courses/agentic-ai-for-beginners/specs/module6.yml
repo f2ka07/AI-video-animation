@@ -1,0 +1,66 @@
+id: module06
+title: Enterprise & Industry Use Cases
+runtime_target: 15m
+script_length: 1400-1800 words
+layout: cinematic_intro -> concept -> architecture -> application -> exam_mapping -> recap
+voice: Hybrid
+ssml_required: yes
+deliverables:
+  - narration_script
+  - narration_ssml
+  - diagrams_svg
+  - remotion_scenes
+  - mp4_export
+  - repurposed_outputs
+
+concept_scope:
+  - show that agentic AI is not abstract
+  - ground in real industry patterns
+  - anchor to enterprise purchase behavior
+
+use_cases:
+  - knowledge management
+  - customer ops
+  - research & analysis
+  - document automation
+  - data workflows
+  - robotics (adjacent)
+  - simulation (adjacent)
+
+value_drivers:
+  - automation
+  - speed
+  - consistency
+  - traceability
+  - compliance
+  - evaluation
+
+adoption_modes:
+  - pilot
+  - integration
+  - scale out
+  - platform standardization
+
+role_signaling:
+  engineers:
+    - think in feasibility, latency, integration complexity
+  technical_leaders:
+    - think in ROI, adoption curve, workflow fit, risk
+
+exam_mapping:
+  - understanding where agentic AI applies
+  - understanding enterprise drivers
+  - understanding maturity phases
+
+required_diagrams:
+  - industry-usecase-grid.svg
+    industries vs use cases
+  - adoption-curve.svg
+    pilot -> integrate -> scale -> standardize
+  - value-driver-spider.svg
+    axes: speed, compliance, automation, traceability, cost
+
+recap_keypoints:
+  - agentic AI is enterprise-relevant
+  - value is tied to workflows
+  - adoption is staged, not instant

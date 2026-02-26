@@ -1,0 +1,62 @@
+{
+  "diagram": "pipeline-constraints-triangle.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 26.2,
+      "show": [
+        "main"
+      ],
+      "dim": [],
+      "highlight": []
+    },
+    {
+      "start": 26.2,
+      "end": 61.1,
+      "show": [
+        "main",
+        "section-1"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-1"
+      ]
+    },
+    {
+      "start": 61.1,
+      "end": 63.1,
+      "show": [
+        "main",
+        "section-2"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-2"
+      ]
+    },
+    {
+      "start": 63.1,
+      "end": 78.5,
+      "show": [
+        "main",
+        "section-3"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-3"
+      ]
+    },
+    {
+      "start": 78.5,
+      "end": 83.5,
+      "show": [
+        "main",
+        "section-4"
+      ],
+      "dim": [],
+      "highlight": [
+        "section-4"
+      ]
+    }
+  ]
+}

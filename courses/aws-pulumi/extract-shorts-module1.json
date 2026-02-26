@@ -1,0 +1,65 @@
+{
+  "courseId": "aws-pulumi",
+  "sourceModule": 1,
+  "sourceTitle": "AWS Infrastructure as Code with Pulumi",
+  "targetSeconds": 60,
+  "slideBoundaries": [
+    {
+      "index": 0,
+      "name": "title",
+      "type": "title",
+      "startSeconds": 0,
+      "endSeconds": 44
+    },
+    {
+      "index": 1,
+      "name": "whyIaC",
+      "type": "content-two-card",
+      "startSeconds": 44.5,
+      "endSeconds": 79.6
+    },
+    {
+      "index": 2,
+      "name": "comparison",
+      "type": "comparison",
+      "startSeconds": 80.2,
+      "endSeconds": 118.4
+    },
+    {
+      "index": 3,
+      "name": "workflow",
+      "type": "content-single",
+      "startSeconds": 119,
+      "endSeconds": 145.4
+    },
+    {
+      "index": 4,
+      "name": "initCode",
+      "type": "code",
+      "startSeconds": 145.9,
+      "endSeconds": 175.2
+    },
+    {
+      "index": 5,
+      "name": "whyTypeScript",
+      "type": "content-two-card",
+      "startSeconds": 175.7,
+      "endSeconds": 194
+    },
+    {
+      "index": 6,
+      "name": "typescriptCode",
+      "type": "code",
+      "startSeconds": 194.5,
+      "endSeconds": 222.4
+    },
+    {
+      "index": 7,
+      "name": "summary",
+      "type": "content-two-card",
+      "startSeconds": 222.9,
+      "endSeconds": 252
+    }
+  ],
+  "clipCandidates": []
+}

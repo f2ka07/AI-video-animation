@@ -1,0 +1,131 @@
+{
+  "diagram": "agent-components.svg",
+  "phases": [
+    {
+      "start": 9.5,
+      "end": 44.2,
+      "show": [
+        "planning"
+      ],
+      "dim": [
+        "tools",
+        "retrieval",
+        "memory",
+        "safety",
+        "hitl"
+      ],
+      "highlight": [
+        "planning"
+      ],
+      "triggerWords": [
+        "first",
+        "planning",
+        "planner"
+      ]
+    },
+    {
+      "start": 44.2,
+      "end": 60.1,
+      "show": [
+        "planning",
+        "tools"
+      ],
+      "dim": [
+        "retrieval",
+        "memory",
+        "safety",
+        "hitl"
+      ],
+      "highlight": [
+        "tools"
+      ],
+      "triggerWords": [
+        "second",
+        "tools"
+      ]
+    },
+    {
+      "start": 60.1,
+      "end": 74.4,
+      "show": [
+        "planning",
+        "tools",
+        "retrieval"
+      ],
+      "dim": [
+        "memory",
+        "safety",
+        "hitl"
+      ],
+      "highlight": [
+        "retrieval"
+      ],
+      "triggerWords": [
+        "retrieval",
+        "grounding"
+      ]
+    },
+    {
+      "start": 74.4,
+      "end": 138.8,
+      "show": [
+        "planning",
+        "tools",
+        "retrieval",
+        "memory"
+      ],
+      "dim": [
+        "safety",
+        "hitl"
+      ],
+      "highlight": [
+        "memory"
+      ],
+      "triggerWords": [
+        "third",
+        "memory"
+      ]
+    },
+    {
+      "start": 138.8,
+      "end": 209.9,
+      "show": [
+        "planning",
+        "tools",
+        "retrieval",
+        "memory",
+        "safety"
+      ],
+      "dim": [
+        "hitl"
+      ],
+      "highlight": [
+        "safety"
+      ],
+      "triggerWords": [
+        "safety"
+      ]
+    },
+    {
+      "start": 209.9,
+      "end": 217,
+      "show": [
+        "planning",
+        "tools",
+        "retrieval",
+        "memory",
+        "safety",
+        "hitl"
+      ],
+      "dim": [],
+      "highlight": [
+        "hitl"
+      ],
+      "triggerWords": [
+        "hitl",
+        "human-in-the-loop",
+        "human in the loop"
+      ]
+    }
+  ]
+}

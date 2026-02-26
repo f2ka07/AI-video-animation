@@ -1,0 +1,1252 @@
+{
+  "moduleNumber": 4,
+  "title": "Evaluation and Self-Repair",
+  "slides": {
+    "intro-evaluation-self-repair": {
+      "words": [
+        {
+          "text": "In",
+          "start": 0,
+          "end": 0.16
+        },
+        {
+          "text": "this",
+          "start": 0.16,
+          "end": 0.33
+        },
+        {
+          "text": "module",
+          "start": 0.34,
+          "end": 0.79
+        },
+        {
+          "text": "we'll",
+          "start": 0.97,
+          "end": 1.18
+        },
+        {
+          "text": "explore",
+          "start": 1.18,
+          "end": 1.69
+        },
+        {
+          "text": "how",
+          "start": 1.7,
+          "end": 1.97
+        },
+        {
+          "text": "evaluation",
+          "start": 2,
+          "end": 2.83
+        },
+        {
+          "text": "and",
+          "start": 2.86,
+          "end": 3.0999999999999996
+        },
+        {
+          "text": "self",
+          "start": 3.1,
+          "end": 3.41
+        },
+        {
+          "text": "repair",
+          "start": 3.41,
+          "end": 3.95
+        },
+        {
+          "text": "enhance",
+          "start": 4.15,
+          "end": 4.800000000000001
+        },
+        {
+          "text": "AI",
+          "start": 4.85,
+          "end": 5.17
+        },
+        {
+          "text": "reliability",
+          "start": 5.19,
+          "end": 6.0600000000000005
+        },
+        {
+          "text": "This",
+          "start": 6.38,
+          "end": 6.6
+        },
+        {
+          "text": "process",
+          "start": 6.61,
+          "end": 7.050000000000001
+        },
+        {
+          "text": "involves",
+          "start": 7.05,
+          "end": 7.4799999999999995
+        },
+        {
+          "text": "assessing",
+          "start": 7.49,
+          "end": 8.02
+        },
+        {
+          "text": "performance",
+          "start": 8.02,
+          "end": 8.69
+        },
+        {
+          "text": "and",
+          "start": 8.9,
+          "end": 9.110000000000001
+        },
+        {
+          "text": "making",
+          "start": 9.11,
+          "end": 9.479999999999999
+        },
+        {
+          "text": "necessary",
+          "start": 9.48,
+          "end": 10.06
+        },
+        {
+          "text": "adjustments",
+          "start": 10.059999,
+          "end": 10.779999
+        },
+        {
+          "text": "akin",
+          "start": 10.969999,
+          "end": 11.399999
+        },
+        {
+          "text": "to",
+          "start": 11.4,
+          "end": 11.56
+        },
+        {
+          "text": "regular",
+          "start": 11.559999,
+          "end": 11.999998999999999
+        },
+        {
+          "text": "maintenance",
+          "start": 12,
+          "end": 12.57
+        },
+        {
+          "text": "checks",
+          "start": 12.57,
+          "end": 12.950000000000001
+        },
+        {
+          "text": "on",
+          "start": 12.969999,
+          "end": 13.139999
+        },
+        {
+          "text": "a",
+          "start": 13.139999,
+          "end": 13.209999
+        },
+        {
+          "text": "car",
+          "start": 13.21,
+          "end": 13.440000000000001
+        }
+      ]
+    },
+    "importance-of-evaluation": {
+      "words": [
+        {
+          "text": "Evaluation",
+          "start": 0,
+          "end": 0.71
+        },
+        {
+          "text": "is",
+          "start": 0.71,
+          "end": 0.8999999999999999
+        },
+        {
+          "text": "critical",
+          "start": 0.9,
+          "end": 1.42
+        },
+        {
+          "text": "for",
+          "start": 1.43,
+          "end": 1.64
+        },
+        {
+          "text": "identifying",
+          "start": 1.64,
+          "end": 2.37
+        },
+        {
+          "text": "areas",
+          "start": 2.38,
+          "end": 2.75
+        },
+        {
+          "text": "of",
+          "start": 2.75,
+          "end": 2.9
+        },
+        {
+          "text": "improvement",
+          "start": 2.9,
+          "end": 3.54
+        },
+        {
+          "text": "It",
+          "start": 3.9,
+          "end": 4.05
+        },
+        {
+          "text": "ensures",
+          "start": 4.05,
+          "end": 4.54
+        },
+        {
+          "text": "the",
+          "start": 4.54,
+          "end": 4.74
+        },
+        {
+          "text": "AI",
+          "start": 4.74,
+          "end": 5.13
+        },
+        {
+          "text": "system",
+          "start": 5.14,
+          "end": 5.58
+        },
+        {
+          "text": "operates",
+          "start": 5.59,
+          "end": 6.08
+        },
+        {
+          "text": "at",
+          "start": 6.08,
+          "end": 6.22
+        },
+        {
+          "text": "peak",
+          "start": 6.26,
+          "end": 6.55
+        },
+        {
+          "text": "performance",
+          "start": 6.55,
+          "end": 7.26
+        },
+        {
+          "text": "similar",
+          "start": 7.45,
+          "end": 7.9
+        },
+        {
+          "text": "to",
+          "start": 7.9,
+          "end": 8.05
+        },
+        {
+          "text": "how",
+          "start": 8.05,
+          "end": 8.25
+        },
+        {
+          "text": "athletes",
+          "start": 8.29,
+          "end": 8.78
+        },
+        {
+          "text": "review",
+          "start": 8.78,
+          "end": 9.219999999999999
+        },
+        {
+          "text": "their",
+          "start": 9.22,
+          "end": 9.38
+        },
+        {
+          "text": "performance",
+          "start": 9.38,
+          "end": 10.020000000000001
+        },
+        {
+          "text": "to",
+          "start": 10.02,
+          "end": 10.219999999999999
+        },
+        {
+          "text": "enhance",
+          "start": 10.219999,
+          "end": 10.659999
+        },
+        {
+          "text": "skills",
+          "start": 10.67,
+          "end": 11.22
+        }
+      ]
+    },
+    "self-repair-concept": {
+      "words": [
+        {
+          "text": "Self",
+          "start": 0,
+          "end": 0.28
+        },
+        {
+          "text": "repair",
+          "start": 0.28,
+          "end": 0.63
+        },
+        {
+          "text": "involves",
+          "start": 0.63,
+          "end": 1.06
+        },
+        {
+          "text": "automatic",
+          "start": 1.08,
+          "end": 1.7000000000000002
+        },
+        {
+          "text": "detection",
+          "start": 1.7,
+          "end": 2.26
+        },
+        {
+          "text": "and",
+          "start": 2.26,
+          "end": 2.4499999999999997
+        },
+        {
+          "text": "correction",
+          "start": 2.45,
+          "end": 2.92
+        },
+        {
+          "text": "of",
+          "start": 2.92,
+          "end": 3.05
+        },
+        {
+          "text": "errors",
+          "start": 3.05,
+          "end": 3.3699999999999997
+        },
+        {
+          "text": "within",
+          "start": 3.37,
+          "end": 3.71
+        },
+        {
+          "text": "the",
+          "start": 3.71,
+          "end": 3.86
+        },
+        {
+          "text": "AI",
+          "start": 3.86,
+          "end": 4.1499999999999995
+        },
+        {
+          "text": "system",
+          "start": 4.16,
+          "end": 4.640000000000001
+        },
+        {
+          "text": "This",
+          "start": 4.94,
+          "end": 5.15
+        },
+        {
+          "text": "capability",
+          "start": 5.15,
+          "end": 5.83
+        },
+        {
+          "text": "minimizes",
+          "start": 5.84,
+          "end": 6.529999999999999
+        },
+        {
+          "text": "downtime",
+          "start": 6.53,
+          "end": 7.1000000000000005
+        },
+        {
+          "text": "and",
+          "start": 7.1,
+          "end": 7.199999999999999
+        },
+        {
+          "text": "enhances",
+          "start": 7.2,
+          "end": 7.82
+        },
+        {
+          "text": "reliability",
+          "start": 7.82,
+          "end": 8.68
+        },
+        {
+          "text": "much",
+          "start": 8.9,
+          "end": 9.21
+        },
+        {
+          "text": "like",
+          "start": 9.21,
+          "end": 9.4
+        },
+        {
+          "text": "a",
+          "start": 9.4,
+          "end": 9.47
+        },
+        {
+          "text": "self",
+          "start": 9.48,
+          "end": 9.77
+        },
+        {
+          "text": "healing",
+          "start": 9.78,
+          "end": 10.16
+        },
+        {
+          "text": "material",
+          "start": 10.16,
+          "end": 10.61
+        },
+        {
+          "text": "that",
+          "start": 10.62,
+          "end": 10.76
+        },
+        {
+          "text": "repairs",
+          "start": 10.76,
+          "end": 11.18
+        },
+        {
+          "text": "itself",
+          "start": 11.179999,
+          "end": 11.509999
+        }
+      ]
+    },
+    "evaluation-code-example": {
+      "words": [
+        {
+          "text": "Here's",
+          "start": 0.03,
+          "end": 0.31000000000000005
+        },
+        {
+          "text": "a",
+          "start": 0.31,
+          "end": 0.38
+        },
+        {
+          "text": "code",
+          "start": 0.38,
+          "end": 0.66
+        },
+        {
+          "text": "snippet",
+          "start": 0.66,
+          "end": 1.1
+        },
+        {
+          "text": "demonstrating",
+          "start": 1.12,
+          "end": 1.83
+        },
+        {
+          "text": "a",
+          "start": 1.83,
+          "end": 1.9300000000000002
+        },
+        {
+          "text": "basic",
+          "start": 1.94,
+          "end": 2.35
+        },
+        {
+          "text": "evaluation",
+          "start": 2.35,
+          "end": 3.06
+        },
+        {
+          "text": "function",
+          "start": 3.06,
+          "end": 3.64
+        },
+        {
+          "text": "This",
+          "start": 4.09,
+          "end": 4.34
+        },
+        {
+          "text": "function",
+          "start": 4.34,
+          "end": 4.82
+        },
+        {
+          "text": "checks",
+          "start": 4.82,
+          "end": 5.12
+        },
+        {
+          "text": "the",
+          "start": 5.12,
+          "end": 5.25
+        },
+        {
+          "text": "system's",
+          "start": 5.25,
+          "end": 5.67
+        },
+        {
+          "text": "output",
+          "start": 5.68,
+          "end": 6.109999999999999
+        },
+        {
+          "text": "against",
+          "start": 6.11,
+          "end": 6.46
+        },
+        {
+          "text": "expected",
+          "start": 6.46,
+          "end": 6.99
+        },
+        {
+          "text": "results",
+          "start": 6.99,
+          "end": 7.5600000000000005
+        },
+        {
+          "text": "providing",
+          "start": 7.82,
+          "end": 8.3
+        },
+        {
+          "text": "feedback",
+          "start": 8.3,
+          "end": 8.850000000000001
+        },
+        {
+          "text": "on",
+          "start": 8.86,
+          "end": 9.08
+        },
+        {
+          "text": "performance",
+          "start": 9.08,
+          "end": 9.620000000000001
+        },
+        {
+          "text": "accuracy",
+          "start": 9.63,
+          "end": 10.33
+        }
+      ]
+    },
+    "code-explanation-evaluation": {
+      "words": [
+        {
+          "text": "The",
+          "start": 0,
+          "end": 0.16
+        },
+        {
+          "text": "evaluate_performance",
+          "start": 0.95,
+          "end": 1.48
+        },
+        {
+          "text": "function",
+          "start": 1.49,
+          "end": 2.04
+        },
+        {
+          "text": "compares",
+          "start": 2.24,
+          "end": 2.71
+        },
+        {
+          "text": "actual",
+          "start": 2.73,
+          "end": 3.13
+        },
+        {
+          "text": "output",
+          "start": 3.13,
+          "end": 3.48
+        },
+        {
+          "text": "to",
+          "start": 3.51,
+          "end": 3.63
+        },
+        {
+          "text": "expected",
+          "start": 3.63,
+          "end": 4.13
+        },
+        {
+          "text": "results",
+          "start": 4.13,
+          "end": 4.7299999999999995
+        },
+        {
+          "text": "If",
+          "start": 4.99,
+          "end": 5.17
+        },
+        {
+          "text": "they",
+          "start": 5.17,
+          "end": 5.29
+        },
+        {
+          "text": "match",
+          "start": 5.29,
+          "end": 5.78
+        },
+        {
+          "text": "it",
+          "start": 5.94,
+          "end": 6.130000000000001
+        },
+        {
+          "text": "confirms",
+          "start": 6.13,
+          "end": 6.64
+        },
+        {
+          "text": "optimal",
+          "start": 6.65,
+          "end": 7.1000000000000005
+        },
+        {
+          "text": "performance",
+          "start": 7.1,
+          "end": 7.84
+        },
+        {
+          "text": "otherwise",
+          "start": 8.13,
+          "end": 8.770000000000001
+        },
+        {
+          "text": "it",
+          "start": 8.83,
+          "end": 9.02
+        },
+        {
+          "text": "indicates",
+          "start": 9.02,
+          "end": 9.49
+        },
+        {
+          "text": "a",
+          "start": 9.49,
+          "end": 9.55
+        },
+        {
+          "text": "need",
+          "start": 9.55,
+          "end": 9.780000000000001
+        },
+        {
+          "text": "for",
+          "start": 9.79,
+          "end": 9.92
+        },
+        {
+          "text": "improvement",
+          "start": 9.92,
+          "end": 10.57
+        },
+        {
+          "text": "providing",
+          "start": 10.76,
+          "end": 11.25
+        },
+        {
+          "text": "immediate",
+          "start": 11.259999,
+          "end": 11.819999000000001
+        },
+        {
+          "text": "feedback",
+          "start": 11.82,
+          "end": 12.16
+        }
+      ]
+    },
+    "self-repair-code-example": {
+      "words": [
+        {
+          "text": "Consider",
+          "start": 0.01,
+          "end": 0.48
+        },
+        {
+          "text": "this",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "text": "self",
+          "start": 0.73,
+          "end": 1.13
+        },
+        {
+          "text": "repair",
+          "start": 1.13,
+          "end": 1.5099999999999998
+        },
+        {
+          "text": "function",
+          "start": 1.51,
+          "end": 2.1
+        },
+        {
+          "text": "It",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "text": "identifies",
+          "start": 2.56,
+          "end": 3.21
+        },
+        {
+          "text": "errors",
+          "start": 3.25,
+          "end": 3.69
+        },
+        {
+          "text": "and",
+          "start": 3.72,
+          "end": 3.9200000000000004
+        },
+        {
+          "text": "attempts",
+          "start": 3.92,
+          "end": 4.31
+        },
+        {
+          "text": "to",
+          "start": 4.31,
+          "end": 4.46
+        },
+        {
+          "text": "correct",
+          "start": 4.46,
+          "end": 4.81
+        },
+        {
+          "text": "them",
+          "start": 4.81,
+          "end": 5.1
+        },
+        {
+          "text": "ensuring",
+          "start": 5.33,
+          "end": 5.88
+        },
+        {
+          "text": "the",
+          "start": 5.88,
+          "end": 5.9799999999999995
+        },
+        {
+          "text": "system",
+          "start": 5.98,
+          "end": 6.430000000000001
+        },
+        {
+          "text": "continues",
+          "start": 6.43,
+          "end": 6.949999999999999
+        },
+        {
+          "text": "to",
+          "start": 6.95,
+          "end": 7.07
+        },
+        {
+          "text": "function",
+          "start": 7.07,
+          "end": 7.5200000000000005
+        },
+        {
+          "text": "smoothly",
+          "start": 7.52,
+          "end": 8.209999999999999
+        },
+        {
+          "text": "without",
+          "start": 8.37,
+          "end": 8.77
+        },
+        {
+          "text": "manual",
+          "start": 8.77,
+          "end": 9.209999999999999
+        },
+        {
+          "text": "intervention",
+          "start": 9.24,
+          "end": 9.85
+        }
+      ]
+    },
+    "code-explanation-self-repair": {
+      "words": [
+        {
+          "text": "The",
+          "start": 0,
+          "end": 0.14
+        },
+        {
+          "text": "self_repair",
+          "start": 0.98,
+          "end": 1.52
+        },
+        {
+          "text": "function",
+          "start": 1.52,
+          "end": 2.08
+        },
+        {
+          "text": "checks",
+          "start": 2.15,
+          "end": 2.53
+        },
+        {
+          "text": "the",
+          "start": 2.53,
+          "end": 2.6399999999999997
+        },
+        {
+          "text": "system's",
+          "start": 2.64,
+          "end": 3.0700000000000003
+        },
+        {
+          "text": "state",
+          "start": 3.08,
+          "end": 3.54
+        },
+        {
+          "text": "If",
+          "start": 3.81,
+          "end": 4.03
+        },
+        {
+          "text": "an",
+          "start": 4.03,
+          "end": 4.15
+        },
+        {
+          "text": "error",
+          "start": 4.16,
+          "end": 4.46
+        },
+        {
+          "text": "is",
+          "start": 4.46,
+          "end": 4.59
+        },
+        {
+          "text": "detected",
+          "start": 4.59,
+          "end": 5.22
+        },
+        {
+          "text": "it",
+          "start": 5.37,
+          "end": 5.5600000000000005
+        },
+        {
+          "text": "attempts",
+          "start": 5.56,
+          "end": 6.039999999999999
+        },
+        {
+          "text": "a",
+          "start": 6.07,
+          "end": 6.180000000000001
+        },
+        {
+          "text": "repair",
+          "start": 6.18,
+          "end": 6.74
+        },
+        {
+          "text": "simulating",
+          "start": 6.99,
+          "end": 7.67
+        },
+        {
+          "text": "a",
+          "start": 7.68,
+          "end": 7.84
+        },
+        {
+          "text": "self",
+          "start": 7.85,
+          "end": 8.18
+        },
+        {
+          "text": "correcting",
+          "start": 8.179999,
+          "end": 8.649999000000001
+        },
+        {
+          "text": "mechanism",
+          "start": 8.66,
+          "end": 9.31
+        },
+        {
+          "text": "that",
+          "start": 9.5,
+          "end": 9.71
+        },
+        {
+          "text": "maintains",
+          "start": 9.71,
+          "end": 10.39
+        },
+        {
+          "text": "system",
+          "start": 10.45,
+          "end": 10.95
+        },
+        {
+          "text": "functionality",
+          "start": 10.95,
+          "end": 11.54
+        }
+      ]
+    },
+    "common-pitfalls-evaluation": {
+      "words": [
+        {
+          "text": "A",
+          "start": 0.03,
+          "end": 0.12
+        },
+        {
+          "text": "common",
+          "start": 0.12,
+          "end": 0.43
+        },
+        {
+          "text": "issue",
+          "start": 0.43,
+          "end": 0.8300000000000001
+        },
+        {
+          "text": "is",
+          "start": 0.84,
+          "end": 1.02
+        },
+        {
+          "text": "relying",
+          "start": 1.02,
+          "end": 1.44
+        },
+        {
+          "text": "solely",
+          "start": 1.44,
+          "end": 1.9
+        },
+        {
+          "text": "on",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "text": "manual",
+          "start": 2.14,
+          "end": 2.56
+        },
+        {
+          "text": "evaluations",
+          "start": 2.56,
+          "end": 3.46
+        },
+        {
+          "text": "which",
+          "start": 3.63,
+          "end": 3.85
+        },
+        {
+          "text": "can",
+          "start": 3.85,
+          "end": 4.01
+        },
+        {
+          "text": "be",
+          "start": 4.01,
+          "end": 4.12
+        },
+        {
+          "text": "time",
+          "start": 4.12,
+          "end": 4.45
+        },
+        {
+          "text": "consuming",
+          "start": 4.45,
+          "end": 5.04
+        },
+        {
+          "text": "Implement",
+          "start": 5.36,
+          "end": 5.890000000000001
+        },
+        {
+          "text": "automated",
+          "start": 5.93,
+          "end": 6.449999999999999
+        },
+        {
+          "text": "checks",
+          "start": 6.45,
+          "end": 6.83
+        },
+        {
+          "text": "to",
+          "start": 6.85,
+          "end": 6.989999999999999
+        },
+        {
+          "text": "streamline",
+          "start": 6.99,
+          "end": 7.5200000000000005
+        },
+        {
+          "text": "the",
+          "start": 7.52,
+          "end": 7.6
+        },
+        {
+          "text": "process",
+          "start": 7.6,
+          "end": 8.25
+        },
+        {
+          "text": "and",
+          "start": 8.44,
+          "end": 8.62
+        },
+        {
+          "text": "ensure",
+          "start": 8.62,
+          "end": 9.02
+        },
+        {
+          "text": "continuous",
+          "start": 9.02,
+          "end": 9.67
+        },
+        {
+          "text": "monitoring",
+          "start": 9.67,
+          "end": 10.1
+        }
+      ]
+    },
+    "strategic-evaluation-takeaway": {
+      "words": [
+        {
+          "text": "Evaluation",
+          "start": 0,
+          "end": 0.69
+        },
+        {
+          "text": "and",
+          "start": 0.69,
+          "end": 0.85
+        },
+        {
+          "text": "self",
+          "start": 0.85,
+          "end": 1.12
+        },
+        {
+          "text": "repair",
+          "start": 1.12,
+          "end": 1.54
+        },
+        {
+          "text": "are",
+          "start": 1.56,
+          "end": 1.73
+        },
+        {
+          "text": "vital",
+          "start": 1.73,
+          "end": 2.2
+        },
+        {
+          "text": "for",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "maintaining",
+          "start": 2.39,
+          "end": 3
+        },
+        {
+          "text": "AI",
+          "start": 3.02,
+          "end": 3.32
+        },
+        {
+          "text": "integrity",
+          "start": 3.32,
+          "end": 3.9899999999999998
+        },
+        {
+          "text": "By",
+          "start": 4.44,
+          "end": 4.630000000000001
+        },
+        {
+          "text": "continuously",
+          "start": 4.63,
+          "end": 5.4
+        },
+        {
+          "text": "assessing",
+          "start": 5.4,
+          "end": 5.930000000000001
+        },
+        {
+          "text": "and",
+          "start": 5.93,
+          "end": 6.06
+        },
+        {
+          "text": "adjusting",
+          "start": 6.06,
+          "end": 6.6499999999999995
+        },
+        {
+          "text": "you",
+          "start": 6.88,
+          "end": 7.08
+        },
+        {
+          "text": "ensure",
+          "start": 7.08,
+          "end": 7.57
+        },
+        {
+          "text": "reliability",
+          "start": 7.57,
+          "end": 8.33
+        },
+        {
+          "text": "and",
+          "start": 8.33,
+          "end": 8.540000000000001
+        },
+        {
+          "text": "performance",
+          "start": 8.54,
+          "end": 9.27
+        },
+        {
+          "text": "much",
+          "start": 9.469999,
+          "end": 9.769999
+        },
+        {
+          "text": "like",
+          "start": 9.77,
+          "end": 9.98
+        },
+        {
+          "text": "tuning",
+          "start": 9.98,
+          "end": 10.34
+        },
+        {
+          "text": "an",
+          "start": 10.34,
+          "end": 10.44
+        },
+        {
+          "text": "instrument",
+          "start": 10.44,
+          "end": 10.98
+        },
+        {
+          "text": "for",
+          "start": 10.99,
+          "end": 11.22
+        },
+        {
+          "text": "perfect",
+          "start": 11.23,
+          "end": 11.64
+        },
+        {
+          "text": "harmony",
+          "start": 11.639999,
+          "end": 12.029999
+        }
+      ]
+    }
+  },
+  "lineMappings": {
+    "self-repair-code-example": [
+      {
+        "id": "repair",
+        "line": 4,
+        "wordRange": [
+          3,
+          3
+        ]
+      }
+    ],
+    "code-explanation-self-repair": [
+      {
+        "id": "error",
+        "line": 2,
+        "wordRange": [
+          9,
+          9
+        ]
+      },
+      {
+        "id": "repair",
+        "line": 4,
+        "wordRange": [
+          15,
+          15
+        ]
+      }
+    ]
+  }
+}

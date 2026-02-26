@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500">
+  <g id="main">
+    <rect width="1200" height="500" fill="#f8fafc"/>
+    <text x="600" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="600" fill="#1e293b">Deployment Surfaces</text>
+    <rect x="100" y="80" width="250" height="50" rx="0" fill="#1e293b"/>
+    <text x="225" y="113" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Deployment</text>
+    <rect x="350" y="80" width="200" height="50" rx="0" fill="#1e293b"/>
+    <text x="450" y="113" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Latency</text>
+    <rect x="550" y="80" width="200" height="50" rx="0" fill="#1e293b"/>
+    <text x="650" y="113" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Cost</text>
+    <rect x="750" y="80" width="200" height="50" rx="0" fill="#1e293b"/>
+    <text x="850" y="113" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Control</text>
+    <rect x="950" y="80" width="150" height="50" rx="0" fill="#1e293b"/>
+    <text x="1025" y="113" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Compliance</text>
+    <rect x="350" y="380" width="16" height="16" rx="4" fill="#10b981"/>
+    <text x="375" y="394" font-family="system-ui, sans-serif" font-size="12" fill="#475569">Optimal</text>
+    <rect x="480" y="380" width="16" height="16" rx="4" fill="#f59e0b"/>
+    <text x="505" y="394" font-family="system-ui, sans-serif" font-size="12" fill="#475569">Trade-off</text>
+    <rect x="610" y="380" width="16" height="16" rx="4" fill="#ef4444"/>
+    <text x="635" y="394" font-family="system-ui, sans-serif" font-size="12" fill="#475569">Challenge</text>
+    <text x="600" y="460" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Choose based on latency, cost, control, and compliance requirements</text>
+  </g>
+  <g id="section-1">
+    <rect x="100" y="130" width="250" height="70" fill="#dbeafe" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="225" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1d4ed8">Cloud</text>
+    <rect x="350" y="130" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="450" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#f59e0b">Medium</text>
+    <rect x="550" y="130" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="650" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#f59e0b">Variable</text>
+    <rect x="750" y="130" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="850" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#f59e0b">Partial</text>
+    <rect x="950" y="130" width="150" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="1025" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#f59e0b">Varies</text>
+  </g>
+  <g id="section-2">
+    <rect x="100" y="200" width="250" height="70" fill="#d1fae5" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="225" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#059669">On-Premises</text>
+    <rect x="350" y="200" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="450" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Low</text>
+    <rect x="550" y="200" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="650" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#ef4444">High upfront</text>
+    <rect x="750" y="200" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="850" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Full</text>
+    <rect x="950" y="200" width="150" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="1025" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Full</text>
+  </g>
+  <g id="section-3">
+    <rect x="100" y="270" width="250" height="70" fill="#fef3c7" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="225" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#d97706">Edge</text>
+    <rect x="350" y="270" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="450" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Lowest</text>
+    <rect x="550" y="270" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="650" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#f59e0b">Medium</text>
+    <rect x="750" y="270" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="850" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Full</text>
+    <rect x="950" y="270" width="150" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="1025" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Full</text>
+  </g>
+  <g id="section-4">
+  </g>
+</svg>

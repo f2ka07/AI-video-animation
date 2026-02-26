@@ -1,0 +1,460 @@
+{
+  "courseName": "Cisco AI Technical Practitioner",
+  "courseId": "cisco-ai-technical-practitioner",
+  "modules": [
+    {
+      "moduleNumber": 1,
+      "title": "Generative AI Foundations",
+      "subtitle": "Model families, hosting, context, RAG",
+      "slides": [
+        {
+          "name": "module-1-title",
+          "type": "title",
+          "script": "Welcome to Module 1: Generative AI Foundations. In this module you will learn about major AI model families, hosting options, context windows, model selection, and Retrieval Augmented Generation.",
+          "title": "Generative AI Foundations",
+          "points": []
+        },
+        {
+          "name": "model-families-llms-diffusion",
+          "type": "content-two-card",
+          "script": "The major generative AI model families include Large Language Models, or LLMs, which are transformer-based and excel at text. LLM training involves pre-training on large corpora, fine-tuning for specific tasks, and RLHF for alignment. Tokenization converts text to tokens; inference mechanics drive generation. Diffusion models power image, video, and audio through a forward and reverse noise process. Other families include VAEs, GANs, and multimodal vision-language models.",
+          "title": "Model Families: LLMs and Diffusion",
+          "points": [
+            "LLMs: pre-training, fine-tuning, RLHF",
+            "Tokenization, inference mechanics",
+            "Diffusion: forward/reverse process",
+            "VAEs, GANs, multimodal models"
+          ]
+        },
+        {
+          "name": "use-cases-mapping",
+          "type": "content-two-card",
+          "script": "Map model types to use cases. Text summarization uses extractive approaches, which select existing sentences, or abstractive approaches, which generate new text. Use cases include long-context handling. Content creation covers copywriting and marketing. Code generation handles completion, translation, and refactoring. Image generation includes prompt-to-image, inpainting, and style transfer. Audio covers TTS, transcription, and music.",
+          "title": "Use Case Mapping",
+          "points": [
+            "Extractive vs abstractive summarization",
+            "Code: completion, refactoring",
+            "Image: prompt-to-image, inpainting, style transfer",
+            "Audio: TTS, transcription"
+          ]
+        },
+        {
+          "name": "hosting-cloud-vs-local",
+          "type": "content-two-card",
+          "script": "Compare cloud-hosted and locally hosted deployment. Cloud options include managed APIs from OpenAI, Anthropic, Google, and Azure. Choose serverless for variable load or dedicated instances for consistent throughput. Consider regional availability and GPU requirements for local hosting. Hybrid and edge deployment support low latency and sensitive data. Use a decision framework based on use case requirements, compliance needs, and budget.",
+          "title": "Hosting: Cloud vs Local",
+          "points": [
+            "Cloud: serverless vs dedicated, regional",
+            "Local: Ollama, vLLM, TGI, GPU requirements",
+            "Hybrid, edge for latency and privacy"
+          ]
+        },
+        {
+          "name": "hosting-trade-offs",
+          "type": "content-two-card",
+          "script": "Hosting trade-offs: Cost is API pricing versus infrastructure; token-based versus instance-based pricing. Latency affects network round-trip, cold starts, and batching. Privacy covers data residency, encryption at rest and in transit, and no-training policies. Scalability includes auto-scaling, rate limits, and throughput. Select hosting strategy based on compliance and budget constraints.",
+          "title": "Hosting Trade-offs",
+          "points": [
+            "Cost: token vs instance pricing",
+            "Latency: cold starts, batching",
+            "Privacy: data residency, no-training policies",
+            "Scalability: auto-scaling, rate limits"
+          ]
+        },
+        {
+          "name": "context-windows-tokens",
+          "type": "content-two-card",
+          "script": "Context windows define how much input a model can process, typically from 4K to 128K plus tokens. Input and output limits differ; tokenization varies across models. Use stop sequences and max tokens to control response length. Truncation strategies include sliding windows, summarization, and chunking. Long-context techniques use retrieval, summarization, and hierarchical context. Consider cost per token and the impact of context size on attention and latency. Streaming improves UX and perceived latency.",
+          "title": "Context Windows and Token Limits",
+          "points": [
+            "Input vs output limits, tokenization differences",
+            "Stop sequences, max tokens",
+            "Truncation: sliding window, summarization, chunking",
+            "Long-context: retrieval, hierarchical",
+            "Cost per token, attention impact"
+          ]
+        },
+        {
+          "name": "model-selection-hubs",
+          "type": "content-two-card",
+          "script": "Navigate model hubs like Hugging Face, Ollama, and cloud marketplaces. Select by use case: reasoning models for chain-of-thought, math, and logic; multimodal for vision-language, audio, and structured output like JSON or XML; efficient models use quantization and distillation for edge. Evaluate model cards for metadata, intended use, limitations, and bias considerations. Benchmarks include MMLU, HumanEval, HELM, and domain-specific evaluations. Check licensing for open versus proprietary, commercial use, and fine-tuning rights.",
+          "title": "Model Selection in Hubs",
+          "points": [
+            "Reasoning, multimodality, structured output",
+            "Quantization, distillation for edge",
+            "Model cards: metadata, bias",
+            "Benchmarks: MMLU, HumanEval, HELM",
+            "Licensing: commercial, fine-tuning"
+          ]
+        },
+        {
+          "name": "rag-overview",
+          "type": "content-two-card",
+          "script": "Retrieval Augmented Generation, or RAG, reduces hallucinations and grounds responses in your private data. The flow: index documents into embeddings, store in a vector database, retrieve relevant chunks at query time, and inject them into the prompt for generation.",
+          "title": "RAG Overview",
+          "points": [
+            "Reduces hallucinations",
+            "Uses private data",
+            "Index, retrieve, generate"
+          ]
+        },
+        {
+          "name": "rag-embeddings-vectors",
+          "type": "content-two-card",
+          "script": "Embeddings convert text to vectors. Similarity metrics include cosine similarity and Euclidean distance. Vector databases like Pinecone, Weaviate, Chroma, pgvector, and in-memory options store and search them. Use top-k retrieval, similarity thresholds, and hybrid keyword-plus-semantic search. Chunking strategies include fixed-size, semantic, and document-structure based. Advanced RAG uses re-ranking, multi-hop retrieval, and citation and provenance for traceability.",
+          "title": "Embeddings and Vector Databases",
+          "points": [
+            "Similarity: cosine, Euclidean",
+            "Pinecone, Weaviate, Chroma, pgvector",
+            "Top-k, hybrid search, chunking",
+            "Re-ranking, multi-hop retrieval",
+            "Citation and provenance"
+          ]
+        },
+        {
+          "name": "module-1-recap",
+          "type": "title",
+          "script": "You now understand generative AI model families, hosting trade-offs, context windows, model selection, and RAG. These foundations support everything we cover next: prompt engineering, responsible AI, data analysis, and agentic systems.",
+          "title": "Module 1 Recap",
+          "points": []
+        }
+      ]
+    },
+    {
+      "moduleNumber": 2,
+      "title": "Prompt Engineering and Security",
+      "subtitle": "Principles, techniques, injection, defense",
+      "slides": [
+        {
+          "name": "module-2-title",
+          "type": "title",
+          "script": "Welcome to Module 2: Prompt Engineering and Security. You will learn prompt principles and patterns, prompting techniques for text and images, prompt injection attacks, and defensive strategies.",
+          "title": "Prompt Engineering and Security",
+          "points": []
+        },
+        {
+          "name": "prompt-principles-patterns",
+          "type": "content-two-card",
+          "script": "Apply clarity, specificity, structure, and examples in prompts. Use role assignment, such as you are an expert. Add instruction blocks with numbered steps and conditional logic. Include constraints for format, length, tone, and exclusions. Use prompt templates with variable injection and validation. Iterative refinement, versioning, and A/B testing improve reproducibility.",
+          "title": "Prompt Principles and Patterns",
+          "points": [
+            "Clarity, specificity, structure, examples",
+            "Roles, instructions, conditional logic",
+            "Templates, variable injection",
+            "Versioning, A/B testing"
+          ]
+        },
+        {
+          "name": "prompting-techniques",
+          "type": "content-two-card",
+          "script": "Use iterative and sequential prompting to refine outputs step by step. Chained prompts pass the output of one step as input to the next. Few-shot learning provides one-shot, three-shot, or N-shot in-context examples. Use zero-shot when the task is simple; use few-shot when you need consistent format or domain-specific output. For text, support completion, chat, and structured output like JSON or XML. For images, use negative prompts and control style and composition. For audio, use descriptive prompts for TTS and music.",
+          "title": "Prompting Techniques",
+          "points": [
+            "Iterative, sequential, chained",
+            "Zero-shot vs few-shot when to use",
+            "Structured output: JSON, XML",
+            "Image: negative prompts, style, composition",
+            "Audio: TTS, music description"
+          ]
+        },
+        {
+          "name": "prompt-injection-types",
+          "type": "content-two-card",
+          "script": "Prompt injection attacks include direct injection, where user content overrides system instructions. Indirect injection hides malicious content in retrieved documents, web pages, or emails. Multi-vector injection combines multiple attack paths. Attack vectors include delimiter abuse, role hijacking, instruction override, and output manipulation. Impact ranges from data exfiltration and PII exposure to jailbreaking and unintended behavior. Familiarize yourself with the OWASP LLM Top 10 for real-world attack patterns.",
+          "title": "Prompt Injection Attack Types",
+          "points": [
+            "Direct, indirect, multi-vector injection",
+            "Delimiters, role hijacking, instruction override",
+            "Impact: exfiltration, jailbreaking, PII",
+            "OWASP LLM Top 10"
+          ]
+        },
+        {
+          "name": "defensive-prompting",
+          "type": "content-two-card",
+          "script": "Defensive prompting includes input sanitization, output constraints, and boundary enforcement. Mitigate hallucinations by grounding with RAG, requiring citations, and using confidence framing. Use guardrails for output filtering, PII redaction, and content policy. Add schema validation, fact-checking pipelines, and human review triggers for high-stakes outputs. Implement error handling with graceful degradation, fallback behavior, and logging and monitoring.",
+          "title": "Defensive Prompting and Mitigation",
+          "points": [
+            "Input sanitization, output constraints",
+            "RAG grounding, citations, confidence framing",
+            "Guardrails, schema validation, fact-checking",
+            "Graceful degradation, fallback, logging"
+          ]
+        },
+        {
+          "name": "module-2-recap",
+          "type": "title",
+          "script": "You now understand prompt engineering principles, techniques, injection risks, and defensive strategies. Use these to build secure, reliable AI applications that resist manipulation and reduce errors.",
+          "title": "Module 2 Recap",
+          "points": []
+        }
+      ]
+    },
+    {
+      "moduleNumber": 3,
+      "title": "Responsible AI and Governance",
+      "subtitle": "Principles, privacy, threats, compliance",
+      "slides": [
+        {
+          "name": "module-3-title",
+          "type": "title",
+          "script": "Welcome to Module 3: Responsible AI and Governance. You will learn responsible AI principles, corporate data privacy, AI-specific security threats, and governance considerations.",
+          "title": "Responsible AI and Governance",
+          "points": []
+        },
+        {
+          "name": "responsible-ai-principles",
+          "type": "content-two-card",
+          "script": "Responsible AI principles include fairness, ensuring equity, avoiding disparate impact, and measuring fairness metrics across protected attributes like age, race, and gender. Transparency means explainability, interpretability, and model documentation. Accountability covers ownership, audit trails, and incident response. Bias mitigation addresses data bias, model bias, evaluation, and debiasing techniques. Safety prioritizes harm prevention, content safety, and misuse prevention.",
+          "title": "Responsible AI Principles",
+          "points": [
+            "Fairness: equity, disparate impact, fairness metrics",
+            "Protected attributes",
+            "Transparency: explainability, interpretability",
+            "Bias: debiasing techniques",
+            "Accountability, safety"
+          ]
+        },
+        {
+          "name": "corporate-data-privacy",
+          "type": "content-two-card",
+          "script": "Protect corporate data with classification and handling policies. Apply privacy by design: minimization, purpose limitation, retention. Use encryption at rest and in transit, access control, and DLP. For training, consider data exclusion, synthetic data, or federated learning. For inference, use no-logging options and data residency controls.",
+          "title": "Corporate Data Privacy",
+          "points": [
+            "Classification, privacy by design",
+            "Encryption, access control, DLP",
+            "Training vs inference controls"
+          ]
+        },
+        {
+          "name": "ai-security-threats",
+          "type": "content-two-card",
+          "script": "AI-specific threats include adversarial attacks like evasion, poisoning, and membership inference. Supply chain risks involve model provenance, poisoned weights, and dependency risks. Misinformation spans deepfakes, synthetic content, and disinformation campaigns. Mitigation includes watermarking, provenance tracking, and verification tools.",
+          "title": "AI Security Threats",
+          "points": [
+            "Adversarial: evasion, poisoning, membership inference",
+            "Supply chain: provenance, dependency risks",
+            "Misinformation: deepfakes, disinformation campaigns",
+            "Watermarking, verification"
+          ]
+        },
+        {
+          "name": "ai-governance",
+          "type": "content-two-card",
+          "script": "AI governance covers policy for acceptable use, data handling, and model approval. Risk management includes AI risk assessment, monitoring, and incident response. Compliance spans GDPR, CCPA, sector-specific rules, and the EU AI Act. Design governance frameworks with roles, committees, and review processes.",
+          "title": "AI Governance",
+          "points": [
+            "Policy, risk management",
+            "GDPR, CCPA, EU AI Act",
+            "Roles, committees, review"
+          ]
+        },
+        {
+          "name": "module-3-recap",
+          "type": "title",
+          "script": "You now understand responsible AI principles, data privacy, security threats, and governance. Apply these to build trustworthy, compliant AI systems.",
+          "title": "Module 3 Recap",
+          "points": []
+        }
+      ]
+    },
+    {
+      "moduleNumber": 4,
+      "title": "AI-Assisted Data Analysis",
+      "subtitle": "EDA, data prep, ethics, research",
+      "slides": [
+        {
+          "name": "module-4-title",
+          "type": "title",
+          "script": "Welcome to Module 4: AI-Assisted Data Analysis. You will learn AI's role in exploratory data analysis, automated data preparation, ethical and privacy considerations, and research and content drafting.",
+          "title": "AI-Assisted Data Analysis",
+          "points": []
+        },
+        {
+          "name": "ai-eda",
+          "type": "content-two-card",
+          "script": "AI supports exploratory data analysis through automated summaries, anomaly detection, and correlation suggestions. Use natural language to query data and generate analysis code. AI can suggest visualizations and generate narratives from charts.",
+          "title": "AI in Exploratory Data Analysis",
+          "points": [
+            "Automated summaries, anomaly detection",
+            "Natural language to analysis",
+            "Visualization suggestions"
+          ]
+        },
+        {
+          "name": "automated-data-prep",
+          "type": "content-two-card",
+          "script": "Automated data preparation includes quality checks for missing values, outliers, and schema validation. Formatting covers normalization, encoding, and date handling. Transformation includes aggregation, pivoting, and feature engineering. Cleaning handles deduplication, imputation, and error correction.",
+          "title": "Automated Data Preparation",
+          "points": [
+            "Quality checks, formatting",
+            "Transformation, cleaning",
+            "AI-assisted prep in notebooks"
+          ]
+        },
+        {
+          "name": "ethics-privacy-data-analysis",
+          "type": "content-two-card",
+          "script": "Ethical and privacy risks in AI-assisted analysis include PII in prompts, log retention, and third-party API exposure. Implement data masking, aggregation, access controls, and audit logging. Apply data minimization and purpose limitation in analysis workflows.",
+          "title": "Ethics and Privacy in Data Analysis",
+          "points": [
+            "PII in prompts, log retention",
+            "Data masking, aggregation",
+            "Access controls, audit logging"
+          ]
+        },
+        {
+          "name": "ai-research-drafting",
+          "type": "content-two-card",
+          "script": "Use AI for literature search, summarization, synthesis, and citation support. Ideation includes brainstorming and scenario generation. Content drafting covers outlines, drafts, revision, and tone adjustment. Always verify outputs, attribute sources, and maintain human oversight.",
+          "title": "AI-Assisted Research and Drafting",
+          "points": [
+            "Literature search, synthesis",
+            "Ideation, content drafting",
+            "Verification, attribution"
+          ]
+        },
+        {
+          "name": "module-4-recap",
+          "type": "title",
+          "script": "You now understand AI's role in data analysis, automated prep, ethics, and research. Use these techniques responsibly with proper controls.",
+          "title": "Module 4 Recap",
+          "points": []
+        }
+      ]
+    },
+    {
+      "moduleNumber": 5,
+      "title": "AI in Development and Agentic Systems",
+      "subtitle": "SDLC, code gen, workflows, agents, MCP, HITL",
+      "slides": [
+        {
+          "name": "module-5-title",
+          "type": "title",
+          "script": "Welcome to Module 5: AI in Software Development and Agentic Systems. You will learn AI across the SDLC, code generation, workflow design, agentic versus generative AI, agent design, MCP, human-in-the-loop, and data transformation.",
+          "title": "AI in Development and Agentic Systems",
+          "points": []
+        },
+        {
+          "name": "ai-sdlc",
+          "type": "content-two-card",
+          "script": "AI supports the full software development lifecycle. In requirements, generate user stories, acceptance criteria, and detect ambiguity. For prototyping, create rapid mockups, API designs, and architecture suggestions. Implementation benefits from code generation, refactoring, and migration assistance. Testing uses test case generation, bug prediction, and automated testing. Deployment improves with CI/CD optimization, runbook generation, and incident response.",
+          "title": "AI Across the SDLC",
+          "points": [
+            "Requirements: user stories, ambiguity detection",
+            "Prototyping: mockups, API design, architecture",
+            "Implementation, testing",
+            "Deployment: CI/CD, runbooks, incident response"
+          ]
+        },
+        {
+          "name": "code-generation-prototyping",
+          "type": "content-two-card",
+          "script": "AI enables code generation from descriptions, completion, and translation. Rapid prototyping uses scaffolding and boilerplate. Integrate via IDE plugins, CLI tools, or APIs. Be aware of context limits, correctness, and security when using generated code.",
+          "title": "Code Generation and Prototyping",
+          "points": [
+            "Completion, generation, translation",
+            "Scaffolding, IDE plugins",
+            "Context limits, security"
+          ]
+        },
+        {
+          "name": "workflow-monitoring",
+          "type": "content-two-card",
+          "script": "Design robust AI workflows with idempotency, retries, circuit breakers, and fallbacks. Implement observability: logging, tracing, and metrics for AI calls. Monitor latency, error rates, token usage, and quality. Set alerting and SLOs with thresholds and escalation.",
+          "title": "Workflow Design and Monitoring",
+          "points": [
+            "Retries, fallbacks, circuit breakers",
+            "Logging, tracing, metrics",
+            "Alerting, SLOs"
+          ]
+        },
+        {
+          "name": "token-context-cost",
+          "type": "content-two-card",
+          "script": "Token usage and context size directly affect cost, latency, and output quality. Optimize with minimal context, caching, and iterative refinement. Consider token-based pricing and the impact of context on attention and truncation.",
+          "title": "Token Usage and Context Impact",
+          "points": [
+            "Cost, latency, quality",
+            "Minimal context, caching",
+            "Token pricing, truncation"
+          ]
+        },
+        {
+          "name": "code-quality-debugging",
+          "type": "content-two-card",
+          "script": "AI improves code quality through debugging assistance: error explanation, root cause analysis, and fix suggestions. Use for exception design, recovery strategies, and logging. Documentation benefits from inline comments, READMEs, API docs, and runbooks. Integrate into code review for style and security checks.",
+          "title": "AI for Code Quality",
+          "points": [
+            "Debugging, error handling",
+            "Documentation, runbooks",
+            "Code review, security"
+          ]
+        },
+        {
+          "name": "agentic-vs-generative",
+          "type": "content-two-card",
+          "script": "Agentic AI differs from simple generative AI. Generative AI is single request-response and stateless. Agentic AI is multi-step, uses tools, plans, and maintains state. Use agents when you need research, automation, or orchestration. Trade-offs include complexity, cost, reliability, and control.",
+          "title": "Agentic vs Generative AI",
+          "points": [
+            "Generative: single call, stateless",
+            "Agentic: multi-step, tools, planning",
+            "When agents add value"
+          ]
+        },
+        {
+          "name": "agent-design-orchestration",
+          "type": "content-two-card",
+          "script": "Agent design principles include goal decomposition, tool selection, reflection, and planning. Autonomous capabilities cover self-correction, iterative refinement, and delegation. Orchestration spans single-agent and multi-agent coordination. Frameworks include LangChain, LlamaIndex, and custom implementations.",
+          "title": "Agent Design and Orchestration",
+          "points": [
+            "Goal decomposition, tool selection",
+            "Self-correction, delegation",
+            "LangChain, LlamaIndex"
+          ]
+        },
+        {
+          "name": "mcp-framework",
+          "type": "content-two-card",
+          "script": "The Model Context Protocol, or MCP, provides framework primitives for agentic AI. Primitives include resources, tools, and prompts. Use MCP to connect agents to data sources, APIs, and tools. Applications include enterprise tooling, data access, and workflow integration.",
+          "title": "Model Context Protocol (MCP)",
+          "points": [
+            "Resources, tools, prompts",
+            "Connect to data, APIs",
+            "Enterprise tooling"
+          ]
+        },
+        {
+          "name": "human-in-the-loop",
+          "type": "content-two-card",
+          "script": "Human-in-the-loop patterns include pre-approval, post-review, escalation, and delegation. Design for latency, throughput, and user experience. Implement approval queues, feedback loops, and override mechanisms. Apply risk-based HITL when human review is required for high-stakes or compliance.",
+          "title": "Human-in-the-Loop (HITL)",
+          "points": [
+            "Pre-approval, post-review",
+            "Approval queues, overrides",
+            "Risk-based HITL"
+          ]
+        },
+        {
+          "name": "data-transformation-agents",
+          "type": "content-two-card",
+          "script": "Data transformation in agents includes input normalization, tool output parsing, and response shaping. Mapping covers schema translation, format conversion, and field mapping. Use validation for type checking and constraints. Handle malformed data with retry, fallback, human escalation.",
+          "title": "Data Transformation in Agents",
+          "points": [
+            "Input normalization, parsing",
+            "Schema mapping, validation",
+            "Error handling, escalation"
+          ]
+        },
+        {
+          "name": "module-5-recap",
+          "type": "title",
+          "script": "You now understand AI across the SDLC, code generation, workflow design, agentic AI, MCP, human-in-the-loop, and data transformation. These skills enable you to build and deploy AI-powered development and agent systems.",
+          "title": "Module 5 Recap",
+          "points": []
+        }
+      ]
+    }
+  ],
+  "savedAt": "2026-02-13T14:33:11.927Z"
+}

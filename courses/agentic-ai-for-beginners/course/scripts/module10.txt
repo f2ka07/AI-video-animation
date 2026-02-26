@@ -1,0 +1,78 @@
+Module 10: Knowledge Integration and RAG
+
+Metadata
+Target Runtime: 12-15 minutes
+Script Length: 1000-1400 words
+Voice: Hybrid (V2 intro, V1 body)
+
+---
+
+[CINEMATIC INTRO]
+
+In Module 04 we saw the inference pipeline: retrieval, grounding, planning, model inference, tool execution. But we didn't go deep on the retrieval part. How do you actually get knowledge into an agent? How do you prevent hallucination? And when do you use retrieval versus tool calls?
+
+This module covers the full retrieval pipeline, structured outputs, and tool-calling logic. It's the bridge between "the model knows something" and "the agent uses real data."
+
+---
+
+[CONCEPT]
+
+Let's define the retrieval pipeline end to end.
+
+Ingestion: Documents, web pages, or data sources enter the system. Raw text is chunked—split into smaller pieces—with overlap to preserve context at boundaries. Chunk size matters: too small and you lose context; too large and retrieval is noisy. Typical chunk sizes range from 256 to 1024 tokens. Metadata is attached: source, date, document ID. This metadata enables filtering later.
+
+Embedding: Each chunk is converted to a vector using an embedding model. The vector captures semantic meaning. Similar content maps to similar vectors. Embeddings are stored in a vector database—Pinecone, Weaviate, Chroma, or similar.
+
+Search: When the agent needs context, it embeds the query and runs a similarity search. Top-k retrieval returns the k most similar chunks. Hybrid search combines vector similarity with keyword matching for better recall. Reranking can refine the results: a cross-encoder scores the top candidates and reorders them. The goal: return the most relevant context for the query.
+
+Context injection: Retrieved chunks are formatted and inserted into the model's prompt. This is grounding. The model's response is anchored in the retrieved facts, not just its parametric knowledge. Citations link the response back to sources. This reduces hallucination and enables verification.
+
+---
+
+[ARCHITECTURE]
+
+When do you use retrieval versus tool calls?
+
+Retrieval: Use it when the agent needs to search over a knowledge base. "What does our policy say about refunds?" "Find relevant documentation for this error." Retrieval is read-only, semantic, and typically fast. The agent gets chunks; it doesn't execute actions.
+
+Tool calls: Use it when the agent needs to perform an action or fetch live data. "Get the current stock price." "Run this SQL query." "Send this email." Tools are functions with defined inputs and outputs. They can have side effects. They require validation, retries, and error handling.
+
+Often you need both. The agent retrieves context to ground its reasoning, then calls a tool to execute. "Based on the policy I retrieved, I'll process this refund by calling the refund API."
+
+Structured outputs and schema enforcement matter. When the model returns a tool call, validate the arguments against a schema. Reject malformed requests. When the model returns a structured response—JSON with specific fields—enforce the schema. This prevents hallucinated fields and invented tool results. The model might output a stock price it made up. Schema enforcement plus "only return data from tool results" prevents that.
+
+---
+
+[APPLICATION]
+
+How do you build a RAG pipeline from PDFs and web pages?
+
+Ingestion: Extract text from PDFs using a library like PyMuPDF or pdfplumber. For web pages, use a scraper or reader that strips HTML and keeps content. Chunk with overlap—for example, 512 tokens per chunk, 50 token overlap. Store metadata: source URL, page number, date.
+
+Embedding and search: Use an embedding model—OpenAI, Cohere, or open-source like sentence-transformers. Store vectors in a vector DB. At query time, embed the query, run top-k search, optionally rerank. Return chunks with citations.
+
+Context injection: Format chunks for the prompt. "According to [Source 1]: ... According to [Source 2]: ..." Include the source in the output so the user can verify. Never let the model cite a source it didn't receive.
+
+Validation and retry: For tool calls, validate inputs against the function schema. If invalid, return an error to the model and let it retry. Use timeouts and retries for external APIs. Idempotency matters for actions that shouldn't run twice.
+
+---
+
+[EXAM MAPPING]
+
+The certification will test when to use retrieval, when to call a tool, and how structured outputs guarantee correctness.
+
+Key terms: ingestion, chunking, embedding, vector search, hybrid search, reranking, grounding, RAG, retrieval-augmented generation, tool calling, schema enforcement, validation, retry.
+
+You'll need to explain the retrieval pipeline and how it reduces hallucination. And you'll need to distinguish retrieval from tool calls.
+
+---
+
+[RECAP]
+
+The retrieval pipeline: ingest, chunk, embed, search, inject. Each step affects quality. Chunk size, top-k, and reranking are tunable. Ground responses in retrieved facts and cite sources.
+
+Use retrieval for knowledge search. Use tools for actions and live data. Use both when the agent needs context and execution. Enforce schemas on tool inputs and structured outputs. Validate, retry, and handle errors. That's how agents connect to real data without hallucinating.
+
+---
+
+Word Count: ~680 words

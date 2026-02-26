@@ -1,0 +1,71 @@
+id: module03
+title: NVIDIA AI Platform Stack
+runtime_target: 15m
+script_length: 1400-1800 words
+layout: cinematic_intro -> concept -> architecture -> application -> exam_mapping -> recap
+voice: Hybrid (V2 intro -> V1 body -> V1 recap)
+role_signaling: integrated (A + D)
+ssml_required: yes
+deliverables:
+  - narration_script
+  - narration_ssml
+  - diagrams_svg
+  - remotion_scenes
+  - mp4_export
+  - repurposed_outputs
+
+concept_scope:
+  - position NVIDIA as not just hardware vendor but full AI platform stack provider
+  - define the layers coherently (hardware → acceleration → inference → NIM → app)
+  - clarify how these layers reduce complexity and enable agentic workloads
+
+architecture_scope:
+  - hardware (GPUs, networking, memory)
+  - acceleration (CUDA, TensorRT)
+  - inference serving (Triton)
+  - model/runtime surfaces (NeMo, NIM)
+  - deployment surfaces (cloud/on-prem/edge)
+
+application_scope:
+  - explain how enterprises use NVIDIA stack to operationalize agentic AI
+  - contrast with "just calling an API" model
+
+role_signaling:
+  engineers:
+    - think in terms of latency, throughput, scaling, hardware constraints, runtime abstraction
+  technical_leaders:
+    - think in terms of total cost, risk reduction, adoption, interoperability, vendor surface
+
+exam_mapping:
+  - understanding platform stack components
+  - understanding how inference + acceleration interplay
+  - understanding NIM positioning
+  - understanding deployment contexts
+
+required_diagrams:
+  - nvidia-ai-stack-overview.svg
+    layers:
+      - hardware
+      - CUDA/TensorRT
+      - Triton
+      - NeMo/NIM
+      - application layer
+  - inference-pipeline.svg
+    flow:
+      - input -> preproc -> model -> postproc -> output
+  - deployment-surfaces.svg
+    matrix:
+      - cloud | on-prem | edge vs latency-cost-maintenance
+  - role-perspective-grid.svg
+    two columns: engineers vs product/tech leaders
+
+exam_emphasis:
+  - NIM
+  - Triton
+  - TensorRT
+  - on-prem vs cloud deployment patterns
+
+recap_keypoints:
+  - NVIDIA provides a full AI stack
+  - agentic workloads need platform-level support
+  - certification tests platform understanding

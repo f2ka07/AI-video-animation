@@ -1,0 +1,887 @@
+{
+  "courseName": "RAG for Code: Search Your Codebase Like Cursor",
+  "courseId": "rag-for-code-search-codebase-like-cursor",
+  "modules": [
+    {
+      "moduleNumber": 1,
+      "title": "Why RAG is a Game-Changer for Code Search",
+      "subtitle": "Video 1: Unlocking Smarter Codebase Searches with RAG",
+      "slides": [
+        {
+          "name": "hook-rag-code-search",
+          "type": "title",
+          "script": "Ever wish you could ask your codebase questions and get instant, spot-on answers? RAG—Retrieval Augmented Generation—makes that possible. Today, we’ll dive into how RAG is revolutionizing code search, making it smarter, faster, and way more useful than traditional tools.",
+          "title": "Unlock Smarter Code Search with RAG",
+          "points": [
+            "Ask your codebase questions",
+            "Instant, spot-on answers",
+            "RAG revolutionizes code search",
+            "Smarter and faster results"
+          ]
+        },
+        {
+          "name": "what-is-rag",
+          "type": "content-two-card",
+          "script": "So what’s RAG? It’s a method combining retrieval of relevant info with AI generation. Instead of just searching keywords, it fetches context from your codebase and then crafts a precise answer. This means fewer dead ends and more accurate results when hunting bugs or exploring code.",
+          "title": "What is RAG?",
+          "points": [
+            "Retrieval + AI generation",
+            "Fetches relevant code context",
+            "Crafts precise answers",
+            "More accurate and useful"
+          ],
+          "leftTitle": "Traditional Search",
+          "leftItems": [
+            "Keyword matching",
+            "Limited context",
+            "High noise",
+            "Slow problem solving"
+          ],
+          "rightTitle": "RAG Approach",
+          "rightItems": [
+            "Context-aware retrieval",
+            "AI-generated answers",
+            "Less noise, more clarity",
+            "Faster debugging"
+          ]
+        },
+        {
+          "name": "rag-architecture-overview",
+          "type": "content-two-card",
+          "script": "Here’s the basic architecture behind RAG for code search: First, the retriever scans your codebase to find relevant snippets. Then, the generator—usually a large language model—takes those snippets and crafts a natural language response. This two-step process is what makes RAG so powerful.",
+          "title": "RAG Architecture for Code Search",
+          "points": [
+            "Retriever finds code snippets",
+            "Generator crafts answers",
+            "Two steps for accuracy",
+            "Combines search with AI"
+          ],
+          "leftTitle": "Retriever Role",
+          "leftItems": [
+            "Indexes codebase",
+            "Fetches relevant code",
+            "Filters noise"
+          ],
+          "rightTitle": "Generator Role",
+          "rightItems": [
+            "Reads retrieved code",
+            "Generates human-like answers",
+            "Explains code meaning"
+          ]
+        },
+        {
+          "name": "why-rag-for-code",
+          "type": "content-two-card",
+          "script": "Why use RAG for codebase search instead of just grep or basic search tools? Because RAG understands context, can summarize complex code, and even help with code explanations or refactoring suggestions. It’s like having a smart teammate who knows your entire repo inside out.",
+          "title": "Why RAG Beats Basic Code Search",
+          "points": [
+            "Understands code context",
+            "Summarizes complex logic",
+            "Offers refactoring tips",
+            "Acts like a smart teammate"
+          ],
+          "leftTitle": "Basic Code Search",
+          "leftItems": [
+            "Exact text matches",
+            "No context understanding",
+            "Manual code reading"
+          ],
+          "rightTitle": "RAG-Powered Search",
+          "rightItems": [
+            "Context-aware answers",
+            "Code summarization",
+            "AI-powered insights"
+          ]
+        },
+        {
+          "name": "rag-use-cases",
+          "type": "content-two-card",
+          "script": "You might be wondering: When should you use RAG for your codebase? Great question! It shines when debugging tricky issues, onboarding new team members, or exploring legacy code. Plus, it can generate code snippets or documentation based on your entire repo’s knowledge.",
+          "title": "When to Use RAG for Code Search",
+          "points": [
+            "Debug tricky issues",
+            "Onboard new developers",
+            "Explore legacy code",
+            "Generate docs & snippets"
+          ],
+          "leftTitle": "Manual Methods",
+          "leftItems": [
+            "Time-consuming",
+            "Context often missed",
+            "Hard for legacy code"
+          ],
+          "rightTitle": "RAG Approach",
+          "rightItems": [
+            "Speeds up debugging",
+            "Improves learning curve",
+            "Leverages full repo context"
+          ]
+        },
+        {
+          "name": "module1-wrap-up",
+          "type": "content-two-card",
+          "script": "The key takeaway here: RAG combines your code’s knowledge with AI’s understanding to transform code search from frustrating to fluid. Next up, we’ll dive into how to build your own RAG system for your codebase, step by step. Ready? Let’s get into it!",
+          "title": "Wrap-Up & Next Steps",
+          "points": [
+            "RAG = retrieval + AI",
+            "Transforms code search",
+            "Boosts developer productivity",
+            "Next: Build your own RAG system"
+          ],
+          "leftTitle": "Today’s Highlights",
+          "leftItems": [
+            "What is RAG?",
+            "How it works for code",
+            "Why it beats grep"
+          ],
+          "rightTitle": "Coming Up",
+          "rightItems": [
+            "Building RAG retriever",
+            "Integrating generators",
+            "Real-world examples"
+          ]
+        }
+      ]
+    },
+    {
+      "moduleNumber": 2,
+      "title": "Building a Retriever for Your Codebase",
+      "subtitle": "Video 2: Indexing and Searching Your Code Efficiently",
+      "slides": [
+        {
+          "name": "hook-retriever-intro",
+          "type": "title",
+          "script": "If you want RAG magic, you need a solid retriever to find the right bits of code fast. Today, we’ll break down how to index your codebase and build a retriever that serves relevant snippets in milliseconds. Let’s make your code searchable like never before.",
+          "title": "Build a Fast Retriever for Your Codebase",
+          "points": [
+            "Retriever finds right code",
+            "Indexes codebase efficiently",
+            "Delivers fast, relevant snippets",
+            "Make code searchable"
+          ]
+        },
+        {
+          "name": "codebase-indexing-basics",
+          "type": "content-two-card",
+          "script": "Indexing your codebase means breaking it down into manageable pieces, like functions or classes, then embedding those pieces into vectors. These embeddings let your retriever quickly find relevant code by similarity, not just keyword matching. This is the foundation of RAG search.",
+          "title": "Indexing Codebase for Retrieval",
+          "points": [
+            "Split code into chunks",
+            "Create vector embeddings",
+            "Search by similarity",
+            "Go beyond keywords"
+          ],
+          "leftTitle": "Traditional Search",
+          "leftItems": [
+            "Plain text search",
+            "No semantic understanding"
+          ],
+          "rightTitle": "Vector Search",
+          "rightItems": [
+            "Embeddings capture meaning",
+            "Find semantically related code"
+          ]
+        },
+        {
+          "name": "embedding-code-examples",
+          "type": "code",
+          "script": "Here’s a quick example using OpenAI embeddings to vectorize a Python function. Notice how we convert the code text into a vector that represents its meaning, ready for similarity search.",
+          "title": "Embedding Code Snippets Example",
+          "code": "from openai import OpenAI\nclient = OpenAI()\ncode_snippet = \"def add(a, b):\\n    return a + b\"\nembedding = client.embeddings.create(input=code_snippet, model=\"text-embedding-3-small\")\nprint(embedding.data[0].embedding)",
+          "language": "python"
+        },
+        {
+          "name": "vector-database-intro",
+          "type": "content-two-card",
+          "script": "Once you have embeddings, you need a vector database to store and search them efficiently. Popular options include Pinecone, Weaviate, and FAISS. They let you do fast nearest neighbor searches, so your retriever can find the closest code snippets instantly.",
+          "title": "Choosing a Vector Database",
+          "points": [
+            "Store code embeddings",
+            "Fast nearest neighbor search",
+            "Popular tools: Pinecone, FAISS, Weaviate",
+            "Boost retrieval speed"
+          ],
+          "leftTitle": "Database Features",
+          "leftItems": [
+            "Scalable storage",
+            "Low-latency search"
+          ],
+          "rightTitle": "Common Choices",
+          "rightItems": [
+            "Pinecone",
+            "Weaviate",
+            "FAISS"
+          ]
+        },
+        {
+          "name": "simple-retriever-implementation",
+          "type": "code",
+          "script": "Here’s a simple Python example showing how to query a vector database for your codebase. We pass in a query embedding and retrieve the top matching code snippets by similarity score.",
+          "title": "Simple Retriever Query Example",
+          "code": "query = \"How to add two numbers in Python?\"\nquery_embedding = client.embeddings.create(input=query, model=\"text-embedding-3-small\")\nresults = vector_db.query(query_embedding.data[0].embedding, top_k=5)\nfor res in results:\n    print(res.metadata['code_snippet'])",
+          "language": "python"
+        },
+        {
+          "name": "retriever-best-practices",
+          "type": "content-two-card",
+          "script": "Quick tip: To improve retrieval quality, keep your chunks small but meaningful, update your index often, and use hybrid search combining keyword and vector search. These tricks help your retriever deliver laser-focused, context-rich code snippets.",
+          "title": "Retriever Best Practices",
+          "points": [
+            "Chunk code meaningfully",
+            "Regularly update index",
+            "Combine keyword + vector search",
+            "Enhance result relevance"
+          ],
+          "leftTitle": "Common Pitfalls",
+          "leftItems": [
+            "Large chunks",
+            "Stale indexes"
+          ],
+          "rightTitle": "Pro Tips",
+          "rightItems": [
+            "Optimal chunk size",
+            "Hybrid search methods"
+          ]
+        },
+        {
+          "name": "module2-wrap-up",
+          "type": "content-two-card",
+          "script": "To sum it up: A great retriever is the backbone of any RAG system. You’ve seen how to break down code, embed it, and query with vector databases. Next, we’ll plug in a powerful generator to turn those retrieved snippets into clear, actionable answers.",
+          "title": "Wrap-Up & Next Video Preview",
+          "points": [
+            "Retriever finds relevant code",
+            "Embeddings + vector DB",
+            "Set stage for generation",
+            "Next: Generating natural language answers"
+          ],
+          "leftTitle": "Today’s Recap",
+          "leftItems": [
+            "Index code chunks",
+            "Create embeddings",
+            "Query vector DB"
+          ],
+          "rightTitle": "Coming Next",
+          "rightItems": [
+            "Integrate large language models",
+            "Generate clear answers",
+            "Improve developer workflows"
+          ]
+        }
+      ]
+    },
+    {
+      "moduleNumber": 3,
+      "title": "Integrating Language Models to Generate Code Answers",
+      "subtitle": "Video 3: Turning Retrieved Code Into Human-Friendly Explanations",
+      "slides": [
+        {
+          "name": "hook-generator-intro",
+          "type": "title",
+          "script": "Retrieving code snippets is awesome, but what if your system could explain or summarize those snippets? That’s where the generator, usually a large language model, steps in. Today, we’ll see how to turn raw code into clear, helpful answers your team can actually use.",
+          "title": "Generate Human-Friendly Answers from Code",
+          "points": [
+            "Retrieve code snippets",
+            "Use LLMs to explain",
+            "Summarize complex logic",
+            "Boost team understanding"
+          ]
+        },
+        {
+          "name": "llm-role-in-rag",
+          "type": "content-two-card",
+          "script": "The generator’s job is to take the retrieved code context and produce a natural language response. This could be explaining what a function does, suggesting fixes, or even writing new code based on the snippets. It’s the AI brain interpreting your codebase.",
+          "title": "LLM Role in RAG Systems",
+          "points": [
+            "Interpret retrieved code",
+            "Generate explanations",
+            "Suggest fixes or improvements",
+            "Write code snippets"
+          ],
+          "leftTitle": "Retriever Output",
+          "leftItems": [
+            "Raw code snippets",
+            "Relevant context"
+          ],
+          "rightTitle": "Generator Output",
+          "rightItems": [
+            "Natural language answers",
+            "Contextual code suggestions"
+          ]
+        },
+        {
+          "name": "prompt-design-for-code",
+          "type": "content-two-card",
+          "script": "Prompt design is crucial. You want to feed the LLM retrieved code plus a clear question. For example: ‘Explain what this function does.’ A well-crafted prompt helps the model focus on the important parts and deliver precise, useful answers.",
+          "title": "Designing Effective Prompts",
+          "points": [
+            "Include code snippet",
+            "Ask clear questions",
+            "Guide model’s focus",
+            "Get precise answers"
+          ],
+          "leftTitle": "Poor Prompt",
+          "leftItems": [
+            "Vague questions",
+            "No code context"
+          ],
+          "rightTitle": "Good Prompt",
+          "rightItems": [
+            "Specific question",
+            "Relevant code included"
+          ]
+        },
+        {
+          "name": "code-example-prompt",
+          "type": "code",
+          "script": "Here’s an example prompt you might send to the LLM with a retrieved function. Notice how the question guides the model to explain the code clearly.",
+          "title": "Example LLM Prompt for Code Explanation",
+          "code": "Prompt = '''\nGiven the following Python function, explain what it does:\n\ndef add(a, b):\n    return a + b\n'''",
+          "language": "plaintext"
+        },
+        {
+          "name": "llm-response-example",
+          "type": "code",
+          "script": "And here’s a sample response from the LLM: it clearly explains the function’s purpose in simple terms. This is exactly the kind of output that helps developers quickly understand code.",
+          "title": "Sample LLM Generated Explanation",
+          "code": "\"This function named 'add' takes two inputs, a and b, and returns their sum. It's a basic addition function.\"",
+          "language": "plaintext"
+        },
+        {
+          "name": "fine-tuning-vs-prompting",
+          "type": "comparison",
+          "script": "Quick comparison: You can either fine-tune an LLM on your codebase or rely on smart prompting. Fine-tuning offers more tailored outputs but is costly. Prompting is flexible and easier to start with, especially when paired with retrieval.",
+          "title": "Fine-Tuning vs Prompting for Code Generation",
+          "leftTitle": "Fine-Tuning",
+          "leftItems": [
+            "Tailored to codebase",
+            "Expensive & time-consuming",
+            "Requires lots of data"
+          ],
+          "rightTitle": "Prompting",
+          "rightItems": [
+            "Flexible & fast",
+            "Uses retrieval context",
+            "Less costly to implement"
+          ]
+        },
+        {
+          "name": "module3-wrap-up",
+          "type": "content-two-card",
+          "script": "To wrap this up: Integrating an LLM as your generator transforms raw code snippets into understandable answers. This combo makes code search not just about finding info, but truly understanding it. Next, we’ll explore how to combine these pieces into a seamless RAG system.",
+          "title": "Wrap-Up & Next Steps",
+          "points": [
+            "LLM explains retrieved code",
+            "Prompt design is key",
+            "Fine-tuning vs prompting",
+            "Next: Build full RAG pipeline"
+          ],
+          "leftTitle": "Today’s Focus",
+          "leftItems": [
+            "Generator role",
+            "Prompt examples",
+            "LLM output"
+          ],
+          "rightTitle": "Coming Up",
+          "rightItems": [
+            "End-to-end RAG system",
+            "Real-world integrations",
+            "Improving accuracy"
+          ]
+        }
+      ]
+    },
+    {
+      "moduleNumber": 4,
+      "title": "Putting It All Together: Building a Full RAG System for Code Search",
+      "subtitle": "Video 4: From Indexing to Answer Generation in One Pipeline",
+      "slides": [
+        {
+          "name": "hook-full-rag-pipeline",
+          "type": "title",
+          "script": "You’ve learned the pieces—retriever and generator. Now let’s connect the dots and build a full RAG pipeline for your codebase. This system will let you ask natural language questions and get detailed, relevant answers in seconds.",
+          "title": "Build a Full RAG Pipeline for Code Search",
+          "points": [
+            "Connect retriever + generator",
+            "Natural language queries",
+            "Get detailed code answers",
+            "All in one pipeline"
+          ]
+        },
+        {
+          "name": "rag-pipeline-architecture",
+          "type": "content-two-card",
+          "script": "Here’s the flow: You enter a question, the retriever searches your vector-indexed codebase for relevant snippets, then the generator digests those snippets and crafts a clear answer. This pipeline repeats for every query, giving fresh, context-aware responses.",
+          "title": "RAG Pipeline Architecture",
+          "points": [
+            "Input question",
+            "Retriever fetches snippets",
+            "Generator crafts answer",
+            "Iterates per query"
+          ],
+          "leftTitle": "Step 1: Input",
+          "leftItems": [
+            "User question",
+            "Natural language"
+          ],
+          "rightTitle": "Step 2 & 3",
+          "rightItems": [
+            "Retrieve relevant code",
+            "Generate explanation"
+          ]
+        },
+        {
+          "name": "example-rag-pipeline-code",
+          "type": "code",
+          "script": "Here’s a simplified Python example tying everything together. We embed the query, retrieve snippets, then pass them plus the question to the LLM to generate a response.",
+          "title": "Simple RAG Pipeline Code Example",
+          "code": "def rag_query(question):\n    query_emb = embed_text(question)\n    snippets = vector_db.query(query_emb, top_k=5)\n    context = \"\\n\".join([s['code_snippet'] for s in snippets])\n    prompt = f\"Explain the following code snippets in relation to: {question}\\n{context}\"\n    answer = llm.generate(prompt)\n    return answer",
+          "language": "python"
+        },
+        {
+          "name": "handling-long-contexts",
+          "type": "content-two-card",
+          "script": "One challenge: your codebase might be huge, and LLMs have token limits. To handle this, chunk your code smartly, prioritize most relevant snippets, or summarize chunks before feeding them to the model. This keeps answers focused and prevents overload.",
+          "title": "Handling Large Codebases & Token Limits",
+          "points": [
+            "Chunk code effectively",
+            "Prioritize relevance",
+            "Summarize before generation",
+            "Stay within token limits"
+          ],
+          "leftTitle": "Problem",
+          "leftItems": [
+            "Huge codebases",
+            "LLM token limits"
+          ],
+          "rightTitle": "Solutions",
+          "rightItems": [
+            "Chunking",
+            "Snippet ranking",
+            "Summarization"
+          ]
+        },
+        {
+          "name": "real-world-rag-tools",
+          "type": "content-two-card",
+          "script": "If you want to skip building from scratch, tools like LangChain, LlamaIndex, and Weaviate offer frameworks to build RAG pipelines quickly. They handle indexing, retrieval, and LLM integration so you can focus on customizing your code search experience.",
+          "title": "Frameworks and Tools for RAG",
+          "points": [
+            "LangChain for pipelines",
+            "LlamaIndex for indexing",
+            "Weaviate for vector DB",
+            "Speed up development"
+          ],
+          "leftTitle": "Build Yourself",
+          "leftItems": [
+            "Full control",
+            "More setup"
+          ],
+          "rightTitle": "Use Frameworks",
+          "rightItems": [
+            "Fast prototyping",
+            "Prebuilt integrations"
+          ]
+        },
+        {
+          "name": "module4-wrap-up",
+          "type": "content-two-card",
+          "script": "To wrap this up: A full RAG system combines retrieval and generation to deliver powerful code search and explanation. In the next video, we’ll explore how to improve and customize this system with feedback loops and advanced techniques.",
+          "title": "Wrap-Up & Next Video Preview",
+          "points": [
+            "Connect retriever + generator",
+            "Handle large codebases",
+            "Use existing frameworks",
+            "Next: Improve & customize RAG"
+          ],
+          "leftTitle": "Today’s Summary",
+          "leftItems": [
+            "Full pipeline overview",
+            "Code example",
+            "Handling token limits"
+          ],
+          "rightTitle": "Coming Up",
+          "rightItems": [
+            "Feedback loops",
+            "Advanced retrieval",
+            "Custom prompts"
+          ]
+        }
+      ]
+    },
+    {
+      "moduleNumber": 5,
+      "title": "Improving Your RAG System with Feedback and Advanced Retrieval",
+      "subtitle": "Video 5: Making Your Code Search Smarter Over Time",
+      "slides": [
+        {
+          "name": "hook-feedback-loop",
+          "type": "title",
+          "script": "Want your RAG code search to get smarter every day? Feedback loops are the secret sauce. Today, we’ll see how to gather user feedback, retrain your retriever, and fine-tune prompts to continuously improve relevance and accuracy.",
+          "title": "Use Feedback Loops to Improve RAG",
+          "points": [
+            "Gather user feedback",
+            "Retrain retriever",
+            "Fine-tune prompts",
+            "Boost accuracy over time"
+          ]
+        },
+        {
+          "name": "collecting-user-feedback",
+          "type": "content-two-card",
+          "script": "Start by collecting feedback from developers using your system. Simple thumbs up/down or comment forms can reveal when answers miss the mark or shine. This data is gold for tuning your models and indexing strategies.",
+          "title": "Collect User Feedback",
+          "points": [
+            "Thumbs up/down",
+            "Comments",
+            "Identify weak spots",
+            "Drive improvements"
+          ],
+          "leftTitle": "Why Feedback Matters",
+          "leftItems": [
+            "Identify errors",
+            "Measure relevance"
+          ],
+          "rightTitle": "How to Collect",
+          "rightItems": [
+            "Simple UI",
+            "Surveys",
+            "Automated logs"
+          ]
+        },
+        {
+          "name": "retraining-retriever",
+          "type": "content-two-card",
+          "script": "Use feedback to retrain your retriever’s ranking model or update your embeddings. For example, you can fine-tune embedding models to better capture your codebase’s unique style and terminology, boosting retrieval precision.",
+          "title": "Retrain Retriever with Feedback",
+          "points": [
+            "Fine-tune embeddings",
+            "Update ranking",
+            "Capture repo nuances",
+            "Increase snippet relevance"
+          ],
+          "leftTitle": "Before",
+          "leftItems": [
+            "Generic embeddings",
+            "Lower accuracy"
+          ],
+          "rightTitle": "After",
+          "rightItems": [
+            "Tailored embeddings",
+            "Higher precision"
+          ]
+        },
+        {
+          "name": "custom-prompt-tuning",
+          "type": "content-two-card",
+          "script": "Feedback also helps refine your prompts to the LLM generator. Adjusting phrasing or adding examples based on real queries can make explanations clearer and more helpful, reducing confusion and improving developer trust.",
+          "title": "Tune Prompts Using Feedback",
+          "points": [
+            "Refine phrasing",
+            "Add examples",
+            "Clarify instructions",
+            "Boost answer usefulness"
+          ],
+          "leftTitle": "Raw Prompts",
+          "leftItems": [
+            "Generic",
+            "Sometimes vague"
+          ],
+          "rightTitle": "Tuned Prompts",
+          "rightItems": [
+            "Specific",
+            "Clearer answers"
+          ]
+        },
+        {
+          "name": "advanced-retrieval-techniques",
+          "type": "content-two-card",
+          "script": "Advanced retrieval tricks include hybrid search (combining keyword and vector), query expansion using synonyms, and context-aware reranking. These techniques squeeze more relevance and context out of your code search results.",
+          "title": "Advanced Retrieval Techniques",
+          "points": [
+            "Hybrid keyword + vector",
+            "Query expansion",
+            "Context-aware reranking",
+            "Boost relevance"
+          ],
+          "leftTitle": "Basic Retrieval",
+          "leftItems": [
+            "Vector similarity only"
+          ],
+          "rightTitle": "Advanced Methods",
+          "rightItems": [
+            "Mix search types",
+            "Use synonyms",
+            "Smarter ranking"
+          ]
+        },
+        {
+          "name": "module5-wrap-up",
+          "type": "content-two-card",
+          "script": "To sum up: Feedback loops and advanced retrieval techniques make your RAG system smarter and more reliable over time. In upcoming videos, we’ll explore real-world integrations and scaling strategies to handle massive codebases and teams.",
+          "title": "Wrap-Up & What’s Next",
+          "points": [
+            "Collect feedback",
+            "Retrain & tune",
+            "Use advanced retrieval",
+            "Next: Scaling & integration"
+          ],
+          "leftTitle": "Today’s Takeaways",
+          "leftItems": [
+            "Feedback importance",
+            "Retriever & prompt tuning",
+            "Advanced search tricks"
+          ],
+          "rightTitle": "Up Next",
+          "rightItems": [
+            "Scaling RAG systems",
+            "Team workflows",
+            "Real-world case studies"
+          ]
+        }
+      ]
+    },
+    {
+      "moduleNumber": 6,
+      "title": "Scaling RAG Systems for Large Codebases and Teams",
+      "subtitle": "Video 6: Handling Big Repos and Multiple Developers",
+      "slides": [
+        {
+          "name": "hook-scaling-rag",
+          "type": "title",
+          "script": "Got a massive codebase or a big dev team? Scaling your RAG system is critical. Today, we’ll cover sharding your index, caching, multi-user setups, and maintaining performance as your code and team grow.",
+          "title": "Scale RAG for Big Codebases & Teams",
+          "points": [
+            "Handle massive repos",
+            "Support multiple users",
+            "Maintain speed & accuracy",
+            "Scale infrastructure"
+          ]
+        },
+        {
+          "name": "index-sharding-techniques",
+          "type": "content-two-card",
+          "script": "Sharding splits your vector index into smaller parts based on repo sections or projects. This reduces search space per query and speeds up retrieval. You can shard by directory, language, or modules depending on your code structure.",
+          "title": "Index Sharding Techniques",
+          "points": [
+            "Split index by repo parts",
+            "Reduce search space",
+            "Speed up retrieval",
+            "Shard by directory or language"
+          ],
+          "leftTitle": "Why Shard?",
+          "leftItems": [
+            "Faster queries",
+            "Lower resource use"
+          ],
+          "rightTitle": "How to Shard",
+          "rightItems": [
+            "By folder",
+            "By language",
+            "By project"
+          ]
+        },
+        {
+          "name": "caching-results",
+          "type": "content-two-card",
+          "script": "Caching popular queries or partial results avoids repeating heavy retrieval and generation steps. This boosts response time for common questions and improves user experience, especially in team environments.",
+          "title": "Caching to Improve Performance",
+          "points": [
+            "Store frequent query results",
+            "Avoid repeat computation",
+            "Speed up responses",
+            "Enhance user experience"
+          ],
+          "leftTitle": "Without Caching",
+          "leftItems": [
+            "Slow repeats",
+            "High compute cost"
+          ],
+          "rightTitle": "With Caching",
+          "rightItems": [
+            "Fast responses",
+            "Lower load"
+          ]
+        },
+        {
+          "name": "multi-user-access-control",
+          "type": "content-two-card",
+          "script": "For teams, you need access controls so users only see code they’re authorized for. Implement authentication and permission layers in your RAG system to maintain security and compliance.",
+          "title": "Multi-User Access & Security",
+          "points": [
+            "User authentication",
+            "Permission controls",
+            "Secure sensitive code",
+            "Compliance support"
+          ],
+          "leftTitle": "Potential Risks",
+          "leftItems": [
+            "Unauthorized access",
+            "Data leaks"
+          ],
+          "rightTitle": "Mitigations",
+          "rightItems": [
+            "Access control",
+            "Audit logging"
+          ]
+        },
+        {
+          "name": "monitoring-and-alerting",
+          "type": "content-two-card",
+          "script": "Monitoring your RAG system’s health is key. Track query times, error rates, and accuracy metrics. Set up alerts to catch issues before they affect your developers’ productivity.",
+          "title": "Monitoring & Alerting",
+          "points": [
+            "Track performance",
+            "Monitor errors",
+            "Measure accuracy",
+            "Set alerts"
+          ],
+          "leftTitle": "Why Monitor?",
+          "leftItems": [
+            "Detect problems early",
+            "Maintain uptime"
+          ],
+          "rightTitle": "How to Monitor",
+          "rightItems": [
+            "Logging",
+            "Dashboards",
+            "Alerts"
+          ]
+        },
+        {
+          "name": "module6-wrap-up",
+          "type": "content-two-card",
+          "script": "To wrap this video: Scaling your RAG system means smarter indexing, caching, secure multi-user support, and monitoring. Master these and your code search will stay fast and reliable no matter how big your team or repo gets.",
+          "title": "Wrap-Up & Next Video Preview",
+          "points": [
+            "Shard your index",
+            "Cache popular queries",
+            "Secure multi-user access",
+            "Monitor system health"
+          ],
+          "leftTitle": "Today’s Summary",
+          "leftItems": [
+            "Index sharding",
+            "Caching",
+            "Access control",
+            "Monitoring"
+          ],
+          "rightTitle": "Next Up",
+          "rightItems": [
+            "Real-world case studies",
+            "Customizing RAG for teams"
+          ]
+        }
+      ]
+    },
+    {
+      "moduleNumber": 7,
+      "title": "Real-World RAG Case Studies for Code Search",
+      "subtitle": "Video 7: How Companies Use RAG to Boost Developer Productivity",
+      "slides": [
+        {
+          "name": "hook-case-studies",
+          "type": "title",
+          "script": "Curious how top companies use RAG to supercharge code search? Today, we’ll explore real-world case studies showing how RAG improves debugging speed, onboarding, and documentation at scale. Let’s see the magic in action.",
+          "title": "Real-World RAG Case Studies",
+          "points": [
+            "Top companies using RAG",
+            "Boost debugging speed",
+            "Simplify onboarding",
+            "Improve docs"
+          ]
+        },
+        {
+          "name": "case-study-cursor",
+          "type": "content-two-card",
+          "script": "Cursor.ai uses RAG to power their AI-assisted code search, enabling developers to query entire repos in natural language and get instant, relevant answers. This cuts down debugging time drastically and helps teams ship faster.",
+          "title": "Cursor.ai Case Study",
+          "points": [
+            "Natural language repo search",
+            "Instant relevant answers",
+            "Faster debugging",
+            "Accelerated development"
+          ],
+          "leftTitle": "Challenges",
+          "leftItems": [
+            "Large repos",
+            "Slow search"
+          ],
+          "rightTitle": "Solutions",
+          "rightItems": [
+            "RAG-powered search",
+            "Contextual answers"
+          ]
+        },
+        {
+          "name": "case-study-microsoft",
+          "type": "content-two-card",
+          "script": "At Microsoft, RAG powers internal tools that help engineers understand legacy code and generate docs on the fly. This reduces the time spent reading old code and makes collaboration smoother across teams.",
+          "title": "Microsoft Internal Tools",
+          "points": [
+            "Legacy code understanding",
+            "On-demand doc generation",
+            "Improved collaboration",
+            "Time savings"
+          ],
+          "leftTitle": "Pain Points",
+          "leftItems": [
+            "Complex legacy code",
+            "Documentation gaps"
+          ],
+          "rightTitle": "RAG Benefits",
+          "rightItems": [
+            "Code explanations",
+            "Auto docs"
+          ]
+        },
+        {
+          "name": "case-study-startup",
+          "type": "content-two-card",
+          "script": "A fast-growing startup used RAG to onboard new hires faster by letting them ask their codebase questions in plain English. This reduced ramp-up time and boosted developer confidence early on.",
+          "title": "Startup Onboarding Boost",
+          "points": [
+            "Natural language queries",
+            "Faster new hire ramp-up",
+            "Boosted confidence",
+            "Reduced training time"
+          ],
+          "leftTitle": "Old Process",
+          "leftItems": [
+            "Manual code reading",
+            "Slow onboarding"
+          ],
+          "rightTitle": "New Process",
+          "rightItems": [
+            "RAG-powered Q&A",
+            "Instant answers"
+          ]
+        },
+        {
+          "name": "module7-wrap-up",
+          "type": "content-two-card",
+          "script": "These case studies prove how RAG transforms code search from a chore into a powerful productivity tool. In the next videos, we’ll dive deeper into customizing and extending RAG systems for unique team needs.",
+          "title": "Wrap-Up & Next Video Preview",
+          "points": [
+            "RAG boosts productivity",
+            "Faster debugging & onboarding",
+            "Generates docs on demand",
+            "Next: Customizing RAG systems"
+          ],
+          "leftTitle": "Key Takeaways",
+          "leftItems": [
+            "Real-world impact",
+            "Team benefits",
+            "Code understanding"
+          ],
+          "rightTitle": "Coming Up",
+          "rightItems": [
+            "Customization",
+            "Extensions",
+            "Team workflows"
+          ]
+        }
+      ]
+    }
+  ],
+  "savedAt": "2026-02-07T13:29:23.024Z"
+}

@@ -1,0 +1,21 @@
+{
+  "what-is-a-network": "diagram",
+  "network-components": "diagram",
+  "network-protocols": "diagram",
+  "tcp-ip-stack": "diagram",
+  "osi-model": "diagram",
+  "network-addressing": "diagram",
+  "subnetting": "diagram",
+  "network-interface-cards": "diagram",
+  "routers": "diagram",
+  "cables-and-connectors": "diagram",
+  "wireless-access-points": "diagram",
+  "firewalls": "diagram",
+  "http-and-https": "diagram",
+  "dns": "diagram",
+  "email-protocols": "diagram",
+  "encryption": "diagram",
+  "antivirus-software": "diagram",
+  "security-policies": "diagram",
+  "vpn": "diagram"
+}

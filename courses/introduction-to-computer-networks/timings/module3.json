@@ -1,0 +1,1402 @@
+{
+  "moduleNumber": 3,
+  "title": "Networking Protocols",
+  "slides": {
+    "protocols-introduction": {
+      "words": [
+        {
+          "text": "Imagine",
+          "start": 0.14,
+          "end": 0.5700000000000001
+        },
+        {
+          "text": "trying",
+          "start": 0.6,
+          "end": 0.97
+        },
+        {
+          "text": "to",
+          "start": 0.97,
+          "end": 1.1199999999999999
+        },
+        {
+          "text": "communicate",
+          "start": 1.12,
+          "end": 1.84
+        },
+        {
+          "text": "without",
+          "start": 1.89,
+          "end": 2.38
+        },
+        {
+          "text": "a",
+          "start": 2.44,
+          "end": 2.55
+        },
+        {
+          "text": "common",
+          "start": 2.55,
+          "end": 3
+        },
+        {
+          "text": "language",
+          "start": 3.03,
+          "end": 3.6599999999999997
+        },
+        {
+          "text": "That's",
+          "start": 4.12,
+          "end": 4.47
+        },
+        {
+          "text": "what",
+          "start": 4.47,
+          "end": 4.83
+        },
+        {
+          "text": "networks",
+          "start": 4.92,
+          "end": 5.5
+        },
+        {
+          "text": "face",
+          "start": 5.5,
+          "end": 6.01
+        },
+        {
+          "text": "without",
+          "start": 6.09,
+          "end": 6.5
+        },
+        {
+          "text": "protocols",
+          "start": 6.53,
+          "end": 7.28
+        },
+        {
+          "text": "These",
+          "start": 7.64,
+          "end": 7.91
+        },
+        {
+          "text": "rules",
+          "start": 7.91,
+          "end": 8.28
+        },
+        {
+          "text": "ensure",
+          "start": 8.32,
+          "end": 8.780000000000001
+        },
+        {
+          "text": "devices",
+          "start": 8.78,
+          "end": 9.399999999999999
+        },
+        {
+          "text": "can",
+          "start": 9.44,
+          "end": 9.62
+        },
+        {
+          "text": "understand",
+          "start": 9.62,
+          "end": 10.17
+        },
+        {
+          "text": "each",
+          "start": 10.19,
+          "end": 10.43
+        },
+        {
+          "text": "other",
+          "start": 10.429999,
+          "end": 10.799999
+        },
+        {
+          "text": "and",
+          "start": 11.17,
+          "end": 11.39
+        },
+        {
+          "text": "share",
+          "start": 11.389999,
+          "end": 11.689999
+        },
+        {
+          "text": "data",
+          "start": 11.69,
+          "end": 12.18
+        },
+        {
+          "text": "effectively",
+          "start": 12.24,
+          "end": 12.870000000000001
+        }
+      ]
+    },
+    "tcp-and-udp": {
+      "words": [
+        {
+          "text": "TCP",
+          "start": 0.14,
+          "end": 0.73
+        },
+        {
+          "text": "and",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "text": "UDP",
+          "start": 1.29,
+          "end": 1.92
+        },
+        {
+          "text": "are",
+          "start": 2.11,
+          "end": 2.2399999999999998
+        },
+        {
+          "text": "two",
+          "start": 2.24,
+          "end": 2.49
+        },
+        {
+          "text": "core",
+          "start": 2.53,
+          "end": 2.7699999999999996
+        },
+        {
+          "text": "protocols",
+          "start": 2.77,
+          "end": 3.5700000000000003
+        },
+        {
+          "text": "TCP",
+          "start": 3.73,
+          "end": 4.33
+        },
+        {
+          "text": "ensures",
+          "start": 4.37,
+          "end": 4.97
+        },
+        {
+          "text": "reliable",
+          "start": 5.05,
+          "end": 5.56
+        },
+        {
+          "text": "communication",
+          "start": 5.57,
+          "end": 6.44
+        },
+        {
+          "text": "checking",
+          "start": 6.51,
+          "end": 6.93
+        },
+        {
+          "text": "for",
+          "start": 6.93,
+          "end": 7.12
+        },
+        {
+          "text": "errors",
+          "start": 7.12,
+          "end": 7.57
+        },
+        {
+          "text": "and",
+          "start": 7.66,
+          "end": 7.890000000000001
+        },
+        {
+          "text": "guaranteeing",
+          "start": 7.89,
+          "end": 8.49
+        },
+        {
+          "text": "data",
+          "start": 8.49,
+          "end": 8.81
+        },
+        {
+          "text": "delivery",
+          "start": 8.83,
+          "end": 9.47
+        },
+        {
+          "text": "UDP",
+          "start": 9.57,
+          "end": 10.22
+        },
+        {
+          "text": "is",
+          "start": 10.28,
+          "end": 10.5
+        },
+        {
+          "text": "faster",
+          "start": 10.5,
+          "end": 11.01
+        },
+        {
+          "text": "but",
+          "start": 11.08,
+          "end": 11.27
+        },
+        {
+          "text": "doesn't",
+          "start": 11.28,
+          "end": 11.68
+        },
+        {
+          "text": "guarantee",
+          "start": 11.679999,
+          "end": 12.159999000000001
+        },
+        {
+          "text": "delivery",
+          "start": 12.16,
+          "end": 12.790000000000001
+        },
+        {
+          "text": "Each",
+          "start": 12.92,
+          "end": 13.17
+        },
+        {
+          "text": "has",
+          "start": 13.179999,
+          "end": 13.399999000000001
+        },
+        {
+          "text": "its",
+          "start": 13.4,
+          "end": 13.620000000000001
+        },
+        {
+          "text": "place",
+          "start": 13.63,
+          "end": 13.97
+        },
+        {
+          "text": "in",
+          "start": 14.009999,
+          "end": 14.219999000000001
+        },
+        {
+          "text": "networking",
+          "start": 14.219999,
+          "end": 14.839998999999999
+        }
+      ]
+    },
+    "http-and-https": {
+      "words": [
+        {
+          "text": "HTTP",
+          "start": 0.12,
+          "end": 0.88
+        },
+        {
+          "text": "and",
+          "start": 0.91,
+          "end": 1.12
+        },
+        {
+          "text": "HTTPS",
+          "start": 1.89,
+          "end": 2.12
+        },
+        {
+          "text": "are",
+          "start": 2.19,
+          "end": 2.35
+        },
+        {
+          "text": "protocols",
+          "start": 2.37,
+          "end": 3.04
+        },
+        {
+          "text": "for",
+          "start": 3.05,
+          "end": 3.26
+        },
+        {
+          "text": "transferring",
+          "start": 3.26,
+          "end": 3.9099999999999997
+        },
+        {
+          "text": "web",
+          "start": 3.91,
+          "end": 4.13
+        },
+        {
+          "text": "pages",
+          "start": 4.13,
+          "end": 4.7
+        },
+        {
+          "text": "HTTPS",
+          "start": 5.57,
+          "end": 5.78
+        },
+        {
+          "text": "is",
+          "start": 5.82,
+          "end": 5.970000000000001
+        },
+        {
+          "text": "the",
+          "start": 5.99,
+          "end": 6.13
+        },
+        {
+          "text": "secure",
+          "start": 6.13,
+          "end": 6.56
+        },
+        {
+          "text": "version",
+          "start": 6.57,
+          "end": 7.050000000000001
+        },
+        {
+          "text": "encrypting",
+          "start": 7.43,
+          "end": 7.97
+        },
+        {
+          "text": "data",
+          "start": 8,
+          "end": 8.26
+        },
+        {
+          "text": "to",
+          "start": 8.3,
+          "end": 8.4
+        },
+        {
+          "text": "prevent",
+          "start": 8.4,
+          "end": 8.860000000000001
+        },
+        {
+          "text": "eavesdropping",
+          "start": 8.9,
+          "end": 9.72
+        },
+        {
+          "text": "It's",
+          "start": 9.83,
+          "end": 10.05
+        },
+        {
+          "text": "like",
+          "start": 10.05,
+          "end": 10.24
+        },
+        {
+          "text": "sending",
+          "start": 10.24,
+          "end": 10.61
+        },
+        {
+          "text": "a",
+          "start": 10.62,
+          "end": 10.69
+        },
+        {
+          "text": "letter",
+          "start": 10.69,
+          "end": 10.99
+        },
+        {
+          "text": "in",
+          "start": 11.03,
+          "end": 11.2
+        },
+        {
+          "text": "a",
+          "start": 11.2,
+          "end": 11.27
+        },
+        {
+          "text": "sealed",
+          "start": 11.27,
+          "end": 11.6
+        },
+        {
+          "text": "envelope",
+          "start": 11.63,
+          "end": 12.170000000000002
+        },
+        {
+          "text": "versus",
+          "start": 12.23,
+          "end": 12.71
+        },
+        {
+          "text": "an",
+          "start": 12.74,
+          "end": 12.93
+        },
+        {
+          "text": "open",
+          "start": 12.95,
+          "end": 13.309999999999999
+        },
+        {
+          "text": "postcard",
+          "start": 13.309999,
+          "end": 13.869999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 0.12,
+          "end": 5.78
+        },
+        {
+          "start": 5.57,
+          "end": 9.72
+        },
+        {
+          "start": 10.05,
+          "end": 11.27
+        }
+      ]
+    },
+    "dns": {
+      "words": [
+        {
+          "text": "The",
+          "start": 0.11,
+          "end": 0.27
+        },
+        {
+          "text": "Domain",
+          "start": 0.27,
+          "end": 0.5800000000000001
+        },
+        {
+          "text": "Name",
+          "start": 0.58,
+          "end": 0.7999999999999999
+        },
+        {
+          "text": "System",
+          "start": 0.8,
+          "end": 1.3900000000000001
+        },
+        {
+          "text": "DNS",
+          "start": 1.52,
+          "end": 2.26
+        },
+        {
+          "text": "translates",
+          "start": 2.46,
+          "end": 3.25
+        },
+        {
+          "text": "human",
+          "start": 3.32,
+          "end": 3.67
+        },
+        {
+          "text": "friendly",
+          "start": 3.68,
+          "end": 4.12
+        },
+        {
+          "text": "domain",
+          "start": 4.14,
+          "end": 4.51
+        },
+        {
+          "text": "names",
+          "start": 4.51,
+          "end": 4.91
+        },
+        {
+          "text": "into",
+          "start": 5.02,
+          "end": 5.58
+        },
+        {
+          "text": "IP",
+          "start": 5.67,
+          "end": 5.9799999999999995
+        },
+        {
+          "text": "addresses",
+          "start": 5.98,
+          "end": 6.62
+        },
+        {
+          "text": "It's",
+          "start": 6.88,
+          "end": 7.14
+        },
+        {
+          "text": "like",
+          "start": 7.14,
+          "end": 7.359999999999999
+        },
+        {
+          "text": "a",
+          "start": 7.36,
+          "end": 7.44
+        },
+        {
+          "text": "phone",
+          "start": 7.44,
+          "end": 7.74
+        },
+        {
+          "text": "book",
+          "start": 7.74,
+          "end": 7.99
+        },
+        {
+          "text": "for",
+          "start": 7.99,
+          "end": 8.16
+        },
+        {
+          "text": "the",
+          "start": 8.16,
+          "end": 8.290000000000001
+        },
+        {
+          "text": "internet",
+          "start": 8.29,
+          "end": 8.879999999999999
+        },
+        {
+          "text": "connecting",
+          "start": 8.99,
+          "end": 9.530000000000001
+        },
+        {
+          "text": "you",
+          "start": 9.53,
+          "end": 9.69
+        },
+        {
+          "text": "to",
+          "start": 9.69,
+          "end": 9.82
+        },
+        {
+          "text": "the",
+          "start": 9.82,
+          "end": 9.96
+        },
+        {
+          "text": "right",
+          "start": 9.96,
+          "end": 10.190000000000001
+        },
+        {
+          "text": "address",
+          "start": 10.2,
+          "end": 10.7
+        },
+        {
+          "text": "when",
+          "start": 10.7,
+          "end": 10.86
+        },
+        {
+          "text": "you",
+          "start": 10.86,
+          "end": 10.99
+        },
+        {
+          "text": "type",
+          "start": 10.99,
+          "end": 11.39
+        },
+        {
+          "text": "a",
+          "start": 11.49,
+          "end": 11.620000000000001
+        },
+        {
+          "text": "URL",
+          "start": 11.62,
+          "end": 12.16
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 1.52,
+          "end": 5.58
+        },
+        {
+          "start": 5.02,
+          "end": 7.99
+        },
+        {
+          "start": 7.14,
+          "end": 8.290000000000001
+        }
+      ]
+    },
+    "story-beat-dns": {
+      "words": [
+        {
+          "text": "Here's",
+          "start": 0.15,
+          "end": 0.41000000000000003
+        },
+        {
+          "text": "where",
+          "start": 0.41,
+          "end": 0.57
+        },
+        {
+          "text": "most",
+          "start": 0.57,
+          "end": 0.8799999999999999
+        },
+        {
+          "text": "people",
+          "start": 0.88,
+          "end": 1.4300000000000002
+        },
+        {
+          "text": "get",
+          "start": 1.63,
+          "end": 1.9
+        },
+        {
+          "text": "it",
+          "start": 1.91,
+          "end": 2.07
+        },
+        {
+          "text": "wrong",
+          "start": 2.07,
+          "end": 2.3899999999999997
+        },
+        {
+          "text": "thinking",
+          "start": 3.02,
+          "end": 3.47
+        },
+        {
+          "text": "DNS",
+          "start": 3.48,
+          "end": 3.99
+        },
+        {
+          "text": "is",
+          "start": 4.04,
+          "end": 4.25
+        },
+        {
+          "text": "just",
+          "start": 4.26,
+          "end": 4.64
+        },
+        {
+          "text": "about",
+          "start": 4.66,
+          "end": 5.0200000000000005
+        },
+        {
+          "text": "websites",
+          "start": 5.05,
+          "end": 5.52
+        },
+        {
+          "text": "It's",
+          "start": 6.23,
+          "end": 6.49
+        },
+        {
+          "text": "crucial",
+          "start": 6.49,
+          "end": 6.98
+        },
+        {
+          "text": "for",
+          "start": 6.99,
+          "end": 7.220000000000001
+        },
+        {
+          "text": "all",
+          "start": 7.29,
+          "end": 7.57
+        },
+        {
+          "text": "internet",
+          "start": 7.62,
+          "end": 8.1
+        },
+        {
+          "text": "traffic",
+          "start": 8.099999,
+          "end": 8.639999
+        },
+        {
+          "text": "translating",
+          "start": 9.05,
+          "end": 9.74
+        },
+        {
+          "text": "names",
+          "start": 9.74,
+          "end": 10.17
+        },
+        {
+          "text": "to",
+          "start": 10.17,
+          "end": 10.29
+        },
+        {
+          "text": "numbers",
+          "start": 10.29,
+          "end": 10.909999999999998
+        },
+        {
+          "text": "so",
+          "start": 11.2,
+          "end": 11.379999999999999
+        },
+        {
+          "text": "devices",
+          "start": 11.38,
+          "end": 12.06
+        },
+        {
+          "text": "can",
+          "start": 12.09,
+          "end": 12.29
+        },
+        {
+          "text": "communicate",
+          "start": 12.32,
+          "end": 13.09
+        }
+      ]
+    },
+    "ftp-and-sftp": {
+      "words": [
+        {
+          "text": "FTP",
+          "start": 0,
+          "end": 0
+        },
+        {
+          "text": "and",
+          "start": 0,
+          "end": 0
+        },
+        {
+          "text": "SFTP",
+          "start": 0.15,
+          "end": 1.5599999999999998
+        },
+        {
+          "text": "are",
+          "start": 1.56,
+          "end": 1.6600000000000001
+        },
+        {
+          "text": "protocols",
+          "start": 1.68,
+          "end": 2.26
+        },
+        {
+          "text": "for",
+          "start": 2.26,
+          "end": 2.4299999999999997
+        },
+        {
+          "text": "transferring",
+          "start": 2.43,
+          "end": 3.06
+        },
+        {
+          "text": "files",
+          "start": 3.06,
+          "end": 3.47
+        },
+        {
+          "text": "FTP",
+          "start": 3.58,
+          "end": 4.18
+        },
+        {
+          "text": "is",
+          "start": 4.18,
+          "end": 4.25
+        },
+        {
+          "text": "the",
+          "start": 4.26,
+          "end": 4.3999999999999995
+        },
+        {
+          "text": "standard",
+          "start": 4.41,
+          "end": 4.8500000000000005
+        },
+        {
+          "text": "protocol",
+          "start": 4.85,
+          "end": 5.46
+        },
+        {
+          "text": "while",
+          "start": 5.55,
+          "end": 5.8
+        },
+        {
+          "text": "SFTP",
+          "start": 5.8,
+          "end": 6.55
+        },
+        {
+          "text": "adds",
+          "start": 6.55,
+          "end": 6.74
+        },
+        {
+          "text": "a",
+          "start": 6.74,
+          "end": 6.84
+        },
+        {
+          "text": "layer",
+          "start": 6.85,
+          "end": 7.1
+        },
+        {
+          "text": "of",
+          "start": 7.1,
+          "end": 7.22
+        },
+        {
+          "text": "security",
+          "start": 7.23,
+          "end": 7.86
+        },
+        {
+          "text": "by",
+          "start": 7.86,
+          "end": 7.96
+        },
+        {
+          "text": "encrypting",
+          "start": 7.96,
+          "end": 8.53
+        },
+        {
+          "text": "data",
+          "start": 8.54,
+          "end": 8.969999999999999
+        },
+        {
+          "text": "Think",
+          "start": 9.12,
+          "end": 9.36
+        },
+        {
+          "text": "of",
+          "start": 9.36,
+          "end": 9.51
+        },
+        {
+          "text": "SFTP",
+          "start": 9.52,
+          "end": 10.24
+        },
+        {
+          "text": "as",
+          "start": 10.24,
+          "end": 10.41
+        },
+        {
+          "text": "sending",
+          "start": 10.42,
+          "end": 10.89
+        },
+        {
+          "text": "files",
+          "start": 10.889999,
+          "end": 11.259998999999999
+        },
+        {
+          "text": "in",
+          "start": 11.259999,
+          "end": 11.429999
+        },
+        {
+          "text": "a",
+          "start": 11.429999,
+          "end": 11.519999
+        },
+        {
+          "text": "locked",
+          "start": 11.53,
+          "end": 11.83
+        },
+        {
+          "text": "briefcase",
+          "start": 11.87,
+          "end": 12.44
+        }
+      ]
+    },
+    "email-protocols": {
+      "words": [
+        {
+          "text": "Email",
+          "start": 0.14,
+          "end": 0.42000000000000004
+        },
+        {
+          "text": "protocols",
+          "start": 0.45,
+          "end": 1.07
+        },
+        {
+          "text": "like",
+          "start": 1.07,
+          "end": 1.33
+        },
+        {
+          "text": "SMTP",
+          "start": 1.36,
+          "end": 1.9200000000000002
+        },
+        {
+          "text": "IMAP",
+          "start": 1.96,
+          "end": 2.27
+        },
+        {
+          "text": "and",
+          "start": 3.09,
+          "end": 3.3499999999999996
+        },
+        {
+          "text": "POP3",
+          "start": 3.95,
+          "end": 4.34
+        },
+        {
+          "text": "manage",
+          "start": 4.45,
+          "end": 4.98
+        },
+        {
+          "text": "how",
+          "start": 4.99,
+          "end": 5.2700000000000005
+        },
+        {
+          "text": "emails",
+          "start": 5.32,
+          "end": 5.75
+        },
+        {
+          "text": "are",
+          "start": 5.81,
+          "end": 5.949999999999999
+        },
+        {
+          "text": "sent",
+          "start": 5.96,
+          "end": 6.35
+        },
+        {
+          "text": "and",
+          "start": 6.38,
+          "end": 6.6
+        },
+        {
+          "text": "received",
+          "start": 6.6,
+          "end": 7.2299999999999995
+        },
+        {
+          "text": "SMTP",
+          "start": 7.65,
+          "end": 8.33
+        },
+        {
+          "text": "handles",
+          "start": 8.34,
+          "end": 8.8
+        },
+        {
+          "text": "outgoing",
+          "start": 8.84,
+          "end": 9.49
+        },
+        {
+          "text": "mail",
+          "start": 9.49,
+          "end": 9.83
+        },
+        {
+          "text": "while",
+          "start": 10.2,
+          "end": 10.5
+        },
+        {
+          "text": "IMAP",
+          "start": 10.5,
+          "end": 11.03
+        },
+        {
+          "text": "and",
+          "start": 11.05,
+          "end": 11.270000000000001
+        },
+        {
+          "text": "POP3",
+          "start": 11.27,
+          "end": 12.02
+        },
+        {
+          "text": "manage",
+          "start": 12.19,
+          "end": 12.629999999999999
+        },
+        {
+          "text": "incoming",
+          "start": 12.66,
+          "end": 13.25
+        },
+        {
+          "text": "mail",
+          "start": 13.25,
+          "end": 13.59
+        },
+        {
+          "text": "They're",
+          "start": 14.059999,
+          "end": 14.279999
+        },
+        {
+          "text": "like",
+          "start": 14.28,
+          "end": 14.5
+        },
+        {
+          "text": "the",
+          "start": 14.52,
+          "end": 14.68
+        },
+        {
+          "text": "postal",
+          "start": 14.7,
+          "end": 15.18
+        },
+        {
+          "text": "services",
+          "start": 15.19,
+          "end": 15.94
+        },
+        {
+          "text": "of",
+          "start": 16,
+          "end": 16.24
+        },
+        {
+          "text": "the",
+          "start": 16.24,
+          "end": 16.349999999999998
+        },
+        {
+          "text": "digital",
+          "start": 16.359999,
+          "end": 16.789998999999998
+        },
+        {
+          "text": "world",
+          "start": 16.789999,
+          "end": 17.259999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 1.36,
+          "end": 6.35
+        },
+        null,
+        {
+          "start": 1.96,
+          "end": 6.35
+        }
+      ]
+    },
+    "story-beat-protocols-recap": {
+      "words": [
+        {
+          "text": "Where",
+          "start": 0.14,
+          "end": 0.39
+        },
+        {
+          "text": "we",
+          "start": 0.39,
+          "end": 0.55
+        },
+        {
+          "text": "are",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "text": "We've",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "text": "covered",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "text": "essential",
+          "start": 1.72,
+          "end": 2.25
+        },
+        {
+          "text": "protocols",
+          "start": 2.26,
+          "end": 2.9299999999999997
+        },
+        {
+          "text": "TCP",
+          "start": 3.37,
+          "end": 3.7600000000000002
+        },
+        {
+          "text": "UDP",
+          "start": 3.83,
+          "end": 4.58
+        },
+        {
+          "text": "HTTP",
+          "start": 4.65,
+          "end": 6.1000000000000005
+        },
+        {
+          "text": "DNS",
+          "start": 6.18,
+          "end": 6.569999999999999
+        },
+        {
+          "text": "FTP",
+          "start": 6.61,
+          "end": 6.87
+        },
+        {
+          "text": "and",
+          "start": 6.91,
+          "end": 7.140000000000001
+        },
+        {
+          "text": "email",
+          "start": 7.16,
+          "end": 7.53
+        },
+        {
+          "text": "protocols",
+          "start": 7.53,
+          "end": 8.280000000000001
+        },
+        {
+          "text": "Mastering",
+          "start": 8.7,
+          "end": 9.27
+        },
+        {
+          "text": "these",
+          "start": 9.27,
+          "end": 9.52
+        },
+        {
+          "text": "helps",
+          "start": 9.53,
+          "end": 9.86
+        },
+        {
+          "text": "you",
+          "start": 9.86,
+          "end": 9.959999999999999
+        },
+        {
+          "text": "understand",
+          "start": 9.96,
+          "end": 10.5
+        },
+        {
+          "text": "the",
+          "start": 10.5,
+          "end": 10.59
+        },
+        {
+          "text": "rules",
+          "start": 10.59,
+          "end": 10.879999999999999
+        },
+        {
+          "text": "governing",
+          "start": 10.889999,
+          "end": 11.339998999999999
+        },
+        {
+          "text": "network",
+          "start": 11.34,
+          "end": 11.73
+        },
+        {
+          "text": "communication",
+          "start": 11.74,
+          "end": 12.6
+        }
+      ]
+    },
+    "protocols-conclusion": {
+      "words": [
+        {
+          "text": "The",
+          "start": 0.15,
+          "end": 0.27
+        },
+        {
+          "text": "Big",
+          "start": 0.27,
+          "end": 0.54
+        },
+        {
+          "text": "Takeaway",
+          "start": 0.58,
+          "end": 1.1400000000000001
+        },
+        {
+          "text": "Networking",
+          "start": 1.64,
+          "end": 2.26
+        },
+        {
+          "text": "protocols",
+          "start": 2.26,
+          "end": 3.1199999999999997
+        },
+        {
+          "text": "are",
+          "start": 3.26,
+          "end": 3.38
+        },
+        {
+          "text": "the",
+          "start": 3.38,
+          "end": 3.51
+        },
+        {
+          "text": "languages",
+          "start": 3.52,
+          "end": 4.16
+        },
+        {
+          "text": "of",
+          "start": 4.22,
+          "end": 4.4399999999999995
+        },
+        {
+          "text": "the",
+          "start": 4.44,
+          "end": 4.57
+        },
+        {
+          "text": "internet",
+          "start": 4.58,
+          "end": 5.24
+        },
+        {
+          "text": "Understanding",
+          "start": 5.7,
+          "end": 6.5200000000000005
+        },
+        {
+          "text": "their",
+          "start": 6.52,
+          "end": 6.71
+        },
+        {
+          "text": "functions",
+          "start": 6.71,
+          "end": 7.36
+        },
+        {
+          "text": "and",
+          "start": 7.41,
+          "end": 7.63
+        },
+        {
+          "text": "differences",
+          "start": 7.63,
+          "end": 8.45
+        },
+        {
+          "text": "is",
+          "start": 8.83,
+          "end": 9.08
+        },
+        {
+          "text": "critical",
+          "start": 9.08,
+          "end": 9.66
+        },
+        {
+          "text": "for",
+          "start": 9.679999,
+          "end": 9.859999
+        },
+        {
+          "text": "troubleshooting",
+          "start": 9.9,
+          "end": 10.77
+        },
+        {
+          "text": "and",
+          "start": 10.82,
+          "end": 11.030000000000001
+        },
+        {
+          "text": "optimizing",
+          "start": 11.059999,
+          "end": 11.969999
+        },
+        {
+          "text": "network",
+          "start": 11.98,
+          "end": 12.48
+        },
+        {
+          "text": "performance",
+          "start": 12.5,
+          "end": 13.3
+        }
+      ]
+    }
+  },
+  "lineMappings": {}
+}

@@ -1,0 +1,1391 @@
+{
+  "moduleNumber": 2,
+  "title": "Building a Retriever for Your Codebase",
+  "slides": {
+    "hook-retriever-intro": {
+      "words": [
+        {
+          "text": "If",
+          "start": 0.15,
+          "end": 0.33999999999999997
+        },
+        {
+          "text": "you",
+          "start": 0.34,
+          "end": 0.43000000000000005
+        },
+        {
+          "text": "want",
+          "start": 0.43,
+          "end": 0.65
+        },
+        {
+          "text": "RAG",
+          "start": 0.74,
+          "end": 0.89
+        },
+        {
+          "text": "magic",
+          "start": 0.89,
+          "end": 1.4500000000000002
+        },
+        {
+          "text": "you",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "text": "need",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "text": "a",
+          "start": 2.16,
+          "end": 2.2600000000000002
+        },
+        {
+          "text": "solid",
+          "start": 2.28,
+          "end": 2.63
+        },
+        {
+          "text": "retriever",
+          "start": 2.64,
+          "end": 3.23
+        },
+        {
+          "text": "to",
+          "start": 3.7,
+          "end": 3.8200000000000003
+        },
+        {
+          "text": "find",
+          "start": 3.82,
+          "end": 4.14
+        },
+        {
+          "text": "the",
+          "start": 4.14,
+          "end": 4.239999999999999
+        },
+        {
+          "text": "right",
+          "start": 4.24,
+          "end": 4.57
+        },
+        {
+          "text": "bits",
+          "start": 4.63,
+          "end": 4.89
+        },
+        {
+          "text": "of",
+          "start": 4.89,
+          "end": 5.09
+        },
+        {
+          "text": "code",
+          "start": 5.09,
+          "end": 5.38
+        },
+        {
+          "text": "fast",
+          "start": 5.38,
+          "end": 5.91
+        },
+        {
+          "text": "Today",
+          "start": 6.45,
+          "end": 6.9
+        },
+        {
+          "text": "we’ll",
+          "start": 7.3,
+          "end": 7.51
+        },
+        {
+          "text": "break",
+          "start": 7.53,
+          "end": 7.8100000000000005
+        },
+        {
+          "text": "down",
+          "start": 7.81,
+          "end": 8.059999999999999
+        },
+        {
+          "text": "how",
+          "start": 8.059999,
+          "end": 8.239999
+        },
+        {
+          "text": "to",
+          "start": 8.24,
+          "end": 8.370000000000001
+        },
+        {
+          "text": "index",
+          "start": 8.37,
+          "end": 8.729999999999999
+        },
+        {
+          "text": "your",
+          "start": 8.73,
+          "end": 8.84
+        },
+        {
+          "text": "codebase",
+          "start": 9.13,
+          "end": 9.49
+        },
+        {
+          "text": "and",
+          "start": 9.82,
+          "end": 10.030000000000001
+        },
+        {
+          "text": "build",
+          "start": 10.03,
+          "end": 10.25
+        },
+        {
+          "text": "a",
+          "start": 10.25,
+          "end": 10.26
+        },
+        {
+          "text": "retriever",
+          "start": 10.38,
+          "end": 10.950000000000001
+        },
+        {
+          "text": "that",
+          "start": 11.36,
+          "end": 11.61
+        },
+        {
+          "text": "serves",
+          "start": 11.61,
+          "end": 11.99
+        },
+        {
+          "text": "relevant",
+          "start": 12.009999,
+          "end": 12.469999000000001
+        },
+        {
+          "text": "snippets",
+          "start": 12.469999,
+          "end": 13.009999
+        },
+        {
+          "text": "in",
+          "start": 13.04,
+          "end": 13.239999999999998
+        },
+        {
+          "text": "milliseconds",
+          "start": 13.24,
+          "end": 14.09
+        },
+        {
+          "text": "Let’s",
+          "start": 14.66,
+          "end": 15.02
+        },
+        {
+          "text": "make",
+          "start": 15.03,
+          "end": 15.29
+        },
+        {
+          "text": "your",
+          "start": 15.29,
+          "end": 15.45
+        },
+        {
+          "text": "code",
+          "start": 15.45,
+          "end": 16.029999999999998
+        },
+        {
+          "text": "searchable",
+          "start": 16.43,
+          "end": 17.03
+        },
+        {
+          "text": "like",
+          "start": 17.059999,
+          "end": 17.299999
+        },
+        {
+          "text": "never",
+          "start": 17.299999,
+          "end": 17.529999
+        },
+        {
+          "text": "before",
+          "start": 17.529999,
+          "end": 17.949999000000002
+        }
+      ]
+    },
+    "codebase-indexing-basics": {
+      "words": [
+        {
+          "text": "Indexing",
+          "start": 0.14,
+          "end": 0.5900000000000001
+        },
+        {
+          "text": "your",
+          "start": 0.59,
+          "end": 0.76
+        },
+        {
+          "text": "codebase",
+          "start": 1.31,
+          "end": 1.32
+        },
+        {
+          "text": "means",
+          "start": 1.48,
+          "end": 1.9
+        },
+        {
+          "text": "breaking",
+          "start": 1.96,
+          "end": 2.38
+        },
+        {
+          "text": "it",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "text": "down",
+          "start": 2.52,
+          "end": 2.82
+        },
+        {
+          "text": "into",
+          "start": 2.84,
+          "end": 3.1399999999999997
+        },
+        {
+          "text": "manageable",
+          "start": 3.14,
+          "end": 3.67
+        },
+        {
+          "text": "pieces",
+          "start": 3.72,
+          "end": 4.24
+        },
+        {
+          "text": "like",
+          "start": 4.55,
+          "end": 4.78
+        },
+        {
+          "text": "functions",
+          "start": 4.78,
+          "end": 5.4
+        },
+        {
+          "text": "or",
+          "start": 5.59,
+          "end": 5.77
+        },
+        {
+          "text": "classes",
+          "start": 5.77,
+          "end": 6.409999999999999
+        },
+        {
+          "text": "then",
+          "start": 6.73,
+          "end": 7
+        },
+        {
+          "text": "embedding",
+          "start": 7.03,
+          "end": 7.51
+        },
+        {
+          "text": "those",
+          "start": 7.52,
+          "end": 7.76
+        },
+        {
+          "text": "pieces",
+          "start": 7.76,
+          "end": 8.22
+        },
+        {
+          "text": "into",
+          "start": 8.26,
+          "end": 8.54
+        },
+        {
+          "text": "vectors",
+          "start": 8.54,
+          "end": 9.059999999999999
+        },
+        {
+          "text": "These",
+          "start": 9.23,
+          "end": 9.530000000000001
+        },
+        {
+          "text": "embeddings",
+          "start": 9.53,
+          "end": 10.209999999999999
+        },
+        {
+          "text": "let",
+          "start": 10.3,
+          "end": 10.66
+        },
+        {
+          "text": "your",
+          "start": 10.66,
+          "end": 10.88
+        },
+        {
+          "text": "retriever",
+          "start": 10.88,
+          "end": 11.47
+        },
+        {
+          "text": "quickly",
+          "start": 11.52,
+          "end": 12
+        },
+        {
+          "text": "find",
+          "start": 12.009999,
+          "end": 12.369999
+        },
+        {
+          "text": "relevant",
+          "start": 12.37,
+          "end": 12.879999999999999
+        },
+        {
+          "text": "code",
+          "start": 12.9,
+          "end": 13.34
+        },
+        {
+          "text": "by",
+          "start": 13.509999,
+          "end": 13.699999
+        },
+        {
+          "text": "similarity",
+          "start": 13.7,
+          "end": 14.66
+        },
+        {
+          "text": "not",
+          "start": 14.98,
+          "end": 15.23
+        },
+        {
+          "text": "just",
+          "start": 15.24,
+          "end": 15.540000000000001
+        },
+        {
+          "text": "keyword",
+          "start": 15.549999,
+          "end": 16.039998999999998
+        },
+        {
+          "text": "matching",
+          "start": 16.039999,
+          "end": 16.529999
+        },
+        {
+          "text": "This",
+          "start": 16.76,
+          "end": 17.040000000000003
+        },
+        {
+          "text": "is",
+          "start": 17.07,
+          "end": 17.44
+        },
+        {
+          "text": "the",
+          "start": 17.67,
+          "end": 17.790000000000003
+        },
+        {
+          "text": "foundation",
+          "start": 17.789999,
+          "end": 18.549999000000003
+        },
+        {
+          "text": "of",
+          "start": 18.83,
+          "end": 19.189999999999998
+        },
+        {
+          "text": "RAG",
+          "start": 20.099999999999998,
+          "end": 20.13
+        },
+        {
+          "text": "search",
+          "start": 20.13,
+          "end": 20.49
+        }
+      ]
+    },
+    "embedding-code-examples": {
+      "words": [
+        {
+          "text": "Here’s",
+          "start": 0.08,
+          "end": 0.33
+        },
+        {
+          "text": "a",
+          "start": 0.34,
+          "end": 0.41000000000000003
+        },
+        {
+          "text": "quick",
+          "start": 0.41,
+          "end": 0.6599999999999999
+        },
+        {
+          "text": "example",
+          "start": 0.66,
+          "end": 1.31
+        },
+        {
+          "text": "using",
+          "start": 1.43,
+          "end": 1.76
+        },
+        {
+          "text": "OpenAI",
+          "start": 0,
+          "end": 0
+        },
+        {
+          "text": "embeddings",
+          "start": 1.8,
+          "end": 3.12
+        },
+        {
+          "text": "to",
+          "start": 3.17,
+          "end": 3.26
+        },
+        {
+          "text": "vectorize",
+          "start": 3.26,
+          "end": 3.92
+        },
+        {
+          "text": "a",
+          "start": 3.97,
+          "end": 4.09
+        },
+        {
+          "text": "Python",
+          "start": 4.09,
+          "end": 4.4799999999999995
+        },
+        {
+          "text": "function",
+          "start": 4.48,
+          "end": 5.0600000000000005
+        },
+        {
+          "text": "Notice",
+          "start": 5.3,
+          "end": 5.64
+        },
+        {
+          "text": "how",
+          "start": 5.64,
+          "end": 5.75
+        },
+        {
+          "text": "we",
+          "start": 5.75,
+          "end": 5.89
+        },
+        {
+          "text": "convert",
+          "start": 5.89,
+          "end": 6.35
+        },
+        {
+          "text": "the",
+          "start": 6.38,
+          "end": 6.53
+        },
+        {
+          "text": "code",
+          "start": 6.53,
+          "end": 6.7700000000000005
+        },
+        {
+          "text": "text",
+          "start": 6.8,
+          "end": 7.2299999999999995
+        },
+        {
+          "text": "into",
+          "start": 7.27,
+          "end": 7.6
+        },
+        {
+          "text": "a",
+          "start": 7.6,
+          "end": 7.6499999999999995
+        },
+        {
+          "text": "vector",
+          "start": 7.65,
+          "end": 8.21
+        },
+        {
+          "text": "that",
+          "start": 8.27,
+          "end": 8.469999999999999
+        },
+        {
+          "text": "represents",
+          "start": 8.53,
+          "end": 9.059999999999999
+        },
+        {
+          "text": "its",
+          "start": 9.059999,
+          "end": 9.249998999999999
+        },
+        {
+          "text": "meaning",
+          "start": 9.25,
+          "end": 9.71
+        },
+        {
+          "text": "ready",
+          "start": 9.849999,
+          "end": 10.229999000000001
+        },
+        {
+          "text": "for",
+          "start": 10.23,
+          "end": 10.39
+        },
+        {
+          "text": "similarity",
+          "start": 10.389999,
+          "end": 11.019999
+        },
+        {
+          "text": "search",
+          "start": 11.02,
+          "end": 11.469999999999999
+        }
+      ]
+    },
+    "vector-database-intro": {
+      "words": [
+        {
+          "text": "Once",
+          "start": 0.06,
+          "end": 0.33
+        },
+        {
+          "text": "you",
+          "start": 0.33,
+          "end": 0.46
+        },
+        {
+          "text": "have",
+          "start": 0.46,
+          "end": 0.67
+        },
+        {
+          "text": "embeddings",
+          "start": 0.67,
+          "end": 1.25
+        },
+        {
+          "text": "you",
+          "start": 1.76,
+          "end": 1.91
+        },
+        {
+          "text": "need",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "text": "a",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "text": "vector",
+          "start": 2.2,
+          "end": 2.54
+        },
+        {
+          "text": "database",
+          "start": 2.54,
+          "end": 3.21
+        },
+        {
+          "text": "to",
+          "start": 3.21,
+          "end": 3.36
+        },
+        {
+          "text": "store",
+          "start": 3.39,
+          "end": 3.73
+        },
+        {
+          "text": "and",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "text": "search",
+          "start": 3.99,
+          "end": 4.33
+        },
+        {
+          "text": "them",
+          "start": 4.33,
+          "end": 4.54
+        },
+        {
+          "text": "efficiently",
+          "start": 4.56,
+          "end": 5.31
+        },
+        {
+          "text": "Popular",
+          "start": 5.65,
+          "end": 6.0600000000000005
+        },
+        {
+          "text": "options",
+          "start": 6.08,
+          "end": 6.6
+        },
+        {
+          "text": "include",
+          "start": 6.65,
+          "end": 7.15
+        },
+        {
+          "text": "Pinecone",
+          "start": 7.2,
+          "end": 7.82
+        },
+        {
+          "text": "Weaviate",
+          "start": 8.27,
+          "end": 8.9
+        },
+        {
+          "text": "and",
+          "start": 9.3,
+          "end": 9.55
+        },
+        {
+          "text": "FAISS",
+          "start": 9.55,
+          "end": 10
+        },
+        {
+          "text": "They",
+          "start": 10.44,
+          "end": 10.68
+        },
+        {
+          "text": "let",
+          "start": 10.679999,
+          "end": 10.969999
+        },
+        {
+          "text": "you",
+          "start": 10.969999,
+          "end": 11.109999
+        },
+        {
+          "text": "do",
+          "start": 11.11,
+          "end": 11.33
+        },
+        {
+          "text": "fast",
+          "start": 11.34,
+          "end": 11.82
+        },
+        {
+          "text": "nearest",
+          "start": 11.83,
+          "end": 12.38
+        },
+        {
+          "text": "neighbor",
+          "start": 12.4,
+          "end": 12.74
+        },
+        {
+          "text": "searches",
+          "start": 12.74,
+          "end": 13.36
+        },
+        {
+          "text": "so",
+          "start": 13.77,
+          "end": 14
+        },
+        {
+          "text": "your",
+          "start": 14,
+          "end": 14.23
+        },
+        {
+          "text": "retriever",
+          "start": 14.24,
+          "end": 14.8
+        },
+        {
+          "text": "can",
+          "start": 14.849999,
+          "end": 15.109999
+        },
+        {
+          "text": "find",
+          "start": 15.12,
+          "end": 15.52
+        },
+        {
+          "text": "the",
+          "start": 15.559999,
+          "end": 15.719999
+        },
+        {
+          "text": "closest",
+          "start": 15.719999,
+          "end": 16.349999
+        },
+        {
+          "text": "code",
+          "start": 16.369999,
+          "end": 16.639999
+        },
+        {
+          "text": "snippets",
+          "start": 16.65,
+          "end": 17.25
+        },
+        {
+          "text": "instantly",
+          "start": 17.299999,
+          "end": 17.999999
+        }
+      ]
+    },
+    "simple-retriever-implementation": {
+      "words": [
+        {
+          "text": "Here’s",
+          "start": 0.1,
+          "end": 0.35
+        },
+        {
+          "text": "a",
+          "start": 0.35,
+          "end": 0.43
+        },
+        {
+          "text": "simple",
+          "start": 0.43,
+          "end": 0.79
+        },
+        {
+          "text": "Python",
+          "start": 0.79,
+          "end": 1.1300000000000001
+        },
+        {
+          "text": "example",
+          "start": 1.13,
+          "end": 1.79
+        },
+        {
+          "text": "showing",
+          "start": 1.85,
+          "end": 2.24
+        },
+        {
+          "text": "how",
+          "start": 2.24,
+          "end": 2.41
+        },
+        {
+          "text": "to",
+          "start": 2.41,
+          "end": 2.5500000000000003
+        },
+        {
+          "text": "query",
+          "start": 2.55,
+          "end": 2.84
+        },
+        {
+          "text": "a",
+          "start": 2.84,
+          "end": 2.9
+        },
+        {
+          "text": "vector",
+          "start": 2.9,
+          "end": 3.27
+        },
+        {
+          "text": "database",
+          "start": 3.27,
+          "end": 3.84
+        },
+        {
+          "text": "for",
+          "start": 3.85,
+          "end": 3.98
+        },
+        {
+          "text": "your",
+          "start": 3.98,
+          "end": 4.13
+        },
+        {
+          "text": "codebase",
+          "start": 4.38,
+          "end": 4.68
+        },
+        {
+          "text": "We",
+          "start": 5.08,
+          "end": 5.24
+        },
+        {
+          "text": "pass",
+          "start": 5.24,
+          "end": 5.470000000000001
+        },
+        {
+          "text": "in",
+          "start": 5.47,
+          "end": 5.609999999999999
+        },
+        {
+          "text": "a",
+          "start": 5.61,
+          "end": 5.680000000000001
+        },
+        {
+          "text": "query",
+          "start": 5.68,
+          "end": 6.04
+        },
+        {
+          "text": "embedding",
+          "start": 6.04,
+          "end": 6.5600000000000005
+        },
+        {
+          "text": "and",
+          "start": 6.71,
+          "end": 6.93
+        },
+        {
+          "text": "retrieve",
+          "start": 6.93,
+          "end": 7.4799999999999995
+        },
+        {
+          "text": "the",
+          "start": 7.48,
+          "end": 7.6000000000000005
+        },
+        {
+          "text": "top",
+          "start": 7.64,
+          "end": 8.03
+        },
+        {
+          "text": "matching",
+          "start": 8.12,
+          "end": 8.559999999999999
+        },
+        {
+          "text": "code",
+          "start": 8.559999,
+          "end": 8.849998999999999
+        },
+        {
+          "text": "snippets",
+          "start": 8.87,
+          "end": 9.559999999999999
+        },
+        {
+          "text": "by",
+          "start": 9.75,
+          "end": 9.92
+        },
+        {
+          "text": "similarity",
+          "start": 9.92,
+          "end": 10.629999999999999
+        },
+        {
+          "text": "score",
+          "start": 10.63,
+          "end": 11.090000000000002
+        }
+      ]
+    },
+    "retriever-best-practices": {
+      "words": [
+        {
+          "text": "Quick",
+          "start": 0.15,
+          "end": 0.39
+        },
+        {
+          "text": "tip",
+          "start": 0.44,
+          "end": 0.77
+        },
+        {
+          "text": "To",
+          "start": 1.55,
+          "end": 1.7
+        },
+        {
+          "text": "improve",
+          "start": 1.72,
+          "end": 2.2199999999999998
+        },
+        {
+          "text": "retrieval",
+          "start": 2.22,
+          "end": 2.68
+        },
+        {
+          "text": "quality",
+          "start": 2.68,
+          "end": 3.3000000000000003
+        },
+        {
+          "text": "keep",
+          "start": 3.65,
+          "end": 3.88
+        },
+        {
+          "text": "your",
+          "start": 3.88,
+          "end": 3.9899999999999998
+        },
+        {
+          "text": "chunks",
+          "start": 3.99,
+          "end": 4.3100000000000005
+        },
+        {
+          "text": "small",
+          "start": 4.31,
+          "end": 4.76
+        },
+        {
+          "text": "but",
+          "start": 4.85,
+          "end": 5.06
+        },
+        {
+          "text": "meaningful",
+          "start": 5.08,
+          "end": 5.75
+        },
+        {
+          "text": "update",
+          "start": 6.46,
+          "end": 6.85
+        },
+        {
+          "text": "your",
+          "start": 6.85,
+          "end": 6.989999999999999
+        },
+        {
+          "text": "index",
+          "start": 7.01,
+          "end": 7.38
+        },
+        {
+          "text": "often",
+          "start": 7.4,
+          "end": 7.83
+        },
+        {
+          "text": "and",
+          "start": 8.33,
+          "end": 8.55
+        },
+        {
+          "text": "use",
+          "start": 8.55,
+          "end": 8.790000000000001
+        },
+        {
+          "text": "hybrid",
+          "start": 8.79,
+          "end": 9.209999999999999
+        },
+        {
+          "text": "search",
+          "start": 9.21,
+          "end": 9.590000000000002
+        },
+        {
+          "text": "combining",
+          "start": 9.62,
+          "end": 10.129999999999999
+        },
+        {
+          "text": "keyword",
+          "start": 10.13,
+          "end": 10.520000000000001
+        },
+        {
+          "text": "and",
+          "start": 10.559999,
+          "end": 10.699999
+        },
+        {
+          "text": "vector",
+          "start": 10.7,
+          "end": 11.03
+        },
+        {
+          "text": "search",
+          "start": 11.03,
+          "end": 11.49
+        },
+        {
+          "text": "These",
+          "start": 11.96,
+          "end": 12.270000000000001
+        },
+        {
+          "text": "tricks",
+          "start": 12.27,
+          "end": 12.719999999999999
+        },
+        {
+          "text": "help",
+          "start": 12.759999,
+          "end": 13.139999000000001
+        },
+        {
+          "text": "your",
+          "start": 13.139999,
+          "end": 13.269999
+        },
+        {
+          "text": "retriever",
+          "start": 13.27,
+          "end": 13.79
+        },
+        {
+          "text": "deliver",
+          "start": 13.79,
+          "end": 14.399999999999999
+        },
+        {
+          "text": "laser",
+          "start": 14.63,
+          "end": 15.08
+        },
+        {
+          "text": "focused",
+          "start": 15.08,
+          "end": 15.77
+        },
+        {
+          "text": "context",
+          "start": 15.96,
+          "end": 16.68
+        },
+        {
+          "text": "rich",
+          "start": 16.68,
+          "end": 17.07
+        },
+        {
+          "text": "code",
+          "start": 17.15,
+          "end": 17.52
+        },
+        {
+          "text": "snippets",
+          "start": 17.529999,
+          "end": 18.269999
+        }
+      ]
+    },
+    "module2-wrap-up": {
+      "words": [
+        {
+          "text": "To",
+          "start": 0.1,
+          "end": 0.22
+        },
+        {
+          "text": "sum",
+          "start": 0.22,
+          "end": 0.44
+        },
+        {
+          "text": "it",
+          "start": 0.44,
+          "end": 0.61
+        },
+        {
+          "text": "up",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "text": "A",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "text": "great",
+          "start": 1.27,
+          "end": 1.59
+        },
+        {
+          "text": "retriever",
+          "start": 1.59,
+          "end": 2.19
+        },
+        {
+          "text": "is",
+          "start": 2.25,
+          "end": 2.37
+        },
+        {
+          "text": "the",
+          "start": 2.39,
+          "end": 2.5500000000000003
+        },
+        {
+          "text": "backbone",
+          "start": 2.56,
+          "end": 3.14
+        },
+        {
+          "text": "of",
+          "start": 3.2,
+          "end": 3.39
+        },
+        {
+          "text": "any",
+          "start": 3.46,
+          "end": 3.77
+        },
+        {
+          "text": "RAG",
+          "start": 4.02,
+          "end": 4.069999999999999
+        },
+        {
+          "text": "system",
+          "start": 4.3,
+          "end": 4.87
+        },
+        {
+          "text": "You’ve",
+          "start": 5.16,
+          "end": 5.390000000000001
+        },
+        {
+          "text": "seen",
+          "start": 5.39,
+          "end": 5.6499999999999995
+        },
+        {
+          "text": "how",
+          "start": 5.65,
+          "end": 5.87
+        },
+        {
+          "text": "to",
+          "start": 5.87,
+          "end": 6.03
+        },
+        {
+          "text": "break",
+          "start": 6.03,
+          "end": 6.3100000000000005
+        },
+        {
+          "text": "down",
+          "start": 6.31,
+          "end": 6.569999999999999
+        },
+        {
+          "text": "code",
+          "start": 6.57,
+          "end": 6.94
+        },
+        {
+          "text": "embed",
+          "start": 7.22,
+          "end": 7.64
+        },
+        {
+          "text": "it",
+          "start": 7.65,
+          "end": 7.970000000000001
+        },
+        {
+          "text": "and",
+          "start": 8.15,
+          "end": 8.38
+        },
+        {
+          "text": "query",
+          "start": 8.38,
+          "end": 8.590000000000002
+        },
+        {
+          "text": "with",
+          "start": 8.73,
+          "end": 8.93
+        },
+        {
+          "text": "vector",
+          "start": 8.929999,
+          "end": 9.269999
+        },
+        {
+          "text": "databases",
+          "start": 9.27,
+          "end": 10.16
+        },
+        {
+          "text": "Next",
+          "start": 10.55,
+          "end": 11.07
+        },
+        {
+          "text": "we’ll",
+          "start": 11.42,
+          "end": 11.64
+        },
+        {
+          "text": "plug",
+          "start": 11.67,
+          "end": 12
+        },
+        {
+          "text": "in",
+          "start": 12,
+          "end": 12.19
+        },
+        {
+          "text": "a",
+          "start": 12.25,
+          "end": 12.38
+        },
+        {
+          "text": "powerful",
+          "start": 12.38,
+          "end": 12.850000000000001
+        },
+        {
+          "text": "generator",
+          "start": 12.88,
+          "end": 13.510000000000002
+        },
+        {
+          "text": "to",
+          "start": 13.88,
+          "end": 14.040000000000001
+        },
+        {
+          "text": "turn",
+          "start": 14.04,
+          "end": 14.36
+        },
+        {
+          "text": "those",
+          "start": 14.36,
+          "end": 14.74
+        },
+        {
+          "text": "retrieved",
+          "start": 14.95,
+          "end": 15.469999999999999
+        },
+        {
+          "text": "snippets",
+          "start": 15.48,
+          "end": 16.06
+        },
+        {
+          "text": "into",
+          "start": 16.129999,
+          "end": 16.439999
+        },
+        {
+          "text": "clear",
+          "start": 16.440001,
+          "end": 16.940001
+        },
+        {
+          "text": "actionable",
+          "start": 17.209999,
+          "end": 17.909999
+        },
+        {
+          "text": "answers",
+          "start": 18.189999,
+          "end": 18.599999
+        }
+      ]
+    }
+  },
+  "lineMappings": {
+    "simple-retriever-implementation": [
+      {
+        "id": "query",
+        "line": 1,
+        "wordRange": [
+          8,
+          8
+        ]
+      }
+    ]
+  }
+}

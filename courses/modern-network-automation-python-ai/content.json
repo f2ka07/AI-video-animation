@@ -1,0 +1,193 @@
+{
+  "courseName": "Modern Network Automation with Python and AI",
+  "courseId": "modern-network-automation-python-ai",
+  "modules": [
+    {
+      "moduleNumber": 1,
+      "title": "Networks Fail Without Python Automation",
+      "subtitle": "Why Manual Network Management is Outdated",
+      "thumbnailText": "NETWORK FAILURES",
+      "slides": [
+        {
+          "name": "attack-hook",
+          "type": "title",
+          "script": "If your network crashes during peak hours, this is why.",
+          "title": "Slide Title",
+          "points": []
+        },
+        {
+          "name": "the-promise",
+          "type": "content-two-card",
+          "script": "By the end of this video, you'll know how to automate network tasks using Python to prevent outages.",
+          "title": "Slide Title",
+          "points": [
+            "automate network tasks",
+            "prevent outages"
+          ]
+        },
+        {
+          "name": "show-result-first",
+          "type": "code-diagram",
+          "script": "Here's the automation flow: Python script monitors network traffic, detects anomalies, and executes corrective actions automatically.",
+          "title": "Automation Flow",
+          "points": [],
+          "code": "# Python script example\nimport network_monitor\nnetwork_monitor.run()",
+          "language": "python"
+        },
+        {
+          "name": "problem",
+          "type": "content-single",
+          "script": "Manual network management leads to slow response times and increased downtime.",
+          "title": "Manual Management Issues",
+          "points": [
+            "slow response",
+            "increased downtime"
+          ]
+        },
+        {
+          "name": "explanation",
+          "type": "content-single",
+          "script": "This means your network can’t adapt quickly to traffic spikes or unexpected failures.",
+          "title": "Adaptability Problems",
+          "points": [
+            "traffic spikes",
+            "unexpected failures"
+          ]
+        },
+        {
+          "name": "example",
+          "type": "code",
+          "script": "Imagine a sudden traffic spike at 3 AM. With automation, scripts adjust bandwidth allocation instantly.",
+          "title": "Example Scenario",
+          "points": [],
+          "code": "# Adjust bandwidth\nif traffic_spike:\n  allocate_bandwidth()",
+          "language": "python"
+        },
+        {
+          "name": "why-it-matters",
+          "type": "content-single",
+          "script": "In production, automation reduces human error and ensures 24/7 network reliability.",
+          "title": "Production Benefits",
+          "points": [
+            "reduces human error",
+            "ensures reliability"
+          ]
+        },
+        {
+          "name": "pattern-interrupt",
+          "type": "content-single",
+          "script": "Common mistake: hardcoding network configurations leads to inflexibility. Use dynamic scripting instead.",
+          "title": "Common Mistake",
+          "points": [
+            "hardcoding configs",
+            "inflexibility"
+          ]
+        },
+        {
+          "name": "strategic-close",
+          "type": "content-single",
+          "script": "If you remember one thing, automate any repetitive network task to ensure consistent performance.",
+          "title": "Final Takeaway",
+          "points": [
+            "automate repetitive tasks",
+            "ensure performance"
+          ]
+        }
+      ]
+    },
+    {
+      "moduleNumber": 2,
+      "title": "Speed Up Network Changes with AI",
+      "subtitle": "Leverage AI for Real-Time Adjustments",
+      "thumbnailText": "AI ADJUSTMENTS",
+      "slides": [
+        {
+          "name": "attack-hook",
+          "type": "title",
+          "script": "If your network lags behind changing demands, this is why.",
+          "title": "Slide Title",
+          "points": []
+        },
+        {
+          "name": "the-promise",
+          "type": "content-two-card",
+          "script": "By the end of this video, you'll deploy AI to dynamically adjust network resources.",
+          "title": "Slide Title",
+          "points": [
+            "deploy AI",
+            "adjust network resources"
+          ]
+        },
+        {
+          "name": "show-result-first",
+          "type": "code-diagram",
+          "script": "Here's the AI integration: AI models predict traffic patterns and adjust network parameters in real-time.",
+          "title": "AI Integration",
+          "points": [],
+          "code": "# AI model application\napply_ai_model(network_data)",
+          "language": "python"
+        },
+        {
+          "name": "problem",
+          "type": "content-single",
+          "script": "Static network configurations can’t keep up with fluctuating demands.",
+          "title": "Static Configurations",
+          "points": [
+            "can't keep up",
+            "fluctuating demands"
+          ]
+        },
+        {
+          "name": "explanation",
+          "type": "content-single",
+          "script": "This means your network experiences bottlenecks and inefficient resource use.",
+          "title": "Network Bottlenecks",
+          "points": [
+            "bottlenecks",
+            "inefficient resources"
+          ]
+        },
+        {
+          "name": "example",
+          "type": "code",
+          "script": "Consider an AI model predicting a surge in video streaming. It reallocates bandwidth before congestion occurs.",
+          "title": "Predictive Adjustment",
+          "points": [],
+          "code": "# Predictive model\nif surge_predicted:\n  reallocate_bandwidth()",
+          "language": "python"
+        },
+        {
+          "name": "why-it-matters",
+          "type": "content-single",
+          "script": "In production, AI-driven adjustments optimize resource use and enhance user experience.",
+          "title": "Production Impact",
+          "points": [
+            "optimize resources",
+            "enhance experience"
+          ]
+        },
+        {
+          "name": "pattern-interrupt",
+          "type": "content-single",
+          "script": "Myth correction: AI doesn’t replace engineers; it augments their ability to manage networks efficiently.",
+          "title": "Myth Correction",
+          "points": [
+            "AI augments",
+            "doesn't replace"
+          ]
+        },
+        {
+          "name": "strategic-close",
+          "type": "content-single",
+          "script": "Anytime your network needs to adapt in real-time, leverage AI for seamless adjustments.",
+          "title": "Final Takeaway",
+          "points": [
+            "adapt in real-time",
+            "leverage AI"
+          ]
+        }
+      ]
+    }
+  ],
+  "savedAt": "2026-02-19T09:33:30.289Z"
+}

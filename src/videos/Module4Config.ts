@@ -4,22 +4,24 @@
 import { getAudioDuration } from "../utils/audioDuration";
 
 const audioDurations = [
-	getAudioDuration("agentic-ai-for-beginners/module4-module-4-title"),
-	getAudioDuration("agentic-ai-for-beginners/module4-module-4-concept"),
-	getAudioDuration("agentic-ai-for-beginners/module4-module-4-architecture"),
-	getAudioDuration("agentic-ai-for-beginners/module4-module-4-application"),
-	getAudioDuration("agentic-ai-for-beginners/module4-module-4-exam-mapping"),
-	getAudioDuration("agentic-ai-for-beginners/module4-module-4-recap")
+	getAudioDuration("introduction-to-computer-networks/module4-security-introduction"),
+	getAudioDuration("introduction-to-computer-networks/module4-encryption"),
+	getAudioDuration("introduction-to-computer-networks/module4-firewalls"),
+	getAudioDuration("introduction-to-computer-networks/module4-antivirus-software"),
+	getAudioDuration("introduction-to-computer-networks/module4-story-beat-security-recap"),
+	getAudioDuration("introduction-to-computer-networks/module4-security-policies"),
+	getAudioDuration("introduction-to-computer-networks/module4-vpn"),
+	getAudioDuration("introduction-to-computer-networks/module4-network-security-conclusion")
 ];
 
 const whooshDuration = 0.57;
 const slideBuffer = 1.0;
 const lastSlideBuffer = 1.2;
-const totalDuration = 735.50;
+const totalDuration = 114.94;
 
 export const Module4Config = {
 	id: "module-4",
-	title: "Workloads and Inference Pipelines",
+	title: "Network Security Basics",
 	fps: 30,
 	width: 1920,
 	height: 1080,

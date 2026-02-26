@@ -311,7 +311,14 @@ function derivePointsForSlide(
 				return { start: t.start, end };
 			});
 		});
-		segmentPoints = segmentPoints.map(({ phrases }) => phrases) as string[][];
+		segmentPoints = segmentPoints.map(({ phrases }, segIdx) => {
+			if (phrases.length > 0) return phrases;
+			const segWords = groups[segIdx];
+			if (segWords && segWords.length > 0) {
+				return [wordsToPhrase(segWords)];
+			}
+			return phrases;
+		}) as string[][];
 
 		const manualPhrases = slide.keyPhrases ?? [];
 		const autoPhrases = extractKeyPhrasesFromScript(slide.script ?? "");
@@ -423,7 +430,7 @@ function main() {
 		const getDur = (name: string) => getAudioDuration(`${courseId}/module${moduleNumber}-${name}`);
 
 		for (const slide of mod.slides || []) {
-			if (slide.type !== "content-single" && slide.type !== "content-two-card") continue;
+			if (slide.type !== "content-single" && slide.type !== "content-two-card" && slide.type !== "story-beat") continue;
 
 			const slideWords = timings[slide.name]?.words;
 			if (!slideWords || slideWords.length === 0) {

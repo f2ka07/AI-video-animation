@@ -27,6 +27,8 @@ interface AnimatedCodeSlideProps {
 	visibleLineRange?: [number, number];
 	/** Max lines to show; window scrolls so the active line stays in view (focus mode) */
 	maxVisibleLines?: number;
+	/** File path or context (e.g. "index.ts") shown in window bar for student clarity */
+	codeContext?: string;
 }
 
 export const AnimatedCodeSlide: React.FC<AnimatedCodeSlideProps> = ({
@@ -40,6 +42,7 @@ export const AnimatedCodeSlide: React.FC<AnimatedCodeSlideProps> = ({
 	moduleNumber = 1,
 	visibleLineRange,
 	maxVisibleLines,
+	codeContext,
 }) => {
 	const frame = useCurrentFrame();
 	const { fps, width, height } = useVideoConfig();
@@ -73,7 +76,13 @@ export const AnimatedCodeSlide: React.FC<AnimatedCodeSlideProps> = ({
 
 	// Effective line range: visibleLineRange, or sliding window, or full (or auto window if too many lines)
 	const effectiveLineRange: [number, number] = (() => {
-		if (visibleLineRange) {
+		if (
+			visibleLineRange &&
+			Array.isArray(visibleLineRange) &&
+			visibleLineRange.length === 2 &&
+			typeof visibleLineRange[0] === "number" &&
+			typeof visibleLineRange[1] === "number"
+		) {
 			return [Math.max(1, visibleLineRange[0]), Math.min(lineCount, visibleLineRange[1])];
 		}
 		const maxLines = maxVisibleLines ?? (lineCount > maxLinesThatFitAtMinFont ? maxLinesThatFitAtMinFont : null);
@@ -575,6 +584,18 @@ export const AnimatedCodeSlide: React.FC<AnimatedCodeSlideProps> = ({
 							>
 								{language}
 							</span>
+							{codeContext && (
+								<span
+									style={{
+										marginLeft: 12,
+										fontSize: 14,
+										color: "#6b7280",
+										fontFamily: "monospace",
+									}}
+								>
+									{codeContext}
+								</span>
+							)}
 						</div>
 
 						<div style={{

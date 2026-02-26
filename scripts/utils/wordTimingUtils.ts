@@ -52,6 +52,37 @@ export function findPhraseInWords(
 }
 
 /**
+ * Find phrase time with fallback to shorter matches. Tries full phrase, then first 3, 2, 1 words.
+ * Used when author bullets are condensed (e.g. "Based on IP, port, protocol" vs transcript
+ * "based on factors like IP address, port number, and protocol").
+ */
+export function findPhraseTimeWithFallback(
+	words: WordTiming[],
+	phrase: string,
+	minStartFrom: number = 0
+): { start: number; end: number } | null {
+	const phraseWords = phrase
+		.toLowerCase()
+		.replace(/-/g, " ")
+		.split(/\s+/)
+		.filter((w) => w.length >= 2);
+	if (phraseWords.length === 0) return null;
+	for (let len = Math.min(phraseWords.length, 5); len >= 1; len--) {
+		const subPhrase = phraseWords.slice(0, len).join(" ");
+		const found = findPhraseInWords(words, subPhrase);
+		if (!found) continue;
+		const startWord = words[found.startIdx];
+		const endWord = words[found.endIdx];
+		if (!startWord || !endWord) continue;
+		if (startWord.start < minStartFrom) continue;
+		const endIdx = Math.min(found.endIdx + 5, words.length - 1);
+		const end = words[endIdx]?.end ?? endWord.end;
+		return { start: startWord.start, end };
+	}
+	return null;
+}
+
+/**
  * Find all occurrences of phrase in words. Returns array of { startIdx, endIdx, startTime }.
  * @param exact - if true, require exact word match (no fuzzy); reduces false positives
  */

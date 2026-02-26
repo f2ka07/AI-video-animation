@@ -27,6 +27,7 @@ interface SegmentedContentSlideProps {
 	moduleNumber: number;
 	animation?: "git-machine" | "none";
 	imageSrc?: string;
+	fallbackPointsFromSlide?: string[];
 }
 
 const SEGMENT_TRANSITION_SEC = 0.4;
@@ -40,6 +41,7 @@ export const SegmentedContentSlide: React.FC<SegmentedContentSlideProps> = ({
 	moduleNumber,
 	animation,
 	imageSrc,
+	fallbackPointsFromSlide,
 }) => {
 	const frame = useCurrentFrame();
 	const { fps } = useVideoConfig();
@@ -49,7 +51,9 @@ export const SegmentedContentSlide: React.FC<SegmentedContentSlideProps> = ({
 		(s) => currentTimeSeconds >= s.startSeconds && currentTimeSeconds < s.endSeconds
 	);
 	const idx = segmentIndex >= 0 ? segmentIndex : segments.length - 1;
-	const fallbackPoints = segments.find((s) => s.points.length > 0)?.points ?? [];
+	const fallbackPoints =
+		segments.find((s) => s.points.length > 0)?.points ??
+		(fallbackPointsFromSlide && fallbackPointsFromSlide.length > 0 ? fallbackPointsFromSlide : []);
 	const pointsAndMeta = segments
 		.slice(0, idx + 1)
 		.flatMap((s) =>

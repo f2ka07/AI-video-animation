@@ -4,22 +4,26 @@
 import { getAudioDuration } from "../utils/audioDuration";
 
 const audioDurations = [
-	getAudioDuration("agentic-ai-for-beginners/module2-module-2-title"),
-	getAudioDuration("agentic-ai-for-beginners/module2-module-2-concept"),
-	getAudioDuration("agentic-ai-for-beginners/module2-module-2-architecture"),
-	getAudioDuration("agentic-ai-for-beginners/module2-module-2-application"),
-	getAudioDuration("agentic-ai-for-beginners/module2-module-2-exam-mapping"),
-	getAudioDuration("agentic-ai-for-beginners/module2-module-2-recap")
+	getAudioDuration("introduction-to-computer-networks/module2-hardware-introduction"),
+	getAudioDuration("introduction-to-computer-networks/module2-network-interface-cards"),
+	getAudioDuration("introduction-to-computer-networks/module2-hubs-and-switches"),
+	getAudioDuration("introduction-to-computer-networks/module2-routers"),
+	getAudioDuration("introduction-to-computer-networks/module2-story-beat-routers"),
+	getAudioDuration("introduction-to-computer-networks/module2-cables-and-connectors"),
+	getAudioDuration("introduction-to-computer-networks/module2-wireless-access-points"),
+	getAudioDuration("introduction-to-computer-networks/module2-story-beat-hardware-recap"),
+	getAudioDuration("introduction-to-computer-networks/module2-firewalls"),
+	getAudioDuration("introduction-to-computer-networks/module2-network-hardware-conclusion")
 ];
 
 const whooshDuration = 0.57;
 const slideBuffer = 1.0;
 const lastSlideBuffer = 1.2;
-const totalDuration = 614.09;
+const totalDuration = 157.46;
 
 export const Module2Config = {
 	id: "module-2",
-	title: "Agent Fundamentals",
+	title: "Network Hardware",
 	fps: 30,
 	width: 1920,
 	height: 1080,

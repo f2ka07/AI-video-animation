@@ -5,6 +5,7 @@ import * as fs from "fs";
 import * as path from "path";
 import * as dotenv from "dotenv";
 import { UnifiedVoiceService } from "../src/utils/unifiedVoiceService";
+import { injectPauseForStoryBeat } from "../src/utils/ssmlUtils";
 import { saveWordTimings, generateMappingHelper } from "./saveWordTimings";
 import { allModules } from "../src/videos/moduleContent";
 
@@ -125,11 +126,12 @@ async function generateAllAudio(moduleRange?: string, voice?: string) {
 					}
 
 					console.log(`Generating: ${audioFileName}`);
-					console.log(`  Script: ${slide.scripts![i].substring(0, 60)}...`);
+					const scriptChunk = injectPauseForStoryBeat(slide.scripts![i], slide);
+					console.log(`  Script: ${scriptChunk.substring(0, 60)}...`);
 
 					try {
 						const result = await voiceService.generateAudio({
-							prompt: slide.scripts![i],
+							prompt: scriptChunk,
 							voice: voice || "andy",
 							format: "wav",
 						});
@@ -168,11 +170,12 @@ async function generateAllAudio(moduleRange?: string, voice?: string) {
 			}
 
 			console.log(`Generating: ${audioFileName}`);
-			console.log(`  Script: ${scripts[0]?.substring(0, 80)}...`);
+			const script = injectPauseForStoryBeat(scripts[0] || "", slide);
+			console.log(`  Script: ${script.substring(0, 80)}...`);
 
 			try {
 				const result = await voiceService.generateAudio({
-					prompt: scripts[0] || "",
+					prompt: script,
 					voice: voice || "andy",
 					format: "wav",
 				});

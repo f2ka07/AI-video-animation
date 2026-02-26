@@ -93,6 +93,9 @@ export function expandSlidesWithSplits(
 				if (points.length === 0 && origPoints.length > 0) {
 					points = origPoints;
 				}
+				if (points.length === 0 && slide.script && slide.script.trim().length > 0) {
+					points = [slide.script.trim().slice(0, 120) + (slide.script.length > 120 ? "..." : "")];
+				}
 			}
 
 			if (slide.type === "mermaid" && segDefs?.[j]) {

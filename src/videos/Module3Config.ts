@@ -4,22 +4,25 @@
 import { getAudioDuration } from "../utils/audioDuration";
 
 const audioDurations = [
-	getAudioDuration("agentic-ai-for-beginners/module3-module-3-title"),
-	getAudioDuration("agentic-ai-for-beginners/module3-module-3-concept"),
-	getAudioDuration("agentic-ai-for-beginners/module3-module-3-architecture"),
-	getAudioDuration("agentic-ai-for-beginners/module3-module-3-application"),
-	getAudioDuration("agentic-ai-for-beginners/module3-module-3-exam-mapping"),
-	getAudioDuration("agentic-ai-for-beginners/module3-module-3-recap")
+	getAudioDuration("introduction-to-computer-networks/module3-protocols-introduction"),
+	getAudioDuration("introduction-to-computer-networks/module3-tcp-and-udp"),
+	getAudioDuration("introduction-to-computer-networks/module3-http-and-https"),
+	getAudioDuration("introduction-to-computer-networks/module3-dns"),
+	getAudioDuration("introduction-to-computer-networks/module3-story-beat-dns"),
+	getAudioDuration("introduction-to-computer-networks/module3-ftp-and-sftp"),
+	getAudioDuration("introduction-to-computer-networks/module3-email-protocols"),
+	getAudioDuration("introduction-to-computer-networks/module3-story-beat-protocols-recap"),
+	getAudioDuration("introduction-to-computer-networks/module3-protocols-conclusion")
 ];
 
 const whooshDuration = 0.57;
 const slideBuffer = 1.0;
 const lastSlideBuffer = 1.2;
-const totalDuration = 688.11;
+const totalDuration = 141.47;
 
 export const Module3Config = {
 	id: "module-3",
-	title: "NVIDIA AI Platform Stack",
+	title: "Networking Protocols",
 	fps: 30,
 	width: 1920,
 	height: 1080,

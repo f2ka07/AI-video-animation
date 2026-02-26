@@ -60,6 +60,7 @@ export const AnimatedContentSlide: React.FC<AnimatedContentSlideProps> = ({
 	const { timings } = useModuleTimings(moduleNumber);
 	const slideTimings = timings?.slides[slideName];
 	const words = slideTimings?.words || [];
+	const timingsPhraseTimes = slideTimings?.phraseTimes;
 	// Determine if we should show the right panel (image or animation)
 	const hasRightPanel = imageSrc || animation;
 	const frame = useCurrentFrame();
@@ -149,13 +150,15 @@ export const AnimatedContentSlide: React.FC<AnimatedContentSlideProps> = ({
 		return null;
 	};
 
-	// Precompute phrase-based ranges: prefer stored phraseTimes (from derive-bullets), else phrase match, else fallback
+	// Precompute phrase-based ranges: prefer phraseTimes prop (segments), then timings file, then runtime phrase match
 	const phraseRanges = React.useMemo(() => {
 		if (points.length === 0) return null;
 		const ranges: Array<{ start: number; end: number }> = [];
 		let minFrom = audioStartOffset;
 		for (let i = 0; i < points.length; i++) {
-			const stored = phraseTimes?.[i];
+			const fromProp = phraseTimes?.[i];
+			const fromTimings = timingsPhraseTimes?.[i];
+			const stored = fromProp ?? fromTimings;
 			if (stored && typeof stored.start === "number" && typeof stored.end === "number") {
 				ranges.push({ start: stored.start, end: stored.end });
 				minFrom = stored.start + 0.1;
@@ -173,7 +176,7 @@ export const AnimatedContentSlide: React.FC<AnimatedContentSlideProps> = ({
 		}
 		if (ranges.length !== points.length) return null;
 		return ranges;
-	}, [words, points, audioStartOffset, phraseTimes]);
+	}, [words, points, audioStartOffset, phraseTimes, timingsPhraseTimes]);
 
 	const getPointHighlight = (index: number): number => {
 		if (!audioDuration || audioDuration <= 0) return 0;

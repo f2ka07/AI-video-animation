@@ -33,8 +33,11 @@ function showModal(title, message, onConfirm, onCancel) {
     const cancelBtn = overlay.querySelector('.modal-btn-secondary');
     
     confirmBtn.onclick = () => {
+        overlay.style.display = 'none';
         overlay.remove();
-        if (onConfirm) onConfirm();
+        if (onConfirm) {
+            requestAnimationFrame(() => onConfirm());
+        }
     };
     
     cancelBtn.onclick = () => {

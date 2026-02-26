@@ -1,7 +1,7 @@
 // Runtime config for GenericModule - computes totalDuration, fps, dimensions
 // Used when registering GenericModule compositions
 
-import { getAudioDuration } from "../utils/audioDuration";
+import { getAudioDurationOrEstimate } from "../utils/audioDuration";
 import { allModules } from "./moduleContent";
 import { expandSlidesWithSplits } from "../utils/expandSlidesWithSplits";
 import { slideSplitsByCourse } from "../utils/slideSplitsData";
@@ -53,21 +53,26 @@ export function getModuleConfig(
 		};
 	}
 
-	const getDur = (slideName: string): number =>
-		getAudioDuration(`${courseId}/module${moduleNumber}-${slideName}`);
+	const getDur = (slideName: string, script?: string): number =>
+		getAudioDurationOrEstimate(
+			`${courseId}/module${moduleNumber}-${slideName}`,
+			script
+		);
 
 	const getDurForSlide = (slideName: string): number => {
 		const slide = module.slides.find((s) => s.name === slideName);
 		if (slide && isMultiAudioCodeSlide(slide)) {
 			let sum = 0;
 			for (let i = 1; i <= slide.scripts!.length; i++) {
-				sum += getAudioDuration(
-					`${courseId}/module${moduleNumber}-${slideName}-${i}`
+				const chunkScript = slide.scripts![i - 1];
+				sum += getAudioDurationOrEstimate(
+					`${courseId}/module${moduleNumber}-${slideName}-${i}`,
+					chunkScript
 				);
 			}
 			return sum;
 		}
-		return getDur(slideName);
+		return getDur(slideName, slide?.script);
 	};
 
 	const splits = slideSplitsByCourse[courseId] || {};
@@ -80,10 +85,11 @@ export function getModuleConfig(
 		const segs = effectiveSegments.filter((s) => s.slideName === slide.name);
 		const fullDur = isMultiAudioCodeSlide(slide)
 			? (slide.scripts as string[]).reduce(
-					(sum, _, j) =>
+					(sum, chunkScript, j) =>
 						sum +
-						getAudioDuration(
-							`${courseId}/module${moduleNumber}-${slide.name}-${j + 1}`
+						getAudioDurationOrEstimate(
+							`${courseId}/module${moduleNumber}-${slide.name}-${j + 1}`,
+							chunkScript
 						),
 					0
 			  )

@@ -4,22 +4,27 @@
 import { getAudioDuration } from "../utils/audioDuration";
 
 const audioDurations = [
-	getAudioDuration("agentic-ai-for-beginners/module11-module-11-title"),
-	getAudioDuration("agentic-ai-for-beginners/module11-module-11-concept"),
-	getAudioDuration("agentic-ai-for-beginners/module11-module-11-architecture"),
-	getAudioDuration("agentic-ai-for-beginners/module11-module-11-application"),
-	getAudioDuration("agentic-ai-for-beginners/module11-module-11-exam-mapping"),
-	getAudioDuration("agentic-ai-for-beginners/module11-module-11-recap")
+	getAudioDuration("aws-pulumi/module11-title"),
+	getAudioDuration("aws-pulumi/module11-vpcPeeringBasics"),
+	getAudioDuration("aws-pulumi/module11-createVPCPeering"),
+	getAudioDuration("aws-pulumi/module11-transitGatewayBasics"),
+	getAudioDuration("aws-pulumi/module11-createTransitGateway"),
+	getAudioDuration("aws-pulumi/module11-summary")
 ];
 
 const whooshDuration = 0.57;
 const slideBuffer = 1.0;
 const lastSlideBuffer = 1.2;
-const totalDuration = 370.47;
+const totalDuration = audioDurations.reduce((sum, audioDur, index) => {
+	const isLastSlide = index === audioDurations.length - 1;
+	const slideDuration = audioDur + (isLastSlide ? lastSlideBuffer : slideBuffer);
+	const whooshTime = isLastSlide ? 0 : whooshDuration;
+	return sum + slideDuration + whooshTime;
+}, 0);
 
 export const Module11Config = {
 	id: "module-11",
-	title: "Evaluation and Monitoring",
+	title: "Advanced Networking Patterns",
 	fps: 30,
 	width: 1920,
 	height: 1080,

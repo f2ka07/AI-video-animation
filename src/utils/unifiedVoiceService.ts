@@ -7,6 +7,7 @@ import { MinimaxVoiceService } from "./minimaxVoiceService";
 import { MinimaxDirectService } from "./minimaxDirectService";
 import { ElevenLabsVoiceService } from "./elevenLabsVoiceService";
 import { estimateAudioDuration, shouldUseMinimax, chunkTextAtSentences } from "./audioLengthEstimation";
+import { stripSSML, containsSSML } from "./ssmlUtils";
 import { validateAudioQuality, isLikelyDistorted } from "./audioQualityValidation";
 import * as fs from "fs";
 import * as path from "path";
@@ -17,6 +18,8 @@ interface VoiceOptions {
 	voice?: string;
 	format?: string;
 	provider?: "runpod" | "minimax" | "elevenlabs" | "openai";
+	/** When true, strip SSML before passing to provider. When false, pass through (ElevenLabs supports SSML). Default: auto based on provider. */
+	stripSSMLForProvider?: boolean;
 }
 
 interface WordTiming {
@@ -196,6 +199,23 @@ export class UnifiedVoiceService {
 		);
 	}
 
+	/** Providers that support SSML natively - pass through. Others get stripped. */
+	private static readonly PROVIDER_SUPPORTS_SSML: Record<string, boolean> = {
+		elevenlabs: true,
+		openai: false,
+		runpod: false,
+		minimax: false,
+	};
+
+	/** Prepare prompt for provider: strip SSML if provider doesn't support it */
+	private preparePromptForProvider(provider: string, options: VoiceOptions): VoiceOptions {
+		const shouldStrip = options.stripSSMLForProvider ?? !UnifiedVoiceService.PROVIDER_SUPPORTS_SSML[provider];
+		if (shouldStrip && containsSSML(options.prompt)) {
+			return { ...options, prompt: stripSSML(options.prompt) };
+		}
+		return options;
+	}
+
 	/**
 	 * Generate audio with a specific service
 	 */
@@ -203,27 +223,29 @@ export class UnifiedVoiceService {
 		serviceName: "runpod" | "minimax" | "elevenlabs" | "openai",
 		options: VoiceOptions
 	): Promise<{ audioUrl: string; jobId: string; audioData?: string; words?: WordTiming[] }> {
+		const preparedOptions = this.preparePromptForProvider(serviceName, options);
+
 		switch (serviceName) {
 			case "openai":
 				if (!this.openaiKey) {
 					throw new Error("OpenAI API key not configured (OPENAI_API_KEY)");
 				}
-				return this.generateWithOpenAI(options, false);
+				return this.generateWithOpenAI(preparedOptions, false);
 
 			case "runpod":
 				if (!this.runpodService) {
 					throw new Error("RunPod service not initialized");
 				}
-				return this.runpodService.generateAudio(options);
+				return this.runpodService.generateAudio(preparedOptions);
 
 			case "minimax":
 				// Prefer direct Minimax API over RunPod proxy
 				if (this.minimaxDirectService) {
-					return this.minimaxDirectService.generateAudio(options);
+					return this.minimaxDirectService.generateAudio(preparedOptions);
 				}
 				if (this.minimaxService) {
 					console.log("[UnifiedVoiceService] Using RunPod-based Minimax (direct API not configured)");
-					return this.minimaxService.generateAudio(options);
+					return this.minimaxService.generateAudio(preparedOptions);
 				}
 				throw new Error("Minimax service not initialized. Set MINIMAX_API_KEY for direct API.");
 
@@ -231,7 +253,7 @@ export class UnifiedVoiceService {
 				if (!this.elevenLabsService) {
 					throw new Error("ElevenLabs service not initialized");
 				}
-				return this.elevenLabsService.generateAudio(options);
+				return this.elevenLabsService.generateAudio(preparedOptions);
 
 			default:
 				throw new Error(`Unknown service: ${serviceName}`);

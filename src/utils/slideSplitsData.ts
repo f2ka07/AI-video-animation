@@ -14135,5 +14135,179 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
         }
       ]
     }
+  },
+  "introduction-to-computer-networks": {
+    "what-is-a-network": {
+      "splitAt": [
+        9.545
+      ]
+    },
+    "network-components": {
+      "splitAt": [
+        11.58
+      ]
+    },
+    "network-protocols": {
+      "splitAt": [
+        6.785
+      ]
+    },
+    "tcp-ip-stack": {
+      "splitAt": [
+        8.775
+      ]
+    },
+    "osi-model": {
+      "splitAt": [
+        8.9
+      ]
+    },
+    "network-addressing": {
+      "splitAt": [
+        6.87
+      ]
+    },
+    "subnetting": {
+      "splitAt": [
+        8.555
+      ]
+    },
+    "network-interface-cards": {
+      "splitAt": [
+        7.635
+      ]
+    },
+    "routers": {
+      "splitAt": [
+        7.21
+      ]
+    },
+    "cables-and-connectors": {
+      "splitAt": [
+        6.375
+      ]
+    },
+    "wireless-access-points": {
+      "splitAt": [
+        8.13
+      ]
+    },
+    "firewalls": {
+      "splitAt": [
+        6.895
+      ]
+    },
+    "http-and-https": {
+      "splitAt": [
+        7.02
+      ]
+    },
+    "dns": {
+      "splitAt": [
+        6.185
+      ]
+    },
+    "email-protocols": {
+      "splitAt": [
+        8.75
+      ]
+    },
+    "encryption": {
+      "splitAt": [
+        5.1
+      ]
+    },
+    "antivirus-software": {
+      "splitAt": [
+        5.74
+      ]
+    },
+    "security-policies": {
+      "splitAt": [
+        6.55
+      ]
+    },
+    "vpn": {
+      "splitAt": [
+        7.57
+      ]
+    }
+  },
+  "mastering-firewalls-security-concepts": {
+    "what-are-firewalls": {
+      "splitAt": [
+        9.43
+      ]
+    },
+    "firewall-operations": {
+      "splitAt": [
+        9.22
+      ]
+    },
+    "blocked-ports-protocols": {
+      "splitAt": [
+        10.33
+      ]
+    },
+    "common-firewall-mistakes": {
+      "splitAt": [
+        9.775
+      ]
+    },
+    "firewalls-takeaway": {
+      "splitAt": [
+        8.985
+      ]
+    },
+    "cia-triad": {
+      "splitAt": [
+        11.8
+      ]
+    },
+    "aaa-framework": {
+      "splitAt": [
+        9.94
+      ]
+    },
+    "multifactor-authentication": {
+      "splitAt": [
+        11.095
+      ]
+    },
+    "encryption-and-certificates": {
+      "splitAt": [
+        8.855
+      ]
+    },
+    "identity-stores": {
+      "splitAt": [
+        8.69
+      ]
+    },
+    "threats-and-vulnerabilities": {
+      "splitAt": [
+        7.89
+      ]
+    },
+    "security-concepts-takeaway": {
+      "splitAt": [
+        9.07
+      ]
+    },
+    "wpa-standards": {
+      "splitAt": [
+        10.115
+      ]
+    },
+    "wireless-security-best-practices": {
+      "splitAt": [
+        8.66
+      ]
+    },
+    "wireless-security-takeaway": {
+      "splitAt": [
+        7.68
+      ]
+    }
   }
 };

@@ -44,7 +44,7 @@ function generateModuleContentTs(plan: any, courseId: string): string {
 		``,
 		`export interface SlideContent {`,
 		`	name: string;`,
-		`	type: "title" | "content-two-card" | "content-single" | "code" | "code-diagram" | "comparison" | "mermaid";`,
+		`	type: "title" | "content-two-card" | "content-single" | "code" | "code-diagram" | "comparison" | "mermaid" | "story-beat";`,
 		`	script?: string;`,
 		`	scripts?: string[];`,
 		`	title?: string;`,
@@ -58,6 +58,10 @@ function generateModuleContentTs(plan: any, courseId: string): string {
 		`	rightTitle?: string;`,
 		`	rightItems?: string[];`,
 		`	scene?: string;`,
+		`	visibleLineRange?: [number, number];`,
+		`	codeContext?: string;`,
+		`	filePath?: string;`,
+		`	beat?: string;`,
 		`}`,
 		``,
 		`export interface ModuleContent {`,
@@ -100,6 +104,10 @@ function generateModuleContentTs(plan: any, courseId: string): string {
 			if (slide.rightTitle) lines.push(`			rightTitle: ${JSON.stringify(slide.rightTitle)},`);
 			if (slide.rightItems) lines.push(`			rightItems: ${JSON.stringify(slide.rightItems)},`);
 			if (slide.mermaidSource) lines.push(`			mermaidSource: ${JSON.stringify(slide.mermaidSource)},`);
+			if (slide.visibleLineRange) lines.push(`			visibleLineRange: ${JSON.stringify(slide.visibleLineRange)},`);
+			if (slide.codeContext) lines.push(`			codeContext: ${JSON.stringify(slide.codeContext)},`);
+			if (slide.filePath) lines.push(`			filePath: ${JSON.stringify(slide.filePath)},`);
+			if (slide.beat) lines.push(`			beat: ${JSON.stringify(slide.beat)},`);
 
 			lines.push(`		},`);
 		}

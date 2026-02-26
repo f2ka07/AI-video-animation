@@ -291,13 +291,28 @@ async function extractWordTimingsFromContent(moduleRange?: string) {
 		console.log(`\n💡 All slides already have timings! No API calls were made (cost saved).`);
 	}
 
+	// Map author bullet points to phrase times (ensures bullet highlights sync with narration)
+	console.log("\nMapping phrase times for bullet sync...");
+	const courseIds = [...new Set(modulesToProcess.map((m) => m.courseId || "default"))];
+	for (const courseId of courseIds) {
+		if (courseId === "all") continue;
+		try {
+			const { execSync } = await import("child_process");
+			execSync(`npx tsx scripts/mapPhraseTimes.ts ${courseId} all`, {
+				cwd: path.join(__dirname, ".."),
+				stdio: "pipe",
+			});
+		} catch (error: any) {
+			console.warn(`⚠ Failed to map phrase times for ${courseId}: ${error.message}`);
+		}
+	}
+
 	// Automatically extract bullet start times for slides with bullet points
-	console.log("\n🔍 Extracting bullet start times...");
+	console.log("\nExtracting bullet start times...");
 	for (const module of modulesToProcess) {
 		const courseId = module.courseId || "default";
 		const moduleNumber = module.moduleNumber;
 		if (typeof moduleNumber !== "number" || isNaN(moduleNumber) || !courseId || courseId === "all") {
-			console.warn(`⚠ Skipping bullet extraction: invalid module (courseId=${courseId}, moduleNumber=${moduleNumber})`);
 			continue;
 		}
 		try {

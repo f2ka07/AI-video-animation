@@ -40,6 +40,8 @@
     "generate-runnable-code": "tsx scripts/generateRunnableCode.ts",
     "generate-svg-mappings": "tsx scripts/generate-svg-mappings.ts",
     "generate-teacher-images": "tsx scripts/generateTeacherImages.ts",
+    "generate-thumbnails": "tsx scripts/generateThumbnails.ts",
+    "extract-shorts": "tsx scripts/extractShortsFromModule.ts",
     "extract-module1-timings": "tsx scripts/extractModule1Timings.ts",
     "align-module1-timings": "tsx scripts/alignModule1Timings.ts",
     "whisper-accuracy-module1-title": "node scripts/runWhisperAndEstimateAccuracy.mjs",

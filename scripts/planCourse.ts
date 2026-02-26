@@ -199,6 +199,7 @@ SLIDE STRUCTURE:
 - 35%+ code slides for technical courses. Every concept needs working code.
 - Pattern: Concept (with analogy) -> Code example -> Line-by-line explanation -> Tips/gotchas -> Next concept
 - For code slides: ALWAYS include actual code in "code" field. No placeholders.
+- Code slides: use multiple lines (with comments) when the script describes "first line", "next line", etc. Match script to code structure.
 
 CONTENT DEPTH:
 - Define every term before using it. Use analogies.

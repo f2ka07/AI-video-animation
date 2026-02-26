@@ -219,8 +219,15 @@ QUALITY BAR:
 - End with a line worth remembering: insight, rule, or soft takeaway. Not "Follow for more!" or "That's it."
 - Tone: editorial, thoughtful. NOT marketing (no hype, no hard CTAs).
 
+HOOK-FIRST (mandatory):
+- First slide MUST name the topic and state a thesis or tension. No vague "it" or "this."
+- Never open with "Here's what you need to know" or "Let me explain." Lead with the insight or contrast.
+
+CLOSING LINE (mandatory):
+- Last slide MUST be a quotable insight or takeaway. Not "Follow for more!" or "That's it."
+- The viewer should be able to quote the closing line. Soft close, not ad.
+
 CLARITY:
-- First slide names or clearly hints at the topic. No vague "it" or "this."
 - Prefer concrete over abstract. Full thoughts over fragments.
 
 BANNED:
@@ -250,9 +257,9 @@ BULLETS: Optional. Prefer 0-2 points per slide; use only when they clarify. The 
 
 SHORTS STRUCTURE:
 - Each module = one short. 5-10 slides. One flowing argument: hook -> 3-7 beats that build the case -> one memorable closing line.
-- First slide: name the topic and state the thesis or opening contrast.
-- Middle: each slide one new idea, consequence, or twist. Build; do not repeat.
-- Last slide: insight or takeaway the viewer could quote. Soft close, not ad.
+- First slide: name the topic and state the thesis or opening contrast (hook-first).
+- Middle: each slide one new idea, consequence, or twist. Build; do not repeat. Each slide builds on the previous.
+- Last slide: quotable insight or takeaway. Not "Follow for more!" - a line the viewer could remember and quote.
 
 MODULE TITLE AND SUBTITLE FOR SHORTS (mandatory):
 - Each module = one short. The module "title" is the SHORT'S TITLE (like a YouTube Short or TikTok title), NOT a course chapter title.
@@ -313,94 +320,162 @@ ${moduleCount ? `- Generate exactly ${moduleCount} shorts (${moduleCount} module
 				userPrompt += `\nEssay-style (like SAMPLE.md): each slide = one full sentence (15-22 words). 5-10 slides per short. Script carries meaning; bullets optional. Editorial tone, NOT marketing. Same JSON format as above.`;
 			}
 		} else if (contentKind === 'video') {
-			// Video: YouTube long-form; different tone from course (engaging, hook-focused)
-			systemPrompt = `You are an expert YouTube long-form video content planner. Create engaging, watchable VIDEO content (target: YouTube). Tone is different from a formal course: more conversational, hook-driven, and retention-focused.
+			// Video: YouTube long-form - EXPERT BLUEPRINT (Tech Education YouTube Blueprint)
+			// Structure and psychology first; uniform rhythm kills retention
+			systemPrompt = `You are an expert YouTube long-form video content planner for tech education (AI, cloud, cert topics). Create high-retention VIDEO content. Apply the Tech Education YouTube Blueprint strictly.
 
-AUDIO DURATION CONSTRAINTS:
-- Target: 40-55 words per slide (15-22 seconds of audio)
-- Maximum: ${MAX_WORDS_PER_SLIDE} words (${MAX_SECONDS_PER_SLIDE} seconds)
-- Minimum: 35 words per slide
-- One clear idea per slide
+1. TITLE FORMULA (mandatory):
+Every video title MUST contain: [Pain OR Result] + [Specific Mechanism] + Optional Time/Speed
 
-SLIDE TYPES AVAILABLE:
-1. "title" - Video/hook slide (script grabs attention, states what viewer will learn)
-2. "content-two-card" - Explanation with bullet points (title, script, points[])
-3. "code" - Code example (title, script, code, language)
-4. "code-diagram" - Code with visual (title, script, code, language, scene)
-5. "comparison" - Two-column comparison (title, script, leftTitle, leftItems[], rightTitle, rightItems[])
+Valid patterns:
+- Result: "Build Production RAG Without Hallucinations"
+- Pain: "Your AI Lies Because You Skip This RAG Step"
+- Exam: "Answer 70% of Agent Design Questions Using This Pattern"
+- Speed: "Understand Multi Agent Routing in 9 Minutes"
 
-BULLET POINT RULES:
-- Extract bullet points from the script; same phrases for timing sync
-- Maximum 4 bullet points per slide; 3-8 words per point
+FORBIDDEN in titles (kill CTR): explained, introduction, overview, complete guide, everything about
 
-VOICE AND TONE (YouTube long-form, not course):
-- Hook early: first slide should create curiosity or state the payoff
-- Conversational and direct; avoid academic or textbook tone
-- Use "you" and "we"; occasional light energy, not dry
-- Each script should feel like a YouTuber explaining to the viewer, not a lecturer
-- Phrases like: "Here's the thing...", "So what does that mean for you?", "Quick tip:", "The key takeaway..."
-- No "In this module we will..." - jump into the content
+2. THUMBNAIL TEXT (per module, max 3 words):
+Each module MUST include "thumbnailText": "MAX THREE WORDS" - one concept only. No diagrams, no dense visuals in the text.
+Examples: "AI MEMORY", "WRONG AGENT", "PASS EXAM"
 
-AUDIO / NARRATION OPTIMIZATION:
-- Scripts will be spoken aloud (TTS or voiceover). Write for the ear, not the eye.
-- Vary sentence length: mix short punchy sentences with longer explanatory ones. Avoid long run-ons.
-- Hook the first sentence of each slide: start with the insight or question, not setup.
-- Spell out acronyms on first use when it helps clarity (e.g., "RAG, or Retrieval-Augmented Generation").
-- Use contractions (it's, we're, don't) - they sound more natural when spoken.
-- Avoid tongue-twisters and dense jargon clusters. If technical, follow with plain-language restatement.
-- End key slides with a clear takeaway phrase the listener can remember.
+3. SCRIPT OPENING RULE (mandatory):
+Scripts MUST open with a real developer pain, confusion, or failure BEFORE naming the concept.
+Concept definitions appear ONLY after the viewer understands why the problem exists.
+Never lead with "X is..." or "Let's learn about X". Lead with the consequence, then reveal the concept.
 
-STRUCTURE:
-- Organized like a course: same concept covered across many videos (modules). No cap on number of videos - let the topic dictate how many. Often 20+ videos for a full series.
-- Each module = one YouTube video; each video 5-20 minutes long (roughly 6-25 slides per video depending on depth).
-- If the user does not specify a number, exhaust the topic: create as many videos as needed to cover the subject thoroughly.
-- Pattern per video: Hook -> Concept -> Example -> Why it matters -> Conclusion
-- Same JSON output format as courses (courseName, courseId, modules[])
+4. CONSEQUENCE-DRIVEN LANGUAGE (mandatory):
+Use phrases like: "This means your AI...", "This is why systems fail...", "So when you..."
+NOT neutral academic phrasing like "RAG is a technique that..." or "In this context..."
+Every slide should feel like uncovering something hidden, not delivering a lecture.
+Prioritize revealing useful insights over systematically covering the topic.
 
-LAST SLIDE - CONCLUSION (mandatory):
-- The last slide of each video is a strategic conclusion: one clear takeaway, simple language. Do NOT use "Video 1 Summary", "Module 1 Summary", "Summary", or any "Video N" / "Module N" in the slide title. Use a creative, descriptive title (e.g. "The Big Takeaway", "What This Means for You", "Where We Go From Here"). Assume all videos may be combined into one multi-purpose video; each conclusion should stand alone. No "In the next video..."; close the segment so it feels complete.
+BANNED openings: "X is...", "Let's learn about X", "In this video we'll cover...", "First, let me explain..."
 
-MODULE TITLE AND SUBTITLE (mandatory):
-- title: Short video title (topic name). Do NOT use "Video 1", "Module 1", "Part 1", or any number in the title.
-- subtitle: Descriptive one-liner that explains the video; do NOT use "Video 1:" or "Video 2:". Use a clear subtitle so the video can be reused in different contexts (e.g. playlists, standalone).
+5. VIDEO STRUCTURE (MANDATORY timeline):
 
-OUTPUT FORMAT:
+0-8 seconds - ATTACK HOOK: First slide MUST start with a problem or failure. NOT greeting, NOT topic, NOT definition.
+Good: "If your AI gives confident wrong answers, this is why."
+Bad: "Today we are going to learn about RAG."
+
+8-20 seconds - THE PROMISE: One sentence stating viewer outcome.
+"By the end of this video you'll know the exact architecture production teams use."
+
+20-60 seconds - SHOW FINAL RESULT FIRST: Show diagram/architecture BEFORE explanation. Viewers stay when they see payoff early.
+
+MAIN BODY (repeat every 60-90 seconds per concept):
+- Problem (pain/failure first)
+- Tiny explanation (consequence-driven: "this means...", "this is why...")
+- Concrete example
+- Why it matters in production
+Then immediately next concept. Never stack theory first. Never define before the viewer feels the problem.
+
+EVERY 2 MINUTES - PATTERN INTERRUPT (mandatory): Insert one of: common mistake, real production story, exam trap, interview question, myth correction. Without interrupts retention drops.
+
+LAST 30 SECONDS - STRATEGIC CLOSE: Answer "When do I use this?" - NOT summary.
+Example: "If you remember one thing, RAG is just giving AI searchable memory. Any time answers must be factual, you use it."
+
+6. PACING (variable - uniform rhythm kills retention):
+- 8-12 words: punch statement slide
+- 18-30 words: fast explanation slide
+- 30-45 words: deeper explanation slide
+Vary slide lengths. Never force all slides to same duration.
+
+7. CONTENT PRIORITY (top down, not bottom up):
+- Most useful insight first
+- Most common mistake second
+- Simple model third
+- Technical detail last
+
+SLIDE TYPES: title, content-two-card, content-single, code, code-diagram, comparison, bullets-code, sequential-bullet, story-beat
+BULLET POINTS: Extract from script, 3-8 words each, max 4 per slide.
+
+CODE SLIDE RULES (student-friendly):
+- Max 5-8 lines per code slide. Split long code into multiple slides with scripts array (one script per chunk).
+- Include codeContext (e.g. "index.ts") so students know where the code lives.
+- Include visibleLineRange [start, end] when code block exceeds 8 lines - show only relevant lines.
+- Separate bash/CLI commands from application code: use different slides or clearly labeled sections.
+- Step-by-step pattern: Slide 1: Create file + import. Slide 2: Add resource. Slide 3: Add tags. Slide 4: Export.
+- MANDATORY: Code slide script MUST walk through the code. "Line one imports X. Line two creates Y." NOT "Let's look at this example. Notice how it works." - that skips the explanation. Every code slide script explains specific lines.
+
+AUDIO: Scripts spoken aloud. Use contractions. Spell out acronyms on first use. One clear idea per sentence.
+
+CRITICAL - GROUNDING (no hallucination):
+- Stay to the topic the user requested. If they mention a product (e.g. ClawdBot), cover it.
+- Do NOT invent features, capabilities, or claims about products you may not have reliable knowledge of.
+- For evaluative questions ("Is X the most powerful?"): use an analytical framework (what makes an AI tool powerful, evaluation criteria, tradeoffs) rather than asserting unverified facts about X.
+- Only use real, verifiable technical concepts. No vague marketing speak or made-up feature lists.
+
+CRITICAL - SCRIPT FIELD:
+- The "script" field = EXACTLY what the narrator says. No meta-instructions.
+- WRONG: "8-12 words. Your AI stumbles on complex tasks? Here's why."
+- RIGHT: "If your AI gives confident wrong answers, this is why."
+- Never include "8-12 words", "18-30 words", or format hints in the script. Only the spoken content.
+
+CRITICAL - SUBSTANCE:
+- Each video: 6-25 slides for 5-20 minutes. NOT 3 slides.
+- Every slide needs real content. No placeholder scripts. No generic "discover how X solves Y."
+- Include actual code, diagrams, or concrete mechanisms when the topic requires it.
+
+OUTPUT FORMAT (script = spoken words only, no instructions):
 {
-  "courseName": "Series or Video Title",
+  "courseName": "Series Title",
   "courseId": "series-id-with-dashes",
   "modules": [
     {
       "moduleNumber": 1,
-      "title": "Video Title",
-      "subtitle": "Descriptive Subtitle (no Video 1: prefix)",
+      "title": "Pain/Result + Mechanism",
+      "subtitle": "Descriptive one-liner",
+      "thumbnailText": "MAX THREE WORDS",
       "slides": [
         {
-          "name": "unique-slide-name",
-          "type": "title|content-single|content-two-card|code|code-diagram|comparison|bullets-code|sequential-bullet",
-          "script": "40-55 word narration, YouTube tone...",
+          "name": "attack-hook",
+          "type": "title",
+          "script": "If your AI gives confident wrong answers, this is why.",
           "title": "Slide Title",
-          "points": ["phrase from script", "another phrase"],
-          "code": "// if code type",
-          "language": "javascript"
+          "points": []
+        },
+        {
+          "name": "the-promise",
+          "type": "content-two-card",
+          "script": "By the end of this video you'll know the exact architecture production teams use to fix it.",
+          "title": "Slide Title",
+          "points": ["exact architecture production teams use"]
+        },
+        {
+          "name": "show-result-first",
+          "type": "code-diagram",
+          "script": "Here's the flow. User query hits the retriever. Chunks get injected into the prompt. The model answers with real context, not hallucinations.",
+          "title": "RAG Architecture",
+          "points": [],
+          "code": "// actual code if code type",
+          "language": "javascript",
+          "codeContext": "index.ts"
         }
       ]
     }
   ]
-}`;
+}
+
+REALITY CHECK: Would a tired developer at 11pm instantly know what problem this video solves? If not, rewrite title.`;
 
 			if (prompt && !title) {
 				userPrompt = `Create YouTube long-form VIDEO content (not a course) based on this request:
 
 "${prompt}"
 
-Requirements:
-- Exhaust the topic: generate as many videos (modules) as needed to cover the subject thoroughly. No cap - 20+ videos is fine for a full series. Only limit to a specific number if the user provides one.
-${moduleCount ? `- User requested exactly ${moduleCount} videos.\n` : '- Let the scope of the topic decide how many videos; do not artificially limit.\n'}
-- Each video: 5-20 minutes long (roughly 6-25 slides per video). Same concept as a course but adapted for YouTube.
-- Tone: YouTube-style, high retention and engagement; hook-driven; not formal course tone
-- Hook in the first slide of each video; conversational narration
-- 40-55 words per script; include code examples where relevant
-- Same JSON format as above`;
+VIDEO BLUEPRINT REQUIREMENTS:
+- GROUNDING: Cover the topic/product the user requested. Do NOT invent features or unverifiable claims. For "Is X the best?" questions, use analytical framework (criteria, tradeoffs) not made-up factoids.
+- SCRIPT: "script" field = exactly what the narrator says. NO "8-12 words" or format hints in the output. Only spoken content.
+- SUBSTANCE: Each video 6-25 slides (5-20 min). No 3-slide skeletons. Every slide needs real content.
+- OPENING: Scripts open with developer pain/failure BEFORE naming the concept.
+- LANGUAGE: Consequence-driven ("this means your AI...", "this is why systems fail..."). NOT academic.
+- TITLE: [Pain OR Result] + [Specific Mechanism]. NO: explained, introduction, overview, complete guide.
+- THUMBNAIL: Each module needs "thumbnailText" - max 3 words.
+- STRUCTURE: 0-8s attack hook; 8-20s promise; 20-60s show result first; main body: problem->explanation->example->production; every 2 min pattern interrupt; last 30s "When do I use this?"
+- PACING: Vary 8-12 (punch), 18-30 (fast), 30-45 (deeper) words per slide.
+${moduleCount ? `- Generate exactly ${moduleCount} videos.\n` : '- Exhaust the topic; 20+ videos is fine.\n'}
+- Same JSON format with thumbnailText per module.`;
 			} else {
 				userPrompt = 'Create YouTube long-form VIDEO content with these specifications:\n\n';
 				if (title) userPrompt += `Title: ${title}\n`;
@@ -408,11 +483,19 @@ ${moduleCount ? `- User requested exactly ${moduleCount} videos.\n` : '- Let the
 				if (targetAudience) userPrompt += `Target Audience: ${targetAudience}\n`;
 				if (keyTopics && keyTopics.length) userPrompt += `Key Topics:\n${keyTopics.map(t => `- ${t}`).join('\n')}\n`;
 				if (moduleCount) userPrompt += `Number of videos (modules): ${moduleCount}\n`;
-				userPrompt += `\nExhaust the topic: create as many videos as needed (no cap; 20+ is fine). Each video 5-20 min. Tone: YouTube long-form, high retention, engaging. 40-55 words per script. Same JSON format as above.`;
+				userPrompt += `\nApply VIDEO BLUEPRINT: cover user's topic (no invented features/claims); script = spoken words only (no "8-12 words" in output); 6-25 slides per video; open with pain/failure; consequence-driven language; attack hook first; show result before explanation; variable pacing; pattern interrupts every 2 min; thumbnailText (max 3 words) per module. Same JSON format.`;
 			}
 		} else {
-			// Course: Udemy-quality, comprehensive, beginner-friendly, no editing needed
-			systemPrompt = `You are an expert course content planner. Create UDEMY-QUALITY courses: comprehensive, beginner-friendly, and ready to publish with no further editing. The goal is a full learning experience that a complete beginner can follow and understand, not just narration over slides.
+			// Course: Udemy-quality, story-driven, comprehensive, beginner-friendly
+			systemPrompt = `You are an expert course content planner. Create UDEMY-QUALITY courses: comprehensive, beginner-friendly, and ready to publish with no further editing. Use STORY-DRIVEN narrative so students learn through curiosity and discovery, not lecture-style delivery.
+
+NARRATIVE ARC (mandatory):
+- Each module follows: Problem -> Attempt -> Insight -> Resolution (or similar story beat).
+- Scripts open with a question, failure, or tension BEFORE naming the concept.
+- BANNED openings: "X is...", "Let's learn about X.", "Let's see...", "Let's look at...", "Understanding X is...", "X occurs when...", "In this module we'll..."
+- Use consequence-driven language: "this means...", "this is why...", "so when you..." instead of neutral definitions.
+- Every 8-10 slides: insert a "story-beat" slide (type: "story-beat", beat: "pattern-interrupt") for common mistake, real story, or "here's where most people get it wrong."
+- Every 5-7 slides: include a brief recap ("Where we are", "What we've built so far") - use type "story-beat" with beat: "recap" when it is a narrative beat.
 
 QUALITY TARGET:
 - Output should be publishable as-is. No "we'll cover this later" or shallow placeholders.
@@ -427,14 +510,15 @@ SCRIPT LENGTH (per slide):
 - Each slide teaches ONE thing completely. The viewer should not need to guess or infer.
 
 SLIDE TYPES:
-1. "title" - Module intro (what we'll learn, why it matters)
+1. "title" - Module intro (what we'll learn, why it matters). Open with problem or tension, not definition.
 2. "content-single" - Single-column bullet layout. Use when no comparison or code. Pure conceptual explanation.
 3. "content-two-card" - Two-panel layout (e.g. text + image or animation). Use when you have an image or animation.
-4. "code" - Code example WITH full explanation in script (title, script, code, language)
+4. "code" - Code example WITH full explanation in script (title, script, code, language). Max 5-8 lines per slide; use codeContext (e.g. "index.ts") and visibleLineRange when code exceeds 8 lines.
 5. "code-diagram" - Code with visual (title, script, code, language, scene)
 6. "comparison" - Two-column (title, script, leftTitle, leftItems[], rightTitle, rightItems[])
 7. "bullets-code" - Bullets on left, code on right. Use for "here's the idea" + "here's the code" side-by-side.
 8. "sequential-bullet" - Bullets appear one at a time. Use for step-by-step processes.
+9. "story-beat" - Narrative moment: pattern interrupt, recap, twist, or common mistake. Use beat: "pattern-interrupt" | "recap" | "twist" | "resolution".
 
 SLIDE TYPE SELECTION (choose based on content):
 - "comparison": When comparing two approaches, options, or tradeoffs (e.g. "SaaS vs On-Prem", "X vs Y"). Use leftTitle/leftItems, rightTitle/rightItems.
@@ -443,6 +527,7 @@ SLIDE TYPE SELECTION (choose based on content):
 - "bullets-code": When explaining a concept with a code example side-by-side (bullets left, code right).
 - "content-single" or "content-two-card": For pure conceptual explanation with bullet points. Use content-single for single-column; content-two-card when you have an image.
 - "sequential-bullet": When bullets should appear one at a time (e.g. step-by-step process).
+- "story-beat": For pattern interrupts ("here's where most people get it wrong"), recaps ("what we've built so far"), or "here's the twist" moments. Include beat field.
 
 MANDATORY VARIETY:
 - Technical courses: At least 35% code, code-diagram, or bullets-code slides. Every concept that involves code MUST have a code slide.
@@ -459,10 +544,17 @@ SLIDE COUNT AND STRUCTURE:
 - Pattern: Concept (with analogy) -> Code example -> Line-by-line explanation -> Common pitfalls or best practices -> Next concept
 - For code slides: ALWAYS include the actual code in the "code" field. No placeholders. Show real, runnable snippets.
 
+CODE SLIDE SCRIPTS - MANDATORY (never skip):
+- Every code or bullets-code slide script MUST walk through the code line by line or chunk by chunk.
+- GOOD: "The first line imports Fernet. The second generates a key. The third creates the cipher suite. Line four holds our plain text. Line five encrypts it. The hash at the end is the encrypted result."
+- BAD: "Let's see a simple example. Notice how this demonstrates the concept. This highlights the need for X." (summary without walking through code = FORBIDDEN)
+- BANNED phrases on code slides: "Let's look at", "Notice how", "This demonstrates", "This highlights" without then explaining each line. If you say "notice how" you MUST follow with "Line one does X. Line two does Y."
+- Split long code into multiple slides (scripts array, 5-8 lines each). Each slide's script explains ONLY those lines.
+- Never skip from concept to "here's the code" without the narrator actually explaining what each part does.
+
 CONTENT DEPTH:
 - Define every term before using it. "Docker is a platform that..." not "Docker uses..."
 - Use analogies: "Think of it like a shipping container for software."
-- After code: explain what each part does. "The first line imports... The second creates..."
 - Include "why" and "when to use" not just "what".
 - Common mistakes: mention what beginners get wrong and how to avoid it.
 
@@ -482,12 +574,15 @@ OUTPUT FORMAT (JSON):
       "slides": [
         {
           "name": "unique-slide-name",
-          "type": "title|content-single|content-two-card|code|code-diagram|comparison|bullets-code|sequential-bullet",
+          "type": "title|content-single|content-two-card|code|code-diagram|comparison|bullets-code|sequential-bullet|story-beat",
           "script": "50-90 word narration. Explain fully. No jargon without definition.",
           "title": "Slide Title",
           "points": ["phrase from script", "another phrase"],
           "code": "actual code here for code slides",
-          "language": "python|javascript|bash|etc"
+          "language": "python|javascript|bash|etc",
+          "codeContext": "index.ts (for code slides - file path)",
+          "visibleLineRange": [1, 5],
+          "beat": "pattern-interrupt|recap|twist|resolution (for story-beat only)"
         }
       ]
     }
@@ -513,13 +608,19 @@ AUDIO / NARRATION OPTIMIZATION:
 - Use contractions (it's, we're, don't) - they sound more natural when spoken.
 - Avoid tongue-twisters and dense jargon clusters. If technical, follow with plain-language restatement.
 - End key slides with a clear takeaway phrase the listener can remember.
+- Optional: Add SSML for emphasis (e.g. <emphasis level="strong">key term</emphasis>) or pauses (<break time="500ms"/>) before punchlines. Story-beat pattern-interrupt slides get an automatic pause.
 
 CRITICAL - AVOID:
 - Shallow slides (under 40 words when concept needs more)
 - Code slides without actual code
+- Code slides whose script summarizes instead of walking through: "This demonstrates X" without "Line one does A. Line two does B."
 - Jargon without definition
 - Skipping "why" and "when"
-- Assuming prior knowledge`;
+- Assuming prior knowledge
+
+CRITICAL - CODE EXPLANATION:
+- Code slide script = narrator walks through the code. Not "here's an example" and stop. The script must reference specific lines or blocks and explain what they do.
+- If the code has 5 lines, the script must explain at least 3-4 of them. No exceptions.`;
 
 			// Build user prompt for course only
 			const promptLower = (prompt || '').toLowerCase();
@@ -528,7 +629,7 @@ CRITICAL - AVOID:
 			if (prompt && !title) {
 				let techNote = '';
 				if (isTechnicalHint) {
-					techNote = '\n- CRITICAL: This is a technical course. Use 35%+ code/bullets-code/code-diagram slides. Include actual code for every code slide. Use comparison slides for "X vs Y" topics.';
+					techNote = '\n- CRITICAL: This is a technical course. Use 35%+ code/bullets-code/code-diagram slides. Include actual code for every code slide. Every code slide script MUST walk through the code line by line - "Line one imports X. Line two creates Y." NOT "Let\'s look at this example. Notice how it works." Use comparison slides for "X vs Y" topics.';
 				} else if (isConceptualHint) {
 					techNote = '\n- Use comparison slides when comparing two approaches (e.g. "SaaS vs On-Prem"). Vary slide types; avoid long content-single slides.';
 				}
@@ -542,7 +643,7 @@ Requirements:
 - Udemy quality: comprehensive, beginner-friendly, publishable as-is. No editing needed.
 - Do NOT use "Module 1", "Module 2", etc. in title or subtitle
 - Last slide of each module: strategic conclusion with creative title (no "Summary"). Professor-level insight.
-- 35%+ code slides for technical topics. Every concept needs working code - include actual code, not placeholders.
+- 35%+ code slides for technical topics. Every concept needs working code - include actual code, not placeholders. Every code slide script must walk through the code (explain specific lines), not just summarize.
 - 50-90 words per slide. Use as many as needed to explain fully.
 - Assume zero prior knowledge. Define every term. Include analogies and "why".
 - Depth over breadth. Split complex concepts across multiple slides.${techNote}`;
@@ -556,7 +657,7 @@ Requirements:
 				
 				userPrompt += `\nUdemy quality: comprehensive, beginner-friendly, publishable as-is.
 - 10-18 slides per module. 50-90 words per slide. 35%+ code slides for technical content.
-- Include actual code for every code slide. No placeholders.
+- Include actual code for every code slide. No placeholders. Code slide scripts must walk through the code line by line, not summarize.
 - Depth over breadth. Assume zero prior knowledge. Define every term.`;
 			}
 		}
@@ -614,14 +715,16 @@ Requirements:
 		const planOutput = JSON.parse(content);
 		
 		// Post-process: Fix backslash issues and validate scripts
-		const maxWordsForSlide = contentKind === 'shorts' ? 25 : MAX_WORDS_PER_SLIDE;
-		const minWordsForSlide = contentKind === 'shorts' ? 10 : 35;
+		const maxWordsForSlide = contentKind === 'shorts' ? 25 : (contentKind === 'video' ? 45 : MAX_WORDS_PER_SLIDE);
+		const minWordsForSlide = contentKind === 'shorts' ? 10 : (contentKind === 'video' ? 8 : 35);
 		const warnings = [];
 		for (const mod of planOutput.modules) {
 			for (const slide of mod.slides) {
 				// Fix improperly escaped backslashes in scripts
 				if (slide.script) {
 					slide.script = slide.script.replace(/\\(?![nrt"\\])/g, '\\\\');
+					// Strip format instruction prefixes (e.g. "8-12 words. " or "18-30 words. ") that AI sometimes copies
+					slide.script = slide.script.replace(/^\s*\d+-\d+\s*words\.?\s*/i, '').trim();
 				}
 				if (slide.code) {
 					// Code blocks may have intentional backslashes, leave as-is
@@ -679,6 +782,19 @@ Requirements:
 							suggestedType: 'comparison'
 						});
 					}
+				}
+			}
+		}
+
+		// Video: warn if modules have too few slides (skeleton output)
+		if (contentKind === 'video' && planOutput.modules) {
+			for (const mod of planOutput.modules) {
+				if ((mod.slides || []).length < 6) {
+					warnings.push({
+						type: 'skeleton',
+						module: mod.moduleNumber,
+						message: `Module has only ${(mod.slides || []).length} slides. Videos need 6-25 slides (5-20 min). Consider regenerating with more substance.`
+					});
 				}
 			}
 		}
@@ -776,7 +892,7 @@ app.post('/api/save-plan', (req, res) => {
 			``,
 			`export interface SlideContent {`,
 			`	name: string;`,
-			`	type: "title" | "content-two-card" | "content-single" | "code" | "code-diagram" | "comparison";`,
+			`	type: "title" | "content-two-card" | "content-single" | "code" | "code-diagram" | "comparison" | "story-beat";`,
 			`	script: string;`,
 			`	title?: string;`,
 			`	subtitle?: string;`,
@@ -789,6 +905,11 @@ app.post('/api/save-plan', (req, res) => {
 			`	rightTitle?: string;`,
 			`	rightItems?: string[];`,
 			`	scene?: string;`,
+			`	scripts?: string[];`,
+			`	visibleLineRange?: [number, number];`,
+			`	codeContext?: string;`,
+			`	filePath?: string;`,
+			`	beat?: string;`,
 			`}`,
 			``,
 			`export interface ModuleContent {`,
@@ -798,6 +919,7 @@ app.post('/api/save-plan', (req, res) => {
 			`	subtitle: string;`,
 			`	slides: SlideContent[];`,
 			`	videoCategory?: "standard" | "short"; // "short" = portrait 1080x1920, 5s per slide`,
+			`	thumbnailText?: string; // Max 3 words for YouTube thumbnail (video content)`,
 			`}`,
 			``
 		];
@@ -812,13 +934,20 @@ app.post('/api/save-plan', (req, res) => {
 			if (contentKind === 'shorts') {
 				lines.push(`	videoCategory: "short",`);
 			}
+			if (mod.thumbnailText) {
+				lines.push(`	thumbnailText: ${JSON.stringify(mod.thumbnailText)},`);
+			}
 			lines.push(`	slides: [`);
 			
 			for (const slide of mod.slides) {
 				lines.push(`		{`);
 				lines.push(`			name: ${JSON.stringify(slide.name)},`);
 				lines.push(`			type: ${JSON.stringify(slide.type)},`);
-				lines.push(`			script: ${JSON.stringify(slide.script)},`);
+				if (slide.scripts && slide.scripts.length >= 1) {
+					lines.push(`			scripts: ${JSON.stringify(slide.scripts)},`);
+				} else {
+					lines.push(`			script: ${JSON.stringify(slide.script || '')},`);
+				}
 				
 				if (slide.title) lines.push(`			title: ${JSON.stringify(slide.title)},`);
 				if (slide.subtitle) lines.push(`			subtitle: ${JSON.stringify(slide.subtitle)},`);
@@ -830,6 +959,10 @@ app.post('/api/save-plan', (req, res) => {
 				if (slide.leftItems) lines.push(`			leftItems: ${JSON.stringify(slide.leftItems)},`);
 				if (slide.rightTitle) lines.push(`			rightTitle: ${JSON.stringify(slide.rightTitle)},`);
 				if (slide.rightItems) lines.push(`			rightItems: ${JSON.stringify(slide.rightItems)},`);
+				if (slide.visibleLineRange) lines.push(`			visibleLineRange: ${JSON.stringify(slide.visibleLineRange)},`);
+				if (slide.codeContext) lines.push(`			codeContext: ${JSON.stringify(slide.codeContext)},`);
+				if (slide.filePath) lines.push(`			filePath: ${JSON.stringify(slide.filePath)},`);
+				if (slide.beat) lines.push(`			beat: ${JSON.stringify(slide.beat)},`);
 				
 				lines.push(`		},`);
 			}
@@ -1131,7 +1264,7 @@ app.post('/api/courses/:id/restore', async (req, res) => {
 				``,
 				`export interface SlideContent {`,
 				`	name: string;`,
-				`	type: "title" | "content-two-card" | "content-single" | "code" | "code-diagram" | "comparison";`,
+				`	type: "title" | "content-two-card" | "content-single" | "code" | "code-diagram" | "comparison" | "story-beat";`,
 				`	script: string;`,
 				`	title?: string;`,
 				`	subtitle?: string;`,
@@ -1144,6 +1277,11 @@ app.post('/api/courses/:id/restore', async (req, res) => {
 				`	rightTitle?: string;`,
 				`	rightItems?: string[];`,
 				`	scene?: string;`,
+				`	scripts?: string[];`,
+				`	visibleLineRange?: [number, number];`,
+				`	codeContext?: string;`,
+				`	filePath?: string;`,
+				`	beat?: string;`,
 				`}`,
 				``,
 				`export interface ModuleContent {`,
@@ -1168,7 +1306,11 @@ app.post('/api/courses/:id/restore', async (req, res) => {
 					lines.push(`		{`);
 					lines.push(`			name: ${JSON.stringify(slide.name)},`);
 					lines.push(`			type: ${JSON.stringify(slide.type)},`);
-					lines.push(`			script: ${JSON.stringify(slide.script)},`);
+					if (slide.scripts && slide.scripts.length >= 1) {
+						lines.push(`			scripts: ${JSON.stringify(slide.scripts)},`);
+					} else {
+						lines.push(`			script: ${JSON.stringify(slide.script || '')},`);
+					}
 					
 					if (slide.title) lines.push(`			title: ${JSON.stringify(slide.title)},`);
 					if (slide.subtitle) lines.push(`			subtitle: ${JSON.stringify(slide.subtitle)},`);
@@ -1180,6 +1322,10 @@ app.post('/api/courses/:id/restore', async (req, res) => {
 					if (slide.leftItems) lines.push(`			leftItems: ${JSON.stringify(slide.leftItems)},`);
 					if (slide.rightTitle) lines.push(`			rightTitle: ${JSON.stringify(slide.rightTitle)},`);
 					if (slide.rightItems) lines.push(`			rightItems: ${JSON.stringify(slide.rightItems)},`);
+					if (slide.visibleLineRange) lines.push(`			visibleLineRange: ${JSON.stringify(slide.visibleLineRange)},`);
+					if (slide.codeContext) lines.push(`			codeContext: ${JSON.stringify(slide.codeContext)},`);
+					if (slide.filePath) lines.push(`			filePath: ${JSON.stringify(slide.filePath)},`);
+					if (slide.beat) lines.push(`			beat: ${JSON.stringify(slide.beat)},`);
 					
 					lines.push(`		},`);
 				}
@@ -1352,7 +1498,7 @@ app.post('/api/courses/:id/activate', (req, res) => {
 			``,
 			`export interface SlideContent {`,
 			`	name: string;`,
-			`	type: "title" | "content-two-card" | "content-single" | "code" | "code-diagram" | "comparison";`,
+			`	type: "title" | "content-two-card" | "content-single" | "code" | "code-diagram" | "comparison" | "story-beat";`,
 			`	script?: string;`,
 			`	scripts?: string[];`,
 			`	title?: string;`,
@@ -1366,6 +1512,10 @@ app.post('/api/courses/:id/activate', (req, res) => {
 			`	rightTitle?: string;`,
 			`	rightItems?: string[];`,
 			`	scene?: string;`,
+			`	visibleLineRange?: [number, number];`,
+			`	codeContext?: string;`,
+			`	filePath?: string;`,
+			`	beat?: string;`,
 			`}`,
 			``,
 			`export interface ModuleContent {`,
@@ -1404,8 +1554,12 @@ app.post('/api/courses/:id/activate', (req, res) => {
 				if (slide.imageSrc) lines.push(`			imageSrc: ${JSON.stringify(slide.imageSrc)},`);
 				if (slide.leftTitle) lines.push(`			leftTitle: ${JSON.stringify(slide.leftTitle)},`);
 				if (slide.leftItems) lines.push(`			leftItems: ${JSON.stringify(slide.leftItems)},`);
-				if (slide.rightTitle) lines.push(`			rightTitle: ${JSON.stringify(slide.rightTitle)},`);
-				if (slide.rightItems) lines.push(`			rightItems: ${JSON.stringify(slide.rightItems)},`);
+			if (slide.rightTitle) lines.push(`			rightTitle: ${JSON.stringify(slide.rightTitle)},`);
+			if (slide.rightItems) lines.push(`			rightItems: ${JSON.stringify(slide.rightItems)},`);
+			if (slide.visibleLineRange) lines.push(`			visibleLineRange: ${JSON.stringify(slide.visibleLineRange)},`);
+			if (slide.codeContext) lines.push(`			codeContext: ${JSON.stringify(slide.codeContext)},`);
+			if (slide.filePath) lines.push(`			filePath: ${JSON.stringify(slide.filePath)},`);
+			if (slide.beat) lines.push(`			beat: ${JSON.stringify(slide.beat)},`);
 				
 				lines.push(`		},`);
 			}
@@ -1422,6 +1576,13 @@ app.post('/api/courses/:id/activate', (req, res) => {
 		
 		fs.writeFileSync(moduleContentPath, lines.join('\n'));
 		console.log(`[activate] Written: moduleContent.ts`);
+
+		// Map author bullets to phrase times (ensures bullet highlights sync with narration)
+		try {
+			execSync(`npx tsx scripts/mapPhraseTimes.ts ${courseId} all`, { cwd: __dirname, stdio: 'pipe' });
+		} catch (e) {
+			console.warn('[activate] mapPhraseTimes skipped:', e?.message || e);
+		}
 		
 		// Step 3: Copy timings to public/timings/
 		if (!fs.existsSync(publicTimingsDir)) {
@@ -4828,6 +4989,15 @@ app.post('/api/diagram-pipeline', (req, res) => {
 			send('progress', runForModule != null ? `Starting diagram pipeline for Module ${runForModule}...` : 'Starting diagram pipeline...');
 			console.log('[diagram-pipeline] Starting for course:', targetCourseId, runForModule != null ? `(module ${runForModule} only)` : '(all modules)');
 
+			// Map author bullets to phrase times (ensures bullet highlights sync with narration)
+			try {
+				send('progress', 'Mapping phrase times for bullet sync...');
+				const modArgMap = runForModule != null ? ` ${runForModule}` : ' all';
+				execSync(`npx tsx scripts/mapPhraseTimes.ts ${targetCourseId}${modArgMap}`, { cwd: __dirname, stdio: 'pipe' });
+			} catch (e) {
+				console.warn('[diagram-pipeline] mapPhraseTimes skipped:', e?.message || e);
+			}
+
 			// Copy course timings to public/timings so scripts can find them
 			if (fs.existsSync(courseTimingsDir)) {
 				send('progress', 'Copying timings to public...');
@@ -4869,14 +5039,16 @@ app.post('/api/diagram-pipeline', (req, res) => {
 				? [
 					{ name: 'classify-slide-visual', cmd: `npx tsx scripts/classifySlideVisual.ts ${targetCourseId} --refine${modArg}`, timeoutMs: 10 * 60 * 1000 },
 					{ name: 'generate-mermaid-segments', cmd: `npx tsx scripts/generateMermaidSegments.ts ${targetCourseId} --include-content --add-highlights${modArg}`, timeoutMs: 30 * 60 * 1000 },
-					{ name: 'sync-slide-splits', cmd: 'npx tsx scripts/syncSlideSplitsToTs.ts', timeoutMs: 60 * 1000 }
+					{ name: 'sync-slide-splits', cmd: 'npx tsx scripts/syncSlideSplitsToTs.ts', timeoutMs: 60 * 1000 },
+					{ name: 'activate', cmd: `npx tsx scripts/activateCourse.ts ${targetCourseId}`, timeoutMs: 2 * 60 * 1000 }
 				]
 				: [
 					{ name: 'derive-boundaries-from-script', cmd: `npx tsx scripts/deriveBoundariesFromScript.ts ${targetCourseId}${modArg}`, timeoutMs: 5 * 60 * 1000 },
 					{ name: 'derive-bullets', cmd: `npx tsx scripts/deriveBulletsFromWordTimings.ts ${targetCourseId}${modArgBullets}`, timeoutMs: 5 * 60 * 1000 },
 					{ name: 'classify-slide-visual', cmd: `npx tsx scripts/classifySlideVisual.ts ${targetCourseId} --refine${modArg}`, timeoutMs: 10 * 60 * 1000 },
 					{ name: 'generate-mermaid-segments', cmd: `npx tsx scripts/generateMermaidSegments.ts ${targetCourseId} --include-content${modArg}`, timeoutMs: 30 * 60 * 1000 },
-					{ name: 'sync-slide-splits', cmd: 'npx tsx scripts/syncSlideSplitsToTs.ts', timeoutMs: 60 * 1000 }
+					{ name: 'sync-slide-splits', cmd: 'npx tsx scripts/syncSlideSplitsToTs.ts', timeoutMs: 60 * 1000 },
+					{ name: 'activate', cmd: `npx tsx scripts/activateCourse.ts ${targetCourseId}`, timeoutMs: 2 * 60 * 1000 }
 				];
 
 			const runStep = (step, i) => new Promise((resolve, reject) => {

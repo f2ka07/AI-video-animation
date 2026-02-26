@@ -15,8 +15,14 @@ export interface LineMapping {
   wordRange: [number, number];
 }
 
+export interface PhraseTime {
+  start: number;
+  end: number;
+}
+
 export interface SlideTimings {
   words: WordTiming[];
+  phraseTimes?: (PhraseTime | null)[];
 }
 
 export interface ModuleTimings {

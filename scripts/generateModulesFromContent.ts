@@ -373,6 +373,12 @@ function generateModuleFile(module: ModuleContent, previewMode: boolean = false)
 						? `\n\t\t\t\t\taudioChunkDurations={[${Array.from({ length: slide.scripts!.length }, (_, i) =>
 							`audioDurations["${slide.name}-${i + 1}"]`).join(", ")}]}`
 						: "";
+					const visibleLineRangeProp = (slide as { visibleLineRange?: [number, number] }).visibleLineRange
+						? `\n\t\t\t\t\tvisibleLineRange={[${(slide as { visibleLineRange: [number, number] }).visibleLineRange[0]}, ${(slide as { visibleLineRange: [number, number] }).visibleLineRange[1]}]}`
+						: "";
+					const codeContextProp = (slide as { codeContext?: string }).codeContext || (slide as { filePath?: string }).filePath
+						? `\n\t\t\t\t\tcodeContext="${String((slide as { codeContext?: string }).codeContext || (slide as { filePath?: string }).filePath).replace(/"/g, '\\"')}"`
+						: "";
 					slideComponent = `<AnimatedCodeSlide
 \t\t\t\t\ttitle="${slide.title?.replace(/"/g, '\\"') || ""}"
 \t\t\t\t\tcode={\`${code}\`}
@@ -380,11 +386,11 @@ function generateModuleFile(module: ModuleContent, previewMode: boolean = false)
 \t\t\t\t\tslideName="${slide.name}"
 \t\t\t\t\taudioStartFrame={${slideVar}.start}
 \t\t\t\t\taudioDuration={${slideVar}.audioDuration}
-\t\t\t\t\tmoduleNumber={${module.moduleNumber}}${audioChunkDurationsProp}
+\t\t\t\t\tmoduleNumber={${module.moduleNumber}}${audioChunkDurationsProp}${visibleLineRangeProp}${codeContextProp}
 \t\t\t\t/>`;
 				break;
 				}
-			case "code-diagram":
+			case "code-diagram": {
 					const codeDiagramRaw = slide.code || getCodeFromContentJson(courseId, module.moduleNumber, slide.name);
 					const codeDiagram = (codeDiagramRaw ?? "").replace(/`/g, "\\`").replace(/\$/g, "\\$");
 					// Serialize the scene object - need to handle it as a JSON string
@@ -400,7 +406,25 @@ function generateModuleFile(module: ModuleContent, previewMode: boolean = false)
 							sceneCode = "null";
 						}
 					}
-					slideComponent = `<CodeAndDiagram
+					// Fallback to AnimatedCodeSlide when no scene (planner often outputs code-diagram without scene)
+					if (sceneCode === "null") {
+						const visibleLineRangeProp = (slide as { visibleLineRange?: [number, number] }).visibleLineRange
+							? `\n\t\t\t\t\tvisibleLineRange={[${(slide as { visibleLineRange: [number, number] }).visibleLineRange[0]}, ${(slide as { visibleLineRange: [number, number] }).visibleLineRange[1]}]}`
+							: "";
+						const codeContextProp = (slide as { codeContext?: string }).codeContext || (slide as { filePath?: string }).filePath
+							? `\n\t\t\t\t\tcodeContext="${String((slide as { codeContext?: string }).codeContext || (slide as { filePath?: string }).filePath).replace(/"/g, '\\"')}"`
+							: "";
+						slideComponent = `<AnimatedCodeSlide
+\t\t\t\t\ttitle="${slide.title?.replace(/"/g, '\\"') || ""}"
+\t\t\t\t\tcode={\`${codeDiagram}\`}
+\t\t\t\t\tlanguage="${slide.language || "typescript"}"
+\t\t\t\t\tslideName="${slide.name}"
+\t\t\t\t\taudioStartFrame={${slideVar}.start}
+\t\t\t\t\taudioDuration={${slideVar}.audioDuration}
+\t\t\t\t\tmoduleNumber={${module.moduleNumber}}${visibleLineRangeProp}${codeContextProp}
+\t\t\t\t/>`;
+					} else {
+						slideComponent = `<CodeAndDiagram
 \t\t\t\t\ttitle="${slide.title?.replace(/"/g, '\\"') || ""}"
 \t\t\t\t\tcode={\`${codeDiagram}\`}
 \t\t\t\t\tlanguage="${slide.language || "typescript"}"
@@ -408,7 +432,9 @@ function generateModuleFile(module: ModuleContent, previewMode: boolean = false)
 \t\t\t\tscene={${sceneCode} as any}
 \t\t\t\tmoduleNumber={${module.moduleNumber}}
 \t/>`;
+					}
 					break;
+				}
 			case "comparison":
 				const leftItems = slide.leftItems?.map((i) => `"${i.replace(/"/g, '\\"')}"`).join(",\n\t\t\t\t\t\t") || "";
 				const rightItems = slide.rightItems?.map((i) => `"${i.replace(/"/g, '\\"')}"`).join(",\n\t\t\t\t\t\t") || "";
@@ -438,6 +464,24 @@ function generateModuleFile(module: ModuleContent, previewMode: boolean = false)
 \t\t\t\t\t${svgProp}
 \t\t\t\t/>`;
 				break;
+			case "story-beat": {
+				const pointsStoryBeat = points.map((p) => `"${p.replace(/"/g, '\\"')}"`).join(",\n\t\t\t\t\t") || "";
+				const animationPropStoryBeat = slide.animation ? `animation="${slide.animation}"` : "";
+				const imagePropStoryBeat = !slide.animation && slide.imageSrc ? `imageSrc="${slide.imageSrc}"` : "";
+				const audioStartOffsetPropStoryBeat = hasSplits && segmentStart > 0 ? `\n\t\t\t\t\taudioStartOffset={${segmentStart.toFixed(2)}}` : "";
+				slideComponent = `<AnimatedContentSlide
+\t\t\t\t\ttitle="${slide.title?.replace(/"/g, '\\"') || ""}"
+\t\t\t\t\tpoints={[
+\t\t\t\t\t\t${pointsStoryBeat}
+\t\t\t\t\t]}
+\t\t\t\t\tslideName="${slide.name}"
+\t\t\t\t\taudioDuration={${slideVar}.audioDuration}
+\t\t\t\t\tmoduleNumber={${module.moduleNumber}}
+\t\t\t\t\t${animationPropStoryBeat}
+\t\t\t\t\t${imagePropStoryBeat}${audioStartOffsetPropStoryBeat}
+\t\t\t\t/>`;
+				break;
+			}
 			}
 
 			const fadeOut = isLast ? "fadeOutDuration={0}" : `fadeOutDuration={crossFadeDuration}`;
@@ -579,8 +623,9 @@ function updateRootFile(modules: ModuleContent[]): void {
 		.join("\n");
 
 	const newRoot = `import React from "react";
-import { Composition } from "remotion";
+import { Composition, Still } from "remotion";
 import { GenericModule } from "./videos/GenericModule";
+import { ThumbnailStill } from "./compositions/ThumbnailStill";
 import { getModuleConfig } from "./videos/GenericModuleConfig";
 import { allModules } from "./videos/moduleContent";
 import { secondsToFrames } from "./utils/calculateDuration";
@@ -590,6 +635,13 @@ export const RemotionRoot: React.FC = () => {
 \treturn (
 \t\t<>
 ${compositions}
+\t\t\t<Still
+\t\t\t\tid="thumbnail"
+\t\t\t\tcomponent={ThumbnailStill}
+\t\t\t\twidth={1280}
+\t\t\t\theight={720}
+\t\t\t\tdefaultProps={{ thumbnailText: "THUMBNAIL" }}
+\t\t\t/>
 \t\t</>
 \t);
 };

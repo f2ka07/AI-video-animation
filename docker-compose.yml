@@ -1,11 +1,10 @@
-version: '3.8'
-
 # Build once; remotion reuses the same image (saves disk on RunPod/small VMs)
 x-app-image: &app-image
   build:
     context: .
     dockerfile: Dockerfile
   image: slides-app:local
+  pull_policy: never
 
 services:
   # Main app: GUI + Remotion (headless render)
@@ -40,9 +39,11 @@ services:
     networks:
       - slides-network
 
-  # Remotion Studio for preview (localhost only - use SSH tunnel for remote)
+  # Remotion Studio for preview (optional — use: docker compose --profile studio up -d)
   remotion:
-    image: slides-app:local
+    <<: *app-image
+    profiles:
+      - studio
     container_name: slides-remotion
     command: ["npx", "remotion", "studio", "src/index.tsx"]
     ports:

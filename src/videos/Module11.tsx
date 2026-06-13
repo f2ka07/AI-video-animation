@@ -1,343 +1,128 @@
 import React from "react";
 import { Sequence, useVideoConfig, Audio, staticFile } from "remotion";
-import { TitleSlide } from "../components/TitleSlide";
-import { AnimatedContentSlide } from "../components/AnimatedContentSlide";
-import { AnimatedCodeSlide } from "../components/AnimatedCodeSlide";
-import { BulletsAndCodeSlide } from "../components/BulletsAndCodeSlide";
-import { AnimatedComparisonSlide } from "../components/AnimatedComparisonSlide";
-import { SequentialBulletSlide } from "../components/SequentialBulletSlide";
-import { CodeAndDiagram } from "../compositions/CodeAndDiagram";
-import { CrossFadeWrapper } from "../components/CrossFadeWrapper";
 import { getAudioDuration } from "../utils/audioDuration";
+import { Module11Intro } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module11/Module11Intro";
+import { Module11Diagram1 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module11/Module11Diagram1";
+import { Module11Diagram2 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module11/Module11Diagram2";
+import { Module11Diagram3 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module11/Module11Diagram3";
+import { Module11Recap } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module11/Module11Recap";
 
-// Auto-generated from moduleContent.ts - DO NOT EDIT MANUALLY
-
+// Auto-generated from course scene components - DO NOT EDIT MANUALLY
+// Course: agentic-ai-for-beginners, Module: 11
 export const Module11: React.FC = () => {
 	const { fps } = useVideoConfig();
-	const crossFadeDuration = 0.3;
-	const whooshDuration = 0.57;
 
 	const audioFiles = {
-		title: staticFile("audio/aws-pulumi/module11-title.wav"),
-		vpcPeeringBasics: staticFile("audio/aws-pulumi/module11-vpcPeeringBasics.wav"),
-		createVPCPeering: staticFile("audio/aws-pulumi/module11-createVPCPeering.wav"),
-		transitGatewayBasics: staticFile("audio/aws-pulumi/module11-transitGatewayBasics.wav"),
-		createTransitGateway: staticFile("audio/aws-pulumi/module11-createTransitGateway.wav"),
-		summary: staticFile("audio/aws-pulumi/module11-summary.wav"),
+		"module11-module-11-application": staticFile("audio/agentic-ai-for-beginners/module11-module-11-application.wav"),
+		"module11-module-11-architecture": staticFile("audio/agentic-ai-for-beginners/module11-module-11-architecture.wav"),
+		"module11-module-11-concept": staticFile("audio/agentic-ai-for-beginners/module11-module-11-concept.wav"),
+		"module11-module-11-exam-mapping": staticFile("audio/agentic-ai-for-beginners/module11-module-11-exam-mapping.wav"),
+		"module11-module-11-recap": staticFile("audio/agentic-ai-for-beginners/module11-module-11-recap.wav"),
+		"module11-module-11-title": staticFile("audio/agentic-ai-for-beginners/module11-module-11-title.wav"),
 		whoosh: staticFile("audio/whoosh.wav"),
 	};
-
-	const audioDurations = {
-		title: getAudioDuration("aws-pulumi/module11-title"),
-		vpcPeeringBasics: getAudioDuration("aws-pulumi/module11-vpcPeeringBasics"),
-		createVPCPeering: getAudioDuration("aws-pulumi/module11-createVPCPeering"),
-		transitGatewayBasics: getAudioDuration("aws-pulumi/module11-transitGatewayBasics"),
-		createTransitGateway: getAudioDuration("aws-pulumi/module11-createTransitGateway"),
-		summary: getAudioDuration("aws-pulumi/module11-summary"),
-	};
-
-	let currentFrame = 0;
-
-	const addSlide = (audioDuration: number, isLast: boolean = false, buffer: number = 0) => {
-		const slideDuration = audioDuration + buffer;
-		const start = currentFrame;
-		if (!isLast) {
-			currentFrame += (slideDuration + whooshDuration) * fps;
-		} else {
-			currentFrame += slideDuration * fps;
-		}
-		return { start, duration: slideDuration * fps, slideDuration, audioDuration, buffer };
-	};
-
-	const titleSlide = addSlide(audioDurations["title"], false, 1.0);
-	const vpcPeeringBasicsSlide = addSlide(audioDurations["vpcPeeringBasics"], false, 1.0);
-	const createVPCPeeringSlide = addSlide(audioDurations["createVPCPeering"], false, 1.0);
-	const transitGatewayBasicsSlide = addSlide(audioDurations["transitGatewayBasics"], false, 1.0);
-	const createTransitGatewaySlide = addSlide(audioDurations["createTransitGateway"], false, 1.0);
-	const summarySlide = addSlide(audioDurations["summary"], true, 1.2);
 
 	return (
 		<div
 			style={{
 				width: "100%",
-			height: "100%",
-			background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
-			position: "relative",
-		}}
+				height: "100%",
+				background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
+				position: "relative",
+			}}
 		>
-			{/* title */}
-			<Sequence
-				from={titleSlide.start}
-				durationInFrames={titleSlide.duration}
-			>
-				<Audio src={audioFiles["title"]} />
-				<CrossFadeWrapper
-					totalDuration={titleSlide.slideDuration}
-					fadeInDuration={0.5}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<TitleSlide 
-					title="Advanced Networking Patterns" 
-					subtitle="VPC Peering and Transit Gateway"
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={titleSlide.start + titleSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
 
-			{/* VPC Peering: Direct VPC Connections */}
-			<Sequence
-				from={vpcPeeringBasicsSlide.start}
-				durationInFrames={vpcPeeringBasicsSlide.duration}
-			>
-				<Audio src={audioFiles["vpcPeeringBasics"]} />
-				<CrossFadeWrapper
-					totalDuration={vpcPeeringBasicsSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="VPC Peering: Direct VPC Connections"
-					points={[
-						"Direct connection between two VPCs",
-					"One-to-one relationship (non-transitive)",
-					"Works within same region or across regions",
-					"Cost-effective for simple connections",
-					"Requires route table configuration"
-					]}
-					slideName="vpcPeeringBasics"
-					audioDuration={vpcPeeringBasicsSlide.audioDuration}
-					moduleNumber={11}
-					
-					imageSrc="assets/vpc.svg"
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={vpcPeeringBasicsSlide.start + vpcPeeringBasicsSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module11Intro */}
+		<Sequence
+			from={0}
+			durationInFrames={824}
+		>
+			<Module11Intro
+				durationInFrames={824}
+				cuePoints={[4, 58, 135, 183, 237, 258, 328, 379, 433, 517, 636, 713, 780]}
+			/>
+			<Audio src={audioFiles["module11-module-11-title"]} />
+		</Sequence>
 
-			{/* Create VPC Peering Connection */}
-			<Sequence
-				from={createVPCPeeringSlide.start}
-				durationInFrames={createVPCPeeringSlide.duration}
-			>
-				<Audio src={audioFiles["createVPCPeering"]} />
-				<CrossFadeWrapper
-					totalDuration={createVPCPeeringSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Create VPC Peering Connection"
-					code={`// VPC Peering between two VPCs
-const vpc1 = new aws.ec2.Vpc("vpc1", {
-    cidrBlock: "10.0.0.0/16",
-    // ... configuration ...
-});
+		{/* Transition */}
+		<Sequence from={824} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-const vpc2 = new aws.ec2.Vpc("vpc2", {
-    cidrBlock: "10.1.0.0/16",
-    // ... configuration ...
-});
+		{/* Module11Diagram1 */}
+		<Sequence
+			from={842}
+			durationInFrames={2161}
+		>
+			<Module11Diagram1
+				durationInFrames={2161}
+				cuePoints={[4, 36, 104, 135, 185, 264, 304, 402, 458, 597, 681, 753, 860, 906, 978, 1044, 1109, 1198, 1276, 1307, 1394, 1472, 1546, 1630, 1697, 1770, 1857, 1913, 1973, 2034, 2100]}
+			/>
+			<Audio src={audioFiles["module11-module-11-concept"]} />
+		</Sequence>
 
-// Create peering connection
-const peering = new aws.ec2.VpcPeeringConnection("vpc-peering", {
-    vpcId: vpc1.id,
-    peerVpcId: vpc2.id,
-    autoAccept: true, // Auto-accept if same account
-    tags: {
-        Name: "vpc1-to-vpc2",
-    },
-});
+		{/* Transition */}
+		<Sequence from={3003} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-// Add routes in VPC1 to reach VPC2
-const vpc1Route = new aws.ec2.Route("vpc1-to-vpc2", {
-    routeTableId: vpc1RouteTable.id,
-    destinationCidrBlock: "10.1.0.0/16", // VPC2's CIDR
-    vpcPeeringConnectionId: peering.id,
-});
+		{/* Module11Diagram2 */}
+		<Sequence
+			from={3021}
+			durationInFrames={2498}
+		>
+			<Module11Diagram2
+				durationInFrames={2498}
+				cuePoints={[0, 4, 56, 138, 216, 346, 423, 488, 576, 662, 762, 837, 912, 968, 1031, 1095, 1153, 1229, 1286, 1488, 1560, 1640, 1724, 1797, 1879, 1944, 2016, 2105, 2154, 2202, 2264, 2332, 2420]}
+			/>
+			<Audio src={audioFiles["module11-module-11-architecture"]} />
+		</Sequence>
 
-// Add routes in VPC2 to reach VPC1
-const vpc2Route = new aws.ec2.Route("vpc2-to-vpc1", {
-    routeTableId: vpc2RouteTable.id,
-    destinationCidrBlock: "10.0.0.0/16", // VPC1's CIDR
-    vpcPeeringConnectionId: peering.id,
-});`}
-					language="typescript"
-					slideName="createVPCPeering"
-					audioStartFrame={createVPCPeeringSlide.start}
-					audioDuration={createVPCPeeringSlide.audioDuration}
-					moduleNumber={11}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={createVPCPeeringSlide.start + createVPCPeeringSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={5519} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* Transit Gateway: Centralized Hub */}
-			<Sequence
-				from={transitGatewayBasicsSlide.start}
-				durationInFrames={transitGatewayBasicsSlide.duration}
-			>
-				<Audio src={audioFiles["transitGatewayBasics"]} />
-				<CrossFadeWrapper
-					totalDuration={transitGatewayBasicsSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Transit Gateway: Centralized Hub"
-					points={[
-						"Central hub for connecting multiple VPCs",
-					"Transitive routing (hub-and-spoke topology)",
-					"Supports VPCs, VPNs, and Direct Connect",
-					"Scales to thousands of attachments",
-					"Centralized routing and management"
-					]}
-					slideName="transitGatewayBasics"
-					audioDuration={transitGatewayBasicsSlide.audioDuration}
-					moduleNumber={11}
-					
-					imageSrc="assets/vpc.svg"
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={transitGatewayBasicsSlide.start + transitGatewayBasicsSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module11Diagram3 */}
+		<Sequence
+			from={5537}
+			durationInFrames={2998}
+		>
+			<Module11Diagram3
+				durationInFrames={2998}
+				cuePoints={[0, 2, 46, 147, 196, 274, 346, 413, 522, 602, 687, 772, 849, 934, 1036, 1106, 1212, 1287, 1406, 1483, 1567, 1632, 1717, 1809, 1874, 1955, 2000, 2083, 2178, 2247, 2328, 2392, 2452, 2545, 2613, 2653, 2733]}
+			/>
+			<Audio src={audioFiles["module11-module-11-application"]} />
+		</Sequence>
 
-			{/* Create Transit Gateway with VPC Attachments */}
-			<Sequence
-				from={createTransitGatewaySlide.start}
-				durationInFrames={createTransitGatewaySlide.duration}
-			>
-				<Audio src={audioFiles["createTransitGateway"]} />
-				<CrossFadeWrapper
-					totalDuration={createTransitGatewaySlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Create Transit Gateway with VPC Attachments"
-					code={`// Create Transit Gateway
-const tgw = new aws.ec2.TransitGateway("main-tgw", {
-    description: "Main Transit Gateway",
-    amazonSideAsn: 64512,
-    tags: {
-        Name: "main-tgw",
-    },
-});
+		{/* Transition */}
+		<Sequence from={8535} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-// Attach VPC1 to Transit Gateway
-const vpc1Attachment = new aws.ec2.TransitGatewayVpcAttachment("vpc1-attachment", {
-    subnetIds: [vpc1Subnet1.id, vpc1Subnet2.id],
-    transitGatewayId: tgw.id,
-    vpcId: vpc1.id,
-    tags: {
-        Name: "vpc1-attachment",
-    },
-});
+		{/* Module11Recap - module11-module-11-exam-mapping */}
+		<Sequence
+			from={8553}
+			durationInFrames={810}
+		>
+			<Module11Recap
+				durationInFrames={810}
+				cuePoints={[1, 45, 154, 249, 376, 521, 613, 665, 747, 814, 940, 1042, 1112, 1222, 1292, 1367, 1429, 1513, 1595, 1644]}
+			/>
+			<Audio src={audioFiles["module11-module-11-exam-mapping"]} />
+		</Sequence>
 
-// Attach VPC2 to Transit Gateway
-const vpc2Attachment = new aws.ec2.TransitGatewayVpcAttachment("vpc2-attachment", {
-    subnetIds: [vpc2Subnet1.id, vpc2Subnet2.id],
-    transitGatewayId: tgw.id,
-    vpcId: vpc2.id,
-    tags: {
-        Name: "vpc2-attachment",
-    },
-});
-
-// Create Transit Gateway route table
-const tgwRouteTable = new aws.ec2.TransitGatewayRouteTable("main-tgw-rt", {
-    transitGatewayId: tgw.id,
-    tags: {
-        Name: "main-tgw-rt",
-    },
-});
-
-// Associate attachments with route table
-const vpc1Association = new aws.ec2.TransitGatewayRouteTableAssociation("vpc1-assoc", {
-    transitGatewayAttachmentId: vpc1Attachment.id,
-    transitGatewayRouteTableId: tgwRouteTable.id,
-});
-
-const vpc2Association = new aws.ec2.TransitGatewayRouteTableAssociation("vpc2-assoc", {
-    transitGatewayAttachmentId: vpc2Attachment.id,
-    transitGatewayRouteTableId: tgwRouteTable.id,
-});
-
-// Add routes in VPC route tables to reach other VPCs via TGW
-const vpc1ToVpc2Route = new aws.ec2.Route("vpc1-to-vpc2-via-tgw", {
-    routeTableId: vpc1RouteTable.id,
-    destinationCidrBlock: "10.1.0.0/16",
-    transitGatewayId: tgw.id,
-});`}
-					language="typescript"
-					slideName="createTransitGateway"
-					audioStartFrame={createTransitGatewaySlide.start}
-					audioDuration={createTransitGatewaySlide.audioDuration}
-					moduleNumber={11}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={createTransitGatewaySlide.start + createTransitGatewaySlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Module 11 Summary */}
-			<Sequence
-				from={summarySlide.start}
-				durationInFrames={summarySlide.duration}
-			>
-				<Audio src={audioFiles["summary"]} />
-				<CrossFadeWrapper
-					totalDuration={summarySlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={0}
-			>
-					<AnimatedContentSlide
-					title="Conclusion"
-					points={[
-						"VPC Peering: Direct, one-to-one VPC connections",
-					"Transit Gateway: Centralized hub for multiple VPCs",
-					"Both require route table configuration",
-					"Choose peering for simple, TGW for complex architectures",
-					"Next: CI/CD Integration and Best Practices"
-					]}
-					slideName="summary"
-					audioDuration={summarySlide.audioDuration}
-					moduleNumber={11}
-					
-					imageSrc="assets/vpc.svg"
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-
+		{/* Module11Recap - module11-module-11-recap */}
+		<Sequence
+			from={9363}
+			durationInFrames={894}
+		>
+			<Module11Recap
+				durationInFrames={894}
+				cuePoints={[]}
+			/>
+			<Audio src={audioFiles["module11-module-11-recap"]} />
+		</Sequence>
 		</div>
 	);
 };

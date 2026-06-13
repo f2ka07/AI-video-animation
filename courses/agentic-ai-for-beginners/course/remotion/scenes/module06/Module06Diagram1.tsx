@@ -1,5 +1,5 @@
-// Module 06 Diagram 1: Industry Use Case Grid
-// Uses BaseDiagramScene with animated SVG (industry-usecase-grid.svg + .animation.json)
+// Module 06 Diagram 1: Value drivers for enterprise AI
+// Uses BaseDiagramScene with animated SVG (value-driver-spider.svg)
 import React from 'react';
 import { BaseDiagramScene } from '../../shared/BaseDiagramScene';
 import { SceneProps } from '../../shared/types';
@@ -14,8 +14,11 @@ export const Module06Diagram1: React.FC<Module06Diagram1Props> = ({
 		<BaseDiagramScene
 			durationInFrames={durationInFrames}
 			cuePoints={cuePoints}
-			title="Industry Use Case Grid"
-			svgPath="assets/agentic-ai-for-beginners/module06/industry-usecase-grid.svg"
+			title="Value Drivers"
+			subtitle="Why enterprises buy AI: automation, speed, consistency, traceability, and scale."
+			sectionLabel="Concept"
+			svgPath="assets/agentic-ai-for-beginners/module06/value-driver-spider.svg"
+			animationSpecPath="assets/agentic-ai-for-beginners/module06/value-driver-concept.animation.json"
 			layout="full"
 			slideName="module-6-concept"
 			moduleNumber={6}

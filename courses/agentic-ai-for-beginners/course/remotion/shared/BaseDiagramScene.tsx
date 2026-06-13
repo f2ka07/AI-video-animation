@@ -1,8 +1,29 @@
 // Base Diagram Scene - Light background with SVG animations
 import React, { useEffect, useState, useMemo } from 'react';
-import { useCurrentFrame, useVideoConfig, spring, interpolate, staticFile, Easing } from 'remotion';
-import { DiagramSceneProps, COLORS, MOTION_CONFIG } from './types';
+import { useCurrentFrame, useVideoConfig, spring, interpolate, staticFile } from 'remotion';
+import { DiagramSceneProps, COLORS, MOTION_CONFIG, SECTION_LABEL_STYLES } from './types';
 import { useModuleTimings } from '../../../../../src/hooks/useModuleTimings';
+import { computeBulletStarts, computeBulletStartsFromTriggerWords } from '../../../../../src/utils/computeBulletStarts';
+import { loadBulletStarts } from '../../../../../src/utils/timingsLoader';
+
+// Slide-safe margins for 1920x1080 presentation video
+const SLIDE_MARGIN = {
+	top: 56,
+	right: 120,
+	bottom: 96,
+	left: 120,
+};
+
+const SLIDE_TYPE = {
+	badge: 18,
+	meta: 16,
+	title: 58,
+	subtitle: 32,
+	captionEyebrow: 16,
+	caption: 34,
+	twoCardTitle: 60,
+	twoCardBody: 36,
+};
 
 interface BaseDiagramSceneProps extends DiagramSceneProps {
 	children?: React.ReactNode; // For custom SVG rendering with animations
@@ -12,6 +33,8 @@ interface BaseDiagramSceneProps extends DiagramSceneProps {
 	slideName?: string; // Slide name for word timings
 	moduleNumber?: number; // Module number for word timings
 	audioDuration?: number; // Audio duration for timing
+	/** Optional override; otherwise derived from word timings + contentPoints */
+	bulletStarts?: number[];
 }
 
 interface AnimationPhase {
@@ -25,17 +48,25 @@ interface AnimationPhase {
 	animations?: Record<string, any>; // Animation configs per group
 	/** When present, phase boundaries are driven by first occurrence of these words in the script (narration order). */
 	triggerWords?: string[];
+	/** Short line shown while this phase is active (updates as narration progresses). */
+	label?: string;
 }
 
 interface AnimationSpec {
 	diagram: string;
 	phases: AnimationPhase[];
+	/** Optional per-bullet trigger words synced to narration (two-card layout). */
+	bulletTriggerWords?: string[][];
+	/** Fallback section summary when subtitle prop is not set on the scene. */
+	sectionSummary?: string;
 }
 
 export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 	durationInFrames,
 	cuePoints = [],
 	title,
+	subtitle,
+	sectionLabel,
 	svgPath,
 	highlights = [],
 	children,
@@ -45,21 +76,83 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 	slideName,
 	moduleNumber = 1,
 	audioDuration,
+	bulletStarts: bulletStartsProp,
 }) => {
 	const frame = useCurrentFrame();
-	const { fps } = useVideoConfig();
+	const { fps, height: videoHeight } = useVideoConfig();
 	const config = MOTION_CONFIG.diagram;
 	const t = frame / fps;
 	
 	const [spec, setSpec] = useState<AnimationSpec | null>(null);
 	const [svgContent, setSvgContent] = useState<string | null>(null);
+	const [savedBulletStarts, setSavedBulletStarts] = useState<Record<string, number[]> | null>(null);
 
 	const { timings } = useModuleTimings(moduleNumber ?? 1);
 
+	useEffect(() => {
+		if (!moduleNumber) return;
+		loadBulletStarts(moduleNumber)
+			.then((data) => setSavedBulletStarts(data))
+			.catch(() => setSavedBulletStarts(null));
+	}, [moduleNumber]);
+
 	const words = useMemo(() => {
 		if (!slideName || !timings?.slides) return [];
-		return timings.slides[slideName]?.words ?? [];
+		const raw = timings.slides[slideName]?.words ?? [];
+		// Ignore broken timing entries (0,0) that break phase end calculations
+		return raw.filter((w) => w && typeof w.end === "number" && w.end > 0.05);
 	}, [slideName, timings]);
+
+	const isTwoCard = layout === "two-card" && contentPoints.length > 0;
+	const sceneDurationSeconds = durationInFrames / fps;
+
+	const slideEndSeconds = useMemo(() => {
+		if (words.length > 0) {
+			return words[words.length - 1]?.end ?? sceneDurationSeconds;
+		}
+		if (audioDuration && audioDuration > 0) return audioDuration;
+		return sceneDurationSeconds;
+	}, [words, audioDuration, sceneDurationSeconds]);
+
+	const resolvedBulletStarts = useMemo((): number[] | null => {
+		if (!isTwoCard || contentPoints.length === 0) return null;
+
+		if (bulletStartsProp?.length === contentPoints.length) {
+			return bulletStartsProp;
+		}
+
+		const saved =
+			slideName && savedBulletStarts?.[slideName]?.length === contentPoints.length
+				? savedBulletStarts[slideName]
+				: null;
+		if (saved) return saved;
+
+		if (words.length > 0) {
+			const computed = computeBulletStarts(words, contentPoints);
+			if (computed?.length === contentPoints.length) return computed;
+		}
+
+		if (
+			spec?.bulletTriggerWords?.length === contentPoints.length &&
+			words.length > 0
+		) {
+			const fromTriggers = computeBulletStartsFromTriggerWords(
+				words,
+				spec.bulletTriggerWords
+			);
+			if (fromTriggers?.length === contentPoints.length) return fromTriggers;
+		}
+
+		return null;
+	}, [
+		isTwoCard,
+		contentPoints,
+		bulletStartsProp,
+		slideName,
+		savedBulletStarts,
+		words,
+		spec?.bulletTriggerWords,
+	]);
 
 	const phaseBoundaries = useMemo((): { start: number; end: number; phaseIndex?: number }[] | null => {
 		if (!spec?.phases?.length) return null;
@@ -73,10 +166,8 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 				for (let i = 0; i < n; i++) {
 					const triggers = (spec.phases[i] as AnimationPhase).triggerWords;
 					if (!triggers?.length) {
-						// Phase has no triggerWords - use spec time or interpolate
 						const phaseStart = spec.phases[i].start;
-						// Try to map spec time to word timing
-						const audioDuration = words[words.length - 1]?.end ?? 0;
+						const audioDuration = words[words.length - 1]?.end ?? sceneDurationSeconds;
 						const specDuration = spec.phases[spec.phases.length - 1]?.end ?? 0;
 						if (specDuration > 0 && audioDuration > 0) {
 							const mappedStart = (phaseStart / specDuration) * audioDuration;
@@ -87,13 +178,18 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 						continue;
 					}
 					const lower = triggers.map((w) => w.toLowerCase());
-					const first = words.find((w) => lower.includes((w.text || "").toLowerCase()));
+					// Match triggers in narration order (after previous phase), not first word in entire slide
+					const minStart = hits.length === 0 ? 0 : hits[hits.length - 1].start + 0.25;
+					const first = words.find((w) => {
+						if (w.start < minStart) return false;
+						const t = (w.text || "").toLowerCase();
+						return lower.some((trigger) => t === trigger || t.includes(trigger));
+					});
 					if (first) {
 						hits.push({ phaseIndex: i, start: first.start });
 					} else {
-						// Trigger word not found - fall back to spec time mapped to audio
 						const phaseStart = spec.phases[i].start;
-						const audioDuration = words[words.length - 1]?.end ?? 0;
+						const audioDuration = words[words.length - 1]?.end ?? sceneDurationSeconds;
 						const specDuration = spec.phases[spec.phases.length - 1]?.end ?? 0;
 						if (specDuration > 0 && audioDuration > 0) {
 							const mappedStart = (phaseStart / specDuration) * audioDuration;
@@ -123,12 +219,14 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 				}
 				
 				if (hits.length === 0) return null;
-				hits.sort((a, b) => a.start - b.start);
-				const lastEnd = words[words.length - 1]?.end ?? 0;
+				// Keep narration order by phase index (not sorted by trigger time)
+				hits.sort((a, b) => a.phaseIndex - b.phaseIndex);
+				const lastWordEnd = words[words.length - 1]?.end ?? 0;
+				const slideEnd = Math.max(lastWordEnd, sceneDurationSeconds);
 				const boundaries: { start: number; end: number; phaseIndex?: number }[] = [];
 				for (let j = 0; j < hits.length; j++) {
 					const start = hits[j].start;
-					const end = j < hits.length - 1 ? hits[j + 1].start : lastEnd;
+					const end = j < hits.length - 1 ? hits[j + 1].start : slideEnd;
 					boundaries.push({ start, end, phaseIndex: hits[j].phaseIndex });
 				}
 				return boundaries;
@@ -153,54 +251,40 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 		
 		// No words - return null to use spec times directly
 		return null;
-	}, [spec?.phases, words]);
+	}, [spec?.phases, words, sceneDurationSeconds]);
 
 	const specTotalDuration = spec?.phases?.length
 		? (spec.phases[spec.phases.length - 1]?.end ?? 0)
 		: 0;
-	const sceneDurationSeconds = durationInFrames / fps;
-	
-	// FIX: If spec duration is much shorter than scene duration, scale phases to match scene
-	// This prevents blank screens when animation.json times don't match actual audio duration
+
+	// Scale short animation specs to full slide duration (avoid early cutoff)
 	const scalePhases = specTotalDuration > 0 && sceneDurationSeconds > 0 && specTotalDuration < sceneDurationSeconds * 0.8;
 	const tForPhase = scalePhases
 		? Math.min(t * (specTotalDuration / sceneDurationSeconds), specTotalDuration)
 		: t;
-	
-	// FIX: If spec duration is shorter than scene, extend last phase to cover full scene
-	// This prevents blank screens when animation.json times don't match actual audio duration
-	if (spec?.phases?.length && specTotalDuration > 0 && specTotalDuration < sceneDurationSeconds * 0.8) {
-		const lastPhase = spec.phases[spec.phases.length - 1];
-		if (lastPhase) {
-			lastPhase.end = Math.max(lastPhase.end, sceneDurationSeconds);
-		}
-	}
 
-	// Title entrance
+	// Effective spec with last phase extended to scene duration (immutable - do not mutate loaded spec)
+	const effectivePhases = useMemo(() => {
+		if (!spec?.phases?.length) return null;
+		if (!(specTotalDuration > 0 && specTotalDuration < sceneDurationSeconds * 0.8)) {
+			return spec.phases;
+		}
+		return spec.phases.map((p, i) =>
+			i === spec.phases.length - 1 ? { ...p, end: Math.max(p.end, sceneDurationSeconds) } : p
+		);
+	}, [spec?.phases, specTotalDuration, sceneDurationSeconds]);
+
+	const phases = effectivePhases ?? spec?.phases ?? [];
+
+	// Title: fade in only (no slide/scale)
 	const titleSpring = spring({
 		frame,
 		fps,
 		config: { damping: config.damping, stiffness: config.stiffness },
-		durationInFrames: fps * 0.5,
+		durationInFrames: fps * 0.35,
 	});
 
-	// Diagram container entrance (delayed)
-	const diagramSpring = spring({
-		frame,
-		fps,
-		config: { damping: config.damping + 2, stiffness: config.stiffness - 10 },
-		delay: fps * 0.3,
-		durationInFrames: fps * 0.6,
-	});
-
-	// Title transforms
 	const titleOpacity = titleSpring;
-	const titleY = interpolate(titleSpring, [0, 1], [20, 0]);
-
-	// Diagram transforms
-	const diagramOpacity = diagramSpring;
-	const diagramY = interpolate(diagramSpring, [0, 1], [30, 0]);
-	const diagramScaleTwoCard = interpolate(diagramSpring, [0, 1], [0.95, 1]);
 
 	// Decorative accent line
 	const lineSpring = spring({
@@ -320,84 +404,162 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 		}
 	} else {
 		// Use spec times directly (scaled if needed)
-		currentPhaseIndex = spec?.phases.findIndex(
+		currentPhaseIndex = phases.findIndex(
 			(p) => tForPhase >= p.start && tForPhase < p.end
 		) ?? -1;
 		
-		// If no phase matches, find the appropriate phase
-		if (currentPhaseIndex < 0 && spec?.phases?.length) {
-			// Find last phase that has started (for times beyond last phase)
-			for (let i = spec.phases.length - 1; i >= 0; i--) {
-				if (tForPhase >= spec.phases[i].start) {
+		if (currentPhaseIndex < 0 && phases.length) {
+			for (let i = phases.length - 1; i >= 0; i--) {
+				if (tForPhase >= phases[i].start) {
 					currentPhaseIndex = i;
 					break;
 				}
 			}
-			// If still before first phase, use first phase
 			if (currentPhaseIndex < 0) {
 				currentPhaseIndex = 0;
 			}
 		}
 		
-		const p = currentPhaseIndex >= 0 ? spec?.phases[currentPhaseIndex] : null;
+		const p = currentPhaseIndex >= 0 ? phases[currentPhaseIndex] : null;
 		phaseStartSeconds = p?.start ?? 0;
-		phaseEndSeconds = p?.end ?? (p ? p.end : sceneDurationSeconds);
+		phaseEndSeconds = p?.end ?? sceneDurationSeconds;
 	}
 
-	// Get current phase - ensure we always have a valid phase if spec exists
-	// Validate phaseIndex is within bounds
-	const validPhaseIndex = currentPhaseIndex >= 0 && currentPhaseIndex < (spec?.phases?.length ?? 0)
+	const validPhaseIndex = currentPhaseIndex >= 0 && currentPhaseIndex < phases.length
 		? currentPhaseIndex
-		: (spec?.phases?.length ? 0 : -1);
+		: (phases.length ? 0 : -1);
 	
-	const currentPhase = validPhaseIndex >= 0 && spec?.phases?.[validPhaseIndex]
-		? spec.phases[validPhaseIndex]
-		: (spec?.phases?.[0] ?? null);
+	const currentPhase = validPhaseIndex >= 0 && phases[validPhaseIndex]
+		? phases[validPhaseIndex]
+		: (phases[0] ?? null);
 	
 	// Update currentPhaseIndex to valid value for consistency
 	currentPhaseIndex = validPhaseIndex;
-	
-	// Debug: Log phase resolution (only in development)
-	if (process.env.NODE_ENV === 'development' && spec && currentPhase) {
-		if (frame % (fps * 2) === 0) { // Log every 2 seconds
-			console.log(`[BaseDiagramScene] t=${t.toFixed(2)}s, phase=${currentPhaseIndex}, show=[${currentPhase.show?.join(', ') || 'none'}], dim=[${currentPhase.dim?.join(', ') || 'none'}]`);
-		}
-	}
 
-	const phaseDurationSeconds = phaseEndSeconds - phaseStartSeconds;
-	const timeInPhase = useWordTimings ? t - phaseStartSeconds : tForPhase - phaseStartSeconds;
-	
-	// Get opacity for a group ID - RESPECT PHASE TIMINGS
-	const getGroupOpacity = (groupId: string): number => {
-		if (!currentPhase) {
-			return 1; // No phase = show everything (fallback)
+	const timeInPhase = Math.max(0, t - phaseStartSeconds);
+	const REVEAL_EASE_SECONDS = 0.4;
+
+	const allDiagramGroupIds = useMemo(() => {
+		const ids = new Set<string>();
+		phases.forEach((p) => {
+			p.show?.forEach((id) => ids.add(id));
+			p.dim?.forEach((id) => ids.add(id));
+			p.highlight?.forEach((id) => ids.add(id));
+		});
+		return ids;
+	}, [phases]);
+
+	const hasProgressiveShow = useMemo(
+		() => phases.some((p) => (p.show?.length ?? 0) > 0),
+		[phases]
+	);
+
+	const cumulativeRevealSet = useMemo(() => {
+		const set = new Set<string>();
+		if (validPhaseIndex < 0) return set;
+		for (let i = 0; i <= validPhaseIndex; i++) {
+			const p = phases[i];
+			p?.show?.forEach((id) => set.add(id));
+			p?.highlight?.forEach((id) => set.add(id));
 		}
-		
-		// If show array is empty or undefined, show everything (progressive reveal not configured)
-		// This handles cases where animation.json doesn't specify show/dim
-		if (!currentPhase.show || currentPhase.show.length === 0) {
-			// Check if this element should be dimmed
-			if (currentPhase.dim && currentPhase.dim.includes(groupId)) {
-				return 0.15; // Dimmed
-			}
-			return 1; // Show all by default when no show array
+		return set;
+	}, [phases, validPhaseIndex]);
+
+	const firstRevealPhaseByGroup = useMemo(() => {
+		const map = new Map<string, number>();
+		phases.forEach((p, i) => {
+			const ids = [...(p.show ?? []), ...(p.highlight ?? [])];
+			ids.forEach((id) => {
+				if (!map.has(id)) map.set(id, i);
+			});
+		});
+		return map;
+	}, [phases]);
+
+	const previouslyHighlightedSet = useMemo(() => {
+		const set = new Set<string>();
+		if (validPhaseIndex <= 0) return set;
+		for (let i = 0; i < validPhaseIndex; i++) {
+			phases[i]?.highlight?.forEach((id) => set.add(id));
 		}
-		
-		// Progressive reveal mode - RESPECT THE PHASE CONFIGURATION
-		if (currentPhase.show.includes(groupId)) {
-			return 1; // Fully visible - element is in show array
-		} else if (currentPhase.dim && currentPhase.dim.includes(groupId)) {
-			return 0.15; // Dimmed - element is explicitly dimmed
-		} else {
-			// Not in show array and not in dim array = HIDE IT (opacity 0)
-			// This is correct - phases control what's visible
-			return 0;
-		}
-	};
-	
+		return set;
+	}, [phases, validPhaseIndex]);
+
 	// Get highlight state
 	const isHighlighted = (groupId: string): boolean => {
 		return currentPhase?.highlight?.includes(groupId) || false;
+	};
+
+	const isGroupRevealed = (groupId: string): boolean => {
+		if (!allDiagramGroupIds.has(groupId)) return true;
+		if (!hasProgressiveShow) return true;
+		return cumulativeRevealSet.has(groupId);
+	};
+
+	const getRevealProgress = (groupId: string): number => {
+		if (!allDiagramGroupIds.has(groupId)) return 1;
+		if (!hasProgressiveShow) return 1;
+		const first = firstRevealPhaseByGroup.get(groupId);
+		if (first === undefined) return 1;
+		if (validPhaseIndex < first) return 0;
+		if (validPhaseIndex > first) return 1;
+		return Math.min(1, timeInPhase / REVEAL_EASE_SECONDS);
+	};
+
+	type GroupVisualLevel = 'pending' | 'dimmed' | 'digest' | 'clear' | 'highlight';
+
+	const getGroupVisualLevel = (groupId: string): GroupVisualLevel => {
+		if (!isGroupRevealed(groupId)) return 'pending';
+		if (isHighlighted(groupId)) return 'highlight';
+		// After a step was discussed, keep it on screen with light blur so viewers can digest
+		if (previouslyHighlightedSet.has(groupId)) return 'digest';
+		if (currentPhase?.dim?.includes(groupId)) return 'dimmed';
+		return 'clear';
+	};
+
+	const buildGroupStyleParts = (groupId: string): string[] => {
+		const level = getGroupVisualLevel(groupId);
+		const revealMix = getRevealProgress(groupId);
+
+		const presets = {
+			pending: { opacity: 0.58, blur: 3, saturate: 0.55, brightness: 0.92 },
+			dimmed: { opacity: 0.85, blur: 1.5, saturate: 0.75, brightness: 0.96 },
+			digest: { opacity: 0.95, blur: 0.5, saturate: 0.9, brightness: 0.99 },
+			clear: { opacity: 1, blur: 0, saturate: 1, brightness: 1 },
+			highlight: { opacity: 1, blur: 0, saturate: 1, brightness: 1 },
+		};
+
+		if (level === 'pending' || revealMix === 0) {
+			const p = presets.pending;
+			return [
+				`opacity: ${p.opacity}`,
+				`filter: blur(${p.blur}px) saturate(${p.saturate}) brightness(${p.brightness})`,
+			];
+		}
+
+		const targetKey = level === 'highlight' ? 'highlight' : level;
+		const from = presets.pending;
+		const target = presets[targetKey];
+		const firstPhase = firstRevealPhaseByGroup.get(groupId);
+		const easing =
+			firstPhase !== undefined && validPhaseIndex === firstPhase ? revealMix : 1;
+
+		const opacity = from.opacity + (target.opacity - from.opacity) * easing;
+		const blur = from.blur + (target.blur - from.blur) * easing;
+		const saturate = from.saturate + (target.saturate - from.saturate) * easing;
+		const brightness = from.brightness + (target.brightness - from.brightness) * easing;
+
+		const parts: string[] = [`opacity: ${opacity.toFixed(2)}`];
+
+		if (level === 'highlight') {
+			parts.push('filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.55))');
+		} else if (blur > 0.15 || saturate < 0.98) {
+			parts.push(
+				`filter: blur(${blur.toFixed(1)}px) saturate(${saturate.toFixed(2)}) brightness(${brightness.toFixed(2)})`
+			);
+		}
+
+		return parts;
 	};
 	
 	// Get CSS classes for a group ID based on current phase
@@ -429,19 +591,7 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 			}
 			if (anim.transform.scale) {
 				const scale = anim.transform.scale;
-				// Pulse animation
-				if (anim.pulse) {
-					const pulsePhase = (t % anim.pulse.duration) / anim.pulse.duration;
-					const pulseScale = interpolate(
-						pulsePhase,
-						[0, 0.5, 1],
-						[scale, scale * 1.05, scale],
-						{ extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-					);
-					styles.push(`transform: scale(${pulseScale.toFixed(3)})`);
-				} else {
-					styles.push(`transform: scale(${scale})`);
-				}
+				styles.push(`transform: scale(${scale})`);
 			}
 		}
 		
@@ -494,10 +644,7 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 		if (!content) return content;
 		
 		let processed = content;
-		const phaseDuration = phaseDurationSeconds;
 		
-		// If no phase, normalize and return (no animations, but visible)
-		// This should rarely happen if spec is loaded correctly
 		if (!currentPhase) {
 			return normalizeSvgForScaling(processed);
 		}
@@ -518,118 +665,13 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 			processedGroups.add(groupId);
 			
 			const attributes = match[1];
-			
-			// Get opacity, highlight, and classes for this group
-			const opacity = getGroupOpacity(groupId);
-			const highlighted = isHighlighted(groupId);
 			const classes = getGroupClasses(groupId);
-			
-			// Debug: Log if element should be visible but opacity is 0
-			if (opacity === 0 && currentPhase?.show?.includes(groupId)) {
-				console.warn(`[BaseDiagramScene] Group "${groupId}" is in show array but opacity is 0. Phase: ${currentPhaseIndex}, show: ${currentPhase.show.join(', ')}`);
-			}
-			
-			// Entrance/exit transitions - RESPECT PHASE TIMINGS
-			let smoothOpacity = opacity;
-			let entranceScale = 1;
-			let entranceX = 0;
-			let entranceY = 0;
-			
-			// Only apply entrance animation if element is appearing (opacity going from 0 to >0)
-			// Check if this is a phase transition where element becomes visible
-			const fadeDuration = 0.3;
-			if (phaseDuration > 0 && fadeDuration > 0 && opacity > 0) {
-				const fadeStart = Math.min(fadeDuration, phaseDuration * 0.2);
-				
-				if (timeInPhase < fadeStart) {
-					// Entrance: fade in from 0 to target opacity
-					const entranceProgress = Math.min(1, timeInPhase / fadeStart);
-					smoothOpacity = interpolate(
-						entranceProgress,
-						[0, 1],
-						[0, opacity], // Start at 0, fade to target opacity
-						{ easing: Easing.out(Easing.quad), extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-					);
-					entranceScale = interpolate(
-						entranceProgress,
-						[0, 1],
-						[0.9, 1], // Subtle scale
-						{ easing: Easing.out(Easing.quad), extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-					);
-				} else {
-					// Normal state - use target opacity
-					smoothOpacity = opacity;
-				}
-			} else {
-				// No animation - use target opacity directly
-				smoothOpacity = opacity;
-			}
-			
-			// Build style string based on phase and classes
-			let styleParts: string[] = [];
-			
-			// FIX: Always ensure opacity is set - never let it be 0 or undefined
-			if (smoothOpacity > 0) {
-				styleParts.push(`opacity: ${smoothOpacity.toFixed(3)}`);
-			} else {
-				// Fallback: if opacity is 0 or invalid, use base opacity
-				styleParts.push(`opacity: ${opacity > 0 ? opacity : 0.5}`);
-			}
-			
-			// Apply phase-specific animations based on CSS classes
-			const phaseNumber = currentPhase?.phase ?? (currentPhaseIndex >= 0 ? currentPhaseIndex + 1 : 0);
-			
-			// DRAMATIC pulsing animation for highlighted elements - much more visible
-			if (highlighted && smoothOpacity > 0.5) {
-				const pulsePhase = (t % 1.5) / 1.5; // Faster, more noticeable pulse (1.5s cycle)
-				const pulseGlow = interpolate(
-					pulsePhase,
-					[0, 0.5, 1],
-					[15, 35, 15], // Much larger glow - was 8-16, now 15-35
-					{ extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-				);
-				const pulseScale = interpolate(
-					pulsePhase,
-					[0, 0.5, 1],
-					[1, 1.08, 1], // More dramatic scale - was 1.02, now 1.08
-					{ extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-				);
-				styleParts.push(`transform: scale(${pulseScale.toFixed(3)})`);
-				// Double glow for extra visibility
-				styleParts.push(`filter: drop-shadow(0 0 ${pulseGlow.toFixed(1)}px rgba(59, 130, 246, 0.9)) drop-shadow(0 0 ${pulseGlow * 1.5}px rgba(139, 92, 246, 0.6))`);
-			} else if (smoothOpacity > 0.7 && !highlighted) {
-				// Continuous subtle animation for visible elements (keeps diagram alive)
-				const subtlePhase = (t % 3.0) / 3.0; // 3 second subtle cycle
-				const subtleGlow = interpolate(
-					subtlePhase,
-					[0, 0.5, 1],
-					[3, 6, 3], // Slightly more visible - was 2-4, now 3-6
-					{ extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-				);
-				const subtleScale = interpolate(
-					subtlePhase,
-					[0, 0.5, 1],
-					[1, 1.02, 1], // Very subtle breathing
-					{ extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-				);
-				// Only add transform if we don't already have one from highlighted
-				if (styleParts.filter(s => s.includes("transform")).length === 0) {
-					styleParts.push(`transform: translate(${entranceX.toFixed(1)}px, ${entranceY.toFixed(1)}px) scale(${(entranceScale * subtleScale).toFixed(3)})`);
-				}
-				// Only add filter if we don't already have one from highlighted
-				if (styleParts.filter(s => s.includes("filter")).length === 0) {
-					styleParts.push(`filter: drop-shadow(0 0 ${subtleGlow.toFixed(1)}px rgba(100, 116, 139, 0.4))`);
-				}
-			} else if (smoothOpacity > 0) {
-				// For dimmed elements, still ensure they have transform/opacity
-				if (styleParts.filter(s => s.includes("transform")).length === 0) {
-					styleParts.push(`transform: translate(${entranceX.toFixed(1)}px, ${entranceY.toFixed(1)}px) scale(${entranceScale.toFixed(3)})`);
-				}
-			}
+			const styleParts = buildGroupStyleParts(groupId);
 			
 			// Phase-specific animations
+			const phaseNumber = currentPhase?.phase ?? (currentPhaseIndex >= 0 ? currentPhaseIndex + 1 : 0);
+
 			if (classes.includes("part-chat") && phaseNumber === 1) {
-				styleParts.push("transform: translateY(-4px)");
 				styleParts.push("filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.9))");
 			}
 			
@@ -638,190 +680,392 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 			}
 			
 			if (classes.includes("part-agent") && phaseNumber === 3) {
-				// Pulse animation
-				const pulsePhase = (timeInPhase % 1.2) / 1.2;
-				const pulseScale = interpolate(
-					pulsePhase,
-					[0, 0.5, 1],
-					[1, 1.05, 1],
-					{ extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-				);
-				const pulseGlow = interpolate(
-					pulsePhase,
-					[0, 0.5, 1],
-					[10, 18, 10],
-					{ extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-				);
-				styleParts.push(`transform: scale(${pulseScale.toFixed(3)})`);
-				styleParts.push(`filter: drop-shadow(0 0 ${pulseGlow.toFixed(1)}px rgba(244, 114, 182, 0.9))`);
+				styleParts.push("filter: drop-shadow(0 0 12px rgba(244, 114, 182, 0.75))");
 			}
 			
 			if (classes.includes("part-actions") && phaseNumber === 4) {
 				styleParts.push("filter: drop-shadow(0 0 16px rgba(34, 197, 94, 0.95))");
 			}
 			
-			// Build new attributes
+			// Build new attributes (never set opacity=0 on <g> — it hides children in Remotion SVG)
 			let newAttributes = attributes.replace(/opacity=["'][^"']*["']/gi, "");
 			newAttributes = newAttributes.replace(/style=["'][^"']*["']/gi, "");
-			
-			// Set opacity - RESPECT PHASE TIMINGS (can be 0 if element should be hidden)
-			newAttributes += ` opacity="${smoothOpacity.toFixed(3)}"`;
-			
-			// Remove opacity from styleParts if it's there (opacity attribute takes precedence)
-			const stylePartsWithoutOpacity = styleParts.filter(s => !s.startsWith("opacity:"));
-			if (stylePartsWithoutOpacity.length > 0) {
-				newAttributes += ` style="${stylePartsWithoutOpacity.join("; ")}"`;
+			newAttributes = newAttributes.replace(/visibility=["'][^"']*["']/gi, "");
+
+			if (styleParts.length > 0) {
+				newAttributes += ` style="${styleParts.join("; ")}"`;
 			}
-			
+
 			const newGroupTag = `<g ${newAttributes}>`;
-			processed = processed.replace(fullMatch, newGroupTag);
+			processed = processed.split(fullMatch).join(newGroupTag);
 		}
-		
-		// Process ALL lines/paths - animate connections when both connected elements are active
-		// This makes arrows/connections much more visible and engaging
-		const linkRegex = /<(line|path)\s+([^>]*)>/gi;
-		let linkMatch;
-		
-		while ((linkMatch = linkRegex.exec(content)) !== null) {
-			const fullMatch = linkMatch[0];
-			const tag = linkMatch[1];
-			const attributes = linkMatch[2];
-			
-			// Determine if this line connects active elements
-			// Check if line connects to/from active elements based on coordinates
-			// For agentic-architecture: lines connect planner→evaluator, tools→evaluator, etc.
-			let shouldAnimate = false;
-			let lineColor = "#64748b"; // Default gray
-			let lineWidth = 2;
-			
-			// Check if both source and target elements are in show array
-			if (currentPhase?.show) {
-				const showCount = currentPhase.show.length;
-				// If 2+ elements are shown, likely a connection is active
-				if (showCount >= 2) {
-					shouldAnimate = true;
-					// Color based on which elements are active
-					if (currentPhase.show.includes("planner") && currentPhase.show.includes("evaluator")) {
-						lineColor = "#8b5cf6"; // Purple for planning
-						lineWidth = 3;
-					} else if (currentPhase.show.includes("tools") && currentPhase.show.includes("evaluator")) {
-						lineColor = "#10b981"; // Green for tools
-						lineWidth = 3;
-					} else if (currentPhase.show.includes("memory") && currentPhase.show.includes("evaluator")) {
-						lineColor = "#f59e0b"; // Orange for memory
-						lineWidth = 3;
-					} else if (currentPhase.show.includes("environment") && currentPhase.show.includes("evaluator")) {
-						lineColor = "#ef4444"; // Red for safety
-						lineWidth = 3;
-					}
-				}
-			}
-			
-			if (shouldAnimate) {
-				// Animated stroke drawing effect - much more visible
-				const dashLength = 10; // Larger dashes - was 4
-				const speed = 0.8; // Slightly slower for visibility
-				const offset = ((t % speed) / speed) * (dashLength * 2);
-				
-				let newAttributes = attributes
-					.replace(/stroke=["'][^"']*["']/gi, "")
-					.replace(/stroke-width=["'][^"']*["']/gi, "")
-					.replace(/stroke-dasharray=["'][^"']*["']/gi, "")
-					.replace(/stroke-dashoffset=["'][^"']*["']/gi, "")
-					.replace(/style=["'][^"']*["']/gi, "");
-				
-				newAttributes += ` stroke="${lineColor}" stroke-width="${lineWidth}" stroke-dasharray="${dashLength} ${dashLength}" stroke-dashoffset="${offset.toFixed(1)}"`;
-				
-				const newLinkTag = `<${tag} ${newAttributes}>`;
-				processed = processed.replace(fullMatch, newLinkTag);
-			}
-		}
-		
+
 		return processed;
 	};
 
-	const isTwoCard = layout === "two-card" && contentPoints.length > 0;
-	
 	// Progressive highlighting for two-card layout
 	const currentTimeSeconds = frame / fps;
 	const entranceTime = 0.3;
-	
-	const getPointHighlight = (index: number): number => {
-		if (!isTwoCard || !audioDuration || audioDuration <= 0) return 0;
-		if (currentTimeSeconds < entranceTime) return 0;
-		
+
+	const getEvenSpacedTiming = (index: number): { start: number; end: number } | null => {
+		if (!isTwoCard || !audioDuration || audioDuration <= 0) return null;
 		const introTime = audioDuration * 0.15;
 		const contentDuration = audioDuration * 0.80;
 		const timePerPoint = contentDuration / contentPoints.length;
-		
-		const pointStartTime = entranceTime + introTime + index * timePerPoint;
-		const pointEndTime = pointStartTime + timePerPoint;
-		
-		if (currentTimeSeconds < pointStartTime) return 0;
-		if (currentTimeSeconds > pointEndTime) return 0.12;
-		
-		const progress = (currentTimeSeconds - pointStartTime) / timePerPoint;
+		const start = entranceTime + introTime + index * timePerPoint;
+		return { start, end: start + timePerPoint };
+	};
+
+	const getPointTiming = (index: number): { start: number; end: number } | null => {
+		if (!isTwoCard) return null;
+
+		if (resolvedBulletStarts?.length === contentPoints.length) {
+			const start = resolvedBulletStarts[index];
+			const end =
+				index < resolvedBulletStarts.length - 1
+					? resolvedBulletStarts[index + 1]
+					: slideEndSeconds;
+			return { start, end };
+		}
+
+		return getEvenSpacedTiming(index);
+	};
+
+	const getPointHighlight = (index: number): number => {
+		const timing = getPointTiming(index);
+		if (!timing) return 0;
+		if (currentTimeSeconds < entranceTime) return 0;
+		if (currentTimeSeconds < timing.start) return 0;
+		if (currentTimeSeconds > timing.end) return 0.12;
+
+		const progress = (currentTimeSeconds - timing.start) / (timing.end - timing.start);
 		if (progress < 0.12) return interpolate(progress, [0, 0.12], [0, 1]);
 		if (progress > 0.88) return interpolate(progress, [0.88, 1], [1, 0.12]);
 		return 1;
 	};
 
-	// Point spring animations for two-card
-	const getPointSpring = (index: number) => {
-		if (!isTwoCard) return 1;
-		const staggerDelay = fps * 0.15;
-		const baseDelay = fps * 0.4;
-		return spring({
-			frame,
-			fps,
-			config: { damping: 14, stiffness: 90 },
-			delay: baseDelay + index * staggerDelay,
-			durationInFrames: fps * 0.5,
-		});
+	const getPointBlurStyle = (index: number): { opacity: number; filter: string } => {
+		const timing = getPointTiming(index);
+		if (!timing) return { opacity: 1, filter: 'none' };
+
+		const highlight = getPointHighlight(index);
+		if (highlight > 0.5) {
+			return { opacity: 1, filter: 'none' };
+		}
+
+		if (currentTimeSeconds < timing.start) {
+			const leadIn = Math.max(0, timing.start - currentTimeSeconds);
+			const pendingStrength = Math.min(1, 0.4 + leadIn * 0.05);
+			return {
+				opacity: 0.55 + (1 - pendingStrength) * 0.1,
+				filter: `blur(${3 * pendingStrength}px) saturate(0.6)`,
+			};
+		}
+
+		if (currentTimeSeconds > timing.end) {
+			return { opacity: 0.9, filter: 'blur(0.5px) saturate(0.9)' };
+		}
+
+		const revealMix = Math.min(1, (currentTimeSeconds - timing.start) / REVEAL_EASE_SECONDS);
+		if (revealMix < 1) {
+			return {
+				opacity: 0.6 + revealMix * 0.3,
+				filter: `blur(${(3 * (1 - revealMix)).toFixed(1)}px) saturate(${0.6 + revealMix * 0.3})`,
+			};
+		}
+
+		return { opacity: 0.92, filter: 'blur(1px) saturate(0.85)' };
 	};
+
+	const resolvedSubtitle = subtitle ?? spec?.sectionSummary ?? '';
+	const focusLine = currentPhase?.label ?? '';
+	const showFocusLine = focusLine.length > 0;
+
+	const sectionStyle = sectionLabel
+		? (SECTION_LABEL_STYLES[sectionLabel] ?? SECTION_LABEL_STYLES.Concept)
+		: null;
+
+	const captionEyebrow = 'Current focus';
+	const focusDiffersFromObjective =
+		focusLine.trim().toLowerCase() !== resolvedSubtitle.trim().toLowerCase();
+	const showCaption = showFocusLine && focusLine.length > 0 && focusDiffersFromObjective;
+
+	const slideContentHeight =
+		videoHeight - SLIDE_MARGIN.top - SLIDE_MARGIN.bottom - (isTwoCard ? 0 : 10);
+	const diagramMaxHeight = Math.round(
+		slideContentHeight * (showCaption ? 0.42 : 0.48),
+	);
+	const slideRowGap = showCaption ? 36 : 12;
+
+	const renderSectionBadge = (variant: 'full' | 'two-card') => {
+		if (!sectionLabel || !sectionStyle) return null;
+		const isDark = variant === 'two-card';
+		return (
+			<div
+				style={{
+					display: 'inline-flex',
+					alignItems: 'center',
+					gap: 14,
+				}}
+			>
+				<span
+					style={{
+						fontSize: SLIDE_TYPE.badge,
+						fontWeight: 800,
+						letterSpacing: '0.12em',
+						textTransform: 'uppercase',
+						color: isDark ? sectionStyle.accent : sectionStyle.text,
+					}}
+				>
+					{sectionLabel}
+				</span>
+				{moduleNumber ? (
+					<>
+						<span
+							style={{
+								fontSize: SLIDE_TYPE.meta,
+								fontWeight: 500,
+								color: isDark ? '#64748b' : '#cbd5e1',
+							}}
+						>
+							|
+						</span>
+						<span
+							style={{
+								fontSize: SLIDE_TYPE.meta,
+								fontWeight: 600,
+								letterSpacing: '0.06em',
+								textTransform: 'uppercase',
+								color: isDark ? '#94a3b8' : '#64748b',
+							}}
+						>
+							Module {moduleNumber}
+						</span>
+					</>
+				) : null}
+			</div>
+		);
+	};
+
+	const renderLeadPanel = (variant: 'full' | 'two-card') => {
+		if (!resolvedSubtitle) return null;
+		const isDark = variant === 'two-card';
+		return (
+			<div style={{ marginTop: 22 }}>
+				<div
+					style={{
+						fontSize: SLIDE_TYPE.captionEyebrow,
+						fontWeight: 700,
+						letterSpacing: '0.14em',
+						textTransform: 'uppercase',
+						color: isDark ? '#94a3b8' : '#94a3b8',
+						marginBottom: 10,
+					}}
+				>
+					Section objective
+				</div>
+				<p
+					style={{
+						margin: 0,
+						fontSize: isDark ? SLIDE_TYPE.subtitle : SLIDE_TYPE.subtitle,
+						fontWeight: 600,
+						lineHeight: 1.35,
+						color: isDark ? '#e2e8f0' : '#1e293b',
+					}}
+				>
+					{resolvedSubtitle}
+				</p>
+			</div>
+		);
+	};
+
+	const renderPresentationHeader = () => (
+		<div
+			style={{
+				flexShrink: 0,
+				opacity: titleOpacity,
+				position: 'relative',
+				zIndex: 2,
+			}}
+		>
+			<div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 24 }}>
+				{renderSectionBadge('full')}
+				<span
+					style={{
+						fontSize: SLIDE_TYPE.meta,
+						fontWeight: 600,
+						letterSpacing: '0.1em',
+						textTransform: 'uppercase',
+						color: '#94a3b8',
+					}}
+				>
+					Agentic AI Professional
+				</span>
+			</div>
+			<h2
+				style={{
+					fontSize: SLIDE_TYPE.title,
+					fontWeight: 800,
+					margin: 0,
+					marginTop: 22,
+					color: COLORS.light.text,
+					letterSpacing: '-0.025em',
+					lineHeight: 1.1,
+				}}
+			>
+				{title}
+			</h2>
+			<div
+				style={{
+					width: 96,
+					height: 6,
+					marginTop: 18,
+					background: sectionStyle?.accent ?? COLORS.light.accent,
+				}}
+			/>
+			{renderLeadPanel('full')}
+		</div>
+	);
+
+	const renderDiagramCaption = () => {
+		if (!showCaption) return null;
+		return (
+			<div
+				style={{
+					width: '100%',
+					flexShrink: 0,
+					borderTop: `5px solid ${sectionStyle?.accent ?? COLORS.light.accent}`,
+					background: sectionStyle?.bg ?? '#f8fafc',
+					padding: '24px 0 0',
+					position: 'relative',
+					zIndex: 2,
+				}}
+			>
+				<div
+					style={{
+						fontSize: SLIDE_TYPE.captionEyebrow,
+						fontWeight: 700,
+						letterSpacing: '0.14em',
+						textTransform: 'uppercase',
+						color: sectionStyle?.text ?? '#64748b',
+						marginBottom: 12,
+					}}
+				>
+					{captionEyebrow}
+				</div>
+				<p
+					style={{
+						margin: 0,
+						fontSize: SLIDE_TYPE.caption,
+						fontWeight: 700,
+						lineHeight: 1.3,
+						color: '#0f172a',
+					}}
+				>
+					{focusLine}
+				</p>
+			</div>
+		);
+	};
+
+	const renderTwoCardHeader = () => (
+		<>
+			{renderSectionBadge('two-card')}
+			<h2
+				style={{
+					fontSize: SLIDE_TYPE.twoCardTitle,
+					fontWeight: 800,
+					margin: 0,
+					marginTop: 24,
+					marginBottom: 0,
+					opacity: titleOpacity,
+					color: COLORS.dark.text,
+					letterSpacing: '-0.025em',
+					lineHeight: 1.1,
+					flexShrink: 0,
+				}}
+			>
+				{title}
+			</h2>
+			<div
+				style={{
+					width: 96,
+					height: 6,
+					marginTop: 20,
+					background: sectionStyle?.accent ?? COLORS.dark.accent,
+				}}
+			/>
+			{renderLeadPanel('two-card')}
+		</>
+	);
 
 	return (
 		<div
 			style={{
 				width: '100%',
 				height: '100%',
-				background: isTwoCard 
+				background: isTwoCard
 					? 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)'
-					: COLORS.light.background,
+					: '#ffffff',
 				display: 'flex',
 				flexDirection: isTwoCard ? 'row' : 'column',
-				padding: isTwoCard ? 0 : 48,
 				fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
 				overflow: 'hidden',
 				position: 'relative',
 			}}
 		>
-			{/* Subtle background pattern */}
+			{/* Top accent stripe (full layout slide) */}
+			{!isTwoCard && (
+				<div
+					style={{
+						position: 'absolute',
+						top: 0,
+						left: 0,
+						right: 0,
+						height: 6,
+						background: sectionStyle?.accent ?? COLORS.light.accent,
+					}}
+				/>
+			)}
+
+			{/* Accent line at top (two-card layout) */}
+			{isTwoCard && (
+				<div
+					style={{
+						position: 'absolute',
+						top: 0,
+						left: 0,
+						width: `${lineWidth}%`,
+						height: 6,
+						background: `linear-gradient(90deg, ${COLORS.light.accent} 0%, ${COLORS.light.secondary} 100%)`,
+					}}
+				/>
+			)}
+
+			{/* Slide canvas with safe margins */}
 			<div
 				style={{
-					position: 'absolute',
-					top: 0,
-					left: 0,
-					right: 0,
-					bottom: 0,
-					opacity: 0.03,
-					backgroundImage: `radial-gradient(circle at 2px 2px, ${COLORS.light.muted} 1px, transparent 0)`,
-					backgroundSize: '40px 40px',
+					flex: 1,
+					minHeight: 0,
+					width: '100%',
+					height: '100%',
+					display: isTwoCard ? 'flex' : 'grid',
+					flexDirection: isTwoCard ? 'row' : undefined,
+					gridTemplateRows: isTwoCard
+						? undefined
+						: showCaption
+							? 'auto minmax(0, 1fr) auto'
+							: 'auto minmax(0, 1fr)',
+					rowGap: isTwoCard ? undefined : slideRowGap,
+					padding: isTwoCard
+						? `${SLIDE_MARGIN.top}px ${SLIDE_MARGIN.right}px ${SLIDE_MARGIN.bottom}px ${SLIDE_MARGIN.left}px`
+						: `${SLIDE_MARGIN.top + 10}px ${SLIDE_MARGIN.right}px ${SLIDE_MARGIN.bottom}px ${SLIDE_MARGIN.left}px`,
+					boxSizing: 'border-box',
+					position: 'relative',
+					zIndex: 1,
+					overflow: 'hidden',
 				}}
-			/>
-
-			{/* Accent line at top */}
-			<div
-				style={{
-					position: 'absolute',
-					top: 0,
-					left: 0,
-					width: `${lineWidth}%`,
-					height: 4,
-					background: `linear-gradient(90deg, ${COLORS.light.accent} 0%, ${COLORS.light.secondary} 100%)`,
-				}}
-			/>
-
+			>
 			{/* Two-card layout: Content on left */}
 			{isTwoCard && (
 				<div
@@ -830,79 +1074,50 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 						height: '100%',
 						display: 'flex',
 						flexDirection: 'column',
-						padding: 80,
+						paddingRight: 48,
 						position: 'relative',
-						zIndex: 1,
-						borderRight: '2px solid rgba(59, 130, 246, 0.2)',
+						borderRight: '3px solid rgba(59, 130, 246, 0.25)',
 					}}
 				>
-					<h2
-						style={{
-							fontSize: 56,
-							fontWeight: 800,
-							margin: 0,
-							marginBottom: 60,
-							opacity: titleOpacity,
-							transform: `translateY(${titleY}px)`,
-							color: COLORS.light.text,
-							letterSpacing: '-0.02em',
-							lineHeight: 1.2,
-						}}
-					>
-						{title}
-					</h2>
-					<div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 20 }}>
+					{renderTwoCardHeader()}
+					<div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 24, marginTop: 36 }}>
 						{contentPoints.map((point, index) => {
-							const pointSpring = getPointSpring(index);
-							const pointOpacity = pointSpring;
-							const pointX = interpolate(pointSpring, [0, 1], [-30, 0]);
-							const pointScale = interpolate(pointSpring, [0, 1], [0.95, 1]);
 							const highlight = getPointHighlight(index);
 							const isActive = highlight > 0.5;
-							const breathe = isActive ? Math.sin(frame / 15) * 0.02 : 0;
-							const activeScale = 1 + highlight * 0.03 + breathe;
-							const glowSize = 20 + highlight * 25;
-							const glowOpacity = highlight * 0.8;
+							const blurStyle = getPointBlurStyle(index);
 
 							return (
 								<div
 									key={index}
 									style={{
-										opacity: pointOpacity,
-										transform: `translateX(${pointX}px) scale(${pointScale * activeScale})`,
+										opacity: blurStyle.opacity,
+										filter: blurStyle.filter,
 										display: 'flex',
 										alignItems: 'flex-start',
-										gap: 20,
-										padding: '20px 24px',
-										backgroundColor: highlight > 0.3
-											? `rgba(59, 130, 246, ${0.18 + highlight * 0.25})`
-											: 'rgba(30, 41, 59, 0.65)',
-										borderRadius: 14,
-										borderLeft: `4px solid rgba(59, 130, 246, ${0.7 + highlight * 0.3})`,
-										boxShadow: highlight > 0.3
-											? `0 0 ${glowSize}px rgba(59, 130, 246, ${glowOpacity}), 0 0 ${glowSize * 1.5}px rgba(139, 92, 246, ${glowOpacity * 0.4}), 0 8px 16px -4px rgba(0, 0, 0, 0.4)`
-											: '0 4px 6px -1px rgba(0, 0, 0, 0.3)',
+										gap: 22,
+										padding: '8px 0',
+										borderLeft: `5px solid rgba(59, 130, 246, ${0.5 + highlight * 0.5})`,
+										paddingLeft: 24,
 									}}
 								>
 									<div
 										style={{
-											width: 12,
-											height: 12,
+											width: 14,
+											height: 14,
 											backgroundColor: isActive ? '#60a5fa' : '#3b82f6',
 											borderRadius: '50%',
-											marginTop: 8,
+											marginTop: 12,
 											flexShrink: 0,
-											boxShadow: `0 0 ${15 + highlight * 20}px rgba(59, 130, 246, ${0.6 + highlight * 0.6})`,
 										}}
 									/>
 									<p
 										style={{
-											fontSize: 32,
+											fontSize: SLIDE_TYPE.twoCardBody,
 											margin: 0,
-											lineHeight: 1.6,
+											lineHeight: 1.45,
 											flex: 1,
 											color: isActive ? '#e0f2fe' : '#f1f5f9',
-											fontWeight: isActive ? 500 : 400,
+											fontWeight: isActive ? 600 : 500,
 										}}
 									>
 										{point}
@@ -914,40 +1129,8 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 				</div>
 			)}
 
-			{/* Title section (full layout only) - compact so diagram gets more space */}
-			{!isTwoCard && (
-				<div
-					style={{
-						position: 'relative',
-						zIndex: 1,
-						marginBottom: 16,
-						flexShrink: 0,
-					}}
-				>
-					<h2
-						style={{
-							fontSize: 36,
-							fontWeight: 700,
-							margin: 0,
-							opacity: titleOpacity,
-							transform: `translateY(${titleY}px)`,
-							color: COLORS.light.text,
-							letterSpacing: '-0.01em',
-						}}
-					>
-						{title}
-					</h2>
-					<div
-						style={{
-							width: interpolate(titleSpring, [0, 1], [0, 120]),
-							height: 3,
-							background: COLORS.light.accent,
-							marginTop: 8,
-							borderRadius: 2,
-						}}
-					/>
-				</div>
-			)}
+			{/* Presentation header (full layout) */}
+			{!isTwoCard && renderPresentationHeader()}
 
 			{/*
 				Diagram: centered flex container. Wrapper grows (flex 1) to use remaining space;
@@ -955,23 +1138,32 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 			*/}
 			<div
 				style={{
-					flex: 1,
 					minHeight: 0,
 					width: isTwoCard ? '50%' : '100%',
+					height: isTwoCard ? '100%' : undefined,
 					display: 'flex',
 					flexDirection: 'column',
 					justifyContent: 'center',
 					alignItems: 'center',
 					position: 'relative',
-					zIndex: 1,
-					opacity: diagramOpacity,
-					...(isTwoCard && {
-						transform: `translateX(${interpolate(diagramSpring, [0, 1], [40, 0])}px) scale(${diagramScaleTwoCard})`,
-					}),
-					padding: isTwoCard ? 40 : 0,
-					background: isTwoCard ? 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)' : 'transparent',
+					overflow: 'visible',
+					padding: isTwoCard ? '0 0 0 48px' : showCaption ? '8px 0 12px' : '16px 0 12px',
 				}}
 			>
+				<div
+					style={{
+						width: '100%',
+						height: '100%',
+						maxHeight: isTwoCard ? '100%' : diagramMaxHeight,
+						flex: isTwoCard ? 1 : undefined,
+						minHeight: 0,
+						display: 'flex',
+						flexDirection: 'column',
+						justifyContent: 'center',
+						alignItems: 'center',
+						paddingBottom: isTwoCard ? 0 : 8,
+					}}
+				>
 				{children ? (
 					children
 				) : svgPath ? (
@@ -987,7 +1179,6 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 						}}
 					>
 						{svgContent ? (
-							// FIX: Always process SVG - even if no spec, show it with default styling
 							<div
 								style={{
 									width: '100%',
@@ -995,16 +1186,27 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 									flex: 1,
 									minHeight: 0,
 									alignSelf: 'stretch',
+									position: 'relative',
 									display: 'flex',
 									justifyContent: 'center',
 									alignItems: 'center',
 								}}
-								dangerouslySetInnerHTML={{ 
-									__html: (spec && currentPhase) 
-										? processSvgContent(svgContent) 
-										: normalizeSvgForScaling(svgContent)
-								}}
-							/>
+							>
+								<div
+									style={{
+										width: '100%',
+										height: '100%',
+										display: 'flex',
+										justifyContent: 'center',
+										alignItems: 'center',
+									}}
+									dangerouslySetInnerHTML={{
+										__html: (spec && currentPhase)
+											? processSvgContent(svgContent)
+											: normalizeSvgForScaling(svgContent),
+									}}
+								/>
+							</div>
 						) : (
 							<div style={{ 
 								width: '100%', 
@@ -1021,22 +1223,29 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 						)}
 					</div>
 				) : null}
+				</div>
+			</div>
+			{!isTwoCard && renderDiagramCaption()}
 			</div>
 
-			{/* Module indicator (bottom right) */}
-			<div
-				style={{
-					position: 'absolute',
-					bottom: 30,
-					right: 40,
-					opacity: interpolate(diagramSpring, [0, 1], [0, 0.5]),
-					color: COLORS.light.muted,
-					fontSize: 14,
-					fontWeight: 500,
-				}}
-			>
-				Agentic AI Professional
-			</div>
+			{/* Course watermark - subtle */}
+			{isTwoCard && (
+				<div
+					style={{
+						position: 'absolute',
+						bottom: SLIDE_MARGIN.bottom - 24,
+						right: SLIDE_MARGIN.right,
+						opacity: 0.45,
+						color: COLORS.light.muted,
+						fontSize: SLIDE_TYPE.meta,
+						fontWeight: 600,
+						letterSpacing: '0.08em',
+						textTransform: 'uppercase',
+					}}
+				>
+					Agentic AI Professional
+				</div>
+			)}
 		</div>
 	);
 };

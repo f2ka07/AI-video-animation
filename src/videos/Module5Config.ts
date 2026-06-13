@@ -4,9 +4,9 @@
 
 export const Module5Config = {
 	id: "module-5",
-	title: "Implementing AI Security Measures",
+	title: "Deployment and Integration Models",
 	fps: 30,
 	width: 1920,
 	height: 1080,
-	totalDuration: 124.49,
+	totalDuration: 93.35,
 };

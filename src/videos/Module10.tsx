@@ -1,325 +1,128 @@
 import React from "react";
 import { Sequence, useVideoConfig, Audio, staticFile } from "remotion";
-import { TitleSlide } from "../components/TitleSlide";
-import { AnimatedContentSlide } from "../components/AnimatedContentSlide";
-import { AnimatedCodeSlide } from "../components/AnimatedCodeSlide";
-import { BulletsAndCodeSlide } from "../components/BulletsAndCodeSlide";
-import { AnimatedComparisonSlide } from "../components/AnimatedComparisonSlide";
-import { SequentialBulletSlide } from "../components/SequentialBulletSlide";
-import { CodeAndDiagram } from "../compositions/CodeAndDiagram";
-import { CrossFadeWrapper } from "../components/CrossFadeWrapper";
 import { getAudioDuration } from "../utils/audioDuration";
+import { Module10Intro } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module10/Module10Intro";
+import { Module10Diagram1 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module10/Module10Diagram1";
+import { Module10Diagram2 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module10/Module10Diagram2";
+import { Module10Diagram3 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module10/Module10Diagram3";
+import { Module10Recap } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module10/Module10Recap";
 
-// Auto-generated from moduleContent.ts - DO NOT EDIT MANUALLY
-
+// Auto-generated from course scene components - DO NOT EDIT MANUALLY
+// Course: agentic-ai-for-beginners, Module: 10
 export const Module10: React.FC = () => {
 	const { fps } = useVideoConfig();
-	const crossFadeDuration = 0.3;
-	const whooshDuration = 0.57;
 
 	const audioFiles = {
-		title: staticFile("audio/aws-pulumi/module10-title.wav"),
-		stackConfigBasics: staticFile("audio/aws-pulumi/module10-stackConfigBasics.wav"),
-		createStackConfig: staticFile("audio/aws-pulumi/module10-createStackConfig.wav"),
-		manageSecrets: staticFile("audio/aws-pulumi/module10-manageSecrets.wav"),
-		deployMultipleEnvironments: staticFile("audio/aws-pulumi/module10-deployMultipleEnvironments.wav"),
-		summary: staticFile("audio/aws-pulumi/module10-summary.wav"),
+		"module10-module-10-application": staticFile("audio/agentic-ai-for-beginners/module10-module-10-application.wav"),
+		"module10-module-10-architecture": staticFile("audio/agentic-ai-for-beginners/module10-module-10-architecture.wav"),
+		"module10-module-10-concept": staticFile("audio/agentic-ai-for-beginners/module10-module-10-concept.wav"),
+		"module10-module-10-exam-mapping": staticFile("audio/agentic-ai-for-beginners/module10-module-10-exam-mapping.wav"),
+		"module10-module-10-recap": staticFile("audio/agentic-ai-for-beginners/module10-module-10-recap.wav"),
+		"module10-module-10-title": staticFile("audio/agentic-ai-for-beginners/module10-module-10-title.wav"),
 		whoosh: staticFile("audio/whoosh.wav"),
 	};
-
-	const audioDurations = {
-		title: getAudioDuration("aws-pulumi/module10-title"),
-		stackConfigBasics: getAudioDuration("aws-pulumi/module10-stackConfigBasics"),
-		createStackConfig: getAudioDuration("aws-pulumi/module10-createStackConfig"),
-		manageSecrets: getAudioDuration("aws-pulumi/module10-manageSecrets"),
-		deployMultipleEnvironments: getAudioDuration("aws-pulumi/module10-deployMultipleEnvironments"),
-		summary: getAudioDuration("aws-pulumi/module10-summary"),
-	};
-
-	let currentFrame = 0;
-
-	const addSlide = (audioDuration: number, isLast: boolean = false, buffer: number = 0) => {
-		const slideDuration = audioDuration + buffer;
-		const start = currentFrame;
-		if (!isLast) {
-			currentFrame += (slideDuration + whooshDuration) * fps;
-		} else {
-			currentFrame += slideDuration * fps;
-		}
-		return { start, duration: slideDuration * fps, slideDuration, audioDuration, buffer };
-	};
-
-	const titleSlide = addSlide(audioDurations["title"], false, 1.0);
-	const stackConfigBasicsSlide = addSlide(audioDurations["stackConfigBasics"], false, 1.0);
-	const createStackConfigSlide = addSlide(audioDurations["createStackConfig"], false, 1.0);
-	const manageSecretsSlide = addSlide(audioDurations["manageSecrets"], false, 1.0);
-	const deployMultipleEnvironmentsSlide = addSlide(audioDurations["deployMultipleEnvironments"], false, 1.0);
-	const summarySlide = addSlide(audioDurations["summary"], true, 1.2);
 
 	return (
 		<div
 			style={{
 				width: "100%",
-			height: "100%",
-			background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
-			position: "relative",
-		}}
+				height: "100%",
+				background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
+				position: "relative",
+			}}
 		>
-			{/* title */}
-			<Sequence
-				from={titleSlide.start}
-				durationInFrames={titleSlide.duration}
-			>
-				<Audio src={audioFiles["title"]} />
-				<CrossFadeWrapper
-					totalDuration={titleSlide.slideDuration}
-					fadeInDuration={0.5}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<TitleSlide 
-					title="Multi-Environment Management" 
-					subtitle="Dev, Staging, and Production"
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={titleSlide.start + titleSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
 
-			{/* Pulumi Stacks: Isolated Environments */}
-			<Sequence
-				from={stackConfigBasicsSlide.start}
-				durationInFrames={stackConfigBasicsSlide.duration}
-			>
-				<Audio src={audioFiles["stackConfigBasics"]} />
-				<CrossFadeWrapper
-					totalDuration={stackConfigBasicsSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Pulumi Stacks: Isolated Environments"
-					points={[
-						"Each stack is an isolated infrastructure instance",
-					"Separate state files and configuration per stack",
-					"Same code, different configurations per environment",
-					"Configuration stored in Pulumi.{stack}.yaml",
-					"Enables dev, staging, and production deployments"
-					]}
-					slideName="stackConfigBasics"
-					audioDuration={stackConfigBasicsSlide.audioDuration}
-					moduleNumber={10}
-					
-					imageSrc="assets/vpc.svg"
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={stackConfigBasicsSlide.start + stackConfigBasicsSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module10Intro */}
+		<Sequence
+			from={0}
+			durationInFrames={1076}
+		>
+			<Module10Intro
+				durationInFrames={1076}
+				cuePoints={[1, 53, 166, 264, 300, 360, 431, 477, 548, 615, 683, 750, 833, 898, 979]}
+			/>
+			<Audio src={audioFiles["module10-module-10-title"]} />
+		</Sequence>
 
-			{/* Create Stack Configuration Files */}
-			<Sequence
-				from={createStackConfigSlide.start}
-				durationInFrames={createStackConfigSlide.duration}
-			>
-				<Audio src={audioFiles["createStackConfig"]} />
-				<CrossFadeWrapper
-					totalDuration={createStackConfigSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Create Stack Configuration Files"
-					code={`// Read stack configuration
-import * as pulumi from "@pulumi/pulumi";
+		{/* Transition */}
+		<Sequence from={1076} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-const config = new pulumi.Config();
+		{/* Module10Diagram1 */}
+		<Sequence
+			from={1094}
+			durationInFrames={3173}
+		>
+			<Module10Diagram1
+				durationInFrames={3173}
+				cuePoints={[0, 4, 72, 156, 228, 302, 356, 416, 495, 552, 617, 696, 745, 926, 1039, 1146, 1195, 1330, 1409, 1484, 1565, 1673, 1737, 1781, 1846, 1903, 2000, 2085, 2171, 2231, 2292, 2375, 2450, 2512, 2619, 2677, 2749, 2811, 2870, 2955, 3017, 3120]}
+			/>
+			<Audio src={audioFiles["module10-module-10-concept"]} />
+		</Sequence>
 
-// Environment-specific configuration with defaults
-const environment = config.get("environment") || "dev";
-const instanceType = config.get("instanceType") || "t3.micro";
-const dbInstanceClass = config.get("dbInstanceClass") || "db.t3.micro";
-const enableMultiAz = config.getBoolean("enableMultiAz") || false;
-const minInstances = config.getNumber("minInstances") || 1;
-const maxInstances = config.getNumber("maxInstances") || 2;
+		{/* Transition */}
+		<Sequence from={4267} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-// Use configuration in resources
-const webServer = new aws.ec2.Instance("web-server", {
-    instanceType: instanceType, // From config
-    // ... other configuration ...
-});
+		{/* Module10Diagram2 */}
+		<Sequence
+			from={4285}
+			durationInFrames={2608}
+		>
+			<Module10Diagram2
+				durationInFrames={2608}
+				cuePoints={[4, 44, 143, 185, 229, 301, 385, 474, 540, 616, 706, 761, 810, 872, 932, 1020, 1079, 1152, 1205, 1309, 1375, 1443, 1508, 1543, 1608, 1661, 1728, 1815, 1874, 1930, 1986, 2047, 2108, 2163, 2252, 2336, 2376, 2438, 2503, 2572]}
+			/>
+			<Audio src={audioFiles["module10-module-10-architecture"]} />
+		</Sequence>
 
-// Pulumi.dev.yaml
-// config:
-//   environment: dev
-//   instanceType: t3.micro
-//   dbInstanceClass: db.t3.micro
-//   enableMultiAz: false
-//   minInstances: 1
-//   maxInstances: 2
+		{/* Transition */}
+		<Sequence from={6893} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-// Pulumi.prod.yaml
-// config:
-//   environment: production
-//   instanceType: t3.large
-//   dbInstanceClass: db.r5.large
-//   enableMultiAz: true
-//   minInstances: 2
-//   maxInstances: 10`}
-					language="typescript"
-					slideName="createStackConfig"
-					audioStartFrame={createStackConfigSlide.start}
-					audioDuration={createStackConfigSlide.audioDuration}
-					moduleNumber={10}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={createStackConfigSlide.start + createStackConfigSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module10Diagram3 */}
+		<Sequence
+			from={6911}
+			durationInFrames={2377}
+		>
+			<Module10Diagram3
+				durationInFrames={2377}
+				cuePoints={[3, 27, 81, 155, 211, 301, 365, 425, 485, 594, 680, 772, 872, 954, 1018, 1114, 1169, 1233, 1327, 1413, 1479, 1556, 1625, 1671, 1722, 1767, 1832, 1894, 1963, 2044, 2082, 2130, 2195, 2296]}
+			/>
+			<Audio src={audioFiles["module10-module-10-application"]} />
+		</Sequence>
 
-			{/* Manage Secrets Securely */}
-			<Sequence
-				from={manageSecretsSlide.start}
-				durationInFrames={manageSecretsSlide.duration}
-			>
-				<Audio src={audioFiles["manageSecrets"]} />
-				<CrossFadeWrapper
-					totalDuration={manageSecretsSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Manage Secrets Securely"
-					code={`// Read secrets from configuration
-const dbPassword = config.requireSecret("dbPassword");
-const apiKey = config.requireSecret("apiKey");
+		{/* Transition */}
+		<Sequence from={9288} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-// Use secrets in resources
-const dbInstance = new aws.rds.Instance("db", {
-    password: dbPassword, // Automatically encrypted
-    // ... other configuration ...
-});
+		{/* Module10Recap - module10-module-10-exam-mapping */}
+		<Sequence
+			from={9306}
+			durationInFrames={983}
+		>
+			<Module10Recap
+				durationInFrames={983}
+				cuePoints={[4, 60, 115, 162, 259, 388, 524, 616, 740, 774, 837, 904, 963, 987, 1106, 1230, 1328, 1430, 1521, 1605, 1681, 1738, 1782, 1864, 1916, 2026, 2103, 2166]}
+			/>
+			<Audio src={audioFiles["module10-module-10-exam-mapping"]} />
+		</Sequence>
 
-// Set secrets via CLI (encrypted automatically)
-// pulumi config set --secret dbPassword "MySecurePassword123!"
-// pulumi config set --secret apiKey "sk-1234567890abcdef"
-
-// Or in Pulumi.{stack}.yaml (encrypted by Pulumi service)
-// config:
-//   dbPassword:
-//     secure: AAABAKdJZXl... (encrypted value)`}
-					language="typescript"
-					slideName="manageSecrets"
-					audioStartFrame={manageSecretsSlide.start}
-					audioDuration={manageSecretsSlide.audioDuration}
-					moduleNumber={10}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={manageSecretsSlide.start + manageSecretsSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Deploy to Multiple Environments */}
-			<Sequence
-				from={deployMultipleEnvironmentsSlide.start}
-				durationInFrames={deployMultipleEnvironmentsSlide.duration}
-			>
-				<Audio src={audioFiles["deployMultipleEnvironments"]} />
-				<CrossFadeWrapper
-					totalDuration={deployMultipleEnvironmentsSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Deploy to Multiple Environments"
-					code={`// Create stacks for each environment
-// pulumi stack init dev
-// pulumi stack init staging
-// pulumi stack init prod
-
-// Set configuration per environment
-// pulumi stack select dev
-// pulumi config set instanceType t3.micro
-// pulumi config set --secret dbPassword dev-password
-// pulumi up
-
-// pulumi stack select staging
-// pulumi config set instanceType t3.small
-// pulumi config set --secret dbPassword staging-password
-// pulumi up
-
-// pulumi stack select prod
-// pulumi config set instanceType t3.large
-// pulumi config set --secret dbPassword prod-password
-// pulumi config set enableMultiAz true
-// pulumi up
-
-// All use the same code, different configuration!`}
-					language="bash"
-					slideName="deployMultipleEnvironments"
-					audioStartFrame={deployMultipleEnvironmentsSlide.start}
-					audioDuration={deployMultipleEnvironmentsSlide.audioDuration}
-					moduleNumber={10}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={deployMultipleEnvironmentsSlide.start + deployMultipleEnvironmentsSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Module 10 Summary */}
-			<Sequence
-				from={summarySlide.start}
-				durationInFrames={summarySlide.duration}
-			>
-				<Audio src={audioFiles["summary"]} />
-				<CrossFadeWrapper
-					totalDuration={summarySlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={0}
-			>
-					<AnimatedContentSlide
-					title="Conclusion"
-					points={[
-						"Stacks provide isolated environments with separate configuration",
-					"Same code, different configs per environment",
-					"Secrets are encrypted and handled securely",
-					"Write once, deploy everywhere pattern",
-					"Next: Advanced Networking Patterns"
-					]}
-					slideName="summary"
-					audioDuration={summarySlide.audioDuration}
-					moduleNumber={10}
-					
-					imageSrc="assets/vpc.svg"
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-
+		{/* Module10Recap - module10-module-10-recap */}
+		<Sequence
+			from={10289}
+			durationInFrames={1217}
+		>
+			<Module10Recap
+				durationInFrames={1217}
+				cuePoints={[]}
+			/>
+			<Audio src={audioFiles["module10-module-10-recap"]} />
+		</Sequence>
 		</div>
 	);
 };

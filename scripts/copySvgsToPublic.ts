@@ -56,17 +56,18 @@ function copySvgsToPublic(courseId: string): void {
       fs.copyFileSync(sourcePath, destPath);
       totalSvgs++;
       console.log(`  Copied ${moduleDir}/${svgFile}`);
-      
-      // Also copy animation spec if it exists
-      const specName = svgFile.replace(".svg", ".animation.json");
-      const specSourcePath = path.join(modulePath, specName);
-      const specDestPath = path.join(publicModulePath, specName);
-      
-      if (fs.existsSync(specSourcePath)) {
-        fs.copyFileSync(specSourcePath, specDestPath);
-        totalSpecs++;
-        console.log(`    + ${specName}`);
-      }
+    }
+
+    const specFiles = fs.readdirSync(modulePath)
+      .filter(file => file.endsWith(".animation.json"))
+      .sort();
+
+    for (const specFile of specFiles) {
+      const specSourcePath = path.join(modulePath, specFile);
+      const specDestPath = path.join(publicModulePath, specFile);
+      fs.copyFileSync(specSourcePath, specDestPath);
+      totalSpecs++;
+      console.log(`    + ${specFile}`);
     }
   }
   

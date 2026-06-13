@@ -12,20 +12,20 @@
   <rect x="100" y="168" width="300" height="12" fill="#3b82f6"/>
   <text x="250" y="160" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="600" fill="#ffffff">Reliability</text>
   
-  <text x="250" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Checkpoints</text>
+  <text x="250" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Checkpoints</text>
   <rect x="140" y="235" width="220" height="8" rx="4" fill="#e2e8f0"/>
   <rect x="140" y="235" width="180" height="8" rx="4" fill="#3b82f6"/>
   
-  <text x="250" y="275" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Retry Logic</text>
+  <text x="250" y="275" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Retry Logic</text>
   <rect x="140" y="290" width="220" height="8" rx="4" fill="#e2e8f0"/>
   <rect x="140" y="290" width="200" height="8" rx="4" fill="#3b82f6"/>
   
-  <text x="250" y="330" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Verification</text>
+  <text x="250" y="330" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Verification</text>
   <rect x="140" y="345" width="220" height="8" rx="4" fill="#e2e8f0"/>
   <rect x="140" y="345" width="190" height="8" rx="4" fill="#3b82f6"/>
   
-  <text x="250" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Failure tolerance,</text>
-  <text x="250" y="418" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">not just accuracy</text>
+  <text x="250" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Failure tolerance,</text>
+  <text x="250" y="418" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">not just accuracy</text>
   </g>
   <g id="traceability">
   <rect x="450" y="120" width="300" height="320" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
@@ -33,20 +33,20 @@
   <rect x="450" y="168" width="300" height="12" fill="#10b981"/>
   <text x="600" y="160" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="600" fill="#ffffff">Traceability</text>
   
-  <text x="600" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Step Logging</text>
+  <text x="600" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Step Logging</text>
   <rect x="490" y="235" width="220" height="8" rx="4" fill="#e2e8f0"/>
   <rect x="490" y="235" width="210" height="8" rx="4" fill="#10b981"/>
   
-  <text x="600" y="275" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Tool Call Audit</text>
+  <text x="600" y="275" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Tool Call Audit</text>
   <rect x="490" y="290" width="220" height="8" rx="4" fill="#e2e8f0"/>
   <rect x="490" y="290" width="195" height="8" rx="4" fill="#10b981"/>
   
-  <text x="600" y="330" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Memory Access</text>
+  <text x="600" y="330" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Memory Access</text>
   <rect x="490" y="345" width="220" height="8" rx="4" fill="#e2e8f0"/>
   <rect x="490" y="345" width="185" height="8" rx="4" fill="#10b981"/>
   
-  <text x="600" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Non-negotiable</text>
-  <text x="600" y="418" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">for compliance</text>
+  <text x="600" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Non-negotiable</text>
+  <text x="600" y="418" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">for compliance</text>
   </g>
   <g id="integration">
   <rect x="800" y="120" width="300" height="320" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
@@ -54,19 +54,19 @@
   <rect x="800" y="168" width="300" height="12" fill="#8b5cf6"/>
   <text x="950" y="160" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="600" fill="#ffffff">Integration</text>
   
-  <text x="950" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">CRM / ERP</text>
+  <text x="950" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">CRM / ERP</text>
   <rect x="840" y="235" width="220" height="8" rx="4" fill="#e2e8f0"/>
   <rect x="840" y="235" width="200" height="8" rx="4" fill="#8b5cf6"/>
   
-  <text x="950" y="275" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Data Warehouses</text>
+  <text x="950" y="275" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Data Warehouses</text>
   <rect x="840" y="290" width="220" height="8" rx="4" fill="#e2e8f0"/>
   <rect x="840" y="290" width="175" height="8" rx="4" fill="#8b5cf6"/>
   
-  <text x="950" y="330" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Internal APIs</text>
+  <text x="950" y="330" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Internal APIs</text>
   <rect x="840" y="345" width="220" height="8" rx="4" fill="#e2e8f0"/>
   <rect x="840" y="345" width="190" height="8" rx="4" fill="#8b5cf6"/>
   
-  <text x="950" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Tools as first-class</text>
-  <text x="950" y="418" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">citizens</text>
+  <text x="950" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Tools as first-class</text>
+  <text x="950" y="418" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">citizens</text>
   </g>
 </svg>

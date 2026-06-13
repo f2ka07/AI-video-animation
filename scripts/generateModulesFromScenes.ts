@@ -4,6 +4,7 @@
 
 import * as fs from "fs";
 import * as path from "path";
+import { execSync } from "child_process";
 
 interface ModuleScene {
 	name: string;
@@ -525,6 +526,100 @@ ${sequences.join("\n")}
 	return moduleCode;
 }
 
+const FPS = 30;
+const WIDTH = 1920;
+const HEIGHT = 1080;
+
+function calculateSceneModuleDurationSeconds(
+	courseId: string,
+	moduleNumber: number,
+	coursePath: string
+): number {
+	const scenes = findSceneComponents(coursePath, moduleNumber);
+	if (scenes.length === 0) return 60;
+	const audioDurations = getAudioDurations(courseId);
+	const mappings = mapAudioToScenes(scenes, audioDurations, courseId, moduleNumber);
+	const whoosh = 0.57;
+	let total = 0;
+	for (let i = 0; i < mappings.length; i++) {
+		total += mappings[i].totalDuration > 0 ? mappings[i].totalDuration : 30;
+		if (i < mappings.length - 1) total += whoosh;
+	}
+	return Math.max(total, 10);
+}
+
+function getModuleDurationFromAudio(courseId: string, moduleNumber: number): number {
+	const audioDurations = getAudioDurations(courseId);
+	const prefix = `${courseId}/module${moduleNumber}-`;
+	let total = 0;
+	for (const [key, dur] of Object.entries(audioDurations)) {
+		if (key.startsWith(prefix)) total += dur;
+	}
+	if (total > 0) return total + 2;
+	return 60;
+}
+
+function updateRootForModules(
+	courseId: string,
+	moduleNumbers: number[],
+	sceneModuleNumbers: number[]
+): void {
+	const rootPath = path.join(__dirname, "../src/Root.tsx");
+	const coursePath = path.join(__dirname, "../courses", courseId);
+
+	const imports = new Set<string>([
+		'import React from "react";',
+		'import { Composition, Still } from "remotion";',
+		'import { ThumbnailStill } from "./compositions/ThumbnailStill";',
+		'import { secondsToFrames } from "./utils/calculateDuration";',
+	]);
+
+	for (const n of moduleNumbers) {
+		imports.add(`import { Module${n} } from "./videos/Module${n}";`);
+	}
+
+	const compositions = moduleNumbers
+		.map((n) => {
+			const isScene = sceneModuleNumbers.includes(n);
+			const durationSec = isScene
+				? calculateSceneModuleDurationSeconds(courseId, n, coursePath)
+				: getModuleDurationFromAudio(courseId, n);
+			const frames = Math.ceil(durationSec * FPS);
+			return `\t\t\t<Composition
+\t\t\t\tkey="module-${n}"
+\t\t\t\tid="module-${n}"
+\t\t\t\tcomponent={Module${n}}
+\t\t\t\tdurationInFrames={${frames}}
+\t\t\t\tfps={${FPS}}
+\t\t\t\twidth={${WIDTH}}
+\t\t\t\theight={${HEIGHT}}
+\t\t\t/>`;
+		})
+		.join("\n");
+
+	const newRoot = `${Array.from(imports).join("\n")}
+
+// Scene-based modules for ${courseId} (SVG scenes - not GenericModule/Mermaid)
+export const RemotionRoot: React.FC = () => {
+\treturn (
+\t\t<>
+${compositions}
+\t\t\t<Still
+\t\t\t\tid="thumbnail"
+\t\t\t\tcomponent={ThumbnailStill}
+\t\t\t\twidth={1280}
+\t\t\t\theight={720}
+\t\t\t\tdefaultProps={{ thumbnailText: "THUMBNAIL" }}
+\t\t\t/>
+\t\t</>
+\t);
+};
+`;
+
+	fs.writeFileSync(rootPath, newRoot);
+	console.log(`  Updated Root.tsx (${moduleNumbers.length} module composition(s), ${sceneModuleNumbers.length} with SVG scenes)`);
+}
+
 // Main execution
 async function main() {
 	const courseId = process.argv[2];
@@ -552,8 +647,18 @@ async function main() {
 			modules = moduleRange.split(",").map(Number);
 		}
 	} else {
-		// Default to modules 1-6
-		modules = [1, 2, 3, 4, 5, 6];
+		// Default: all modules in course mapping, or 1-6
+		const coursesPath = path.join(__dirname, "../courses.json");
+		if (fs.existsSync(coursesPath)) {
+			try {
+				const data = JSON.parse(fs.readFileSync(coursesPath, "utf-8"));
+				modules = data.courseModuleMapping?.[courseId] || [1, 2, 3, 4, 5, 6];
+			} catch {
+				modules = [1, 2, 3, 4, 5, 6];
+			}
+		} else {
+			modules = [1, 2, 3, 4, 5, 6];
+		}
 	}
 
 	console.log(`Generating modules from scene components for: ${courseId}`);
@@ -562,14 +667,27 @@ async function main() {
 	const outputDir = path.join(__dirname, "../src/videos");
 	let generated = 0;
 	let failed = 0;
+	const sceneModuleNumbers: number[] = [];
 
 	for (const moduleNumber of modules) {
 		try {
 			const outputPath = path.join(outputDir, `Module${moduleNumber}.tsx`);
 			const existing = fs.existsSync(outputPath) ? fs.readFileSync(outputPath, "utf-8") : "";
+			const scenes = findSceneComponents(coursePath, moduleNumber);
+
+			if (scenes.length === 0) {
+				console.log(`  Module ${moduleNumber}: no scene components - generating bullets-only slides (no Mermaid)`);
+				execSync(`npx tsx scripts/generateModulesFromContent.ts ${moduleNumber} --bullets-only --skip-root`, {
+					cwd: path.join(__dirname, ".."),
+					stdio: "inherit",
+				});
+				generated++;
+				continue;
+			}
 
 			if (existing && /\/\/\s*PRESERVE_MANUAL_EDITS/i.test(existing)) {
 				console.log(`  Skipped Module${moduleNumber}.tsx (PRESERVE_MANUAL_EDITS)`);
+				sceneModuleNumbers.push(moduleNumber);
 				continue;
 			}
 
@@ -582,7 +700,8 @@ async function main() {
 			}
 
 			fs.writeFileSync(outputPath, code);
-			console.log(`Generated Module${moduleNumber}.tsx using scene components`);
+			console.log(`  Generated Module${moduleNumber}.tsx using SVG scene components`);
+			sceneModuleNumbers.push(moduleNumber);
 			generated++;
 		} catch (error) {
 			console.error(`Failed to generate Module ${moduleNumber}:`, error);
@@ -590,7 +709,11 @@ async function main() {
 		}
 	}
 
-	console.log(`\nSummary: ${generated} generated, ${failed} failed`);
+	if (generated > 0) {
+		updateRootForModules(courseId, modules, sceneModuleNumbers);
+	}
+
+	console.log(`\nSummary: ${generated} generated, ${failed} failed, ${sceneModuleNumbers.length} with SVG scenes`);
 
 	if (generated > 0) {
 		console.log("\nNext steps:");

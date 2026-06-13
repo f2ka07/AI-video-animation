@@ -1,0 +1,122 @@
+{
+  "diagram": "deployment-decision-matrix.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 25.6,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [],
+      "triggerWords": [
+        "stack",
+        "matter",
+        "agentic"
+      ]
+    },
+    {
+      "start": 25.6,
+      "end": 46.1,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-1"
+      ],
+      "triggerWords": [
+        "saas",
+        "velocity"
+      ]
+    },
+    {
+      "start": 46.1,
+      "end": 63.5,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-2"
+      ],
+      "triggerWords": [
+        "cloud",
+        "flexibility"
+      ]
+    },
+    {
+      "start": 63.5,
+      "end": 82,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-4"
+      ],
+      "highlight": [
+        "section-3"
+      ],
+      "triggerWords": [
+        "compliance",
+        "sovereignty",
+        "premises"
+      ]
+    },
+    {
+      "start": 82,
+      "end": 130,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3"
+      ],
+      "highlight": [
+        "section-4"
+      ],
+      "triggerWords": [
+        "edge",
+        "latency",
+        "autonomy"
+      ]
+    }
+  ]
+}

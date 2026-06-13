@@ -14,17 +14,17 @@
     <rect x="820" y="80" width="180" height="50" fill="#1e293b"/>
     <text x="910" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Integration</text>
     <rect x="300" y="470" width="16" height="16" rx="4" fill="#10b981"/>
-    <text x="325" y="484" font-family="system-ui, sans-serif" font-size="12" fill="#475569">High</text>
+    <text x="325" y="484" font-family="system-ui, sans-serif" font-size="12" fill="#d1fae5">High</text>
     <rect x="400" y="470" width="16" height="16" rx="4" fill="#f59e0b"/>
-    <text x="425" y="484" font-family="system-ui, sans-serif" font-size="12" fill="#475569">Medium</text>
+    <text x="425" y="484" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Medium</text>
     <rect x="520" y="470" width="16" height="16" rx="4" fill="#ef4444"/>
-    <text x="545" y="484" font-family="system-ui, sans-serif" font-size="12" fill="#475569">Critical</text>
-    <text x="600" y="520" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">All workloads require pipelines, not single calls</text>
+    <text x="545" y="484" font-family="system-ui, sans-serif" font-size="12" fill="#fecaca">Critical</text>
+    <text x="600" y="520" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#fecaca">All workloads require pipelines, not single calls</text>
   </g>
   <g id="section-1">
   <!-- Row: Knowledge -->
   <rect x="80" y="130" width="200" height="60" fill="#dbeafe" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="180" y="167" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1d4ed8">Knowledge</text>
+  <text x="180" y="167" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1e3a8a">Knowledge</text>
   
   <rect x="280" y="130" width="180" height="60" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
   <rect x="330" y="155" width="80" height="10" rx="5" fill="#e2e8f0"/>
@@ -44,7 +44,7 @@
   </g>
   <g id="section-2">
   <rect x="80" y="190" width="200" height="60" fill="#d1fae5" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="180" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#059669">Support</text>
+  <text x="180" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#047857">Support</text>
   
   <rect x="280" y="190" width="180" height="60" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
   <rect x="330" y="215" width="80" height="10" rx="5" fill="#e2e8f0"/>
@@ -64,7 +64,7 @@
   </g>
   <g id="section-3">
   <rect x="80" y="250" width="200" height="60" fill="#fef3c7" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="180" y="287" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#d97706">Analytics</text>
+  <text x="180" y="287" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#78350f">Analytics</text>
   
   <rect x="280" y="250" width="180" height="60" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
   <rect x="330" y="275" width="80" height="10" rx="5" fill="#e2e8f0"/>
@@ -84,7 +84,7 @@
   </g>
   <g id="section-4">
   <rect x="80" y="310" width="200" height="60" fill="#e9d5ff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="180" y="347" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#7c3aed">Documents</text>
+  <text x="180" y="347" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#0f172a">Documents</text>
   
   <rect x="280" y="310" width="180" height="60" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
   <rect x="330" y="335" width="80" height="10" rx="5" fill="#e2e8f0"/>
@@ -104,7 +104,7 @@
   
   <!-- Row: Research -->
   <rect x="80" y="370" width="200" height="60" fill="#cffafe" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="180" y="407" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#0891b2">Research</text>
+  <text x="180" y="407" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#0f172a">Research</text>
   
   <rect x="280" y="370" width="180" height="60" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
   <rect x="330" y="395" width="80" height="10" rx="5" fill="#e2e8f0"/>

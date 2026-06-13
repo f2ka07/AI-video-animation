@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" width="1200" height="660">
+  <defs><marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/></marker></defs>
+  <g id="main">
+    <rect width="1200" height="660" fill="#f8fafc"/>
+    <text x="600" y="640" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#94a3b8">Compliance is architecture - not a checklist after launch</text>
+  </g>
+
+  <text x="600" y="80" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" font-weight="600" fill="#64748b">Design agents for regulated enterprise environments</text>
+
+  <g id="section-1">
+    <rect x="80" y="110" width="500" height="200" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <text x="330" y="160" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#1e3a8a">Regulatory map</text>
+    <text x="330" y="195" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" fill="#334155">HIPAA, GDPR, SOX</text>
+    <text x="330" y="225" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" fill="#334155">Industry rules and data residency</text>
+  </g>
+
+  <g id="section-2">
+    <rect x="620" y="110" width="500" height="200" rx="16" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+    <text x="870" y="160" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#5b21b6">Data handling</text>
+    <text x="870" y="195" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" fill="#334155">Mask sensitive fields</text>
+    <text x="870" y="225" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" fill="#334155">Authorized models and retention policy</text>
+  </g>
+
+  <g id="section-3">
+    <rect x="80" y="350" width="500" height="200" rx="16" fill="#d1fae5" stroke="#059669" stroke-width="3"/>
+    <text x="330" y="400" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#047857">Approval paths</text>
+    <text x="330" y="435" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" fill="#334155">High-stakes routing</text>
+    <text x="330" y="465" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" fill="#334155">Escalation SLAs and reviewer training</text>
+  </g>
+
+  <g id="section-4">
+    <rect x="620" y="350" width="500" height="200" rx="16" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+    <text x="870" y="400" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#78350f">Privacy</text>
+    <text x="870" y="435" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" fill="#334155">Clear consent and opt-out flows</text>
+    <text x="870" y="465" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" fill="#334155">Honor deletion requests</text>
+  </g>
+</svg>

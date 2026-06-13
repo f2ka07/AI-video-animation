@@ -1,454 +1,128 @@
 import React from "react";
 import { Sequence, useVideoConfig, Audio, staticFile } from "remotion";
-import { TitleSlide } from "../components/TitleSlide";
-import { AnimatedContentSlide } from "../components/AnimatedContentSlide";
-import { AnimatedCodeSlide } from "../components/AnimatedCodeSlide";
-import { BulletsAndCodeSlide } from "../components/BulletsAndCodeSlide";
-import { AnimatedComparisonSlide } from "../components/AnimatedComparisonSlide";
-import { SequentialBulletSlide } from "../components/SequentialBulletSlide";
-import { CodeAndDiagram } from "../compositions/CodeAndDiagram";
-import { CrossFadeWrapper } from "../components/CrossFadeWrapper";
 import { getAudioDuration } from "../utils/audioDuration";
+import { Module03Intro } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module03/Module03Intro";
+import { Module03Diagram1 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module03/Module03Diagram1";
+import { Module03Diagram2 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module03/Module03Diagram2";
+import { Module03Diagram3 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module03/Module03Diagram3";
+import { Module03Recap } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module03/Module03Recap";
 
-// Auto-generated from moduleContent.ts - DO NOT EDIT MANUALLY
-
+// Auto-generated from course scene components - DO NOT EDIT MANUALLY
+// Course: agentic-ai-for-beginners, Module: 3
 export const Module3: React.FC = () => {
 	const { fps } = useVideoConfig();
-	const crossFadeDuration = 0.3;
-	const whooshDuration = 0.57;
 
 	const audioFiles = {
-		"protocols-introduction": staticFile("audio/introduction-to-computer-networks/module3-protocols-introduction.wav"),
-		"tcp-and-udp": staticFile("audio/introduction-to-computer-networks/module3-tcp-and-udp.wav"),
-		"http-and-https": staticFile("audio/introduction-to-computer-networks/module3-http-and-https.wav"),
-		dns: staticFile("audio/introduction-to-computer-networks/module3-dns.wav"),
-		"story-beat-dns": staticFile("audio/introduction-to-computer-networks/module3-story-beat-dns.wav"),
-		"ftp-and-sftp": staticFile("audio/introduction-to-computer-networks/module3-ftp-and-sftp.wav"),
-		"email-protocols": staticFile("audio/introduction-to-computer-networks/module3-email-protocols.wav"),
-		"story-beat-protocols-recap": staticFile("audio/introduction-to-computer-networks/module3-story-beat-protocols-recap.wav"),
-		"protocols-conclusion": staticFile("audio/introduction-to-computer-networks/module3-protocols-conclusion.wav"),
+		"module3-module-3-application": staticFile("audio/agentic-ai-for-beginners/module3-module-3-application.wav"),
+		"module3-module-3-architecture": staticFile("audio/agentic-ai-for-beginners/module3-module-3-architecture.wav"),
+		"module3-module-3-concept": staticFile("audio/agentic-ai-for-beginners/module3-module-3-concept.wav"),
+		"module3-module-3-exam-mapping": staticFile("audio/agentic-ai-for-beginners/module3-module-3-exam-mapping.wav"),
+		"module3-module-3-recap": staticFile("audio/agentic-ai-for-beginners/module3-module-3-recap.wav"),
+		"module3-module-3-title": staticFile("audio/agentic-ai-for-beginners/module3-module-3-title.wav"),
 		whoosh: staticFile("audio/whoosh.wav"),
 	};
-
-	const audioDurations = {
-		"protocols-introduction": getAudioDuration("introduction-to-computer-networks/module3-protocols-introduction"),
-		"tcp-and-udp": getAudioDuration("introduction-to-computer-networks/module3-tcp-and-udp"),
-		"http-and-https": getAudioDuration("introduction-to-computer-networks/module3-http-and-https"),
-		dns: getAudioDuration("introduction-to-computer-networks/module3-dns"),
-		"story-beat-dns": getAudioDuration("introduction-to-computer-networks/module3-story-beat-dns"),
-		"ftp-and-sftp": getAudioDuration("introduction-to-computer-networks/module3-ftp-and-sftp"),
-		"email-protocols": getAudioDuration("introduction-to-computer-networks/module3-email-protocols"),
-		"story-beat-protocols-recap": getAudioDuration("introduction-to-computer-networks/module3-story-beat-protocols-recap"),
-		"protocols-conclusion": getAudioDuration("introduction-to-computer-networks/module3-protocols-conclusion"),
-	};
-
-	let currentFrame = 0;
-
-	const addSlide = (audioDuration: number, isLast: boolean = false, buffer: number = 0) => {
-		const slideDuration = audioDuration + buffer;
-		const start = currentFrame;
-		if (!isLast) {
-			currentFrame += (slideDuration + whooshDuration) * fps;
-		} else {
-			currentFrame += slideDuration * fps;
-		}
-		return { start, duration: slideDuration * fps, slideDuration, audioDuration, buffer };
-	};
-	const addSegment = (audioDuration: number, isLastInGroup: boolean, isLastInModule: boolean, buffer: number) => {
-		const slideDuration = audioDuration + buffer;
-		const start = currentFrame;
-		currentFrame += slideDuration * fps + (isLastInGroup && !isLastInModule ? whooshDuration * fps : 0);
-		return { start, duration: slideDuration * fps, slideDuration, audioDuration, buffer };
-	};
-
-	const seg0 = addSegment(13.18, true, false, 1);
-	const seg1 = addSegment(15.02, true, false, 1);
-	const seg2 = addSegment(7.02, false, false, 1);
-	const seg3 = addSegment(7.02, true, false, 1);
-	const seg4 = addSegment(6.18, false, false, 1);
-	const seg5 = addSegment(6.18, true, false, 1);
-	const seg6 = addSegment(13.39, true, false, 1);
-	const seg7 = addSegment(12.75, true, false, 1);
-	const seg8 = addSegment(8.75, false, false, 1);
-	const seg9 = addSegment(8.75, true, false, 1);
-	const seg10 = addSegment(12.85, true, false, 1);
-	const seg11 = addSegment(13.61, true, true, 1.2);
 
 	return (
 		<div
 			style={{
 				width: "100%",
-			height: "100%",
-			background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
-			position: "relative",
-		}}
+				height: "100%",
+				background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
+				position: "relative",
+			}}
 		>
-			{/* Networking Protocols */}
-			<Sequence
-				from={seg0.start}
-				durationInFrames={seg0.duration}
-			>
-				<Audio src={audioFiles["protocols-introduction"]} />
-				<CrossFadeWrapper
-					totalDuration={seg0.slideDuration}
-					fadeInDuration={0.5}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<TitleSlide 
-					title="Networking Protocols" 
-					subtitle="The Rules of Digital Communication"
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg0.start + seg0.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
 
-			{/* TCP vs. UDP */}
-			<Sequence
-				from={seg1.start}
-				durationInFrames={seg1.duration}
-			>
-				<Audio src={audioFiles["tcp-and-udp"]} />
-				<CrossFadeWrapper
-					totalDuration={seg1.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedComparisonSlide
-					title="TCP vs. UDP"
-					leftTitle="TCP"
-					leftItems={[
-						"Reliable communication",
-						"Error checking",
-						"Guaranteed delivery"
-					]}
-					rightTitle="UDP"
-					rightItems={[
-						"Faster",
-						"No error checking",
-						"No delivery guarantee"
-					]}
-					slideName="tcp-and-udp"
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg1.start + seg1.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module03Intro */}
+		<Sequence
+			from={0}
+			durationInFrames={1734}
+		>
+			<Module03Intro
+				durationInFrames={1734}
+				cuePoints={[1, 85, 153, 278, 332, 400, 460, 513, 601, 639, 692, 773, 832, 885, 928, 1007, 1069, 1161, 1253, 1313, 1434, 1489, 1602, 1682]}
+			/>
+			<Audio src={audioFiles["module3-module-3-title"]} />
+		</Sequence>
 
-			{/* HTTP and HTTPS */}
-			<Sequence
-				from={seg2.start}
-				durationInFrames={seg2.duration}
-			>
-				<Audio src={audioFiles["http-and-https"]} />
-				<CrossFadeWrapper
-					totalDuration={seg2.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="HTTP and HTTPS"
-					points={[
-						"HTTP and HTTPS are protocols",
-					"HTTPS is the secure version"
-					]}
-					slideName="http-and-https"
-					audioDuration={seg2.audioDuration}
-					moduleNumber={3}
-					
-					
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={1734} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* HTTP and HTTPS */}
-			<Sequence
-				from={seg3.start}
-				durationInFrames={seg3.duration}
-			>
-				<Audio src={audioFiles["http-and-https"]} startFrom={Math.round(7.02 * fps)} />
-				<CrossFadeWrapper
-					totalDuration={seg3.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="HTTP and HTTPS"
-					points={[
-						"like a sealed envelope"
-					]}
-					slideName="http-and-https"
-					audioDuration={seg3.audioDuration}
-					moduleNumber={3}
-					
-					
-					audioStartOffset={7.02}
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg3.start + seg3.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module03Diagram1 */}
+		<Sequence
+			from={1752}
+			durationInFrames={2238}
+		>
+			<Module03Diagram1
+				durationInFrames={2238}
+				cuePoints={[0, 52, 115, 184, 252, 295, 354, 442, 511, 570, 620, 677, 748, 837, 910, 946, 1035, 1105, 1177, 1240, 1302, 1375, 1454, 1508, 1589, 1655, 1726, 1772, 1814, 1877, 1931, 2035, 2092, 2175]}
+			/>
+			<Audio src={audioFiles["module3-module-3-concept"]} />
+		</Sequence>
 
-			{/* Domain Name System (DNS) */}
-			<Sequence
-				from={seg4.start}
-				durationInFrames={seg4.duration}
-			>
-				<Audio src={audioFiles["dns"]} />
-				<CrossFadeWrapper
-					totalDuration={seg4.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Domain Name System (DNS)"
-					points={[
-						"DNS translates domain names",
-					"into IP addresses"
-					]}
-					slideName="dns"
-					audioDuration={seg4.audioDuration}
-					moduleNumber={3}
-					
-					
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={3990} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* Domain Name System (DNS) */}
-			<Sequence
-				from={seg5.start}
-				durationInFrames={seg5.duration}
-			>
-				<Audio src={audioFiles["dns"]} startFrom={Math.round(6.18 * fps)} />
-				<CrossFadeWrapper
-					totalDuration={seg5.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Domain Name System (DNS)"
-					points={[
-						"like a phone book"
-					]}
-					slideName="dns"
-					audioDuration={seg5.audioDuration}
-					moduleNumber={3}
-					
-					
-					audioStartOffset={6.18}
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg5.start + seg5.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module03Diagram2 */}
+		<Sequence
+			from={4008}
+			durationInFrames={7672}
+		>
+			<Module03Diagram2
+				durationInFrames={7672}
+				cuePoints={[0, 4, 42, 113, 183, 253, 297, 386, 462, 552, 622, 685, 764, 829, 903, 978, 1036, 1122, 1195, 1263, 1351, 1421, 1513, 1596, 1655, 1737, 1791, 1877, 1958, 2022, 2121, 2213, 2264, 2326, 2408, 2483, 2536, 2671, 2767, 2823, 2869, 2940, 3017, 3113, 3178, 3309, 3370, 3417, 3475, 3547, 3623, 3696, 3750, 3827, 3928, 4024, 4129, 4353, 4439, 4527, 4595, 4655, 4731, 4786, 4834, 4907, 5004, 5090, 5159, 5284, 5347, 5424, 5513, 5612, 5676, 5730, 5822, 5875, 5914, 5995, 6100, 6201, 6281, 6365, 6443, 6519, 6571, 6636, 6716, 6797, 6833, 6893, 6959, 7022, 7124, 7213, 7300, 7372, 7441, 7540, 7619]}
+			/>
+			<Audio src={audioFiles["module3-module-3-architecture"]} />
+		</Sequence>
 
-			{/* story-beat-dns */}
-			<Sequence
-				from={seg6.start}
-				durationInFrames={seg6.duration}
-			>
-				<Audio src={audioFiles["story-beat-dns"]} />
-				<CrossFadeWrapper
-					totalDuration={seg6.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title=""
-					points={[
-						
-					]}
-					slideName="story-beat-dns"
-					audioDuration={seg6.audioDuration}
-					moduleNumber={3}
-					
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg6.start + seg6.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={11680} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* FTP vs. SFTP */}
-			<Sequence
-				from={seg7.start}
-				durationInFrames={seg7.duration}
-			>
-				<Audio src={audioFiles["ftp-and-sftp"]} />
-				<CrossFadeWrapper
-					totalDuration={seg7.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedComparisonSlide
-					title="FTP vs. SFTP"
-					leftTitle="FTP"
-					leftItems={[
-						"Standard protocol",
-						"No encryption",
-						"Simple transfers"
-					]}
-					rightTitle="SFTP"
-					rightItems={[
-						"Secure protocol",
-						"Encrypts data",
-						"Secure transfers"
-					]}
-					slideName="ftp-and-sftp"
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg7.start + seg7.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module03Diagram3 */}
+		<Sequence
+			from={11698}
+			durationInFrames={3039}
+		>
+			<Module03Diagram3
+				durationInFrames={3039}
+				cuePoints={[4, 44, 132, 231, 316, 374, 472, 537, 614, 675, 740, 847, 914, 1003, 1077, 1171, 1250, 1314, 1369, 1449, 1524, 1608, 1669, 1775, 1854, 1920, 1993, 2074, 2120, 2210, 2274, 2349, 2385, 2459, 2517, 2584, 2710, 2755, 2827, 2911, 2961]}
+			/>
+			<Audio src={audioFiles["module3-module-3-application"]} />
+		</Sequence>
 
-			{/* Email Protocols */}
-			<Sequence
-				from={seg8.start}
-				durationInFrames={seg8.duration}
-			>
-				<Audio src={audioFiles["email-protocols"]} />
-				<CrossFadeWrapper
-					totalDuration={seg8.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Email Protocols"
-					points={[
-						"SMTP, IMAP, and POP3",
-					"SMTP for outgoing mail"
-					]}
-					slideName="email-protocols"
-					audioDuration={seg8.audioDuration}
-					moduleNumber={3}
-					
-					
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={14737} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* Email Protocols */}
-			<Sequence
-				from={seg9.start}
-				durationInFrames={seg9.duration}
-			>
-				<Audio src={audioFiles["email-protocols"]} startFrom={Math.round(8.75 * fps)} />
-				<CrossFadeWrapper
-					totalDuration={seg9.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Email Protocols"
-					points={[
-						"IMAP and POP3 for incoming"
-					]}
-					slideName="email-protocols"
-					audioDuration={seg9.audioDuration}
-					moduleNumber={3}
-					
-					
-					audioStartOffset={8.75}
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg9.start + seg9.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module03Recap - module3-module-3-exam-mapping */}
+		<Sequence
+			from={14755}
+			durationInFrames={2229}
+		>
+			<Module03Recap
+				durationInFrames={2229}
+				cuePoints={[4, 61, 113, 181, 241, 293, 374, 426, 475, 527, 626, 695, 767, 824, 901, 972, 1063, 1206, 1320, 1422, 1519, 1591, 1662, 1767, 1854, 1943, 2036, 2064, 2143, 2232, 2291, 2344, 2400, 2484, 2544, 2582, 2639, 2690, 2773, 2876, 2934, 2988, 3036, 3116, 3191, 3271, 3338, 3408, 3491, 3598, 3657, 3725, 3787, 3858, 3914, 3961, 4057]}
+			/>
+			<Audio src={audioFiles["module3-module-3-exam-mapping"]} />
+		</Sequence>
 
-			{/* story-beat-protocols-recap */}
-			<Sequence
-				from={seg10.start}
-				durationInFrames={seg10.duration}
-			>
-				<Audio src={audioFiles["story-beat-protocols-recap"]} />
-				<CrossFadeWrapper
-					totalDuration={seg10.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title=""
-					points={[
-						
-					]}
-					slideName="story-beat-protocols-recap"
-					audioDuration={seg10.audioDuration}
-					moduleNumber={3}
-					
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg10.start + seg10.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* protocols-conclusion */}
-			<Sequence
-				from={seg11.start}
-				durationInFrames={seg11.duration}
-			>
-				<Audio src={audioFiles["protocols-conclusion"]} />
-				<CrossFadeWrapper
-					totalDuration={seg11.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={0}
-			>
-					<AnimatedContentSlide
-					title=""
-					points={[
-						
-					]}
-					slideName="protocols-conclusion"
-					audioDuration={seg11.audioDuration}
-					moduleNumber={3}
-					
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-
+		{/* Module03Recap - module3-module-3-recap */}
+		<Sequence
+			from={16984}
+			durationInFrames={1872}
+		>
+			<Module03Recap
+				durationInFrames={1872}
+				cuePoints={[]}
+			/>
+			<Audio src={audioFiles["module3-module-3-recap"]} />
+		</Sequence>
 		</div>
 	);
 };

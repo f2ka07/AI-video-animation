@@ -1,333 +1,128 @@
 import React from "react";
 import { Sequence, useVideoConfig, Audio, staticFile } from "remotion";
-import { TitleSlide } from "../components/TitleSlide";
-import { AnimatedContentSlide } from "../components/AnimatedContentSlide";
-import { AnimatedCodeSlide } from "../components/AnimatedCodeSlide";
-import { BulletsAndCodeSlide } from "../components/BulletsAndCodeSlide";
-import { AnimatedComparisonSlide } from "../components/AnimatedComparisonSlide";
-import { SequentialBulletSlide } from "../components/SequentialBulletSlide";
-import { CodeAndDiagram } from "../compositions/CodeAndDiagram";
-import { CrossFadeWrapper } from "../components/CrossFadeWrapper";
+import { getAudioDuration } from "../utils/audioDuration";
+import { Module05Intro } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module05/Module05Intro";
+import { Module05Diagram1 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module05/Module05Diagram1";
+import { Module05Diagram2 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module05/Module05Diagram2";
+import { Module05Diagram3 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module05/Module05Diagram3";
+import { Module05Recap } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module05/Module05Recap";
 
-// Auto-generated from moduleContent.ts - DO NOT EDIT MANUALLY
-
+// Auto-generated from course scene components - DO NOT EDIT MANUALLY
+// Course: agentic-ai-for-beginners, Module: 5
 export const Module5: React.FC = () => {
 	const { fps } = useVideoConfig();
-	const crossFadeDuration = 0.3;
-	const whooshDuration = 0.57;
 
 	const audioFiles = {
-		"importance-of-ai-security-measures": staticFile("audio/ai-security-crash-course-2026/module5-importance-of-ai-security-measures.wav"),
-		"layered-security-approach": staticFile("audio/ai-security-crash-course-2026/module5-layered-security-approach.wav"),
-		"example-layered-security": staticFile("audio/ai-security-crash-course-2026/module5-example-layered-security.wav"),
-		"encryption-techniques": staticFile("audio/ai-security-crash-course-2026/module5-encryption-techniques.wav"),
-		"access-control-mechanisms": staticFile("audio/ai-security-crash-course-2026/module5-access-control-mechanisms.wav"),
-		"monitoring-and-logging": staticFile("audio/ai-security-crash-course-2026/module5-monitoring-and-logging.wav"),
-		"real-world-implementation": staticFile("audio/ai-security-crash-course-2026/module5-real-world-implementation.wav"),
-		"the-road-to-secure-ai": staticFile("audio/ai-security-crash-course-2026/module5-the-road-to-secure-ai.wav"),
+		"module5-module-5-application": staticFile("audio/agentic-ai-for-beginners/module5-module-5-application.wav"),
+		"module5-module-5-architecture": staticFile("audio/agentic-ai-for-beginners/module5-module-5-architecture.wav"),
+		"module5-module-5-concept": staticFile("audio/agentic-ai-for-beginners/module5-module-5-concept.wav"),
+		"module5-module-5-exam-mapping": staticFile("audio/agentic-ai-for-beginners/module5-module-5-exam-mapping.wav"),
+		"module5-module-5-recap": staticFile("audio/agentic-ai-for-beginners/module5-module-5-recap.wav"),
+		"module5-module-5-title": staticFile("audio/agentic-ai-for-beginners/module5-module-5-title.wav"),
 		whoosh: staticFile("audio/whoosh.wav"),
 	};
-
-	const audioDurations = {
-		"importance-of-ai-security-measures": 15,
-		"layered-security-approach": 15,
-		"example-layered-security": 15,
-		"encryption-techniques": 15,
-		"access-control-mechanisms": 15,
-		"monitoring-and-logging": 15,
-		"real-world-implementation": 15,
-		"the-road-to-secure-ai": 15,
-	};
-
-	let currentFrame = 0;
-
-	const addSlide = (audioDuration: number, isLast: boolean = false, buffer: number = 0) => {
-		const slideDuration = audioDuration + buffer;
-		const start = currentFrame;
-		if (!isLast) {
-			currentFrame += (slideDuration + whooshDuration) * fps;
-		} else {
-			currentFrame += slideDuration * fps;
-		}
-		return { start, duration: slideDuration * fps, slideDuration, audioDuration, buffer };
-	};
-
-	const importance_of_ai_security_measuresSlide = addSlide(audioDurations["importance-of-ai-security-measures"], false, 1.0);
-	const layered_security_approachSlide = addSlide(audioDurations["layered-security-approach"], false, 1.0);
-	const example_layered_securitySlide = addSlide(audioDurations["example-layered-security"], false, 1.0);
-	const encryption_techniquesSlide = addSlide(audioDurations["encryption-techniques"], false, 1.0);
-	const access_control_mechanismsSlide = addSlide(audioDurations["access-control-mechanisms"], false, 1.0);
-	const monitoring_and_loggingSlide = addSlide(audioDurations["monitoring-and-logging"], false, 1.0);
-	const real_world_implementationSlide = addSlide(audioDurations["real-world-implementation"], false, 1.0);
-	const the_road_to_secure_aiSlide = addSlide(audioDurations["the-road-to-secure-ai"], true, 1.2);
 
 	return (
 		<div
 			style={{
 				width: "100%",
-			height: "100%",
-			background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
-			position: "relative",
-		}}
+				height: "100%",
+				background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
+				position: "relative",
+			}}
 		>
-			{/* Importance of AI Security Measures */}
-			<Sequence
-				from={importance_of_ai_security_measuresSlide.start}
-				durationInFrames={importance_of_ai_security_measuresSlide.duration}
-			>
-				<Audio src={audioFiles["importance-of-ai-security-measures"]} />
-				<CrossFadeWrapper
-					totalDuration={importance_of_ai_security_measuresSlide.slideDuration}
-					fadeInDuration={0.5}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<TitleSlide 
-					title="Implementing AI Security Measures" 
-					subtitle="Practical Techniques for Securing AI Systems"
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={importance_of_ai_security_measuresSlide.start + importance_of_ai_security_measuresSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
 
-			{/* Layered Security Approach */}
-			<Sequence
-				from={layered_security_approachSlide.start}
-				durationInFrames={layered_security_approachSlide.duration}
-			>
-				<Audio src={audioFiles["layered-security-approach"]} />
-				<CrossFadeWrapper
-					totalDuration={layered_security_approachSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Layered Security Approach"
-					points={[
-						"multiple defenses",
-					"protect AI systems",
-					"fortress analogy"
-					]}
-					slideName="layered-security-approach"
-					audioDuration={layered_security_approachSlide.audioDuration}
-					moduleNumber={5}
-					
-					
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={layered_security_approachSlide.start + layered_security_approachSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module05Intro */}
+		<Sequence
+			from={0}
+			durationInFrames={1872}
+		>
+			<Module05Intro
+				durationInFrames={1872}
+				cuePoints={[4, 57, 131, 189, 238, 324, 395, 509, 579, 644, 699, 802, 852, 936, 1031, 1100, 1152, 1223, 1292, 1365, 1446, 1528, 1595, 1682, 1769, 1797]}
+			/>
+			<Audio src={audioFiles["module5-module-5-title"]} />
+		</Sequence>
 
-			{/* Example: Layered Security */}
-			<Sequence
-				from={example_layered_securitySlide.start}
-				durationInFrames={example_layered_securitySlide.duration}
-			>
-				<Audio src={audioFiles["example-layered-security"]} />
-				<CrossFadeWrapper
-					totalDuration={example_layered_securitySlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Example: Layered Security"
-					code={`def layered_security(user, password, data):
-    if authenticate(user, password):
-        encrypted_data = encrypt_data(data)
-        log_access(user)
-        return encrypted_data
-    else:
-        return 'Access denied'
-# Layered security example`}
-					language="python"
-					slideName="example-layered-security"
-					audioStartFrame={example_layered_securitySlide.start}
-					audioDuration={example_layered_securitySlide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={example_layered_securitySlide.start + example_layered_securitySlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={1872} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* Encryption Techniques */}
-			<Sequence
-				from={encryption_techniquesSlide.start}
-				durationInFrames={encryption_techniquesSlide.duration}
-			>
-				<Audio src={audioFiles["encryption-techniques"]} />
-				<CrossFadeWrapper
-					totalDuration={encryption_techniquesSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<BulletsAndCodeSlide
-					title="Encryption Techniques"
-					points={[
-						"protecting data",
-						"symmetric and asymmetric",
-						"strong security"
-					]}
-					code={`from cryptography.fernet import Fernet
-key = Fernet.generate_key()
-cipher_suite = Fernet(key)
-plain_text = b'Sensitive data'
-cipher_text = cipher_suite.encrypt(plain_text)
-# Symmetric encryption example`}
-					language="python"
-					codeContext=""
-					slideName="encryption-techniques"
-					audioDuration={encryption_techniquesSlide.audioDuration}
-					moduleNumber={5}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={encryption_techniquesSlide.start + encryption_techniquesSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module05Diagram1 */}
+		<Sequence
+			from={1890}
+			durationInFrames={5662}
+		>
+			<Module05Diagram1
+				durationInFrames={5662}
+				cuePoints={[0, 79, 143, 212, 290, 358, 432, 558, 629, 693, 761, 820, 944, 1016, 1090, 1172, 1234, 1308, 1361, 1420, 1491, 1546, 1600, 1671, 1721, 1788, 1864, 1929, 1976, 2046, 2158, 2242, 2293, 2366, 2441, 2506, 2605, 2659, 2725, 2799, 2874, 2951, 3030, 3090, 3150, 3217, 3277, 3370, 3450, 3507, 3592, 3744, 3832, 3942, 3993, 4067, 4147, 4243, 4294, 4351, 4464, 4548, 4606, 4661, 4759, 4812, 4896, 4960, 5069, 5160, 5255, 5347, 5402, 5523, 5583, 5619]}
+			/>
+			<Audio src={audioFiles["module5-module-5-concept"]} />
+		</Sequence>
 
-			{/* Access Control Mechanisms */}
-			<Sequence
-				from={access_control_mechanismsSlide.start}
-				durationInFrames={access_control_mechanismsSlide.duration}
-			>
-				<Audio src={audioFiles["access-control-mechanisms"]} />
-				<CrossFadeWrapper
-					totalDuration={access_control_mechanismsSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Access Control Mechanisms"
-					points={[
-						"restrict access",
-					"role-based access",
-					"multi-factor authentication"
-					]}
-					slideName="access-control-mechanisms"
-					audioDuration={access_control_mechanismsSlide.audioDuration}
-					moduleNumber={5}
-					
-					
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={access_control_mechanismsSlide.start + access_control_mechanismsSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={7552} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* Monitoring and Logging */}
-			<Sequence
-				from={monitoring_and_loggingSlide.start}
-				durationInFrames={monitoring_and_loggingSlide.duration}
-			>
-				<Audio src={audioFiles["monitoring-and-logging"]} />
-				<CrossFadeWrapper
-					totalDuration={monitoring_and_loggingSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Monitoring and Logging"
-					points={[
-						"detecting incidents",
-					"tracking activities",
-					"identify suspicious behavior"
-					]}
-					slideName="monitoring-and-logging"
-					audioDuration={monitoring_and_loggingSlide.audioDuration}
-					moduleNumber={5}
-					
-					
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={monitoring_and_loggingSlide.start + monitoring_and_loggingSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module05Diagram2 */}
+		<Sequence
+			from={7570}
+			durationInFrames={3933}
+		>
+			<Module05Diagram2
+				durationInFrames={3933}
+				cuePoints={[0, 67, 149, 227, 290, 391, 510, 623, 704, 786, 860, 945, 1016, 1101, 1180, 1260, 1343, 1450, 1517, 1575, 1684, 1792, 1867, 1919, 2000, 2067, 2131, 2215, 2281, 2320, 2382, 2488, 2547, 2710, 2816, 2943, 3058, 3165, 3266, 3357, 3422, 3475, 3525, 3597, 3707, 3797, 3888]}
+			/>
+			<Audio src={audioFiles["module5-module-5-architecture"]} />
+		</Sequence>
 
-			{/* Real-World Implementation */}
-			<Sequence
-				from={real_world_implementationSlide.start}
-				durationInFrames={real_world_implementationSlide.duration}
-			>
-				<Audio src={audioFiles["real-world-implementation"]} />
-				<CrossFadeWrapper
-					totalDuration={real_world_implementationSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Real-World Implementation"
-					points={[
-						"real-world implementation",
-					"financial institution",
-					"reducing breach risks"
-					]}
-					slideName="real-world-implementation"
-					audioDuration={real_world_implementationSlide.audioDuration}
-					moduleNumber={5}
-					
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={real_world_implementationSlide.start + real_world_implementationSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={11503} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* The Road to Secure AI */}
-			<Sequence
-				from={the_road_to_secure_aiSlide.start}
-				durationInFrames={the_road_to_secure_aiSlide.duration}
-			>
-				<Audio src={audioFiles["the-road-to-secure-ai"]} />
-				<CrossFadeWrapper
-					totalDuration={the_road_to_secure_aiSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={0}
-			>
-					<TitleSlide 
-					title="Implementing AI Security Measures" 
-					subtitle="Practical Techniques for Securing AI Systems"
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
+		{/* Module05Diagram3 */}
+		<Sequence
+			from={11521}
+			durationInFrames={3625}
+		>
+			<Module05Diagram3
+				durationInFrames={3625}
+				cuePoints={[4, 93, 176, 259, 330, 362, 433, 498, 588, 653, 732, 788, 865, 945, 1011, 1067, 1126, 1180, 1257, 1310, 1366, 1443, 1541, 1618, 1708, 1766, 1800, 1869, 1939, 2068, 2178, 2243, 2351, 2409, 2480, 2575, 2684, 2781, 2875, 2969, 3036, 3147, 3244, 3310, 3396, 3487, 3580]}
+			/>
+			<Audio src={audioFiles["module5-module-5-application"]} />
+		</Sequence>
 
+		{/* Transition */}
+		<Sequence from={15146} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
+
+		{/* Module05Recap - module5-module-5-exam-mapping */}
+		<Sequence
+			from={15164}
+			durationInFrames={2495}
+		>
+			<Module05Recap
+				durationInFrames={2495}
+				cuePoints={[0, 41, 104, 193, 237, 313, 391, 451, 525, 600, 671, 770, 843, 928, 1040, 1138, 1263, 1335, 1412, 1454, 1516, 1584, 1666, 1802, 1895, 1952, 2041, 2151, 2236, 2336, 2436, 2499, 2537, 2635, 2700, 2791, 2877, 2967, 3039, 3101, 3185, 3245, 3328, 3412, 3499, 3601, 3700, 3783, 3856, 3938, 3996, 4055, 4144, 4207, 4241, 4317, 4374, 4433, 4494, 4575]}
+			/>
+			<Audio src={audioFiles["module5-module-5-exam-mapping"]} />
+		</Sequence>
+
+		{/* Module05Recap - module5-module-5-recap */}
+		<Sequence
+			from={17659}
+			durationInFrames={2114}
+		>
+			<Module05Recap
+				durationInFrames={2114}
+				cuePoints={[]}
+			/>
+			<Audio src={audioFiles["module5-module-5-recap"]} />
+		</Sequence>
 		</div>
 	);
 };

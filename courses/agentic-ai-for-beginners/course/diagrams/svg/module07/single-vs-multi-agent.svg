@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" width="1200" height="580">
+  <rect width="1200" height="580" fill="#f8fafc"/>
+  <text x="600" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="600" fill="#1e293b">Single-Agent vs Multi-Agent</text>
+
+  <g id="single-panel" class="part">
+    <rect x="60" y="70" width="480" height="460" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="60" y="70" width="480" height="44" rx="12" fill="#3b82f6"/>
+    <text x="300" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#ffffff">Single Agent</text>
+  </g>
+  <g id="single-loop" class="part">
+    <rect x="120" y="200" width="360" height="120" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="300" y="240" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#1e3a8a">One model, one loop</text>
+    <text x="300" y="268" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Coherent, sequential, simpler to deploy</text>
+    <text x="300" y="420" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Best when the problem fits one mind</text>
+  </g>
+
+  <g id="vs-label" class="part">
+    <text x="600" y="310" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#1e3a8a">vs</text>
+  </g>
+
+  <g id="multi-panel" class="part">
+    <rect x="660" y="70" width="480" height="460" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="660" y="70" width="480" height="44" rx="12" fill="#8b5cf6"/>
+    <text x="900" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#ffffff">Multi-Agent</text>
+  </g>
+  <g id="multi-planner" class="part">
+    <rect x="720" y="140" width="180" height="56" rx="8" fill="#8b5cf6"/>
+    <text x="810" y="174" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#ffffff">Planner</text>
+  </g>
+  <g id="multi-research" class="part">
+    <rect x="920" y="140" width="180" height="56" rx="8" fill="#3b82f6"/>
+    <text x="1010" y="174" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#ffffff">Research</text>
+  </g>
+  <g id="multi-writer" class="part">
+    <rect x="720" y="220" width="180" height="56" rx="8" fill="#10b981"/>
+    <text x="810" y="254" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#ffffff">Writer</text>
+  </g>
+  <g id="multi-critic" class="part">
+    <rect x="920" y="220" width="180" height="56" rx="8" fill="#f59e0b"/>
+    <text x="1010" y="254" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#0f172a">Critic</text>
+  </g>
+  <g id="scenario-support" class="part">
+    <rect x="700" y="320" width="400" height="180" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="900" y="352" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#0f172a">Exam scenario: customer support</text>
+    <text x="900" y="380" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Triage | Retrieve | Draft | Escalate</text>
+    <text x="900" y="410" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Multi-agent: distinct capabilities need specialization</text>
+  </g>
+</svg>

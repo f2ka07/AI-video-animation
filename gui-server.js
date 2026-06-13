@@ -11,6 +11,78 @@ const multer = require('multer');
 // Load environment variables from .env file
 require('dotenv').config();
 
+const crypto = require('crypto');
+const { getCpuCount, getOptimalRenderConcurrency } = require('./scripts/lib/renderConcurrency.js');
+const {
+	detachArchivedCourse,
+	applyCourseDeployPolicy,
+	getActivatedCourseId,
+} = require('./scripts/lib/courseDeployPolicy.js');
+
+function requiresAuth() {
+	return Boolean(process.env.GUI_AUTH_PASSWORD);
+}
+
+function getSessionSecret() {
+	if (process.env.GUI_SESSION_SECRET) {
+		return process.env.GUI_SESSION_SECRET;
+	}
+	if (process.env.GUI_AUTH_PASSWORD) {
+		return crypto
+			.createHash('sha256')
+			.update(`${process.env.GUI_AUTH_PASSWORD}:gui-session`)
+			.digest('hex');
+	}
+	return null;
+}
+
+function isAuthenticated(req) {
+	if (!requiresAuth()) {
+		return true;
+	}
+	const secret = getSessionSecret();
+	const token = req.headers['x-gui-token'];
+	if (secret && token && token === secret) {
+		return true;
+	}
+	const header = req.headers.authorization || '';
+	if (header.startsWith('Basic ')) {
+		const decoded = Buffer.from(header.slice(6), 'base64').toString();
+		const colon = decoded.indexOf(':');
+		const user = colon >= 0 ? decoded.slice(0, colon) : decoded;
+		const pass = colon >= 0 ? decoded.slice(colon + 1) : '';
+		const expectedUser = process.env.GUI_AUTH_USERNAME || 'admin';
+		if (user === expectedUser && pass === process.env.GUI_AUTH_PASSWORD) {
+			return true;
+		}
+	}
+	return false;
+}
+
+const AUTH_OPEN_EXACT = new Set(['/api/health', '/api/auth/status', '/login.html', '/auth-guard.js', '/styles.css']);
+
+function guiAuthMiddleware(req, res, next) {
+	if (!requiresAuth()) {
+		return next();
+	}
+	if (req.method === 'OPTIONS') {
+		return next();
+	}
+	if (req.path === '/api/auth/login' && req.method === 'POST') {
+		return next();
+	}
+	if (AUTH_OPEN_EXACT.has(req.path)) {
+		return next();
+	}
+	if (isAuthenticated(req)) {
+		return next();
+	}
+	if (req.path.startsWith('/api/')) {
+		return res.status(401).json({ error: 'Unauthorized', authRequired: true });
+	}
+	return res.redirect(302, '/login.html');
+}
+
 // Configure multer for audio uploads
 const audioUpload = multer({ 
 	dest: path.join(__dirname, 'public', 'audio', 'temp'),
@@ -28,6 +100,7 @@ const PORT = 3001;
 
 app.use(cors());
 app.use(express.json());
+app.use(guiAuthMiddleware);
 // Disable caching for GUI HTML/JS/CSS so changes are visible without hard refresh
 app.use((req, res, next) => {
 	if (/\.(html|js|css)$/.test(req.path)) {
@@ -59,6 +132,61 @@ function readCoursesJson() {
 		courses: [{ id: 'default', title: 'Default Course', description: '', moduleCount: 0, status: 'active', archivedAt: null }],
 		courseModuleMapping: { 'default': [] }
 	};
+}
+
+function getCourseRecord(courseId) {
+	const data = readCoursesJson();
+	return data.courses?.find((c) => c.id === courseId) || null;
+}
+
+function courseUsesSceneVisuals(courseId) {
+	const course = getCourseRecord(courseId);
+	if (course?.visualMode === 'scenes') return true;
+	const scenesPath = path.join(__dirname, 'courses', courseId, 'course', 'remotion', 'scenes');
+	return fs.existsSync(scenesPath);
+}
+
+function getCourseAudioMode(courseId) {
+	const course = getCourseRecord(courseId);
+	if (course?.audioMode) return course.audioMode;
+	if (courseUsesSceneVisuals(courseId)) return 'per-module';
+	return 'per-slide';
+}
+
+// Remove auto-Mermaid from slide-splits (scene courses use SVG scenes, not Mermaid)
+function stripMermaidFromSlideSplits(courseId) {
+	const splitsPath = path.join(__dirname, 'courses', courseId, 'slide-splits.json');
+	if (!fs.existsSync(splitsPath)) return 0;
+	let splits;
+	try {
+		splits = JSON.parse(fs.readFileSync(splitsPath, 'utf-8'));
+	} catch {
+		return 0;
+	}
+	let stripped = 0;
+	for (const key of Object.keys(splits)) {
+		if (key.startsWith('_')) continue;
+		const entry = splits[key];
+		if (!entry || typeof entry !== 'object') continue;
+		if (Array.isArray(entry.segments)) {
+			for (const seg of entry.segments) {
+				if (seg && seg.mermaidSource) {
+					delete seg.mermaidSource;
+					stripped++;
+				}
+			}
+		}
+	}
+	if (stripped > 0) {
+		fs.writeFileSync(splitsPath, JSON.stringify(splits, null, 2), 'utf-8');
+		try {
+			execSync('npx tsx scripts/syncSlideSplitsToTs.ts', { cwd: __dirname, stdio: 'pipe' });
+		} catch (e) {
+			console.warn('[stripMermaid] syncSlideSplitsToTs failed:', e?.message || e);
+		}
+		console.log(`[stripMermaid] Removed ${stripped} mermaid segment(s) from ${courseId}`);
+	}
+	return stripped;
 }
 
 // Helper: Get module range string for a course (e.g. "1-12" or "1,2,3")
@@ -105,6 +233,78 @@ function getActiveCourseFromModuleContent() {
 		console.error('[getActiveCourse] Error reading moduleContent.ts:', e.message);
 	}
 	return null;
+}
+
+function resolveCourseIdForGeneration(requestedCourseId) {
+	return requestedCourseId || getActiveCourseFromModuleContent();
+}
+
+function runActivateCourseScript(courseId) {
+	const courseDir = path.join(__dirname, 'courses', courseId);
+	const contentJsonPath = path.join(courseDir, 'content.json');
+	const scriptsDir = path.join(courseDir, 'course/scripts');
+
+	if (courseUsesSceneVisuals(courseId)) {
+		stripMermaidFromSlideSplits(courseId);
+	}
+
+	if (fs.existsSync(contentJsonPath)) {
+		return execSync(`npx tsx scripts/activateCourse.ts ${courseId}`, {
+			cwd: __dirname,
+			stdio: 'pipe',
+			encoding: 'utf-8',
+		});
+	}
+	if (fs.existsSync(scriptsDir)) {
+		return execSync(`npx tsx scripts/activateCourseFromSSML.ts ${courseId}`, {
+			cwd: __dirname,
+			stdio: 'pipe',
+			encoding: 'utf-8',
+		});
+	}
+	throw new Error(`Course not found: ${courseId}. Expected content.json or course/scripts/`);
+}
+
+function runSceneModuleGeneration(courseId, moduleRange) {
+	const range = moduleRange || getModuleRangeForCourse(courseId) || '1-6';
+	console.log(`[scene-modules] Generating from SVG scenes for ${courseId} (${range})`);
+	return execSync(`npx tsx scripts/generateModulesFromScenes.ts ${courseId} ${range}`, {
+		cwd: __dirname,
+		stdio: 'pipe',
+		encoding: 'utf-8',
+	});
+}
+
+// Ensure moduleContent.ts matches the requested course (writes to disk, copies timings)
+function ensureCourseActiveSync(courseId) {
+	const activeCourseId = getActiveCourseFromModuleContent();
+	if (activeCourseId === courseId) {
+		return { alreadyActive: true, courseId };
+	}
+
+	console.log(`[ensureCourseActive] Activating "${courseId}" (was "${activeCourseId || 'none'}")`);
+
+	runActivateCourseScript(courseId);
+
+	const verified = getActiveCourseFromModuleContent();
+	if (verified !== courseId) {
+		throw new Error(`Activation failed: expected "${courseId}" in moduleContent.ts, found "${verified || 'none'}"`);
+	}
+
+	return { alreadyActive: false, courseId };
+}
+
+function clearRemotionWebpackCache() {
+	const cacheDir = path.join(__dirname, 'node_modules', '.cache');
+	if (fs.existsSync(cacheDir)) {
+		fs.rmSync(cacheDir, { recursive: true, force: true });
+		console.log('[clearRemotionCache] Removed node_modules/.cache');
+	}
+	const remotionDir = path.join(__dirname, '.remotion');
+	if (fs.existsSync(remotionDir)) {
+		fs.rmSync(remotionDir, { recursive: true, force: true });
+		console.log('[clearRemotionCache] Removed .remotion');
+	}
 }
 
 // Helper: Write courses to courses.json
@@ -1143,44 +1343,20 @@ app.post('/api/courses/:id/archive', (req, res) => {
 		
 		console.log(`[archive] Archiving course: ${courseId}`);
 		
-		// Step 1: Remove course from Remotion by clearing moduleContent.ts and public/timings/
-		// This ensures the archived course doesn't appear in Remotion Studio
+		const wasActivated = getActivatedCourseId(__dirname) === courseId;
+		
+		// Step 1: Detach from runtime, git deploy, and Remotion (if this was the activated course)
 		try {
-			const moduleContentPath = path.join(__dirname, 'src', 'videos', 'moduleContent.ts');
-			const publicTimingsDir = path.join(__dirname, 'public', 'timings');
-			
-			// Check if this is the currently active course in moduleContent.ts
-			if (fs.existsSync(moduleContentPath)) {
-				const moduleContent = fs.readFileSync(moduleContentPath, 'utf-8');
-				// If this course is referenced in moduleContent.ts, we need to clear it
-				// But we should only clear if this is the ONLY active course
-				// For now, we'll just mark it as archived and let activation of another course replace it
-				console.log(`[archive] Note: moduleContent.ts will be replaced when another course is activated`);
-			}
-			
-			// Clear timings for this course from public/timings/
-			if (fs.existsSync(publicTimingsDir)) {
-				const timingFiles = fs.readdirSync(publicTimingsDir).filter(f => f.endsWith('.json'));
-				// Remove timings that belong to this course (they typically have course/module identifiers)
-				// For now, we'll clear all timings - the next activation will restore the active course's timings
-				let removedCount = 0;
-				for (const file of timingFiles) {
-					// Check if file belongs to this course (filename patterns vary)
-					// For safety, we'll remove all and let activation restore the active course
-					try {
-						fs.unlinkSync(path.join(publicTimingsDir, file));
-						removedCount++;
-					} catch (e) {
-						console.warn(`[archive] Could not remove timing file ${file}:`, e.message);
-					}
-				}
-				if (removedCount > 0) {
-					console.log(`[archive] Removed ${removedCount} timing files from public/timings/`);
-				}
+			const detachResult = detachArchivedCourse(__dirname, courseId, {
+				pruneGit: true,
+				clearModuleContent: true,
+			});
+			console.log(`[archive] Detached runtime paths: ${detachResult.runtimeRemoved.join(', ') || '(none)'}`);
+			if (wasActivated) {
+				console.log('[archive] Cleared activated moduleContent.ts and public/timings/');
 			}
 		} catch (deactivateError) {
-			console.warn('[archive] Warning: Could not fully deactivate from Remotion:', deactivateError.message);
-			// Continue with archiving even if deactivation fails
+			console.warn('[archive] Warning: Could not fully detach course:', deactivateError.message);
 		}
 		
 		// Step 2: Archive the course in courses.json
@@ -1195,9 +1371,13 @@ app.post('/api/courses/:id/archive', (req, res) => {
 		
 		res.json({ 
 			success: true, 
-			message: `Course "${data.courses[courseIndex].title}" has been archived and removed from Remotion`,
+			message: `Course "${data.courses[courseIndex].title}" archived and detached from deploy`,
 			course: data.courses[courseIndex],
-			note: 'Restart Remotion Studio to see changes'
+			detachedFromGit: true,
+			wasActivated,
+			note: wasActivated
+				? 'Activate another course before rendering. Commit after running: npm run sync:deploy-policy -- --prune-git'
+				: 'Archived course removed from git deploy policy. Commit after running: npm run sync:deploy-policy -- --prune-git'
 		});
 	} catch (error) {
 		console.error('Error archiving course:', error);
@@ -1439,15 +1619,17 @@ app.post('/api/courses/:id/restore', async (req, res) => {
 		if (!writeCoursesJson(data)) {
 			return res.status(500).json({ error: 'Failed to save course data' });
 		}
+
+		applyCourseDeployPolicy(__dirname, { activatedCourseId: courseId, pruneGit: true });
 		
 		res.json({
 			success: true,
-			message: `Course "${courseName}" has been restored and activated`,
+			message: `Course "${courseName}" has been restored, activated, and set as deployable course`,
 			course: data.courses[courseIndex],
 			courseId,
 			modulesGenerated,
 			timingsCopied,
-			note: 'Restart Remotion Studio to see changes'
+			note: 'Only this course is deployable to git. Commit after: npm run sync:deploy-policy -- --prune-git'
 		});
 		
 	} catch (error) {
@@ -1456,189 +1638,35 @@ app.post('/api/courses/:id/restore', async (req, res) => {
 	}
 });
 
-// API: Activate a course (copy timings to public/, regenerate modules)
+// API: Activate a course (scene-safe: uses activateCourse.ts script)
 app.post('/api/courses/:id/activate', (req, res) => {
 	const courseId = req.params.id;
 	console.log(`[activate] Activating course: ${courseId}`);
-	
+
 	const courseDir = path.join(__dirname, 'courses', courseId);
 	const contentJsonPath = path.join(courseDir, 'content.json');
-	const timingsDir = path.join(courseDir, 'timings');
-	const publicTimingsDir = path.join(__dirname, 'public', 'timings');
-	
-	// Check if course exists
-	if (!fs.existsSync(contentJsonPath)) {
-		return res.status(404).json({ 
+	const scriptsDir = path.join(courseDir, 'course', 'scripts');
+
+	if (!fs.existsSync(contentJsonPath) && !fs.existsSync(scriptsDir)) {
+		return res.status(404).json({
 			error: `Course not found: ${courseId}`,
-			details: `Expected content.json at: ${contentJsonPath}`
+			details: `Expected content.json or course/scripts/ under courses/${courseId}/`,
 		});
 	}
-	
-	try {
-		// Step 1: Load content.json
-		const plan = JSON.parse(fs.readFileSync(contentJsonPath, 'utf-8'));
-		console.log(`[activate] Loaded: ${plan.courseName} (${plan.modules?.length || 0} modules)`);
-		
-		// Step 2: Generate moduleContent.ts
-		const moduleContentPath = path.join(__dirname, 'src', 'videos', 'moduleContent.ts');
-		
-		// Backup existing file
-		if (fs.existsSync(moduleContentPath)) {
-			const backupPath = moduleContentPath.replace('.ts', `.backup.${Date.now()}.ts`);
-			fs.copyFileSync(moduleContentPath, backupPath);
-			console.log(`[activate] Backed up to: ${path.basename(backupPath)}`);
-		}
-		
-		// Generate moduleContent.ts code
-		const lines = [
-			`// Auto-generated course content by activateCourse API`,
-			`// Course: ${plan.courseName}`,
-			`// Course ID: ${courseId}`,
-			`// Activated: ${new Date().toISOString()}`,
-			``,
-			`export interface SlideContent {`,
-			`	name: string;`,
-			`	type: "title" | "content-two-card" | "content-single" | "code" | "code-diagram" | "comparison" | "story-beat";`,
-			`	script?: string;`,
-			`	scripts?: string[];`,
-			`	title?: string;`,
-			`	subtitle?: string;`,
-			`	points?: string[];`,
-			`	code?: string;`,
-			`	language?: string;`,
-			`	imageSrc?: string;`,
-			`	leftTitle?: string;`,
-			`	leftItems?: string[];`,
-			`	rightTitle?: string;`,
-			`	rightItems?: string[];`,
-			`	scene?: string;`,
-			`	visibleLineRange?: [number, number];`,
-			`	codeContext?: string;`,
-			`	filePath?: string;`,
-			`	beat?: string;`,
-			`}`,
-			``,
-			`export interface ModuleContent {`,
-			`	moduleNumber: number;`,
-			`	courseId: string;`,
-			`	title: string;`,
-			`	subtitle: string;`,
-			`	slides: SlideContent[];`,
-			`}`,
-			``
-		];
-		
-		for (const mod of plan.modules) {
-			lines.push(`export const module${mod.moduleNumber}Content: ModuleContent = {`);
-			lines.push(`	moduleNumber: ${mod.moduleNumber},`);
-			lines.push(`	courseId: ${JSON.stringify(courseId)},`);
-			lines.push(`	title: ${JSON.stringify(mod.title)},`);
-			lines.push(`	subtitle: ${JSON.stringify(mod.subtitle)},`);
-			lines.push(`	slides: [`);
-			
-			for (const slide of mod.slides) {
-				lines.push(`		{`);
-				lines.push(`			name: ${JSON.stringify(slide.name)},`);
-				lines.push(`			type: ${JSON.stringify(slide.type)},`);
-				if (slide.scripts && slide.scripts.length >= 1) {
-					lines.push(`			scripts: ${JSON.stringify(slide.scripts)},`);
-					lines.push(`			script: undefined,`);
-				} else {
-					lines.push(`			script: ${JSON.stringify(slide.script || '')},`);
-				}
-				if (slide.title) lines.push(`			title: ${JSON.stringify(slide.title)},`);
-				if (slide.subtitle) lines.push(`			subtitle: ${JSON.stringify(slide.subtitle)},`);
-				if (slide.points) lines.push(`			points: ${JSON.stringify(slide.points)},`);
-				if (slide.code) lines.push(`			code: ${JSON.stringify(slide.code)},`);
-				if (slide.language) lines.push(`			language: ${JSON.stringify(slide.language)},`);
-				if (slide.imageSrc) lines.push(`			imageSrc: ${JSON.stringify(slide.imageSrc)},`);
-				if (slide.leftTitle) lines.push(`			leftTitle: ${JSON.stringify(slide.leftTitle)},`);
-				if (slide.leftItems) lines.push(`			leftItems: ${JSON.stringify(slide.leftItems)},`);
-			if (slide.rightTitle) lines.push(`			rightTitle: ${JSON.stringify(slide.rightTitle)},`);
-			if (slide.rightItems) lines.push(`			rightItems: ${JSON.stringify(slide.rightItems)},`);
-			if (slide.visibleLineRange) lines.push(`			visibleLineRange: ${JSON.stringify(slide.visibleLineRange)},`);
-			if (slide.codeContext) lines.push(`			codeContext: ${JSON.stringify(slide.codeContext)},`);
-			if (slide.filePath) lines.push(`			filePath: ${JSON.stringify(slide.filePath)},`);
-			if (slide.beat) lines.push(`			beat: ${JSON.stringify(slide.beat)},`);
-				
-				lines.push(`		},`);
-			}
-			
-			lines.push(`	]`);
-			lines.push(`};`);
-			lines.push(``);
-		}
-		
-		const moduleNames = plan.modules.map(m => `module${m.moduleNumber}Content`);
-		lines.push(`export const allModules: ModuleContent[] = [`);
-		lines.push(`	${moduleNames.join(',\n\t')}`);
-		lines.push(`];`);
-		
-		fs.writeFileSync(moduleContentPath, lines.join('\n'));
-		console.log(`[activate] Written: moduleContent.ts`);
 
-		// Map author bullets to phrase times (ensures bullet highlights sync with narration)
-		try {
-			execSync(`npx tsx scripts/mapPhraseTimes.ts ${courseId} all`, { cwd: __dirname, stdio: 'pipe' });
-		} catch (e) {
-			console.warn('[activate] mapPhraseTimes skipped:', e?.message || e);
-		}
-		
-		// Step 3: Copy timings to public/timings/
-		if (!fs.existsSync(publicTimingsDir)) {
-			fs.mkdirSync(publicTimingsDir, { recursive: true });
-		}
-		
-		// Clear existing timings
-		const existingFiles = fs.readdirSync(publicTimingsDir).filter(f => f.endsWith('.json'));
-		for (const file of existingFiles) {
-			fs.unlinkSync(path.join(publicTimingsDir, file));
-		}
-		console.log(`[activate] Cleared ${existingFiles.length} existing timing files`);
-		
-		// Copy course timings
-		let timingsCopied = 0;
-		if (fs.existsSync(timingsDir)) {
-			const timingFiles = fs.readdirSync(timingsDir).filter(f => f.endsWith('.json'));
-			for (const file of timingFiles) {
-				fs.copyFileSync(
-					path.join(timingsDir, file),
-					path.join(publicTimingsDir, file)
-				);
-				timingsCopied++;
-			}
-			console.log(`[activate] Copied ${timingsCopied} timing files`);
-		}
-		
-		// Step 3.5: Align diagram phases (generate animation specs, copy SVGs)
-		try {
-			execSync(`npx tsx scripts/generateAnimationSpecs.ts ${courseId}`, { cwd: __dirname, stdio: 'pipe' });
-			execSync(`npx tsx scripts/copySvgsToPublic.ts ${courseId}`, { cwd: __dirname, stdio: 'pipe' });
-			console.log('[activate] Diagram phases aligned');
-		} catch (alignErr) {
-			console.warn('[activate] Align diagram phases skipped or failed:', alignErr?.message || alignErr);
-		}
-		
-		// Step 4: Update courses.json
-		const coursesData = readCoursesJson();
-		const courseIndex = coursesData.courses.findIndex(c => c.id === courseId);
-		if (courseIndex >= 0) {
-			if (coursesData.courses[courseIndex].status === 'archived') {
-				coursesData.courses[courseIndex].status = 'active';
-				coursesData.courses[courseIndex].archivedAt = null;
-			}
-		}
-		writeCoursesJson(coursesData);
-		
+	try {
+		const output = runActivateCourseScript(courseId);
+		applyCourseDeployPolicy(__dirname, { activatedCourseId: courseId, pruneGit: false });
 		res.json({
 			success: true,
-			message: `Course "${courseId}" activated successfully`,
+			message: courseUsesSceneVisuals(courseId)
+				? `Course "${courseId}" activated with SVG scene modules (not GenericModule)`
+				: `Course "${courseId}" activated successfully`,
 			courseId,
-			modulesGenerated: plan.modules.length,
-			timingsCopied,
-			note: 'Restart Remotion Studio to see changes'
+			visualMode: courseUsesSceneVisuals(courseId) ? 'scenes' : 'slides',
+			output: output || undefined,
+			note: 'Restart Remotion Studio. Before git push: npm run sync:deploy-policy -- --prune-git',
 		});
-		
 	} catch (error) {
 		console.error('[activate] Error:', error);
 		res.status(500).json({ error: error.message });
@@ -2351,27 +2379,29 @@ function validateBeforeModuleGeneration(course, moduleRange) {
 // API: Generate modules
 app.post('/api/generate-modules', (req, res) => {
 	let { moduleRange, course, audioMode } = req.body;
-	
+	course = resolveCourseIdForGeneration(course);
+
 	console.log(`[generate-modules] Received request:`, {
 		moduleRange,
 		course,
 		audioMode,
 		bodyKeys: Object.keys(req.body)
 	});
+
+	if (!course) {
+		return res.status(400).json({
+			error: 'Course is required',
+			details: 'Select a video/course before generating modules. Plain GenericModule generation without a course is disabled.',
+		});
+	}
 	
 	// Derive audioMode from course when not provided (match regenerate-modules behavior)
-	if (course && !audioMode) {
-		try {
-			const coursesData = readCoursesJson();
-			const c = coursesData.courses?.find(x => x.id === course);
-			if (c && c.audioMode) audioMode = c.audioMode;
-		} catch (e) {
-			console.error('Error reading course audio mode:', e);
-		}
+	if (!audioMode) {
+		audioMode = getCourseAudioMode(course);
 	}
 	
 	// If course is provided, get module range from course
-	let finalModuleRange = moduleRange || (course ? getModuleRangeForCourse(course) : null);
+	let finalModuleRange = moduleRange || getModuleRangeForCourse(course);
 	
 	// Pre-flight validation: Check audio files and durations before generating modules
 	const validation = validateBeforeModuleGeneration(course, finalModuleRange);
@@ -2387,28 +2417,27 @@ app.post('/api/generate-modules', (req, res) => {
 		console.warn('[generate-modules] Pre-flight warnings:', validation.warnings);
 	}
 	
-	// Choose script based on audio mode
+	const useScenes = courseUsesSceneVisuals(course);
+	if (useScenes) {
+		audioMode = 'per-module';
+		stripMermaidFromSlideSplits(course);
+		console.log(`[generate-modules] Scene course "${course}" - using SVG scene generator only`);
+	}
+
+	// Choose script based on visual mode / audio mode
 	let scriptPath;
 	let scriptArgs;
 	
-	console.log(`[generate-modules] Checking audioMode: "${audioMode}" (type: ${typeof audioMode}), course: "${course}"`);
-	
-	if (audioMode === 'per-module' && course) {
-		// Use scene-based generator for per-module mode
+	console.log(`[generate-modules] Checking audioMode: "${audioMode}", course: "${course}", useScenes: ${useScenes}`);
+
+	if (useScenes || (audioMode === 'per-module' && course)) {
 		scriptPath = path.join(__dirname, 'scripts', 'generateModulesFromScenes.ts');
-		scriptArgs = `${course} ${finalModuleRange || '1-6'}`;
-		console.log(`[generate-modules] ✓ Using scene-based generator for ${course} with range: ${finalModuleRange || '1-6'}`);
+		scriptArgs = `${course} ${finalModuleRange || getModuleRangeForCourse(course) || '1-6'}`;
+		console.log(`[generate-modules] Using scene-based generator for ${course} with range: ${finalModuleRange || '1-6'}`);
 	} else {
-		// Use standard slide-based generator for per-slide mode
 		scriptPath = path.join(__dirname, 'scripts', 'generateModulesFromContent.ts');
 		scriptArgs = finalModuleRange || 'all';
-		console.log(`[generate-modules] ✓ Using slide-based generator with range: ${finalModuleRange || 'all'}`);
-		if (audioMode !== 'per-module') {
-			console.log(`[generate-modules]   Reason: audioMode is not 'per-module' (got: "${audioMode}")`);
-		}
-		if (!course) {
-			console.log(`[generate-modules]   Reason: course is missing (got: "${course}")`);
-		}
+		console.log(`[generate-modules] Using slide-based generator with range: ${finalModuleRange || 'all'}`);
 	}
 	
 	const command = `npx tsx "${scriptPath}" ${scriptArgs}`;
@@ -2850,13 +2879,20 @@ app.post('/api/regenerate-modules', (req, res) => {
 	
 	let finalModuleRange = moduleRange || (courseId ? getModuleRangeForCourse(courseId) : null);
 	
-	// Choose script based on audio mode
+	// Choose script based on audio mode / visual mode
 	let scriptPath;
 	let scriptArgs;
-	
-	if (audioMode === 'per-module' && courseId) {
+
+	const useScenes = courseId && courseUsesSceneVisuals(courseId);
+	if (useScenes) {
+		audioMode = 'per-module';
+		stripMermaidFromSlideSplits(courseId);
+	}
+
+	if ((audioMode === 'per-module' && courseId) || useScenes) {
 		scriptPath = path.join(__dirname, 'scripts', 'generateModulesFromScenes.ts');
-		scriptArgs = `${courseId} ${finalModuleRange || '1-6'}`;
+		scriptArgs = `${courseId} ${finalModuleRange || getModuleRangeForCourse(courseId) || '1-6'}`;
+		console.log(`[regenerate-modules] Scene course - using generateModulesFromScenes for ${courseId}`);
 	} else {
 		scriptPath = path.join(__dirname, 'scripts', 'generateModulesFromContent.ts');
 		scriptArgs = finalModuleRange || 'all';
@@ -2888,17 +2924,27 @@ app.post('/api/regenerate-modules', (req, res) => {
 	};
 	
 	if (courseId) {
-		const genSpecPath = path.join(__dirname, 'scripts', 'generateAnimationSpecs.ts');
 		const copyPath = path.join(__dirname, 'scripts', 'copySvgsToPublic.ts');
-		exec(`npx tsx "${genSpecPath}" ${courseId}`, { cwd: __dirname, maxBuffer: 10 * 1024 * 1024 }, (err1, out1, stderr1) => {
-			if (err1) {
-				console.warn('align-diagram-phases (pre-regenerate):', err1.message);
-			}
+		const runAfterAssets = () => runModuleGen();
+
+		if (useScenes) {
+			console.log('[regenerate-modules] Scene course - skipping generateAnimationSpecs (hand-tuned .animation.json)');
 			exec(`npx tsx "${copyPath}" ${courseId}`, { cwd: __dirname, maxBuffer: 10 * 1024 * 1024 }, (err2) => {
 				if (err2) console.warn('copySvgsToPublic (pre-regenerate):', err2.message);
-				runModuleGen();
+				runAfterAssets();
 			});
-		});
+		} else {
+			const genSpecPath = path.join(__dirname, 'scripts', 'generateAnimationSpecs.ts');
+			exec(`npx tsx "${genSpecPath}" ${courseId}`, { cwd: __dirname, maxBuffer: 10 * 1024 * 1024 }, (err1) => {
+				if (err1) {
+					console.warn('align-diagram-phases (pre-regenerate):', err1.message);
+				}
+				exec(`npx tsx "${copyPath}" ${courseId}`, { cwd: __dirname, maxBuffer: 10 * 1024 * 1024 }, (err2) => {
+					if (err2) console.warn('copySvgsToPublic (pre-regenerate):', err2.message);
+					runAfterAssets();
+				});
+			});
+		}
 	} else {
 		runModuleGen();
 	}
@@ -2909,6 +2955,13 @@ app.post('/api/align-diagram-phases', (req, res) => {
 	const { courseId } = req.body;
 	if (!courseId) {
 		return res.status(400).json({ error: 'courseId required' });
+	}
+	if (courseUsesSceneVisuals(courseId)) {
+		return res.status(400).json({
+			error: 'Diagram pipeline disabled for SVG scene courses',
+			details: 'This course uses hand-tuned SVG scenes and .animation.json files. Use Activate Course or Regenerate Modules (Per-module) instead of align-diagram-phases.',
+			visualMode: 'scenes',
+		});
 	}
 	const genSpecPath = path.join(__dirname, 'scripts', 'generateAnimationSpecs.ts');
 	const copyPath = path.join(__dirname, 'scripts', 'copySvgsToPublic.ts');
@@ -3043,8 +3096,20 @@ app.get('/api/export-scripts', (req, res) => {
 	}
 });
 
-// Voice Settings File
-const voiceSettingsPath = path.join(__dirname, 'voice-settings.json');
+// Voice Settings File (workspace/config with legacy root fallback)
+function resolveVoiceSettingsPath() {
+	const workspacePath = path.join(__dirname, 'workspace', 'config', 'voice-settings.json');
+	const legacyPath = path.join(__dirname, 'voice-settings.json');
+	if (fs.existsSync(workspacePath)) {
+		return workspacePath;
+	}
+	if (fs.existsSync(legacyPath)) {
+		return legacyPath;
+	}
+	return workspacePath;
+}
+
+const voiceSettingsPath = resolveVoiceSettingsPath();
 
 function loadVoiceSettings() {
 	try {
@@ -3062,6 +3127,10 @@ function loadVoiceSettings() {
 }
 
 function saveVoiceSettings(settings) {
+	const dir = path.dirname(voiceSettingsPath);
+	if (!fs.existsSync(dir)) {
+		fs.mkdirSync(dir, { recursive: true });
+	}
 	fs.writeFileSync(voiceSettingsPath, JSON.stringify(settings, null, 2));
 }
 
@@ -3156,6 +3225,9 @@ app.get('/api/check-scene-components', (req, res) => {
 			hasScenes: sceneCount > 0,
 			sceneCount,
 			moduleCount,
+			visualMode: getCourseRecord(courseId)?.visualMode || (sceneCount > 0 ? 'scenes' : 'slides'),
+			audioMode: getCourseAudioMode(courseId),
+			usesSceneVisuals: courseUsesSceneVisuals(courseId),
 			scenesPath: `courses/${courseId}/course/remotion/scenes/`
 		});
 	} catch (error) {
@@ -4892,7 +4964,11 @@ app.get('/api/workflow-status', (req, res) => {
 		const classificationPath = path.join(courseDir, 'slide-visual-classification.json');
 		const splitsPath = path.join(courseDir, 'slide-splits.json');
 		let diagramPipelineComplete = false;
-		if (fs.existsSync(classificationPath) && fs.existsSync(splitsPath)) {
+		if (courseUsesSceneVisuals(courseId)) {
+			// Scene courses use SVG scenes, not Mermaid pipeline
+			const scenesPath = path.join(courseDir, 'course', 'remotion', 'scenes');
+			diagramPipelineComplete = fs.existsSync(scenesPath);
+		} else if (fs.existsSync(classificationPath) && fs.existsSync(splitsPath)) {
 			try {
 				const splits = JSON.parse(fs.readFileSync(splitsPath, 'utf-8'));
 				diagramPipelineComplete = Object.values(splits).some((v) => {
@@ -4903,6 +4979,8 @@ app.get('/api/workflow-status', (req, res) => {
 			} catch (e) { /* ignore */ }
 		}
 		workflowStatus.summary.diagramPipelineComplete = diagramPipelineComplete;
+		workflowStatus.usesSceneVisuals = courseUsesSceneVisuals(courseId);
+		workflowStatus.summary.usesSceneVisuals = courseUsesSceneVisuals(courseId);
 		// Propagate to all modules for consistency
 		workflowStatus.modules.forEach((m) => { m.diagramPipelineComplete = diagramPipelineComplete; });
 		
@@ -4984,6 +5062,12 @@ app.post('/api/diagram-pipeline', (req, res) => {
 		return;
 	}
 
+	if (courseUsesSceneVisuals(targetCourseId)) {
+		send('error', `Course "${targetCourseId}" uses SVG scene visuals (visualMode: scenes). The Mermaid diagram pipeline is disabled. Use Per-module mode in Step 1 to generate scene-based modules instead.`);
+		res.end();
+		return;
+	}
+
 	(async () => {
 		try {
 			send('progress', runForModule != null ? `Starting diagram pipeline for Module ${runForModule}...` : 'Starting diagram pipeline...');
@@ -5050,6 +5134,7 @@ app.post('/api/diagram-pipeline', (req, res) => {
 					{ name: 'sync-slide-splits', cmd: 'npx tsx scripts/syncSlideSplitsToTs.ts', timeoutMs: 60 * 1000 },
 					{ name: 'activate', cmd: `npx tsx scripts/activateCourse.ts ${targetCourseId}`, timeoutMs: 2 * 60 * 1000 }
 				];
+			// NOTE: activateCourse.ts now uses scene generator for visualMode:scenes courses
 
 			const runStep = (step, i) => new Promise((resolve, reject) => {
 				const stepTimeout = step.timeoutMs ?? 5 * 60 * 1000;
@@ -5364,8 +5449,9 @@ function validateExportedVideo(moduleNumber, courseId, videoPath, fileSize) {
 
 // API: Render video to MP4
 app.post('/api/render-video', (req, res) => {
-	const { moduleNumber, courseId } = req.body;
-	console.log('[render-video] LOCAL RENDER - using local CPU (Chromium + ffmpeg)');
+	const { moduleNumber, courseId, concurrency: requestedConcurrency } = req.body;
+	const concurrency = getOptimalRenderConcurrency(requestedConcurrency);
+	console.log(`[render-video] LOCAL RENDER - ${concurrency} threads (Chromium + ffmpeg)`);
 	if (!moduleNumber) {
 		return res.status(400).json({ error: 'Module number is required' });
 	}
@@ -5388,7 +5474,7 @@ app.post('/api/render-video', (req, res) => {
 	
 	// Build render command with options for better compatibility
 	// --timeout increases browser connection timeout (default 30000)
-	const command = `npx remotion render "${indexPath}" ${compositionId} "${outputPath}" --timeout=120000`;
+	const command = `npx remotion render "${indexPath}" ${compositionId} "${outputPath}" --timeout=120000 --concurrency=${concurrency} --jpeg-quality=80`;
 	
 	const childProcess = exec(command, { 
 		cwd: __dirname, 
@@ -5742,6 +5828,13 @@ app.get('/api/rendered-videos', (req, res) => {
 app.post('/api/generate-preview-modules', (req, res) => {
 	try {
 		const { course } = req.body;
+		if (!course) {
+			return res.status(400).json({
+				error: 'Course is required',
+				details: 'Select a video in the processing wizard before viewing segments in Remotion.'
+			});
+		}
+
 		const moduleContentPath = path.join(__dirname, 'src', 'videos', 'moduleContent.ts');
 		if (!fs.existsSync(moduleContentPath)) {
 			return res.status(400).json({
@@ -5750,20 +5843,35 @@ app.post('/api/generate-preview-modules', (req, res) => {
 			});
 		}
 
-		const command = `npx tsx scripts/generateModulesFromContent.ts all --preview`;
-		console.log(`[generate-preview-modules] Running: ${command}`);
+		ensureCourseActiveSync(course);
+		clearRemotionWebpackCache();
 
-		execSync(command, {
-			cwd: __dirname,
-			stdio: 'pipe',
-			encoding: 'utf-8'
-		});
+		if (courseUsesSceneVisuals(course)) {
+			stripMermaidFromSlideSplits(course);
+			const moduleRange = getModuleRangeForCourse(course) || '1-12';
+			console.log(`[generate-preview-modules] Scene course - generating from scene components (${moduleRange})`);
+			runSceneModuleGeneration(course, moduleRange);
+		} else {
+			const command = `npx tsx scripts/generateModulesFromContent.ts all --preview`;
+			console.log(`[generate-preview-modules] Slide course - preview mode: ${command}`);
+			execSync(command, {
+				cwd: __dirname,
+				stdio: 'pipe',
+				encoding: 'utf-8'
+			});
+		}
 
+		const activeCourseId = getActiveCourseFromModuleContent();
 		console.log('[generate-preview-modules] Preview modules generated successfully');
 		res.json({
 			success: true,
-			message: 'Preview modules generated. Open Remotion Studio to view segments.',
-			remotionUrl: 'http://localhost:3000'
+			message: courseUsesSceneVisuals(course)
+				? `Scene modules ready for "${activeCourseId}". Restart "npm start", then open module-1 (SVG scenes, not Mermaid).`
+				: `Preview ready for "${activeCourseId}". Stop and restart "npm start" (Remotion Studio), then open the preview again.`,
+			courseId: activeCourseId,
+			visualMode: courseUsesSceneVisuals(course) ? 'scenes' : 'slides',
+			requiresRemotionRestart: true,
+			remotionUrl: `http://localhost:3000?composition=module-1&course=${activeCourseId}&t=${Date.now()}`
 		});
 	} catch (error) {
 		console.error('[generate-preview-modules] Error:', error);
@@ -5777,32 +5885,19 @@ app.post('/api/generate-preview-modules', (req, res) => {
 
 // API: Render all modules (batch/overnight rendering)
 app.post('/api/render-course', (req, res) => {
-	const { modules, concurrency, scale, course } = req.body;
-	console.log('[render-course] LOCAL BATCH RENDER - using local CPU');
+	const { modules, concurrency, scale, course, preset } = req.body;
+	const optimalConcurrency = getOptimalRenderConcurrency(concurrency);
+	console.log(`[render-course] LOCAL BATCH RENDER - ${optimalConcurrency} threads`);
 	// Build command arguments
 	let args = [];
+	if (course) {
+		args.push(`--course=${course}`);
+	}
 	if (modules && Array.isArray(modules) && modules.length > 0) {
 		args.push(`--modules=${modules.join(',')}`);
-	} else if (course) {
-		// Get modules for this course
-		try {
-			const coursePath = path.join(__dirname, 'src', 'videos', 'courseStructure.ts');
-			if (fs.existsSync(coursePath)) {
-				const courseContent = fs.readFileSync(coursePath, 'utf-8');
-				const mappingMatch = courseContent.match(new RegExp(`'${course}':\\s*\\[([\\d,\\s]+)\\]`));
-				if (mappingMatch) {
-					const moduleNumbers = mappingMatch[1].split(',').map(n => parseInt(n.trim())).filter(n => !isNaN(n));
-					if (moduleNumbers.length > 0) {
-						args.push(`--modules=${moduleNumbers.join(',')}`);
-					}
-				}
-			}
-		} catch (e) {
-			console.error('Error getting course modules:', e);
-		}
 	}
-	
-	args.push(`--concurrency=${concurrency || 4}`);
+	args.push(`--preset=${preset || 'fast'}`);
+	args.push(`--concurrency=${optimalConcurrency}`);
 	if (scale && scale !== 1) {
 		args.push(`--scale=${scale}`);
 	}
@@ -6328,7 +6423,48 @@ app.get('/api/diagnose', (req, res) => {
 	}
 });
 
-// Serve GUI
+// Auth status and login
+app.get('/api/auth/status', (req, res) => {
+	res.json({
+		authRequired: requiresAuth(),
+		username: process.env.GUI_AUTH_USERNAME || 'admin',
+	});
+});
+
+app.post('/api/auth/login', (req, res) => {
+	if (!requiresAuth()) {
+		return res.json({ ok: true, token: null, authRequired: false });
+	}
+	const { username, password } = req.body || {};
+	const expectedUser = process.env.GUI_AUTH_USERNAME || 'admin';
+	if (username === expectedUser && password === process.env.GUI_AUTH_PASSWORD) {
+		return res.json({
+			ok: true,
+			token: getSessionSecret(),
+			authRequired: true,
+		});
+	}
+	res.status(401).json({ ok: false, error: 'Invalid credentials' });
+});
+
+// Host CPU info for render tuning
+app.get('/api/system-info', (req, res) => {
+	res.json({
+		cpus: getCpuCount(),
+		recommendedConcurrency: getOptimalRenderConcurrency(),
+		gentleUrl: process.env.GENTLE_URL || 'http://localhost:8765',
+		remotionUrl: process.env.REMOTION_URL || 'http://localhost:3000',
+		authRequired: requiresAuth(),
+		cpuReserve: parseInt(process.env.REMOTION_CPU_RESERVE || '2', 10),
+	});
+});
+
+// Health check - verify this is the GUI server, not Remotion
+app.get('/api/health', (req, res) => {
+	res.json({ service: 'skilleo-gui', port: PORT, remotionPort: 3000, authRequired: requiresAuth() });
+});
+
+// Serve GUI (SPA fallback - must be after all API routes)
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'gui', 'index.html'));
 });
@@ -6336,4 +6472,14 @@ app.get('*', (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
 	console.log(`Skilleo AI GUI Server running on http://localhost:${PORT}`);
 	console.log(`Remotion Studio should be on http://localhost:3000`);
+}).on('error', (err) => {
+	if (err.code === 'EADDRINUSE') {
+		console.error(`\nERROR: Port ${PORT} is already in use.`);
+		console.error('Another app (often a second Remotion Studio) may be bound to 3001.');
+		console.error('Stop it with: netstat -ano | findstr ":3001" then taskkill /PID <pid> /F');
+		console.error('Then run: npm run gui\n');
+	} else {
+		console.error('GUI server failed to start:', err.message);
+	}
+	process.exit(1);
 });

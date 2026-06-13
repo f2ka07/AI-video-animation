@@ -13,74 +13,74 @@
     <text x="780" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Compliance</text>
     <rect x="880" y="80" width="200" height="50" fill="#1e293b"/>
     <text x="980" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Best For</text>
-    <text x="600" y="500" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Choose based on your constraints: velocity, control, compliance, latency</text>
+    <text x="600" y="500" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#e2e8f0">Choose based on your constraints: velocity, control, compliance, latency</text>
   </g>
   <g id="section-1">
   <rect x="80" y="130" width="200" height="80" fill="#dbeafe" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="180" y="165" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#1d4ed8">SaaS</text>
-  <text x="180" y="185" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">Vendor-hosted</text>
+  <text x="180" y="165" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#1e3a8a">SaaS</text>
+  <text x="180" y="185" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#334155">Vendor-hosted</text>
   
   <rect x="280" y="130" width="200" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="380" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Fastest</text>
+  <text x="380" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Fastest</text>
   
   <rect x="480" y="130" width="200" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="580" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#ef4444">Minimal</text>
+  <text x="580" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Minimal</text>
   
   <rect x="680" y="130" width="200" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="780" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#f59e0b">Limited</text>
+  <text x="780" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Limited</text>
   
   <rect x="880" y="130" width="200" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="980" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#475569">Prototypes, pilots</text>
+  <text x="980" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Prototypes, pilots</text>
   </g>
   <g id="section-2">
   <rect x="80" y="210" width="200" height="80" fill="#d1fae5" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="180" y="245" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#059669">Cloud</text>
-  <text x="180" y="265" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">GPU rental</text>
+  <text x="180" y="245" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#047857">Cloud</text>
+  <text x="180" y="265" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#334155">GPU rental</text>
   
   <rect x="280" y="210" width="200" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="380" y="255" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Fast</text>
+  <text x="380" y="255" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Fast</text>
   
   <rect x="480" y="210" width="200" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="580" y="255" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#f59e0b">Partial</text>
+  <text x="580" y="255" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Partial</text>
   
   <rect x="680" y="210" width="200" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="780" y="255" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#f59e0b">Varies</text>
+  <text x="780" y="255" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Varies</text>
   
   <rect x="880" y="210" width="200" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="980" y="255" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#475569">Variable workloads</text>
+  <text x="980" y="255" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Variable workloads</text>
   </g>
   <g id="section-3">
   <rect x="80" y="290" width="200" height="80" fill="#e9d5ff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="180" y="325" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#7c3aed">On-Prem</text>
-  <text x="180" y="345" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">Self-hosted</text>
+  <text x="180" y="325" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0f172a">On-Prem</text>
+  <text x="180" y="345" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#334155">Self-hosted</text>
   
   <rect x="280" y="290" width="200" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="380" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#ef4444">Slow setup</text>
+  <text x="380" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Slow setup</text>
   
   <rect x="480" y="290" width="200" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="580" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Full</text>
+  <text x="580" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Full</text>
   
   <rect x="680" y="290" width="200" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="780" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Full</text>
+  <text x="780" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Full</text>
   
   <rect x="880" y="290" width="200" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="980" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#475569">Regulated industries</text>
+  <text x="980" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Regulated industries</text>
   </g>
   <g id="section-4">
   <rect x="80" y="370" width="200" height="80" fill="#fef3c7" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="180" y="405" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#d97706">Edge</text>
-  <text x="180" y="425" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">Device-local</text>
+  <text x="180" y="405" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#78350f">Edge</text>
+  <text x="180" y="425" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#334155">Device-local</text>
   
   <rect x="280" y="370" width="200" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="380" y="415" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#f59e0b">Medium</text>
+  <text x="380" y="415" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Medium</text>
   
   <rect x="480" y="370" width="200" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="580" y="415" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Full</text>
+  <text x="580" y="415" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Full</text>
   
   <rect x="680" y="370" width="200" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="780" y="415" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Full</text>
+  <text x="780" y="415" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Full</text>
   
   <rect x="880" y="370" width="200" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="980" y="415" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#475569">Autonomous systems</text>
+  <text x="980" y="415" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Autonomous systems</text>
   </g>
 </svg>

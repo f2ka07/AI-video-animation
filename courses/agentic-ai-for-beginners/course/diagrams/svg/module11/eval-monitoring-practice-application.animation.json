@@ -1,0 +1,132 @@
+{
+  "diagram": "eval-monitoring-practice.svg",
+  "sectionSummary": "Automated harnesses, dashboards, alerts, and trace-based diagnosis.",
+  "phases": [
+    {
+      "start": 0,
+      "end": 8,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [],
+      "label": "Automated harnesses, dashboards, alerts, and trace-based diagnosis.",
+      "triggerWords": [
+        "let",
+        "now",
+        "how",
+        "the",
+        "this"
+      ]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-1"
+      ],
+      "label": "Build automated evaluation in CI",
+      "triggerWords": [
+        "harness",
+        "test",
+        "automate"
+      ]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-2"
+      ],
+      "label": "Emit metrics to dashboards",
+      "triggerWords": [
+        "monitor",
+        "dashboard",
+        "metric"
+      ]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-4"
+      ],
+      "highlight": [
+        "section-3"
+      ],
+      "label": "Alert on latency and error spikes",
+      "triggerWords": [
+        "alert",
+        "spike",
+        "threshold"
+      ]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3"
+      ],
+      "highlight": [
+        "section-4"
+      ],
+      "label": "Diagnose failures with traces",
+      "triggerWords": [
+        "diagnos",
+        "trace",
+        "fail"
+      ]
+    }
+  ]
+}

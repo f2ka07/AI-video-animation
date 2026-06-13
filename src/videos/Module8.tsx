@@ -1,307 +1,128 @@
 import React from "react";
 import { Sequence, useVideoConfig, Audio, staticFile } from "remotion";
-import { TitleSlide } from "../components/TitleSlide";
-import { AnimatedContentSlide } from "../components/AnimatedContentSlide";
-import { AnimatedCodeSlide } from "../components/AnimatedCodeSlide";
-import { BulletsAndCodeSlide } from "../components/BulletsAndCodeSlide";
-import { AnimatedComparisonSlide } from "../components/AnimatedComparisonSlide";
-import { SequentialBulletSlide } from "../components/SequentialBulletSlide";
-import { CodeAndDiagram } from "../compositions/CodeAndDiagram";
-import { CrossFadeWrapper } from "../components/CrossFadeWrapper";
 import { getAudioDuration } from "../utils/audioDuration";
+import { Module08Intro } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module08/Module08Intro";
+import { Module08Diagram1 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module08/Module08Diagram1";
+import { Module08Diagram2 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module08/Module08Diagram2";
+import { Module08Diagram3 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module08/Module08Diagram3";
+import { Module08Recap } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module08/Module08Recap";
 
-// Auto-generated from moduleContent.ts - DO NOT EDIT MANUALLY
-
+// Auto-generated from course scene components - DO NOT EDIT MANUALLY
+// Course: agentic-ai-for-beginners, Module: 8
 export const Module8: React.FC = () => {
 	const { fps } = useVideoConfig();
-	const crossFadeDuration = 0.3;
-	const whooshDuration = 0.57;
 
 	const audioFiles = {
-		title: staticFile("audio/aws-pulumi/module8-title.wav"),
-		rdsBasics: staticFile("audio/aws-pulumi/module8-rdsBasics.wav"),
-		createDBSubnetGroup: staticFile("audio/aws-pulumi/module8-createDBSubnetGroup.wav"),
-		createDBParameterGroup: staticFile("audio/aws-pulumi/module8-createDBParameterGroup.wav"),
-		createDBInstance: staticFile("audio/aws-pulumi/module8-createDBInstance.wav"),
-		summary: staticFile("audio/aws-pulumi/module8-summary.wav"),
+		"module8-module-8-application": staticFile("audio/agentic-ai-for-beginners/module8-module-8-application.wav"),
+		"module8-module-8-architecture": staticFile("audio/agentic-ai-for-beginners/module8-module-8-architecture.wav"),
+		"module8-module-8-concept": staticFile("audio/agentic-ai-for-beginners/module8-module-8-concept.wav"),
+		"module8-module-8-exam-mapping": staticFile("audio/agentic-ai-for-beginners/module8-module-8-exam-mapping.wav"),
+		"module8-module-8-recap": staticFile("audio/agentic-ai-for-beginners/module8-module-8-recap.wav"),
+		"module8-module-8-title": staticFile("audio/agentic-ai-for-beginners/module8-module-8-title.wav"),
 		whoosh: staticFile("audio/whoosh.wav"),
 	};
-
-	const audioDurations = {
-		title: getAudioDuration("aws-pulumi/module8-title"),
-		rdsBasics: getAudioDuration("aws-pulumi/module8-rdsBasics"),
-		createDBSubnetGroup: getAudioDuration("aws-pulumi/module8-createDBSubnetGroup"),
-		createDBParameterGroup: getAudioDuration("aws-pulumi/module8-createDBParameterGroup"),
-		createDBInstance: getAudioDuration("aws-pulumi/module8-createDBInstance"),
-		summary: getAudioDuration("aws-pulumi/module8-summary"),
-	};
-
-	let currentFrame = 0;
-
-	const addSlide = (audioDuration: number, isLast: boolean = false, buffer: number = 0) => {
-		const slideDuration = audioDuration + buffer;
-		const start = currentFrame;
-		if (!isLast) {
-			currentFrame += (slideDuration + whooshDuration) * fps;
-		} else {
-			currentFrame += slideDuration * fps;
-		}
-		return { start, duration: slideDuration * fps, slideDuration, audioDuration, buffer };
-	};
-
-	const titleSlide = addSlide(audioDurations["title"], false, 1.0);
-	const rdsBasicsSlide = addSlide(audioDurations["rdsBasics"], false, 1.0);
-	const createDBSubnetGroupSlide = addSlide(audioDurations["createDBSubnetGroup"], false, 1.0);
-	const createDBParameterGroupSlide = addSlide(audioDurations["createDBParameterGroup"], false, 1.0);
-	const createDBInstanceSlide = addSlide(audioDurations["createDBInstance"], false, 1.0);
-	const summarySlide = addSlide(audioDurations["summary"], true, 1.2);
 
 	return (
 		<div
 			style={{
 				width: "100%",
-			height: "100%",
-			background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
-			position: "relative",
-		}}
+				height: "100%",
+				background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
+				position: "relative",
+			}}
 		>
-			{/* title */}
-			<Sequence
-				from={titleSlide.start}
-				durationInFrames={titleSlide.duration}
-			>
-				<Audio src={audioFiles["title"]} />
-				<CrossFadeWrapper
-					totalDuration={titleSlide.slideDuration}
-					fadeInDuration={0.5}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<TitleSlide 
-					title="RDS Database in Private Subnets" 
-					subtitle="Secure Database Deployment"
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={titleSlide.start + titleSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
 
-			{/* Amazon RDS: Managed Database Service */}
-			<Sequence
-				from={rdsBasicsSlide.start}
-				durationInFrames={rdsBasicsSlide.duration}
-			>
-				<Audio src={audioFiles["rdsBasics"]} />
-				<CrossFadeWrapper
-					totalDuration={rdsBasicsSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Amazon RDS: Managed Database Service"
-					points={[
-						"Managed service for relational databases",
-					"Supports MySQL, PostgreSQL, MariaDB, Oracle, SQL Server",
-					"Automatic backups, patching, and monitoring",
-					"Multi-AZ for high availability",
-					"Always deploy in private subnets"
-					]}
-					slideName="rdsBasics"
-					audioDuration={rdsBasicsSlide.audioDuration}
-					moduleNumber={8}
-					
-					imageSrc="assets/vpc.svg"
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={rdsBasicsSlide.start + rdsBasicsSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module08Intro */}
+		<Sequence
+			from={0}
+			durationInFrames={840}
+		>
+			<Module08Intro
+				durationInFrames={840}
+				cuePoints={[3, 58, 99, 175, 237, 315, 391, 439, 507, 562, 626, 719, 777]}
+			/>
+			<Audio src={audioFiles["module8-module-8-title"]} />
+		</Sequence>
 
-			{/* Create DB Subnet Group */}
-			<Sequence
-				from={createDBSubnetGroupSlide.start}
-				durationInFrames={createDBSubnetGroupSlide.duration}
-			>
-				<Audio src={audioFiles["createDBSubnetGroup"]} />
-				<CrossFadeWrapper
-					totalDuration={createDBSubnetGroupSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Create DB Subnet Group"
-					code={`// DB Subnet Group defines which subnets RDS can use
-// Must span at least 2 AZs for high availability
-const dbSubnetGroup = new aws.rds.SubnetGroup("db-subnet-group", {
-    name: "main-db-subnet-group",
-    subnetIds: [privateSubnet1.id, privateSubnet2.id],
-    tags: {
-        Name: "main-db-subnet-group",
-    },
-});`}
-					language="typescript"
-					slideName="createDBSubnetGroup"
-					audioStartFrame={createDBSubnetGroupSlide.start}
-					audioDuration={createDBSubnetGroupSlide.audioDuration}
-					moduleNumber={8}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={createDBSubnetGroupSlide.start + createDBSubnetGroupSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={840} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* Create DB Parameter Group */}
-			<Sequence
-				from={createDBParameterGroupSlide.start}
-				durationInFrames={createDBParameterGroupSlide.duration}
-			>
-				<Audio src={audioFiles["createDBParameterGroup"]} />
-				<CrossFadeWrapper
-					totalDuration={createDBParameterGroupSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Create DB Parameter Group"
-					code={`// Parameter Group customizes database engine settings
-const dbParameterGroup = new aws.rds.ParameterGroup("db-params", {
-    family: "mysql8.0",
-    name: "main-db-params",
-    parameters: [
-        {
-            name: "max_connections",
-            value: "100",
-        },
-        {
-            name: "character_set_server",
-            value: "utf8mb4",
-        },
-    ],
-    tags: {
-        Name: "main-db-params",
-    },
-});`}
-					language="typescript"
-					slideName="createDBParameterGroup"
-					audioStartFrame={createDBParameterGroupSlide.start}
-					audioDuration={createDBParameterGroupSlide.audioDuration}
-					moduleNumber={8}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={createDBParameterGroupSlide.start + createDBParameterGroupSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module08Diagram1 */}
+		<Sequence
+			from={858}
+			durationInFrames={2310}
+		>
+			<Module08Diagram1
+				durationInFrames={2310}
+				cuePoints={[4, 46, 105, 151, 206, 251, 375, 447, 570, 632, 701, 768, 828, 905, 987, 1074, 1117, 1186, 1274, 1337, 1391, 1445, 1497, 1542, 1604, 1705, 1783, 1833, 1905, 1975, 2057, 2121, 2229]}
+			/>
+			<Audio src={audioFiles["module8-module-8-concept"]} />
+		</Sequence>
 
-			{/* Create RDS MySQL Database Instance */}
-			<Sequence
-				from={createDBInstanceSlide.start}
-				durationInFrames={createDBInstanceSlide.duration}
-			>
-				<Audio src={audioFiles["createDBInstance"]} />
-				<CrossFadeWrapper
-					totalDuration={createDBInstanceSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Create RDS MySQL Database Instance"
-					code={`// RDS MySQL database instance in private subnets
-const dbInstance = new aws.rds.Instance("main-db", {
-    engine: "mysql",
-    engineVersion: "8.0",
-    instanceClass: "db.t3.micro",
-    allocatedStorage: 20,
-    storageType: "gp3",
-    
-    dbName: "appdb",
-    username: "admin",
-    password: "ChangeMe123!", // Use Pulumi secrets in production
-    
-    dbSubnetGroupName: dbSubnetGroup.name,
-    vpcSecurityGroupIds: [dbSg.id],
-    parameterGroupName: dbParameterGroup.name,
-    
-    publiclyAccessible: false, // Security best practice
-    multiAz: false, // Enable for production
-    backupRetentionPeriod: 7,
-    backupWindow: "03:00-04:00",
-    maintenanceWindow: "sun:04:00-sun:05:00",
-    
-    deletionProtection: false, // Set to true in production
-    skipFinalSnapshot: true, // Set to false in production
-    
-    tags: {
-        Name: "main-database",
-    },
-});
+		{/* Transition */}
+		<Sequence from={3168} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-// Export database endpoint for application connection
-export const dbEndpoint = dbInstance.endpoint;`}
-					language="typescript"
-					slideName="createDBInstance"
-					audioStartFrame={createDBInstanceSlide.start}
-					audioDuration={createDBInstanceSlide.audioDuration}
-					moduleNumber={8}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={createDBInstanceSlide.start + createDBInstanceSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module08Diagram2 */}
+		<Sequence
+			from={3186}
+			durationInFrames={3206}
+		>
+			<Module08Diagram2
+				durationInFrames={3206}
+				cuePoints={[1, 50, 138, 193, 268, 345, 451, 520, 576, 675, 734, 818, 865, 930, 995, 1069, 1151, 1213, 1292, 1346, 1435, 1478, 1539, 1604, 1682, 1751, 1811, 1876, 1955, 2028, 2070, 2157, 2217, 2294, 2410, 2470, 2571, 2623, 2718, 2784, 2834, 2930, 3013, 3105]}
+			/>
+			<Audio src={audioFiles["module8-module-8-architecture"]} />
+		</Sequence>
 
-			{/* Module 8 Summary */}
-			<Sequence
-				from={summarySlide.start}
-				durationInFrames={summarySlide.duration}
-			>
-				<Audio src={audioFiles["summary"]} />
-				<CrossFadeWrapper
-					totalDuration={summarySlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={0}
-			>
-					<AnimatedContentSlide
-					title="Conclusion"
-					points={[
-						"DB Subnet Group spans private subnets in multiple AZs",
-					"DB Parameter Group customizes database engine settings",
-					"RDS instance in private subnets with database security group",
-					"Automated backups and Multi-AZ support available",
-					"Next: Outputs and Stack References"
-					]}
-					slideName="summary"
-					audioDuration={summarySlide.audioDuration}
-					moduleNumber={8}
-					
-					imageSrc="assets/vpc.svg"
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={6392} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
+		{/* Module08Diagram3 */}
+		<Sequence
+			from={6410}
+			durationInFrames={2436}
+		>
+			<Module08Diagram3
+				durationInFrames={2436}
+				cuePoints={[1, 45, 128, 189, 266, 363, 417, 485, 584, 621, 705, 787, 880, 974, 1033, 1093, 1172, 1232, 1282, 1352, 1445, 1528, 1608, 1684, 1761, 1837, 1889, 1930, 2005, 2080, 2129, 2225, 2307]}
+			/>
+			<Audio src={audioFiles["module8-module-8-application"]} />
+		</Sequence>
+
+		{/* Transition */}
+		<Sequence from={8846} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
+
+		{/* Module08Recap - module8-module-8-exam-mapping */}
+		<Sequence
+			from={8864}
+			durationInFrames={1035}
+		>
+			<Module08Recap
+				durationInFrames={1035}
+				cuePoints={[4, 69, 151, 242, 350, 427, 523, 612, 683, 726, 824, 897, 989, 1038, 1130, 1251, 1361, 1430, 1520, 1610, 1730, 1840, 1929, 1994, 2047]}
+			/>
+			<Audio src={audioFiles["module8-module-8-exam-mapping"]} />
+		</Sequence>
+
+		{/* Module08Recap - module8-module-8-recap */}
+		<Sequence
+			from={9899}
+			durationInFrames={1065}
+		>
+			<Module08Recap
+				durationInFrames={1065}
+				cuePoints={[]}
+			/>
+			<Audio src={audioFiles["module8-module-8-recap"]} />
+		</Sequence>
 		</div>
 	);
 };

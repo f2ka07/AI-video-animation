@@ -14,48 +14,48 @@
     <rect x="950" y="80" width="150" height="50" rx="0" fill="#1e293b"/>
     <text x="1025" y="113" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Compliance</text>
     <rect x="350" y="380" width="16" height="16" rx="4" fill="#10b981"/>
-    <text x="375" y="394" font-family="system-ui, sans-serif" font-size="12" fill="#475569">Optimal</text>
+    <text x="375" y="394" font-family="system-ui, sans-serif" font-size="12" fill="#d1fae5">Optimal</text>
     <rect x="480" y="380" width="16" height="16" rx="4" fill="#f59e0b"/>
-    <text x="505" y="394" font-family="system-ui, sans-serif" font-size="12" fill="#475569">Trade-off</text>
+    <text x="505" y="394" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Trade-off</text>
     <rect x="610" y="380" width="16" height="16" rx="4" fill="#ef4444"/>
-    <text x="635" y="394" font-family="system-ui, sans-serif" font-size="12" fill="#475569">Challenge</text>
-    <text x="600" y="460" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Choose based on latency, cost, control, and compliance requirements</text>
+    <text x="635" y="394" font-family="system-ui, sans-serif" font-size="12" fill="#fecaca">Challenge</text>
+    <text x="600" y="460" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#fecaca">Choose based on latency, cost, control, and compliance requirements</text>
   </g>
   <g id="section-1">
     <rect x="100" y="130" width="250" height="70" fill="#dbeafe" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="225" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1d4ed8">Cloud</text>
+    <text x="225" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1e3a8a">Cloud</text>
     <rect x="350" y="130" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="450" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#f59e0b">Medium</text>
+    <text x="450" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Medium</text>
     <rect x="550" y="130" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="650" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#f59e0b">Variable</text>
+    <text x="650" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Variable</text>
     <rect x="750" y="130" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="850" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#f59e0b">Partial</text>
+    <text x="850" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Partial</text>
     <rect x="950" y="130" width="150" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="1025" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#f59e0b">Varies</text>
+    <text x="1025" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Varies</text>
   </g>
   <g id="section-2">
     <rect x="100" y="200" width="250" height="70" fill="#d1fae5" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="225" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#059669">On-Premises</text>
+    <text x="225" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#047857">On-Premises</text>
     <rect x="350" y="200" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="450" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Low</text>
+    <text x="450" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Low</text>
     <rect x="550" y="200" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="650" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#ef4444">High upfront</text>
+    <text x="650" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">High upfront</text>
     <rect x="750" y="200" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="850" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Full</text>
+    <text x="850" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Full</text>
     <rect x="950" y="200" width="150" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="1025" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Full</text>
+    <text x="1025" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Full</text>
   </g>
   <g id="section-3">
     <rect x="100" y="270" width="250" height="70" fill="#fef3c7" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="225" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#d97706">Edge</text>
+    <text x="225" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#78350f">Edge</text>
     <rect x="350" y="270" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="450" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Lowest</text>
+    <text x="450" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Lowest</text>
     <rect x="550" y="270" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="650" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#f59e0b">Medium</text>
+    <text x="650" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Medium</text>
     <rect x="750" y="270" width="200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="850" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Full</text>
+    <text x="850" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Full</text>
     <rect x="950" y="270" width="150" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="1025" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#10b981">Full</text>
+    <text x="1025" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Full</text>
   </g>
   <g id="section-4">
   </g>

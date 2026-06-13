@@ -59,6 +59,9 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      - name: Verify course deploy policy
+        run: node scripts/syncCourseDeployPolicy.js --check
+
       - name: Deploy to remote
         if: github.event_name == 'workflow_dispatch' || vars.DEPLOY_ENABLED == 'true'
         uses: appleboy/ssh-action@v1.0.3

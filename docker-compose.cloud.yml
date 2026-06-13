@@ -1,0 +1,35 @@
+# Cloud render profile: GUI + Gentle only (Remotion Studio optional via --profile studio)
+#
+# Usage:
+#   cp .env.example .env   # set GUI_AUTH_PASSWORD
+#   docker compose -f docker-compose.yml -f docker-compose.cloud.yml up -d --build
+#
+# Optional Remotion Studio preview (SSH tunnel to port 3000):
+#   docker compose -f docker-compose.yml -f docker-compose.cloud.yml --profile studio up -d
+
+services:
+  app:
+    shm_size: '2gb'
+    environment:
+      - GUI_AUTH_USERNAME=${GUI_AUTH_USERNAME:-admin}
+      - GUI_AUTH_PASSWORD=${GUI_AUTH_PASSWORD:-}
+      - GUI_SESSION_SECRET=${GUI_SESSION_SECRET:-}
+      - REMOTION_CPU_RESERVE=${REMOTION_CPU_RESERVE:-1}
+      - REMOTION_CONCURRENCY=${REMOTION_CONCURRENCY:-}
+    volumes:
+      - ./workspace:/app/workspace
+    depends_on:
+      gentle:
+        condition: service_healthy
+
+  remotion:
+    profiles:
+      - studio
+
+  gentle:
+    healthcheck:
+      test: ['CMD-SHELL', 'wget -q -O /dev/null http://localhost:8765/ || exit 1']
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s

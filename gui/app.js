@@ -1189,10 +1189,19 @@ async function generateModulesConfirmed(statusEl) {
     showStatus(statusEl, 'loading', 'Validating prerequisites before generating modules...');
 
     try {
+        const activeResp = await fetch('/api/active-course');
+        const activeData = activeResp.ok ? await activeResp.json() : {};
+        const courseId = activeData.activeCourseId || activeData.courseId;
+
+        if (!courseId) {
+            showStatus(statusEl, 'error', 'No active course. Activate a course in the processing wizard first.');
+            return;
+        }
+
         const response = await fetch('/api/generate-modules', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({})
+            body: JSON.stringify({ course: courseId })
         });
 
         const data = await response.json();

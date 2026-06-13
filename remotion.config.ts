@@ -2,24 +2,35 @@
 // This file configures browser settings for CLI rendering
 
 import { Config } from "@remotion/cli/config";
-import os from "os";
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
+const { getOptimalRenderConcurrency, getCpuCount } = require("./scripts/lib/renderConcurrency.js");
 
 // Use Remotion's bundled Chromium (null = auto-detect)
 Config.setBrowserExecutable(null);
 
-// PERFORMANCE TUNING
-// Your system: 4 cores / 8 threads (logical processors)
-// Recommended: Use 75% of logical processors for rendering
-// Higher = faster but may freeze system. Lower = slower but usable PC.
-const cpuCount = os.cpus().length; // Returns logical processors (8 on your system)
-const concurrency = Math.min(8, Math.max(2, Math.floor(cpuCount * 0.75)));
+const cpuCount = getCpuCount();
+const concurrency = getOptimalRenderConcurrency();
 Config.setConcurrency(concurrency);
 
 // JPEG is ~30% faster than PNG with minimal quality loss
 Config.setVideoImageFormat("jpeg");
 
+// Pin Studio port only when REMOTION_STUDIO_PORT is set; otherwise Remotion picks a free port
+// (avoids crash when 3000 is already in use by a running Studio instance)
+const studioPort = process.env.REMOTION_STUDIO_PORT;
+if (studioPort) {
+	Config.setStudioPort(Number(studioPort));
+}
+
 // Webpack optimizations for faster bundling
 Config.overrideWebpackConfig((config) => {
+	// Filesystem cache can serve stale moduleContent.ts after course activation in Studio.
+	// Keep it for render/bundle commands only.
+	const isRenderOrBundle = process.argv.some(
+		(arg) => arg === "render" || arg.includes("bundle") || arg.includes("still")
+	);
 	return {
 		...config,
 		// Suppress large asset warnings
@@ -27,10 +38,7 @@ Config.overrideWebpackConfig((config) => {
 			...config.performance,
 			hints: false,
 		},
-		// Filesystem cache speeds up re-bundles significantly
-		cache: {
-			type: "filesystem",
-		},
+		cache: isRenderOrBundle ? { type: "filesystem" } : false,
 		// Source maps required for Remotion Studio timeline (Sequence source location)
 		devtool: "eval-source-map",
 	};

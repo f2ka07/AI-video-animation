@@ -1,5 +1,11 @@
 {
   "diagram": "direct-prompting-vs-agentic.svg",
+  "bulletTriggerWords": [
+    ["single", "inference"],
+    ["memory"],
+    ["agentic"],
+    ["interface", "infrastructure"]
+  ],
   "phases": [
     {
       "start": 45.2,

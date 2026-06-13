@@ -1,0 +1,132 @@
+{
+  "diagram": "rag-pipeline-stages.svg",
+  "sectionSummary": "Ingestion, chunking, embedding, search, and context injection.",
+  "phases": [
+    {
+      "start": 0,
+      "end": 8,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [],
+      "label": "Ingestion, chunking, embedding, search, and context injection.",
+      "triggerWords": [
+        "let",
+        "now",
+        "how",
+        "the",
+        "this"
+      ]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-1"
+      ],
+      "label": "Ingest and chunk source documents",
+      "triggerWords": [
+        "ingest",
+        "chunk",
+        "metadata"
+      ]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-2"
+      ],
+      "label": "Embed chunks into vector storage",
+      "triggerWords": [
+        "embed",
+        "vector",
+        "semantic"
+      ]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-4"
+      ],
+      "highlight": [
+        "section-3"
+      ],
+      "label": "Search with top-k and reranking",
+      "triggerWords": [
+        "search",
+        "retriev",
+        "rerank"
+      ]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3"
+      ],
+      "highlight": [
+        "section-4"
+      ],
+      "label": "Inject context and cite sources",
+      "triggerWords": [
+        "inject",
+        "ground",
+        "citation"
+      ]
+    }
+  ]
+}

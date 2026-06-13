@@ -1,0 +1,93 @@
+{
+  "diagram": "inference-pipeline.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 24.6,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [],
+      "triggerWords": [
+        "agents",
+        "latency"
+      ]
+    },
+    {
+      "start": 24.6,
+      "end": 27.7,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-1"
+      ],
+      "triggerWords": [
+        "tensorrt"
+      ]
+    },
+    {
+      "start": 27.7,
+      "end": 30.1,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-2"
+      ],
+      "triggerWords": [
+        "triton"
+      ]
+    },
+    {
+      "start": 30.1,
+      "end": 120,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3"
+      ],
+      "highlight": [
+        "section-4"
+      ],
+      "triggerWords": [
+        "nim"
+      ]
+    }
+  ]
+}

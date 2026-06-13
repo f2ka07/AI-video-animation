@@ -18,3 +18,6 @@ export * from './module05';
 
 // Module 06: Enterprise and Industry Use Cases
 export * from './module06';
+
+// Module 07: Agent Architecture Deep Dive
+export * from './module07';

@@ -1,0 +1,132 @@
+{
+  "diagram": "retrieval-vs-tools.svg",
+  "sectionSummary": "Read-only knowledge search vs actions with side effects.",
+  "phases": [
+    {
+      "start": 0,
+      "end": 8,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [],
+      "label": "Read-only knowledge search vs actions with side effects.",
+      "triggerWords": [
+        "let",
+        "now",
+        "how",
+        "the",
+        "this"
+      ]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-1"
+      ],
+      "label": "Retrieval for read-only knowledge search",
+      "triggerWords": [
+        "retriev",
+        "knowledge",
+        "search"
+      ]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-2"
+      ],
+      "label": "Tools for actions and live data",
+      "triggerWords": [
+        "tool",
+        "action",
+        "api"
+      ]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-4"
+      ],
+      "highlight": [
+        "section-3"
+      ],
+      "label": "Use both: ground then execute",
+      "triggerWords": [
+        "both",
+        "based",
+        "process"
+      ]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3"
+      ],
+      "highlight": [
+        "section-4"
+      ],
+      "label": "Enforce schemas on tool and JSON outputs",
+      "triggerWords": [
+        "schema",
+        "valid",
+        "structured"
+      ]
+    }
+  ]
+}

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Processing - Skilleo AI</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="auth-guard.js"></script>
     <script src="wizard.js" defer></script>
     <style>
         .wizard-container {
@@ -330,6 +331,9 @@
                             </div>
                         </div>
 
+                        <!-- Scene course banner (SVG visuals, not Mermaid) -->
+                        <div id="scene-course-step1-banner" style="display: none; margin-bottom: 16px; padding: 12px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; font-size: 13px; color: var(--text-secondary);"></div>
+
                         <!-- Scene Components (visible only for per-module mode) -->
                         <div id="scene-components-section" style="margin-top: 16px; padding: 16px; background: #1a365d; border-radius: 8px; border: 2px solid var(--primary); display: none;">
                             <label style="display: block; margin-bottom: 8px; font-weight: 600; color: white;">Scene Components (Advanced)</label>
@@ -604,6 +608,8 @@
                             </p>
                         </div>
 
+                        <div id="scene-course-step5-banner" style="display: none; margin-bottom: 16px; padding: 12px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; font-size: 13px; color: var(--text-secondary);"></div>
+
                         <div class="step-info" id="step-5-info">
                             <strong>Status:</strong> <span id="step-5-status-text">Waiting for Step 4...</span>
                         </div>
@@ -632,7 +638,7 @@
 
                         <div class="step-actions">
                             <button class="btn btn-secondary" onclick="goToStep(4)">← Previous</button>
-                            <button class="btn btn-primary" id="step-5-btn" onclick="executeStep5()" disabled>
+                            <button class="btn btn-secondary" id="step-5-btn" onclick="executeStep5()" disabled title="Disabled for SVG scene courses">
                                 Run Diagram Pipeline
                             </button>
                         </div>
@@ -667,9 +673,9 @@
                             <button class="btn btn-warning" onclick="goToStep(4)" style="font-size: 14px; padding: 10px 20px; background: var(--warning); color: white;">
                                 Complete Step 4 (Word Timings) →
                             </button>
-                            <a href="http://localhost:3000" target="_blank" class="btn btn-secondary" style="text-decoration: none; display: inline-block; font-size: 14px; padding: 10px 20px;">
-                                Preview in Remotion (Basic) →
-                            </a>
+                            <button type="button" class="btn btn-secondary" onclick="viewSegmentsInRemotion()" style="font-size: 14px; padding: 10px 20px;">
+                                Preview in Remotion →
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -680,15 +686,16 @@
                     <p style="color: var(--text-secondary); margin-bottom: 12px;">
                         Your video is fully complete with word-level animations. All 5 steps are done:
                     </p>
-                    <ul style="text-align: left; display: inline-block; color: var(--text-secondary); margin: 12px 0 20px 0;">
+                    <ul id="finalize-checklist" style="text-align: left; display: inline-block; color: var(--text-secondary); margin: 12px 0 20px 0;">
                         <li>Segment files generated</li>
                         <li>Audio files created</li>
                         <li>Audio durations measured</li>
                         <li>Word timings extracted</li>
-                        <li>Diagram pipeline run (classify + mermaid)</li>
+                        <li id="finalize-diagram-step">Diagram pipeline run (classify + mermaid)</li>
                     </ul>
+                    <div id="scene-course-finalize-banner" style="display: none; margin-bottom: 16px; padding: 12px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; font-size: 13px; color: var(--text-secondary);"></div>
                     <p style="color: var(--text-secondary); margin-bottom: 20px; font-weight: 600;">
-                        Click <strong>Finalize Video</strong> below to prepare everything and open Remotion Studio.
+                        Click <strong>Finalize Video</strong> below — the final step activates the course and rebuilds ModuleX.tsx from your SVG scenes (not the plain slide template).
                     </p>
                     <p style="color: var(--text-muted); font-size: 12px; margin-bottom: 12px;">
                         Finalize regenerates segment files. Add <code>// PRESERVE_MANUAL_EDITS</code> in ModuleN.tsx to skip overwriting manual edits.
@@ -697,9 +704,9 @@
                         <button class="btn btn-primary" id="finalize-video-btn" onclick="finalizeVideo()" style="font-size: 18px; padding: 14px 28px; font-weight: 600; min-width: 200px;">
                             ✓ Finalize Video
                         </button>
-                        <a href="http://localhost:3000" target="_blank" class="btn btn-secondary" style="text-decoration: none; display: inline-block; font-size: 16px; padding: 12px 24px;">
+                        <button type="button" class="btn btn-secondary" onclick="viewSegmentsInRemotion()" style="font-size: 16px; padding: 12px 24px;">
                             Open Remotion Studio →
-                        </a>
+                        </button>
                     </div>
                     <div style="border-top: 1px solid rgba(16, 185, 129, 0.3); padding-top: 20px; margin-top: 20px;">
                         <h4 style="color: var(--text-primary); margin-bottom: 12px; font-size: 18px;">Generate Final Video (MP4)</h4>

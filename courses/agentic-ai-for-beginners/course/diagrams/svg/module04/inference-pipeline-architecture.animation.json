@@ -1,0 +1,140 @@
+{
+  "diagram": "inference-pipeline-full.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 21.2,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [],
+      "triggerWords": [
+        "pipeline",
+        "inference"
+      ]
+    },
+    {
+      "start": 21.2,
+      "end": 41.5,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-1"
+      ],
+      "triggerWords": [
+        "intake",
+        "retrieval"
+      ]
+    },
+    {
+      "start": 41.5,
+      "end": 101.1,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-2"
+      ],
+      "triggerWords": [
+        "grounding",
+        "planning",
+        "inference"
+      ]
+    },
+    {
+      "start": 101.1,
+      "end": 155.8,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-4"
+      ],
+      "highlight": [
+        "section-3"
+      ],
+      "triggerWords": [
+        "tool",
+        "memory",
+        "safety"
+      ]
+    },
+    {
+      "start": 155.8,
+      "end": 210,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3"
+      ],
+      "highlight": [
+        "section-4"
+      ],
+      "triggerWords": [
+        "human",
+        "output",
+        "evaluation"
+      ]
+    },
+    {
+      "start": 210,
+      "end": 230,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [],
+      "highlight": [],
+      "triggerWords": [
+        "backbone",
+        "loop",
+        "production"
+      ]
+    }
+  ]
+}

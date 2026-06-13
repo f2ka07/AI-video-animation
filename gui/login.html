@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in - Skilleo AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .login-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .login-card {
+            width: 100%;
+            max-width: 420px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 12px 40px var(--shadow);
+        }
+        .login-card h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        .login-card p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+        .login-field {
+            margin-bottom: 16px;
+        }
+        .login-field label {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        .login-field input {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--background);
+            color: var(--text-primary);
+            font-size: 16px;
+        }
+        .login-error {
+            color: var(--error);
+            margin-bottom: 16px;
+            min-height: 20px;
+            font-size: 14px;
+        }
+        .login-card .btn {
+            width: 100%;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-page">
+        <form class="login-card" id="login-form">
+            <h1>Skilleo AI</h1>
+            <p>Sign in to manage courses and renders.</p>
+            <div class="login-field">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" autocomplete="username" required>
+            </div>
+            <div class="login-field">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" autocomplete="current-password" required>
+            </div>
+            <div class="login-error" id="login-error"></div>
+            <button type="submit" class="btn btn-primary" id="login-btn">Sign in</button>
+        </form>
+    </div>
+    <script>
+        const TOKEN_KEY = 'gui_auth_token';
+        const form = document.getElementById('login-form');
+        const errorEl = document.getElementById('login-error');
+        const loginBtn = document.getElementById('login-btn');
+
+        async function init() {
+            try {
+                const response = await fetch('/api/auth/status');
+                const data = await response.json();
+                if (!data.authRequired) {
+                    window.location.href = '/index.html';
+                    return;
+                }
+                if (data.username) {
+                    document.getElementById('username').value = data.username;
+                }
+            } catch (error) {
+                errorEl.textContent = 'Could not reach server.';
+            }
+        }
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            errorEl.textContent = '';
+            loginBtn.disabled = true;
+            loginBtn.textContent = 'Signing in...';
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        username: document.getElementById('username').value,
+                        password: document.getElementById('password').value,
+                    }),
+                });
+                const data = await response.json();
+                if (!response.ok || !data.ok) {
+                    throw new Error(data.error || 'Invalid credentials');
+                }
+                if (data.token) {
+                    sessionStorage.setItem(TOKEN_KEY, data.token);
+                }
+                window.location.href = '/index.html';
+            } catch (error) {
+                errorEl.textContent = error.message || 'Sign in failed';
+                loginBtn.disabled = false;
+                loginBtn.textContent = 'Sign in';
+            }
+        });
+
+        init();
+    </script>
+</body>
+</html>

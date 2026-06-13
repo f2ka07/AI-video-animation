@@ -1,700 +1,128 @@
 import React from "react";
 import { Sequence, useVideoConfig, Audio, staticFile } from "remotion";
-import { TitleSlide } from "../components/TitleSlide";
-import { AnimatedContentSlide } from "../components/AnimatedContentSlide";
-import { AnimatedCodeSlide } from "../components/AnimatedCodeSlide";
-import { BulletsAndCodeSlide } from "../components/BulletsAndCodeSlide";
-import { AnimatedComparisonSlide } from "../components/AnimatedComparisonSlide";
-import { SequentialBulletSlide } from "../components/SequentialBulletSlide";
-import { CodeAndDiagram } from "../compositions/CodeAndDiagram";
-import { CrossFadeWrapper } from "../components/CrossFadeWrapper";
 import { getAudioDuration } from "../utils/audioDuration";
+import { Module01Intro } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module01/Module01Intro";
+import { Module01Diagram1 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module01/Module01Diagram1";
+import { Module01Diagram2 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module01/Module01Diagram2";
+import { Module01Diagram3 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module01/Module01Diagram3";
+import { Module01Recap } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module01/Module01Recap";
 
-// Auto-generated from moduleContent.ts - DO NOT EDIT MANUALLY
-
+// Auto-generated from course scene components - DO NOT EDIT MANUALLY
+// Course: agentic-ai-for-beginners, Module: 1
 export const Module1: React.FC = () => {
 	const { fps } = useVideoConfig();
-	const crossFadeDuration = 0.3;
-	const whooshDuration = 0.57;
 
 	const audioFiles = {
-		"networking-intro": staticFile("audio/introduction-to-computer-networks/module1-networking-intro.wav"),
-		"what-is-a-network": staticFile("audio/introduction-to-computer-networks/module1-what-is-a-network.wav"),
-		"network-components": staticFile("audio/introduction-to-computer-networks/module1-network-components.wav"),
-		"types-of-networks": staticFile("audio/introduction-to-computer-networks/module1-types-of-networks.wav"),
-		"story-beat-lan-wan": staticFile("audio/introduction-to-computer-networks/module1-story-beat-lan-wan.wav"),
-		"network-protocols": staticFile("audio/introduction-to-computer-networks/module1-network-protocols.wav"),
-		"tcp-ip-stack": staticFile("audio/introduction-to-computer-networks/module1-tcp-ip-stack.wav"),
-		"osi-model": staticFile("audio/introduction-to-computer-networks/module1-osi-model.wav"),
-		"story-beat-osi": staticFile("audio/introduction-to-computer-networks/module1-story-beat-osi.wav"),
-		"network-addressing": staticFile("audio/introduction-to-computer-networks/module1-network-addressing.wav"),
-		"ip-addressing": staticFile("audio/introduction-to-computer-networks/module1-ip-addressing.wav"),
-		subnetting: staticFile("audio/introduction-to-computer-networks/module1-subnetting.wav"),
-		"story-beat-conclusion": staticFile("audio/introduction-to-computer-networks/module1-story-beat-conclusion.wav"),
+		"module1-module-1-application": staticFile("audio/agentic-ai-for-beginners/module1-module-1-application.wav"),
+		"module1-module-1-architecture": staticFile("audio/agentic-ai-for-beginners/module1-module-1-architecture.wav"),
+		"module1-module-1-concept": staticFile("audio/agentic-ai-for-beginners/module1-module-1-concept.wav"),
+		"module1-module-1-exam-mapping": staticFile("audio/agentic-ai-for-beginners/module1-module-1-exam-mapping.wav"),
+		"module1-module-1-recap": staticFile("audio/agentic-ai-for-beginners/module1-module-1-recap.wav"),
+		"module1-module-1-title": staticFile("audio/agentic-ai-for-beginners/module1-module-1-title.wav"),
 		whoosh: staticFile("audio/whoosh.wav"),
 	};
-
-	const audioDurations = {
-		"networking-intro": getAudioDuration("introduction-to-computer-networks/module1-networking-intro"),
-		"what-is-a-network": getAudioDuration("introduction-to-computer-networks/module1-what-is-a-network"),
-		"network-components": getAudioDuration("introduction-to-computer-networks/module1-network-components"),
-		"types-of-networks": getAudioDuration("introduction-to-computer-networks/module1-types-of-networks"),
-		"story-beat-lan-wan": getAudioDuration("introduction-to-computer-networks/module1-story-beat-lan-wan"),
-		"network-protocols": getAudioDuration("introduction-to-computer-networks/module1-network-protocols"),
-		"tcp-ip-stack": getAudioDuration("introduction-to-computer-networks/module1-tcp-ip-stack"),
-		"osi-model": getAudioDuration("introduction-to-computer-networks/module1-osi-model"),
-		"story-beat-osi": getAudioDuration("introduction-to-computer-networks/module1-story-beat-osi"),
-		"network-addressing": getAudioDuration("introduction-to-computer-networks/module1-network-addressing"),
-		"ip-addressing": getAudioDuration("introduction-to-computer-networks/module1-ip-addressing"),
-		subnetting: getAudioDuration("introduction-to-computer-networks/module1-subnetting"),
-		"story-beat-conclusion": getAudioDuration("introduction-to-computer-networks/module1-story-beat-conclusion"),
-	};
-
-	let currentFrame = 0;
-
-	const addSlide = (audioDuration: number, isLast: boolean = false, buffer: number = 0) => {
-		const slideDuration = audioDuration + buffer;
-		const start = currentFrame;
-		if (!isLast) {
-			currentFrame += (slideDuration + whooshDuration) * fps;
-		} else {
-			currentFrame += slideDuration * fps;
-		}
-		return { start, duration: slideDuration * fps, slideDuration, audioDuration, buffer };
-	};
-	const addSegment = (audioDuration: number, isLastInGroup: boolean, isLastInModule: boolean, buffer: number) => {
-		const slideDuration = audioDuration + buffer;
-		const start = currentFrame;
-		currentFrame += slideDuration * fps + (isLastInGroup && !isLastInModule ? whooshDuration * fps : 0);
-		return { start, duration: slideDuration * fps, slideDuration, audioDuration, buffer };
-	};
-
-	const seg0 = addSegment(18.31, true, false, 1);
-	const seg1 = addSegment(9.54, false, false, 1);
-	const seg2 = addSegment(9.54, true, false, 1);
-	const seg3 = addSegment(11.58, false, false, 1);
-	const seg4 = addSegment(11.58, true, false, 1);
-	const seg5 = addSegment(17.85, true, false, 1);
-	const seg6 = addSegment(10.11, true, false, 1);
-	const seg7 = addSegment(6.79, false, false, 1);
-	const seg8 = addSegment(6.79, true, false, 1);
-	const seg9 = addSegment(8.78, false, false, 1);
-	const seg10 = addSegment(8.78, true, false, 1);
-	const seg11 = addSegment(8.90, false, false, 1);
-	const seg12 = addSegment(8.90, true, false, 1);
-	const seg13 = addSegment(13.95, true, false, 1);
-	const seg14 = addSegment(6.87, false, false, 1);
-	const seg15 = addSegment(6.87, true, false, 1);
-	const seg16 = addSegment(13.26, true, false, 1);
-	const seg17 = addSegment(8.55, false, false, 1);
-	const seg18 = addSegment(8.55, true, false, 1);
-	const seg19 = addSegment(17.07, true, true, 1.2);
 
 	return (
 		<div
 			style={{
 				width: "100%",
-			height: "100%",
-			background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
-			position: "relative",
-		}}
+				height: "100%",
+				background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
+				position: "relative",
+			}}
 		>
-			{/* The Basics of Networking */}
-			<Sequence
-				from={seg0.start}
-				durationInFrames={seg0.duration}
-			>
-				<Audio src={audioFiles["networking-intro"]} />
-				<CrossFadeWrapper
-					totalDuration={seg0.slideDuration}
-					fadeInDuration={0.5}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<TitleSlide 
-					title="The Basics of Networking" 
-					subtitle="Understanding How Devices Communicate"
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg0.start + seg0.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
 
-			{/* What is a Network? */}
-			<Sequence
-				from={seg1.start}
-				durationInFrames={seg1.duration}
-			>
-				<Audio src={audioFiles["what-is-a-network"]} />
-				<CrossFadeWrapper
-					totalDuration={seg1.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="What is a Network?"
-					points={[
-						"A network is a collection",
-					"connected together to share"
-					]}
-					slideName="what-is-a-network"
-					audioDuration={seg1.audioDuration}
-					moduleNumber={1}
-					
-					
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
+		{/* Module01Intro */}
+		<Sequence
+			from={0}
+			durationInFrames={1302}
+		>
+			<Module01Intro
+				durationInFrames={1302}
+				cuePoints={[4, 51, 83, 139, 200, 269, 331, 376, 487, 560, 629, 712, 763, 840, 888, 950, 1029, 1077, 1116, 1163, 1218]}
+			/>
+			<Audio src={audioFiles["module1-module-1-title"]} />
+		</Sequence>
 
-			{/* What is a Network? */}
-			<Sequence
-				from={seg2.start}
-				durationInFrames={seg2.duration}
-			>
-				<Audio src={audioFiles["what-is-a-network"]} startFrom={Math.round(9.54 * fps)} />
-				<CrossFadeWrapper
-					totalDuration={seg2.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="What is a Network?"
-					points={[
-						"Think of it like a web"
-					]}
-					slideName="what-is-a-network"
-					audioDuration={seg2.audioDuration}
-					moduleNumber={1}
-					
-					
-					audioStartOffset={9.54}
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg2.start + seg2.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={1302} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* Network Components */}
-			<Sequence
-				from={seg3.start}
-				durationInFrames={seg3.duration}
-			>
-				<Audio src={audioFiles["network-components"]} />
-				<CrossFadeWrapper
-					totalDuration={seg3.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Network Components"
-					points={[
-						"Devices (or nodes)",
-					"Connections"
-					]}
-					slideName="network-components"
-					audioDuration={seg3.audioDuration}
-					moduleNumber={1}
-					
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
+		{/* Module01Diagram1 */}
+		<Sequence
+			from={1320}
+			durationInFrames={2987}
+		>
+			<Module01Diagram1
+				durationInFrames={2987}
+				cuePoints={[2, 52, 119, 188, 245, 291, 362, 456, 528, 629, 703, 815, 890, 974, 1055, 1122, 1192, 1243, 1325, 1388, 1449, 1500, 1602, 1657, 1758, 1826, 1892, 1968, 2051, 2143, 2234, 2311, 2403, 2480, 2593, 2686, 2777, 2859]}
+			/>
+			<Audio src={audioFiles["module1-module-1-concept"]} />
+		</Sequence>
 
-			{/* Network Components */}
-			<Sequence
-				from={seg4.start}
-				durationInFrames={seg4.duration}
-			>
-				<Audio src={audioFiles["network-components"]} startFrom={Math.round(11.58 * fps)} />
-				<CrossFadeWrapper
-					totalDuration={seg4.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Network Components"
-					points={[
-						"Data"
-					]}
-					slideName="network-components"
-					audioDuration={seg4.audioDuration}
-					moduleNumber={1}
-					
-					
-					audioStartOffset={11.58}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg4.start + seg4.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={4307} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* Types of Networks */}
-			<Sequence
-				from={seg5.start}
-				durationInFrames={seg5.duration}
-			>
-				<Audio src={audioFiles["types-of-networks"]} />
-				<CrossFadeWrapper
-					totalDuration={seg5.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedComparisonSlide
-					title="Types of Networks"
-					leftTitle="Local Area Networks (LAN)"
-					leftItems={[
-						"Small scale",
-						"Single building",
-						"Faster speeds"
-					]}
-					rightTitle="Wide Area Networks (WAN)"
-					rightItems={[
-						"Large scale",
-						"Multiple locations",
-						"Slower speeds"
-					]}
-					slideName="types-of-networks"
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg5.start + seg5.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module01Diagram2 */}
+		<Sequence
+			from={4325}
+			durationInFrames={3540}
+		>
+			<Module01Diagram2
+				durationInFrames={3540}
+				cuePoints={[128, 171, 174, 176, 179, 213, 241, 389, 556, 601, 646, 691, 853, 1002, 1016, 1096, 1141, 1401, 1733, 1734, 1755, 1791, 1808, 1900, 2002, 2143, 2233, 2312, 2385, 2447, 2518, 2589, 2659, 2718, 2814, 2896, 2960, 3027, 3090, 3207, 3264, 3341, 3403, 3465]}
+			/>
+			<Audio src={audioFiles["module1-module-1-architecture"]} />
+		</Sequence>
 
-			{/* story-beat-lan-wan */}
-			<Sequence
-				from={seg6.start}
-				durationInFrames={seg6.duration}
-			>
-				<Audio src={audioFiles["story-beat-lan-wan"]} />
-				<CrossFadeWrapper
-					totalDuration={seg6.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title=""
-					points={[
-						
-					]}
-					slideName="story-beat-lan-wan"
-					audioDuration={seg6.audioDuration}
-					moduleNumber={1}
-					
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg6.start + seg6.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={7865} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* Network Protocols */}
-			<Sequence
-				from={seg7.start}
-				durationInFrames={seg7.duration}
-			>
-				<Audio src={audioFiles["network-protocols"]} />
-				<CrossFadeWrapper
-					totalDuration={seg7.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Network Protocols"
-					points={[
-						"Protocols are the rules",
-					"define how data is transmitted"
-					]}
-					slideName="network-protocols"
-					audioDuration={seg7.audioDuration}
-					moduleNumber={1}
-					
-					
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
+		{/* Module01Diagram3 */}
+		<Sequence
+			from={7883}
+			durationInFrames={2510}
+		>
+			<Module01Diagram3
+				durationInFrames={2510}
+				cuePoints={[0, 77, 120, 162, 165, 166, 195, 238, 240, 347, 390, 490, 561, 571, 658, 878, 1254, 1403, 1426, 1577, 1681, 1789, 1896, 1965, 2035, 2105, 2163, 2259, 2330, 2416]}
+			/>
+			<Audio src={audioFiles["module1-module-1-application"]} />
+		</Sequence>
 
-			{/* Network Protocols */}
-			<Sequence
-				from={seg8.start}
-				durationInFrames={seg8.duration}
-			>
-				<Audio src={audioFiles["network-protocols"]} startFrom={Math.round(6.79 * fps)} />
-				<CrossFadeWrapper
-					totalDuration={seg8.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Network Protocols"
-					points={[
-						"Think of them like grammar"
-					]}
-					slideName="network-protocols"
-					audioDuration={seg8.audioDuration}
-					moduleNumber={1}
-					
-					
-					audioStartOffset={6.79}
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg8.start + seg8.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={10393} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* The TCP/IP Stack */}
-			<Sequence
-				from={seg9.start}
-				durationInFrames={seg9.duration}
-			>
-				<Audio src={audioFiles["tcp-ip-stack"]} />
-				<CrossFadeWrapper
-					totalDuration={seg9.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="The TCP/IP Stack"
-					points={[
-						"TCP/IP stack is the foundation",
-					"layers handle different aspects"
-					]}
-					slideName="tcp-ip-stack"
-					audioDuration={seg9.audioDuration}
-					moduleNumber={1}
-					
-					
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
+		{/* Module01Recap - module1-module-1-exam-mapping */}
+		<Sequence
+			from={10411}
+			durationInFrames={1349}
+		>
+			<Module01Recap
+				durationInFrames={1349}
+				cuePoints={[4, 40, 125, 193, 247, 315, 420, 456, 537, 622, 698, 779, 861, 921, 993, 1094, 1171, 1228, 1268, 2205, 2216, 2226, 2237, 2247, 2292, 2337, 2382, 2427, 2472, 2517, 2562, 2607, 2652, 2697, 2742, 2787, 2832, 2877, 2922, 2967, 3012, 3057, 3102]}
+			/>
+			<Audio src={audioFiles["module1-module-1-exam-mapping"]} />
+		</Sequence>
 
-			{/* The TCP/IP Stack */}
-			<Sequence
-				from={seg10.start}
-				durationInFrames={seg10.duration}
-			>
-				<Audio src={audioFiles["tcp-ip-stack"]} startFrom={Math.round(8.78 * fps)} />
-				<CrossFadeWrapper
-					totalDuration={seg10.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="The TCP/IP Stack"
-					points={[
-						"Each layer serves a function"
-					]}
-					slideName="tcp-ip-stack"
-					audioDuration={seg10.audioDuration}
-					moduleNumber={1}
-					
-					
-					audioStartOffset={8.78}
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg10.start + seg10.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* The OSI Model */}
-			<Sequence
-				from={seg11.start}
-				durationInFrames={seg11.duration}
-			>
-				<Audio src={audioFiles["osi-model"]} />
-				<CrossFadeWrapper
-					totalDuration={seg11.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="The OSI Model"
-					points={[
-						"OSI model is a framework",
-					"breaks down communication"
-					]}
-					slideName="osi-model"
-					audioDuration={seg11.audioDuration}
-					moduleNumber={1}
-					
-					
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-
-			{/* The OSI Model */}
-			<Sequence
-				from={seg12.start}
-				durationInFrames={seg12.duration}
-			>
-				<Audio src={audioFiles["osi-model"]} startFrom={Math.round(8.90 * fps)} />
-				<CrossFadeWrapper
-					totalDuration={seg12.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="The OSI Model"
-					points={[
-						"detailed map of data travel"
-					]}
-					slideName="osi-model"
-					audioDuration={seg12.audioDuration}
-					moduleNumber={1}
-					
-					
-					audioStartOffset={8.90}
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg12.start + seg12.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* story-beat-osi */}
-			<Sequence
-				from={seg13.start}
-				durationInFrames={seg13.duration}
-			>
-				<Audio src={audioFiles["story-beat-osi"]} />
-				<CrossFadeWrapper
-					totalDuration={seg13.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title=""
-					points={[
-						
-					]}
-					slideName="story-beat-osi"
-					audioDuration={seg13.audioDuration}
-					moduleNumber={1}
-					
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg13.start + seg13.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Network Addressing */}
-			<Sequence
-				from={seg14.start}
-				durationInFrames={seg14.duration}
-			>
-				<Audio src={audioFiles["network-addressing"]} />
-				<CrossFadeWrapper
-					totalDuration={seg14.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Network Addressing"
-					points={[
-						"Network addressing is like",
-					"unique postal address"
-					]}
-					slideName="network-addressing"
-					audioDuration={seg14.audioDuration}
-					moduleNumber={1}
-					
-					
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-
-			{/* Network Addressing */}
-			<Sequence
-				from={seg15.start}
-				durationInFrames={seg15.duration}
-			>
-				<Audio src={audioFiles["network-addressing"]} startFrom={Math.round(6.87 * fps)} />
-				<CrossFadeWrapper
-					totalDuration={seg15.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Network Addressing"
-					points={[
-						"Without proper addressing"
-					]}
-					slideName="network-addressing"
-					audioDuration={seg15.audioDuration}
-					moduleNumber={1}
-					
-					
-					audioStartOffset={6.87}
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg15.start + seg15.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* IP Addressing */}
-			<Sequence
-				from={seg16.start}
-				durationInFrames={seg16.duration}
-			>
-				<Audio src={audioFiles["ip-addressing"]} />
-				<CrossFadeWrapper
-					totalDuration={seg16.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="IP Addressing"
-					code={`192.168.1.1`}
-					language="plaintext"
-					slideName="ip-addressing"
-					audioStartFrame={seg16.start}
-					audioDuration={seg16.audioDuration}
-					moduleNumber={1}
-					visibleLineRange={[undefined, undefined]}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg16.start + seg16.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Subnetting */}
-			<Sequence
-				from={seg17.start}
-				durationInFrames={seg17.duration}
-			>
-				<Audio src={audioFiles["subnetting"]} />
-				<CrossFadeWrapper
-					totalDuration={seg17.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Subnetting"
-					points={[
-						"Subnetting divides a network",
-					"helps optimize performance"
-					]}
-					slideName="subnetting"
-					audioDuration={seg17.audioDuration}
-					moduleNumber={1}
-					
-					
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-
-			{/* Subnetting */}
-			<Sequence
-				from={seg18.start}
-				durationInFrames={seg18.duration}
-			>
-				<Audio src={audioFiles["subnetting"]} startFrom={Math.round(8.55 * fps)} />
-				<CrossFadeWrapper
-					totalDuration={seg18.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Subnetting"
-					points={[
-						"dividing a large office"
-					]}
-					slideName="subnetting"
-					audioDuration={seg18.audioDuration}
-					moduleNumber={1}
-					
-					
-					audioStartOffset={8.55}
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg18.start + seg18.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* story-beat-conclusion */}
-			<Sequence
-				from={seg19.start}
-				durationInFrames={seg19.duration}
-			>
-				<Audio src={audioFiles["story-beat-conclusion"]} />
-				<CrossFadeWrapper
-					totalDuration={seg19.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={0}
-			>
-					<AnimatedContentSlide
-					title=""
-					points={[
-						
-					]}
-					slideName="story-beat-conclusion"
-					audioDuration={seg19.audioDuration}
-					moduleNumber={1}
-					
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-
+		{/* Module01Recap - module1-module-1-recap */}
+		<Sequence
+			from={11760}
+			durationInFrames={1716}
+		>
+			<Module01Recap
+				durationInFrames={1716}
+				cuePoints={[]}
+			/>
+			<Audio src={audioFiles["module1-module-1-recap"]} />
+		</Sequence>
 		</div>
 	);
 };

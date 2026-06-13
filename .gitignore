@@ -21,16 +21,28 @@ lpt3
 .env
 .env.local
 public/audio/*.mp3
-# Audio: only track active course + shared assets (updated by activateCourse.ts)
+# --- deploy: courses (managed by courseDeployPolicy) ---
+courses/*
+!courses/.gitkeep
+!courses/agentic-ai-for-beginners/
+# --- end deploy: courses ---
+# --- deploy: audio (managed by courseDeployPolicy) ---
 public/audio/*
 !public/audio/whoosh.wav
-!public/audio/introduction-to-computer-networks/
+!public/audio/agentic-ai-for-beginners/
+# --- end deploy: audio ---
+# --- deploy: timings (managed by courseDeployPolicy) ---
+public/timings/
+# --- end deploy: timings ---
 out/
+workspace/logs/
+workspace/deploy-manifest.json
 doc/
 .remotion/
 src/assets/aws/*
 # Exclude markdown documentation files
 *.md
+!README.md
 !node_modules/**/*.md
 
 # Generated content - platform only, do not push

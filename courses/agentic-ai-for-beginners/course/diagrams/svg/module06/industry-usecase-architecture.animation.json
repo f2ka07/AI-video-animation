@@ -1,0 +1,123 @@
+{
+  "diagram": "industry-usecase-grid.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 7.3,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [],
+      "triggerWords": [
+        "use",
+        "cases",
+        "enterprise"
+      ]
+    },
+    {
+      "start": 7.3,
+      "end": 38.4,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-1"
+      ],
+      "triggerWords": [
+        "knowledge",
+        "management"
+      ]
+    },
+    {
+      "start": 38.4,
+      "end": 70,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-2"
+      ],
+      "triggerWords": [
+        "customer",
+        "operations"
+      ]
+    },
+    {
+      "start": 70,
+      "end": 97.2,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-4"
+      ],
+      "highlight": [
+        "section-3"
+      ],
+      "triggerWords": [
+        "research",
+        "analysis"
+      ]
+    },
+    {
+      "start": 97.2,
+      "end": 146,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3"
+      ],
+      "highlight": [
+        "section-4"
+      ],
+      "triggerWords": [
+        "document",
+        "workflows",
+        "data",
+        "robotics",
+        "adjacent"
+      ]
+    }
+  ]
+}

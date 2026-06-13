@@ -1,0 +1,145 @@
+{
+  "diagram": "nvidia-ai-stack-overview.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 4.7,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [],
+      "triggerWords": [
+        "stack",
+        "layers",
+        "five"
+      ]
+    },
+    {
+      "start": 4.7,
+      "end": 53,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3"
+      ],
+      "highlight": [
+        "section-4"
+      ],
+      "triggerWords": [
+        "hardware",
+        "layer"
+      ]
+    },
+    {
+      "start": 53,
+      "end": 109,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3"
+      ],
+      "highlight": [
+        "section-4"
+      ],
+      "triggerWords": [
+        "acceleration",
+        "cuda",
+        "tensorrt"
+      ]
+    },
+    {
+      "start": 109,
+      "end": 157,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-4"
+      ],
+      "highlight": [
+        "section-3"
+      ],
+      "triggerWords": [
+        "triton",
+        "serving",
+        "inference"
+      ]
+    },
+    {
+      "start": 157,
+      "end": 224,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-2"
+      ],
+      "triggerWords": [
+        "nemo",
+        "nim"
+      ]
+    },
+    {
+      "start": 224,
+      "end": 320,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-1"
+      ],
+      "triggerWords": [
+        "application",
+        "layer"
+      ]
+    }
+  ]
+}

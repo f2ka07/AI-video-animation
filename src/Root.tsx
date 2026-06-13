@@ -1,54 +1,131 @@
 import React from "react";
 import { Composition, Still } from "remotion";
-import { GenericModule } from "./videos/GenericModule";
 import { ThumbnailStill } from "./compositions/ThumbnailStill";
-import { getModuleConfig } from "./videos/GenericModuleConfig";
-import { allModules } from "./videos/moduleContent";
 import { secondsToFrames } from "./utils/calculateDuration";
+import { Module1 } from "./videos/Module1";
+import { Module2 } from "./videos/Module2";
+import { Module3 } from "./videos/Module3";
+import { Module4 } from "./videos/Module4";
+import { Module5 } from "./videos/Module5";
+import { Module6 } from "./videos/Module6";
+import { Module7 } from "./videos/Module7";
+import { Module8 } from "./videos/Module8";
+import { Module9 } from "./videos/Module9";
+import { Module10 } from "./videos/Module10";
+import { Module11 } from "./videos/Module11";
+import { Module12 } from "./videos/Module12";
 
-// Content-driven: GenericModule compositions from moduleContent.ts
+// Scene-based modules for agentic-ai-for-beginners (SVG scenes - not GenericModule/Mermaid)
 export const RemotionRoot: React.FC = () => {
 	return (
 		<>
 			<Composition
 				key="module-1"
 				id="module-1"
-				component={GenericModule}
-				defaultProps={{ courseId: "introduction-to-computer-networks", moduleNumber: 1 }}
-				durationInFrames={secondsToFrames(getModuleConfig("introduction-to-computer-networks", 1).totalDuration, getModuleConfig("introduction-to-computer-networks", 1).fps)}
-				fps={getModuleConfig("introduction-to-computer-networks", 1).fps}
-				width={getModuleConfig("introduction-to-computer-networks", 1).width}
-				height={getModuleConfig("introduction-to-computer-networks", 1).height}
+				component={Module1}
+				durationInFrames={13410}
+				fps={30}
+				width={1920}
+				height={1080}
 			/>
 			<Composition
 				key="module-2"
 				id="module-2"
-				component={GenericModule}
-				defaultProps={{ courseId: "introduction-to-computer-networks", moduleNumber: 2 }}
-				durationInFrames={secondsToFrames(getModuleConfig("introduction-to-computer-networks", 2).totalDuration, getModuleConfig("introduction-to-computer-networks", 2).fps)}
-				fps={getModuleConfig("introduction-to-computer-networks", 2).fps}
-				width={getModuleConfig("introduction-to-computer-networks", 2).width}
-				height={getModuleConfig("introduction-to-computer-networks", 2).height}
+				component={Module2}
+				durationInFrames={16810}
+				fps={30}
+				width={1920}
+				height={1080}
 			/>
 			<Composition
 				key="module-3"
 				id="module-3"
-				component={GenericModule}
-				defaultProps={{ courseId: "introduction-to-computer-networks", moduleNumber: 3 }}
-				durationInFrames={secondsToFrames(getModuleConfig("introduction-to-computer-networks", 3).totalDuration, getModuleConfig("introduction-to-computer-networks", 3).fps)}
-				fps={getModuleConfig("introduction-to-computer-networks", 3).fps}
-				width={getModuleConfig("introduction-to-computer-networks", 3).width}
-				height={getModuleConfig("introduction-to-computer-networks", 3).height}
+				component={Module3}
+				durationInFrames={18791}
+				fps={30}
+				width={1920}
+				height={1080}
 			/>
 			<Composition
 				key="module-4"
 				id="module-4"
-				component={GenericModule}
-				defaultProps={{ courseId: "introduction-to-computer-networks", moduleNumber: 4 }}
-				durationInFrames={secondsToFrames(getModuleConfig("introduction-to-computer-networks", 4).totalDuration, getModuleConfig("introduction-to-computer-networks", 4).fps)}
-				fps={getModuleConfig("introduction-to-computer-networks", 4).fps}
-				width={getModuleConfig("introduction-to-computer-networks", 4).width}
-				height={getModuleConfig("introduction-to-computer-networks", 4).height}
+				component={Module4}
+				durationInFrames={20092}
+				fps={30}
+				width={1920}
+				height={1080}
+			/>
+			<Composition
+				key="module-5"
+				id="module-5"
+				component={Module5}
+				durationInFrames={19707}
+				fps={30}
+				width={1920}
+				height={1080}
+			/>
+			<Composition
+				key="module-6"
+				id="module-6"
+				component={Module6}
+				durationInFrames={18899}
+				fps={30}
+				width={1920}
+				height={1080}
+			/>
+			<Composition
+				key="module-7"
+				id="module-7"
+				component={Module7}
+				durationInFrames={10143}
+				fps={30}
+				width={1920}
+				height={1080}
+			/>
+			<Composition
+				key="module-8"
+				id="module-8"
+				component={Module8}
+				durationInFrames={10897}
+				fps={30}
+				width={1920}
+				height={1080}
+			/>
+			<Composition
+				key="module-9"
+				id="module-9"
+				component={Module9}
+				durationInFrames={10376}
+				fps={30}
+				width={1920}
+				height={1080}
+			/>
+			<Composition
+				key="module-10"
+				id="module-10"
+				component={Module10}
+				durationInFrames={11441}
+				fps={30}
+				width={1920}
+				height={1080}
+			/>
+			<Composition
+				key="module-11"
+				id="module-11"
+				component={Module11}
+				durationInFrames={10191}
+				fps={30}
+				width={1920}
+				height={1080}
+			/>
+			<Composition
+				key="module-12"
+				id="module-12"
+				component={Module12}
+				durationInFrames={11539}
+				fps={30}
+				width={1920}
+				height={1080}
 			/>
 			<Still
 				id="thumbnail"

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "remotion studio src/index.tsx",
-    "test": "tsx tests/moduleContent.test.ts",
+    "test": "tsx workspace/tests/moduleContent.test.ts",
     "generate-audio": "tsx scripts/generateAudioFromContent.ts",
     "measure-audio": "tsx scripts/measureAudioDurations.ts",
     "measure-and-update": "tsx scripts/simpleMeasureAudio.ts",
@@ -27,6 +27,7 @@
     "clean-cache": "powershell -ExecutionPolicy Bypass -File scripts/cleanRemotionCache.ps1",
     "plan-course": "tsx scripts/planCourse.ts",
     "activate-course": "tsx scripts/activateCourse.ts",
+    "sync:deploy-policy": "node scripts/syncCourseDeployPolicy.js",
     "generate-modules": "tsx scripts/generateModulesFromContent.ts",
     "generate-module": "tsx scripts/generateModulesFromContent.ts",
     "sync-slide-splits": "tsx scripts/syncSlideSplitsToTs.ts",
@@ -60,6 +61,7 @@
     "render:course:draft": "tsx scripts/renderAllModules.ts --preset=draft",
     "render:course:fast": "tsx scripts/renderAllModules.ts --preset=fast",
     "render:course:max": "tsx scripts/renderAllModules.ts --preset=max",
+    "render:agentic": "tsx scripts/renderAllModules.ts --course=agentic-ai-for-beginners --preset=fast",
     "render:runpod": "tsx scripts/renderOnRunPod.ts",
     "gui:runpod": "tsx scripts/startGuiOnRunPod.ts",
     "ensure-browser": "npx @remotion/renderer ensure-chromium"

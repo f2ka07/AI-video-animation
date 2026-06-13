@@ -1,0 +1,138 @@
+{
+  "diagram": "nvidia-ai-stack-overview.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 13.5,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [],
+      "triggerWords": [
+        "infrastructure",
+        "complex"
+      ]
+    },
+    {
+      "start": 13.5,
+      "end": 19,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3"
+      ],
+      "highlight": [
+        "section-4"
+      ],
+      "triggerWords": [
+        "gpus",
+        "software"
+      ]
+    },
+    {
+      "start": 19,
+      "end": 22.5,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-4"
+      ],
+      "highlight": [
+        "section-3"
+      ],
+      "triggerWords": [
+        "inference",
+        "servers"
+      ]
+    },
+    {
+      "start": 22.5,
+      "end": 27,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-2"
+      ],
+      "triggerWords": [
+        "deployment",
+        "reproducible"
+      ]
+    },
+    {
+      "start": 27,
+      "end": 50.7,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-1"
+      ],
+      "triggerWords": [
+        "integration",
+        "surfaces",
+        "enterprise"
+      ]
+    },
+    {
+      "start": 50.7,
+      "end": 120,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [],
+      "highlight": [],
+      "triggerWords": [
+        "unified",
+        "stack",
+        "platform"
+      ]
+    }
+  ]
+}

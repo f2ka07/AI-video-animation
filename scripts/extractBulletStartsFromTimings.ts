@@ -6,6 +6,7 @@ import * as fs from "fs";
 import * as path from "path";
 import { loadModuleTimings, saveModuleTimings, ModuleTimings } from "./saveTimingsJson";
 import { parseModuleContent } from "./parseModuleContent";
+import { computeBulletStarts } from "../src/utils/computeBulletStarts";
 
 /**
  * Load bullet points from generated ModuleN.tsx (for courses without content.json)
@@ -159,93 +160,15 @@ function extractBulletStarts(
 	points: string[],
 	_script?: string
 ): { starts: number[]; strategies: BulletStrategy[] } | null {
-	const starts: number[] = [];
-	const strategies: BulletStrategy[] = [];
-	let lastFoundTime = 0;
-
-	const normalizeWord = (word: string): string => {
-		return word.toLowerCase().replace(/[.,!?;:'"()\[\]{}]/g, "").trim();
-	};
-
-	const ordinals = ["first", "second", "third", "fourth", "fifth"];
-	const extractWordGroups = (point: string): string[][] => {
-		const allWords = point.split(/\s+/).map(normalizeWord).filter(w => w.length > 0);
-		const groups: string[][] = [];
-		if (allWords.length >= 3) groups.push(allWords.slice(0, 3));
-		else if (allWords.length > 0) groups.push(allWords);
-		if (allWords.length >= 6) groups.push(allWords.slice(3, 6));
-		else if (allWords.length > 3) groups.push(allWords.slice(3));
-		if (allWords.length >= 9) groups.push(allWords.slice(6, 9));
-		else if (allWords.length > 6) groups.push(allWords.slice(6));
-		// When bullet starts with ordinal, narrator may skip it (e.g. "a new category of...").
-		if (allWords.length >= 4 && ordinals.includes(allWords[0])) {
-			groups.push(allWords.slice(1, 4));
-		}
-		return groups;
-	};
-
-	const findWordGroupTime = (wordGroup: string[], minStartTime: number): number | null => {
-		if (wordGroup.length === 0) return null;
-		for (let i = 0; i < words.length; i++) {
-			if (words[i].start <= minStartTime) continue;
-			let matchIndex = i;
-			let allMatched = true;
-			for (let j = 0; j < wordGroup.length; j++) {
-				if (matchIndex + j >= words.length) { allMatched = false; break; }
-				const wordText = normalizeWord(words[matchIndex + j].text);
-				const groupWord = wordGroup[j];
-				if (wordText !== groupWord && !wordText.startsWith(groupWord) && !groupWord.startsWith(wordText)) {
-					allMatched = false;
-					break;
-				}
-			}
-			if (allMatched) return words[matchIndex].start;
-		}
+	const starts = computeBulletStarts(words, points);
+	if (!starts) {
+		console.error(
+			`Could not match all bullet points to word timings (${points.length} points). ` +
+				`Author bullets to match Gentle word timings.`
+		);
 		return null;
-	};
-
-	for (let i = 0; i < points.length; i++) {
-		const point = points[i];
-		const wordGroups = extractWordGroups(point);
-		const pointLower = point.toLowerCase();
-		let foundTime: number | null = null;
-
-		for (const ordinal of ordinals) {
-			if (pointLower.startsWith(ordinal) || pointLower.includes(`, ${ordinal}`) || pointLower.includes(` ${ordinal},`)) {
-				for (let j = 0; j < words.length; j++) {
-					const wordText = normalizeWord(words[j].text);
-					if (wordText === ordinal && words[j].start > lastFoundTime) {
-						foundTime = words[j].start;
-						break;
-					}
-				}
-				if (foundTime !== null) break;
-			}
-		}
-
-		if (foundTime === null) {
-			for (const group of wordGroups) {
-				const time = findWordGroupTime(group, lastFoundTime);
-				if (time !== null && time > lastFoundTime) {
-					foundTime = time;
-					break;
-				}
-			}
-		}
-
-		if (foundTime !== null) {
-			starts.push(foundTime);
-			lastFoundTime = foundTime;
-		} else {
-			console.error(
-				`Bullet ${i + 1} has no matching phrase in transcript. ` +
-				`Point: "${point.substring(0, 60)}...". Author bullets to match Gentle word timings.`
-			);
-			return null;
-		}
 	}
-
-	return { starts, strategies };
+	return { starts, strategies: starts.map(() => "phrase" as BulletStrategy) };
 }
 
 /**

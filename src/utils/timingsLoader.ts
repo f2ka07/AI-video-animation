@@ -35,12 +35,18 @@ export interface ModuleTimings {
 // Cache for loaded module timings
 const timingsCache: Record<number, ModuleTimings | null> = {};
 const loadingPromises: Record<number, Promise<ModuleTimings | null>> = {};
+const bulletStartsCache: Record<number, Record<string, number[]> | null> = {};
+const bulletStartsLoadingPromises: Record<number, Promise<Record<string, number[]> | null>> = {};
 
 /**
  * Get the URL for a module's timing file
  */
 export function getTimingsUrl(moduleNumber: number): string {
   return staticFile(`timings/module${moduleNumber}.json`);
+}
+
+export function getBulletStartsUrl(moduleNumber: number): string {
+  return staticFile(`timings/module${moduleNumber}-bulletStarts.json`);
 }
 
 /**
@@ -130,6 +136,46 @@ export function preloadModuleTimings(moduleNumber: number): void {
 }
 
 /**
+ * Load precomputed bullet start times per slide (optional; runtime can derive from words).
+ */
+export async function loadBulletStarts(
+  moduleNumber: number
+): Promise<Record<string, number[]> | null> {
+  if (bulletStartsCache[moduleNumber] !== undefined) {
+    return bulletStartsCache[moduleNumber];
+  }
+
+  if (bulletStartsLoadingPromises[moduleNumber]) {
+    return bulletStartsLoadingPromises[moduleNumber];
+  }
+
+  bulletStartsLoadingPromises[moduleNumber] = (async () => {
+    try {
+      const url = getBulletStartsUrl(moduleNumber);
+      const response = await fetch(url);
+      if (!response.ok) {
+        bulletStartsCache[moduleNumber] = null;
+        return null;
+      }
+      const contentType = response.headers.get("content-type") || "";
+      if (!contentType.includes("application/json")) {
+        bulletStartsCache[moduleNumber] = null;
+        return null;
+      }
+      const data = (await response.json()) as Record<string, number[]>;
+      bulletStartsCache[moduleNumber] = data;
+      return data;
+    } catch (error) {
+      console.warn(`Failed to load bullet starts for module ${moduleNumber}:`, error);
+      bulletStartsCache[moduleNumber] = null;
+      return null;
+    }
+  })();
+
+  return bulletStartsLoadingPromises[moduleNumber];
+}
+
+/**
  * Clear the cache (useful for hot reloading during development)
  */
 export function clearTimingsCache(): void {
@@ -138,5 +184,11 @@ export function clearTimingsCache(): void {
   });
   Object.keys(loadingPromises).forEach(key => {
     delete loadingPromises[Number(key)];
+  });
+  Object.keys(bulletStartsCache).forEach(key => {
+    delete bulletStartsCache[Number(key)];
+  });
+  Object.keys(bulletStartsLoadingPromises).forEach(key => {
+    delete bulletStartsLoadingPromises[Number(key)];
   });
 }

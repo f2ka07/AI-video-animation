@@ -4,7 +4,22 @@
 import * as fs from "fs";
 import * as path from "path";
 import { allModules, ModuleContent } from "../src/videos/moduleContent";
+import { courseUsesSceneVisuals } from "./courseVisualMode";
 import { loadSlideSplits, expandSlidesWithSplits, EffectiveSegment } from "./loadSlideSplits";
+
+function stripMermaidFromSplits(splits: Record<string, unknown>): Record<string, unknown> {
+	const out: Record<string, unknown> = { ...splits };
+	for (const key of Object.keys(out)) {
+		const entry = out[key] as { segments?: Array<{ mermaidSource?: string }> };
+		if (!entry?.segments) continue;
+		entry.segments = entry.segments.map((seg) => {
+			if (!seg?.mermaidSource) return seg;
+			const { mermaidSource, ...rest } = seg;
+			return rest;
+		});
+	}
+	return out;
+}
 import { getAudioDuration } from "../src/utils/audioDuration";
 
 /** Load code for a slide from content.json when moduleContent lacks it */
@@ -168,7 +183,7 @@ export const Module${module.moduleNumber}Config = {
 	}
 }
 
-function generateModuleFile(module: ModuleContent, previewMode: boolean = false): string {
+function generateModuleFile(module: ModuleContent, previewMode: boolean = false, bulletsOnly: boolean = false): string {
 	const slideNames = module.slides.map((s) => s.name);
 	
 	// Helper function to quote property names if they are not valid JavaScript identifiers
@@ -224,7 +239,8 @@ function generateModuleFile(module: ModuleContent, previewMode: boolean = false)
 
 	// For standard videos: check slide splits (content-single/content-two-card can be split into segments)
 	// Skip splits in preview mode (no audio files to measure)
-	const splits = !previewMode ? loadSlideSplits(courseId) : {};
+	const splitsRaw = !previewMode ? loadSlideSplits(courseId) : {};
+	const splits = bulletsOnly ? (stripMermaidFromSplits(splitsRaw) as ReturnType<typeof loadSlideSplits>) : splitsRaw;
 	const getDur = (sn: string) => {
 		if (previewMode) return fixedDur;
 		return getAudioDuration(`${courseId}/module${module.moduleNumber}-${sn}`);
@@ -686,9 +702,31 @@ function parseModuleRange(input: string): number[] {
 function main() {
 	const args = process.argv.slice(2);
 	const previewMode = args.includes("--preview");
-	const moduleInput = args.find((a) => a !== "--preview") || "all";
+	const bulletsOnly = args.includes("--bullets-only");
+	const skipRoot = args.includes("--skip-root");
+	const moduleInput = args.find((a) => !a.startsWith("--")) || "all";
 
-	console.log("Generating modules from content" + (previewMode ? " (PREVIEW - fixed durations, no audio needed)" : "") + "...\n");
+	const activeCourseId = allModules[0]?.courseId;
+	if (
+		activeCourseId &&
+		courseUsesSceneVisuals(activeCourseId) &&
+		!bulletsOnly &&
+		!process.env.ALLOW_GENERIC_MODULE_FOR_SCENES
+	) {
+		console.error(
+			`Refusing generateModulesFromContent for scene course "${activeCourseId}". ` +
+				`Use: npx tsx scripts/generateModulesFromScenes.ts ${activeCourseId} 1-12 ` +
+				`or: npx tsx scripts/activateCourse.ts ${activeCourseId}`
+		);
+		process.exit(1);
+	}
+
+	console.log(
+		"Generating modules from content" +
+			(previewMode ? " (PREVIEW - fixed durations, no audio needed)" : "") +
+			(bulletsOnly ? " (BULLETS ONLY - no Mermaid diagrams)" : "") +
+			"\n"
+	);
 
 	let modulesToGenerate: number[];
 	try {
@@ -730,15 +768,16 @@ function main() {
 		if (existingModule && /\/\/\s*PRESERVE_MANUAL_EDITS/i.test(existingModule)) {
 			console.log(`  Skipped Module${module.moduleNumber}.tsx (PRESERVE_MANUAL_EDITS)`);
 		} else {
-			fs.writeFileSync(modulePath, generateModuleFile(module, previewMode));
+			fs.writeFileSync(modulePath, generateModuleFile(module, previewMode, bulletsOnly));
 			console.log(`  ✓ Module${module.moduleNumber}.tsx`);
 		}
 	}
 
-	// Update Root.tsx with ALL modules (not just generated ones)
-	console.log("\nUpdating Root.tsx...");
-	updateRootFile(allModules);
-	console.log("  ✓ Root.tsx updated");
+	if (!skipRoot) {
+		console.log("\nUpdating Root.tsx...");
+		updateRootFile(allModules);
+		console.log("  ✓ Root.tsx updated");
+	}
 
 	console.log(`\n✅ Modules ${modulesToGenerate.join(", ")} generated!`);
 	if (previewMode) {

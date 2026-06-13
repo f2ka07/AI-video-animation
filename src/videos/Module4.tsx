@@ -1,465 +1,128 @@
 import React from "react";
 import { Sequence, useVideoConfig, Audio, staticFile } from "remotion";
-import { TitleSlide } from "../components/TitleSlide";
-import { AnimatedContentSlide } from "../components/AnimatedContentSlide";
-import { AnimatedCodeSlide } from "../components/AnimatedCodeSlide";
-import { BulletsAndCodeSlide } from "../components/BulletsAndCodeSlide";
-import { AnimatedComparisonSlide } from "../components/AnimatedComparisonSlide";
-import { SequentialBulletSlide } from "../components/SequentialBulletSlide";
-import { CodeAndDiagram } from "../compositions/CodeAndDiagram";
-import { CrossFadeWrapper } from "../components/CrossFadeWrapper";
 import { getAudioDuration } from "../utils/audioDuration";
+import { Module04Intro } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module04/Module04Intro";
+import { Module04Diagram1 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module04/Module04Diagram1";
+import { Module04Diagram2 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module04/Module04Diagram2";
+import { Module04Diagram3 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module04/Module04Diagram3";
+import { Module04Recap } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module04/Module04Recap";
 
-// Auto-generated from moduleContent.ts - DO NOT EDIT MANUALLY
-
+// Auto-generated from course scene components - DO NOT EDIT MANUALLY
+// Course: agentic-ai-for-beginners, Module: 4
 export const Module4: React.FC = () => {
 	const { fps } = useVideoConfig();
-	const crossFadeDuration = 0.3;
-	const whooshDuration = 0.57;
 
 	const audioFiles = {
-		"security-introduction": staticFile("audio/introduction-to-computer-networks/module4-security-introduction.wav"),
-		encryption: staticFile("audio/introduction-to-computer-networks/module4-encryption.wav"),
-		firewalls: staticFile("audio/introduction-to-computer-networks/module4-firewalls.wav"),
-		"antivirus-software": staticFile("audio/introduction-to-computer-networks/module4-antivirus-software.wav"),
-		"story-beat-security-recap": staticFile("audio/introduction-to-computer-networks/module4-story-beat-security-recap.wav"),
-		"security-policies": staticFile("audio/introduction-to-computer-networks/module4-security-policies.wav"),
-		vpn: staticFile("audio/introduction-to-computer-networks/module4-vpn.wav"),
-		"network-security-conclusion": staticFile("audio/introduction-to-computer-networks/module4-network-security-conclusion.wav"),
+		"module4-module-4-application": staticFile("audio/agentic-ai-for-beginners/module4-module-4-application.wav"),
+		"module4-module-4-architecture": staticFile("audio/agentic-ai-for-beginners/module4-module-4-architecture.wav"),
+		"module4-module-4-concept": staticFile("audio/agentic-ai-for-beginners/module4-module-4-concept.wav"),
+		"module4-module-4-exam-mapping": staticFile("audio/agentic-ai-for-beginners/module4-module-4-exam-mapping.wav"),
+		"module4-module-4-recap": staticFile("audio/agentic-ai-for-beginners/module4-module-4-recap.wav"),
+		"module4-module-4-title": staticFile("audio/agentic-ai-for-beginners/module4-module-4-title.wav"),
 		whoosh: staticFile("audio/whoosh.wav"),
 	};
-
-	const audioDurations = {
-		"security-introduction": getAudioDuration("introduction-to-computer-networks/module4-security-introduction"),
-		encryption: getAudioDuration("introduction-to-computer-networks/module4-encryption"),
-		firewalls: getAudioDuration("introduction-to-computer-networks/module4-firewalls"),
-		"antivirus-software": getAudioDuration("introduction-to-computer-networks/module4-antivirus-software"),
-		"story-beat-security-recap": getAudioDuration("introduction-to-computer-networks/module4-story-beat-security-recap"),
-		"security-policies": getAudioDuration("introduction-to-computer-networks/module4-security-policies"),
-		vpn: getAudioDuration("introduction-to-computer-networks/module4-vpn"),
-		"network-security-conclusion": getAudioDuration("introduction-to-computer-networks/module4-network-security-conclusion"),
-	};
-
-	let currentFrame = 0;
-
-	const addSlide = (audioDuration: number, isLast: boolean = false, buffer: number = 0) => {
-		const slideDuration = audioDuration + buffer;
-		const start = currentFrame;
-		if (!isLast) {
-			currentFrame += (slideDuration + whooshDuration) * fps;
-		} else {
-			currentFrame += slideDuration * fps;
-		}
-		return { start, duration: slideDuration * fps, slideDuration, audioDuration, buffer };
-	};
-	const addSegment = (audioDuration: number, isLastInGroup: boolean, isLastInModule: boolean, buffer: number) => {
-		const slideDuration = audioDuration + buffer;
-		const start = currentFrame;
-		currentFrame += slideDuration * fps + (isLastInGroup && !isLastInModule ? whooshDuration * fps : 0);
-		return { start, duration: slideDuration * fps, slideDuration, audioDuration, buffer };
-	};
-
-	const seg0 = addSegment(9.94, true, false, 1);
-	const seg1 = addSegment(5.10, false, false, 1);
-	const seg2 = addSegment(5.10, true, false, 1);
-	const seg3 = addSegment(6.89, false, false, 1);
-	const seg4 = addSegment(6.89, true, false, 1);
-	const seg5 = addSegment(5.74, false, false, 1);
-	const seg6 = addSegment(5.74, true, false, 1);
-	const seg7 = addSegment(11.73, true, false, 1);
-	const seg8 = addSegment(6.55, false, false, 1);
-	const seg9 = addSegment(6.55, true, false, 1);
-	const seg10 = addSegment(7.57, false, false, 1);
-	const seg11 = addSegment(7.57, true, false, 1);
-	const seg12 = addSegment(12.37, true, true, 1.2);
 
 	return (
 		<div
 			style={{
 				width: "100%",
-			height: "100%",
-			background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
-			position: "relative",
-		}}
+				height: "100%",
+				background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
+				position: "relative",
+			}}
 		>
-			{/* Network Security Basics */}
-			<Sequence
-				from={seg0.start}
-				durationInFrames={seg0.duration}
-			>
-				<Audio src={audioFiles["security-introduction"]} />
-				<CrossFadeWrapper
-					totalDuration={seg0.slideDuration}
-					fadeInDuration={0.5}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<TitleSlide 
-					title="Network Security Basics" 
-					subtitle="Protecting Data and Integrity"
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg0.start + seg0.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
 
-			{/* Encryption */}
-			<Sequence
-				from={seg1.start}
-				durationInFrames={seg1.duration}
-			>
-				<Audio src={audioFiles["encryption"]} />
-				<CrossFadeWrapper
-					totalDuration={seg1.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Encryption"
-					points={[
-						"Encryption converts data",
-					"into a code"
-					]}
-					slideName="encryption"
-					audioDuration={seg1.audioDuration}
-					moduleNumber={4}
-					
-					
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
+		{/* Module04Intro */}
+		<Sequence
+			from={0}
+			durationInFrames={1690}
+		>
+			<Module04Intro
+				durationInFrames={1690}
+				cuePoints={[4, 56, 145, 195, 293, 341, 417, 466, 523, 604, 670, 770, 874, 903, 966, 1016, 1059, 1123, 1211, 1261, 1338, 1381, 1482, 1524, 1592]}
+			/>
+			<Audio src={audioFiles["module4-module-4-title"]} />
+		</Sequence>
 
-			{/* Encryption */}
-			<Sequence
-				from={seg2.start}
-				durationInFrames={seg2.duration}
-			>
-				<Audio src={audioFiles["encryption"]} startFrom={Math.round(5.10 * fps)} />
-				<CrossFadeWrapper
-					totalDuration={seg2.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Encryption"
-					points={[
-						"like locking your data"
-					]}
-					slideName="encryption"
-					audioDuration={seg2.audioDuration}
-					moduleNumber={4}
-					
-					
-					audioStartOffset={5.10}
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg2.start + seg2.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={1690} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* Firewalls */}
-			<Sequence
-				from={seg3.start}
-				durationInFrames={seg3.duration}
-			>
-				<Audio src={audioFiles["firewalls"]} />
-				<CrossFadeWrapper
-					totalDuration={seg3.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Firewalls"
-					points={[
-						"Firewalls act as barriers",
-					"control network traffic"
-					]}
-					slideName="firewalls"
-					audioDuration={seg3.audioDuration}
-					moduleNumber={4}
-					
-					
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
+		{/* Module04Diagram1 */}
+		<Sequence
+			from={1708}
+			durationInFrames={3632}
+		>
+			<Module04Diagram1
+				durationInFrames={3632}
+				cuePoints={[1, 75, 163, 269, 301, 376, 434, 516, 610, 713, 787, 879, 953, 1011, 1055, 1105, 1228, 1326, 1376, 1420, 1493, 1547, 1607, 1676, 1761, 1838, 1928, 2012, 2101, 2192, 2243, 2408, 2479, 2549, 2614, 2677, 2763, 2852, 2944, 3058, 3147, 3240, 3299, 3364, 3459, 3554]}
+			/>
+			<Audio src={audioFiles["module4-module-4-concept"]} />
+		</Sequence>
 
-			{/* Firewalls */}
-			<Sequence
-				from={seg4.start}
-				durationInFrames={seg4.duration}
-			>
-				<Audio src={audioFiles["firewalls"]} startFrom={Math.round(6.89 * fps)} />
-				<CrossFadeWrapper
-					totalDuration={seg4.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Firewalls"
-					points={[
-						"like security guards"
-					]}
-					slideName="firewalls"
-					audioDuration={seg4.audioDuration}
-					moduleNumber={4}
-					
-					
-					audioStartOffset={6.89}
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg4.start + seg4.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={5340} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* Antivirus Software */}
-			<Sequence
-				from={seg5.start}
-				durationInFrames={seg5.duration}
-			>
-				<Audio src={audioFiles["antivirus-software"]} />
-				<CrossFadeWrapper
-					totalDuration={seg5.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Antivirus Software"
-					points={[
-						"Antivirus software detects threats",
-					"removes malicious software"
-					]}
-					slideName="antivirus-software"
-					audioDuration={seg5.audioDuration}
-					moduleNumber={4}
-					
-					
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
+		{/* Module04Diagram2 */}
+		<Sequence
+			from={5358}
+			durationInFrames={6503}
+		>
+			<Module04Diagram2
+				durationInFrames={6503}
+				cuePoints={[0, 41, 117, 190, 266, 341, 438, 496, 578, 638, 725, 790, 870, 922, 994, 1061, 1144, 1182, 1279, 1328, 1403, 1446, 1528, 1566, 1622, 1702, 1813, 1882, 1934, 2008, 2120, 2170, 2254, 2317, 2422, 2524, 2593, 2679, 2780, 2836, 2892, 2941, 2995, 3075, 3133, 3221, 3310, 3358, 3484, 3549, 3624, 3725, 3781, 3870, 3922, 3990, 4080, 4135, 4171, 4279, 4344, 4417, 4488, 4543, 4618, 4747, 4818, 4886, 4972, 5039, 5099, 5170, 5206, 5284, 5338, 5393, 5499, 5603, 5658, 5746, 5845, 5973, 6063, 6116, 6225, 6295, 6350, 6420]}
+			/>
+			<Audio src={audioFiles["module4-module-4-architecture"]} />
+		</Sequence>
 
-			{/* Antivirus Software */}
-			<Sequence
-				from={seg6.start}
-				durationInFrames={seg6.duration}
-			>
-				<Audio src={audioFiles["antivirus-software"]} startFrom={Math.round(5.74 * fps)} />
-				<CrossFadeWrapper
-					totalDuration={seg6.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Antivirus Software"
-					points={[
-						"like a digital health checkup"
-					]}
-					slideName="antivirus-software"
-					audioDuration={seg6.audioDuration}
-					moduleNumber={4}
-					
-					
-					audioStartOffset={5.74}
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg6.start + seg6.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={11861} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* story-beat-security-recap */}
-			<Sequence
-				from={seg7.start}
-				durationInFrames={seg7.duration}
-			>
-				<Audio src={audioFiles["story-beat-security-recap"]} />
-				<CrossFadeWrapper
-					totalDuration={seg7.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title=""
-					points={[
-						
-					]}
-					slideName="story-beat-security-recap"
-					audioDuration={seg7.audioDuration}
-					moduleNumber={4}
-					
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg7.start + seg7.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module04Diagram3 */}
+		<Sequence
+			from={11879}
+			durationInFrames={3911}
+		>
+			<Module04Diagram3
+				durationInFrames={3911}
+				cuePoints={[4, 71, 165, 211, 300, 377, 449, 521, 590, 652, 728, 819, 930, 1053, 1132, 1202, 1278, 1380, 1430, 1504, 1593, 1662, 1761, 1850, 1932, 1975, 2061, 2159, 2226, 2319, 2407, 2459, 2525, 2623, 2749, 2860, 2934, 3018, 3070, 3139, 3227, 3310, 3403, 3473, 3585, 3670, 3714, 3834]}
+			/>
+			<Audio src={audioFiles["module4-module-4-application"]} />
+		</Sequence>
 
-			{/* Security Policies */}
-			<Sequence
-				from={seg8.start}
-				durationInFrames={seg8.duration}
-			>
-				<Audio src={audioFiles["security-policies"]} />
-				<CrossFadeWrapper
-					totalDuration={seg8.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Security Policies"
-					points={[
-						"Security policies are rules",
-					"designed to protect integrity"
-					]}
-					slideName="security-policies"
-					audioDuration={seg8.audioDuration}
-					moduleNumber={4}
-					
-					
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={15790} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* Security Policies */}
-			<Sequence
-				from={seg9.start}
-				durationInFrames={seg9.duration}
-			>
-				<Audio src={audioFiles["security-policies"]} startFrom={Math.round(6.55 * fps)} />
-				<CrossFadeWrapper
-					totalDuration={seg9.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Security Policies"
-					points={[
-						"the rulebook for network safety"
-					]}
-					slideName="security-policies"
-					audioDuration={seg9.audioDuration}
-					moduleNumber={4}
-					
-					
-					audioStartOffset={6.55}
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg9.start + seg9.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module04Recap - module4-module-4-exam-mapping */}
+		<Sequence
+			from={15808}
+			durationInFrames={2228}
+		>
+			<Module04Recap
+				durationInFrames={2228}
+				cuePoints={[2, 66, 125, 216, 266, 357, 426, 497, 545, 625, 702, 772, 834, 906, 987, 1063, 1123, 1188, 1246, 1309, 1393, 1458, 1561, 1653, 1729, 1826, 1937, 2055, 2133, 2172, 2231, 2310, 2378, 2453, 2546, 2677, 2754, 2806, 2877, 2990, 3106, 3215, 3310, 3387, 3450, 3545, 3632, 3760, 3840, 3905, 3960, 4020, 4089, 4164, 4228, 4300]}
+			/>
+			<Audio src={audioFiles["module4-module-4-exam-mapping"]} />
+		</Sequence>
 
-			{/* Virtual Private Network (VPN) */}
-			<Sequence
-				from={seg10.start}
-				durationInFrames={seg10.duration}
-			>
-				<Audio src={audioFiles["vpn"]} />
-				<CrossFadeWrapper
-					totalDuration={seg10.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Virtual Private Network (VPN)"
-					points={[
-						"VPN creates a secure connection",
-					"masks your IP address"
-					]}
-					slideName="vpn"
-					audioDuration={seg10.audioDuration}
-					moduleNumber={4}
-					
-					
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-
-			{/* Virtual Private Network (VPN) */}
-			<Sequence
-				from={seg11.start}
-				durationInFrames={seg11.duration}
-			>
-				<Audio src={audioFiles["vpn"]} startFrom={Math.round(7.57 * fps)} />
-				<CrossFadeWrapper
-					totalDuration={seg11.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Virtual Private Network (VPN)"
-					points={[
-						"private tunnel through internet"
-					]}
-					slideName="vpn"
-					audioDuration={seg11.audioDuration}
-					moduleNumber={4}
-					
-					
-					audioStartOffset={7.57}
-		/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={seg11.start + seg11.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* network-security-conclusion */}
-			<Sequence
-				from={seg12.start}
-				durationInFrames={seg12.duration}
-			>
-				<Audio src={audioFiles["network-security-conclusion"]} />
-				<CrossFadeWrapper
-					totalDuration={seg12.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={0}
-			>
-					<AnimatedContentSlide
-					title=""
-					points={[
-						
-					]}
-					slideName="network-security-conclusion"
-					audioDuration={seg12.audioDuration}
-					moduleNumber={4}
-					
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-
+		{/* Module04Recap - module4-module-4-recap */}
+		<Sequence
+			from={18036}
+			durationInFrames={2122}
+		>
+			<Module04Recap
+				durationInFrames={2122}
+				cuePoints={[]}
+			/>
+			<Audio src={audioFiles["module4-module-4-recap"]} />
+		</Sequence>
 		</div>
 	);
 };

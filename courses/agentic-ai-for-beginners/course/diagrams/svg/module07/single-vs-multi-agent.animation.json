@@ -1,0 +1,36 @@
+{
+  "diagram": "single-vs-multi-agent.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 8,
+      "show": ["single-panel", "single-loop", "vs-label", "multi-panel", "multi-planner", "multi-research", "multi-writer", "multi-critic", "scenario-support"],
+      "dim": ["multi-panel", "multi-planner", "multi-research", "multi-writer", "multi-critic", "scenario-support"],
+      "highlight": ["single-panel", "single-loop"]
+    },
+    {
+      "start": 8,
+      "end": 35,
+      "show": ["single-panel", "single-loop", "vs-label", "multi-panel", "multi-planner", "multi-research", "multi-writer", "multi-critic", "scenario-support"],
+      "dim": ["multi-panel", "multi-planner", "multi-research", "multi-writer", "multi-critic", "scenario-support"],
+      "highlight": ["single-loop"],
+      "triggerWords": ["single-agent", "single", "one model"]
+    },
+    {
+      "start": 35,
+      "end": 55,
+      "show": ["single-panel", "single-loop", "vs-label", "multi-panel", "multi-planner", "multi-research", "multi-writer", "multi-critic", "scenario-support"],
+      "dim": ["single-panel", "single-loop"],
+      "highlight": ["multi-panel", "multi-planner", "multi-research", "multi-writer", "multi-critic"],
+      "triggerWords": ["multi-agent", "multi", "specialized"]
+    },
+    {
+      "start": 55,
+      "end": 76.58,
+      "show": ["single-panel", "single-loop", "vs-label", "multi-panel", "multi-planner", "multi-research", "multi-writer", "multi-critic", "scenario-support"],
+      "dim": ["single-panel", "single-loop"],
+      "highlight": ["scenario-support"],
+      "triggerWords": ["customer", "support", "triage"]
+    }
+  ]
+}

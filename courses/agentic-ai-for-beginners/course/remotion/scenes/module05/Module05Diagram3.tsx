@@ -1,5 +1,5 @@
-// Module 05 Diagram 3: Ops Lifecycle
-// Uses BaseDiagramScene with animated SVG (ops-lifecycle.svg + .animation.json)
+// Module 05 Diagram 3: Deployment models and business drivers
+// Uses BaseDiagramScene with animated SVG (deployment-decision-matrix.svg)
 import React from 'react';
 import { BaseDiagramScene } from '../../shared/BaseDiagramScene';
 import { SceneProps } from '../../shared/types';
@@ -14,8 +14,11 @@ export const Module05Diagram3: React.FC<Module05Diagram3Props> = ({
 		<BaseDiagramScene
 			durationInFrames={durationInFrames}
 			cuePoints={cuePoints}
-			title="Ops Lifecycle"
-			svgPath="assets/agentic-ai-for-beginners/module05/ops-lifecycle.svg"
+			title="Deployment Decision Matrix"
+			subtitle="Matching deployment choice to velocity, flexibility, compliance, and latency needs."
+			sectionLabel="Application"
+			svgPath="assets/agentic-ai-for-beginners/module05/deployment-decision-matrix.svg"
+			animationSpecPath="assets/agentic-ai-for-beginners/module05/deployment-decision-application.animation.json"
 			layout="full"
 			slideName="module-5-application"
 			moduleNumber={5}

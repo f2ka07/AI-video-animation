@@ -15,10 +15,13 @@ export const Module02Diagram1: React.FC<Module02Diagram1Props> = ({
 			durationInFrames={durationInFrames}
 			cuePoints={cuePoints}
 			title="The Agent Loop Pattern"
+			subtitle="Plan, act, observe, adapt - the control loop behind every production agent."
+			sectionLabel="Concept"
 			svgPath="assets/agentic-ai-for-beginners/module02/agent-loop-pattern.svg"
 			layout="full"
 			slideName="module-2-concept"
 			moduleNumber={2}
+			audioDuration={69.2}
 		/>
 	);
 };

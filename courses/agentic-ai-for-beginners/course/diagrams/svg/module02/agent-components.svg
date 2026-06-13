@@ -14,30 +14,30 @@
     <rect x="80" y="80" width="340" height="50" rx="12" fill="#8b5cf6"/>
     <rect x="80" y="118" width="340" height="12" fill="#8b5cf6"/>
     <text x="250" y="115" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="600" fill="#ffffff">1. Planning</text>
-    <text x="250" y="165" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Break complex goals into subtasks</text>
-    <text x="250" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Sequence logically</text>
-    <text x="250" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Adjust when things go wrong</text>
-    <text x="250" y="260" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#8b5cf6">Structured + LLM hybrid</text>
+    <text x="250" y="165" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Break complex goals into subtasks</text>
+    <text x="250" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Sequence logically</text>
+    <text x="250" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Adjust when things go wrong</text>
+    <text x="250" y="260" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Structured + LLM hybrid</text>
   </g>
   <g id="tools">
     <rect x="430" y="80" width="340" height="220" rx="12" fill="#ffffff" stroke="#10b981" stroke-width="3"/>
     <rect x="430" y="80" width="340" height="50" rx="12" fill="#10b981"/>
     <rect x="430" y="118" width="340" height="12" fill="#10b981"/>
     <text x="600" y="115" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="600" fill="#ffffff">2. Tool Use</text>
-    <text x="600" y="165" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">APIs for data retrieval</text>
-    <text x="600" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Code interpreters for logic</text>
-    <text x="600" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Enterprise connectors</text>
-    <text x="600" y="260" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#10b981">Bridge reasoning to reality</text>
+    <text x="600" y="165" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">APIs for data retrieval</text>
+    <text x="600" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Code interpreters for logic</text>
+    <text x="600" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Enterprise connectors</text>
+    <text x="600" y="260" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Bridge reasoning to reality</text>
   </g>
   <g id="memory">
     <rect x="780" y="80" width="340" height="220" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="3"/>
     <rect x="780" y="80" width="340" height="50" rx="12" fill="#f59e0b"/>
     <rect x="780" y="118" width="340" height="12" fill="#f59e0b"/>
-    <text x="950" y="115" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="600" fill="#ffffff">3. Memory</text>
-    <text x="950" y="165" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Short-term: current task</text>
-    <text x="950" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Long-term: persists across sessions</text>
-    <text x="950" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Facts, preferences, history</text>
-    <text x="950" y="260" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#f59e0b">Prevents repeated mistakes</text>
+    <text x="950" y="115" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="600" fill="#0f172a">3. Memory</text>
+    <text x="950" y="165" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Short-term: current task</text>
+    <text x="950" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Long-term: persists across sessions</text>
+    <text x="950" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Facts, preferences, history</text>
+    <text x="950" y="260" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Prevents repeated mistakes</text>
   </g>
   <!-- Row 2 -->
   <g id="retrieval">
@@ -45,32 +45,32 @@
     <rect x="80" y="340" width="340" height="50" rx="12" fill="#3b82f6"/>
     <rect x="80" y="378" width="340" height="12" fill="#3b82f6"/>
     <text x="250" y="375" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="600" fill="#ffffff">4. Retrieval + Grounding</text>
-    <text x="250" y="425" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Vector DB / search index</text>
-    <text x="250" y="450" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Anchor in retrieved facts</text>
-    <text x="250" y="475" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Not just parametric knowledge</text>
-    <text x="250" y="520" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#3b82f6">Reduces hallucination</text>
+    <text x="250" y="425" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Vector DB / search index</text>
+    <text x="250" y="450" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Anchor in retrieved facts</text>
+    <text x="250" y="475" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Not just parametric knowledge</text>
+    <text x="250" y="520" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Reduces hallucination</text>
   </g>
   <g id="safety">
     <rect x="430" y="340" width="340" height="220" rx="12" fill="#ffffff" stroke="#ef4444" stroke-width="3"/>
     <rect x="430" y="340" width="340" height="50" rx="12" fill="#ef4444"/>
     <rect x="430" y="378" width="340" height="12" fill="#ef4444"/>
     <text x="600" y="375" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="600" fill="#ffffff">5. Safety + Policy</text>
-    <text x="600" y="425" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Content filters</text>
-    <text x="600" y="450" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Policy engines for business rules</text>
-    <text x="600" y="475" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Evaluation layers</text>
-    <text x="600" y="520" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#ef4444">Core architectural layer</text>
+    <text x="600" y="425" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Content filters</text>
+    <text x="600" y="450" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Policy engines for business rules</text>
+    <text x="600" y="475" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Evaluation layers</text>
+    <text x="600" y="520" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Core architectural layer</text>
   </g>
   <g id="hitl">
     <rect x="780" y="340" width="340" height="220" rx="12" fill="#ffffff" stroke="#06b6d4" stroke-width="3"/>
     <rect x="780" y="340" width="340" height="50" rx="12" fill="#06b6d4"/>
     <rect x="780" y="378" width="340" height="12" fill="#06b6d4"/>
     <text x="950" y="375" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="600" fill="#ffffff">6. Human-in-the-Loop</text>
-    <text x="950" y="425" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Escalation mechanisms</text>
-    <text x="950" y="450" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Pause + present state</text>
-    <text x="950" y="475" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#475569">Request human input</text>
-    <text x="950" y="520" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#06b6d4">Oversight without sacrificing autonomy</text>
+    <text x="950" y="425" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Escalation mechanisms</text>
+    <text x="950" y="450" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Pause + present state</text>
+    <text x="950" y="475" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Request human input</text>
+    <text x="950" y="520" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">Oversight without sacrificing autonomy</text>
   </g>
   
   <!-- Footer -->
-  <text x="600" y="610" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">If any component is missing, the system is incomplete</text>
+  <text x="600" y="610" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">If any component is missing, the system is incomplete</text>
 </svg>

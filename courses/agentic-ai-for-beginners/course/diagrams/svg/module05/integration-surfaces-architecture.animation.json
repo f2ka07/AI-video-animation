@@ -1,0 +1,119 @@
+{
+  "diagram": "integration-surfaces.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 19.8,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [],
+      "triggerWords": [
+        "integration",
+        "surfaces"
+      ]
+    },
+    {
+      "start": 19.8,
+      "end": 55.7,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-1"
+      ],
+      "triggerWords": [
+        "api",
+        "integrations"
+      ]
+    },
+    {
+      "start": 55.7,
+      "end": 80.9,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-2"
+      ],
+      "triggerWords": [
+        "tool",
+        "interfaces"
+      ]
+    },
+    {
+      "start": 80.9,
+      "end": 108.5,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-4"
+      ],
+      "highlight": [
+        "section-3"
+      ],
+      "triggerWords": [
+        "data",
+        "connectors"
+      ]
+    },
+    {
+      "start": 108.5,
+      "end": 140,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3"
+      ],
+      "highlight": [
+        "section-4"
+      ],
+      "triggerWords": [
+        "policy",
+        "gateways"
+      ]
+    }
+  ]
+}

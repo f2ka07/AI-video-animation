@@ -13,6 +13,10 @@ export interface IntroSceneProps extends SceneProps {
 
 export interface DiagramSceneProps extends SceneProps {
 	title: string;
+	/** One-line summary of what this section explains (always visible, never blurred). */
+	subtitle?: string;
+	/** Section badge, e.g. Concept / Architecture / Application. */
+	sectionLabel?: string;
 	svgPath: string; // Relative path to SVG
 	highlights?: string[]; // Element IDs to highlight in sequence
 }
@@ -52,10 +56,22 @@ export const COLORS = {
 		muted: '#94a3b8',
 	},
 	light: {
-		background: '#f8fafc',
-		text: '#1e293b',
-		accent: '#3b82f6',
-		secondary: '#10b981',
+		background: '#f1f5f9',
+		text: '#0f172a',
+		accent: '#2563eb',
+		secondary: '#059669',
 		muted: '#64748b',
+		panel: '#ffffff',
+		panelBorder: '#e2e8f0',
 	},
+};
+
+export const SECTION_LABEL_STYLES: Record<
+	string,
+	{ bg: string; border: string; text: string; accent: string }
+> = {
+	Concept: { bg: '#eff6ff', border: '#3b82f6', text: '#1e40af', accent: '#2563eb' },
+	Architecture: { bg: '#f5f3ff', border: '#8b5cf6', text: '#5b21b6', accent: '#7c3aed' },
+	Application: { bg: '#ecfdf5', border: '#10b981', text: '#047857', accent: '#059669' },
+	'Exam Mapping': { bg: '#fff7ed', border: '#f59e0b', text: '#b45309', accent: '#d97706' },
 };

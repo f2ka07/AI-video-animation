@@ -4,27 +4,22 @@
 import { getAudioDuration } from "../utils/audioDuration";
 
 const audioDurations = [
-	getAudioDuration("aws-pulumi/module9-title"),
-	getAudioDuration("aws-pulumi/module9-outputsBasics"),
-	getAudioDuration("aws-pulumi/module9-createNetworkStack"),
-	getAudioDuration("aws-pulumi/module9-createAppStack"),
-	getAudioDuration("aws-pulumi/module9-stackDependencies"),
-	getAudioDuration("aws-pulumi/module9-summary")
+	getAudioDuration("agentic-ai-for-beginners/module9-module-9-title"),
+	getAudioDuration("agentic-ai-for-beginners/module9-module-9-concept"),
+	getAudioDuration("agentic-ai-for-beginners/module9-module-9-architecture"),
+	getAudioDuration("agentic-ai-for-beginners/module9-module-9-application"),
+	getAudioDuration("agentic-ai-for-beginners/module9-module-9-exam-mapping"),
+	getAudioDuration("agentic-ai-for-beginners/module9-module-9-recap")
 ];
 
 const whooshDuration = 0.57;
 const slideBuffer = 1.0;
 const lastSlideBuffer = 1.2;
-const totalDuration = audioDurations.reduce((sum, audioDur, index) => {
-	const isLastSlide = index === audioDurations.length - 1;
-	const slideDuration = audioDur + (isLastSlide ? lastSlideBuffer : slideBuffer);
-	const whooshTime = isLastSlide ? 0 : whooshDuration;
-	return sum + slideDuration + whooshTime;
-}, 0);
+const totalDuration = 381.63;
 
 export const Module9Config = {
 	id: "module-9",
-	title: "Outputs and Stack References",
+	title: "NVIDIA Inference Optimization",
 	fps: 30,
 	width: 1920,
 	height: 1080,

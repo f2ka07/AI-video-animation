@@ -8,16 +8,24 @@ services:
     container_name: slides-app
     ports:
       - "3001:3001"
+    shm_size: '2gb'
     environment:
       - NODE_ENV=production
       - GENTLE_URL=http://gentle:8765
       - REMOTION_URL=http://remotion:3000
+      - GUI_AUTH_USERNAME=${GUI_AUTH_USERNAME:-}
+      - GUI_AUTH_PASSWORD=${GUI_AUTH_PASSWORD:-}
+      - GUI_SESSION_SECRET=${GUI_SESSION_SECRET:-}
+      - REMOTION_CPU_RESERVE=${REMOTION_CPU_RESERVE:-1}
+      - REMOTION_CONCURRENCY=${REMOTION_CONCURRENCY:-}
     volumes:
       - ./public:/app/public
       - ./courses:/app/courses
       - ./out:/app/out
+      - ./workspace:/app/workspace
     depends_on:
-      - gentle
+      gentle:
+        condition: service_healthy
     restart: unless-stopped
     networks:
       - slides-network
@@ -42,6 +50,12 @@ services:
     image: lowerquality/gentle:latest
     container_name: slides-gentle
     restart: unless-stopped
+    healthcheck:
+      test: ['CMD-SHELL', 'wget -q -O /dev/null http://localhost:8765/ || exit 1']
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
     networks:
       - slides-network
 

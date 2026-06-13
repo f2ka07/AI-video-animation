@@ -6,9 +6,17 @@
 // 4. Regenerates Remotion module components
 // 5. Updates courses.json to mark this course as active
 
+import { createRequire } from "module";
 import * as fs from "fs";
 import * as path from "path";
 import { execSync } from "child_process";
+import {
+	courseUsesSceneVisuals,
+	getCourseModuleRange,
+	stripMermaidFromContentPlan,
+} from "./courseVisualMode";
+
+const require = createRequire(import.meta.url);
 
 interface CourseData {
 	courses: Array<{
@@ -142,6 +150,12 @@ async function activateCourse(courseId: string) {
 	console.log("Step 1: Loading content.json...");
 	const plan = JSON.parse(fs.readFileSync(contentJsonPath, "utf-8"));
 	console.log(`  Loaded: ${plan.courseName} (${plan.modules?.length || 0} modules)`);
+
+	const useScenes = courseUsesSceneVisuals(courseId);
+	if (useScenes) {
+		stripMermaidFromContentPlan(plan);
+		console.log("  Scene course: stripped Mermaid from content plan (SVG scenes are used instead)");
+	}
 	
 	// Step 2: Generate moduleContent.ts
 	console.log("\nStep 2: Generating moduleContent.ts...");
@@ -187,29 +201,42 @@ async function activateCourse(courseId: string) {
 		console.log(`  Run timing extraction after generating audio`);
 	}
 	
-	// Step 3.5: Align diagram phases to narration (generate animation specs, copy SVGs)
-	console.log("\nStep 3.5: Aligning diagram phases (generate animation specs, copy SVGs)...");
+	// Step 3.5: Copy SVG assets (scene courses use hand-tuned animation.json - do not auto-regenerate)
+	console.log("\nStep 3.5: Copying diagram SVGs to public/assets/...");
 	try {
-		execSync(`npx tsx scripts/generateAnimationSpecs.ts ${courseId}`, {
-			cwd: path.join(__dirname, ".."),
-			stdio: "inherit"
-		});
+		if (!useScenes) {
+			execSync(`npx tsx scripts/generateAnimationSpecs.ts ${courseId}`, {
+				cwd: path.join(__dirname, ".."),
+				stdio: "inherit",
+			});
+		} else {
+			console.log("  Skipping generateAnimationSpecs (scene course uses hand-tuned .animation.json files)");
+		}
 		execSync(`npx tsx scripts/copySvgsToPublic.ts ${courseId}`, {
 			cwd: path.join(__dirname, ".."),
-			stdio: "inherit"
+			stdio: "inherit",
 		});
-		console.log("  Diagram phases aligned");
+		console.log("  Diagram assets ready");
 	} catch (error) {
-		console.warn("  Align diagram phases skipped or failed:", (error as Error)?.message ?? error);
+		console.warn("  Diagram asset step skipped or failed:", (error as Error)?.message ?? error);
 	}
 	
 	// Step 4: Regenerate Remotion modules
 	console.log("\nStep 4: Regenerating Remotion modules...");
 	try {
-		execSync("npx tsx scripts/generateModulesFromContent.ts", {
-			cwd: path.join(__dirname, ".."),
-			stdio: "inherit"
-		});
+		if (useScenes) {
+			const moduleRange = getCourseModuleRange(courseId);
+			console.log(`  Using scene-based generator (NOT GenericModule/Mermaid): ${moduleRange}`);
+			execSync(`npx tsx scripts/generateModulesFromScenes.ts ${courseId} ${moduleRange}`, {
+				cwd: path.join(__dirname, ".."),
+				stdio: "inherit",
+			});
+		} else {
+			execSync("npx tsx scripts/generateModulesFromContent.ts", {
+				cwd: path.join(__dirname, ".."),
+				stdio: "inherit",
+			});
+		}
 	} catch (error) {
 		console.error("  Failed to regenerate modules:", error);
 		throw error;
@@ -245,27 +272,19 @@ async function activateCourse(courseId: string) {
 	writeCoursesJson(coursesData);
 	console.log(`  courses.json updated`);
 
-	// Step 6: Update .gitignore to track only this course's audio
-	console.log("\nStep 6: Updating .gitignore (audio exception)...");
-	const gitignorePath = path.join(__dirname, "../.gitignore");
-	if (fs.existsSync(gitignorePath)) {
-		let content = fs.readFileSync(gitignorePath, "utf-8");
-		const newLine = `!public/audio/${courseId}/`;
-		const replaced = content.replace(
-			/!public\/audio\/[a-z0-9-]+\//,
-			newLine
-		);
-		if (replaced === content && !content.includes(newLine)) {
-			content = content.replace(
-				/(!public\/audio\/whoosh\.wav)/,
-				`$1\n${newLine}`
-			);
-		} else {
-			content = replaced;
-		}
-		fs.writeFileSync(gitignorePath, content);
-		console.log(`  .gitignore: now tracking public/audio/${courseId}/`);
+	// Step 6: Git deploy policy — only this activated course is deployable
+	console.log("\nStep 6: Applying git deploy policy...");
+	const { applyCourseDeployPolicy } = require("./lib/courseDeployPolicy.js");
+	const repoRoot = path.join(__dirname, "..");
+	const policy = applyCourseDeployPolicy(repoRoot, {
+		activatedCourseId: courseId,
+		pruneGit: process.argv.includes("--prune-git"),
+	});
+	console.log(`  Only courses/${courseId}/ is deployable to git`);
+	if (policy.pruneResult.pruned.length > 0) {
+		console.log(`  Removed from git index: ${policy.pruneResult.pruned.join(", ")}`);
 	}
+	console.log(`  Run: npm run sync:deploy-policy -- --prune-git  (before commit, to detach archived courses)`);
 
 	console.log(`\n========================================`);
 	console.log(`Course "${courseId}" is now active!`);

@@ -1,5 +1,5 @@
-// Module 04 Diagram 3: Pipeline Constraints Triangle
-// Uses BaseDiagramScene with animated SVG (pipeline-constraints-triangle.svg + .animation.json)
+// Module 04 Diagram 3: Enterprise workload examples and constraints
+// Uses BaseDiagramScene with animated SVG (workload-matrix.svg)
 import React from 'react';
 import { BaseDiagramScene } from '../../shared/BaseDiagramScene';
 import { SceneProps } from '../../shared/types';
@@ -14,8 +14,11 @@ export const Module04Diagram3: React.FC<Module04Diagram3Props> = ({
 		<BaseDiagramScene
 			durationInFrames={durationInFrames}
 			cuePoints={cuePoints}
-			title="Pipeline Constraints Triangle"
-			svgPath="assets/agentic-ai-for-beginners/module04/pipeline-constraints-triangle.svg"
+			title="Enterprise Workload Matrix"
+			subtitle="Real enterprise patterns and the latency-accuracy-cost tradeoffs that shape them."
+			sectionLabel="Application"
+			svgPath="assets/agentic-ai-for-beginners/module04/workload-matrix.svg"
+			animationSpecPath="assets/agentic-ai-for-beginners/module04/workload-matrix-application.animation.json"
 			layout="full"
 			slideName="module-4-application"
 			moduleNumber={4}

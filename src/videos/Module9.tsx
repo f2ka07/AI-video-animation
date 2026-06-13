@@ -1,291 +1,128 @@
 import React from "react";
 import { Sequence, useVideoConfig, Audio, staticFile } from "remotion";
-import { TitleSlide } from "../components/TitleSlide";
-import { AnimatedContentSlide } from "../components/AnimatedContentSlide";
-import { AnimatedCodeSlide } from "../components/AnimatedCodeSlide";
-import { BulletsAndCodeSlide } from "../components/BulletsAndCodeSlide";
-import { AnimatedComparisonSlide } from "../components/AnimatedComparisonSlide";
-import { SequentialBulletSlide } from "../components/SequentialBulletSlide";
-import { CodeAndDiagram } from "../compositions/CodeAndDiagram";
-import { CrossFadeWrapper } from "../components/CrossFadeWrapper";
 import { getAudioDuration } from "../utils/audioDuration";
+import { Module09Intro } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module09/Module09Intro";
+import { Module09Diagram1 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module09/Module09Diagram1";
+import { Module09Diagram2 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module09/Module09Diagram2";
+import { Module09Diagram3 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module09/Module09Diagram3";
+import { Module09Recap } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module09/Module09Recap";
 
-// Auto-generated from moduleContent.ts - DO NOT EDIT MANUALLY
-
+// Auto-generated from course scene components - DO NOT EDIT MANUALLY
+// Course: agentic-ai-for-beginners, Module: 9
 export const Module9: React.FC = () => {
 	const { fps } = useVideoConfig();
-	const crossFadeDuration = 0.3;
-	const whooshDuration = 0.57;
 
 	const audioFiles = {
-		title: staticFile("audio/aws-pulumi/module9-title.wav"),
-		outputsBasics: staticFile("audio/aws-pulumi/module9-outputsBasics.wav"),
-		createNetworkStack: staticFile("audio/aws-pulumi/module9-createNetworkStack.wav"),
-		createAppStack: staticFile("audio/aws-pulumi/module9-createAppStack.wav"),
-		stackDependencies: staticFile("audio/aws-pulumi/module9-stackDependencies.wav"),
-		summary: staticFile("audio/aws-pulumi/module9-summary.wav"),
+		"module9-module-9-application": staticFile("audio/agentic-ai-for-beginners/module9-module-9-application.wav"),
+		"module9-module-9-architecture": staticFile("audio/agentic-ai-for-beginners/module9-module-9-architecture.wav"),
+		"module9-module-9-concept": staticFile("audio/agentic-ai-for-beginners/module9-module-9-concept.wav"),
+		"module9-module-9-exam-mapping": staticFile("audio/agentic-ai-for-beginners/module9-module-9-exam-mapping.wav"),
+		"module9-module-9-recap": staticFile("audio/agentic-ai-for-beginners/module9-module-9-recap.wav"),
+		"module9-module-9-title": staticFile("audio/agentic-ai-for-beginners/module9-module-9-title.wav"),
 		whoosh: staticFile("audio/whoosh.wav"),
 	};
-
-	const audioDurations = {
-		title: getAudioDuration("aws-pulumi/module9-title"),
-		outputsBasics: getAudioDuration("aws-pulumi/module9-outputsBasics"),
-		createNetworkStack: getAudioDuration("aws-pulumi/module9-createNetworkStack"),
-		createAppStack: getAudioDuration("aws-pulumi/module9-createAppStack"),
-		stackDependencies: getAudioDuration("aws-pulumi/module9-stackDependencies"),
-		summary: getAudioDuration("aws-pulumi/module9-summary"),
-	};
-
-	let currentFrame = 0;
-
-	const addSlide = (audioDuration: number, isLast: boolean = false, buffer: number = 0) => {
-		const slideDuration = audioDuration + buffer;
-		const start = currentFrame;
-		if (!isLast) {
-			currentFrame += (slideDuration + whooshDuration) * fps;
-		} else {
-			currentFrame += slideDuration * fps;
-		}
-		return { start, duration: slideDuration * fps, slideDuration, audioDuration, buffer };
-	};
-
-	const titleSlide = addSlide(audioDurations["title"], false, 1.0);
-	const outputsBasicsSlide = addSlide(audioDurations["outputsBasics"], false, 1.0);
-	const createNetworkStackSlide = addSlide(audioDurations["createNetworkStack"], false, 1.0);
-	const createAppStackSlide = addSlide(audioDurations["createAppStack"], false, 1.0);
-	const stackDependenciesSlide = addSlide(audioDurations["stackDependencies"], false, 1.0);
-	const summarySlide = addSlide(audioDurations["summary"], true, 1.2);
 
 	return (
 		<div
 			style={{
 				width: "100%",
-			height: "100%",
-			background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
-			position: "relative",
-		}}
+				height: "100%",
+				background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
+				position: "relative",
+			}}
 		>
-			{/* title */}
-			<Sequence
-				from={titleSlide.start}
-				durationInFrames={titleSlide.duration}
-			>
-				<Audio src={audioFiles["title"]} />
-				<CrossFadeWrapper
-					totalDuration={titleSlide.slideDuration}
-					fadeInDuration={0.5}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<TitleSlide 
-					title="Outputs and Stack References" 
-					subtitle="Sharing Resources Between Stacks"
-					
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={titleSlide.start + titleSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
 
-			{/* Stack Outputs: Exporting Values */}
-			<Sequence
-				from={outputsBasicsSlide.start}
-				durationInFrames={outputsBasicsSlide.duration}
-			>
-				<Audio src={audioFiles["outputsBasics"]} />
-				<CrossFadeWrapper
-					totalDuration={outputsBasicsSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Stack Outputs: Exporting Values"
-					points={[
-						"Export values from a stack for reuse",
-					"Accessible via pulumi stack output command",
-					"Can be simple values or complex objects",
-					"Displayed after successful deployment",
-					"Enable sharing between stacks"
-					]}
-					slideName="outputsBasics"
-					audioDuration={outputsBasicsSlide.audioDuration}
-					moduleNumber={9}
-					
-					imageSrc="assets/vpc.svg"
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={outputsBasicsSlide.start + outputsBasicsSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module09Intro */}
+		<Sequence
+			from={0}
+			durationInFrames={1012}
+		>
+			<Module09Intro
+				durationInFrames={1012}
+				cuePoints={[4, 67, 132, 246, 298, 356, 426, 506, 580, 657, 739, 807, 892, 972]}
+			/>
+			<Audio src={audioFiles["module9-module-9-title"]} />
+		</Sequence>
 
-			{/* Create Network Stack with Outputs */}
-			<Sequence
-				from={createNetworkStackSlide.start}
-				durationInFrames={createNetworkStackSlide.duration}
-			>
-				<Audio src={audioFiles["createNetworkStack"]} />
-				<CrossFadeWrapper
-					totalDuration={createNetworkStackSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Create Network Stack with Outputs"
-					code={`// Network stack - exports VPC and subnet information
-// This stack manages all networking resources
+		{/* Transition */}
+		<Sequence from={1012} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-// ... (VPC, subnets, gateways, route tables created here) ...
+		{/* Module09Diagram1 */}
+		<Sequence
+			from={1030}
+			durationInFrames={1887}
+		>
+			<Module09Diagram1
+				durationInFrames={1887}
+				cuePoints={[4, 69, 123, 197, 267, 350, 447, 548, 608, 717, 807, 879, 943, 1012, 1115, 1220, 1295, 1365, 1453, 1506, 1568, 1617, 1680, 1749, 1810, 1846]}
+			/>
+			<Audio src={audioFiles["module9-module-9-concept"]} />
+		</Sequence>
 
-// Export values for other stacks to use
-export const vpcId = vpc.id;
-export const publicSubnetIds = [publicSubnet1.id, publicSubnet2.id];
-export const privateSubnetIds = [privateSubnet1.id, privateSubnet2.id];
-export const webSecurityGroupId = webSg.id;
-export const appSecurityGroupId = appSg.id;
-export const dbSecurityGroupId = dbSg.id;
-export const natGatewayId = natGateway.id;`}
-					language="typescript"
-					slideName="createNetworkStack"
-					audioStartFrame={createNetworkStackSlide.start}
-					audioDuration={createNetworkStackSlide.audioDuration}
-					moduleNumber={9}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={createNetworkStackSlide.start + createNetworkStackSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Transition */}
+		<Sequence from={2917} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-			{/* Create Application Stack with Stack References */}
-			<Sequence
-				from={createAppStackSlide.start}
-				durationInFrames={createAppStackSlide.duration}
-			>
-				<Audio src={audioFiles["createAppStack"]} />
-				<CrossFadeWrapper
-					totalDuration={createAppStackSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedCodeSlide
-					title="Create Application Stack with Stack References"
-					code={`// Application stack - references network stack
-import * as pulumi from "@pulumi/pulumi";
+		{/* Module09Diagram2 */}
+		<Sequence
+			from={2935}
+			durationInFrames={3018}
+		>
+			<Module09Diagram2
+				durationInFrames={3018}
+				cuePoints={[3, 55, 121, 176, 255, 339, 427, 483, 557, 611, 656, 726, 774, 835, 896, 973, 1050, 1106, 1170, 1236, 1289, 1342, 1430, 1470, 1535, 1590, 1645, 1741, 1820, 1884, 1983, 2046, 2121, 2228, 2322, 2423, 2507, 2560, 2662, 2763, 2829, 2911, 2962]}
+			/>
+			<Audio src={audioFiles["module9-module-9-architecture"]} />
+		</Sequence>
 
-// Reference the network stack
-const networkStack = new pulumi.StackReference("network", {
-    name: "your-org/network-stack/dev", // Format: org/project/stack
-});
+		{/* Transition */}
+		<Sequence from={5953} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-// Get outputs from network stack
-const vpcId = networkStack.requireOutput("vpcId");
-const publicSubnetIds = networkStack.requireOutput("publicSubnetIds") as pulumi.Output<string[]>;
-const webSgId = networkStack.requireOutput("webSecurityGroupId");
+		{/* Module09Diagram3 */}
+		<Sequence
+			from={5971}
+			durationInFrames={2405}
+		>
+			<Module09Diagram3
+				durationInFrames={2405}
+				cuePoints={[4, 63, 132, 200, 241, 300, 392, 471, 548, 598, 677, 757, 810, 894, 956, 1037, 1098, 1147, 1246, 1302, 1383, 1454, 1507, 1577, 1636, 1711, 1770, 1849, 1930, 2038, 2138, 2203, 2283, 2346]}
+			/>
+			<Audio src={audioFiles["module9-module-9-application"]} />
+		</Sequence>
 
-// Create resources using referenced values
-const webServer = new aws.ec2.Instance("web-server", {
-    // Use subnet from network stack
-    subnetId: publicSubnetIds.apply(ids => ids[0]),
-    vpcSecurityGroupIds: [webSgId],
-    // ... other configuration ...
-});
+		{/* Transition */}
+		<Sequence from={8376} durationInFrames={18}>
+			<Audio src={audioFiles.whoosh} />
+		</Sequence>
 
-// Export application-specific outputs
-export const webServerId = webServer.id;`}
-					language="typescript"
-					slideName="createAppStack"
-					audioStartFrame={createAppStackSlide.start}
-					audioDuration={createAppStackSlide.audioDuration}
-					moduleNumber={9}
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={createAppStackSlide.start + createAppStackSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
+		{/* Module09Recap - module9-module-9-exam-mapping */}
+		<Sequence
+			from={8394}
+			durationInFrames={1052}
+		>
+			<Module09Recap
+				durationInFrames={1052}
+				cuePoints={[0, 62, 134, 209, 296, 396, 557, 660, 725, 820, 891, 939, 1056, 1156, 1252, 1317, 1360, 1451, 1505, 1606, 1711, 1793, 1861, 1963, 2007]}
+			/>
+			<Audio src={audioFiles["module9-module-9-exam-mapping"]} />
+		</Sequence>
 
-			{/* Stack Dependencies and Best Practices */}
-			<Sequence
-				from={stackDependenciesSlide.start}
-				durationInFrames={stackDependenciesSlide.duration}
-			>
-				<Audio src={audioFiles["stackDependencies"]} />
-				<CrossFadeWrapper
-					totalDuration={stackDependenciesSlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={crossFadeDuration}
-			>
-					<AnimatedContentSlide
-					title="Stack Dependencies and Best Practices"
-					points={[
-						"Stack references create automatic dependencies",
-					"Pulumi ensures dependent stacks are up to date",
-					"Each stack has a clear, single responsibility",
-					"Enables modular, maintainable infrastructure",
-					"Supports team collaboration and separation of concerns"
-					]}
-					slideName="stackDependencies"
-					audioDuration={stackDependenciesSlide.audioDuration}
-					moduleNumber={9}
-					
-					imageSrc="assets/vpc.svg"
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-			{/* Whoosh transition */}
-			<Sequence
-				from={stackDependenciesSlide.start + stackDependenciesSlide.duration}
-				durationInFrames={whooshDuration * fps}
-			>
-				<Audio src={audioFiles.whoosh} startFrom={0} />
-			</Sequence>
-
-			{/* Module 9 Summary */}
-			<Sequence
-				from={summarySlide.start}
-				durationInFrames={summarySlide.duration}
-			>
-				<Audio src={audioFiles["summary"]} />
-				<CrossFadeWrapper
-					totalDuration={summarySlide.slideDuration}
-					fadeInDuration={crossFadeDuration}
-					fadeOutDuration={0}
-			>
-					<AnimatedContentSlide
-					title="Conclusion"
-					points={[
-						"Stack outputs export values for reuse",
-					"Stack references import values from other stacks",
-					"Automatic dependency management between stacks",
-					"Modular architecture with clear responsibilities",
-					"Next: Multi-Environment Management"
-					]}
-					slideName="summary"
-					audioDuration={summarySlide.audioDuration}
-					moduleNumber={9}
-					
-					imageSrc="assets/vpc.svg"
-				/>
-				</CrossFadeWrapper>
-			</Sequence>
-
+		{/* Module09Recap - module9-module-9-recap */}
+		<Sequence
+			from={9446}
+			durationInFrames={995}
+		>
+			<Module09Recap
+				durationInFrames={995}
+				cuePoints={[]}
+			/>
+			<Audio src={audioFiles["module9-module-9-recap"]} />
+		</Sequence>
 		</div>
 	);
 };

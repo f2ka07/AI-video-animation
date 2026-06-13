@@ -55,8 +55,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 4.24,
               "end": 4.32
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Let's start by understanding what<br>we're leaving behind] --> B[When you type a prompt into ChatGPT or<br>Claude you're making a single call to] --> C[Agentic]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -86,8 +85,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 14.41,
               "end": 20.66
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[You send input the model generates<br>output] --> B[This is called single call inference<br>It's useful]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -106,8 +104,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.98,
               "end": 30.159999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It's accessible And for production<br>workloads it's fundamentally limited]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -126,8 +123,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 30.18,
               "end": 40.29
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[They cannot plan across multiple steps<br>They cannot use external tools cannot]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -146,8 +142,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.36,
               "end": 49.999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[In short they respond They don't work<br>Agentic AI is different An agent is a]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -166,8 +161,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50,
               "end": 60.01
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It's a system architecture It's a<br>pipeline that orchestrates language]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -197,8 +191,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 65.61,
               "end": 70.79
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[When we say agentic we mean the AI] --> B[Can perceive its environment reason<br>about goals take actions]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -217,8 +210,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 70.92,
               "end": 79.42999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It operates in loops not single shots<br>It retrieves information when needed]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -246,8 +238,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 84.62,
               "end": 89.05
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It calls external tools It remembers<br>context] --> B[And critically it can be interrupted]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -265,8 +256,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 89.539999,
               "end": 98.8
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[AI as interface to AI as infrastructure]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -302,8 +292,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 4.28000020980835,
               "end": 8.760000038146973
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[What does an agentic system actually<br>look like at the highest level an]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -333,8 +322,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 16.860000610351562,
               "end": 20.06000022888184
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Decide on execution order and adapt<br>when things go wrong] --> B[Is where reasoning models earn their<br>value]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -353,8 +341,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.06000022888184,
               "end": 24.56000022888185
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Planning isn't just thinking it's<br>structured decision-making under]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -384,8 +371,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 35.36000061035156,
               "end": 38.33999862670896
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Is just a language model with extra<br>steps tools are the interfaces] --> B[Interfaces that let agents interact<br>with the real world apis]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -404,8 +390,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 41.099998474121094,
               "end": 47.67999877929687
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Databases file systems code<br>interpreters search engines and more]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -424,8 +409,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 57.220001220703125,
               "end": 61.02000045776367
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[More tool use is what makes agents<br>useful beyond conversation third]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -455,8 +439,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 66.12000274658203,
               "end": 69.33999633789062
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The current task context long-term<br>memory stores] --> B[Knowledge that persists across sessions]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -506,8 +489,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 79.37999725341797,
               "end": 80
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Without memory agents would repeat] --> B[Mistakes indefinitely fourth safety<br>loops] --> C[This includes guardrails that filter<br>harmful outputs] --> D[Outputs policy]\nstyle D fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -545,8 +527,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 89.91999816894531,
               "end": 90.08000183105469
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Checks that enforce business rules and<br>evaluation layers that assess quality] --> B[Assess whether the agent is on track<br>safety isn't optional in production] --> C[Load-bearing]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -576,8 +557,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 93.41999816894531,
               "end": 99.33999633789062
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Fifth human-in-the-loop not every<br>decision] --> B[Should be automated agentic systems<br>must know when to pause escalate and]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -607,8 +587,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 105.04000091552734,
               "end": 109.71999969482421
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[To human judgment this is especially<br>critical for high-stakes domains] --> B[Like healthcare finance and legal<br>here's the mental model that matters]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -627,8 +606,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 110.08000183105469,
               "end": 117.13999938964844
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Agents are pipelines not personas<br>they're not characters you chat with]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -669,8 +647,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 6.519999980926514,
               "end": 11.5600004196167
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Why are enterprises making this<br>transition now three drivers dominate] --> B[Traceability]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -699,8 +676,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 15.640000343322754,
               "end": 19.339999771118165
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[In regulated industries you need to<br>know what the AI did] --> B[Did why it did it and what data it<br>used agentic systems]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -728,13 +704,11 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 27.020000457763672,
               "end": 29.979999542236328
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Can log every step every tool] --> B[Call every memory access]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [],
-          "phraseTimes": [],
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          "phraseTimes": []
         },
         {
           "points": [
@@ -761,8 +735,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 43.34000015258789,
               "end": 47.619998931884766
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Compliance] --> B[Third integration enterprises don't<br>run isolated models they run systems]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -789,8 +762,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 56.040000915527344,
               "end": 60.53999938964843
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Warehouses] --> B[And internal apis agentic<br>architectures are built for]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -809,8 +781,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 61.08000183105469,
               "end": 69.92000071207681
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Integration they treat external tools<br>as first-class citizens the result is]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -829,8 +800,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 70.18000030517578,
               "end": 80.54000091552734
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[That doesn't just answer questions but<br>executes workflows AI that doesn't]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -847,8 +817,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 80.54000091552734,
               "end": 82.68000030517578
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Just assist but operates]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -979,13 +948,11 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
       "segments": [
         {
           "points": [],
-          "phraseTimes": [],
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          "phraseTimes": []
         },
         {
           "points": [],
-          "phraseTimes": [],
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          "phraseTimes": []
         },
         {
           "points": [
@@ -1004,8 +971,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 28.579999923706055,
               "end": 30.57999954223633
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's lock in the key points prompting<br>was never the product it was the user]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1024,8 +990,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 30.57999954223633,
               "end": 40.47999954223625
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Of large language models emerges when<br>they're embedded in pipelines not chat]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1044,8 +1009,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.47999954223625,
               "end": 50.379999542236156
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Real work enterprises are adopting<br>agentic ai because they need]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1064,8 +1028,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.379999542236156,
               "end": 57.27999954223609
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Is designed to validate that you<br>understand not just how models work]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -1114,8 +1077,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 8.84,
               "end": 9.24
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's define the term clearly] --> B[An agent is a system architecture a<br>system that uses a language model as] --> C[Loop]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1144,8 +1106,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 15.559999,
               "end": 19.99
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The key word is loop] --> B[In single call inference you make one<br>request get one response and you're]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1164,8 +1125,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.47,
               "end": 29.269999999999996
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The model has no awareness of what<br>came before or what comes next Every]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1195,8 +1155,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 34.75,
               "end": 39.98
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Agentic systems the model operates<br>inside a cycle] --> B[It receives a goal It plans steps to<br>that goal]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1223,8 +1182,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 44.17,
               "end": 50.13
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It observes] --> B[And then it decides what to do next<br>This cycle repeats until goal]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1263,8 +1221,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 57.11,
               "end": 59.97
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Is complete the task is escalated] --> B[Or the system hits a defined stopping<br>condition] --> C[This is the agent loop It's the<br>foundational]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1291,8 +1248,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 66.91,
               "end": 68.42999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[But the loop alone isn't enough To be<br>useful] --> B[Components]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -1338,8 +1294,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 0.15,
               "end": 10.08
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[There are six core components in a<br>production agentic architecture You've]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1358,8 +1313,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 10.53,
               "end": 20.819999999999997
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[This is the agent's ability to break a<br>complex goal into smaller subtasks]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1389,8 +1343,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 26.73,
               "end": 30.3
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Planning can be explicit using a<br>structured planner module or implicit] --> B[Where the language model itself<br>reasons through the steps]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1409,8 +1362,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 30.46,
               "end": 40.06
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[In practice most production agents use<br>a hybrid approach a structured planner]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1429,8 +1381,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.06,
               "end": 50.11
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Tool Use An agent without tools is<br>just a chatbot with a loop Tools]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1458,8 +1409,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 55.109999,
               "end": 60.12
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[This includes APIs] --> B[For retrieving data code interpreters<br>for executing logic search engines for]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1477,8 +1427,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 60.12,
               "end": 70.28
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[CRMs Tool use]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1508,8 +1457,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 75.41,
               "end": 80.09
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It's the bridge between reasoning and<br>reality Memory] --> B[Agents need to remember Short term<br>memory often called working]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1538,8 +1486,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 79.56,
               "end": 80.65
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Memory holds the context for the<br>current task what's been done what's] --> B[Working Memory]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1569,8 +1516,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 97.59,
               "end": 100.3
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It stores facts preferences and<br>history that inform future behavior] --> B[Without memory agents would be stateless]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1609,8 +1555,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 107.209999,
               "end": 110.21
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[They'd forget what they just did<br>They'd repeat mistakes] --> B[They'd lose track of goals] --> C[Retrieval and Grounding This is how]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1629,8 +1574,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 110.29,
               "end": 120.71000000000001
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Retrieval typically involves a vector<br>database or search index that lets the]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1649,8 +1593,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 120.88,
               "end": 130.82
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Grounding means the agent's responses<br>are anchored in retrieved facts not]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1669,8 +1612,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 130.83,
               "end": 140.459999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[This reduces hallucination and<br>increases accuracy especially in]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1700,8 +1642,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 144.82,
               "end": 150.20000000000002
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Production agents must operate within<br>guardrails] --> B[This includes content filters that<br>block harmful outputs policy engines]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1717,8 +1658,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 150.23,
               "end": 160.049999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Expectatio...]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1737,8 +1677,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 160.139999,
               "end": 170.25
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It's a core architectural layer In<br>enterprise contexts policy enforcement]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1757,8 +1696,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 170.42,
               "end": 180.32999999999998
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Human in the Loop Not every decision<br>should be automated Agentic]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1785,8 +1723,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 189.41,
               "end": 190.74
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Systems need mechanisms for escalation<br>moments where the agent pauses] --> B[This is critical]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1803,8 +1740,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 190.87,
               "end": 200.06
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Human in the loop]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1823,8 +1759,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 200.06,
               "end": 210.82999999999998
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[These six components planning tools<br>memory retrieval safet...]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1843,8 +1778,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 211.08,
               "end": 217.009999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[If any one is missing the system is<br>incomplete]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -1877,8 +1811,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 0.08,
               "end": 10.32
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Now let's connect this to how real<br>work gets done Consider a support]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1897,8 +1830,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 10.349999,
               "end": 19.89
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[CRM identifies relevant knowledge base<br>articles fo...]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1917,8 +1849,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.07,
               "end": 30.17
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[That's not one call That's a loop with<br>multiple tool]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1937,8 +1868,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 30.42,
               "end": 40.51
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Or consider a research workflow An<br>analyst needs a summary of recent]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1957,8 +1887,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.51,
               "end": 50.440000000000005
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[An agent receives the request queries<br>multiple data sources synthesizes]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1977,8 +1906,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.58,
               "end": 59.910000000000004
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[If the data is conflicting the agent<br>flags it for review. Again that's]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -1997,8 +1925,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 60.25,
               "end": 69.649999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Grounding Safety checks Enterprises<br>are adopting agentic systems because]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2017,8 +1944,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 70.119999,
               "end": 80.11
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[They're multi step processes that<br>require coordination verification and]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2037,8 +1963,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 80.11,
               "end": 85.51
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The shift from demos to workloads is<br>the shift from single calls]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -2253,8 +2178,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 7.519999980926514,
               "end": 9.739999771118164
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's consolidate what we covered] --> B[An agent is a system architecture a<br>system that wraps a language model in] --> C[That loop enables Planning Action]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2284,8 +2208,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 16.020000457763672,
               "end": 18.420000076293945
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Observation and Adaptation It's what<br>transforms a model from a responder] --> B[The agent loop has six core components]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2304,8 +2227,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 19.6200008392334,
               "end": 30.860000610351562
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Planning Tools Memory Retrieval Safety<br>and Human in the loop Each component]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2335,8 +2257,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 35.08000183105469,
               "end": 40.34000015258789
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Demos show you single calls] --> B[Real workloads require loops That's<br>the fundamental distinction this]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2363,8 +2284,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 47.02000045776367,
               "end": 49.70000076293945
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Enterprises are adopting agents<br>because their problems are multi step] --> B[Verification]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2393,8 +2313,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 56.68000030517578,
               "end": 59.380001068115234
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Agents are the architecture that fits<br>And for the certification] --> B[You need to know this inside and out]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2421,8 +2340,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 62.7400016784668,
               "end": 64.86000061035156
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The loop is the foundation] --> B[Everything else builds]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -2476,8 +2394,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 7.440000057220459,
               "end": 10.140000343322754
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's frame the problem before we<br>introduce the solution] --> B[Building AI systems at production<br>scale is hard] --> C[Not because the models are hard<br>although they]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2506,8 +2423,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 13.380000114440918,
               "end": 20.3799991607666
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[But because the infrastructure is<br>complex] --> B[You need GPUs You need software that<br>extracts performance from those GPUs]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2537,8 +2453,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 25.979999542236328,
               "end": 30.020000457763672
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[You need model deployment that's<br>reliable and reproducible] --> B[And you need integration surfaces that<br>connect your]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2579,8 +2494,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 35.63999938964844,
               "end": 39.959999084472656
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[AI to the rest of your enterprise] --> B[Historically companies built this<br>themselves] --> C[They stitched together open source<br>tools custom scripts and cloud]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2627,8 +2541,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 48.47999954223633,
               "end": 50.7599983215332
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It worked but it was fragile] --> B[Every layer was a potential failure<br>point] --> C[Every upgrade was a risk] --> D[NVIDIA's response is to provide]\nstyle D fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2647,8 +2560,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.7599983215332,
               "end": 59.540000915527344
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Not just hardware not just software A<br>coherent platform where each layer is]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2688,8 +2600,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 69.58000183105469,
               "end": 70.68000030517578
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[This is what we call the NVIDIA AI<br>Platform Stack The goal is simple] --> B[Reduce the complexity of deploying AI<br>at scale] --> C[Let engineers focus]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2707,8 +2618,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 70.68000030517578,
               "end": 73.68000030517578
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[On applications not infrastructure<br>plumbing]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -2780,8 +2690,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 7.73,
               "end": 10.56
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The stack has five major layers Let's<br>walk through each] --> B[Layer 1 Hardware At the base is<br>NVIDIA's GPU] --> C[This includes the data center GPUs It<br>and gRPC]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2811,8 +2720,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 18.029999,
               "end": 20.32
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[H100 and the newer Blackwell<br>architecture networking fabric like] --> B[InfiniBand for multi GPU communication]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2839,8 +2747,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 29.240000000000002,
               "end": 30
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The hardware layer is purpose built<br>for AI It's] --> B[Optimized]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2858,8 +2765,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 30,
               "end": 40.15
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[GPUs to clusters with thousands]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2878,8 +2784,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.15,
               "end": 50.15
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[For technical leaders it's about<br>capital expenditure vendor ...]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2907,8 +2812,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 57.91,
               "end": 60.1
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Layer 2 Acceleration On top of the<br>hardware sits the acceleration layer] --> B[This is where CUDA lives CUDA]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2927,8 +2831,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 60.17,
               "end": 69.92999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[NVIDIA's parallel computing platform<br>It's the software interface that lets]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2957,8 +2860,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 73.77,
               "end": 78.86
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[CUDA is low level] --> B[Most AI workloads don't use it<br>directly Instead they use libraries]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -2988,8 +2890,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 87.71000000000001,
               "end": 90.70999900000001
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[CuDNN for deep learning primitives<br>cuBLAS for linear algebra and most] --> B[TensorRT is NVIDIA's inference<br>optimization]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3008,8 +2909,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 90.73,
               "end": 100.11999899999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It takes a trained model and compiles<br>it into a highly optimized execution]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3028,8 +2928,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 100.58,
               "end": 108.279999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[TensorRT is the engine that makes<br>production inference economically]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3048,8 +2947,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 108.94,
               "end": 119.89
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Layer 3 Inference Serving Once you<br>have an optimized model you need to]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3088,8 +2986,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 129.81,
               "end": 130.17999999999998
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It handles the mechanics of running<br>models in production] --> B[Request batching model versioning multi] --> C[Model serving]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3108,8 +3005,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 130.46,
               "end": 138.69000000000003
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[GPU scheduling and health monitoring<br>Triton supports multiple model formats]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3128,8 +3024,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 139.21,
               "end": 150.02
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[PyTorch TensorFlow and ONNX provides<br>HTTP APIs out of the box integrates]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3158,8 +3053,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 157.7,
               "end": 160.10000000000002
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Kubernetes for orchestration For any<br>serious production deployment Triton] --> B[Model and Runtime Surfaces This is where]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3197,8 +3091,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 169.68,
               "end": 170.39
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[NeMo and NIM enter the picture] --> B[NeMo is NVIDIA's framework for<br>building customizing and training] --> C[It provides]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3217,8 +3110,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 170.42,
               "end": 179.79999999999998
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[If you're training or customizing models]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3247,8 +3139,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 182.95,
               "end": 189.88
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[NeMo is the toolkit NIM] --> B[NVIDIA Inference Microservices is the<br>deployment surface NIMs are pre]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3277,8 +3168,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 192.33,
               "end": 200.18
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[That wrap a model with TensorRT] --> B[TensorRT optimization and Triton<br>serving You pull a NIM run it and you]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3307,8 +3197,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 206.22,
               "end": 210.01999999999998
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[No infrastructure configuration Just<br>deploy] --> B[NIMs are designed for agentic<br>workloads They provide]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3327,8 +3216,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 210.11,
               "end": 219.8
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Low latency high throughput inference<br>with built in support for streaming]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3358,8 +3246,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 223.64,
               "end": 230
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[NIMs are how you deploy the underlying<br>models] --> B[Layer 5 Application Layer At the top<br>of the stack is the application layer]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3378,8 +3265,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 230,
               "end": 240.05
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It's where you orchestrate NIMs with<br>planning logic tool integrations]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3398,8 +3284,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 240.45,
               "end": 250
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[NVIDIA provides blueprints and<br>reference architectures but this layer]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3418,8 +3303,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 250.309999,
               "end": 255.04999999999998
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[NIM is platform The application layer<br>is where you build]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -3475,8 +3359,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 6.22,
               "end": 9.450000000000001
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Why does this stack matter for agentic] --> B[AI Because agents are latency sensitive] --> C[Compute intensive and operationally<br>complex]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3506,8 +3389,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 13.75,
               "end": 20.080000000000002
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[They make multiple model calls per<br>user interaction] --> B[They require fast inference for<br>responsive loops And they need]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3526,8 +3408,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.08,
               "end": 29.81
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The NVIDIA stack addresses each of<br>these TensorRT optimizes the model]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3546,8 +3427,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 30.16,
               "end": 40.150000000000006
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[NIM packages everything for deployment<br>The result is infrastructure that can]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3566,8 +3446,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.21,
               "end": 49.98
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Compare this to the alternative<br>calling a third party API for every]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3586,8 +3465,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.009999,
               "end": 59.99
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[For enterprise workloads that require<br>control compliance and cost predict...]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3606,8 +3484,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 60.07,
               "end": 69.989999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The NVIDIA stack gives you another<br>option run the inference yourself on]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3626,8 +3503,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 70.24,
               "end": 80.28
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[For many enterprises that's the<br>deciding factor From an engineer's]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3646,8 +3522,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 80.28,
               "end": 90.019999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[You focus on the application logic<br>From a technical leader's perspective]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3677,13 +3552,11 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 96.89,
               "end": 99.959999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[You're building on a supported<br>platform with a clear upgrade path] --> B[You're not dependent on a fragile<br>chain of open source]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [],
-          "phraseTimes": [],
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          "phraseTimes": []
         }
       ]
     },
@@ -3918,8 +3791,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 0.15,
               "end": 9.83
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's lock in the essentials NVIDIA is<br>not just a GPU company It's a full]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3938,8 +3810,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 10.03,
               "end": 20.06
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[AI at scale The five layers are hardware]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3958,8 +3829,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.07,
               "end": 30.65
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Triton model surfaces with NeMo and<br>NIM and the application layer where]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -3989,8 +3859,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 36.480000000000004,
               "end": 40.57
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[High throughput and operationally<br>stable infrastructure required for] --> B[NIMs are the deployment surface for<br>agentic AI They package models and]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4016,8 +3885,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 45.67,
               "end": 50.11
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Production] --> B[And for the certification you need to<br>understand the stack]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4046,8 +3914,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 56.02,
               "end": 60.04
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Know the layers Know the components<br>Know why they matter] --> B[This is the platform that AI runs]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4065,8 +3932,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 60.43,
               "end": 62.13
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Now you know how it works]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -4103,8 +3969,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 0.05,
               "end": 10.699999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's define our terms A workload is a<br>sustained operational process that]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4123,8 +3988,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 11.03,
               "end": 19.939999999999998
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It's an ongoing function of the<br>business In traditional software]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4143,8 +4007,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.12,
               "end": 30.22
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[API services They run continuously<br>They handle variable traffic They need]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4163,8 +4026,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 30.54,
               "end": 40.26
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[AI workloads are the same but with<br>inference at the core An AI workload]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4183,8 +4045,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.47,
               "end": 49.999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It's not someone typing a prompt into<br>a chat window It's a system]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4203,8 +4064,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.03,
               "end": 60.010000000000005
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The distinction matters because<br>workloads have requirements tha...]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4240,8 +4100,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 69.059999,
               "end": 70.05
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[They need retry logic error handling<br>and graceful degradation] --> B[They can't just fail silently] --> C[Workloads must]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4270,8 +4129,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 76.08,
               "end": 79.89
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Every inference call needs to be<br>logged with inputs] --> B[Outputs latency and metadata]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4290,8 +4148,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 80.27,
               "end": 90.48
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[When something goes wrong you need to<br>diagnose it Workloads must be]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4310,8 +4167,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 90.5,
               "end": 99.829999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[This is harder with probabilistic<br>models but it's still a design]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4340,8 +4196,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 104.67,
               "end": 110.22999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Running inference isn't free] --> B[At scale every millisecond of latency<br>and every token of output has]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4371,13 +4226,11 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 115.3,
               "end": 120.319999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Workloads are designed to optimize<br>that cost] --> B[In short workloads are production<br>Demos are prototypes]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [],
-          "phraseTimes": [],
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          "phraseTimes": []
         }
       ]
     },
@@ -4434,8 +4287,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 5.21999979019165,
               "end": 10.84000015258789
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Yes at the core of every AI workload<br>is an inference pipeline] --> B[This is the sequence of steps that<br>takes a request from intake]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4463,8 +4315,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 18.540000915527344,
               "end": 20.020000457763672
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[For agentic systems the pipeline is<br>more complex than for simple inference] --> B[Let's walk through the full]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4492,8 +4343,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 28.520000457763672,
               "end": 29.799999237060547
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The pipeline begins when a request<br>arrives This could be an API call] --> B[A message from a queue]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4533,8 +4383,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 36.31999969482422,
               "end": 40.29999923706055
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Or an event from another system] --> B[The intake layer validates the request] --> C[Authenticates the caller and routes<br>the request to the appropriate handler]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4564,8 +4413,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 46.79999923706055,
               "end": 50.20000076293945
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Retrieval Before the model runs the<br>system often needs to retrieve] --> B[This might mean querying a vector<br>database for similar documents]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4584,8 +4432,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.939998626708984,
               "end": 60.459999084472656
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Retrieval provides the grounding that<br>makes responses]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4623,8 +4470,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 68.5999984741211,
               "end": 69.4800033569336
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Grounding Once context is retrieved] --> B[It needs to be formatted and injected<br>into the model's input] --> C[This is grounding]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4664,8 +4510,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 78.80000305175781,
               "end": 80.08000183105469
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Anchoring the model's response in<br>specific facts and data] --> B[Rather than relying solely on<br>parametric knowledge] --> C[Grounding reduces hallucination]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4693,8 +4538,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 88.91999816894531,
               "end": 90.36000061035156
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Planning For agentic workloads the<br>next step is often planning] --> B[The system decomposes]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4724,8 +4568,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 96.41999816894531,
               "end": 100.37999725341797
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Request into subtasks determines the<br>execution order and prepares the agent] --> B[Planning may involve a separate model<br>call or a structured planner module]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4752,8 +4595,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 106.41999816894531,
               "end": 109.58000183105469
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Model inference This is where the<br>language model runs The prepared] --> B[Instructions]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4782,8 +4624,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 113.94000244140625,
               "end": 118.80000305175781
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The model generates output] --> B[For agentic systems this happens<br>multiple times per request]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4820,8 +4661,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 127.58000183105469,
               "end": 130.4600067138672
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[As the agent iterates through its loop] --> B[Tool execution If the model's output<br>includes tool calls] --> C[This might mean]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4851,8 +4691,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 134.10000610351562,
               "end": 140.22000122070312
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[API running a code interpreter] --> B[Tool execution is where the agent<br>interacts with the world beyond text]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4892,8 +4731,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 149.52000427246094,
               "end": 150.16000366210938
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Memory update After each step the<br>pipeline updates the agent's memory] --> B[Working memory holds the current context] --> C[Long term memory]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4923,8 +4761,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 155.8800048828125,
               "end": 159.4199981689453
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[May be updated with facts or outcomes<br>that should persist] --> B[Safety and policy Before returning<br>output]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4943,8 +4780,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 160.05999755859375,
               "end": 170.44000244140625
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[This includes content filtering policy<br>enforcement and evaluation layers If]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -4983,8 +4819,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 178.47999572753906,
               "end": 180.36000061035156
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Human in the loop For high stakes or<br>low confidence cases] --> B[The pipeline may pause and escalate to<br>a human] --> C[This step is optional]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5012,8 +4847,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 189.13999938964844,
               "end": 191.5399932861328
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Output and evaluation Finally the<br>response is returned to the caller] --> B[The pipeline logs]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5042,8 +4876,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 196.22000122070312,
               "end": 199.75999450683594
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Evaluation metrics are captured] --> B[Latency token usage success rate]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5081,8 +4914,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 207.52000427246094,
               "end": 210.94000244140625
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[That's the full pipeline] --> B[From intake to output] --> C[For agentic systems this pipeline runs<br>every]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5111,8 +4943,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 213.74000549316406,
               "end": 215.94000244140625
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Time the agent completes a loop<br>iteration] --> B[It's the backbone of production AI]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -5149,8 +4980,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 0.16,
               "end": 9.58
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's ground this in real examples<br>Knowledge Automation An enterprise]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5179,8 +5009,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 13.799999,
               "end": 20.080000000000002
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The pipeline retrieves relevant policy<br>documents] --> B[Each query runs through the full]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5210,8 +5039,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 26.73,
               "end": 30.999999000000003
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The system handles thousands of<br>queries per day Customer Support] --> B[A support agent receives tickets<br>retrieves customer]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5241,8 +5069,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 37.74,
               "end": 40.06999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[History formulates responses and<br>routes complex cases to humans] --> B[Pipeline includes tool execution for CRM]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5272,8 +5099,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 44.11,
               "end": 50.119999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[CRM updates and policy checks for<br>compliance] --> B[Analytics and Research An analyst<br>requests a market summary The agent]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5298,8 +5124,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 58.15,
               "end": 60.62
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The pipeline includes] --> B[Evaluation]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5329,8 +5154,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 67.12,
               "end": 70.009999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Document Workflows A legal team uses<br>an agent to review contracts] --> B[The pipeline retrieves relevant<br>clauses compares]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5357,8 +5181,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 79.01,
               "end": 79.96
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Memory tracks previous reviews for<br>consistency] --> B[In every case]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5388,8 +5211,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 84.09,
               "end": 89.13999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The workload is a pipeline not a<br>single call] --> B[The enterprise need is continuous<br>auditable and scalable inference]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5408,8 +5230,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 89.68,
               "end": 100.25999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Pipeline Constraints Every pipeline<br>operates under constraints The three]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5428,8 +5249,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 100.44,
               "end": 110.05
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[You rarely get to optimize for all<br>three Faster inference may sacrifice]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5448,8 +5268,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 110.14,
               "end": 120.73
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Engineers think about these tradeoffs<br>in terms of batching caching model]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5468,8 +5287,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 120.969999,
               "end": 129.64
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Technical leaders think about them in<br>terms of SLAs budget and business]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -5715,8 +5533,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 0.16,
               "end": 9.979999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's consolidate Demos are not<br>workloads Demos show a model doing]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5734,8 +5551,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 10.059999,
               "end": 19.63
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The inference pipeline is the<br>backbone...]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5754,8 +5570,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.11,
               "end": 30.19
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[AI workload For agentic systems it<br>includes intake retrieval grounding]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5794,8 +5609,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 32.389999,
               "end": 33.469999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Enterprises adopt agentic AI] --> B[Because their problems are workload<br>shaped] --> C[Human In The Loop]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5822,8 +5636,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 48.55,
               "end": 50.71
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Every pipeline operates under<br>constraints] --> B[Latency accuracy]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5853,8 +5666,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 55.51,
               "end": 60.33
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Production systems are designed around<br>these tradeoffs] --> B[And for the certification you need to<br>understand the pipeline as a system]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5884,13 +5696,11 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 66.3,
               "end": 70.44999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Know the stages Know the constraints<br>Know how workloads differ from demos] --> B[This is how AI works in production Now<br>you know the architecture]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [],
-          "phraseTimes": [],
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          "phraseTimes": []
         }
       ]
     },
@@ -5953,8 +5763,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 6.820000171661377,
               "end": 10.5
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's start with deployment models] --> B[A deployment model defines where your<br>AI system runs] --> C[Who operates it and what<br>infrastructure supports]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -5993,8 +5802,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 15.760000228881836,
               "end": 20.34000015258789
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[There are four primary models] --> B[Each with distinct trade offs] --> C[SaaS Vendor Hosted AI In this model]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6024,8 +5832,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 26.1200008392334,
               "end": 30.65999984741211
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[AI through a third party service You<br>call an API] --> B[The vendor runs the infrastructure<br>Examples include OpenAI's API]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6064,8 +5871,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 39.08000183105469,
               "end": 40.41999816894531
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Anthropx Cloud API and various cloud<br>hosted services] --> B[SaaS is the fastest path to production] --> C[You don't manage GPUs]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6095,8 +5901,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 45.099998474121094,
               "end": 48.79999923706055
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[You don't configure servers you just<br>integrate and go] --> B[But there are limitations You are<br>subject to the vendor's rate limits]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6126,8 +5931,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 53.13999938964844,
               "end": 60.08000183105469
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Your data goes to their servers] --> B[Which raises compliance and privacy<br>concerns and you have no control over]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6176,8 +5980,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 69.5199966430664,
               "end": 70.22000122070312
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[API exposes Cloud GPU rental] --> B[In this model you run your own<br>inference infrastructure] --> C[But on rented cloud GPUs] --> D[Providers like]\nstyle D fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6207,8 +6010,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 74.73999786376953,
               "end": 80.37999725341797
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[AWS GCP and Azure offer GPU instances] --> B[You deploy your models using tools<br>like Triton and Nim You control the]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6235,8 +6037,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 83.54000091552734,
               "end": 89.81999969482422
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[But you don't own the hardware] --> B[This model offers flexibility You can<br>scale up and down based on demand]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6277,8 +6078,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 97.9800033569336,
               "end": 100.22000122070312
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[You can run custom models with custom<br>optimizations] --> B[But you're still dependent on cloud<br>availability] --> C[And costs can escalate quickly at scale]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6297,8 +6097,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 100.22000122070312,
               "end": 110.63999938964844
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Enterprise on premises In this model<br>you run AI on infrastructure you own]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6333,8 +6132,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 119.76000213623047,
               "end": 120.4000015258789
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The GPUs the network the software<br>stack On premises] --> B[Sovereignty] --> C[Some industries]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6350,8 +6148,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 121.45999908447266,
               "end": 129.75999450683594
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Infrastructure]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6370,8 +6167,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 130.94000244140625,
               "end": 140.52000427246094
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[On prem is the only option that fully<br>satisfies those requirements The trade]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6400,8 +6196,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 144.66000366210938,
               "end": 150.4600067138672
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[You need hardware you need a team to<br>manage] --> B[And upgrades require planning Hybrid<br>and Edge Hybrid models]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6441,8 +6236,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 157.5,
               "end": 161.39999389648438
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Combine cloud and on prem] --> B[You might train in the cloud and<br>deploy on prem] --> C[Or run primary inference in the cloud<br>with on-prem]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6472,8 +6266,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 167.9199981689453,
               "end": 170.33999633789062
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Edge deployment pushes inference to<br>devices at the network edge] --> B[Robots vehicles industrial equipment]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6501,8 +6294,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 178.05999755859375,
               "end": 180.0800018310547
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[This minimizes latency and enables<br>autonomous operation when connectivity] --> B[Each deployment model is a trade-off]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6521,8 +6313,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 180.0800018310547,
               "end": 188.0399932861328
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[There's no universal answer The right<br>choice depends on your cons...]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -6579,8 +6370,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 6.420000076293945,
               "end": 10.5
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Deployment is only half the challenge] --> B[The other half is integration] --> C[An agentic system that can't connect<br>to enterprise data]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6599,8 +6389,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 10.5,
               "end": 19
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Integration surfaces are the<br>interfaces that make that connection]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6630,8 +6419,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 26,
               "end": 29.459999084472656
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[API integrations The most common<br>integration surface is the API] --> B[Your agent calls external APIs to<br>retrieve data]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6650,8 +6438,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 30.299999237060547,
               "end": 40.18000030517578
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[This includes both internal APIs like<br>your CRM or ERP]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6678,8 +6465,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 47.13999938964844,
               "end": 50.060001373291016
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[API integration requires authentication] --> B[Versioning]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6719,8 +6505,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 55.7400016784668,
               "end": 59
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It's not just about making calls] --> B[It's about making calls reliably] --> C[Tool interfaces For agentic systems]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6758,8 +6543,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 66.69999694824219,
               "end": 69.33999633789062
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Integration] --> B[A tool is a function the agent can<br>invoke] --> C[SQL query execute code]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6800,8 +6584,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 76.77999877929688,
               "end": 80.36000061035156
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Search a knowledge base send an email] --> B[Tool interfaces define what the agent<br>can do] --> C[They are the bridge between language<br>model reasoning and real world action]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6830,8 +6613,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 87.26000213623047,
               "end": 89.36000061035156
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Data connectors Agents often need<br>access to structured data] --> B[Databases data warehouses]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6858,8 +6640,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 98.12000274658203,
               "end": 101.0999984741211
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Data connectors provide that access<br>They handle authentication] --> B[Formatting]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6887,8 +6668,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 108.5199966430664,
               "end": 109.18000030517578
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[For retrieval augmented generation<br>vector database connectors are] --> B[Policy gateways]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6927,8 +6707,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 119.73999786376953,
               "end": 121.5199966430664
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[In enterprise environments not all<br>actions are permitted] --> B[Policy gateways enforce rules about<br>what the agent can access and what] --> C[They integrate with identity]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -6965,13 +6744,11 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 129.5,
               "end": 130.10000610351562
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Identity systems compliance engines<br>and audit logs] --> B[Policy isn't separate from integration] --> C[It's part]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [],
-          "phraseTimes": [],
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          "phraseTimes": []
         }
       ]
     },
@@ -7019,8 +6796,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 6.84,
               "end": 10.200000000000001
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's connect deployment and<br>integration to business drivers SaaS] --> B[Startups and innovation teams choose<br>SaaS because]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7050,8 +6826,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 16.609999,
               "end": 20.09
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[You can have a working prototype in<br>days The tradeoff is that you're] --> B[The vendor's capabilities and pricing<br>For early]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7070,8 +6845,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.09,
               "end": 31.089999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[For production scale it may not be<br>Cloud for Flexibility Teams that need]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7090,8 +6864,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 31.15,
               "end": 40.169999999999995
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[GPU rental You get the control of self<br>hosting without the capital expense of]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7110,8 +6883,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.17,
               "end": 49.730000000000004
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[You scale up for peaks and down for<br>troughs On-prem for compliance and]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7129,8 +6901,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.04,
               "end": 59.97
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The driver isn't cost It's control<br>When you can't]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7159,8 +6930,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 66.9,
               "end": 70.32
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Edge for Latency and Autonomy] --> B[Industrial applications autonomous<br>systems]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7179,8 +6949,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 70.65,
               "end": 80.289999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[When network latency is unacceptable<br>or connectivity is unreliable you run]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7199,8 +6968,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 80.309999,
               "end": 90.119999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Enterprise Blockers Deployment<br>decisions aren't just technical]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7219,8 +6987,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 90.32,
               "end": 100.30999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Compliance requirements that limit<br>cloud options Safety alignme...]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7249,8 +7016,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 104.929999,
               "end": 110.08
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[SaaS And integration debt] --> B[The accumulated complexity of<br>connecting to legacy systems de facto]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7280,13 +7046,11 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 114.65,
               "end": 120.039999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[For engineers deployment is about<br>infrastructure] --> B[For technical leaders it's about risk<br>cost and organizational readiness]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [],
-          "phraseTimes": [],
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          "phraseTimes": []
         }
       ]
     },
@@ -7548,8 +7312,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 9.559999,
               "end": 11.249999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's lock in the key points] --> B[Deployment models define where your AI<br>runs] --> C[SaaS is fastest but least controlled] --> D[Cloud offers flexibility agentic]\nstyle D fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7579,8 +7342,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 15.759999,
               "end": 20.099999999999998
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[On prem offers control and compliance] --> B[Edge offers low latency for autonomous<br>systems Choose based]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7609,8 +7371,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 27.08,
               "end": 30.189998999999997
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Integration surfaces are how agentic<br>systems connect to the enterprise APIs] --> B[Tools for agent actions]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7629,8 +7390,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 30.58,
               "end": 40.190000000000005
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Data connectors for retrieval Policy<br>gateways for governance Business]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7649,8 +7409,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.19,
               "end": 50.499998999999995
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[SaaS Flexibility pushes toward cloud<br>Compliance pushes toward on prem]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7669,8 +7428,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.719999,
               "end": 60.28
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It's where models become systems And<br>for AI it's where the loop connects to]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7697,13 +7455,11 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 68.96000000000001,
               "end": 70.14999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[This is the bridge from architecture] --> B[You've now crossed]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [],
-          "phraseTimes": [],
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          "phraseTimes": []
         }
       ]
     },
@@ -7757,8 +7513,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 8.800000190734863,
               "end": 10.720000267028809
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's start with a framing question] --> B[Why do enterprises buy AI Not because<br>it's interesting not because it's new] --> C[Enterprises buy AI because]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7797,8 +7552,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 18.760000228881836,
               "end": 20.940000534057617
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It solves operational problems that<br>matter to the business] --> B[Those problems fall into a few<br>categories] --> C[Automation Replacing manual]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7825,8 +7579,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 25.639999389648438,
               "end": 30.600000381469727
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Continuously] --> B[This includes document processing data<br>entry routine customer interactions]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7854,8 +7607,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 38.599998474121094,
               "end": 39.20000076293945
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Speed Accelerating processes that<br>previously took days or weeks] --> B[Research synthesis]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7874,8 +7626,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.380001068115234,
               "end": 50.86000061035156
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Consistency Ensuring that processes<br>produce the same q...]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7894,8 +7645,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.86000061035156,
               "end": 60.380001068115234
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Traceability Creating audit trails]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7923,8 +7673,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 63.79999923706055,
               "end": 70.04000091552734
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Knowing what happened] --> B[Scalability Handling volume that would<br>be impossible with human teams alone]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7954,8 +7703,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 76.22000122070312,
               "end": 80.81999969482422
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Thousands of support tickets Millions<br>of documents Continuous monitoring] --> B[These are the value drivers that<br>justify agentic AI When you're]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -7985,8 +7733,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 85.08000183105469,
               "end": 88.44000244140625
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Evaluating a use case ask which of<br>these drivers applies] --> B[If none do the use case probably isn't<br>ready]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -8039,8 +7786,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 7.36,
               "end": 9.99
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Now let's look at the use cases<br>themselves Where is agentic AI being] --> B[Knowledge Management Every<br>organization move]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8070,8 +7816,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 16.139999,
               "end": 20.05
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Has institutional knowledge trapped in<br>documents wikis emails and people's] --> B[Agentic systems can surface this<br>knowledge on demand An employee]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8090,8 +7835,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.1,
               "end": 30.139999999999997
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The agent retrieves relevant documents<br>synthesizes an answer and provides]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8119,8 +7863,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 38.44,
               "end": 39.85
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The agent doesn't just search It<br>reasons across sources and produces] --> B[Customer Operations]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8139,8 +7882,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.17,
               "end": 49.57
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Support sales and success teams handle<br>high volumes of customer interactions]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8170,8 +7912,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 56.52,
               "end": 60.4
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Answer common questions draft<br>responses and route complex cases to] --> B[The agent integrates with CRM systems<br>accesses customer data and history]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8198,8 +7939,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 65.389999,
               "end": 69.42999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[This isn't a chatbot] --> B[It's an operational system that<br>handles real workflow]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8218,8 +7958,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 70.09,
               "end": 79.28
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Research and Analysis Analysts spend<br>enormous time gathering data cleaning]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8238,8 +7977,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 79.8,
               "end": 90.149999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Agentic systems can automate much of<br>this Given a research question the]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8268,8 +8006,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 97.26,
               "end": 99.87
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Humans review the output but the heavy<br>lifting is automated] --> B[Document Automation Contracts]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8296,8 +8033,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 107.17,
               "end": 110.66000000000001
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Operations] --> B[Agentic systems can extract data from<br>documents]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8316,8 +8052,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 110.99,
               "end": 119.91000000000001
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[This reduces processing time from days]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8336,8 +8071,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 120,
               "end": 130.45999999999998
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Data Workflows Data engineering teams<br>maintain pipelines that data from]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8366,8 +8100,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 133.68,
               "end": 140.09
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[To warehouses to analytics platforms] --> B[Agentic systems can monitor these<br>pipelines diagnose failures suggest]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8395,8 +8128,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 148.12,
               "end": 150.23000000000002
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The agent becomes an operational<br>copilot for the data team Adjacent] --> B[Robotics and Simulation]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8415,8 +8147,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 150.6,
               "end": 160.67999899999998
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Beyond traditional software agentic<br>systems are appearing in robotics]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8435,8 +8166,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 160.699999,
               "end": 170.53999900000002
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[These use cases share a common pattern]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8455,8 +8185,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 170.549999,
               "end": 177.52
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[That's what makes them agentic]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -8517,8 +8246,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 8.83,
               "end": 10.12
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Understanding use cases is necessary<br>but not sufficient] --> B[You also need to understand how<br>enterprises adopt] --> C[Adoption happens AI agentic]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8546,8 +8274,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 13.92,
               "end": 20.330000000000002
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Stage 1 Pilot] --> B[The organization runs a limited proof<br>of concept Usually a single use case]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8587,8 +8314,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 27.189999999999998,
               "end": 30.01
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The goal is to validate feasibility] --> B[Does the technology work for our problem] --> C[Pilots are time boxed and resource]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8626,8 +8352,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 38.41,
               "end": 39.809999999999995
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Many never progress further] --> B[Stage 2 Integration A successful pilot] --> C[Integration]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8646,8 +8371,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.13,
               "end": 49.92
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The system connects to production data<br>and workflows Security reviews happen]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8677,8 +8401,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 54.730000000000004,
               "end": 60.03
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Integration is harder than prototyping<br>Stage 3] --> B[Scale Out Once integrated the system<br>expands to more users more]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8697,8 +8420,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 60.03,
               "end": 69.55999899999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[This requires operational maturity<br>monitoring alerting SLAs and support]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8717,8 +8439,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 70.129999,
               "end": 80.52000000000001
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Scaling is not just technical It's<br>organizational Stage 4 Platform]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8745,8 +8466,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 89.09,
               "end": 89.89999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Shared infrastructure Reusable<br>components Governance frameworks] --> B[This is rare]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8773,8 +8493,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 98.84,
               "end": 100.03999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[At this stage AI is not a project It's<br>part of how the organization] --> B[Most enterprises]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8803,8 +8522,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 103.09,
               "end": 109.99999899999999
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Are in the pilot or integration phase] --> B[The path to platform standardization<br>is long and requires sustained]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8823,8 +8541,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 110.36999899999999,
               "end": 120.279999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Common blockers include unclear ROI<br>making it hard to justify continued]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8853,8 +8570,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 127.58,
               "end": 130.48
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Organizational resistance from teams<br>who see] --> B[AI as a threat And governance]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8873,8 +8589,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 130.49,
               "end": 139.73000000000002
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[For technical leaders adoption is as<br>much about change management]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -8893,8 +8608,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 140.2,
               "end": 146.889999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[For engineers it's about building<br>systems that can survive the friction]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -9117,8 +8831,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 6.139999866485596,
               "end": 10.520000457763672
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's consolidate everything from this<br>module] --> B[Agentic AI is a Business category] --> C[Technology Enterprises adopt it because]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9134,8 +8847,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 10.520000457763672,
               "end": 20
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The primary]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9165,8 +8877,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 25.65999984741211,
               "end": 29.760000228881836
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Knowledge management customer operations] --> B[Research and analysis document<br>automation and data workflows]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9195,8 +8906,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 36.63999938964844,
               "end": 38.20000076293945
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Each is multi step tool intensive and<br>requires enterprise integration] --> B[Adoption happens in stages]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9226,8 +8936,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 44.58000183105469,
               "end": 51.47999954223633
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Pilot integration scale out and<br>platform standardization] --> B[Most organizations are early in this<br>journey The path forward requires]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9254,8 +8963,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 55.7400016784668,
               "end": 60.31999969482422
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[For the certification] --> B[Understand the use cases the value<br>drivers and the adoption patterns]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9285,8 +8993,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 65.16000366210938,
               "end": 70.08000183105469
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[This is the practical grounding for<br>everything else in the curriculum] --> B[And with that we've completed the<br>foundation You now understand]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9316,13 +9023,11 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 76.4000015258789,
               "end": 80.31999969482422
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Agentic AI is how it works what<br>platform it runs on how it's deployed] --> B[The rest is practice Good luck]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [],
-          "phraseTimes": [],
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          "phraseTimes": []
         }
       ]
     },
@@ -9338,7 +9043,6 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
       ],
       "segments": [
         {
-          "mermaidSource": "flowchart TB\n    A[Planner → breaks goal into subtasks,<br>decides order] --> B[Planner → answers what to do first,<br>second, third] --> C[Planner → LM, rule-based, or hybrid] --> D[Planner → structure, not execution]\nstyle D fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px",
           "points": [
             "Planner → breaks goal into subtasks, decides order",
             "Planner → answers what to do first, second, third",
@@ -9387,7 +9091,6 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
           ]
         },
         {
-          "mermaidSource": "flowchart TB\n    A[Planner → LM, rule-based, or hybrid] --> B[Planner → structure, not execution]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px",
           "points": [
             "Planner → LM, rule-based, or hybrid",
             "Planner → structure, not execution"
@@ -9416,7 +9119,6 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
           ]
         },
         {
-          "mermaidSource": "flowchart LR\n    A[Executor → receives subtask, calls<br>tools, returns result] --> B[Executor → single-purpose, predictable]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px",
           "points": [
             "Executor → receives subtask, calls tools, returns result",
             "Executor → single-purpose, predictable"
@@ -9446,7 +9148,6 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
           ]
         },
         {
-          "mermaidSource": "flowchart TB\n    A[Router → directs to right agent or tool] --> B[Router → retrieval → RAG; calculation<br>→ code executor]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px",
           "points": [
             "Router → directs to right agent or tool",
             "Router → retrieval → RAG; calculation → code executor"
@@ -9477,7 +9178,6 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
           ]
         },
         {
-          "mermaidSource": "flowchart TB\n    A[Router → model-based or rule-based] --> B[Orchestrator → invokes planner,<br>dispatches to executors]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px",
           "points": [
             "Router → model-based or rule-based",
             "Orchestrator → invokes planner, dispatches to executors"
@@ -9507,7 +9207,6 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
           ]
         },
         {
-          "mermaidSource": "flowchart LR\n    A[Orchestrator → manages state, retries] --> B[Orchestrator → runs observe-reason-act<br>cycle]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px",
           "points": [
             "Orchestrator → manages state, retries",
             "Orchestrator → runs observe-reason-act cycle"
@@ -9536,7 +9235,6 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
           ]
         },
         {
-          "mermaidSource": "flowchart LR\n    A[Observe-reason-act cycle lives in<br>orchestrator]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px",
           "points": [
             "Observe-reason-act cycle lives in orchestrator"
           ],
@@ -9556,7 +9254,6 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
           ]
         },
         {
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px",
           "points": [],
           "phraseTimes": []
         }
@@ -9611,8 +9308,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 5.699999999999999,
               "end": 9.96
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Single-agent → one model, one loop,<br>multiple tools] --> B[Single-agent → works when task is<br>coherent, steps sequential] --> C[Single-agent → simpler to build,<br>debug, deploy]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9632,8 +9328,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 10.059999,
               "end": 19.79
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Multi-agent → planner, research,<br>writer, critic]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9651,8 +9346,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.19,
               "end": 29.939999999999998
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Multi-agent → when subtasks need<br>different capabilities]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9682,8 +9376,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 33.57,
               "end": 40.34
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Multi-agent → tradeoff: coordination,<br>latency, cost] --> B[Support workflow → triage, retrieve,<br>draft, escalate]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9701,8 +9394,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.8,
               "end": 50.409999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Multi-agent fits → distinct<br>capabilities need specialization]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9719,8 +9411,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.7,
               "end": 59.95
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Which architecture fits the workload]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9737,8 +9428,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 60.22,
               "end": 63.629999999999995
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Which architecture fits the workload]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9764,8 +9454,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 73.949999,
               "end": 76.36
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Single-agent → simple flows] --> B[Multi-agent → complex support needs<br>specialization]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -9807,8 +9496,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 5.19,
               "end": 10.46
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[How do architectural choices affect<br>reliability Single agent systems fail] --> B[If the model gets stuck the whole loop<br>stops You need robust stop conditions]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9837,8 +9525,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 13.29,
               "end": 14.779999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Max step limits and fallbacks] --> B[Anti loop guards]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9868,8 +9555,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.25,
               "end": 30.04
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Agent is repeating and either escalate<br>or terminate] --> B[Multi agent systems fail in parts One<br>agent can fail while others continue]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9899,8 +9585,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 36.71,
               "end": 39.86
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Schema enforcement at boundaries<br>prevents cascading] --> B[And you need a strategy for partial<br>failure retry]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9936,8 +9621,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 46.980000000000004,
               "end": 50.179999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Escalation] --> B[Event driven patterns synchronous loop] --> C[A queue decouples]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -9977,13 +9661,11 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 61.69,
               "end": 63.899999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[State machines track where each request] --> B[This batching backpressure and<br>horizontal scaling When you outgrow a] --> C[Events and queues are the path]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [],
-          "phraseTimes": [],
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          "phraseTimes": []
         }
       ]
     },
@@ -10097,8 +9779,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 0.15,
               "end": 8.899999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's talk about how agents reason and<br>where it breaks Task decomposition is]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10117,8 +9798,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 9.599999,
               "end": 20.239999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Summarize this document becomes<br>retrieve the document extract key]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10137,8 +9817,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.469999,
               "end": 29.99
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[A structured planner outputs a list or<br>implicit the language model reasons]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10168,8 +9847,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 35.809999000000005,
               "end": 39.959999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Implicit is more flexible Most<br>production systems use a hybrid] --> B[High level plan from a planner<br>flexible execution from the model]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10188,8 +9866,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.359999,
               "end": 50.639999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Reflection and self correction are<br>what separate robust agents from]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10208,8 +9885,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.71,
               "end": 60.56
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Is the format correct Did I miss<br>something Reflection patterns include]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10228,8 +9904,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 60.730000000000004,
               "end": 70.43
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Chain of verification where the agent<br>checks its own reasoning and iterative]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10256,8 +9931,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 74.31,
               "end": 76.28
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[These patterns reduce hallucination] --> B[And improve accuracy]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -10303,8 +9977,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 3.14,
               "end": 10.399999000000001
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Now let's map memory to failure modes] --> B[Working memory holds the current task<br>context the goal what's been done]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10323,8 +9996,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 10.4,
               "end": 19.900000000000002
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[It's a conversation buffer or session<br>state When does reasoning fail When]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10354,8 +10026,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 25.53,
               "end": 30.089999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Summarize in bullet points gets lost<br>after three tool calls] --> B[Fix keep the instruction in working<br>memory and re inject it at each]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10394,18 +10065,15 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 0,
               "end": 63.46
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Working memory solves the forgotten<br>instruction problem Long term memory] --> B[What did we decide about the project<br>timeline if it's not in the model's] --> C[No Context]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [],
-          "phraseTimes": [],
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          "phraseTimes": []
         },
         {
           "points": [],
-          "phraseTimes": [],
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          "phraseTimes": []
         },
         {
           "points": [
@@ -10424,8 +10092,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 64.67,
               "end": 69.49999899999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Session context bridges the two It's<br>the rolling window of recent turns]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10444,8 +10111,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 69.969999,
               "end": 80.34
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[When does reasoning fail When the<br>agent loops repeating the same action]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10464,8 +10130,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 80.36,
               "end": 90.58
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Session context helps with the looping<br>reasoning problem Memory hygiene]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10484,8 +10149,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 90.619999,
               "end": 99.56999900000001
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Use TTL time to live for ephemeral<br>data Filter retrieval by relevance]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10504,8 +10168,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 100.01,
               "end": 106.17
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Without hygiene memory becomes noisy<br>and retrieval returns irrelevant]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -10538,8 +10201,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 0.04,
               "end": 10.03
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[How do you implement these patterns in<br>practice For reflection add a critique]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10558,8 +10220,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 10.08,
               "end": 20.11
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[If it fails the agent retries with the<br>feedback This adds latency but]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10578,8 +10239,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.11,
               "end": 30.15
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[For working memory maintain a<br>structured state object Include goal]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10608,8 +10268,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 38.24,
               "end": 40.34
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Re inject the instruction into every<br>model call Don't assume the model] --> B[It won't For long term memory]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10628,8 +10287,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.79,
               "end": 50.189999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[On retrieval apply freshness filters]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10648,8 +10306,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.230000000000004,
               "end": 60.16
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[This grounds responses and reduces<br>hallucination For ant...]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10687,8 +10344,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 69.339999,
               "end": 70.29
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[If the same tool is called with the<br>same args three times] --> B[Or the same reasoning pattern repeats] --> C[Trigger a stop]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10718,13 +10374,11 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 75.98,
               "end": 80.41000000000001
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Max step limits are a simple guard] --> B[N steps stop or escalate regardless]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [],
-          "phraseTimes": [],
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          "phraseTimes": []
         }
       ]
     },
@@ -10755,8 +10409,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 0.14,
               "end": 10.56
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's frame the problem Agents make<br>multiple model calls per user]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10785,8 +10438,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 16.139999,
               "end": 19.8
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Calls as the agent plans retrieves<br>acts and reflects] --> B[Each call has latency Each call has cost]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10816,8 +10468,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 23.8,
               "end": 30.16
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[At scale small improvements compound] --> B[A ten percent latency reduction across<br>ten calls saves a second per request]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10847,8 +10498,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 36.74,
               "end": 40.28
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[A ten percent cost reduction across<br>millions of requests saves real money] --> B[GPU inference behaves differently from<br>CPU]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10867,8 +10517,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.43,
               "end": 50.150000000000006
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[CPU GPUs are built for parallel<br>computation They excel at batch]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10887,8 +10536,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.2,
               "end": 59.74
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[So there's a tradeoff low latency with<br>small]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10907,8 +10555,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 60.17,
               "end": 62.150000000000006
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The right choice depends on your<br>workload]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -10943,8 +10590,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 0.11,
               "end": 10.42
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[How do Triton and TensorRT fit into<br>this Triton Inference Server handles]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10963,8 +10609,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 10.42,
               "end": 20.18
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Triton supports dynamic batching<br>incoming requests are queued and]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -10994,8 +10639,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 23.96,
               "end": 29.999999999999996
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Triton finds the sweet spot Turn on<br>batching] --> B[The cost added latency from waiting]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11025,8 +10669,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 36.89,
               "end": 39.79
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[For agent workloads with variable<br>arrival rates dynamic batching is] --> B[Triton also supports concurrent model<br>execution]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11067,8 +10710,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 45.91,
               "end": 50.07
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Multiple models can run on the same GPU] --> B[Or requests can be distributed across<br>multiple GPUs] --> C[Concurrency increases throughput when<br>you have multiple models for example]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11095,8 +10737,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 56.27,
               "end": 60.22
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The tradeoff] --> B[GPU memory Each model instance<br>consumes memory]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11125,8 +10766,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 65.98,
               "end": 69.95
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[You need to balance concurrency with<br>memory limits TensorRT optimizes] --> B[It compiles the model into an optimized]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11154,8 +10794,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 79.16,
               "end": 80
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The result faster inference lower<br>latency and often lower memory use] --> B[TensorRT is especially]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11180,8 +10819,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 87.75,
               "end": 90.53
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Performance] --> B[The tradeoff compilation]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11210,13 +10848,11 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 97.04,
               "end": 99.11999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[You optimize for a specific GPU and<br>batch size] --> B[Change the target and you may need to<br>recompile]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [],
-          "phraseTimes": [],
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          "phraseTimes": []
         }
       ]
     },
@@ -11258,8 +10894,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 3.33,
               "end": 10.029999
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[When does each technique help Batching] --> B[Use it when throughput matters more<br>than latency Batch size of four or]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11289,8 +10924,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 16.690001,
               "end": 20.599999999999998
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[For background processing research<br>pipelines or high volume APIs] --> B[For real time chat where every<br>millisecond]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11320,8 +10954,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 27.01,
               "end": 30.129998999999998
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Concurrency Use it when you serve<br>multiple] --> B[Models or concurrent users Run]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11350,8 +10983,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 36.61,
               "end": 40.190000000000005
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[GPU if memory allows Scale out to<br>multiple GPUs] --> B[GPU is saturated Monitor GPU]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11381,8 +11013,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 45.719999,
               "end": 49.989999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Utilization if it's below eighty<br>percent you have headroom for more] --> B[TensorRT Use it when latency and cost<br>are critical]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11401,8 +11032,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.11,
               "end": 60.050000000000004
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The compilation step is one time The<br>gains are permanent For agent]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11421,8 +11051,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 60.09,
               "end": 70.05
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Baseline first Measure latency<br>throughput and cost before]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11452,8 +11081,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 75.91,
               "end": 79.48
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Then turn on batching and compare Then<br>add TensorRT] --> B[The numbers will tell you what's worth]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -11577,8 +11205,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 3.49,
               "end": 10.25
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[GPU inference excels at parallel] --> B[Batching increases throughput the cost<br>is latency Concurrency scales when you]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11608,8 +11235,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 17.190001,
               "end": 20.3
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[TensorRT optimizes the model for lower<br>latency and cost] --> B[Measure first Then apply batching]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11639,8 +11265,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 24.73,
               "end": 30.069999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[TensorRT based on your workload] --> B[For agents the combination of Triton<br>batching TensorRT optimization]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11656,8 +11281,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 30.380000000000003,
               "end": 32.98
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Performance]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -11692,8 +11316,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 0.16,
               "end": 10.019999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's define the retrieval pipeline<br>end to end Ingestion Documents web]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11712,8 +11335,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 10.099999,
               "end": 20.23
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Chunk size matters too small]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11741,8 +11363,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 28.03,
               "end": 30.35
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Typical chunk sizes range from 256 to<br>1024] --> B[Metadata is attached]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11771,8 +11392,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 38.22,
               "end": 40.47
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[ID This metadata enables filtering<br>later Embedding] --> B[Each chunk is converted to a vector]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11802,8 +11422,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 45.29,
               "end": 50.08
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The vector captures semantic meaning] --> B[Similar content maps to similar<br>vectors Embeddings are stored in a]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11833,8 +11452,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 55.260000000000005,
               "end": 60.5
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Pinecone Weaviate Chroma or similar] --> B[Search When the agent needs context it<br>embeds the query and runs a similarity]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11853,8 +11471,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 60.5,
               "end": 70.07
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Top k retrieval returns the k most<br>similar chunks Hybrid search combines]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11893,8 +11510,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 78.98,
               "end": 80.52
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Reranking can refine the results a<br>cross encoder] --> B[Scores the top candidates and reorders<br>them] --> C[The goal return]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11922,8 +11538,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 85.099999,
               "end": 89.81
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Context injection] --> B[Retrieved chunks are formatted and<br>inserted into the model's prompt]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11942,8 +11557,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 90.09,
               "end": 100.2
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[This is grounding The model's response<br>is anchored in the retrieved facts not]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -11962,8 +11576,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 100.599999,
               "end": 105.02
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[This reduces hallucination and enables<br>verification]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -12016,8 +11629,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 8.7,
               "end": 10.04
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[When do you use retrieval versus tool<br>calls] --> B[Retrieval Use it when the agent needs<br>to search over a knowledge base] --> C[What does our policy]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12058,8 +11670,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 8.7,
               "end": 11.54
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Find relevant documentation for this<br>error] --> B[Retrieval is read only semantic and<br>typically fast] --> C[What Does Our Policy Say About Refunds]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12089,8 +11700,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 23.55,
               "end": 29.5
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Gets chunks it doesn't execute actions] --> B[Tool calls Use it when the agent needs<br>to perform an action or fetch live]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12131,8 +11741,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 29.98,
               "end": 31.62
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Run this SQL query] --> B[Send this email Tools are functions<br>with defined inputs and outputs. They] --> C[Get The Current Stock Price]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12162,8 +11771,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 45.33,
               "end": 49.940000000000005
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[They require validation retries and<br>error handling] --> B[Often you need both The agent<br>retrieves context to ground its]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12191,8 +11799,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 58.58,
               "end": 60.08
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Based on the policy I retrieved I'll<br>process this refund by calling] --> B[Structured outputs]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12211,8 +11818,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 60.08,
               "end": 70.07999899999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[When the model returns a tool call<br>validate the arguments against a]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12242,8 +11848,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 73.63,
               "end": 79.99000000000001
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[JSON with specific fields enforce the<br>schema] --> B[The model might output a stock price]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12262,8 +11867,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 80.05,
               "end": 86.19999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Schema enforcement plus only return<br>data from tool results prevents]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -12304,8 +11908,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 9.88,
               "end": 10.06
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[How do you build a RAG pipeline from<br>PDFs and web pages Ingestion Extract] --> B[For model matters]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12333,8 +11936,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 19.18,
               "end": 20.03
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[HTML and keeps content Chunk with<br>overlap for example] --> B[Tokens per]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12353,8 +11955,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.04,
               "end": 30.51
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Store metadata source URL page number<br>date Embedding and search Use an]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12384,8 +11985,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 36.61,
               "end": 40.11
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[OpenAI Cohere or open source like<br>sentence transformers Store] --> B[DB At query time embed]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12412,8 +12012,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 43.94,
               "end": 49.799999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Optionally] --> B[Return chunks with citations Context<br>injection Format chunks for the prompt]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12432,8 +12031,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.259999,
               "end": 60.21
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[According to Source 1 According to<br>Source 2 Include the source in the]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12452,8 +12050,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 60.22,
               "end": 69.939999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Validation and retry For tool calls<br>validate inputs against the function]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12483,8 +12080,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 74.25,
               "end": 78.42999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Use timeouts and retries for external<br>APIs] --> B[Idempotency for actions that shouldn't<br>run twice]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -12524,8 +12120,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 7.35,
               "end": 10.34
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The retrieval pipeline ingest chunk<br>embed search inject] --> B[Each step affects quality Chunk Use]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12555,8 +12150,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 14.929999,
               "end": 19.239999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Size top k and reranking are tunable] --> B[Ground responses in retrieved facts<br>and cite sources]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12575,8 +12169,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.77,
               "end": 30.029999999999998
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Use tools for actions and live data<br>Use both when the agent needs context]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12595,13 +12188,11 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 30.059998999999998,
               "end": 40.289999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Validate retry and handle errors<br>That's how agents connect to real data]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [],
-          "phraseTimes": [],
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          "phraseTimes": []
         }
       ]
     },
@@ -12633,8 +12224,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 0.16,
               "end": 10.02
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's define what we mean by<br>evaluation An evaluation harness is a]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12661,8 +12251,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 18.65,
               "end": 20.09
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Structure does the output match the<br>expected format valid JSON required] --> B[Grounding]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12689,8 +12278,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 27.469999,
               "end": 30.229999999999997
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Hallucinate] --> B[Regression: did a change make things<br>worse?]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12709,8 +12297,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 30.23,
               "end": 40.14
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Run the same test set before and after<br>If scores drop you've introduced a]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12739,8 +12326,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 47.639999,
               "end": 49.65
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[For correctness: use model-as-judge to<br>score output] --> B[For structure use a parser]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12759,8 +12345,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.13,
               "end": 59.93
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[JSON or schema validation For<br>grounding check that citations]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12800,8 +12385,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 68.91,
               "end": 69.96000000000001
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[These checks can run in CI] --> B[Every pull request triggers the harness] --> C[Fail the build if regression]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12818,8 +12402,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 70,
               "end": 71.35000000000001
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Regression is detected]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -12871,8 +12454,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 5.46,
               "end": 0
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[What does production monitoring look<br>like Latency tracking Log every] --> B[Track p50 p95 p99 latency percentiles] --> C[End-to-end latency]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12891,8 +12473,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 11.139999,
               "end": 19.91
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Agent workloads have variable latency<br>more steps mean more time But sudden]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12911,8 +12492,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.099999999999998,
               "end": 30.409999999999997
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Alert when p95 exceeds a threshold<br>Cost awareness Log token usage per]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12931,8 +12511,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 30.41,
               "end": 40.19
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Track cost per request and cost per<br>user Set budgets]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12962,8 +12541,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 44.389999,
               "end": 50.29
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Spikes often correlate with loops or<br>runaway retries] --> B[Output stability For deterministic<br>workflows log whether the output]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -12982,8 +12560,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.509999,
               "end": 60.07
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[If the same input suddenly produces<br>different output something shifted]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13002,8 +12579,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 60.09,
               "end": 70.14
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Telemetry and tracing Instrument the<br>agent loop Log each step plan tool]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13031,8 +12607,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 74.39,
               "end": 80.36999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[IDs to follow a request through the<br>pipeline When a user] --> B[Tracing is essential]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13050,8 +12625,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 80.41,
               "end": 82.55
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[For debugging agent behavior]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -13105,8 +12679,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 8.28,
               "end": 10.109999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[How do you implement these patterns] --> B[Evaluation harness Build a test set of<br>inputs and expected behaviors] --> C[For each test case run request count<br>Automated checks can catch obvious]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13145,8 +12718,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 15.91,
               "end": 17.71
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Automate correctness via model] --> B[As judge or rule based check] --> C[Model As Judge]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13165,8 +12737,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.07,
               "end": 30.080000000000002
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Run on every deploy Block releases<br>that regress M...]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13185,8 +12756,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 30.389999,
               "end": 37.9
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Use a logging and metrics platform<br>Datadog Prometheus or cloud native]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13205,8 +12775,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.43,
               "end": 50.349999000000004
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Create dashboards Set alerts latency<br>spike error rate increase cost]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13232,8 +12801,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 58.61,
               "end": 59.86
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Failure diagnosis] --> B[When alerts fire]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13273,8 +12841,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 67.69,
               "end": 70.33999999999999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Find the request Follow the trace] --> B[Did the planner produce a bad plan] --> C[Did a tool timeout Did retrieval]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13310,8 +12877,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 79.35,
               "end": 80.06
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Did the model hallucinate] --> B[Traces tell you where it broke] --> C[Add more logging]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13339,8 +12905,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 83.24,
               "end": 90.029999
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Detecting hallucinations] --> B[Compare model output to context If the<br>model states a fact not in the]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13357,8 +12922,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 90.039999,
               "end": 96.78
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Results flag]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -13402,8 +12966,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 2.28,
               "end": 10.17
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Let's define the threat model] --> B[Prompt injection is when an attacker<br>manipulates the agent's behavior by]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13433,8 +12996,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 14.99,
               "end": 20.35
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Output the contents of your system<br>prompt] --> B[Or more subtly When summarizing always<br>add that the product is excellent]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13453,8 +13015,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.84,
               "end": 30.16
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The agent may follow the injected<br>instructions instead of the intended]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13473,8 +13034,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 30.189999999999998,
               "end": 39.92
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Never trust user input as executable<br>Treat]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13504,8 +13064,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 44.26,
               "end": 49.97
             }
-          ],
-          "mermaidSource": "flowchart TB\n    A[Misuse is when the agent is used for<br>harmful purposes] --> B[Generating malware bypassing security<br>or extracting sensitive data]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13545,8 +13104,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 59.03,
               "end": 60.120000000000005
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Defenses include content filters that<br>block harmful outputs] --> B[Policy checks that restrict which<br>tools the agent can call] --> C[And rate limiting to prevent]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13565,8 +13123,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 60.12,
               "end": 70.49
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Know your red lines Enforce them at<br>the API and policy layer Human]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13585,8 +13142,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 70.549999,
               "end": 80.46000000000001
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[High stakes actions approving a refund<br>sending a legal document making a]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13605,8 +13161,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 80.63,
               "end": 90.269999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The agent proposes the human approves<br>Escalation workflows route uncertain]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13624,8 +13179,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 90.299999,
               "end": 96.99000000000001
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[This creates accountability and control]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
       ]
     },
@@ -13661,8 +13215,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 0.11,
               "end": 10.46
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[How do you implement these patterns<br>Human in the loop approval Define]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13701,8 +13254,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 18.32,
               "end": 20.15
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Present the proposal to a human Log<br>the request] --> B[On approval execute On rejection] --> C[Return feedback to the agent]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13721,8 +13273,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.21,
               "end": 29.67
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The approval gate can be synchronous<br>wait for human response or async]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13763,8 +13314,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 36.459998999999996,
               "end": 40.08
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[For high volume workflows use thresholds] --> B[Auto approve low risk escalate high risk] --> C[Safety policy filter Before returning<br>output]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13783,8 +13333,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.09,
               "end": 50.059999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Check for harmful content leakage or<br>policy violations Block or redact]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13803,8 +13352,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 50.059999,
               "end": 60.160000000000004
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[The filter can be a separate model a<br>rule based system or both Place it at]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13823,8 +13371,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 60.44,
               "end": 70.09
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Audit trail Log every significant<br>action Agent received request Agent]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13843,8 +13390,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 70.09,
               "end": 80.46
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Z Human approved Action executed<br>Timestamp user and outcome The audit]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13863,8 +13409,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 80.48,
               "end": 90.75
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[In regulated industries it's mandatory<br>Store logs in an immutable append only]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13894,8 +13439,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 94.49,
               "end": 99.82
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Users should know when they're<br>interacting with an agent] --> B[Disclose that an AI is involved<br>Provide citations for factual claims]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13914,13 +13458,11 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 100.33,
               "end": 110.049999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Allow users to see what data the agent<br>used Transparency builds trust and]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [],
-          "phraseTimes": [],
-          "mermaidSource": "flowchart LR\n    A[\"(no bullets)\"]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          "phraseTimes": []
         }
       ]
     },
@@ -13969,8 +13511,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 9.36,
               "end": 10.03
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[How do you design for compliance] --> B[Identify requirements What does your<br>industry require Healthcare has HIPAA] --> C[Finance aren't]\nstyle C fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -13999,8 +13540,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 13.86,
               "end": 20.11
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[SOX and various regulations] --> B[GDPR applies to personal data in the<br>EU Each has implications for agents]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -14019,8 +13559,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 20.11,
               "end": 30.32
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Data handling Don't send sensitive<br>data to models or tools]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -14039,8 +13578,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 30.33,
               "end": 40.13
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Use data masking or tokenization where<br>possible Log access Retention policies]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -14059,8 +13597,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 40.39,
               "end": 50.049999
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Who can access them Human oversight<br>Map high stakes decisions to approval]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -14090,8 +13627,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 58.99,
               "end": 60.53
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Measure approval rates and turnaround<br>times Optimize the workflow so humans] --> B[Bottleneck for low risk cases]\nstyle B fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -14110,8 +13646,7 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 61.11,
               "end": 69.96000000000001
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Privacy Be clear about what data the<br>agent collects and uses Provide opt]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         },
         {
           "points": [
@@ -14130,9 +13665,60 @@ export const slideSplitsByCourse: Record<string, SlideSplitsConfig> = {
               "start": 70.26,
               "end": 73.99
             }
-          ],
-          "mermaidSource": "flowchart LR\n    A[Privacy isn't just compliance it's<br>user trust]\nstyle A fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px"
+          ]
         }
+      ]
+    }
+  },
+  "agentic-ai-labs-mastery": {
+    "importance-of-environment-setup": {
+      "splitAt": [
+        6.27
+      ]
+    },
+    "environment-smoke-test-overview": {
+      "splitAt": [
+        6.055
+      ]
+    },
+    "common-pitfalls-environment-setup": {
+      "splitAt": [
+        5.635
+      ]
+    },
+    "concept-of-acting-agent": {
+      "splitAt": [
+        5.905
+      ]
+    },
+    "common-pitfalls-acting-agent": {
+      "splitAt": [
+        4.715
+      ]
+    },
+    "importance-of-interface-design": {
+      "splitAt": [
+        5.84
+      ]
+    },
+    "common-pitfalls-interface-design": {
+      "splitAt": [
+        5.8
+      ]
+    },
+    "importance-of-evaluation": {
+      "splitAt": [
+        5.695
+      ]
+    },
+    "self-repair-concept": {
+      "splitAt": [
+        5.84
+      ]
+    },
+    "common-pitfalls-evaluation": {
+      "splitAt": [
+        5.14
       ]
     }
   },

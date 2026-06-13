@@ -2,10 +2,12 @@
 
 let currentStep = 1;
 let currentCourseId = null; // Will be set by loadCourses()
+let recommendedRenderConcurrency = 4;
 let courses = [];
 let workflowStatus = null; // Global workflow status for single audio generation
 let currentAudioMode = 'per-slide'; // 'per-slide' or 'per-module'
 let courseHasSceneComponents = false; // Whether course has pre-built scene components
+let courseUsesSceneVisuals = false; // visualMode: scenes - SVG box diagrams, not Mermaid
 let stepStatus = {
     1: { complete: false, locked: false },
     2: { complete: false, locked: true },
@@ -187,8 +189,8 @@ async function finalizeVideo() {
             );
         }
         
-        // Step 3: Align diagram phases to narration (generate animation specs from word timings, copy SVGs)
-        if (courseId) {
+        // Step 3: Align diagram phases (Mermaid courses only — never overwrite SVG scene animation.json)
+        if (courseId && !courseUsesSceneVisuals) {
             const alignResponse = await fetch('/api/align-diagram-phases', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -198,6 +200,8 @@ async function finalizeVideo() {
                 const alignErr = await alignResponse.json().catch(() => ({}));
                 console.warn('Align diagram phases skipped or failed:', alignErr.error || alignResponse.statusText);
             }
+        } else if (courseUsesSceneVisuals) {
+            console.log('[finalizeVideo] Skipping align-diagram-phases (SVG scene course)');
         }
         
         // Step 4: Generate Remotion composition files (FINAL STEP)
@@ -243,45 +247,23 @@ async function finalizeVideo() {
             console.log(`[finalizeVideo] Per-slide mode: generating module ${moduleNumber} for course ${courseId}`);
         }
         
-        console.log(`[finalizeVideo] Sending request: course=${courseId}, moduleRange=${moduleRangeToGenerate}, audioMode=${audioMode}`);
-        
-        const genResponse = await fetch('/api/generate-modules', {
+        // Step 4 (FINAL): Activate course — restores ModuleX.tsx, Root.tsx, and public/timings/
+        console.log(`[finalizeVideo] Activating course ${courseId}...`);
+        const activateResponse = await fetch(`/api/courses/${courseId}/activate`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                course: courseId, 
-                moduleRange: moduleRangeToGenerate,
-                audioMode: audioMode // Use current audio mode setting
-            })
+            headers: { 'Content-Type': 'application/json' }
         });
-        if (!genResponse.ok) {
-            const errorData = await genResponse.json().catch(() => ({}));
-            throw new Error(`Remotion file generation failed: ${errorData.error || genResponse.statusText}`);
+        if (!activateResponse.ok) {
+            const errorData = await activateResponse.json().catch(() => ({}));
+            throw new Error(`Course activation failed: ${errorData.error || activateResponse.statusText}`);
         }
-        
-        // Step 5: Activate the course in Remotion (register it with Remotion system)
-        // This copies timings to public/timings/, updates moduleContent.ts, etc.
-        console.log('[finalizeVideo] Activating course in Remotion system...');
-        try {
-            const activateResponse = await fetch(`/api/courses/${courseId}/activate`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' }
-            });
-            
-            if (!activateResponse.ok) {
-                const activateError = await activateResponse.json().catch(() => ({}));
-                console.warn('[finalizeVideo] Activation warning:', activateError.error || activateResponse.statusText);
-                // Don't fail finalization if activation has issues - files are already generated
-                showToast('Remotion files created! Course activation had warnings - check console.', 'warning');
-            } else {
-                const activateData = await activateResponse.json();
-                console.log('[finalizeVideo] Course activated:', activateData.message);
-                showToast('Remotion files created! Course activated and ready for rendering. Opening Remotion Studio...', 'success');
-            }
-        } catch (activateErr) {
-            console.warn('[finalizeVideo] Activation error (non-fatal):', activateErr);
-            showToast('Remotion files created! Activation had issues - files are ready but may need manual activation.', 'warning');
-        }
+        const activateData = await activateResponse.json();
+        showToast(
+            courseUsesSceneVisuals
+                ? 'SVG scene modules activated. Restart Remotion (npm start), then preview module-1.'
+                : (activateData.message || 'Course activated and ready for rendering.'),
+            'success'
+        );
         
         // Open Remotion Studio with the segment
         setTimeout(() => {
@@ -353,7 +335,11 @@ async function renderVideo() {
         const response = await fetch('/api/render-video', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ moduleNumber: parseInt(moduleNumber) })
+            body: JSON.stringify({
+                moduleNumber: parseInt(moduleNumber),
+                courseId: currentCourseId || 'default',
+                concurrency: recommendedRenderConcurrency,
+            })
         });
         
         if (!response.ok) {
@@ -541,14 +527,36 @@ async function renderVideo() {
     }
 }
 
+// Open Remotion Studio and force reload (reuse tab if open, otherwise new tab)
+function openRemotionStudioForCourse(moduleNumber, courseId) {
+    const mod = moduleNumber || urlParams.get('module') || '1';
+    const course = courseId || currentCourseId || '';
+    const url = `http://localhost:3000?composition=module-${mod}&course=${encodeURIComponent(course)}&t=${Date.now()}`;
+    const remotionWindow = window.open(url, 'remotion-studio');
+    if (remotionWindow) {
+        try {
+            remotionWindow.location.replace(url);
+        } catch (e) {
+            console.warn('[wizard] Could not reload existing Remotion tab:', e);
+        }
+    } else {
+        showToast('Popup blocked. Open Remotion manually and press Ctrl+R to reload.', 'warning');
+    }
+}
+
 // Generate preview modules (fixed durations, no audio) and open Remotion Studio
 async function viewSegmentsInRemotion() {
     const btn = document.getElementById('view-segments-btn');
+    if (!currentCourseId) {
+        showToast('Select a video first', 'error');
+        return;
+    }
     if (btn) {
         btn.disabled = true;
         btn.textContent = 'Preparing...';
     }
     try {
+        btn.textContent = 'Activating course and generating preview...';
         const response = await fetch('/api/generate-preview-modules', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -558,8 +566,19 @@ async function viewSegmentsInRemotion() {
         if (!response.ok) {
             throw new Error(data.error || data.details || `HTTP ${response.status}`);
         }
-        showToast(data.message || 'Preview modules generated', 'success');
-        window.open('http://localhost:3000', '_blank', 'noopener,noreferrer');
+        const courseId = data.courseId || currentCourseId;
+        if (data.requiresRemotionRestart) {
+            showToast(
+                courseUsesSceneVisuals
+                    ? `Scene modules rebuilt for "${courseId}". Stop and restart "npm start", then open Remotion again.`
+                    : `Course "${courseId}" is active on disk. Restart Remotion: stop "npm start", run it again, then click once more.`,
+                'warning'
+            );
+        } else {
+            showToast(data.message || `Preview ready for ${courseId}`, 'success');
+        }
+        const moduleNumber = urlParams.get('module') || '1';
+        openRemotionStudioForCourse(moduleNumber, courseId);
     } catch (error) {
         showToast(`Error: ${error.message}`, 'error');
     } finally {
@@ -628,8 +647,9 @@ async function renderCourse() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
                 course: currentCourseId,
-                concurrency: 4,
-                scale: 1
+                concurrency: recommendedRenderConcurrency,
+                scale: 1,
+                preset: 'fast',
             })
         });
         
@@ -860,6 +880,18 @@ console.log(`[wizard] Initial courseId: ${currentCourseId}`);
 function initWizard() {
     console.log('[wizard] initWizard - starting');
 
+    fetch('/api/system-info')
+        .then((response) => response.json())
+        .then((info) => {
+            if (info.recommendedConcurrency) {
+                recommendedRenderConcurrency = info.recommendedConcurrency;
+                console.log(`[wizard] Render concurrency: ${recommendedRenderConcurrency} (${info.cpus} CPUs)`);
+            }
+        })
+        .catch((error) => {
+            console.warn('[wizard] Could not load system info:', error);
+        });
+
     // Event delegation for step indicators (must run - script at body end can miss DOMContentLoaded)
     const wizardSteps = document.querySelector('.wizard-steps');
     if (wizardSteps) {
@@ -1075,9 +1107,8 @@ async function loadCourses() {
                 
                 selector.innerHTML = options;
                 
-                // Trigger change event if course is auto-selected to load all selectors
-                if (currentCourseId && currentCourseId === courses[0].id) {
-                    // Small delay to ensure DOM is ready
+                // Ensure workflow status and selectors load for URL/localStorage course selection
+                if (currentCourseId) {
                     setTimeout(() => {
                         changeCourse(currentCourseId);
                     }, 100);
@@ -1088,6 +1119,141 @@ async function loadCourses() {
         console.error('Error loading courses:', error);
         if (selector) {
             selector.innerHTML = '<option value="">Error loading videos</option>';
+        }
+    }
+}
+
+// Apply scene-course settings (SVG scenes, not Mermaid pipeline)
+async function applyCourseVisualMode() {
+    if (!currentCourseId) return;
+    try {
+        const response = await fetch(`/api/check-scene-components?course=${currentCourseId}`);
+        const data = await response.json();
+        courseHasSceneComponents = !!data.hasScenes;
+        courseUsesSceneVisuals = !!data.usesSceneVisuals;
+
+        if (courseUsesSceneVisuals && currentAudioMode !== 'per-module') {
+            handleAudioModeChange('per-module');
+        }
+
+        updateStep5ForSceneCourse();
+        updateSceneCourseBanners(data);
+
+        if (courseUsesSceneVisuals) {
+            checkSceneComponents();
+        }
+    } catch (e) {
+        console.warn('[wizard] applyCourseVisualMode failed:', e);
+    }
+}
+
+function updateSceneCourseBanners(data) {
+    const step1Banner = document.getElementById('scene-course-step1-banner');
+    const step5Banner = document.getElementById('scene-course-step5-banner');
+    const viewSegmentsBtn = document.getElementById('view-segments-btn');
+    const msg = courseUsesSceneVisuals
+        ? 'This course uses <strong>SVG scene visuals</strong>. Use <strong>Per-module</strong> mode in Step 1. Step 5 (Mermaid) is disabled. Final step: <strong>Finalize Video</strong> or <strong>Activate Course</strong> — not plain slide preview.'
+        : '';
+    if (step1Banner) {
+        step1Banner.style.display = courseUsesSceneVisuals ? 'block' : 'none';
+        step1Banner.innerHTML = msg;
+    }
+    if (step5Banner) {
+        step5Banner.style.display = courseUsesSceneVisuals ? 'block' : 'none';
+        step5Banner.innerHTML = courseUsesSceneVisuals
+            ? 'Step 5 is not used. Scene modules come from <code>course/remotion/scenes/</code>. Use Finalize Video (after word timings) to sync timings and rebuild ModuleX.tsx from scenes.'
+            : '';
+    }
+    if (viewSegmentsBtn) {
+        if (courseUsesSceneVisuals) {
+            viewSegmentsBtn.textContent = 'Open Scene Modules in Remotion';
+            viewSegmentsBtn.title = 'Rebuild ModuleX.tsx from SVG scene components (NOT the plain 15s preview template). Restart npm start after.';
+        } else {
+            viewSegmentsBtn.textContent = 'View Segments in Remotion';
+            viewSegmentsBtn.title = 'Generate preview modules (15s per slide) and open Remotion. No audio needed.';
+        }
+    }
+    const finalizeBanner = document.getElementById('scene-course-finalize-banner');
+    const diagramStep = document.getElementById('finalize-diagram-step');
+    if (finalizeBanner) {
+        finalizeBanner.style.display = courseUsesSceneVisuals ? 'block' : 'none';
+        finalizeBanner.innerHTML = courseUsesSceneVisuals
+            ? '<strong>SVG scene course:</strong> Skip Step 5. <strong>Finalize Video</strong> runs Activate Course (copies timings + rebuilds ModuleX from <code>course/remotion/scenes/</code>). Do not use the main dashboard &quot;Generate Modules&quot; without selecting this course.'
+            : '';
+    }
+    if (diagramStep) {
+        diagramStep.textContent = courseUsesSceneVisuals
+            ? 'SVG scene modules (Step 5 / Mermaid not used)'
+            : 'Diagram pipeline run (classify + mermaid)';
+    }
+}
+
+function applyStep5SceneCourseLock() {
+    const btn = document.getElementById('step-5-btn');
+    const statusText = document.getElementById('step-5-status-text');
+    const moduleSel = document.getElementById('step-5-module');
+    const info = document.getElementById('step-5-info');
+    const progressEl = document.getElementById('step-5-progress');
+    const progressInfo = progressEl ? progressEl.querySelector('.progress-info') : null;
+    const progressBar = document.getElementById('step-5-progress-bar');
+    const indicator = document.getElementById('step-5-indicator');
+
+    if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Disabled (SVG scene course)';
+        btn.classList.remove('btn-primary', 'btn-warning');
+        btn.classList.add('btn-secondary');
+        btn.style.opacity = '0.5';
+        btn.style.cursor = 'not-allowed';
+        btn.title = 'The Mermaid diagram pipeline is disabled for SVG scene courses.';
+    }
+    if (statusText) {
+        statusText.textContent = 'Not used — SVG scenes (pipeline disabled)';
+        statusText.style.color = 'var(--text-muted)';
+        statusText.style.fontWeight = 'normal';
+    }
+    if (info) {
+        info.style.background = 'var(--surface)';
+        info.style.border = '1px solid var(--border)';
+        info.style.opacity = '0.85';
+    }
+    if (moduleSel) {
+        moduleSel.disabled = true;
+        moduleSel.title = 'Diagram pipeline is disabled for this course';
+    }
+    if (progressInfo) {
+        progressInfo.textContent = 'Not used — SVG scene course (Mermaid pipeline disabled)';
+        progressInfo.style.color = 'var(--text-muted)';
+    }
+    if (progressBar) {
+        progressBar.style.width = '100%';
+        progressBar.className = 'segment-progress-bar';
+    }
+    if (progressEl) {
+        progressEl.style.borderColor = 'var(--border)';
+    }
+    if (indicator) {
+        indicator.classList.remove('complete');
+        indicator.classList.add('locked');
+        const labelEl = indicator.querySelector('.step-label');
+        if (labelEl) labelEl.textContent = 'Diagram Pipeline (N/A)';
+        const circle = indicator.querySelector('.step-circle');
+        if (circle) circle.textContent = '—';
+    }
+}
+
+function updateStep5ForSceneCourse() {
+    if (courseUsesSceneVisuals) {
+        applyStep5SceneCourseLock();
+    } else {
+        const btn = document.getElementById('step-5-btn');
+        const moduleSel = document.getElementById('step-5-module');
+        if (moduleSel) {
+            moduleSel.disabled = false;
+            moduleSel.title = '';
+        }
+        if (btn) {
+            btn.title = '';
         }
     }
 }
@@ -1115,6 +1281,7 @@ function changeCourse(courseId) {
     
     // Recheck all steps for new course and reload all selectors
     checkAllSteps().then(() => {
+        applyCourseVisualMode();
         // Reload all selectors after course change
         Promise.all([
             loadRenderModuleSelector(),
@@ -1154,6 +1321,9 @@ async function checkAllSteps() {
         
         // Store globally for single audio generation
         workflowStatus = data;
+        if (data.usesSceneVisuals != null) {
+            courseUsesSceneVisuals = !!data.usesSceneVisuals;
+        }
         populateSingleAudioModules();
         
         // Reload module selectors after workflow status is loaded
@@ -1217,6 +1387,7 @@ async function checkAllSteps() {
         }
 
         hideWorkflowError();
+        updateStep5ForSceneCourse();
         updateUI();
     } catch (error) {
         console.error('Error checking steps:', error);
@@ -1266,6 +1437,16 @@ function updateUI() {
         if (!indicator) continue;
 
         indicator.classList.remove('active', 'complete', 'locked');
+
+        if (i === 5 && courseUsesSceneVisuals) {
+            indicator.classList.remove('active', 'complete');
+            indicator.classList.add('locked');
+            const labelEl = indicator.querySelector('.step-label');
+            if (labelEl) labelEl.textContent = 'Diagram Pipeline (N/A)';
+            const circle = indicator.querySelector('.step-circle');
+            if (circle) circle.textContent = '—';
+            continue;
+        }
 
         if (i === currentStep && !status.locked) {
             indicator.classList.add('active');
@@ -1320,11 +1501,14 @@ function updateUI() {
     updateStepInfo(3);
     updateStepInfo(4);
     updateStepInfo(5);
+    updateStep5ForSceneCourse();
     
     // Show status: basicPreview (Steps 1-3) vs fullyAnimated (Steps 1-4) vs diagramReady (Steps 1-5)
     const basicPreview = stepStatus[1].complete && stepStatus[2].complete && stepStatus[3].complete;
     const fullyAnimated = basicPreview && stepStatus[4].complete;
-    const diagramReady = fullyAnimated && stepStatus[5].complete;
+    const diagramReady = courseUsesSceneVisuals
+        ? fullyAnimated
+        : (fullyAnimated && stepStatus[5].complete);
     const readyForRemotion = basicPreview; // Legacy support
     
     const completionMsg = document.getElementById('completion-message');
@@ -1398,6 +1582,9 @@ function getStepProgressSummary(stepNum) {
             return { text: 'Incomplete – ' + extracted + ' of ' + totalModules + ' modules have word timings', percent: pct };
         }
         case 5: {
+            if (courseUsesSceneVisuals) {
+                return { text: 'Not used — SVG scene course (Mermaid pipeline disabled)', percent: 100 };
+            }
             const done = summary.diagramPipelineComplete ? 1 : 0;
             if (done) {
                 return { text: 'Complete – diagram pipeline run (classify + mermaid)', percent: 100 };
@@ -1410,6 +1597,11 @@ function getStepProgressSummary(stepNum) {
 }
 
 function updateStepInfo(stepNum) {
+    if (stepNum === 5 && courseUsesSceneVisuals) {
+        applyStep5SceneCourseLock();
+        return;
+    }
+
     const status = stepStatus[stepNum];
     const statusText = document.getElementById(`step-${stepNum}-status-text`);
     const btn = document.getElementById(`step-${stepNum}-btn`);
@@ -2367,11 +2559,14 @@ async function checkSceneComponents() {
         
         if (data.hasScenes) {
             courseHasSceneComponents = true;
-            statusEl.innerHTML = `<span style="color: #10b981;">Found ${data.sceneCount} scene components for ${data.moduleCount} modules.</span>`;
+            courseUsesSceneVisuals = !!data.usesSceneVisuals;
+            statusEl.innerHTML = `<span style="color: #10b981;">Found ${data.sceneCount} scene components for ${data.moduleCount} modules.${data.usesSceneVisuals ? ' SVG scene mode — Mermaid pipeline disabled.' : ''}</span>`;
         } else {
             courseHasSceneComponents = false;
+            courseUsesSceneVisuals = !!data.usesSceneVisuals;
             statusEl.innerHTML = `<span style="color: #f59e0b;">No scene components found. Per-module mode will use default scenes.</span>`;
         }
+        updateStep5ForSceneCourse();
     } catch (error) {
         statusEl.innerHTML = `<span style="color: #ef4444;">Error checking scenes: ${error.message}</span>`;
     }
@@ -2768,6 +2963,10 @@ async function regenerateModules() {
     const statusEl = document.getElementById('split-audio-actions-status');
     const moduleSelector = document.getElementById('split-module-selector');
     const moduleNumber = moduleSelector ? moduleSelector.value : null;
+
+    if (courseUsesSceneVisuals) {
+        showToast('Scene course: regenerating SVG modules (not Mermaid). Step 5 is not used.', 'warning');
+    }
     
     btn.disabled = true;
     btn.textContent = 'Regenerating...';
@@ -3307,6 +3506,11 @@ async function populateStep5ModuleSelector() {
 function executeStep5() {
     if (!currentCourseId) {
         showToast('Select a course first', 'warning');
+        return;
+    }
+    if (courseUsesSceneVisuals) {
+        showToast('Step 5 is disabled for SVG scene courses. Use Finalize Video or Activate Course instead.', 'warning');
+        applyStep5SceneCourseLock();
         return;
     }
     if (stepStatus[5].locked) {

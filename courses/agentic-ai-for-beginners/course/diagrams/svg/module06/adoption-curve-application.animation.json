@@ -1,0 +1,135 @@
+{
+  "diagram": "adoption-curve.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 11.5,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [],
+      "triggerWords": [
+        "adoption",
+        "stages"
+      ]
+    },
+    {
+      "start": 11.5,
+      "end": 33.9,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-1"
+      ],
+      "triggerWords": [
+        "pilot",
+        "stage"
+      ]
+    },
+    {
+      "start": 33.9,
+      "end": 53.2,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-3",
+        "section-4"
+      ],
+      "highlight": [
+        "section-2"
+      ],
+      "triggerWords": [
+        "integration"
+      ]
+    },
+    {
+      "start": 53.2,
+      "end": 73.7,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-4"
+      ],
+      "highlight": [
+        "section-3"
+      ],
+      "triggerWords": [
+        "scale"
+      ]
+    },
+    {
+      "start": 73.7,
+      "end": 108.9,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [
+        "section-1",
+        "section-2",
+        "section-3"
+      ],
+      "highlight": [
+        "section-4"
+      ],
+      "triggerWords": [
+        "platform",
+        "standardization"
+      ]
+    },
+    {
+      "start": 108.9,
+      "end": 160,
+      "show": [
+        "main",
+        "section-1",
+        "section-2",
+        "section-3",
+        "section-4"
+      ],
+      "dim": [],
+      "highlight": [],
+      "triggerWords": [
+        "blockers",
+        "governance",
+        "resistance"
+      ]
+    }
+  ]
+}

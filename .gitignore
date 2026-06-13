@@ -20,6 +20,8 @@ lpt3
 *.log
 .env
 .env.local
+*.pem
+*.ppk
 public/audio/*.mp3
 # --- deploy: courses (managed by courseDeployPolicy) ---
 courses/*

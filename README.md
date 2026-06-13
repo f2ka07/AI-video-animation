@@ -267,6 +267,39 @@ The cloud file disables the **remotion** service by default (`studio` profile) a
 
 ---
 
+## RunPod testing (host networking)
+
+RunPod pods often need **host networking** so HTTP proxies can reach the GUI. Use the RunPod overlay (does not change Portainer/bridge deploys):
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.runpod.yml up -d --build
+```
+
+Or with a pulled image:
+
+```bash
+export SLIDES_IMAGE=ghcr.io/f2ka07/ai-video-animation:latest
+docker compose -f docker-compose.prod.yml -f docker-compose.runpod.yml up -d
+```
+
+The overlay sets `network_mode: host` on **app**, **gentle**, and **remotion**, and points the app at Gentle via `http://127.0.0.1:8765`.
+
+| Service | Host port |
+|---------|-----------|
+| GUI | 3001 |
+| Remotion Studio | 3000 |
+| Gentle | 8765 |
+
+Open the GUI through RunPod’s **Connect** / HTTP proxy on port **3001**. Upload `.env` values on the pod (or export them in the shell before `docker compose up`).
+
+Combine with cloud profile if you want auth + no Studio container:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.cloud.yml -f docker-compose.runpod.yml up -d --build
+```
+
+---
+
 ## Part 4 — Using the pipeline after deploy
 
 1. Open `http://<server>:3001` and sign in.

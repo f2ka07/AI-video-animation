@@ -1,0 +1,21 @@
+# RunPod / GPU pod profile: host networking (RunPod proxy exposes ports on the pod IP)
+#
+# Usage:
+#   docker compose -f docker-compose.yml -f docker-compose.runpod.yml up -d --build
+#   docker compose -f docker-compose.prod.yml -f docker-compose.runpod.yml up -d
+#
+# With host mode, services use localhost (not Docker DNS names).
+# Open GUI at http://<pod-ip>:3001 (RunPod HTTP proxy / Connect)
+
+services:
+  app:
+    network_mode: host
+    environment:
+      - GENTLE_URL=http://127.0.0.1:8765
+      - REMOTION_URL=http://127.0.0.1:3000
+
+  remotion:
+    network_mode: host
+
+  gentle:
+    network_mode: host

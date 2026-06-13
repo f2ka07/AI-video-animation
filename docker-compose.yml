@@ -1,11 +1,16 @@
 version: '3.8'
 
+# Build once; remotion reuses the same image (saves disk on RunPod/small VMs)
+x-app-image: &app-image
+  build:
+    context: .
+    dockerfile: Dockerfile
+  image: slides-app:local
+
 services:
   # Main app: GUI + Remotion (headless render)
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    <<: *app-image
     container_name: slides-app
     ports:
       - "3001:3001"
@@ -37,9 +42,7 @@ services:
 
   # Remotion Studio for preview (localhost only - use SSH tunnel for remote)
   remotion:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: slides-app:local
     container_name: slides-remotion
     command: ["npx", "remotion", "studio", "src/index.tsx"]
     ports:
@@ -50,6 +53,8 @@ services:
       - ./src:/app/src
       - ./public:/app/public
       - ./scripts:/app/scripts
+    depends_on:
+      - app
     restart: unless-stopped
     networks:
       - slides-network

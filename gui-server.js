@@ -5967,9 +5967,26 @@ app.post('/api/render-course', (req, res) => {
 	});
 	
 	childProcess.stderr.on('data', (data) => {
-		const message = data.toString().trim();
-		if (message && !message.includes('Symbol(') && !message.includes('CONSOLE')) {
+		const lines = data.toString().split('\n');
+		for (const line of lines) {
+			const message = line.trim();
+			if (!message) continue;
+			if (message.includes('Symbol(') || message.includes('CONSOLE')) continue;
+
 			console.error('[render-course] stderr:', message);
+
+			const failedMatch = message.match(/Module (\d+) FAILED/i);
+			if (failedMatch) {
+				res.write(`data: ${JSON.stringify({
+					type: 'module_failed',
+					module: failedMatch[1],
+					message,
+				})}\n\n`);
+				continue;
+			}
+			if (message.includes('Error:') || message.includes('Maximum for --concurrency')) {
+				res.write(`data: ${JSON.stringify({ type: 'error', message })}\n\n`);
+			}
 		}
 	});
 	

@@ -2,6 +2,7 @@ node_modules
 npm-debug.log
 .git
 .gitignore
+.github
 .DS_Store
 *.log
 .env
@@ -9,9 +10,16 @@ npm-debug.log
 .remotion
 out
 doc
+workspace/logs
+workspace/deploy-manifest.json
 *.md
 !node_modules/**/*.md
-# Generated content (mount at runtime)
+# Generated / runtime content (mounted at run time)
 courses
 public/audio
 public/videos
+public/timings
+public/assets
+public/gentle-cache
+public/whisper-cache
+public/source_code

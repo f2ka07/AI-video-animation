@@ -292,11 +292,38 @@ The overlay sets `network_mode: host` on **app**, **gentle**, and **remotion**, 
 
 Open the GUI through RunPod’s **Connect** / HTTP proxy on port **3001**. Upload `.env` values on the pod (or export them in the shell before `docker compose up`).
 
-Combine with cloud profile if you want auth + no Studio container:
+Combine with cloud profile if you want auth + no Studio container (recommended on RunPod — one build, less disk):
 
 ```bash
 docker compose -f docker-compose.yml -f docker-compose.cloud.yml -f docker-compose.runpod.yml up -d --build
 ```
+
+### `ENOSPC: no space left on device` during `npm ci`
+
+The build failed because the **pod disk is full**, not because of bad npm packages. Docker build + `npm ci` + Chromium can use **5–10 GB+**.
+
+**On the pod, free space first:**
+
+```bash
+df -h
+docker system prune -af
+docker builder prune -af
+```
+
+**Prefer pull over build on RunPod** (after GitHub Actions has pushed an image):
+
+```bash
+echo $GITHUB_TOKEN | docker login ghcr.io -u YOUR_GITHUB_USER --password-stdin
+export SLIDES_IMAGE=ghcr.io/f2ka07/ai-video-animation:latest
+docker compose -f docker-compose.prod.yml -f docker-compose.cloud.yml -f docker-compose.runpod.yml pull app
+docker compose -f docker-compose.prod.yml -f docker-compose.cloud.yml -f docker-compose.runpod.yml up -d
+```
+
+**If you must build on the pod:**
+
+- Use a RunPod template with **≥ 30 GB container disk**
+- Skip Remotion Studio (cloud profile above) — only **app** + **gentle** start
+- Compose now builds the app image **once** (remotion reuses `slides-app:local`)
 
 ---
 

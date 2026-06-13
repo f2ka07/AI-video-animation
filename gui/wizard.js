@@ -692,6 +692,16 @@ async function renderCourse() {
                                 };
                                 updateModulesList();
                                 break;
+
+                            case 'module_failed':
+                                moduleStatus[data.module] = { state: 'failed' };
+                                statusText.textContent = `Module ${data.module} failed — see server logs`;
+                                updateModulesList();
+                                break;
+
+                            case 'error':
+                                showToast(data.message.substring(0, 200), 'error');
+                                break;
                                 
                             case 'progress':
                                 // Update current module's progress
@@ -707,7 +717,8 @@ async function renderCourse() {
                                     loadRenderedVideos();
                                 } else {
                                     statusText.textContent = 'Batch render completed with errors';
-                                    showToast('Some modules failed to render', 'warning');
+                                    showToast('Some modules failed to render. Check: docker logs slides-app | tail -50', 'warning');
+                                    loadRenderedVideos();
                                 }
                                 
                                 if (renderCourseBtn) {

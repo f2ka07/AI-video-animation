@@ -1,6 +1,6 @@
 // Base Diagram Scene - Light background with SVG animations
 import React, { useEffect, useState, useMemo } from 'react';
-import { useCurrentFrame, useVideoConfig, spring, interpolate, staticFile } from 'remotion';
+import { useCurrentFrame, useVideoConfig, spring, interpolate, staticFile, delayRender, continueRender } from 'remotion';
 import { DiagramSceneProps, COLORS, MOTION_CONFIG, SECTION_LABEL_STYLES } from './types';
 import { useModuleTimings } from '../../../../../src/hooks/useModuleTimings';
 import { computeBulletStarts, computeBulletStartsFromTriggerWords } from '../../../../../src/utils/computeBulletStarts';
@@ -297,65 +297,71 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 	
 	// Auto-detect animation spec path from SVG path if not provided
 	const detectedAnimationSpecPath = animationSpecPath || (svgPath ? svgPath.replace('.svg', '.animation.json') : undefined);
-	
-	// Load animation spec if SVG path is provided
+
+	// Load SVG + animation spec — must use delayRender so headless export waits for assets
 	useEffect(() => {
 		if (!svgPath) return;
-		
+
 		const specPath = detectedAnimationSpecPath;
-		if (!specPath) return;
-		
-		const loadSpec = async () => {
+		const handle = delayRender(`Loading diagram: ${svgPath}`);
+		let cancelled = false;
+
+		const finish = () => {
+			if (!cancelled) {
+				continueRender(handle);
+			}
+		};
+
+		const loadAssets = async () => {
 			try {
-				const response = await fetch(staticFile(specPath));
-				if (response.ok) {
-					// Always read as text first to check if it's JSON
-					const text = await response.text();
-					
-					// Check if response is HTML (error page)
-					if (text.trim().startsWith('<!')) {
-						console.log(`Animation spec at ${specPath} returned HTML instead of JSON, using static SVG`);
-						return;
-					}
-					
-					// Try to parse as JSON
-					try {
-						const data = JSON.parse(text);
-						setSpec(data);
-					} catch (parseError) {
-						console.log(`Failed to parse animation spec at ${specPath} as JSON, using static SVG`, parseError);
+				const svgResponse = await fetch(staticFile(svgPath));
+				if (svgResponse.ok) {
+					const text = await svgResponse.text();
+					if (!text.trim().startsWith('<!') && !cancelled) {
+						setSvgContent(text);
+					} else if (!cancelled) {
+						console.warn(`SVG at ${svgPath} returned non-SVG content`);
 					}
 				} else {
-					// No animation spec found - that's okay, will use static SVG
-					console.log(`No animation spec found at ${specPath} (${response.status}), using static SVG`);
+					console.warn(`SVG not found (${svgResponse.status}): ${svgPath}`);
+				}
+
+				if (specPath) {
+					try {
+						const specResponse = await fetch(staticFile(specPath));
+						if (specResponse.ok) {
+							const text = await specResponse.text();
+							if (!text.trim().startsWith('<!')) {
+								try {
+									const data = JSON.parse(text);
+									if (!cancelled) {
+										setSpec(data);
+									}
+								} catch (parseError) {
+									console.warn(`Invalid animation spec JSON: ${specPath}`, parseError);
+								}
+							}
+						} else {
+							console.log(`No animation spec at ${specPath} (${specResponse.status}), using static SVG`);
+						}
+					} catch (specError) {
+						console.log(`Animation spec not available: ${specPath}`, specError);
+					}
 				}
 			} catch (error) {
-				// No animation spec - that's okay
-				console.log(`Animation spec not available: ${specPath}, using static SVG`, error);
+				console.warn(`Failed to load diagram assets: ${svgPath}`, error);
+			} finally {
+				finish();
 			}
 		};
-		
-		loadSpec();
+
+		loadAssets();
+
+		return () => {
+			cancelled = true;
+			continueRender(handle);
+		};
 	}, [svgPath, detectedAnimationSpecPath]);
-	
-	// Load SVG content if svgPath is provided
-	useEffect(() => {
-		if (!svgPath) return;
-		
-		const loadSvg = async () => {
-			try {
-				const response = await fetch(staticFile(svgPath));
-				if (response.ok) {
-					const text = await response.text();
-					setSvgContent(text);
-				}
-			} catch (error) {
-				console.warn(`Failed to load SVG: ${svgPath}`, error);
-			}
-		};
-		
-		loadSvg();
-	}, [svgPath]);
 	
 	// Resolve current phase: use word timings when available, else scaled spec times
 	const useWordTimings = Boolean(slideName && phaseBoundaries && spec?.phases?.length);
@@ -1216,9 +1222,14 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 								display: 'flex',
 								alignItems: 'center',
 								justifyContent: 'center',
-								color: COLORS.light.muted
+								color: COLORS.light.muted,
+								flexDirection: 'column',
+								gap: 8,
 							}}>
-								Loading diagram...
+								<div>Diagram asset missing or failed to load</div>
+								{svgPath ? (
+									<div style={{ fontSize: 14, opacity: 0.7 }}>{svgPath}</div>
+								) : null}
 							</div>
 						)}
 					</div>

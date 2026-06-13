@@ -19,7 +19,51 @@ Persistent data is mounted from the host:
 
 ---
 
-## Overview
+## Quick start (EC2 / RunPod / fresh clone)
+
+One script installs Docker (optional), starts the stack, and **activates the default course** (timings, SVGs, Remotion modules):
+
+```bash
+git clone git@github.com:f2ka07/AI-video-animation.git
+cd AI-video-animation
+chmod +x start.sh
+
+# First time on Ubuntu (installs Docker if needed)
+INSTALL_DOCKER=1 ./start.sh
+
+# Later restarts
+./start.sh
+```
+
+**RunPod / host networking:**
+
+```bash
+USE_HOST_NETWORK=1 ./start.sh
+```
+
+**Pull pre-built image from GHCR** (set in `.env`):
+
+```env
+SLIDES_IMAGE=ghcr.io/f2ka07/ai-video-animation:latest
+```
+
+```bash
+./start.sh
+```
+
+**Environment variables** (`.env` or shell):
+
+| Variable | Default | Purpose |
+|----------|---------|---------|
+| `SLIDES_COURSE_ID` | `agentic-ai-for-beginners` | Course to activate on start |
+| `INSTALL_DOCKER` | `0` | Set `1` to install Docker on Ubuntu |
+| `USE_HOST_NETWORK` | `0` | Set `1` for RunPod host networking |
+| `SKIP_ACTIVATE` | `0` | Set `1` to skip course activation |
+| `REMOTION_CPU_RESERVE` | `0` (auto-added) | Render thread tuning |
+
+The script prints the GUI URL, wizard link, and render commands when finished.
+
+---
 
 ```
 push to main

@@ -243,38 +243,44 @@ for (const moduleNumber of moduleNumbers) {
 }
 }
 
-await renderAll();
+renderAll()
+	.then(() => {
+		const totalDuration = Math.round((Date.now() - startTime) / 1000);
+		const successful = results.filter((r) => r.success).length;
+		const failed = results.filter((r) => !r.success).length;
 
-const totalDuration = Math.round((Date.now() - startTime) / 1000);
-const successful = results.filter((r) => r.success).length;
-const failed = results.filter((r) => !r.success).length;
+		console.log("\n");
+		console.log("=".repeat(60));
+		console.log("BATCH RENDER COMPLETE");
+		console.log("=".repeat(60));
+		console.log(`Total time: ${Math.floor(totalDuration / 60)}m ${totalDuration % 60}s`);
+		console.log(`Successful: ${successful}/${moduleNumbers.length}`);
+		console.log(`Failed: ${failed}/${moduleNumbers.length}`);
+		const skipped = results.filter((r) => r.skipped).length;
+		if (skipped > 0) {
+			console.log(`Skipped (already rendered): ${skipped}`);
+		}
 
-console.log("\n");
-console.log("=".repeat(60));
-console.log("BATCH RENDER COMPLETE");
-console.log("=".repeat(60));
-console.log(`Total time: ${Math.floor(totalDuration / 60)}m ${totalDuration % 60}s`);
-console.log(`Successful: ${successful}/${moduleNumbers.length}`);
-console.log(`Failed: ${failed}/${moduleNumbers.length}`);
-const skipped = results.filter((r) => r.skipped).length;
-if (skipped > 0) {
-	console.log(`Skipped (already rendered): ${skipped}`);
-}
+		if (failed > 0) {
+			console.log("\nFailed modules:");
+			results.filter((r) => !r.success).forEach((r) => {
+				console.log(`  - Module ${r.module}: ${r.error}`);
+			});
+		}
 
-if (failed > 0) {
-	console.log("\nFailed modules:");
-	results.filter((r) => !r.success).forEach((r) => {
-		console.log(`  - Module ${r.module}: ${r.error}`);
+		console.log("\nOutput files:");
+		results.filter((r) => r.success).forEach((r) => {
+			const suffix = presetName !== "normal" && presetName !== "max" ? `-${presetName}` : "";
+			const filePath = path.join(baseOutDir, outputCourseId, `module-${r.module}${suffix}.mp4`);
+			const fileSize = fs.existsSync(filePath) ? fs.statSync(filePath).size : 0;
+			console.log(`  - module-${r.module}${suffix}.mp4 (${(fileSize / 1024 / 1024).toFixed(1)} MB) - ${r.duration}s`);
+		});
+
+		console.log("=".repeat(60));
+		process.exit(failed > 0 ? 1 : 0);
+	})
+	.catch((error: unknown) => {
+		const message = error instanceof Error ? error.message : String(error);
+		console.error("\nBatch render failed:", message);
+		process.exit(1);
 	});
-}
-
-console.log("\nOutput files:");
-results.filter((r) => r.success).forEach((r) => {
-	const suffix = presetName !== "normal" && presetName !== "max" ? `-${presetName}` : "";
-	const filePath = path.join(baseOutDir, outputCourseId, `module-${r.module}${suffix}.mp4`);
-	const fileSize = fs.existsSync(filePath) ? fs.statSync(filePath).size : 0;
-	console.log(`  - module-${r.module}${suffix}.mp4 (${(fileSize / 1024 / 1024).toFixed(1)} MB) - ${r.duration}s`);
-});
-
-console.log("=".repeat(60));
-process.exit(failed > 0 ? 1 : 0);

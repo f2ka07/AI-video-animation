@@ -120,7 +120,7 @@
                 if (data.token) {
                     sessionStorage.setItem(TOKEN_KEY, data.token);
                 }
-                window.location.href = '/index.html';
+                window.location.replace('/index.html');
             } catch (error) {
                 errorEl.textContent = error.message || 'Sign in failed';
                 loginBtn.disabled = false;

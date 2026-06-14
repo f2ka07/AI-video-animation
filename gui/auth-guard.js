@@ -11,6 +11,13 @@
 			const token = sessionStorage.getItem(TOKEN_KEY);
 			if (!token) {
 				window.location.href = '/login.html';
+				return;
+			}
+			// Confirm token is still valid (e.g. after password change / container recreate)
+			const probe = await fetch('/api/system-info');
+			if (probe.status === 401) {
+				sessionStorage.removeItem(TOKEN_KEY);
+				window.location.href = '/login.html';
 			}
 		} catch (error) {
 			console.warn('[auth-guard] status check failed:', error);

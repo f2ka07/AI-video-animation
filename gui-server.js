@@ -69,6 +69,11 @@ function guiAuthMiddleware(req, res, next) {
 	if (req.method === 'OPTIONS') {
 		return next();
 	}
+	// GUI HTML/JS/CSS: auth via client sessionStorage + X-Gui-Token on fetch.
+	// Browser navigation cannot send custom headers, so do not block page loads here.
+	if (!req.path.startsWith('/api/')) {
+		return next();
+	}
 	if (req.path === '/api/auth/login' && req.method === 'POST') {
 		return next();
 	}
@@ -78,10 +83,7 @@ function guiAuthMiddleware(req, res, next) {
 	if (isAuthenticated(req)) {
 		return next();
 	}
-	if (req.path.startsWith('/api/')) {
-		return res.status(401).json({ error: 'Unauthorized', authRequired: true });
-	}
-	return res.redirect(302, '/login.html');
+	return res.status(401).json({ error: 'Unauthorized', authRequired: true });
 }
 
 // Configure multer for audio uploads

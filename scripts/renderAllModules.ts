@@ -241,6 +241,7 @@ for (const moduleNumber of moduleNumbers) {
 		}
 	}
 }
+}
 
 await renderAll();
 

@@ -17,7 +17,7 @@
 //   --force            Re-render even when output MP4 already exists
 
 import { createRequire } from "module";
-import { spawnSync } from "child_process";
+import { spawn } from "child_process";
 import * as fs from "fs";
 import * as path from "path";
 import * as os from "os";
@@ -140,6 +140,32 @@ const results: { module: number; success: boolean; duration: number; error?: str
 // Machine-readable line for GUI batch progress (parsed by gui-server)
 console.log(`BATCH_INFO:${JSON.stringify({ total: moduleNumbers.length, modules: moduleNumbers, skipExisting })}`);
 
+function runRemotionRender(renderArgs: string[]): Promise<{ code: number; stderr: string }> {
+	return new Promise((resolve, reject) => {
+		const child = spawn("npx", renderArgs, {
+			cwd: repoRoot,
+			stdio: ["ignore", "pipe", "pipe"],
+			shell: process.platform === "win32",
+		});
+
+		let stderr = "";
+
+		child.stdout?.on("data", (chunk: Buffer) => {
+			process.stdout.write(chunk);
+		});
+		child.stderr?.on("data", (chunk: Buffer) => {
+			stderr += chunk.toString();
+			process.stderr.write(chunk);
+		});
+
+		child.on("error", reject);
+		child.on("close", (code) => {
+			resolve({ code: code ?? 1, stderr });
+		});
+	});
+}
+
+async function renderAll(): Promise<void> {
 for (const moduleNumber of moduleNumbers) {
 	const moduleStartTime = Date.now();
 	const compositionId = `module-${moduleNumber}`;
@@ -179,20 +205,11 @@ for (const moduleNumber of moduleNumbers) {
 		if (muted) renderArgs.push("--muted");
 		if (everyNth) renderArgs.push(`--every-nth-frame=${everyNth}`);
 
-		const renderResult = spawnSync("npx", renderArgs, {
-			cwd: repoRoot,
-			encoding: "utf-8",
-			stdio: ["ignore", "pipe", "pipe"],
-			timeout: 0,
-			shell: process.platform === "win32",
-		});
+		const renderResult = await runRemotionRender(renderArgs);
 
-		if (renderResult.stdout) process.stdout.write(renderResult.stdout);
-		if (renderResult.stderr) process.stderr.write(renderResult.stderr);
-
-		if (renderResult.status !== 0) {
-			const errMsg = renderResult.error?.message || `remotion exited with code ${renderResult.status}`;
-			if (renderResult.error?.code === "EPERM" || errMsg.includes("EPERM")) {
+		if (renderResult.code !== 0) {
+			const errMsg = renderResult.stderr || `remotion exited with code ${renderResult.code}`;
+			if (errMsg.includes("EPERM")) {
 				if (fs.existsSync(outputPath) && fs.statSync(outputPath).size > 0) {
 					console.log("\nWarning: EPERM during cleanup but output file exists.");
 				} else {
@@ -224,6 +241,8 @@ for (const moduleNumber of moduleNumbers) {
 		}
 	}
 }
+
+await renderAll();
 
 const totalDuration = Math.round((Date.now() - startTime) / 1000);
 const successful = results.filter((r) => r.success).length;

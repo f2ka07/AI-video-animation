@@ -5540,7 +5540,7 @@ app.post('/api/render-video', (req, res) => {
 	
 	childProcess.stdout.on('data', (data) => {
 		buffer += data.toString();
-		const lines = buffer.split('\n');
+		const lines = buffer.split(/\r|\n/);
 		buffer = lines.pop() || '';
 		
 		for (const line of lines) {
@@ -5961,11 +5961,13 @@ app.post('/api/render-course', (req, res) => {
 
 	const sendBatchProgress = (percent, message, moduleNum) => {
 		const clamped = Math.max(0, Math.min(100, Math.round(percent)));
+		const modPct = Math.max(0, Math.min(100, Math.round(currentModulePercent)));
 		res.write(`data: ${JSON.stringify({
 			type: 'progress',
 			module: moduleNum || currentModule,
 			message,
 			percent: clamped,
+			modulePercent: modPct,
 		})}\n\n`);
 	};
 
@@ -5976,7 +5978,7 @@ app.post('/api/render-course', (req, res) => {
 	};
 
 	childProcess.stdout.on('data', (data) => {
-		const lines = data.toString().split(/\r?\n/);
+		const lines = data.toString().split(/\r|\n/);
 		for (const line of lines) {
 			if (!line.trim()) continue;
 
@@ -6004,7 +6006,13 @@ app.post('/api/render-course', (req, res) => {
 						type: 'module_start',
 						module: currentModule,
 						message: `Starting Module ${currentModule}...`,
+						modulePercent: 0,
 					})}\n\n`);
+					sendBatchProgress(
+						computeOverallPercent(),
+						`Module ${currentModule}: bundling (first minutes have little visible progress)`,
+						currentModule,
+					);
 				}
 				continue;
 			}
@@ -6015,10 +6023,11 @@ app.post('/api/render-course', (req, res) => {
 				if (match) {
 					completedModules += 1;
 					currentModulePercent = 100;
-					res.write(`data: ${JSON.stringify({
+                    res.write(`data: ${JSON.stringify({
 						type: 'module_skipped',
 						module: match[1],
 						message: line.trim(),
+						modulePercent: 100,
 					})}\n\n`);
 					sendBatchProgress(computeOverallPercent(), line.trim(), match[1]);
 				}
@@ -6036,6 +6045,7 @@ app.post('/api/render-course', (req, res) => {
 						module: match[1],
 						duration: parseInt(match[2], 10),
 						message: `Module ${match[1]} completed in ${match[2]}s`,
+						modulePercent: 100,
 					})}\n\n`);
 					sendBatchProgress(computeOverallPercent(), `Module ${match[1]} complete`, match[1]);
 				}
@@ -6118,6 +6128,11 @@ app.post('/api/render-course', (req, res) => {
 	childProcess.on('error', (error) => {
 		res.write(`data: ${JSON.stringify({ type: 'error', message: error.message })}\n\n`);
 		res.end();
+	});
+
+	// Browser refresh closes the SSE stream; keep rendering on the server.
+	req.on('close', () => {
+		console.log('[render-course] Client disconnected — batch render continues in background');
 	});
 });
 

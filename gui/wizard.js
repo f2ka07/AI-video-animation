@@ -625,7 +625,8 @@ async function renderCourse() {
     const moduleStatus = {}; // Track each module's status
     
     function updateModulesList() {
-        const items = Object.entries(moduleStatus).map(([mod, status]) => {
+        const sorted = Object.entries(moduleStatus).sort((a, b) => Number(a[0]) - Number(b[0]));
+        const items = sorted.map(([mod, status]) => {
             let icon = '';
             let color = 'var(--muted)';
             if (status.state === 'complete') {
@@ -644,8 +645,22 @@ async function renderCourse() {
                 icon = '[ ]';
             }
             const duration = status.duration ? ` (${status.duration}s)` : '';
-            const detail = status.lastProgress ? ` - ${status.lastProgress}` : '';
-            return `<div style="color: ${color}; padding: 4px 0;">${icon} Module ${mod}${duration}${detail}</div>`;
+            const modPct = status.modulePercent !== undefined ? status.modulePercent : (
+                status.state === 'complete' || status.state === 'skipped' ? 100 : 0
+            );
+            let barHtml = '';
+            if (status.state === 'rendering' || status.state === 'complete' || status.state === 'skipped') {
+                const barColor = status.state === 'rendering' ? 'var(--primary)' : 'var(--success)';
+                barHtml = `
+                    <div class="progress-bar" style="height: 4px; margin-top: 6px;">
+                        <div class="progress-fill" style="width: ${modPct}%; background: ${barColor};"></div>
+                    </div>
+                    <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">${modPct}%</div>`;
+            }
+            return `<div style="color: ${color}; padding: 8px 0; border-bottom: 1px solid var(--border);">
+                <div>${icon} Module ${mod}${duration}</div>
+                ${barHtml}
+            </div>`;
         });
         modulesList.innerHTML = items.join('');
     }
@@ -707,20 +722,24 @@ async function renderCourse() {
                                 break;
                                 
                             case 'module_start':
-                                moduleStatus[data.module] = { state: 'rendering' };
-                                statusText.textContent = `Rendering Module ${data.module}...`;
+                                moduleStatus[data.module] = { state: 'rendering', modulePercent: data.modulePercent || 0 };
+                                setBatchProgress(
+                                    data.percent !== undefined ? data.percent : 0,
+                                    `Module ${data.module} in progress — see per-module bar below`
+                                );
                                 updateModulesList();
                                 break;
 
                             case 'module_skipped':
-                                moduleStatus[data.module] = { state: 'skipped' };
+                                moduleStatus[data.module] = { state: 'skipped', modulePercent: 100 };
                                 updateModulesList();
                                 break;
                                 
                             case 'module_complete':
                                 moduleStatus[data.module] = { 
                                     state: 'complete', 
-                                    duration: data.duration 
+                                    duration: data.duration,
+                                    modulePercent: 100,
                                 };
                                 updateModulesList();
                                 break;
@@ -737,7 +756,9 @@ async function renderCourse() {
                                 
                             case 'progress':
                                 if (data.module && moduleStatus[data.module]) {
-                                    moduleStatus[data.module].lastProgress = data.message;
+                                    if (data.modulePercent !== undefined) {
+                                        moduleStatus[data.module].modulePercent = data.modulePercent;
+                                    }
                                     updateModulesList();
                                 }
                                 if (data.percent !== undefined) {

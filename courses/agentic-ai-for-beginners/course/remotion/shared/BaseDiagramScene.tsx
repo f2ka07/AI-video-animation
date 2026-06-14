@@ -313,17 +313,21 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 		};
 
 		const loadAssets = async () => {
+			const svgUrl = staticFile(svgPath);
 			try {
-				const svgResponse = await fetch(staticFile(svgPath));
+				const svgResponse = await fetch(svgUrl);
 				if (svgResponse.ok) {
 					const text = await svgResponse.text();
 					if (!text.trim().startsWith('<!') && !cancelled) {
 						setSvgContent(text);
 					} else if (!cancelled) {
-						console.warn(`SVG at ${svgPath} returned non-SVG content`);
+						console.warn(`SVG at ${svgPath} returned non-SVG content (url: ${svgUrl})`);
 					}
 				} else {
-					console.warn(`SVG not found (${svgResponse.status}): ${svgPath}`);
+					console.warn(
+						`SVG not found (${svgResponse.status}): public/${svgPath} (staticFile: ${svgUrl}). ` +
+						'Run: npx tsx scripts/activateCourse.ts or sync before render.'
+					);
 				}
 
 				if (specPath) {

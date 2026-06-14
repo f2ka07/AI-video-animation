@@ -18,6 +18,7 @@ const {
 	applyCourseDeployPolicy,
 	getActivatedCourseId,
 } = require('./scripts/lib/courseDeployPolicy.js');
+const { syncCoursePublicAssets } = require('./scripts/lib/syncCoursePublicAssets.js');
 
 function requiresAuth() {
 	return Boolean(process.env.GUI_AUTH_PASSWORD);
@@ -5457,7 +5458,21 @@ app.post('/api/render-video', (req, res) => {
 	}
 	
 	// Use course-specific output directory
-	const course = courseId || 'default';
+	const course = courseId || getActiveCourseFromModuleContent() || 'default';
+
+	if (course !== 'default') {
+		try {
+			syncCoursePublicAssets(course, __dirname);
+		} catch (syncErr) {
+			console.error('[render-video] Asset sync failed:', syncErr.message);
+			return res.status(400).json({
+				error: 'Course assets not ready for render',
+				details: syncErr.message,
+				hint: 'Run: docker exec slides-app npx tsx scripts/activateCourse.ts ' + course,
+			});
+		}
+	}
+
 	const outDir = path.join(__dirname, 'out', course);
 	if (!fs.existsSync(outDir)) {
 		fs.mkdirSync(outDir, { recursive: true });
@@ -5474,7 +5489,7 @@ app.post('/api/render-video', (req, res) => {
 	
 	// Build render command with options for better compatibility
 	// --timeout increases browser connection timeout (default 30000)
-	const command = `npx remotion render "${indexPath}" ${compositionId} "${outputPath}" --timeout=120000 --concurrency=${concurrency} --jpeg-quality=80`;
+	const command = `npx remotion render "${indexPath}" ${compositionId} "${outputPath}" --timeout=120000 --concurrency=${concurrency} --jpeg-quality=80 --public-dir=public`;
 	
 	const childProcess = exec(command, { 
 		cwd: __dirname, 
@@ -5887,11 +5902,25 @@ app.post('/api/generate-preview-modules', (req, res) => {
 app.post('/api/render-course', (req, res) => {
 	const { modules, concurrency, scale, course, preset } = req.body;
 	const optimalConcurrency = getOptimalRenderConcurrency(concurrency);
+	const courseId = course || getActiveCourseFromModuleContent() || 'default';
 	console.log(`[render-course] LOCAL BATCH RENDER - ${optimalConcurrency} threads`);
+
+	if (courseId !== 'default') {
+		try {
+			syncCoursePublicAssets(courseId, __dirname);
+		} catch (syncErr) {
+			console.error('[render-course] Asset sync failed:', syncErr.message);
+			return res.status(400).json({
+				error: 'Course assets not ready for render',
+				details: syncErr.message,
+			});
+		}
+	}
+
 	// Build command arguments
 	let args = [];
-	if (course) {
-		args.push(`--course=${course}`);
+	if (courseId) {
+		args.push(`--course=${courseId}`);
 	}
 	if (modules && Array.isArray(modules) && modules.length > 0) {
 		args.push(`--modules=${modules.join(',')}`);

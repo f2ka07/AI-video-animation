@@ -23,6 +23,7 @@ import { allModules } from "../src/videos/moduleContent";
 
 const require = createRequire(import.meta.url);
 const { getOptimalRenderConcurrency } = require("./lib/renderConcurrency.js");
+const { syncCoursePublicAssets } = require("./lib/syncCoursePublicAssets.js");
 
 const args = process.argv.slice(2);
 const repoRoot = path.join(__dirname, "..");
@@ -89,6 +90,16 @@ const everyNth = preset.everyNth;
 const baseOutDir = path.join(repoRoot, "out");
 const outputCourseId = courseId || "default";
 
+if (outputCourseId && outputCourseId !== "default") {
+	try {
+		syncCoursePublicAssets(outputCourseId, repoRoot);
+	} catch (error: any) {
+		console.error(`\nAsset sync failed: ${error.message}`);
+		console.error("Run: npx tsx scripts/activateCourse.ts", outputCourseId);
+		process.exit(1);
+	}
+}
+
 const estimatedMinutesPerModule: Record<string, number> = {
 	draft: 2,
 	fast: 5,
@@ -138,6 +149,7 @@ for (const moduleNumber of moduleNumbers) {
 
 	try {
 		let cmd = `npx remotion render src/index.tsx ${compositionId} "${outputPath}"`;
+		cmd += ` --public-dir=public`;
 		cmd += ` --concurrency=${concurrency}`;
 		cmd += ` --jpeg-quality=${quality}`;
 		cmd += ` --timeout=120000`;

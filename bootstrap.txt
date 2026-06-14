@@ -1,3 +1,16 @@
+http://localhost:3001/api/health
+
+scp -r ubuntu@ec2-100-58-246-39.compute-1.amazonaws.com:/home/ubuntu/AI-video-animation/out/agentic-ai-for-beginners ./out/a
+
+scp -i "video-key.pem" -r \
+ubuntu@ec2-100-58-246-39.compute-1.amazonaws.com:/home/ubuntu/AI-video-animation/out/agentic-ai-for-beginners \
+./out/b
+
+
+time docker exec slides-app npx remotion render src/index.tsx module-2 \
+  /app/out/agentic-ai-for-beginners/module-2.mp4 \
+  --concurrency=14 --jpeg-quality=80 --timeout=12000
+
 #!/bin/bash
 set -e
 
@@ -31,3 +44,5 @@ usermod -aG docker ubuntu
 docker --version
 docker compose version
 docker run hello-world
+
+

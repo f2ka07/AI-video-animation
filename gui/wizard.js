@@ -595,7 +595,10 @@ async function renderCourse() {
     const targetSelect = document.getElementById('batch-render-target-select');
     const progressDiv = document.getElementById('batch-render-progress');
     const statusText = document.getElementById('batch-render-status');
+    const progressBar = document.getElementById('batch-render-progress-bar');
+    const progressPercent = document.getElementById('batch-render-percent');
     const modulesList = document.getElementById('batch-modules-list');
+    const forceCheckbox = document.getElementById('batch-render-force');
 
     const target = targetSelect ? targetSelect.value : null;
     console.log('[renderCourse] targetSelect:', !!targetSelect, 'value:', target);
@@ -615,6 +618,8 @@ async function renderCourse() {
     
     progressDiv.style.display = 'block';
     statusText.textContent = 'Starting batch render...';
+    if (progressBar) progressBar.style.width = '0%';
+    if (progressPercent) progressPercent.textContent = '0%';
     modulesList.innerHTML = '';
     
     const moduleStatus = {}; // Track each module's status
@@ -626,6 +631,9 @@ async function renderCourse() {
             if (status.state === 'complete') {
                 icon = '[OK]';
                 color = 'var(--success)';
+            } else if (status.state === 'skipped') {
+                icon = '[SKIP]';
+                color = 'var(--text-muted)';
             } else if (status.state === 'failed') {
                 icon = '[FAIL]';
                 color = 'var(--error)';
@@ -636,9 +644,16 @@ async function renderCourse() {
                 icon = '[ ]';
             }
             const duration = status.duration ? ` (${status.duration}s)` : '';
-            return `<div style="color: ${color}; padding: 4px 0;">${icon} Module ${mod}${duration}</div>`;
+            const detail = status.lastProgress ? ` - ${status.lastProgress}` : '';
+            return `<div style="color: ${color}; padding: 4px 0;">${icon} Module ${mod}${duration}${detail}</div>`;
         });
         modulesList.innerHTML = items.join('');
+    }
+
+    function setBatchProgress(percent, message) {
+        if (progressBar) progressBar.style.width = `${percent}%`;
+        if (progressPercent) progressPercent.textContent = `${percent}%`;
+        if (message) statusText.textContent = message;
     }
     
     try {
@@ -650,6 +665,7 @@ async function renderCourse() {
                 concurrency: recommendedRenderConcurrency,
                 scale: 1,
                 preset: 'fast',
+                force: forceCheckbox ? forceCheckbox.checked : false,
             })
         });
         
@@ -678,10 +694,26 @@ async function renderCourse() {
                             case 'start':
                                 statusText.textContent = data.message;
                                 break;
+
+                            case 'batch_info':
+                                if (Array.isArray(data.modules)) {
+                                    for (const mod of data.modules) {
+                                        if (!moduleStatus[mod]) {
+                                            moduleStatus[mod] = { state: 'pending' };
+                                        }
+                                    }
+                                    updateModulesList();
+                                }
+                                break;
                                 
                             case 'module_start':
                                 moduleStatus[data.module] = { state: 'rendering' };
                                 statusText.textContent = `Rendering Module ${data.module}...`;
+                                updateModulesList();
+                                break;
+
+                            case 'module_skipped':
+                                moduleStatus[data.module] = { state: 'skipped' };
                                 updateModulesList();
                                 break;
                                 
@@ -700,23 +732,25 @@ async function renderCourse() {
                                 break;
 
                             case 'error':
-                                showToast(data.message.substring(0, 200), 'error');
+                                showToast((data.message || 'Batch error').substring(0, 200), 'error');
                                 break;
                                 
                             case 'progress':
-                                // Update current module's progress
                                 if (data.module && moduleStatus[data.module]) {
                                     moduleStatus[data.module].lastProgress = data.message;
+                                    updateModulesList();
+                                }
+                                if (data.percent !== undefined) {
+                                    setBatchProgress(data.percent, data.message);
                                 }
                                 break;
                                 
                             case 'done':
+                                setBatchProgress(100, data.success ? 'All modules rendered successfully!' : 'Batch render completed with errors');
                                 if (data.success) {
-                                    statusText.textContent = 'All modules rendered successfully!';
                                     showToast('Batch render complete!', 'success');
                                     loadRenderedVideos();
                                 } else {
-                                    statusText.textContent = 'Batch render completed with errors';
                                     showToast('Some modules failed to render. Check: docker logs slides-app | tail -50', 'warning');
                                     loadRenderedVideos();
                                 }
@@ -725,10 +759,6 @@ async function renderCourse() {
                                     renderCourseBtn.disabled = false;
                                     renderCourseBtn.textContent = 'Render Entire Course';
                                 }
-                                break;
-                                
-                            case 'error':
-                                showToast(`Batch error: ${data.message}`, 'error');
                                 break;
                         }
                     } catch (e) {

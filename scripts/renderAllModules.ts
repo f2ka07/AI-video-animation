@@ -13,9 +13,11 @@
 //   --scale=0.5        Resolution scale
 //   --quality=80       JPEG quality
 //   --muted            Skip audio
+//   --skip-existing    Skip modules that already have a valid MP4 (default)
+//   --force            Re-render even when output MP4 already exists
 
 import { createRequire } from "module";
-import { execSync } from "child_process";
+import { spawnSync } from "child_process";
 import * as fs from "fs";
 import * as path from "path";
 import * as os from "os";
@@ -86,6 +88,10 @@ const quality = qualityArg ? parseInt(qualityArg.split("=")[1], 10) : preset.qua
 
 const muted = args.includes("--muted") || preset.muted;
 const everyNth = preset.everyNth;
+const forceRender = args.includes("--force");
+const skipExisting = forceRender ? false : !args.includes("--no-skip-existing");
+
+const MIN_VALID_MP4_BYTES = 100_000;
 
 const baseOutDir = path.join(repoRoot, "out");
 const outputCourseId = courseId || "default";
@@ -121,6 +127,7 @@ console.log(`  - Resolution: ${scale === 1 ? "1080p" : Math.round(1080 * scale) 
 console.log(`  - Concurrency: ${concurrency} threads`);
 console.log(`  - JPEG Quality: ${quality}%`);
 console.log(`  - Audio: ${muted ? "DISABLED" : "enabled"}`);
+if (skipExisting) console.log(`  - Skip existing MP4s: yes (use --force to re-render all)`);
 if (everyNth) console.log(`  - Frame skip: every ${everyNth} frames`);
 console.log(`Output: ${path.join(baseOutDir, outputCourseId)}/`);
 console.log(`Estimated time: ~${totalEstimate} minutes`);
@@ -128,7 +135,10 @@ console.log("=".repeat(60));
 console.log("");
 
 const startTime = Date.now();
-const results: { module: number; success: boolean; duration: number; error?: string }[] = [];
+const results: { module: number; success: boolean; duration: number; error?: string; skipped?: boolean }[] = [];
+
+// Machine-readable line for GUI batch progress (parsed by gui-server)
+console.log(`BATCH_INFO:${JSON.stringify({ total: moduleNumbers.length, modules: moduleNumbers, skipExisting })}`);
 
 for (const moduleNumber of moduleNumbers) {
 	const moduleStartTime = Date.now();
@@ -142,36 +152,54 @@ for (const moduleNumber of moduleNumbers) {
 
 	const outputPath = path.join(outDir, `${compositionId}${suffix}.mp4`);
 
+	if (skipExisting && fs.existsSync(outputPath)) {
+		const existingSize = fs.statSync(outputPath).size;
+		if (existingSize >= MIN_VALID_MP4_BYTES) {
+			const sizeMb = (existingSize / 1024 / 1024).toFixed(1);
+			console.log(`Module ${moduleNumber} skipped (output exists, ${sizeMb} MB). Use --force to re-render.`);
+			results.push({ module: moduleNumber, success: true, duration: 0, skipped: true });
+			continue;
+		}
+	}
+
 	console.log(`\n[${"=".repeat(50)}]`);
 	console.log(`Rendering Module ${moduleNumber}...`);
 	console.log(`Output: ${outputPath}`);
 	console.log(`Started at: ${new Date().toLocaleTimeString()}`);
 
 	try {
-		let cmd = `npx remotion render src/index.tsx ${compositionId} "${outputPath}"`;
-		cmd += ` --public-dir=public`;
-		cmd += ` --concurrency=${concurrency}`;
-		cmd += ` --jpeg-quality=${quality}`;
-		cmd += ` --timeout=120000`;
-		if (scale !== 1) cmd += ` --scale=${scale}`;
-		if (muted) cmd += ` --muted`;
-		if (everyNth) cmd += ` --every-nth-frame=${everyNth}`;
+		const renderArgs = [
+			"remotion", "render", "src/index.tsx", compositionId, outputPath,
+			"--public-dir=public",
+			`--concurrency=${concurrency}`,
+			`--jpeg-quality=${quality}`,
+			"--timeout=120000",
+		];
+		if (scale !== 1) renderArgs.push(`--scale=${scale}`);
+		if (muted) renderArgs.push("--muted");
+		if (everyNth) renderArgs.push(`--every-nth-frame=${everyNth}`);
 
-		try {
-			execSync(cmd, {
-				cwd: repoRoot,
-				stdio: "inherit",
-				timeout: 0,
-			});
-		} catch (execError: any) {
-			if (execError.code === "EPERM" || execError.message?.includes("EPERM")) {
+		const renderResult = spawnSync("npx", renderArgs, {
+			cwd: repoRoot,
+			encoding: "utf-8",
+			stdio: ["ignore", "pipe", "pipe"],
+			timeout: 0,
+			shell: process.platform === "win32",
+		});
+
+		if (renderResult.stdout) process.stdout.write(renderResult.stdout);
+		if (renderResult.stderr) process.stderr.write(renderResult.stderr);
+
+		if (renderResult.status !== 0) {
+			const errMsg = renderResult.error?.message || `remotion exited with code ${renderResult.status}`;
+			if (renderResult.error?.code === "EPERM" || errMsg.includes("EPERM")) {
 				if (fs.existsSync(outputPath) && fs.statSync(outputPath).size > 0) {
 					console.log("\nWarning: EPERM during cleanup but output file exists.");
 				} else {
-					throw execError;
+					throw new Error(errMsg);
 				}
 			} else {
-				throw execError;
+				throw new Error(errMsg);
 			}
 		}
 
@@ -208,6 +236,10 @@ console.log("=".repeat(60));
 console.log(`Total time: ${Math.floor(totalDuration / 60)}m ${totalDuration % 60}s`);
 console.log(`Successful: ${successful}/${moduleNumbers.length}`);
 console.log(`Failed: ${failed}/${moduleNumbers.length}`);
+const skipped = results.filter((r) => r.skipped).length;
+if (skipped > 0) {
+	console.log(`Skipped (already rendered): ${skipped}`);
+}
 
 if (failed > 0) {
 	console.log("\nFailed modules:");

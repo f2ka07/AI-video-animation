@@ -771,10 +771,20 @@
                     </p>
                     <div id="batch-render-progress" style="display: none; margin-bottom: 16px;">
                         <div style="background: var(--surface-light); border-radius: 8px; padding: 16px;">
-                            <div style="font-weight: 600; margin-bottom: 12px;" id="batch-render-status">Starting...</div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span id="batch-render-status" style="font-weight: 600;">Starting...</span>
+                                <span id="batch-render-percent" style="color: var(--text-muted); font-size: 12px;"></span>
+                            </div>
+                            <div class="progress-bar" style="height: 8px; margin-bottom: 12px;">
+                                <div id="batch-render-progress-bar" class="progress-fill" style="width: 0%;"></div>
+                            </div>
                             <div id="batch-modules-list" style="font-family: monospace; font-size: 12px; max-height: 200px; overflow-y: auto;"></div>
                         </div>
                     </div>
+                    <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--text-secondary); cursor: pointer;">
+                        <input type="checkbox" id="batch-render-force" style="cursor: pointer;">
+                        Re-render modules that already have MP4 files
+                    </label>
                     <div style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
                         <label style="color: var(--text-secondary); font-weight: 500;">Render on:</label>
                         <select id="batch-render-target-select" style="padding: 8px 14px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">

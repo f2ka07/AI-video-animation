@@ -5900,7 +5900,7 @@ app.post('/api/generate-preview-modules', (req, res) => {
 
 // API: Render all modules (batch/overnight rendering)
 app.post('/api/render-course', (req, res) => {
-	const { modules, concurrency, scale, course, preset } = req.body;
+	const { modules, concurrency, scale, course, preset, force } = req.body;
 	const optimalConcurrency = getOptimalRenderConcurrency(concurrency);
 	const courseId = course || getActiveCourseFromModuleContent() || 'default';
 	console.log(`[render-course] LOCAL BATCH RENDER - ${optimalConcurrency} threads`);
@@ -5921,6 +5921,9 @@ app.post('/api/render-course', (req, res) => {
 	let args = [];
 	if (courseId) {
 		args.push(`--course=${courseId}`);
+	}
+	if (force) {
+		args.push('--force');
 	}
 	if (modules && Array.isArray(modules) && modules.length > 0) {
 		args.push(`--modules=${modules.join(',')}`);
@@ -5950,47 +5953,129 @@ app.post('/api/render-course', (req, res) => {
 	});
 	
 	let currentModule = '';
-	
+	let totalModules = 0;
+	let completedModules = 0;
+	let currentModulePercent = 0;
+
+	const sendBatchProgress = (percent, message, moduleNum) => {
+		const clamped = Math.max(0, Math.min(100, Math.round(percent)));
+		res.write(`data: ${JSON.stringify({
+			type: 'progress',
+			module: moduleNum || currentModule,
+			message,
+			percent: clamped,
+		})}\n\n`);
+	};
+
+	const computeOverallPercent = () => {
+		if (totalModules <= 0) return 0;
+		const moduleSlice = 100 / totalModules;
+		return (completedModules * moduleSlice) + (currentModulePercent / 100 * moduleSlice);
+	};
+
 	childProcess.stdout.on('data', (data) => {
-		const lines = data.toString().split('\n');
+		const lines = data.toString().split(/\r?\n/);
 		for (const line of lines) {
 			if (!line.trim()) continue;
-			
+
+			if (line.startsWith('BATCH_INFO:')) {
+				try {
+					const info = JSON.parse(line.slice('BATCH_INFO:'.length));
+					totalModules = info.total || 0;
+					res.write(`data: ${JSON.stringify({
+						type: 'batch_info',
+						total: totalModules,
+						modules: info.modules || [],
+						skipExisting: info.skipExisting !== false,
+					})}\n\n`);
+				} catch (_) { /* ignore */ }
+				continue;
+			}
+
 			// Parse module start
 			if (line.includes('Rendering Module')) {
 				const match = line.match(/Rendering Module (\d+)/);
 				if (match) {
 					currentModule = match[1];
-					res.write(`data: ${JSON.stringify({ 
-						type: 'module_start', 
+					currentModulePercent = 0;
+					res.write(`data: ${JSON.stringify({
+						type: 'module_start',
 						module: currentModule,
-						message: `Starting Module ${currentModule}...`
+						message: `Starting Module ${currentModule}...`,
 					})}\n\n`);
 				}
 				continue;
 			}
-			
+
+			// Parse skipped module
+			if (line.includes('skipped (output exists')) {
+				const match = line.match(/Module (\d+) skipped/);
+				if (match) {
+					completedModules += 1;
+					currentModulePercent = 100;
+					res.write(`data: ${JSON.stringify({
+						type: 'module_skipped',
+						module: match[1],
+						message: line.trim(),
+					})}\n\n`);
+					sendBatchProgress(computeOverallPercent(), line.trim(), match[1]);
+				}
+				continue;
+			}
+
 			// Parse module complete
 			if (line.includes('completed in')) {
 				const match = line.match(/Module (\d+) completed in (\d+)s/);
 				if (match) {
-					res.write(`data: ${JSON.stringify({ 
-						type: 'module_complete', 
+					completedModules += 1;
+					currentModulePercent = 100;
+					res.write(`data: ${JSON.stringify({
+						type: 'module_complete',
 						module: match[1],
-						duration: parseInt(match[2]),
-						message: `Module ${match[1]} completed in ${match[2]}s`
+						duration: parseInt(match[2], 10),
+						message: `Module ${match[1]} completed in ${match[2]}s`,
 					})}\n\n`);
+					sendBatchProgress(computeOverallPercent(), `Module ${match[1]} complete`, match[1]);
 				}
 				continue;
 			}
-			
-			// Parse progress
-			if (line.includes('Rendered') || line.includes('Bundling') || line.includes('Encoded')) {
-				res.write(`data: ${JSON.stringify({ 
-					type: 'progress', 
-					module: currentModule,
-					message: line.trim()
-				})}\n\n`);
+
+			// Remotion frame progress within current module
+			const frameMatch = line.match(/Rendered\s+(\d+)\/(\d+)/i);
+			if (frameMatch && currentModule) {
+				const current = parseInt(frameMatch[1], 10);
+				const total = parseInt(frameMatch[2], 10);
+				currentModulePercent = total > 0 ? Math.round((current / total) * 100) : 0;
+				sendBatchProgress(
+					computeOverallPercent(),
+					`Module ${currentModule}: rendering ${currentModulePercent}%`,
+					currentModule,
+				);
+				continue;
+			}
+
+			const bundleMatch = line.match(/Bundling\s+(\d+)%/i);
+			if (bundleMatch && currentModule) {
+				currentModulePercent = Math.round(parseInt(bundleMatch[1], 10) * 0.15);
+				sendBatchProgress(
+					computeOverallPercent(),
+					`Module ${currentModule}: bundling ${bundleMatch[1]}%`,
+					currentModule,
+				);
+				continue;
+			}
+
+			const encodedMatch = line.match(/Encoded\s+(\d+)\/(\d+)/i);
+			if (encodedMatch && currentModule) {
+				const encCurrent = parseInt(encodedMatch[1], 10);
+				const encTotal = parseInt(encodedMatch[2], 10);
+				const encPct = encTotal > 0 ? Math.round((encCurrent / encTotal) * 100) : 0;
+				currentModulePercent = 90 + Math.round(encPct * 0.1);
+				sendBatchProgress(
+					computeOverallPercent(),
+					`Module ${currentModule}: encoding ${encPct}%`,
+					currentModule,
+				);
 			}
 		}
 	});

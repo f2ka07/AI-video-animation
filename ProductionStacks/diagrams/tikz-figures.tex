@@ -1,0 +1,188 @@
+% Native TikZ figures (Overleaf compiles without mermaid-cli).
+% Source of truth for editing: matching .mmd files in this folder.
+
+\usetikzlibrary{arrows.meta, positioning, fit, backgrounds}
+
+\tikzset{
+	mnode/.style={draw=rbnavy, fill=summarybg, rounded corners=3pt,
+		align=center, font=\small\sffamily, inner sep=6pt, text=rbnavy},
+	marr/.style={-{Stealth[length=2mm]}, thick, draw=rbgray}
+}
+
+\newcommand{\diagramSystemArchitecture}{%
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[node distance=0.55cm and 0.9cm]
+	\node[mnode] (user) {Browser};
+	\node[mnode, below=of user] (app) {slides-app\\GUI + render :3001};
+	\node[mnode, below left=0.7cm and 0.2cm of app] (gentle) {slides-gentle\\word alignment};
+	\node[mnode, below right=0.7cm and 0.2cm of app] (rem) {slides-remotion\\Studio :3000};
+	\node[mnode, below=1.1cm of app, minimum width=7.5cm] (vol) {Host volumes: courses/ public/ out/};
+	\draw[marr] (user) -- (app);
+	\draw[marr] (app) -- (gentle);
+	\draw[marr] (app) -- (rem);
+	\draw[marr] (app) -- (vol);
+\end{tikzpicture}
+\caption{System architecture. The app container serves the GUI and runs headless Remotion renders.}
+\label{fig:architecture}
+\end{figure}
+}
+
+\newcommand{\diagramDeployFlow}{%
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[node distance=0.45cm and 0.55cm, every node/.style={mnode}]
+	\node (dev) {push to main};
+	\node[right=of dev] (gha) {GitHub Actions\\build image};
+	\node[right=of gha] (ghcr) {GHCR\\:latest};
+	\node[right=of ghcr] (host) {Server\\pull + compose};
+	\node[right=of host] (gui) {GUI :3001};
+	\draw[marr] (dev) -- (gha) -- (ghcr) -- (host) -- (gui);
+\end{tikzpicture}
+\caption{Deployment flow. Portainer or \texttt{start.sh} pulls the image; course data stays on host volumes.}
+\label{fig:deploy}
+\end{figure}
+}
+
+\newcommand{\diagramBootstrap}{%
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[node distance=0.5cm and 0.4cm, every node/.style={mnode}]
+	\node (a) {git clone};
+	\node[right=of a] (b) {configure .env};
+	\node[right=of b] (c) {./start.sh};
+	\node[right=of c] (d) {docker compose up};
+	\node[right=of d] (e) {activateCourse};
+	\node[right=of e] (f) {GUI ready};
+	\draw[marr] (a) -- (b) -- (c) -- (d) -- (e) -- (f);
+\end{tikzpicture}
+\caption{Reproduction bootstrap on a fresh server.}
+\label{fig:bootstrap}
+\end{figure}
+}
+
+\newcommand{\diagramWizard}{%
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[node distance=0.35cm and 0.35cm, every node/.style={mnode, minimum width=1.55cm}]
+	\node (s1) {1\\Segments};
+	\node[right=of s1] (s2) {2\\Audio};
+	\node[right=of s2] (s3) {3\\Measure};
+	\node[right=of s3] (s4) {4\\Timings};
+	\node[right=of s4] (s5) {5\\Diagrams};
+	\node[right=of s5] (fin) {Finalize};
+	\node[right=of fin] (ren) {Render};
+	\draw[marr] (s1) -- (s2) -- (s3) -- (s4) -- (s5) -- (fin) -- (ren);
+\end{tikzpicture}
+\caption{Processing wizard pipeline. Scene courses skip Step 5 (Mermaid) and use pre-built SVG scenes.}
+\label{fig:wizard}
+\end{figure}
+}
+
+\newcommand{\diagramSceneCourse}{%
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[node distance=0.55cm and 0.7cm]
+	\node[mnode] (scenes) {scenes + SVG\\in courses/};
+	\node[mnode, right=of scenes] (act) {activateCourse};
+	\node[mnode, right=of act] (pub) {public/assets\\public/timings};
+	\node[mnode, below=0.8cm of act] (mod) {ModuleX.tsx};
+	\node[mnode, right=of pub] (rem) {remotion render};
+	\node[mnode, right=of rem] (mp4) {out/*.mp4};
+	\draw[marr] (scenes) -- (act);
+	\draw[marr] (act) -- (pub);
+	\draw[marr] (act) -- (mod);
+	\draw[marr] (pub) -- (rem);
+	\draw[marr] (mod) -- (rem);
+	\draw[marr] (rem) -- (mp4);
+\end{tikzpicture}
+\caption{Scene course path (e.g.\ agentic-ai-for-beginners). Animation uses SVG + \texttt{.animation.json}, not Mermaid.}
+\label{fig:scene}
+\end{figure}
+}
+
+\newcommand{\diagramBatchRender}{%
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[node distance=0.5cm and 0.5cm, every node/.style={mnode}]
+	\node (gui) {GUI batch render};
+	\node[right=of gui] (sync) {sync assets};
+	\node[right=of sync] (batch) {renderAllModules};
+	\node[right=of batch] (skip) {skip existing?};
+	\node[right=of skip] (out) {out/courseId/};
+	\draw[marr] (gui) -- (sync) -- (batch) -- (skip) -- (out);
+\end{tikzpicture}
+\caption{Batch render. Skips valid MP4s by default; use force to re-render all modules.}
+\label{fig:batch}
+\end{figure}
+}
+
+\newcommand{\diagramGitPolicy}{%
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[node distance=0.6cm and 1.2cm]
+	\node[mnode] (active) {Activated course\\courses/id/};
+	\node[mnode, right=of active] (git) {Tracked in git};
+	\node[mnode, below=0.7cm of active] (arch) {Other courses};
+	\node[mnode, right=of arch] (ign) {gitignored};
+	\node[mnode, below=0.7cm of arch] (rt) {public/timings\\public/assets};
+	\node[mnode, right=of rt] (copy) {Copied at runtime};
+	\draw[marr] (active) -- (git);
+	\draw[marr] (arch) -- (ign);
+	\draw[marr] (rt) -- (copy);
+\end{tikzpicture}
+\caption{Git deploy policy: only the active course ships in the repository.}
+\label{fig:gitpolicy}
+\end{figure}
+}
+
+\newcommand{\diagramSoftwareLayers}{%
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[node distance=0.35cm and 0.5cm]
+	\node[mnode, minimum width=10cm] (ui) {Presentation: gui/ + auth-guard.js};
+	\node[mnode, minimum width=10cm, below=of ui] (orch) {Orchestration: gui-server.js (Express, SSE, child processes)};
+	\node[mnode, minimum width=10cm, below=of orch] (gen) {Generation: activateCourse, module generators, syncCoursePublicAssets};
+	\node[mnode, minimum width=10cm, below=of gen] (ren) {Render: remotion CLI, Chromium, ffmpeg};
+	\node[mnode, minimum width=10cm, below=of ren] (store) {Storage: courses/ (source), public/ (runtime), out/ (artifacts)};
+	\draw[marr] (ui) -- (orch) -- (gen) -- (ren) -- (store);
+\end{tikzpicture}
+\caption{Layered software architecture.}
+\label{fig:layers}
+\end{figure}
+}
+
+\newcommand{\diagramActivatePipeline}{%
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[node distance=0.45cm and 0.4cm, every node/.style={mnode}]
+	\node (a) {content.json};
+	\node[right=of a] (b) {moduleContent.ts};
+	\node[right=of b] (c) {public/timings};
+	\node[right=of c] (d) {SVG or Mermaid};
+	\node[right=of d] (e) {ModuleX.tsx};
+	\node[right=of e] (f) {courses.json};
+	\draw[marr] (a) -- (b) -- (c) -- (d) -- (e) -- (f);
+\end{tikzpicture}
+\caption{Course activation pipeline (single entry point for Remotion readiness).}
+\label{fig:activate}
+\end{figure}
+}
+
+\newcommand{\diagramRenderSequence}{%
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[node distance=0.5cm and 0.6cm]
+	\node[mnode] (ui) {GUI};
+	\node[mnode, right=of ui] (api) {gui-server};
+	\node[mnode, right=of api] (sync) {sync assets};
+	\node[mnode, right=of sync] (batch) {renderAllModules};
+	\node[mnode, below=0.9cm of batch] (rem) {remotion + Chromium};
+	\node[mnode, right=of rem] (mp4) {out/*.mp4};
+	\draw[marr] (ui) -- node[above, font=\scriptsize\sffamily] {SSE} (api);
+	\draw[marr] (api) -- (sync) -- (batch) -- (rem) -- (mp4);
+\end{tikzpicture}
+\caption{Batch render control flow. Browser refresh closes SSE but does not stop the child process.}
+\label{fig:renderseq}
+\end{figure}
+}

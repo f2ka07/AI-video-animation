@@ -1,0 +1,60 @@
+{
+  "diagram": "nvidia-stack-architecture-premium.svg",
+  "sectionSummary": "Five layers from GPU hardware through NIM to your agentic application",
+  "phases": [
+    {
+      "start": 0,
+      "end": 8,
+      "show": [],
+      "dim": [],
+      "highlight": [],
+      "label": "Five major layers",
+      "triggerWords": ["five", "layers", "stack"]
+    },
+    {
+      "start": 8,
+      "end": 55,
+      "show": ["layer-hardware", "card-1"],
+      "dim": [],
+      "highlight": ["layer-hardware", "card-1"],
+      "label": "Layer 1: Hardware",
+      "triggerWords": ["hardware", "h100", "blackwell"]
+    },
+    {
+      "start": 55,
+      "end": 110,
+      "show": ["layer-hardware", "layer-accel", "card-1", "card-2"],
+      "dim": ["layer-hardware", "card-1"],
+      "highlight": ["layer-accel", "card-2"],
+      "label": "Layer 2: Acceleration",
+      "triggerWords": ["acceleration", "cuda", "tensorrt"]
+    },
+    {
+      "start": 110,
+      "end": 158,
+      "show": ["layer-hardware", "layer-accel", "layer-triton", "card-1", "card-2", "card-3"],
+      "dim": ["layer-accel", "card-2"],
+      "highlight": ["layer-triton", "card-3"],
+      "label": "Layer 3: Triton",
+      "triggerWords": ["triton", "serving"]
+    },
+    {
+      "start": 158,
+      "end": 225,
+      "show": ["layer-hardware", "layer-accel", "layer-triton", "layer-runtime", "card-1", "card-2", "card-3", "card-4"],
+      "dim": ["layer-triton", "card-3"],
+      "highlight": ["layer-runtime", "card-4"],
+      "label": "Layer 4: NeMo and NIM",
+      "triggerWords": ["nemo", "nim"]
+    },
+    {
+      "start": 225,
+      "end": 280,
+      "show": ["layer-hardware", "layer-accel", "layer-triton", "layer-runtime", "layer-app", "card-1", "card-2", "card-3", "card-4", "card-5"],
+      "dim": ["layer-runtime", "card-4"],
+      "highlight": ["layer-app", "card-5"],
+      "label": "Layer 5: Application",
+      "triggerWords": ["application", "layer", "agentic"]
+    }
+  ]
+}

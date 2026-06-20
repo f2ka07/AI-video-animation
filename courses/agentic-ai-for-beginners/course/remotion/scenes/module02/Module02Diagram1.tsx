@@ -1,5 +1,5 @@
-// Module 02 Diagram 1: Agent Loop Pattern
-// Uses BaseDiagramScene with animated SVG (agent-loop-pattern.svg + .animation.json)
+// Module 02 Diagram 1: The Agent Loop Pattern
+// Full-slide premium SVG synced to Gentle word timings
 import React from 'react';
 import { BaseDiagramScene } from '../../shared/BaseDiagramScene';
 import { SceneProps } from '../../shared/types';
@@ -15,13 +15,13 @@ export const Module02Diagram1: React.FC<Module02Diagram1Props> = ({
 			durationInFrames={durationInFrames}
 			cuePoints={cuePoints}
 			title="The Agent Loop Pattern"
-			subtitle="Plan, act, observe, adapt - the control loop behind every production agent."
+			subtitle="Plan, act, observe, adapt - the control loop behind every agent"
 			sectionLabel="Concept"
-			svgPath="assets/agentic-ai-for-beginners/module02/agent-loop-pattern.svg"
-			layout="full"
+			layout="immersive"
+			svgPath="assets/agentic-ai-for-beginners/module02/agent-loop-premium.svg"
+			animationSpecPath="assets/agentic-ai-for-beginners/module02/agent-loop-premium.animation.json"
 			slideName="module-2-concept"
 			moduleNumber={2}
-			audioDuration={69.2}
 		/>
 	);
 };

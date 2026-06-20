@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img" aria-label="Agentic inference pipeline ten stages">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0f9ff"/>
+      <stop offset=".55" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#ecfeff"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset="1" stop-color="#0891b2"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0f172a" flood-opacity=".1"/>
+    </filter>
+    <style>
+      .kicker{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;letter-spacing:.22em;fill:#0369a1}
+      .title{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;fill:#111827}
+      .sub{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:500;fill:#6b7280}
+      .stageTitle{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;font-weight:800;fill:#ffffff}
+      .stageBody{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:12px;font-weight:600;fill:#f0f9ff}
+      .axis{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:13px;font-weight:700;fill:#64748b}
+      .card{fill:#ffffff;stroke:#bae6fd;stroke-width:1.2;filter:url(#shadow)}
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <circle cx="1700" cy="900" r="240" fill="#0891b2" opacity=".05"/>
+  <path d="M48 188 H1872" stroke="#e5e7eb" stroke-width="1"/>
+
+  <text x="48" y="52" class="kicker" font-size="14">MODULE 04 - ARCHITECTURE</text>
+  <text x="48" y="108" class="title" font-size="48">Agentic Inference Pipeline: 10 Stages</text>
+  <text x="48" y="152" class="sub" font-size="24">Ten stages from request intake through output, logging, and evaluation</text>
+
+  <g id="stack-panel">
+    <rect x="72" y="220" width="640" height="780" rx="28" fill="#ffffff" stroke="#bae6fd" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="112" y="278" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="800" fill="#334155">INFERENCE PIPELINE</text>
+    <text x="112" y="308" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="500" fill="#64748b">Request in, response out - every agent loop iteration</text>
+  </g>
+
+  <g id="stack-axis">
+    <text x="96" y="348" class="axis">Request</text>
+    <line x1="108" y1="364" x2="108" y2="920" stroke="#cbd5e1" stroke-width="2"/>
+    <polygon points="108,930 103,920 113,920" fill="#cbd5e1"/>
+    <text x="96" y="950" class="axis">Output</text>
+  </g>
+
+  <g id="stage-1-intake">
+    <rect x="148" y="340" width="508" height="52" rx="14" fill="#64748b" filter="url(#shadow)"/>
+    <text x="180" y="364" class="stageTitle">1. Intake</text>
+    <text x="180" y="380" class="stageBody">Validate, authenticate, route</text>
+  </g>
+  <g id="stage-2-retrieval">
+    <rect x="148" y="400" width="508" height="52" rx="14" fill="url(#blue)" filter="url(#shadow)"/>
+    <text x="180" y="424" class="stageTitle">2. Retrieval</text>
+    <text x="180" y="440" class="stageBody">Vector DB, enterprise data, user history</text>
+  </g>
+  <g id="stage-3-grounding">
+    <rect x="148" y="460" width="508" height="52" rx="14" fill="#0891b2" filter="url(#shadow)"/>
+    <text x="180" y="484" class="stageTitle">3. Grounding</text>
+    <text x="180" y="500" class="stageBody">Inject context, reduce hallucination</text>
+  </g>
+  <g id="stage-4-planning">
+    <rect x="148" y="520" width="508" height="52" rx="14" fill="#0ea5e9" filter="url(#shadow)"/>
+    <text x="180" y="544" class="stageTitle">4. Planning</text>
+    <text x="180" y="560" class="stageBody">Decompose subtasks, prepare agent loop</text>
+  </g>
+  <g id="stage-5-inference">
+    <rect x="148" y="580" width="508" height="52" rx="14" fill="url(#teal)" filter="url(#shadow)"/>
+    <text x="180" y="604" class="stageTitle">5. Inference</text>
+    <text x="180" y="620" class="stageBody">LLM runs - multiple times per request</text>
+  </g>
+  <g id="stage-6-tool">
+    <rect x="148" y="640" width="508" height="52" rx="14" fill="#2563eb" filter="url(#shadow)"/>
+    <text x="180" y="664" class="stageTitle">6. Tool Execution</text>
+    <text x="180" y="680" class="stageBody">APIs, code interpreter, database queries</text>
+  </g>
+  <g id="stage-7-memory">
+    <rect x="148" y="700" width="508" height="52" rx="14" fill="#0284c7" filter="url(#shadow)"/>
+    <text x="180" y="724" class="stageTitle">7. Memory Update</text>
+    <text x="180" y="740" class="stageBody">Working and long-term state</text>
+  </g>
+  <g id="stage-8-safety">
+    <rect x="148" y="760" width="508" height="52" rx="14" fill="#dc2626" filter="url(#shadow)"/>
+    <text x="180" y="784" class="stageTitle">8. Safety and Policy</text>
+    <text x="180" y="800" class="stageBody">Content filter, policy enforcement</text>
+  </g>
+  <g id="stage-9-hitl">
+    <rect x="148" y="820" width="508" height="52" rx="14" fill="#7c3aed" filter="url(#shadow)"/>
+    <text x="180" y="844" class="stageTitle">9. Human-in-the-Loop</text>
+    <text x="180" y="860" class="stageBody">Escalate high-stakes or low-confidence cases</text>
+  </g>
+  <g id="stage-10-output">
+    <rect x="148" y="880" width="508" height="52" rx="14" fill="#0f766e" filter="url(#shadow)"/>
+    <text x="180" y="904" class="stageTitle">10. Output and Evaluation</text>
+    <text x="180" y="920" class="stageBody">Return response, log metrics, capture anomalies</text>
+  </g>
+
+  <rect x="744" y="220" width="2" height="780" fill="#e5e7eb"/>
+
+  <g id="card-1">
+    <rect class="card" x="792" y="280" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="328" r="24" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="836" y="336" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#1d4ed8">1</text>
+    <foreignObject x="884" y="296" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Every AI workload runs an inference pipeline - from request intake to output</div>
+    </foreignObject>
+  </g>
+  <g id="card-2">
+    <rect class="card" x="792" y="392" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="440" r="24" fill="#ecfeff" stroke="#67e8f9" stroke-width="1.5"/>
+    <text x="836" y="448" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#0e7490">2</text>
+    <foreignObject x="884" y="408" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Intake validates and routes; retrieval fetches context from vector DB or enterprise systems</div>
+    </foreignObject>
+  </g>
+  <g id="card-3">
+    <rect class="card" x="792" y="504" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="552" r="24" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="836" y="560" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#1d4ed8">3</text>
+    <foreignObject x="884" y="520" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Grounding injects facts; planning decomposes tasks for the agent loop</div>
+    </foreignObject>
+  </g>
+  <g id="card-4">
+    <rect class="card" x="792" y="616" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="664" r="24" fill="#ecfeff" stroke="#67e8f9" stroke-width="1.5"/>
+    <text x="836" y="672" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#0e7490">4</text>
+    <foreignObject x="884" y="632" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Model inference, tool execution, memory update, and safety checks before response</div>
+    </foreignObject>
+  </g>
+  <g id="card-5">
+    <rect class="card" x="792" y="728" width="1040" height="96" rx="20" stroke="#67e8f9" stroke-width="1.5"/>
+    <circle cx="836" cy="776" r="24" fill="#ecfeff" stroke="#67e8f9" stroke-width="1.5"/>
+    <text x="836" y="784" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#0e7490">5</text>
+    <foreignObject x="884" y="744" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">HITL escalation when needed; output logs metrics - backbone of production AI</div>
+    </foreignObject>
+  </g>
+
+  <g opacity=".92">
+    <rect x="1644" y="122" width="236" height="40" rx="20" fill="#111827"/>
+    <circle cx="1670" cy="142" r="7" fill="#0891b2"/>
+    <text x="1692" y="148" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="800" fill="#fff">inference mode</text>
+  </g>
+</svg>

@@ -1,0 +1,154 @@
+{
+  "diagram": "agent-roles-premium.svg",
+  "sectionSummary": "Planner, executor, router, and orchestrator - how work flows through the pipeline",
+  "bulletTriggerWords": [
+    [
+      "planner",
+      "planning"
+    ],
+    [
+      "executor",
+      "executors"
+    ],
+    [
+      "router",
+      "routing"
+    ],
+    [
+      "orchestrator",
+      "control"
+    ]
+  ],
+  "phases": [
+    {
+      "start": 0,
+      "end": 3.4,
+      "show": [
+        "roles-panel",
+        "goal"
+      ],
+      "dim": [],
+      "highlight": [
+        "goal"
+      ],
+      "label": "Goal enters the pipeline"
+    },
+    {
+      "start": 3.4,
+      "end": 21.34,
+      "show": [
+        "roles-panel",
+        "goal",
+        "planner",
+        "card-1"
+      ],
+      "dim": [
+        "goal"
+      ],
+      "highlight": [
+        "planner",
+        "card-1"
+      ],
+      "triggerWords": [
+        "planner",
+        "planning"
+      ]
+    },
+    {
+      "start": 21.34,
+      "end": 37.86,
+      "show": [
+        "roles-panel",
+        "goal",
+        "planner",
+        "executor-rag",
+        "executor-code",
+        "card-1",
+        "card-2",
+        "orchestrator"
+      ],
+      "dim": [
+        "goal",
+        "planner",
+        "card-1",
+        "orchestrator"
+      ],
+      "highlight": [
+        "executor-rag",
+        "executor-code",
+        "card-2"
+      ],
+      "triggerWords": [
+        "executor",
+        "executors"
+      ]
+    },
+    {
+      "start": 37.86,
+      "end": 54.2,
+      "show": [
+        "roles-panel",
+        "goal",
+        "planner",
+        "executor-rag",
+        "executor-code",
+        "router",
+        "card-1",
+        "card-2",
+        "card-3"
+      ],
+      "dim": [
+        "goal",
+        "planner",
+        "executor-rag",
+        "executor-code",
+        "card-2"
+      ],
+      "highlight": [
+        "router",
+        "card-3"
+      ],
+      "triggerWords": [
+        "router",
+        "routing",
+        "retrieval"
+      ]
+    },
+    {
+      "start": 54.2,
+      "end": 73.83,
+      "show": [
+        "roles-panel",
+        "goal",
+        "orchestrator",
+        "planner",
+        "router",
+        "executor-rag",
+        "executor-code",
+        "output",
+        "card-1",
+        "card-2",
+        "card-3",
+        "card-4"
+      ],
+      "dim": [
+        "goal",
+        "planner",
+        "router",
+        "executor-rag",
+        "executor-code",
+        "output",
+        "card-3"
+      ],
+      "highlight": [
+        "orchestrator",
+        "card-4"
+      ],
+      "triggerWords": [
+        "orchestrator",
+        "control",
+        "loop"
+      ]
+    }
+  ]
+}

@@ -14,5 +14,5 @@
     "minimax": "presenter_male",
     "openai": "onyx"
   },
-  "audioMode": "per-slide"
+  "audioMode": "per-module"
 }

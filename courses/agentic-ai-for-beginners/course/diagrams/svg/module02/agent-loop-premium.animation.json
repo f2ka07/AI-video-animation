@@ -1,0 +1,152 @@
+{
+  "diagram": "agent-loop-premium.svg",
+  "sectionSummary": "Plan, act, observe, adapt - the control loop behind every agent",
+  "phases": [
+    {
+      "start": 0,
+      "end": 5,
+      "show": [],
+      "dim": [],
+      "highlight": [],
+      "label": "Define the agent",
+      "triggerWords": [
+        "define",
+        "clearly",
+        "agent"
+      ]
+    },
+    {
+      "start": 5,
+      "end": 18,
+      "show": [
+        "llm-core",
+        "goal",
+        "card-1"
+      ],
+      "dim": [],
+      "highlight": [
+        "llm-core",
+        "goal",
+        "card-1"
+      ],
+      "label": "LLM plus control loop",
+      "triggerWords": [
+        "loop",
+        "reasoning"
+      ]
+    },
+    {
+      "start": 18,
+      "end": 30,
+      "show": [
+        "llm-core",
+        "goal",
+        "card-1",
+        "card-2",
+        "plan"
+      ],
+      "dim": [
+        "llm-core",
+        "card-1",
+        "goal"
+      ],
+      "highlight": [
+        "card-2",
+        "plan"
+      ],
+      "label": "Single-call inference",
+      "triggerWords": [
+        "single",
+        "isolated"
+      ]
+    },
+    {
+      "start": 30,
+      "end": 42,
+      "show": [
+        "llm-core",
+        "goal",
+        "plan",
+        "act",
+        "observe",
+        "card-1",
+        "card-2",
+        "card-3"
+      ],
+      "dim": [
+        "card-2"
+      ],
+      "highlight": [
+        "plan",
+        "act",
+        "observe",
+        "card-3"
+      ],
+      "label": "Agentic cycle",
+      "triggerWords": [
+        "cycle",
+        "plans",
+        "observe"
+      ]
+    },
+    {
+      "start": 42,
+      "end": 52,
+      "show": [
+        "llm-core",
+        "goal",
+        "plan",
+        "act",
+        "observe",
+        "adapt",
+        "card-1",
+        "card-2",
+        "card-3",
+        "card-4"
+      ],
+      "dim": [
+        "card-3"
+      ],
+      "highlight": [
+        "adapt",
+        "card-4"
+      ],
+      "label": "Adapt and repeat",
+      "triggerWords": [
+        "adapt",
+        "repeats",
+        "escalated"
+      ]
+    },
+    {
+      "start": 52,
+      "end": 99,
+      "show": [
+        "llm-core",
+        "goal",
+        "plan",
+        "act",
+        "observe",
+        "adapt",
+        "output",
+        "card-1",
+        "card-2",
+        "card-3",
+        "card-4",
+        "card-5"
+      ],
+      "dim": [
+        "card-4"
+      ],
+      "highlight": [
+        "output",
+        "card-5"
+      ],
+      "label": "Foundational agent loop",
+      "triggerWords": [
+        "foundational",
+        "components"
+      ]
+    }
+  ]
+}

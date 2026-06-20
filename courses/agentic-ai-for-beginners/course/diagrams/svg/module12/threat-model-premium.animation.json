@@ -1,0 +1,51 @@
+{
+  "diagram": "threat-model-premium.svg",
+  "sectionSummary": "Prompt injection, misuse, and why human oversight is the backstop.",
+  "phases": [
+    {
+      "start": 0,
+      "end": 8,
+      "show": ["diagram-panel", "section-1", "section-2", "section-3", "section-4", "card-1"],
+      "dim": ["section-1", "section-2", "section-3", "section-4"],
+      "highlight": [],
+      "label": "Prompt injection, misuse, and why human oversight is the backstop.",
+      "triggerWords": ["let", "now", "how", "the", "this"]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": ["diagram-panel", "section-1", "section-2", "section-3", "section-4", "card-1", "card-2"],
+      "dim": ["section-2", "section-3", "section-4"],
+      "highlight": ["section-1", "card-2"],
+      "label": "Prompt injection manipulates agent behavior",
+      "triggerWords": ["injection", "ignore", "manipul"]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": ["diagram-panel", "section-1", "section-2", "section-3", "section-4", "card-1", "card-2", "card-3"],
+      "dim": ["section-1", "section-3", "section-4"],
+      "highlight": ["section-2", "card-3"],
+      "label": "Misuse and harmful agent actions",
+      "triggerWords": ["misuse", "harmful", "abuse"]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": ["diagram-panel", "section-1", "section-2", "section-3", "section-4", "card-1", "card-2", "card-3", "card-4"],
+      "dim": ["section-1", "section-2", "section-4"],
+      "highlight": ["section-3", "card-4"],
+      "label": "Human oversight for high-stakes decisions",
+      "triggerWords": ["human", "oversight", "approval"]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": ["diagram-panel", "section-1", "section-2", "section-3", "section-4", "card-1", "card-2", "card-3", "card-4", "card-5"],
+      "dim": ["section-1", "section-2", "section-3"],
+      "highlight": ["section-4", "card-5"],
+      "label": "Layer defenses at input and output",
+      "triggerWords": ["defense", "filter", "sanitiz"]
+    }
+  ]
+}

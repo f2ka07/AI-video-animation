@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img" aria-label="Memory types and failure modes">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef2ff"/>
+      <stop offset=".55" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f5f3ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity=".1"/>
+    </filter>
+    <style>
+      .kicker{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;letter-spacing:.22em;fill:#4338ca}
+      .title{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;fill:#111827}
+      .sub{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:500;fill:#6b7280}
+      .panelTitle{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:20px;font-weight:800;fill:#334155}
+      .panelSub{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;font-weight:500;fill:#64748b}
+      .failTitle{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:16px;font-weight:800;fill:#0f172a}
+      .failSub{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:12px;font-weight:600;fill:#334155}
+      .card{fill:#ffffff;stroke:#c7d2fe;stroke-width:1.2;filter:url(#shadow)}
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <circle cx="1700" cy="880" r="240" fill="#6366f1" opacity=".05"/>
+  <path d="M48 188 H1872" stroke="#e5e7eb" stroke-width="1"/>
+
+  <text x="48" y="52" class="kicker" font-size="14">MODULE 08 - ARCHITECTURE</text>
+  <text x="48" y="108" class="title" font-size="48">Memory Types and Failure Modes</text>
+  <text x="48" y="152" class="sub" font-size="24">Map each reasoning failure to the memory layer that fixes it</text>
+
+  <g id="failure-panel">
+    <rect x="72" y="220" width="640" height="780" rx="28" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="112" y="278" class="panelTitle">FAILURE MAP</text>
+    <text x="112" y="308" class="panelSub">Symptom on the left, memory fix on the right</text>
+  </g>
+
+  <g id="section-1">
+    <rect x="108" y="360" width="268" height="180" rx="14" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="242" y="400" text-anchor="middle" class="failTitle" fill="#5b21b6">Forgotten instruction</text>
+    <text x="242" y="428" text-anchor="middle" class="failSub">Goal lost after tool calls</text>
+    <text x="242" y="456" text-anchor="middle" class="failSub">Fix: Working memory</text>
+  </g>
+
+  <g id="section-2">
+    <rect x="396" y="360" width="268" height="180" rx="14" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="530" y="400" text-anchor="middle" class="failTitle" fill="#1e3a8a">Missing context</text>
+    <text x="530" y="428" text-anchor="middle" class="failSub">No prior session facts</text>
+    <text x="530" y="456" text-anchor="middle" class="failSub">Fix: Long-term memory</text>
+  </g>
+
+  <g id="section-3">
+    <rect x="108" y="568" width="268" height="180" rx="14" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="242" y="608" text-anchor="middle" class="failTitle" fill="#047857">Looping reasoning</text>
+    <text x="242" y="636" text-anchor="middle" class="failSub">Same action repeats</text>
+    <text x="242" y="664" text-anchor="middle" class="failSub">Fix: Session context</text>
+  </g>
+
+  <g id="section-4">
+    <rect x="396" y="568" width="268" height="180" rx="14" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="530" y="608" text-anchor="middle" class="failTitle" fill="#78350f">Noisy retrieval</text>
+    <text x="530" y="636" text-anchor="middle" class="failSub">Irrelevant chunks pollute prompt</text>
+    <text x="530" y="664" text-anchor="middle" class="failSub">Fix: Memory hygiene</text>
+  </g>
+
+  <text x="392" y="820" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="600" fill="#475569">Design memory for the failures you expect in production</text>
+
+  <rect x="744" y="220" width="2" height="780" fill="#e5e7eb"/>
+
+  <g id="card-1">
+    <rect class="card" x="792" y="280" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="328" r="24" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+    <text x="836" y="336" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#5b21b6">1</text>
+    <foreignObject x="884" y="296" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Working memory fixes forgotten instructions after several tool calls</div>
+    </foreignObject>
+  </g>
+  <g id="card-2">
+    <rect class="card" x="792" y="392" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="440" r="24" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="836" y="448" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#1d4ed8">2</text>
+    <foreignObject x="884" y="408" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Long-term memory (vector DB) fixes missing context from prior sessions</div>
+    </foreignObject>
+  </g>
+  <g id="card-3">
+    <rect class="card" x="792" y="504" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="552" r="24" fill="#ecfdf5" stroke="#86efac" stroke-width="1.5"/>
+    <text x="836" y="560" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#15803d">3</text>
+    <foreignObject x="884" y="520" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Session context helps detect looping and repeated actions with no progress</div>
+    </foreignObject>
+  </g>
+  <g id="card-4">
+    <rect class="card" x="792" y="616" width="1040" height="96" rx="20" stroke="#fcd34d" stroke-width="1.5"/>
+    <circle cx="836" cy="664" r="24" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.5"/>
+    <text x="836" y="672" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#b45309">4</text>
+    <foreignObject x="884" y="632" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Memory hygiene: TTL, filters, and summarization keep retrieval useful</div>
+    </foreignObject>
+  </g>
+
+  <g opacity=".92">
+    <rect x="1664" y="122" width="216" height="40" rx="20" fill="#111827"/>
+    <circle cx="1690" cy="142" r="7" fill="#6366f1"/>
+    <text x="1712" y="148" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="800" fill="#fff">stack mode</text>
+  </g>
+</svg>

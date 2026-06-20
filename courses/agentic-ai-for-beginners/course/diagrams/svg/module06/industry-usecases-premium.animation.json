@@ -1,0 +1,51 @@
+{
+  "diagram": "industry-usecases-premium.svg",
+  "sectionSummary": "Where agentic AI deploys today: knowledge, operations, research, documents, and beyond",
+  "phases": [
+    {
+      "start": 0,
+      "end": 7.3,
+      "show": [],
+      "dim": [],
+      "highlight": [],
+      "label": "Enterprise use cases",
+      "triggerWords": ["use", "cases", "enterprise"]
+    },
+    {
+      "start": 7.3,
+      "end": 38.4,
+      "show": ["grid-panel", "usecase-knowledge", "card-1", "card-2"],
+      "dim": [],
+      "highlight": ["usecase-knowledge", "card-2"],
+      "label": "Knowledge management",
+      "triggerWords": ["knowledge", "management"]
+    },
+    {
+      "start": 38.4,
+      "end": 70,
+      "show": ["grid-panel", "usecase-knowledge", "usecase-customer", "card-1", "card-2", "card-3"],
+      "dim": ["usecase-knowledge", "card-2"],
+      "highlight": ["usecase-customer", "card-3"],
+      "label": "Customer operations",
+      "triggerWords": ["customer", "operations"]
+    },
+    {
+      "start": 70,
+      "end": 97.2,
+      "show": ["grid-panel", "usecase-knowledge", "usecase-customer", "usecase-research", "card-1", "card-2", "card-3", "card-4"],
+      "dim": ["usecase-customer", "card-3"],
+      "highlight": ["usecase-research", "card-4"],
+      "label": "Research and analysis",
+      "triggerWords": ["research", "analysis"]
+    },
+    {
+      "start": 97.2,
+      "end": 146,
+      "show": ["grid-panel", "usecase-knowledge", "usecase-customer", "usecase-research", "usecase-documents", "usecase-data", "usecase-adjacent", "card-1", "card-2", "card-3", "card-4", "card-5"],
+      "dim": ["usecase-research", "card-4"],
+      "highlight": ["usecase-documents", "usecase-data", "usecase-adjacent", "card-5"],
+      "label": "Documents, data, adjacent",
+      "triggerWords": ["document", "workflows", "data", "robotics", "adjacent"]
+    }
+  ]
+}

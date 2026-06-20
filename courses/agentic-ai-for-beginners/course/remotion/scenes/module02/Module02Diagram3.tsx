@@ -1,5 +1,5 @@
-// Module 02 Diagram 3: Single-Call vs Agentic Inference
-// Uses BaseDiagramScene with animated SVG (agent-vs-singlecall.svg + .animation.json)
+// Module 02 Diagram 3: Real Workloads Need Loops
+// Full-slide premium SVG synced to Gentle word timings
 import React from 'react';
 import { BaseDiagramScene } from '../../shared/BaseDiagramScene';
 import { SceneProps } from '../../shared/types';
@@ -14,11 +14,12 @@ export const Module02Diagram3: React.FC<Module02Diagram3Props> = ({
 		<BaseDiagramScene
 			durationInFrames={durationInFrames}
 			cuePoints={cuePoints}
-			title="Single-Call vs Agentic Inference"
-			subtitle="Why multi-step inference replaces one-shot prompts at scale."
+			title="Real Workloads Need Loops"
+			subtitle="Support and research workflows are multi-step, not single-call"
 			sectionLabel="Application"
-			svgPath="assets/agentic-ai-for-beginners/module02/agent-vs-singlecall.svg"
-			layout="full"
+			layout="immersive"
+			svgPath="assets/agentic-ai-for-beginners/module02/agent-workloads-premium.svg"
+			animationSpecPath="assets/agentic-ai-for-beginners/module02/agent-workloads-premium.animation.json"
 			slideName="module-2-application"
 			moduleNumber={2}
 		/>

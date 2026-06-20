@@ -36,8 +36,15 @@ public/audio/*
 # --- deploy: timings (managed by courseDeployPolicy) ---
 public/timings/
 # --- end deploy: timings ---
-out/
+# Render output - track directory only, not rendered files
+out/*
+!out/.gitkeep
+# Local archive (retired code) - track directory only
+store/*
+!store/.gitkeep
+build/
 workspace/logs/
+workspace/render-metrics/
 workspace/deploy-manifest.json
 doc/
 .remotion/

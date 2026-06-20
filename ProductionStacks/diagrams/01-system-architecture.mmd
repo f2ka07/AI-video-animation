@@ -1,0 +1,17 @@
+flowchart TB
+  subgraph host["Host server EC2 or RunPod"]
+    subgraph docker["Docker Compose"]
+      APP["slides-app :3001\nGUI + render API"]
+      GENTLE["slides-gentle\nword alignment"]
+      REMOTION["slides-remotion :3000\nStudio optional"]
+    end
+    VOL_C["./courses"]
+    VOL_P["./public"]
+    VOL_O["./out"]
+  end
+  USER["Browser"] --> APP
+  APP --> GENTLE
+  APP --> REMOTION
+  APP --> VOL_C
+  APP --> VOL_P
+  APP --> VOL_O

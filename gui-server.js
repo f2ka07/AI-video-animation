@@ -13,12 +13,71 @@ require('dotenv').config();
 
 const crypto = require('crypto');
 const { getCpuCount, getOptimalRenderConcurrency } = require('./scripts/lib/renderConcurrency.js');
+const { getGentleUrlCandidates, resolveGentleUrl } = require('./scripts/lib/resolveGentleUrl.js');
+const {
+	getRemotionStudioUrlCandidates,
+	resolveRemotionStudioUrl,
+	buildRemotionStudioOpenUrl,
+	getRemotionStudioStartHint,
+	getConfiguredRemotionStudioUrl,
+} = require('./scripts/lib/resolveRemotionStudioUrl.js');
 const {
 	detachArchivedCourse,
 	applyCourseDeployPolicy,
 	getActivatedCourseId,
 } = require('./scripts/lib/courseDeployPolicy.js');
 const { syncCoursePublicAssets } = require('./scripts/lib/syncCoursePublicAssets.js');
+const {
+	getModuleFrameCount,
+	createJobTimer,
+	buildMetricsRow,
+	appendRenderMetricsRow,
+	readRenderMetricsCsv,
+	parseRemotionStdoutLine,
+	createRemotionParseState,
+} = require('./scripts/lib/renderMetrics.js');
+const { validateRenderAssets } = require('./scripts/lib/validateRenderAssets.js');
+
+function isRenderRunpodEnabled() {
+	return process.env.RENDER_RUNPOD_ENABLED === 'true';
+}
+
+function persistRenderMetrics({
+	jobId,
+	courseId,
+	moduleNumber,
+	instanceLabel,
+	concurrency,
+	timer,
+	costPerHourUsd,
+	preset,
+	success,
+	outputFileMb,
+	error,
+}) {
+	try {
+		const framesTotal = getModuleFrameCount(moduleNumber, __dirname);
+		const row = buildMetricsRow({
+			jobId,
+			courseId,
+			moduleNumber,
+			instanceLabel,
+			concurrency,
+			timer,
+			framesTotal,
+			costPerHourUsd,
+			preset,
+			success,
+			outputFileMb,
+			error,
+		});
+		appendRenderMetricsRow(row, __dirname);
+		return row;
+	} catch (err) {
+		console.error('[render-metrics] Failed to write row:', err.message);
+		return null;
+	}
+}
 
 function requiresAuth() {
 	return Boolean(process.env.GUI_AUTH_PASSWORD);
@@ -5452,9 +5511,20 @@ function validateExportedVideo(moduleNumber, courseId, videoPath, fileSize) {
 
 // API: Render video to MP4
 app.post('/api/render-video', (req, res) => {
-	const { moduleNumber, courseId, concurrency: requestedConcurrency } = req.body;
+	const {
+		moduleNumber,
+		courseId,
+		concurrency: requestedConcurrency,
+		costPerHour,
+		instanceLabel,
+	} = req.body;
 	const concurrency = getOptimalRenderConcurrency(requestedConcurrency);
-	console.log(`[render-video] LOCAL RENDER - ${concurrency} threads (Chromium + ffmpeg)`);
+	const jobId = crypto.randomUUID();
+	const timer = createJobTimer();
+	let parseState = createRemotionParseState();
+	const preset = 'gui-default';
+	const costPerHourUsd = costPerHour !== undefined && costPerHour !== null ? String(costPerHour) : '';
+	console.log(`[render-video] LOCAL RENDER - ${concurrency} threads (Chromium + ffmpeg) job=${jobId}`);
 	if (!moduleNumber) {
 		return res.status(400).json({ error: 'Module number is required' });
 	}
@@ -5463,16 +5533,19 @@ app.post('/api/render-video', (req, res) => {
 	const course = courseId || getActiveCourseFromModuleContent() || 'default';
 
 	if (course !== 'default') {
-		try {
-			syncCoursePublicAssets(course, __dirname);
-		} catch (syncErr) {
-			console.error('[render-video] Asset sync failed:', syncErr.message);
+		const preflight = validateRenderAssets(course, [Number(moduleNumber)], __dirname);
+		timer.mark('syncDone');
+		if (!preflight.ok) {
+			console.error('[render-video] Asset preflight failed:', preflight.missing || preflight.error);
 			return res.status(400).json({
 				error: 'Course assets not ready for render',
-				details: syncErr.message,
-				hint: 'Run: docker exec slides-app npx tsx scripts/activateCourse.ts ' + course,
+				details: preflight.error || `Missing ${preflight.missing.length} asset(s) in public/`,
+				missing: preflight.missing || [],
+				hint: 'Run ./start.sh or Finalize Video to sync SVGs and timings before render.',
 			});
 		}
+	} else {
+		timer.mark('syncDone');
 	}
 
 	const outDir = path.join(__dirname, 'out', course);
@@ -5514,6 +5587,33 @@ app.post('/api/render-video', (req, res) => {
 	let phase = 'bundling'; // 'bundling' or 'rendering'
 	let lastBundlePercent = 0;
 	let lastRenderPercent = 0;
+
+	const finalizeDoneEvent = (success, message, extra = {}) => {
+		const outputFileMb =
+			extra.fileSize !== undefined ? extra.fileSize / 1024 / 1024 : null;
+		const metricsRow = persistRenderMetrics({
+			jobId,
+			courseId: course,
+			moduleNumber,
+			instanceLabel,
+			concurrency,
+			timer,
+			costPerHourUsd,
+			preset,
+			success,
+			outputFileMb,
+			error: success ? '' : message,
+		});
+		res.write(`data: ${JSON.stringify({
+			type: 'done',
+			success,
+			message,
+			metrics: metricsRow,
+			metricsCsvUrl: '/api/render-metrics/download',
+			...extra,
+		})}\n\n`);
+		res.end();
+	};
 	
 	// Helper to send phase-aware progress
 	// Phases: bundling (0-30%), copying (30-35%), rendering (35-90%), encoding (90-99%), complete (100%)
@@ -5545,6 +5645,7 @@ app.post('/api/render-video', (req, res) => {
 		
 		for (const line of lines) {
 			if (!line.trim()) continue;
+			parseState = parseRemotionStdoutLine(line, timer, parseState);
 			
 			// Parse bundling progress (e.g., "Bundling 45%")
 			const bundleMatch = line.match(/Bundling\s+(\d+)%/i);
@@ -5645,8 +5746,7 @@ app.post('/api/render-video', (req, res) => {
 		for (const line of lines) {
 			const message = line.trim();
 			if (!message) continue;
-			
-			// Skip verbose Chrome console logs (delayRender, Symbol, etc.)
+			stderrBuffer += message + '\n';
 			if (message.includes('Symbol(') || 
 			    message.includes('delayRender') || 
 			    message.includes('CONSOLE') ||
@@ -5721,31 +5821,17 @@ app.post('/api/render-video', (req, res) => {
 							? `Video rendered successfully! (Windows cleanup warning ignored)`
 							: `Video rendered successfully!`;
 						
-						res.write(`data: ${JSON.stringify({ 
-							type: 'done', 
-							success: true, 
-							message: message,
+						finalizeDoneEvent(true, message, {
 							filePath: outputPath,
 							fileSize: stats.size,
 							downloadUrl: `/api/download-video?module=${moduleNumber}&course=${course}`,
-							validation: validation
-						})}\n\n`);
-						res.end();
+							validation: validation,
+						});
 					} else {
-						res.write(`data: ${JSON.stringify({ 
-							type: 'done', 
-							success: false, 
-							message: 'Output file is empty' 
-						})}\n\n`);
-						res.end();
+						finalizeDoneEvent(false, 'Output file is empty');
 					}
 				} else {
-					res.write(`data: ${JSON.stringify({ 
-						type: 'done', 
-						success: false, 
-						message: 'Render completed but output file not found' 
-					})}\n\n`);
-					res.end();
+					finalizeDoneEvent(false, 'Render completed but output file not found');
 				}
 			}, hasEpermError ? 1000 : 0);
 		} else {
@@ -5756,41 +5842,63 @@ app.post('/api/render-video', (req, res) => {
 					// Validate exported video
 					const validation = validateExportedVideo(moduleNumber, course, outputPath, stats.size);
 					
-					res.write(`data: ${JSON.stringify({ 
-						type: 'done', 
-						success: true, 
-						message: `Video rendered successfully! (Non-zero exit code but file exists)`,
+					finalizeDoneEvent(true, `Video rendered successfully! (Non-zero exit code but file exists)`, {
 						filePath: outputPath,
 						fileSize: stats.size,
 						downloadUrl: `/api/download-video?module=${moduleNumber}&course=${course}`,
-						validation: validation
-					})}\n\n`);
-					res.end();
+						validation: validation,
+					});
 				} else {
-					res.write(`data: ${JSON.stringify({ 
-						type: 'done', 
-						success: false, 
-						message: `Render failed with exit code ${code}` 
-					})}\n\n`);
-					res.end();
+					finalizeDoneEvent(false, `Render failed with exit code ${code}`);
 				}
 			} else {
-				res.write(`data: ${JSON.stringify({ 
-					type: 'done', 
-					success: false, 
-					message: `Render failed with exit code ${code}` 
-				})}\n\n`);
-				res.end();
+				finalizeDoneEvent(false, `Render failed with exit code ${code}`);
 			}
 		}
 	});
 	
 	childProcess.on('error', (error) => {
+		persistRenderMetrics({
+			jobId,
+			courseId: course,
+			moduleNumber,
+			instanceLabel,
+			concurrency,
+			timer,
+			costPerHourUsd,
+			preset,
+			success: false,
+			outputFileMb: null,
+			error: error.message,
+		});
 		res.write(`data: ${JSON.stringify({ 
 			type: 'error', 
 			message: `Render error: ${error.message}` 
 		})}\n\n`);
 		res.end();
+	});
+});
+
+// API: Render metrics (benchmark CSV)
+app.get('/api/render-metrics/download', (req, res) => {
+	const { header, rows, path: csvPath } = readRenderMetricsCsv(__dirname);
+	if (!rows.length && !fs.existsSync(csvPath)) {
+		return res.status(404).json({ error: 'No render metrics recorded yet. Run a local render first.' });
+	}
+	const content = rows.length ? `${header}\n${rows.join('\n')}\n` : `${header}\n`;
+	res.setHeader('Content-Type', 'text/csv');
+	res.setHeader('Content-Disposition', 'attachment; filename="render-results.csv"');
+	res.send(content);
+});
+
+app.get('/api/render-metrics', (req, res) => {
+	const limit = Math.min(parseInt(req.query.limit, 10) || 20, 200);
+	const { header, rows } = readRenderMetricsCsv(__dirname);
+	const recent = rows.slice(-limit).reverse();
+	res.json({
+		header: header.split(','),
+		rows: recent.map((line) => line.split(',')),
+		total: rows.length,
 	});
 });
 
@@ -5879,6 +5987,7 @@ app.post('/api/generate-preview-modules', (req, res) => {
 		}
 
 		const activeCourseId = getActiveCourseFromModuleContent();
+		const studioBase = getConfiguredRemotionStudioUrl();
 		console.log('[generate-preview-modules] Preview modules generated successfully');
 		res.json({
 			success: true,
@@ -5888,7 +5997,7 @@ app.post('/api/generate-preview-modules', (req, res) => {
 			courseId: activeCourseId,
 			visualMode: courseUsesSceneVisuals(course) ? 'scenes' : 'slides',
 			requiresRemotionRestart: true,
-			remotionUrl: `http://localhost:3000?composition=module-1&course=${activeCourseId}&t=${Date.now()}`
+			remotionStudioUrl: buildRemotionStudioOpenUrl(studioBase, 1, activeCourseId),
 		});
 	} catch (error) {
 		console.error('[generate-preview-modules] Error:', error);
@@ -5902,12 +6011,61 @@ app.post('/api/generate-preview-modules', (req, res) => {
 
 // API: Render all modules (batch/overnight rendering)
 app.post('/api/render-course', (req, res) => {
-	const { modules, concurrency, scale, course, preset, force } = req.body;
+	const {
+		modules,
+		concurrency,
+		scale,
+		course,
+		preset,
+		force,
+		costPerHour,
+		instanceLabel,
+	} = req.body;
 	const optimalConcurrency = getOptimalRenderConcurrency(concurrency);
 	const courseId = course || getActiveCourseFromModuleContent() || 'default';
-	console.log(`[render-course] LOCAL BATCH RENDER - ${optimalConcurrency} threads`);
+	const batchPreset = preset || 'fast';
+	const costPerHourUsd = costPerHour !== undefined && costPerHour !== null ? String(costPerHour) : '';
+	const batchJobId = crypto.randomUUID();
+	console.log(`[render-course] LOCAL BATCH RENDER - ${optimalConcurrency} threads job=${batchJobId}`);
 
-	if (courseId !== 'default') {
+	let modulesToValidate = [];
+	if (modules && Array.isArray(modules) && modules.length > 0) {
+		modulesToValidate = modules.map((n) => Number(n)).filter((n) => !Number.isNaN(n));
+	} else if (courseId !== 'default') {
+		try {
+			const coursesPath = path.join(__dirname, 'courses.json');
+			if (fs.existsSync(coursesPath)) {
+				const data = JSON.parse(fs.readFileSync(coursesPath, 'utf-8'));
+				const mapped = data.courseModuleMapping?.[courseId];
+				if (Array.isArray(mapped) && mapped.length > 0) {
+					modulesToValidate = mapped.map((n) => Number(n));
+				} else {
+					const courseEntry = data.courses?.find((c) => c.id === courseId);
+					if (courseEntry?.moduleCount > 0) {
+						modulesToValidate = Array.from(
+							{ length: courseEntry.moduleCount },
+							(_, i) => i + 1
+						);
+					}
+				}
+			}
+		} catch (e) {
+			console.warn('[render-course] Could not resolve module list for preflight:', e.message);
+		}
+	}
+
+	if (courseId !== 'default' && modulesToValidate.length > 0) {
+		const preflight = validateRenderAssets(courseId, modulesToValidate, __dirname);
+		if (!preflight.ok) {
+			console.error('[render-course] Asset preflight failed:', preflight.missing || preflight.error);
+			return res.status(400).json({
+				error: 'Course assets not ready for render',
+				details: preflight.error || `Missing ${preflight.missing.length} asset(s) in public/`,
+				missing: preflight.missing || [],
+				hint: 'Run ./start.sh or Finalize Video to sync SVGs and timings before render.',
+			});
+		}
+	} else if (courseId !== 'default') {
 		try {
 			syncCoursePublicAssets(courseId, __dirname);
 		} catch (syncErr) {
@@ -5930,7 +6088,7 @@ app.post('/api/render-course', (req, res) => {
 	if (modules && Array.isArray(modules) && modules.length > 0) {
 		args.push(`--modules=${modules.join(',')}`);
 	}
-	args.push(`--preset=${preset || 'fast'}`);
+	args.push(`--preset=${batchPreset}`);
 	args.push(`--concurrency=${optimalConcurrency}`);
 	if (scale && scale !== 1) {
 		args.push(`--scale=${scale}`);
@@ -5958,6 +6116,30 @@ app.post('/api/render-course', (req, res) => {
 	let totalModules = 0;
 	let completedModules = 0;
 	let currentModulePercent = 0;
+	const moduleJobMeta = {};
+
+	const recordModuleMetrics = (modNum, success, errorText, outputFileMb) => {
+		const meta = moduleJobMeta[String(modNum)];
+		const timer = meta?.timer || createJobTimer();
+		persistRenderMetrics({
+			jobId: meta?.jobId || `${batchJobId}-m${modNum}`,
+			courseId,
+			moduleNumber: modNum,
+			instanceLabel,
+			concurrency: optimalConcurrency,
+			timer,
+			costPerHourUsd,
+			preset: batchPreset,
+			success,
+			outputFileMb,
+			error: errorText || '',
+		});
+	};
+
+	const resolveModuleOutputPath = (modNum) => {
+		const suffix = batchPreset !== 'normal' && batchPreset !== 'max' ? `-${batchPreset}` : '';
+		return path.join(__dirname, 'out', courseId, `module-${modNum}${suffix}.mp4`);
+	};
 
 	const sendBatchProgress = (percent, message, moduleNum) => {
 		const clamped = Math.max(0, Math.min(100, Math.round(percent)));
@@ -6002,6 +6184,11 @@ app.post('/api/render-course', (req, res) => {
 				if (match) {
 					currentModule = match[1];
 					currentModulePercent = 0;
+					moduleJobMeta[currentModule] = {
+						jobId: `${batchJobId}-m${currentModule}`,
+						timer: createJobTimer(),
+						parseState: createRemotionParseState(),
+					};
 					res.write(`data: ${JSON.stringify({
 						type: 'module_start',
 						module: currentModule,
@@ -6023,6 +6210,7 @@ app.post('/api/render-course', (req, res) => {
 				if (match) {
 					completedModules += 1;
 					currentModulePercent = 100;
+					recordModuleMetrics(match[1], true, 'skipped_existing', null);
                     res.write(`data: ${JSON.stringify({
 						type: 'module_skipped',
 						module: match[1],
@@ -6040,6 +6228,15 @@ app.post('/api/render-course', (req, res) => {
 				if (match) {
 					completedModules += 1;
 					currentModulePercent = 100;
+					const modNum = match[1];
+					const outPath = resolveModuleOutputPath(modNum);
+					const fileSize = fs.existsSync(outPath) ? fs.statSync(outPath).size : 0;
+					recordModuleMetrics(
+						modNum,
+						true,
+						'',
+						fileSize > 0 ? fileSize / 1024 / 1024 : null
+					);
 					res.write(`data: ${JSON.stringify({
 						type: 'module_complete',
 						module: match[1],
@@ -6055,6 +6252,10 @@ app.post('/api/render-course', (req, res) => {
 			// Remotion frame progress within current module
 			const frameMatch = line.match(/Rendered\s+(\d+)\/(\d+)/i);
 			if (frameMatch && currentModule) {
+				const meta = moduleJobMeta[currentModule];
+				if (meta) {
+					meta.parseState = parseRemotionStdoutLine(line, meta.timer, meta.parseState);
+				}
 				const current = parseInt(frameMatch[1], 10);
 				const total = parseInt(frameMatch[2], 10);
 				currentModulePercent = total > 0 ? Math.round((current / total) * 100) : 0;
@@ -6068,6 +6269,10 @@ app.post('/api/render-course', (req, res) => {
 
 			const bundleMatch = line.match(/Bundling\s+(\d+)%/i);
 			if (bundleMatch && currentModule) {
+				const meta = moduleJobMeta[currentModule];
+				if (meta) {
+					meta.parseState = parseRemotionStdoutLine(line, meta.timer, meta.parseState);
+				}
 				currentModulePercent = Math.round(parseInt(bundleMatch[1], 10) * 0.15);
 				sendBatchProgress(
 					computeOverallPercent(),
@@ -6103,6 +6308,7 @@ app.post('/api/render-course', (req, res) => {
 
 			const failedMatch = message.match(/Module (\d+) FAILED/i);
 			if (failedMatch) {
+				recordModuleMetrics(failedMatch[1], false, message, null);
 				res.write(`data: ${JSON.stringify({
 					type: 'module_failed',
 					module: failedMatch[1],
@@ -6120,7 +6326,8 @@ app.post('/api/render-course', (req, res) => {
 		res.write(`data: ${JSON.stringify({ 
 			type: 'done', 
 			success: code === 0,
-			message: code === 0 ? 'Batch render complete!' : `Batch render failed with code ${code}`
+			message: code === 0 ? 'Batch render complete!' : `Batch render failed with code ${code}`,
+			metricsCsvUrl: '/api/render-metrics/download',
 		})}\n\n`);
 		res.end();
 	});
@@ -6596,12 +6803,23 @@ app.post('/api/auth/login', (req, res) => {
 });
 
 // Host CPU info for render tuning
-app.get('/api/system-info', (req, res) => {
+app.get('/api/system-info', async (req, res) => {
+	const gentleResolution = await resolveGentleUrl({ timeoutMs: 3000 });
+	const studioResolution = await resolveRemotionStudioUrl({ timeoutMs: 3000 });
 	res.json({
 		cpus: getCpuCount(),
 		recommendedConcurrency: getOptimalRenderConcurrency(),
-		gentleUrl: process.env.GENTLE_URL || 'http://localhost:8765',
-		remotionUrl: process.env.REMOTION_URL || 'http://localhost:3000',
+		renderRunpodEnabled: isRenderRunpodEnabled(),
+		gentleUrl: gentleResolution.url || process.env.GENTLE_URL || 'http://localhost:8765',
+		gentleUrlConfigured: process.env.GENTLE_URL || null,
+		gentleUrlCandidates: getGentleUrlCandidates(),
+		gentleUrlReachable: Boolean(gentleResolution.url),
+		remotionStudioUrl: studioResolution.url,
+		remotionStudioUrlConfigured: process.env.REMOTION_STUDIO_URL || null,
+		remotionStudioUrlCandidates: getRemotionStudioUrlCandidates(),
+		remotionStudioReachable: studioResolution.reachable === true,
+		remotionStudioStartHint: getRemotionStudioStartHint(),
+		remotionServiceUrl: process.env.REMOTION_URL || null,
 		authRequired: requiresAuth(),
 		cpuReserve: parseInt(process.env.REMOTION_CPU_RESERVE || '2', 10),
 	});

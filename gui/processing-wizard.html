@@ -6,6 +6,7 @@
     <title>Video Processing - Skilleo AI</title>
     <link rel="stylesheet" href="styles.css">
     <script src="auth-guard.js"></script>
+    <script src="remotion-studio.js"></script>
     <script src="wizard.js" defer></script>
     <style>
         .wizard-container {
@@ -709,41 +710,9 @@
                         </button>
                     </div>
                     <div style="border-top: 1px solid rgba(16, 185, 129, 0.3); padding-top: 20px; margin-top: 20px;">
-                        <h4 style="color: var(--text-primary); margin-bottom: 12px; font-size: 18px;">Generate Final Video (MP4)</h4>
-                        <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 14px;">
-                            Select a module and render it to an MP4 file. This may take several minutes depending on video length.
+                        <p style="color: var(--text-secondary); margin-bottom: 0; font-size: 14px;">
+                            To render MP4s and record EC2 benchmark metrics, use the <strong>Render benchmark (EC2 cost)</strong> section below (enter AWS $/hr, pick a module, then render).
                         </p>
-                        <div style="margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
-                            <label for="render-module-select" style="color: var(--text-secondary); font-weight: 500;">Select Module:</label>
-                            <select id="render-module-select" style="padding: 10px 16px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px; min-width: 250px;">
-                                <option value="">Loading modules...</option>
-                            </select>
-                            <label style="color: var(--text-secondary); font-weight: 500;">Render on:</label>
-                            <select id="render-target-select" style="padding: 10px 16px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
-                                <option value="runpod" selected>RunPod</option>
-                                <option value="local">Local</option>
-                            </select>
-                        </div>
-                        <div id="render-progress" style="display: none; margin-bottom: 16px;">
-                            <div style="background: var(--surface-light); border-radius: 8px; padding: 16px; margin-bottom: 12px;">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                                    <span id="render-status-text" style="font-weight: 600;">Rendering...</span>
-                                    <span id="render-progress-percent" style="color: var(--text-muted); font-size: 12px;"></span>
-                                </div>
-                                <div class="progress-bar" style="height: 8px;">
-                                    <div id="render-progress-bar" class="progress-fill" style="width: 0%;"></div>
-                                </div>
-                                <div id="render-details" style="margin-top: 12px; font-size: 12px; color: var(--text-muted); max-height: 150px; overflow-y: auto;"></div>
-                            </div>
-                        </div>
-                        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-                            <button class="btn btn-primary" id="render-video-btn" onclick="renderVideo()" style="font-size: 16px; padding: 12px 24px; font-weight: 600;">
-                                Render Video to MP4
-                            </button>
-                            <a id="download-video-link" href="#" style="display: none; text-decoration: none;" class="btn btn-success" style="font-size: 16px; padding: 12px 24px;">
-                                Download MP4
-                            </a>
-                        </div>
                     </div>
                 </div>
 
@@ -758,6 +727,63 @@
                     </p>
                     <div id="slide-splits-list" style="max-height: 280px; overflow-y: auto; margin-bottom: 12px;"></div>
                     <button class="btn btn-secondary" id="slide-splits-save-btn" onclick="saveSlideSplits()" style="font-size: 14px;">Save Splits</button>
+                </div>
+
+                </div>
+
+                <!-- Render benchmark: always visible (EC2 cost + single-module render) -->
+                <div id="render-benchmark-card" class="card" style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);">
+                    <h4 style="margin-bottom: 8px; color: var(--text-primary); font-size: 18px;">Render benchmark (EC2 cost)</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 14px;">
+                        Enter your instance hourly rate, select a module, and render locally. Metrics append to CSV when the job finishes.
+                    </p>
+                    <div style="margin-bottom: 16px; display: grid; gap: 12px; max-width: 520px; text-align: left;">
+                        <label style="color: var(--text-secondary); font-size: 13px;">
+                            AWS cost per hour (USD)
+                            <input type="number" id="render-cost-per-hour" min="0" step="0.01" placeholder="e.g. 0.34 for c6i.2xlarge" style="display: block; width: 100%; margin-top: 6px; padding: 10px 12px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
+                        </label>
+                        <label style="color: var(--text-secondary); font-size: 13px;">
+                            Instance label (optional)
+                            <input type="text" id="render-instance-label" placeholder="c6i.2xlarge-8vcpu" style="display: block; width: 100%; margin-top: 6px; padding: 10px 12px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
+                        </label>
+                        <p id="render-vcpu-readout" style="font-size: 13px; color: var(--text-muted); margin: 0;"></p>
+                    </div>
+                    <div style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                        <label for="render-module-select" style="color: var(--text-secondary); font-weight: 500;">Module:</label>
+                        <select id="render-module-select" style="padding: 10px 16px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px; min-width: 250px;">
+                            <option value="">Loading modules...</option>
+                        </select>
+                    </div>
+                    <div id="render-runpod-target-row" style="margin-bottom: 16px; display: none; align-items: center; gap: 12px; flex-wrap: wrap;">
+                        <label style="color: var(--text-secondary); font-weight: 500;">Render on:</label>
+                        <select id="render-target-select" style="padding: 10px 16px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
+                            <option value="local" selected>Local</option>
+                            <option value="runpod">RunPod</option>
+                        </select>
+                    </div>
+                    <div id="render-progress" style="display: none; margin-bottom: 16px;">
+                        <div style="background: var(--surface-light); border-radius: 8px; padding: 16px; margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span id="render-status-text" style="font-weight: 600;">Rendering...</span>
+                                <span id="render-progress-percent" style="color: var(--text-muted); font-size: 12px;"></span>
+                            </div>
+                            <div class="progress-bar" style="height: 8px;">
+                                <div id="render-progress-bar" class="progress-fill" style="width: 0%;"></div>
+                            </div>
+                            <div id="render-details" style="margin-top: 12px; font-size: 12px; color: var(--text-muted); max-height: 150px; overflow-y: auto;"></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 12px; justify-content: flex-start; flex-wrap: wrap;">
+                        <button class="btn btn-primary" id="render-video-btn" onclick="renderVideo()" style="font-size: 16px; padding: 12px 24px; font-weight: 600;">
+                            Render Video to MP4
+                        </button>
+                        <a id="download-video-link" href="#" style="display: none; text-decoration: none;" class="btn btn-success" style="font-size: 16px; padding: 12px 24px;">
+                            Download MP4
+                        </a>
+                        <a id="download-metrics-link" href="/api/render-metrics/download" style="display: none; text-decoration: none;" class="btn btn-secondary" style="font-size: 16px; padding: 12px 24px;">
+                            Download results (CSV)
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Overnight Batch Rendering (always visible so user can render without waiting for all steps) -->
@@ -786,11 +812,11 @@
                         <input type="checkbox" id="batch-render-force" style="cursor: pointer;">
                         Re-render modules that already have MP4 files
                     </label>
-                    <div style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                    <div id="batch-render-runpod-row" style="margin-bottom: 12px; display: none; align-items: center; gap: 12px; flex-wrap: wrap;">
                         <label style="color: var(--text-secondary); font-weight: 500;">Render on:</label>
                         <select id="batch-render-target-select" style="padding: 8px 14px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
-                            <option value="runpod" selected>RunPod</option>
-                            <option value="local">Local</option>
+                            <option value="local" selected>Local</option>
+                            <option value="runpod">RunPod</option>
                         </select>
                     </div>
                     <div style="display: flex; gap: 12px; flex-wrap: wrap;">

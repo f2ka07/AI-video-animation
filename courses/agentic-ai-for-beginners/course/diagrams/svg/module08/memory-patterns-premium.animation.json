@@ -1,0 +1,51 @@
+{
+  "diagram": "memory-patterns-premium.svg",
+  "sectionSummary": "Critique steps, structured state, retrieval filters, and anti-loop guards.",
+  "phases": [
+    {
+      "start": 0,
+      "end": 8,
+      "show": ["patterns-panel", "section-1", "section-2", "section-3", "section-4"],
+      "dim": ["section-1", "section-2", "section-3", "section-4"],
+      "highlight": [],
+      "label": "Critique steps, structured state, retrieval filters, and anti-loop guards.",
+      "triggerWords": ["let", "now", "how", "the", "this"]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": ["patterns-panel", "section-1", "section-2", "section-3", "section-4", "card-1"],
+      "dim": ["section-2", "section-3", "section-4"],
+      "highlight": ["section-1", "card-1"],
+      "label": "Add a critique step for high-stakes outputs",
+      "triggerWords": ["reflect", "critique", "retry"]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": ["patterns-panel", "section-1", "section-2", "section-3", "section-4", "card-1", "card-2"],
+      "dim": ["section-1", "section-3", "section-4", "card-1"],
+      "highlight": ["section-2", "card-2"],
+      "label": "Structured working memory state object",
+      "triggerWords": ["working", "state", "re-inject"]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": ["patterns-panel", "section-1", "section-2", "section-3", "section-4", "card-1", "card-2", "card-3"],
+      "dim": ["section-1", "section-2", "section-4", "card-2"],
+      "highlight": ["section-3", "card-3"],
+      "label": "Long-term retrieval with freshness and citations",
+      "triggerWords": ["long-term", "vector", "citation", "freshness"]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": ["patterns-panel", "section-1", "section-2", "section-3", "section-4", "card-1", "card-2", "card-3", "card-4"],
+      "dim": ["section-1", "section-2", "section-3", "card-3"],
+      "highlight": ["section-4", "card-4"],
+      "label": "Anti-loop guards and max-step limits",
+      "triggerWords": ["loop", "anti-loop", "max-step", "escalat"]
+    }
+  ]
+}

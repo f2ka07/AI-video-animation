@@ -1,7 +1,7 @@
 // Auto-generated course content by activateCourse.ts
 // Course: Agentic AI for Beginners
 // Course ID: agentic-ai-for-beginners
-// Activated: 2026-06-13T05:57:01.680Z
+// Activated: 2026-06-20T01:24:15.668Z
 
 export interface SlideContent {
 	name: string;

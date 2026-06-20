@@ -912,8 +912,7 @@ async function diagnoseModule(moduleNumber) {
 }
 
 function openRemotionStudio() {
-    // Use location change instead of window.open to avoid popup blockers
-    window.location.href = 'http://localhost:3000';
+	openRemotionStudioPreview();
 }
 
 function openProcessingWizard() {

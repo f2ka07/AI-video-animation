@@ -161,11 +161,13 @@ async function activateCourse(courseId: string) {
 	console.log("\nStep 2: Generating moduleContent.ts...");
 	const moduleContentPath = path.join(__dirname, "../src/videos/moduleContent.ts");
 	
-	// Backup existing file
+	// Backup existing file (store/, not src/videos/)
 	if (fs.existsSync(moduleContentPath)) {
-		const backupPath = moduleContentPath.replace('.ts', `.backup.${Date.now()}.ts`);
+		const backupDir = path.join(__dirname, "../store/archived-backups/videos");
+		fs.mkdirSync(backupDir, { recursive: true });
+		const backupPath = path.join(backupDir, `moduleContent.backup.${Date.now()}.ts`);
 		fs.copyFileSync(moduleContentPath, backupPath);
-		console.log(`  Backed up to: ${path.basename(backupPath)}`);
+		console.log(`  Backed up to: store/archived-backups/videos/${path.basename(backupPath)}`);
 	}
 	
 	const code = generateModuleContentTs(plan, courseId);

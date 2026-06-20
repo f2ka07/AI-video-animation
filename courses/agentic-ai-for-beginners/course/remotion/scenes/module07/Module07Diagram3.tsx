@@ -1,4 +1,5 @@
 // Module 07 Diagram 3: Reliability Patterns
+// Full-slide premium SVG synced to Gentle word timings
 import React from 'react';
 import { BaseDiagramScene } from '../../shared/BaseDiagramScene';
 import { SceneProps } from '../../shared/types';
@@ -16,8 +17,9 @@ export const Module07Diagram3: React.FC<Module07Diagram3Props> = ({
 			title="Reliability by Architecture Choice"
 			subtitle="Reliability patterns that follow from how you structure your agent system."
 			sectionLabel="Application"
-			svgPath="assets/agentic-ai-for-beginners/module07/reliability-patterns.svg"
-			layout="full"
+			layout="immersive"
+			svgPath="assets/agentic-ai-for-beginners/module07/reliability-patterns-premium.svg"
+			animationSpecPath="assets/agentic-ai-for-beginners/module07/reliability-patterns-premium.animation.json"
 			slideName="module-7-application"
 			moduleNumber={7}
 		/>

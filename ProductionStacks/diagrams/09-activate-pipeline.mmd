@@ -1,0 +1,10 @@
+flowchart TD
+  A["load content.json"] --> B["write moduleContent.ts"]
+  B --> C["copy timings to public/timings"]
+  C --> D{"scene course?"}
+  D -->|yes| E["copySvgsToPublic"]
+  D -->|no| F["generateAnimationSpecs"]
+  E --> G["generateModulesFromScenes"]
+  F --> H["generateModulesFromContent"]
+  G --> I["update courses.json active"]
+  H --> I

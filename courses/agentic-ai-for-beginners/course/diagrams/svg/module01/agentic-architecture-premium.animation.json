@@ -1,0 +1,71 @@
+{
+  "diagram": "agentic-architecture-premium.svg",
+  "sectionSummary": "Planning, tools, memory, safety loops, and human oversight - the core architecture",
+  "phases": [
+    {
+      "start": 0,
+      "end": 6,
+      "show": [],
+      "dim": [],
+      "highlight": [],
+      "label": "What an agentic system looks like",
+      "triggerWords": ["pipeline", "components", "five"]
+    },
+    {
+      "start": 6,
+      "end": 22,
+      "show": ["planner", "card-1"],
+      "dim": [],
+      "highlight": ["planner", "card-1"],
+      "label": "First: planning",
+      "triggerWords": ["first", "planning"]
+    },
+    {
+      "start": 22,
+      "end": 40,
+      "show": ["planner", "card-1", "tools", "card-2"],
+      "dim": ["planner", "card-1"],
+      "highlight": ["tools", "card-2"],
+      "label": "Second: tools",
+      "triggerWords": ["second", "tools"]
+    },
+    {
+      "start": 40,
+      "end": 58,
+      "show": ["planner", "card-1", "tools", "card-2", "memory", "card-3"],
+      "dim": ["tools", "card-2"],
+      "highlight": ["memory", "card-3"],
+      "label": "Third: memory",
+      "triggerWords": ["third", "memory"]
+    },
+    {
+      "start": 58,
+      "end": 75,
+      "show": ["planner", "card-1", "tools", "card-2", "memory", "card-3", "environment", "card-4"],
+      "dim": ["memory", "card-3"],
+      "highlight": ["environment", "card-4"],
+      "label": "Fourth: safety loops",
+      "triggerWords": ["fourth", "safety"]
+    },
+    {
+      "start": 75,
+      "end": 120,
+      "show": [
+        "planner",
+        "card-1",
+        "tools",
+        "card-2",
+        "memory",
+        "card-3",
+        "environment",
+        "card-4",
+        "evaluator",
+        "card-5"
+      ],
+      "dim": ["environment", "card-4"],
+      "highlight": ["evaluator", "card-5"],
+      "label": "Fifth: human-in-the-loop",
+      "triggerWords": ["fifth", "human", "oversight"]
+    }
+  ]
+}

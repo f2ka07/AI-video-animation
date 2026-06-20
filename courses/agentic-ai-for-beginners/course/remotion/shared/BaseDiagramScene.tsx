@@ -1,6 +1,6 @@
 // Base Diagram Scene - Light background with SVG animations
 import React, { useEffect, useState, useMemo } from 'react';
-import { useCurrentFrame, useVideoConfig, spring, interpolate, staticFile, delayRender, continueRender } from 'remotion';
+import { useCurrentFrame, useVideoConfig, spring, interpolate, staticFile, delayRender, continueRender, cancelRender } from 'remotion';
 import { DiagramSceneProps, COLORS, MOTION_CONFIG, SECTION_LABEL_STYLES } from './types';
 import { useModuleTimings } from '../../../../../src/hooks/useModuleTimings';
 import { computeBulletStarts, computeBulletStartsFromTriggerWords } from '../../../../../src/utils/computeBulletStarts';
@@ -28,7 +28,7 @@ const SLIDE_TYPE = {
 interface BaseDiagramSceneProps extends DiagramSceneProps {
 	children?: React.ReactNode; // For custom SVG rendering with animations
 	animationSpecPath?: string; // Optional path to animation.json for SVG animations
-	layout?: "full" | "two-card"; // Layout mode: full-screen SVG or content + SVG split
+	layout?: "full" | "two-card" | "immersive"; // full-screen SVG, split layout, or edge-to-edge premium slide
 	contentPoints?: string[]; // Bullet points to show on left side (for two-card layout)
 	slideName?: string; // Slide name for word timings
 	moduleNumber?: number; // Module number for word timings
@@ -104,6 +104,7 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 	}, [slideName, timings]);
 
 	const isTwoCard = layout === "two-card" && contentPoints.length > 0;
+	const isImmersive = layout === "immersive";
 	const sceneDurationSeconds = durationInFrames / fps;
 
 	const slideEndSeconds = useMemo(() => {
@@ -305,12 +306,7 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 		const specPath = detectedAnimationSpecPath;
 		const handle = delayRender(`Loading diagram: ${svgPath}`);
 		let cancelled = false;
-
-		const finish = () => {
-			if (!cancelled) {
-				continueRender(handle);
-			}
-		};
+		let loadedSvg = false;
 
 		const loadAssets = async () => {
 			const svgUrl = staticFile(svgPath);
@@ -320,6 +316,7 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 					const text = await svgResponse.text();
 					if (!text.trim().startsWith('<!') && !cancelled) {
 						setSvgContent(text);
+						loadedSvg = true;
 					} else if (!cancelled) {
 						console.warn(`SVG at ${svgPath} returned non-SVG content (url: ${svgUrl})`);
 					}
@@ -354,8 +351,19 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 				}
 			} catch (error) {
 				console.warn(`Failed to load diagram assets: ${svgPath}`, error);
-			} finally {
-				finish();
+			}
+
+			if (cancelled) {
+				return;
+			}
+			if (loadedSvg) {
+				continueRender(handle);
+			} else {
+				cancelRender(
+					new Error(
+						`Diagram asset failed to load: ${svgPath}. Sync public assets before render.`
+					)
+				);
 			}
 		};
 
@@ -363,7 +371,6 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 
 		return () => {
 			cancelled = true;
-			continueRender(handle);
 		};
 	}, [svgPath, detectedAnimationSpecPath]);
 	
@@ -532,9 +539,9 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 		const revealMix = getRevealProgress(groupId);
 
 		const presets = {
-			pending: { opacity: 0.58, blur: 3, saturate: 0.55, brightness: 0.92 },
-			dimmed: { opacity: 0.85, blur: 1.5, saturate: 0.75, brightness: 0.96 },
-			digest: { opacity: 0.95, blur: 0.5, saturate: 0.9, brightness: 0.99 },
+			pending: { opacity: 0.78, blur: 1.2, saturate: 0.82, brightness: 0.96 },
+			dimmed: { opacity: 0.92, blur: 0.6, saturate: 0.9, brightness: 0.98 },
+			digest: { opacity: 0.97, blur: 0.25, saturate: 0.95, brightness: 1 },
 			clear: { opacity: 1, blur: 0, saturate: 1, brightness: 1 },
 			highlight: { opacity: 1, blur: 0, saturate: 1, brightness: 1 },
 		};
@@ -765,26 +772,26 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 
 		if (currentTimeSeconds < timing.start) {
 			const leadIn = Math.max(0, timing.start - currentTimeSeconds);
-			const pendingStrength = Math.min(1, 0.4 + leadIn * 0.05);
+			const pendingStrength = Math.min(1, 0.35 + leadIn * 0.04);
 			return {
-				opacity: 0.55 + (1 - pendingStrength) * 0.1,
-				filter: `blur(${3 * pendingStrength}px) saturate(0.6)`,
+				opacity: 0.72 + (1 - pendingStrength) * 0.12,
+				filter: `blur(${1.2 * pendingStrength}px) saturate(0.82)`,
 			};
 		}
 
 		if (currentTimeSeconds > timing.end) {
-			return { opacity: 0.9, filter: 'blur(0.5px) saturate(0.9)' };
+			return { opacity: 0.95, filter: 'blur(0.25px) saturate(0.95)' };
 		}
 
 		const revealMix = Math.min(1, (currentTimeSeconds - timing.start) / REVEAL_EASE_SECONDS);
 		if (revealMix < 1) {
 			return {
-				opacity: 0.6 + revealMix * 0.3,
-				filter: `blur(${(3 * (1 - revealMix)).toFixed(1)}px) saturate(${0.6 + revealMix * 0.3})`,
+				opacity: 0.78 + revealMix * 0.18,
+				filter: `blur(${(1.2 * (1 - revealMix)).toFixed(1)}px) saturate(${0.82 + revealMix * 0.15})`,
 			};
 		}
 
-		return { opacity: 0.92, filter: 'blur(1px) saturate(0.85)' };
+		return { opacity: 0.96, filter: 'blur(0.25px) saturate(0.92)' };
 	};
 
 	const resolvedSubtitle = subtitle ?? spec?.sectionSummary ?? '';
@@ -801,11 +808,13 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 	const showCaption = showFocusLine && focusLine.length > 0 && focusDiffersFromObjective;
 
 	const slideContentHeight =
-		videoHeight - SLIDE_MARGIN.top - SLIDE_MARGIN.bottom - (isTwoCard ? 0 : 10);
+		videoHeight - (isImmersive ? 0 : SLIDE_MARGIN.top + SLIDE_MARGIN.bottom + (isTwoCard ? 0 : 10));
 	const diagramMaxHeight = Math.round(
-		slideContentHeight * (showCaption ? 0.42 : 0.48),
+		isImmersive
+			? videoHeight
+			: slideContentHeight * (showCaption ? 0.42 : 0.48),
 	);
-	const slideRowGap = showCaption ? 36 : 12;
+	const slideRowGap = isImmersive ? 0 : showCaption ? 36 : 12;
 
 	const renderSectionBadge = (variant: 'full' | 'two-card') => {
 		if (!sectionLabel || !sectionStyle) return null;
@@ -1016,7 +1025,9 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 				height: '100%',
 				background: isTwoCard
 					? 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)'
-					: '#ffffff',
+					: isImmersive
+						? '#f8fbff'
+						: '#ffffff',
 				display: 'flex',
 				flexDirection: isTwoCard ? 'row' : 'column',
 				fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
@@ -1025,7 +1036,7 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 			}}
 		>
 			{/* Top accent stripe (full layout slide) */}
-			{!isTwoCard && (
+			{!isTwoCard && !isImmersive && (
 				<div
 					style={{
 						position: 'absolute',
@@ -1063,13 +1074,17 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 					flexDirection: isTwoCard ? 'row' : undefined,
 					gridTemplateRows: isTwoCard
 						? undefined
-						: showCaption
-							? 'auto minmax(0, 1fr) auto'
-							: 'auto minmax(0, 1fr)',
+						: isImmersive
+							? 'minmax(0, 1fr)'
+							: showCaption
+								? 'auto minmax(0, 1fr) auto'
+								: 'auto minmax(0, 1fr)',
 					rowGap: isTwoCard ? undefined : slideRowGap,
 					padding: isTwoCard
 						? `${SLIDE_MARGIN.top}px ${SLIDE_MARGIN.right}px ${SLIDE_MARGIN.bottom}px ${SLIDE_MARGIN.left}px`
-						: `${SLIDE_MARGIN.top + 10}px ${SLIDE_MARGIN.right}px ${SLIDE_MARGIN.bottom}px ${SLIDE_MARGIN.left}px`,
+						: isImmersive
+							? '0'
+							: `${SLIDE_MARGIN.top + 10}px ${SLIDE_MARGIN.right}px ${SLIDE_MARGIN.bottom}px ${SLIDE_MARGIN.left}px`,
 					boxSizing: 'border-box',
 					position: 'relative',
 					zIndex: 1,
@@ -1140,7 +1155,7 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 			)}
 
 			{/* Presentation header (full layout) */}
-			{!isTwoCard && renderPresentationHeader()}
+			{!isTwoCard && !isImmersive && renderPresentationHeader()}
 
 			{/*
 				Diagram: centered flex container. Wrapper grows (flex 1) to use remaining space;
@@ -1157,14 +1172,14 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 					alignItems: 'center',
 					position: 'relative',
 					overflow: 'visible',
-					padding: isTwoCard ? '0 0 0 48px' : showCaption ? '8px 0 12px' : '16px 0 12px',
+					padding: isTwoCard ? '0 0 0 48px' : isImmersive ? '0' : showCaption ? '8px 0 12px' : '16px 0 12px',
 				}}
 			>
 				<div
 					style={{
 						width: '100%',
 						height: '100%',
-						maxHeight: isTwoCard ? '100%' : diagramMaxHeight,
+						maxHeight: isTwoCard ? '100%' : isImmersive ? '100%' : diagramMaxHeight,
 						flex: isTwoCard ? 1 : undefined,
 						minHeight: 0,
 						display: 'flex',
@@ -1240,7 +1255,7 @@ export const BaseDiagramScene: React.FC<BaseDiagramSceneProps> = ({
 				) : null}
 				</div>
 			</div>
-			{!isTwoCard && renderDiagramCaption()}
+			{!isTwoCard && !isImmersive && renderDiagramCaption()}
 			</div>
 
 			{/* Course watermark - subtle */}

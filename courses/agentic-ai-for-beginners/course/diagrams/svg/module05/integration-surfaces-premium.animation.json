@@ -1,0 +1,51 @@
+{
+  "diagram": "integration-surfaces-premium.svg",
+  "sectionSummary": "How agents connect to APIs, tools, enterprise data, and policy gateways",
+  "phases": [
+    {
+      "start": 0,
+      "end": 19.8,
+      "show": ["integration-panel", "agent-core", "surface-api", "surface-tools", "surface-data", "surface-policy", "enterprise-labels", "card-1"],
+      "dim": ["surface-api", "surface-tools", "surface-data", "surface-policy"],
+      "highlight": [],
+      "label": "Integration surfaces overview",
+      "triggerWords": ["integration", "surfaces"]
+    },
+    {
+      "start": 19.8,
+      "end": 55.7,
+      "show": ["integration-panel", "agent-core", "surface-api", "surface-tools", "surface-data", "surface-policy", "enterprise-labels", "card-1", "card-2"],
+      "dim": ["surface-tools", "surface-data", "surface-policy", "card-1"],
+      "highlight": ["surface-api", "card-2"],
+      "label": "API integrations",
+      "triggerWords": ["api", "integrations"]
+    },
+    {
+      "start": 55.7,
+      "end": 80.9,
+      "show": ["integration-panel", "agent-core", "surface-api", "surface-tools", "surface-data", "surface-policy", "enterprise-labels", "card-1", "card-2", "card-3"],
+      "dim": ["surface-api", "surface-data", "surface-policy", "card-2"],
+      "highlight": ["surface-tools", "card-3"],
+      "label": "Tool interfaces",
+      "triggerWords": ["tool", "interfaces"]
+    },
+    {
+      "start": 80.9,
+      "end": 108.5,
+      "show": ["integration-panel", "agent-core", "surface-api", "surface-tools", "surface-data", "surface-policy", "enterprise-labels", "card-1", "card-2", "card-3", "card-4"],
+      "dim": ["surface-api", "surface-tools", "surface-policy", "card-3"],
+      "highlight": ["surface-data", "card-4"],
+      "label": "Data connectors",
+      "triggerWords": ["data", "connectors"]
+    },
+    {
+      "start": 108.5,
+      "end": 140,
+      "show": ["integration-panel", "agent-core", "surface-api", "surface-tools", "surface-data", "surface-policy", "enterprise-labels", "card-1", "card-2", "card-3", "card-4", "card-5"],
+      "dim": ["surface-api", "surface-tools", "surface-data", "card-4"],
+      "highlight": ["surface-policy", "card-5"],
+      "label": "Policy gateways",
+      "triggerWords": ["policy", "gateways"]
+    }
+  ]
+}

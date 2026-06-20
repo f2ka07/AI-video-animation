@@ -1,5 +1,5 @@
 // Module 04 Diagram 3: Enterprise workload examples and constraints
-// Uses BaseDiagramScene with animated SVG (workload-matrix.svg)
+// Full-slide premium SVG synced to Gentle word timings
 import React from 'react';
 import { BaseDiagramScene } from '../../shared/BaseDiagramScene';
 import { SceneProps } from '../../shared/types';
@@ -15,11 +15,11 @@ export const Module04Diagram3: React.FC<Module04Diagram3Props> = ({
 			durationInFrames={durationInFrames}
 			cuePoints={cuePoints}
 			title="Enterprise Workload Matrix"
-			subtitle="Real enterprise patterns and the latency-accuracy-cost tradeoffs that shape them."
+			subtitle="Real enterprise patterns and the latency-accuracy-cost tradeoffs that shape them"
 			sectionLabel="Application"
-			svgPath="assets/agentic-ai-for-beginners/module04/workload-matrix.svg"
-			animationSpecPath="assets/agentic-ai-for-beginners/module04/workload-matrix-application.animation.json"
-			layout="full"
+			layout="immersive"
+			svgPath="assets/agentic-ai-for-beginners/module04/workload-constraints-premium.svg"
+			animationSpecPath="assets/agentic-ai-for-beginners/module04/workload-constraints-premium.animation.json"
 			slideName="module-4-application"
 			moduleNumber={4}
 		/>

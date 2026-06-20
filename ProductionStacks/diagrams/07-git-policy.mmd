@@ -1,0 +1,5 @@
+flowchart LR
+  ACTIVE["Activated course only"] --> GIT["tracked in git"]
+  OTHER["Archived courses"] --> IGNORE["gitignored"]
+  RUNTIME["public/timings public/assets"] --> RUN["runtime copy only"]
+  AUDIO["public/audio/courseId"] --> GIT

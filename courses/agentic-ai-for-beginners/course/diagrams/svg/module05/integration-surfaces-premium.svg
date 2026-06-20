@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img" aria-label="Integration surfaces for agentic systems">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff7ed"/>
+      <stop offset=".55" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fdba74"/>
+      <stop offset="1" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="slate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#64748b"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0f172a" flood-opacity=".1"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f97316"/>
+    </marker>
+    <style>
+      .kicker{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;letter-spacing:.22em;fill:#c2410c}
+      .title{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;fill:#111827}
+      .sub{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:500;fill:#6b7280}
+      .panelTitle{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:20px;font-weight:800;fill:#334155}
+      .panelSub{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;font-weight:500;fill:#64748b}
+      .nodeTitle{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;font-weight:800;fill:#ffffff}
+      .nodeSub{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:12px;font-weight:600;fill:#f8fafc}
+      .surfaceSub{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:11px;font-weight:600;fill:#64748b}
+      .card{fill:#ffffff;stroke:#fed7aa;stroke-width:1.2;filter:url(#shadow)}
+      .conn{fill:none;stroke:#f97316;stroke-width:2.5;stroke-linecap:round}
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <circle cx="160" cy="880" r="240" fill="#475569" opacity=".05"/>
+  <path d="M48 188 H1872" stroke="#e5e7eb" stroke-width="1"/>
+
+  <text x="48" y="52" class="kicker" font-size="14">MODULE 05 - ARCHITECTURE</text>
+  <text x="48" y="108" class="title" font-size="48">Integration Surfaces</text>
+  <text x="48" y="152" class="sub" font-size="24">How agents connect to APIs, tools, enterprise data, and policy gateways</text>
+
+  <g id="integration-panel">
+    <rect x="72" y="220" width="640" height="780" rx="28" fill="#ffffff" stroke="#fed7aa" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="112" y="278" class="panelTitle">INTEGRATION SURFACES</text>
+    <text x="112" y="308" class="panelSub">Interfaces that connect agentic systems to the enterprise</text>
+  </g>
+
+  <g id="agent-core">
+    <rect x="242" y="500" width="300" height="120" rx="20" fill="url(#slate)" filter="url(#shadow)"/>
+    <text x="392" y="548" text-anchor="middle" class="nodeTitle">Agentic System</text>
+    <text x="392" y="574" text-anchor="middle" class="nodeSub">Planning + LLM + Memory</text>
+    <text x="392" y="596" text-anchor="middle" class="nodeSub">Safety + HITL</text>
+  </g>
+
+  <g id="surface-api">
+    <rect x="100" y="360" width="220" height="88" rx="14" fill="url(#orange)" filter="url(#shadow)"/>
+    <text x="210" y="398" text-anchor="middle" class="nodeTitle">API Integrations</text>
+    <text x="210" y="420" text-anchor="middle" class="nodeSub">CRM, ERP, external APIs</text>
+    <text x="210" y="438" text-anchor="middle" class="nodeSub">Auth, errors, rate limits</text>
+    <path class="conn" d="M320 404 L340 404 L340 530 L242 530" marker-end="url(#arrow)"/>
+  </g>
+
+  <g id="surface-tools">
+    <rect x="364" y="340" width="220" height="88" rx="14" fill="#475569" filter="url(#shadow)"/>
+    <text x="474" y="378" text-anchor="middle" class="nodeTitle">Tool Interfaces</text>
+    <text x="474" y="400" text-anchor="middle" class="nodeSub">SQL, code, search, email</text>
+    <text x="474" y="418" text-anchor="middle" class="nodeSub">Bridge reasoning to action</text>
+    <path class="conn" d="M474 428 L474 500" marker-end="url(#arrow)"/>
+  </g>
+
+  <g id="surface-data">
+    <rect x="464" y="660" width="220" height="88" rx="14" fill="#334155" filter="url(#shadow)"/>
+    <text x="574" y="698" text-anchor="middle" class="nodeTitle">Data Connectors</text>
+    <text x="574" y="720" text-anchor="middle" class="nodeSub">DBs, warehouses, docs</text>
+    <text x="574" y="738" text-anchor="middle" class="nodeSub">Vector DB for retrieval</text>
+    <path class="conn" d="M574 660 L574 620" marker-end="url(#arrow)"/>
+  </g>
+
+  <g id="surface-policy">
+    <rect x="100" y="660" width="220" height="88" rx="14" fill="#1e293b" filter="url(#shadow)"/>
+    <text x="210" y="698" text-anchor="middle" class="nodeTitle">Policy Gateways</text>
+    <text x="210" y="720" text-anchor="middle" class="nodeSub">Access rules, approvals</text>
+    <text x="210" y="738" text-anchor="middle" class="nodeSub">Identity + audit logs</text>
+    <path class="conn" d="M210 660 L210 620" marker-end="url(#arrow)"/>
+  </g>
+
+  <g id="enterprise-labels">
+    <rect x="100" y="820" width="220" height="56" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="210" y="854" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="700" fill="#475569">Enterprise Systems</text>
+    <rect x="464" y="820" width="220" height="56" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="574" y="854" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="700" fill="#475569">Data Sources</text>
+    <text x="392" y="920" text-anchor="middle" class="surfaceSub">Without robust integration surfaces, agents cannot act</text>
+  </g>
+
+  <rect x="744" y="220" width="2" height="780" fill="#e5e7eb"/>
+
+  <g id="card-1">
+    <rect class="card" x="792" y="280" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="328" r="24" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+    <text x="836" y="336" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#c2410c">1</text>
+    <foreignObject x="884" y="296" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Integration surfaces are the interfaces that connect agentic systems to enterprise data and tools</div>
+    </foreignObject>
+  </g>
+  <g id="card-2">
+    <rect class="card" x="792" y="392" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="440" r="24" fill="#ffedd5" stroke="#fdba74" stroke-width="1.5"/>
+    <text x="836" y="448" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#9a3412">2</text>
+    <foreignObject x="884" y="408" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">API integrations call CRM, ERP, and external APIs - with auth, error handling, and rate limiting</div>
+    </foreignObject>
+  </g>
+  <g id="card-3">
+    <rect class="card" x="792" y="504" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="552" r="24" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="836" y="560" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#475569">3</text>
+    <foreignObject x="884" y="520" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Tool interfaces define what the agent can invoke - the bridge between LLM reasoning and real-world action</div>
+    </foreignObject>
+  </g>
+  <g id="card-4">
+    <rect class="card" x="792" y="616" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="664" r="24" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="836" y="672" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#334155">4</text>
+    <foreignObject x="884" y="632" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Data connectors provide access to databases, warehouses, and vector stores for retrieval-augmented generation</div>
+    </foreignObject>
+  </g>
+  <g id="card-5">
+    <rect class="card" x="792" y="728" width="1040" height="96" rx="20" stroke="#fdba74" stroke-width="1.5"/>
+    <circle cx="836" cy="776" r="24" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+    <text x="836" y="784" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#c2410c">5</text>
+    <foreignObject x="884" y="744" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Policy gateways enforce access rules and approvals - policy is not separate from integration, it is part of it</div>
+    </foreignObject>
+  </g>
+
+  <g opacity=".92">
+    <rect x="1644" y="122" width="236" height="40" rx="20" fill="#111827"/>
+    <circle cx="1670" cy="142" r="7" fill="#f97316"/>
+    <text x="1692" y="148" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="800" fill="#fff">integration mode</text>
+  </g>
+</svg>

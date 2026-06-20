@@ -1,0 +1,51 @@
+{
+  "diagram": "reasoning-cycle-premium.svg",
+  "sectionSummary": "Task decomposition, explicit vs implicit planning, and self-correction patterns.",
+  "phases": [
+    {
+      "start": 0,
+      "end": 8,
+      "show": ["cycle-panel", "section-1", "section-2", "section-3", "section-4"],
+      "dim": ["section-1", "section-2", "section-3", "section-4"],
+      "highlight": [],
+      "label": "Task decomposition, explicit vs implicit planning, and self-correction patterns.",
+      "triggerWords": ["let", "now", "how", "the", "this"]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": ["cycle-panel", "section-1", "section-2", "section-3", "section-4", "card-1"],
+      "dim": ["section-2", "section-3", "section-4"],
+      "highlight": ["section-1", "card-1"],
+      "label": "How agents decompose tasks into steps",
+      "triggerWords": ["decompos", "subtask", "summarize"]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": ["cycle-panel", "section-1", "section-2", "section-3", "section-4", "card-1", "card-2"],
+      "dim": ["section-1", "section-3", "section-4", "card-1"],
+      "highlight": ["section-2", "card-2"],
+      "label": "Explicit vs implicit step planning",
+      "triggerWords": ["plan", "explicit", "implicit"]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": ["cycle-panel", "section-1", "section-2", "section-3", "section-4", "card-1", "card-2", "card-3"],
+      "dim": ["section-1", "section-2", "section-4", "card-2"],
+      "highlight": ["section-3", "card-3"],
+      "label": "Reflection and self-correction patterns",
+      "triggerWords": ["reflect", "critique", "verification"]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": ["cycle-panel", "section-1", "section-2", "section-3", "section-4", "card-1", "card-2", "card-3", "card-4"],
+      "dim": ["section-1", "section-2", "section-3", "card-3"],
+      "highlight": ["section-4", "card-4"],
+      "label": "Production hybrid: planner + flexible model",
+      "triggerWords": ["hybrid", "production", "accuracy"]
+    }
+  ]
+}

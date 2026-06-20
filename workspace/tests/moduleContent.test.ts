@@ -155,23 +155,17 @@ test("audioDuration.ts should exist", () => {
 	expect(fs.existsSync(durationPath)).toBeTruthy();
 });
 
-test("each module should have generated files", () => {
-	const missing: string[] = [];
-	for (const module of allModules) {
-		const modulePath = path.join(__dirname, `../../src/videos/Module${module.moduleNumber}.tsx`);
-		const configPath = path.join(__dirname, `../../src/videos/Module${module.moduleNumber}Config.ts`);
-		
-		if (!fs.existsSync(modulePath)) {
-			missing.push(`Module${module.moduleNumber}.tsx`);
-		}
-		if (!fs.existsSync(configPath)) {
-			missing.push(`Module${module.moduleNumber}Config.ts`);
-		}
-	}
-	
-	if (missing.length > 0) {
-		throw new Error(`Missing generated files: ${missing.join(", ")}`);
-	}
+test("GenericModule runtime files should exist", () => {
+	const genericPath = path.join(__dirname, "../../src/videos/GenericModule.tsx");
+	const configPath = path.join(__dirname, "../../src/videos/GenericModuleConfig.ts");
+	expect(fs.existsSync(genericPath)).toBeTruthy();
+	expect(fs.existsSync(configPath)).toBeTruthy();
+});
+
+test("Root.tsx should use GenericModule (slide courses)", () => {
+	const rootPath = path.join(__dirname, "../../src/Root.tsx");
+	const root = fs.readFileSync(rootPath, "utf-8");
+	expect(root).toContain("GenericModule");
 });
 
 // Summary

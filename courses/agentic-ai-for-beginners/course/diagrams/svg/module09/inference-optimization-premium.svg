@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img" aria-label="When to apply each inference optimization">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7fee7"/>
+      <stop offset=".55" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f0fdf4"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity=".1"/>
+    </filter>
+    <style>
+      .kicker{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;letter-spacing:.22em;fill:#15803d}
+      .title{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;fill:#111827}
+      .sub{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:500;fill:#6b7280}
+      .panelTitle{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:20px;font-weight:800;fill:#334155}
+      .panelSub{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;font-weight:500;fill:#64748b}
+      .colTitle{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:14px;font-weight:800;fill:#0f172a}
+      .colSub{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:12px;font-weight:600;fill:#334155}
+      .card{fill:#ffffff;stroke:#bbf7d0;stroke-width:1.2;filter:url(#shadow)}
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <circle cx="200" cy="880" r="240" fill="#22c55e" opacity=".05"/>
+  <path d="M48 188 H1872" stroke="#e5e7eb" stroke-width="1"/>
+
+  <text x="48" y="52" class="kicker" font-size="14">MODULE 09 - APPLICATION</text>
+  <text x="48" y="108" class="title" font-size="48">When to Apply Each Optimization</text>
+  <text x="48" y="152" class="sub" font-size="24">Choose batching, concurrency, and TensorRT based on workload goals</text>
+
+  <g id="guide-panel">
+    <rect x="72" y="220" width="640" height="780" rx="28" fill="#ffffff" stroke="#bbf7d0" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="112" y="278" class="panelTitle">OPTIMIZATION GUIDE</text>
+    <text x="112" y="308" class="panelSub">Turn one knob at a time - measure, compare, keep or revert</text>
+  </g>
+
+  <g id="section-1">
+    <rect x="100" y="360" width="180" height="320" rx="14" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="190" y="404" text-anchor="middle" class="colTitle" fill="#1e3a8a">Use batching when</text>
+    <text x="190" y="440" text-anchor="middle" class="colSub">Throughput beats latency</text>
+    <text x="190" y="468" text-anchor="middle" class="colSub">High-volume APIs</text>
+    <text x="190" y="496" text-anchor="middle" class="colSub">Research pipelines</text>
+  </g>
+
+  <g id="section-2">
+    <rect x="302" y="360" width="180" height="320" rx="14" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="392" y="404" text-anchor="middle" class="colTitle" fill="#047857">Use concurrency when</text>
+    <text x="392" y="440" text-anchor="middle" class="colSub">Multiple models active</text>
+    <text x="392" y="468" text-anchor="middle" class="colSub">GPU under 80% util</text>
+    <text x="392" y="496" text-anchor="middle" class="colSub">Many parallel users</text>
+  </g>
+
+  <g id="section-3">
+    <rect x="504" y="360" width="180" height="320" rx="14" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="594" y="404" text-anchor="middle" class="colTitle" fill="#5b21b6">Use TensorRT when</text>
+    <text x="594" y="440" text-anchor="middle" class="colSub">Latency-critical path</text>
+    <text x="594" y="468" text-anchor="middle" class="colSub">Fixed production model</text>
+    <text x="594" y="496" text-anchor="middle" class="colSub">Cost per token matters</text>
+  </g>
+
+  <g id="section-4">
+    <rect x="108" y="720" width="576" height="80" rx="14" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+    <text x="396" y="754" text-anchor="middle" class="colTitle">Always compare against baseline after each change</text>
+    <text x="396" y="778" text-anchor="middle" class="colSub">One knob at a time - measure before and after</text>
+  </g>
+
+  <rect x="744" y="220" width="2" height="780" fill="#e5e7eb"/>
+
+  <g id="card-1">
+    <rect class="card" x="792" y="280" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="328" r="24" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="836" y="336" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#1d4ed8">1</text>
+    <foreignObject x="884" y="296" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Batch when throughput beats latency - high-volume APIs and background research pipelines</div>
+    </foreignObject>
+  </g>
+  <g id="card-2">
+    <rect class="card" x="792" y="392" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="440" r="24" fill="#ecfdf5" stroke="#86efac" stroke-width="1.5"/>
+    <text x="836" y="448" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#15803d">2</text>
+    <foreignObject x="884" y="408" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Add concurrency when GPUs have headroom - multiple models and parallel users</div>
+    </foreignObject>
+  </g>
+  <g id="card-3">
+    <rect class="card" x="792" y="504" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="552" r="24" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+    <text x="836" y="560" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#5b21b6">3</text>
+    <foreignObject x="884" y="520" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">TensorRT for latency and cost critical paths - fixed production model versions</div>
+    </foreignObject>
+  </g>
+  <g id="card-4">
+    <rect class="card" x="792" y="616" width="1040" height="96" rx="20" stroke="#86efac" stroke-width="1.5"/>
+    <circle cx="836" cy="664" r="24" fill="#ecfdf5" stroke="#86efac" stroke-width="1.5"/>
+    <text x="836" y="672" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#15803d">4</text>
+    <foreignObject x="884" y="632" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Measure, compare, then decide - one knob at a time against your baseline</div>
+    </foreignObject>
+  </g>
+
+  <g opacity=".92">
+    <rect x="1644" y="122" width="236" height="40" rx="20" fill="#111827"/>
+    <circle cx="1670" cy="142" r="7" fill="#22c55e"/>
+    <text x="1692" y="148" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="800" fill="#fff">production mode</text>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+sequenceDiagram
+  participant UI as GUI
+  participant API as gui-server
+  participant Sync as syncCoursePublicAssets
+  participant Batch as renderAllModules
+  participant Rem as remotion CLI
+  UI->>API: POST /api/render-course
+  API->>Sync: copy assets + timings
+  API->>Batch: spawn tsx process
+  loop each module
+    Batch->>Rem: npx remotion render
+    Rem-->>API: stdout Rendered X/Y
+    API-->>UI: SSE progress events
+  end
+  Batch-->>API: exit code
+  API-->>UI: SSE done

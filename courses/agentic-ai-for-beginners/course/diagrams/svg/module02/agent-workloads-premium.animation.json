@@ -1,0 +1,138 @@
+{
+  "diagram": "agent-workloads-premium.svg",
+  "sectionSummary": "Support and research workflows require loops, not single calls",
+  "phases": [
+    {
+      "start": 0,
+      "end": 8,
+      "show": [],
+      "dim": [],
+      "highlight": [],
+      "label": "How real work gets done",
+      "triggerWords": [
+        "connect",
+        "work",
+        "workflow"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 28,
+      "show": [
+        "support-flow",
+        "card-1"
+      ],
+      "dim": [],
+      "highlight": [
+        "support-flow",
+        "card-1"
+      ],
+      "label": "Support automation",
+      "triggerWords": [
+        "support",
+        "ticket",
+        "customer"
+      ]
+    },
+    {
+      "start": 28,
+      "end": 40,
+      "show": [
+        "support-flow",
+        "card-1",
+        "card-2",
+        "research-flow"
+      ],
+      "dim": [
+        "card-1",
+        "research-flow"
+      ],
+      "highlight": [
+        "card-2",
+        "support-flow"
+      ],
+      "label": "Not one call",
+      "triggerWords": [
+        "one",
+        "loop",
+        "tools"
+      ]
+    },
+    {
+      "start": 40,
+      "end": 58,
+      "show": [
+        "support-flow",
+        "research-flow",
+        "card-1",
+        "card-2",
+        "card-3"
+      ],
+      "dim": [
+        "support-flow",
+        "card-2"
+      ],
+      "highlight": [
+        "research-flow",
+        "card-3"
+      ],
+      "label": "Research workflow",
+      "triggerWords": [
+        "research",
+        "analyst",
+        "sources"
+      ]
+    },
+    {
+      "start": 58,
+      "end": 75,
+      "show": [
+        "support-flow",
+        "research-flow",
+        "card-1",
+        "card-2",
+        "card-3",
+        "card-4"
+      ],
+      "dim": [
+        "card-3"
+      ],
+      "highlight": [
+        "card-4",
+        "research-flow"
+      ],
+      "label": "Enterprise adoption",
+      "triggerWords": [
+        "enterprises",
+        "multi-step",
+        "coordination"
+      ]
+    },
+    {
+      "start": 75,
+      "end": 99,
+      "show": [
+        "support-flow",
+        "research-flow",
+        "card-1",
+        "card-2",
+        "card-3",
+        "card-4",
+        "card-5"
+      ],
+      "dim": [
+        "card-4"
+      ],
+      "highlight": [
+        "card-5",
+        "research-flow"
+      ],
+      "label": "Demos to workloads",
+      "triggerWords": [
+        "demos",
+        "workloads",
+        "single"
+      ]
+    }
+  ]
+}

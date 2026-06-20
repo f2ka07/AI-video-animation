@@ -648,8 +648,7 @@ async function regenerateModuleConfirmed() {
 
 // Preview video (placeholder)
 async function previewVideo(slideName) {
-    // Use location change instead of window.open to avoid popup blockers
-    window.location.href = `http://localhost:3000?composition=module-${currentModuleNumber}`;
+    await openRemotionStudioPreview(currentModuleNumber, currentCourseId);
 }
 
 // Play audio

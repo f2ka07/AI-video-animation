@@ -1,0 +1,51 @@
+{
+  "diagram": "deployment-models-premium.svg",
+  "sectionSummary": "Four deployment models - SaaS, cloud GPU, on-premises, and edge tradeoffs",
+  "phases": [
+    {
+      "start": 0,
+      "end": 15.7,
+      "show": ["matrix-panel", "matrix-main", "row-saas", "row-cloud", "row-onprem", "row-edge", "card-1"],
+      "dim": ["row-saas", "row-cloud", "row-onprem", "row-edge"],
+      "highlight": [],
+      "label": "Deployment models overview",
+      "triggerWords": ["deployment", "models"]
+    },
+    {
+      "start": 15.7,
+      "end": 61.9,
+      "show": ["matrix-panel", "matrix-main", "row-saas", "row-cloud", "row-onprem", "row-edge", "card-1", "card-2"],
+      "dim": ["row-cloud", "row-onprem", "row-edge", "card-1"],
+      "highlight": ["row-saas", "card-2"],
+      "label": "SaaS vendor-hosted",
+      "triggerWords": ["saas"]
+    },
+    {
+      "start": 61.9,
+      "end": 101,
+      "show": ["matrix-panel", "matrix-main", "row-saas", "row-cloud", "row-onprem", "row-edge", "card-1", "card-2", "card-3"],
+      "dim": ["row-saas", "row-onprem", "row-edge", "card-2"],
+      "highlight": ["row-cloud", "card-3"],
+      "label": "Cloud GPU rental",
+      "triggerWords": ["cloud", "gpu"]
+    },
+    {
+      "start": 101,
+      "end": 147.8,
+      "show": ["matrix-panel", "matrix-main", "row-saas", "row-cloud", "row-onprem", "row-edge", "card-1", "card-2", "card-3", "card-4"],
+      "dim": ["row-saas", "row-cloud", "row-edge", "card-3"],
+      "highlight": ["row-onprem", "card-4"],
+      "label": "Enterprise on-premises",
+      "triggerWords": ["enterprise", "premises", "on-prem"]
+    },
+    {
+      "start": 147.8,
+      "end": 200,
+      "show": ["matrix-panel", "matrix-main", "row-saas", "row-cloud", "row-onprem", "row-edge", "card-1", "card-2", "card-3", "card-4", "card-5"],
+      "dim": ["row-saas", "row-cloud", "row-onprem", "card-4"],
+      "highlight": ["row-edge", "card-5"],
+      "label": "Hybrid and edge",
+      "triggerWords": ["hybrid", "edge"]
+    }
+  ]
+}

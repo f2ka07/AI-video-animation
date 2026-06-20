@@ -1,5 +1,5 @@
-// Module 03 Diagram 3: Inference pipeline (TensorRT -> Triton -> NIM flow)
-// Uses BaseDiagramScene with animated SVG (inference-pipeline.svg)
+// Module 03 Diagram 3: Inference for agentic workloads
+// Full-slide premium SVG synced to Gentle word timings
 import React from 'react';
 import { BaseDiagramScene } from '../../shared/BaseDiagramScene';
 import { SceneProps } from '../../shared/types';
@@ -14,12 +14,12 @@ export const Module03Diagram3: React.FC<Module03Diagram3Props> = ({
 		<BaseDiagramScene
 			durationInFrames={durationInFrames}
 			cuePoints={cuePoints}
-			title="Inference Pipeline Flow"
-			subtitle="TensorRT optimizes, Triton serves, NIM packages - the path to production inference."
+			title="Inference for Agentic Workloads"
+			subtitle="TensorRT optimizes, Triton serves, NIM packages - self-hosted production path"
 			sectionLabel="Application"
-			svgPath="assets/agentic-ai-for-beginners/module03/inference-pipeline.svg"
-			animationSpecPath="assets/agentic-ai-for-beginners/module03/inference-pipeline-application.animation.json"
-			layout="full"
+			layout="immersive"
+			svgPath="assets/agentic-ai-for-beginners/module03/nvidia-inference-premium.svg"
+			animationSpecPath="assets/agentic-ai-for-beginners/module03/nvidia-inference-premium.animation.json"
 			slideName="module-3-application"
 			moduleNumber={3}
 		/>

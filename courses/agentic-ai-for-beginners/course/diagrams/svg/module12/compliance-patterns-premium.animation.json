@@ -1,0 +1,51 @@
+{
+  "diagram": "compliance-patterns-premium.svg",
+  "sectionSummary": "Industry requirements, data handling, privacy, and approval workflows.",
+  "phases": [
+    {
+      "start": 0,
+      "end": 8,
+      "show": ["diagram-panel", "section-1", "section-2", "section-3", "section-4", "card-1"],
+      "dim": ["section-1", "section-2", "section-3", "section-4"],
+      "highlight": [],
+      "label": "Industry requirements, data handling, privacy, and approval workflows.",
+      "triggerWords": ["let", "now", "how", "the", "this"]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": ["diagram-panel", "section-1", "section-2", "section-3", "section-4", "card-1", "card-2"],
+      "dim": ["section-2", "section-3", "section-4"],
+      "highlight": ["section-1", "card-2"],
+      "label": "Map industry compliance requirements",
+      "triggerWords": ["compliance", "hipaa", "gdpr", "regulat"]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": ["diagram-panel", "section-1", "section-2", "section-3", "section-4", "card-1", "card-2", "card-3"],
+      "dim": ["section-1", "section-3", "section-4"],
+      "highlight": ["section-2", "card-3"],
+      "label": "Control sensitive data flows",
+      "triggerWords": ["data", "mask", "retention"]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": ["diagram-panel", "section-1", "section-2", "section-3", "section-4", "card-1", "card-2", "card-3", "card-4"],
+      "dim": ["section-1", "section-2", "section-4"],
+      "highlight": ["section-3", "card-4"],
+      "label": "Approval paths for high-stakes actions",
+      "triggerWords": ["approval", "escalat", "stake"]
+    },
+    {
+      "start": 0,
+      "end": 120,
+      "show": ["diagram-panel", "section-1", "section-2", "section-3", "section-4", "card-1", "card-2", "card-3", "card-4", "card-5"],
+      "dim": ["section-1", "section-2", "section-3"],
+      "highlight": ["section-4", "card-5"],
+      "label": "Privacy practices users can trust",
+      "triggerWords": ["privacy", "consent", "deletion"]
+    }
+  ]
+}

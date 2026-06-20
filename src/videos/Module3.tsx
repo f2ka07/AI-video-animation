@@ -1,11 +1,7 @@
 import React from "react";
 import { Sequence, useVideoConfig, Audio, staticFile } from "remotion";
 import { getAudioDuration } from "../utils/audioDuration";
-import { Module03Intro } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module03/Module03Intro";
-import { Module03Diagram1 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module03/Module03Diagram1";
-import { Module03Diagram2 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module03/Module03Diagram2";
-import { Module03Diagram3 } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module03/Module03Diagram3";
-import { Module03Recap } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module03/Module03Recap";
+import { Module03Intro, Module03Diagram1, Module03Diagram2, Module03Diagram3, Module03Recap } from "../../courses/agentic-ai-for-beginners/course/remotion/scenes/module03";
 
 // Auto-generated from course scene components - DO NOT EDIT MANUALLY
 // Course: agentic-ai-for-beginners, Module: 3
@@ -115,10 +111,10 @@ export const Module3: React.FC = () => {
 		{/* Module03Recap - module3-module-3-recap */}
 		<Sequence
 			from={16984}
-			durationInFrames={1872}
+			durationInFrames={1917}
 		>
 			<Module03Recap
-				durationInFrames={1872}
+				durationInFrames={1917}
 				cuePoints={[]}
 			/>
 			<Audio src={audioFiles["module3-module-3-recap"]} />

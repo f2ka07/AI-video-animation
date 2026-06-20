@@ -1,5 +1,5 @@
-// Module 05 Diagram 3: Deployment models and business drivers
-// Uses BaseDiagramScene with animated SVG (deployment-decision-matrix.svg)
+// Module 05 Diagram 3: Business drivers for deployment
+// Full-slide premium SVG synced to Gentle word timings
 import React from 'react';
 import { BaseDiagramScene } from '../../shared/BaseDiagramScene';
 import { SceneProps } from '../../shared/types';
@@ -14,12 +14,12 @@ export const Module05Diagram3: React.FC<Module05Diagram3Props> = ({
 		<BaseDiagramScene
 			durationInFrames={durationInFrames}
 			cuePoints={cuePoints}
-			title="Deployment Decision Matrix"
+			title="Business Drivers for Deployment"
 			subtitle="Matching deployment choice to velocity, flexibility, compliance, and latency needs."
 			sectionLabel="Application"
-			svgPath="assets/agentic-ai-for-beginners/module05/deployment-decision-matrix.svg"
-			animationSpecPath="assets/agentic-ai-for-beginners/module05/deployment-decision-application.animation.json"
-			layout="full"
+			layout="immersive"
+			svgPath="assets/agentic-ai-for-beginners/module05/deployment-drivers-premium.svg"
+			animationSpecPath="assets/agentic-ai-for-beginners/module05/deployment-drivers-premium.animation.json"
 			slideName="module-5-application"
 			moduleNumber={5}
 		/>

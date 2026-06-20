@@ -63,6 +63,19 @@ SLIDES_IMAGE=ghcr.io/f2ka07/ai-video-animation:latest
 
 The script prints the GUI URL, wizard link, and render commands when finished.
 
+### Render cost benchmark (EC2 vCPU sizing)
+
+Compare economical instance sizes by rendering the **same module** on different EC2 types (8 / 16 / 32 vCPU):
+
+1. Clone on EC2 and run `INSTALL_DOCKER=1 ./start.sh` (syncs SVGs/timings to `public/`).
+2. Open the GUI on port **3001** → Processing wizard → **Generate Final Video**.
+3. Enter **AWS cost per hour** (from EC2 pricing) and an **instance label** (e.g. `c6i.2xlarge`).
+4. Select a module and click **Render Video to MP4** (local render; RunPod hidden unless `RENDER_RUNPOD_ENABLED=true`).
+5. Download **MP4** and **results (CSV)**. Each row records vCPU, frames, wall time, and estimated cost.
+6. Resize the instance or repeat on another size; compare `cost_per_frame_usd` in the CSV.
+
+Metrics file on server: `workspace/render-metrics/render-results.csv` (gitignored).
+
 ---
 
 ```

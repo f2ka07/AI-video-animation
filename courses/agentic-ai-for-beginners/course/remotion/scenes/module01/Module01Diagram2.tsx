@@ -1,5 +1,5 @@
 // Module 01 Diagram 2: Agentic Architecture High-Level
-// Uses BaseDiagramScene with animated SVG (agentic-architecture-high-level.svg + .animation.json)
+// Full-slide premium SVG synced to Gentle word timings
 import React from 'react';
 import { BaseDiagramScene } from '../../shared/BaseDiagramScene';
 import { SceneProps } from '../../shared/types';
@@ -17,15 +17,9 @@ export const Module01Diagram2: React.FC<Module01Diagram2Props> = ({
 			title="The Five Pillars of Agentic Architecture"
 			subtitle="Planning, tools, memory, safety loops, and human oversight - the core architecture."
 			sectionLabel="Architecture"
-			svgPath="assets/agentic-ai-for-beginners/module01/agentic-architecture-high-level.svg"
-			layout="two-card"
-			contentPoints={[
-				"First, planning - decompose goals into subtasks",
-				"Second, tools - APIs, code, search engines",
-				"Third, memory - short-term and long-term retention",
-				"Fourth, safety loops - guardrails and policy checks",
-				"Fifth, human-in-the-loop - escalation and oversight"
-			]}
+			layout="immersive"
+			svgPath="assets/agentic-ai-for-beginners/module01/agentic-architecture-premium.svg"
+			animationSpecPath="assets/agentic-ai-for-beginners/module01/agentic-architecture-premium.animation.json"
 			slideName="module-1-architecture"
 			moduleNumber={1}
 		/>

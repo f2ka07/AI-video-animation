@@ -23,7 +23,7 @@ export const RemotionRoot: React.FC = () => {
 				key="module-1"
 				id="module-1"
 				component={Module1}
-				durationInFrames={13410}
+				durationInFrames={13521}
 				fps={30}
 				width={1920}
 				height={1080}
@@ -32,7 +32,7 @@ export const RemotionRoot: React.FC = () => {
 				key="module-2"
 				id="module-2"
 				component={Module2}
-				durationInFrames={16810}
+				durationInFrames={16921}
 				fps={30}
 				width={1920}
 				height={1080}
@@ -41,7 +41,7 @@ export const RemotionRoot: React.FC = () => {
 				key="module-3"
 				id="module-3"
 				component={Module3}
-				durationInFrames={18791}
+				durationInFrames={18901}
 				fps={30}
 				width={1920}
 				height={1080}
@@ -50,7 +50,7 @@ export const RemotionRoot: React.FC = () => {
 				key="module-4"
 				id="module-4"
 				component={Module4}
-				durationInFrames={20092}
+				durationInFrames={20203}
 				fps={30}
 				width={1920}
 				height={1080}
@@ -59,7 +59,7 @@ export const RemotionRoot: React.FC = () => {
 				key="module-5"
 				id="module-5"
 				component={Module5}
-				durationInFrames={19707}
+				durationInFrames={19818}
 				fps={30}
 				width={1920}
 				height={1080}
@@ -68,7 +68,7 @@ export const RemotionRoot: React.FC = () => {
 				key="module-6"
 				id="module-6"
 				component={Module6}
-				durationInFrames={18899}
+				durationInFrames={19009}
 				fps={30}
 				width={1920}
 				height={1080}
@@ -77,7 +77,7 @@ export const RemotionRoot: React.FC = () => {
 				key="module-7"
 				id="module-7"
 				component={Module7}
-				durationInFrames={10143}
+				durationInFrames={10254}
 				fps={30}
 				width={1920}
 				height={1080}
@@ -86,7 +86,7 @@ export const RemotionRoot: React.FC = () => {
 				key="module-8"
 				id="module-8"
 				component={Module8}
-				durationInFrames={10897}
+				durationInFrames={11009}
 				fps={30}
 				width={1920}
 				height={1080}
@@ -95,7 +95,7 @@ export const RemotionRoot: React.FC = () => {
 				key="module-9"
 				id="module-9"
 				component={Module9}
-				durationInFrames={10376}
+				durationInFrames={10486}
 				fps={30}
 				width={1920}
 				height={1080}
@@ -104,7 +104,7 @@ export const RemotionRoot: React.FC = () => {
 				key="module-10"
 				id="module-10"
 				component={Module10}
-				durationInFrames={11441}
+				durationInFrames={11551}
 				fps={30}
 				width={1920}
 				height={1080}
@@ -113,7 +113,7 @@ export const RemotionRoot: React.FC = () => {
 				key="module-11"
 				id="module-11"
 				component={Module11}
-				durationInFrames={10191}
+				durationInFrames={10302}
 				fps={30}
 				width={1920}
 				height={1080}
@@ -122,7 +122,7 @@ export const RemotionRoot: React.FC = () => {
 				key="module-12"
 				id="module-12"
 				component={Module12}
-				durationInFrames={11539}
+				durationInFrames={11649}
 				fps={30}
 				width={1920}
 				height={1080}

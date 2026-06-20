@@ -1,0 +1,8 @@
+flowchart TD
+  GUI["Render Entire Course Local"] --> SYNC["syncCoursePublicAssets"]
+  SYNC --> BATCH["renderAllModules.ts"]
+  BATCH --> SKIP{"MP4 exists?"}
+  SKIP -->|yes| NEXT["skip module"]
+  SKIP -->|no| REN["remotion render module"]
+  REN --> NEXT
+  NEXT --> DONE["out/courseId/"]

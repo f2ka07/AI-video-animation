@@ -11,6 +11,10 @@ import path from "path";
 import { fileURLToPath } from "url";
 import FormData from "form-data";
 import fetch from "node-fetch";
+import {
+	resolveGentleUrl,
+	formatGentleConnectionHelp,
+} from "./lib/resolveGentleUrl.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -30,7 +34,6 @@ const MODULE_NUMBER = 1;
 const SLIDE_NAME = "module-1-title";
 const AUDIO_PATH = path.join(ROOT, "public/audio/agentic-ai-for-beginners/module1-module-1-title.wav");
 const SCRIPT_PATH = path.join(ROOT, "courses/agentic-ai-for-beginners/course/scripts/module01.txt");
-const GENTLE_URL = process.env.GENTLE_URL || "http://localhost:8765";
 const CACHE_PATH = path.join(ROOT, "public/gentle-cache", SLIDE_NAME + ".json");
 const TIMINGS_PATH = path.join(ROOT, "courses", COURSE_ID, "timings", `module${MODULE_NUMBER}.json`);
 
@@ -119,10 +122,22 @@ async function callGentle() {
 		console.error("Audio not found:", AUDIO_PATH);
 		process.exit(1);
 	}
+
+	const gentleResolution = await resolveGentleUrl();
+	if (!gentleResolution.url) {
+		console.error(`❌ ${formatGentleConnectionHelp(gentleResolution.tried)}`);
+		process.exit(1);
+	}
+	const gentleUrl = gentleResolution.url;
+	if (gentleResolution.fallback && gentleResolution.configuredUrl) {
+		console.log(
+			`   Gentle not reachable at ${gentleResolution.configuredUrl}; using ${gentleUrl}`
+		);
+	}
 	
 	const referenceScript = loadReferenceScript();
 	console.log("   Reference script length:", referenceScript.length, "chars");
-	console.log("   Gentle URL:", GENTLE_URL);
+	console.log("   Gentle URL:", gentleUrl);
 	console.log("   (This may take 1-3 minutes for ~43s audio)\n");
 	
 	// Prepare form data
@@ -134,18 +149,14 @@ async function callGentle() {
 	const startTime = Date.now();
 	let response;
 	try {
-		response = await fetch(`${GENTLE_URL}/transcriptions?async=false`, {
+		response = await fetch(`${gentleUrl}/transcriptions?async=false`, {
 			method: "POST",
 			body: form,
 			headers: form.getHeaders(),
 		});
 	} catch (error) {
-		console.error("❌ Cannot connect to Gentle server at", GENTLE_URL);
+		console.error(`❌ ${formatGentleConnectionHelp(gentleResolution.tried)}`);
 		console.error("   Error:", error.message);
-		console.error("\n💡 To start Gentle:");
-		console.error("   1. Install Docker");
-		console.error("   2. Run: docker run -p 8765:8765 lowerquality/gentle");
-		console.error("   3. Or set GENTLE_URL environment variable if running elsewhere");
 		throw error;
 	}
 	

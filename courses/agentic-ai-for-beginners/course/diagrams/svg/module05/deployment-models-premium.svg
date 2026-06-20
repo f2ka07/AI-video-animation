@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img" aria-label="Deployment models decision matrix">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff7ed"/>
+      <stop offset=".55" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fdba74"/>
+      <stop offset="1" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="slate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#64748b"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0f172a" flood-opacity=".1"/>
+    </filter>
+    <style>
+      .kicker{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;letter-spacing:.22em;fill:#c2410c}
+      .title{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;fill:#111827}
+      .sub{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:500;fill:#6b7280}
+      .panelTitle{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:20px;font-weight:800;fill:#334155}
+      .panelSub{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;font-weight:500;fill:#64748b}
+      .hdr{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:13px;font-weight:800;fill:#ffffff}
+      .cell{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:13px;font-weight:600;fill:#334155}
+      .rowTitle{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;font-weight:800;fill:#0f172a}
+      .rowSub{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:11px;font-weight:600;fill:#64748b}
+      .card{fill:#ffffff;stroke:#fed7aa;stroke-width:1.2;filter:url(#shadow)}
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <circle cx="180" cy="920" r="260" fill="#f97316" opacity=".06"/>
+  <circle cx="1720" cy="120" r="220" fill="#475569" opacity=".05"/>
+  <path d="M48 188 H1872" stroke="#e5e7eb" stroke-width="1"/>
+
+  <text x="48" y="52" class="kicker" font-size="14">MODULE 05 - CONCEPT</text>
+  <text x="48" y="108" class="title" font-size="48">Deployment Decision Matrix</text>
+  <text x="48" y="152" class="sub" font-size="24">Four deployment models - SaaS, cloud GPU, on-premises, and edge tradeoffs</text>
+
+  <g id="matrix-panel">
+    <rect x="72" y="220" width="640" height="780" rx="28" fill="#ffffff" stroke="#fed7aa" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="112" y="278" class="panelTitle">DEPLOYMENT MODELS</text>
+    <text x="112" y="308" class="panelSub">Where AI runs, who operates it, what infrastructure supports it</text>
+  </g>
+
+  <g id="matrix-main">
+    <rect x="100" y="340" width="96" height="36" rx="8" fill="url(#slate)"/>
+    <text x="148" y="363" text-anchor="middle" class="hdr">Model</text>
+    <rect x="200" y="340" width="96" height="36" rx="8" fill="url(#slate)"/>
+    <text x="248" y="363" text-anchor="middle" class="hdr">Speed</text>
+    <rect x="300" y="340" width="96" height="36" rx="8" fill="url(#slate)"/>
+    <text x="348" y="363" text-anchor="middle" class="hdr">Control</text>
+    <rect x="400" y="340" width="96" height="36" rx="8" fill="url(#slate)"/>
+    <text x="448" y="363" text-anchor="middle" class="hdr">Compliance</text>
+    <rect x="500" y="340" width="164" height="36" rx="8" fill="url(#slate)"/>
+    <text x="582" y="363" text-anchor="middle" class="hdr">Best For</text>
+    <text x="392" y="960" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="600" fill="#94a3b8">Choose based on velocity, control, compliance, and latency</text>
+  </g>
+
+  <g id="row-saas">
+    <rect x="100" y="388" width="96" height="72" rx="8" fill="#ffedd5" stroke="#fed7aa" stroke-width="1"/>
+    <text x="148" y="418" text-anchor="middle" class="rowTitle" fill="#9a3412">SaaS</text>
+    <text x="148" y="438" text-anchor="middle" class="rowSub">Vendor-hosted</text>
+    <rect x="200" y="388" width="96" height="72" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="248" y="430" text-anchor="middle" class="cell">Fastest</text>
+    <rect x="300" y="388" width="96" height="72" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="348" y="430" text-anchor="middle" class="cell">Minimal</text>
+    <rect x="400" y="388" width="96" height="72" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="448" y="430" text-anchor="middle" class="cell">Limited</text>
+    <rect x="500" y="388" width="164" height="72" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="582" y="430" text-anchor="middle" class="cell">Prototypes, pilots</text>
+  </g>
+
+  <g id="row-cloud">
+    <rect x="100" y="472" width="96" height="72" rx="8" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="148" y="502" text-anchor="middle" class="rowTitle">Cloud</text>
+    <text x="148" y="522" text-anchor="middle" class="rowSub">GPU rental</text>
+    <rect x="200" y="472" width="96" height="72" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="248" y="514" text-anchor="middle" class="cell">Fast</text>
+    <rect x="300" y="472" width="96" height="72" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="348" y="514" text-anchor="middle" class="cell">Partial</text>
+    <rect x="400" y="472" width="96" height="72" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="448" y="514" text-anchor="middle" class="cell">Varies</text>
+    <rect x="500" y="472" width="164" height="72" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="582" y="514" text-anchor="middle" class="cell">Variable workloads</text>
+  </g>
+
+  <g id="row-onprem">
+    <rect x="100" y="556" width="96" height="72" rx="8" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+    <text x="148" y="586" text-anchor="middle" class="rowTitle">On-Prem</text>
+    <text x="148" y="606" text-anchor="middle" class="rowSub">Self-hosted</text>
+    <rect x="200" y="556" width="96" height="72" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="248" y="598" text-anchor="middle" class="cell">Slow setup</text>
+    <rect x="300" y="556" width="96" height="72" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="348" y="598" text-anchor="middle" class="cell">Full</text>
+    <rect x="400" y="556" width="96" height="72" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="448" y="598" text-anchor="middle" class="cell">Full</text>
+    <rect x="500" y="556" width="164" height="72" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="582" y="598" text-anchor="middle" class="cell">Regulated industries</text>
+  </g>
+
+  <g id="row-edge">
+    <rect x="100" y="640" width="96" height="72" rx="8" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>
+    <text x="148" y="670" text-anchor="middle" class="rowTitle" fill="#78350f">Edge</text>
+    <text x="148" y="690" text-anchor="middle" class="rowSub">Device-local</text>
+    <rect x="200" y="640" width="96" height="72" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="248" y="682" text-anchor="middle" class="cell">Medium</text>
+    <rect x="300" y="640" width="96" height="72" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="348" y="682" text-anchor="middle" class="cell">Full</text>
+    <rect x="400" y="640" width="96" height="72" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="448" y="682" text-anchor="middle" class="cell">Full</text>
+    <rect x="500" y="640" width="164" height="72" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="582" y="682" text-anchor="middle" class="cell">Autonomous systems</text>
+  </g>
+
+  <rect x="744" y="220" width="2" height="780" fill="#e5e7eb"/>
+
+  <g id="card-1">
+    <rect class="card" x="792" y="280" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="328" r="24" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+    <text x="836" y="336" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#c2410c">1</text>
+    <foreignObject x="884" y="296" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">A deployment model defines where AI runs, who operates it, and what infrastructure supports it</div>
+    </foreignObject>
+  </g>
+  <g id="card-2">
+    <rect class="card" x="792" y="392" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="440" r="24" fill="#ffedd5" stroke="#fdba74" stroke-width="1.5"/>
+    <text x="836" y="448" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#9a3412">2</text>
+    <foreignObject x="884" y="408" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">SaaS is the fastest path: call an API, vendor runs infrastructure - but with limited control and compliance</div>
+    </foreignObject>
+  </g>
+  <g id="card-3">
+    <rect class="card" x="792" y="504" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="552" r="24" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="836" y="560" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#475569">3</text>
+    <foreignObject x="884" y="520" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Cloud GPU rental offers flexibility: scale on demand, run custom models with Triton and NIM</div>
+    </foreignObject>
+  </g>
+  <g id="card-4">
+    <rect class="card" x="792" y="616" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="664" r="24" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="836" y="672" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#334155">4</text>
+    <foreignObject x="884" y="632" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">On-premises gives full control and compliance for regulated industries - at the cost of capex and ops complexity</div>
+    </foreignObject>
+  </g>
+  <g id="card-5">
+    <rect class="card" x="792" y="728" width="1040" height="96" rx="20" stroke="#fdba74" stroke-width="1.5"/>
+    <circle cx="836" cy="776" r="24" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+    <text x="836" y="784" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#c2410c">5</text>
+    <foreignObject x="884" y="744" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Hybrid and edge minimize latency for autonomous systems - no universal answer, choose by your constraints</div>
+    </foreignObject>
+  </g>
+
+  <g opacity=".92">
+    <rect x="1644" y="122" width="236" height="40" rx="20" fill="#111827"/>
+    <circle cx="1670" cy="142" r="7" fill="#f97316"/>
+    <text x="1692" y="148" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="800" fill="#fff">deployment mode</text>
+  </g>
+</svg>

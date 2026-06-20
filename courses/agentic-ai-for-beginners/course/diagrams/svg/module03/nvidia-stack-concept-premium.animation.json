@@ -1,0 +1,60 @@
+{
+  "diagram": "nvidia-stack-concept-premium.svg",
+  "sectionSummary": "Production AI infrastructure is complex - NVIDIA offers a unified platform stack",
+  "phases": [
+    {
+      "start": 0,
+      "end": 8,
+      "show": [],
+      "dim": [],
+      "highlight": [],
+      "label": "Frame the problem",
+      "triggerWords": ["frame", "problem", "production"]
+    },
+    {
+      "start": 8,
+      "end": 20,
+      "show": ["frag-gpu", "frag-software", "card-1"],
+      "dim": [],
+      "highlight": ["frag-gpu", "frag-software", "card-1"],
+      "label": "Infrastructure complexity",
+      "triggerWords": ["infrastructure", "complex", "gpus"]
+    },
+    {
+      "start": 20,
+      "end": 32,
+      "show": ["frag-gpu", "frag-software", "frag-serve", "card-1", "card-2"],
+      "dim": ["card-1"],
+      "highlight": ["frag-serve", "card-2"],
+      "label": "Inference and deployment needs",
+      "triggerWords": ["inference", "servers", "deployment"]
+    },
+    {
+      "start": 32,
+      "end": 48,
+      "show": ["frag-gpu", "frag-software", "frag-serve", "frag-deploy", "frag-integrate", "card-1", "card-2", "card-3"],
+      "dim": ["card-2"],
+      "highlight": ["frag-deploy", "frag-integrate", "card-3"],
+      "label": "Fragile DIY stacks",
+      "triggerWords": ["fragile", "stitched", "themselves"]
+    },
+    {
+      "start": 48,
+      "end": 62,
+      "show": ["frag-gpu", "frag-software", "frag-serve", "frag-deploy", "frag-integrate", "unified-stack", "card-1", "card-2", "card-3", "card-4"],
+      "dim": ["frag-gpu", "frag-software", "frag-serve", "card-3"],
+      "highlight": ["unified-stack", "card-4"],
+      "label": "Unified NVIDIA stack",
+      "triggerWords": ["unified", "platform", "nvidia"]
+    },
+    {
+      "start": 62,
+      "end": 99,
+      "show": ["unified-stack", "card-1", "card-2", "card-3", "card-4", "card-5"],
+      "dim": ["card-4"],
+      "highlight": ["unified-stack", "card-5"],
+      "label": "Focus on applications",
+      "triggerWords": ["applications", "engineers", "complexity"]
+    }
+  ]
+}

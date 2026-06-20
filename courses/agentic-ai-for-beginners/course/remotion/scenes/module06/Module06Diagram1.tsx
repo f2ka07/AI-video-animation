@@ -1,5 +1,5 @@
-// Module 06 Diagram 1: Value drivers for enterprise AI
-// Uses BaseDiagramScene with animated SVG (value-driver-spider.svg)
+// Module 06 Diagram 1: Enterprise value drivers
+// Full-slide premium SVG synced to Gentle word timings
 import React from 'react';
 import { BaseDiagramScene } from '../../shared/BaseDiagramScene';
 import { SceneProps } from '../../shared/types';
@@ -14,12 +14,12 @@ export const Module06Diagram1: React.FC<Module06Diagram1Props> = ({
 		<BaseDiagramScene
 			durationInFrames={durationInFrames}
 			cuePoints={cuePoints}
-			title="Value Drivers"
-			subtitle="Why enterprises buy AI: automation, speed, consistency, traceability, and scale."
+			title="Enterprise Value Drivers"
+			subtitle="Why enterprises buy agentic AI: automation, speed, consistency, traceability, scale."
 			sectionLabel="Concept"
-			svgPath="assets/agentic-ai-for-beginners/module06/value-driver-spider.svg"
-			animationSpecPath="assets/agentic-ai-for-beginners/module06/value-driver-concept.animation.json"
-			layout="full"
+			layout="immersive"
+			svgPath="assets/agentic-ai-for-beginners/module06/value-drivers-premium.svg"
+			animationSpecPath="assets/agentic-ai-for-beginners/module06/value-drivers-premium.animation.json"
 			slideName="module-6-concept"
 			moduleNumber={6}
 		/>

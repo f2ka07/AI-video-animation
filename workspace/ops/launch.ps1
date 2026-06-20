@@ -30,15 +30,15 @@ Write-Host "Docker is running. Starting containers..." -ForegroundColor Green
 # Remove old network if it exists and has issues
 docker network rm my-slides_slides-network 2>$null
 
-# Start containers
-docker-compose up -d
+# Start containers (Gentle + GUI; optional Remotion Studio preview on port 3000)
+docker compose --profile studio up -d
 
 if ($LASTEXITCODE -ne 0) {
     Write-Host "Network recreation needed, cleaning up..." -ForegroundColor Yellow
-    docker-compose down 2>$null
+    docker compose down 2>$null
     docker network rm my-slides_slides-network 2>$null
     Write-Host "Retrying..." -ForegroundColor Yellow
-    docker-compose up -d
+    docker compose --profile studio up -d
     
     if ($LASTEXITCODE -ne 0) {
         Write-Host "ERROR: Failed to start containers" -ForegroundColor Red
@@ -50,7 +50,7 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host ""
 Write-Host "Waiting for application to be ready..." -ForegroundColor Yellow
 
-# Wait for the app to be ready (check if port 3000 is responding)
+# Wait for the GUI to be ready (port 3001)
 $maxAttempts = 30
 $attempt = 0
 $ready = $false
@@ -60,7 +60,7 @@ while ($attempt -lt $maxAttempts -and -not $ready) {
     $attempt++
     
     try {
-        $response = Invoke-WebRequest -Uri "http://localhost:3000" -TimeoutSec 2 -UseBasicParsing -ErrorAction Stop
+        $response = Invoke-WebRequest -Uri "http://localhost:3001/api/health" -TimeoutSec 2 -UseBasicParsing -ErrorAction Stop
         if ($response.StatusCode -eq 200) {
             $ready = $true
         }
@@ -96,7 +96,7 @@ if ($ready) {
     Write-Host "You can check the status with: docker-compose ps" -ForegroundColor Gray
     Write-Host "Or view logs with: docker-compose logs app" -ForegroundColor Gray
     Write-Host ""
-    Write-Host "Trying to open browser anyway..." -ForegroundColor Yellow
-    Start-Process "http://localhost:3000"
+    Write-Host "Trying to open GUI anyway..." -ForegroundColor Yellow
+    Start-Process "http://localhost:3001"
     pause
 }

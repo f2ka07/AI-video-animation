@@ -1,7 +1,7 @@
 // Slide type definitions for reusable slide configurations
 // This makes it easy to create consistent slides across modules
 
-export type SlideType = "title" | "content-two-card" | "content-single" | "code" | "code-diagram" | "comparison" | "sequential-bullet" | "svg-content" | "svg-sequential";
+export type SlideType = "title" | "content-two-card" | "content-single" | "code" | "code-diagram" | "comparison" | "sequential-bullet";
 
 export interface SlideConfig {
 	type: SlideType;
@@ -58,17 +58,5 @@ export const slideTypes = {
 		component: "SequentialBulletSlide",
 		layout: "sequential",
 		hasImage: false,
-	},
-	// SVG content slide - content on left, full SVG on right (all points visible)
-	"svg-content": {
-		component: "SvgContentSlide",
-		layout: "svg-two-card",
-		hasImage: true,
-	},
-	// SVG sequential slide - one bullet at a time with full SVG on right
-	"svg-sequential": {
-		component: "SvgSequentialSlide",
-		layout: "svg-sequential",
-		hasImage: true,
 	},
 };

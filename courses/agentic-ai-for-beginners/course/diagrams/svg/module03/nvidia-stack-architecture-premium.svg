@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img" aria-label="NVIDIA AI platform five layers">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset=".55" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#ecfdf5"/>
+    </linearGradient>
+    <linearGradient id="nvGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#86efac"/>
+      <stop offset="1" stop-color="#16a34a"/>
+    </linearGradient>
+    <linearGradient id="slate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#64748b"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity=".1"/>
+    </filter>
+    <style>
+      .kicker{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;letter-spacing:.22em;fill:#15803d}
+      .title{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;fill:#111827}
+      .sub{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:500;fill:#6b7280}
+      .layerTitle{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:17px;font-weight:800;fill:#ffffff}
+      .layerBody{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:13px;font-weight:600;fill:#f8fafc}
+      .card{fill:#ffffff;stroke:#e2e8f0;stroke-width:1.2;filter:url(#shadow)}
+      .axis{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:13px;font-weight:700;fill:#64748b}
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <circle cx="1700" cy="880" r="240" fill="#22c55e" opacity=".05"/>
+  <path d="M48 188 H1872" stroke="#e5e7eb" stroke-width="1"/>
+
+  <text x="48" y="52" class="kicker" font-size="14">MODULE 03 - ARCHITECTURE</text>
+  <text x="48" y="108" class="title" font-size="48">Five Layers of the NVIDIA Stack</text>
+  <text x="48" y="152" class="sub" font-size="24">From GPU hardware through NIM to your agentic application</text>
+
+  <g id="stack-panel">
+    <rect x="72" y="220" width="640" height="780" rx="28" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="112" y="278" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="800" fill="#334155">PLATFORM STACK</text>
+    <text x="112" y="308" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="500" fill="#64748b">Application at top, silicon at base</text>
+  </g>
+
+  <g id="stack-axis">
+    <text x="96" y="348" class="axis">Your code</text>
+    <line x1="108" y1="364" x2="108" y2="756" stroke="#cbd5e1" stroke-width="2"/>
+    <polygon points="108,766 103,756 113,756" fill="#cbd5e1"/>
+    <text x="96" y="786" class="axis">Silicon</text>
+  </g>
+
+  <g id="layer-app">
+    <rect x="148" y="340" width="508" height="72" rx="16" fill="#8b5cf6" filter="url(#shadow)"/>
+    <text x="402" y="372" text-anchor="middle" class="layerTitle">Layer 5: Application</text>
+    <text x="402" y="394" text-anchor="middle" class="layerBody">Agentic system: planning, tools, memory, safety</text>
+  </g>
+  <g id="layer-runtime">
+    <rect x="148" y="428" width="508" height="72" rx="16" fill="#2563eb" filter="url(#shadow)"/>
+    <text x="402" y="460" text-anchor="middle" class="layerTitle">Layer 4: NeMo + NIM</text>
+    <text x="402" y="482" text-anchor="middle" class="layerBody">Train/customize models, deploy inference containers</text>
+  </g>
+  <g id="layer-triton">
+    <rect x="148" y="516" width="508" height="72" rx="16" fill="#0891b2" filter="url(#shadow)"/>
+    <text x="402" y="548" text-anchor="middle" class="layerTitle">Layer 3: Triton Serving</text>
+    <text x="402" y="570" text-anchor="middle" class="layerBody">Batching, versioning, multi-model, K8s integration</text>
+  </g>
+  <g id="layer-accel">
+    <rect x="148" y="604" width="508" height="72" rx="16" fill="url(#nvGreen)" filter="url(#shadow)"/>
+    <text x="402" y="636" text-anchor="middle" class="layerTitle">Layer 2: Acceleration</text>
+    <text x="402" y="658" text-anchor="middle" class="layerBody">CUDA, cuDNN, cuBLAS, TensorRT optimization</text>
+  </g>
+  <g id="layer-hardware">
+    <rect x="148" y="692" width="508" height="72" rx="16" fill="url(#slate)" filter="url(#shadow)"/>
+    <text x="402" y="724" text-anchor="middle" class="layerTitle">Layer 1: Hardware</text>
+    <text x="402" y="746" text-anchor="middle" class="layerBody">H100 / Blackwell, NVLink, InfiniBand, HBM</text>
+  </g>
+
+  <rect x="744" y="220" width="2" height="780" fill="#e5e7eb"/>
+
+  <g id="card-1">
+    <rect class="card" x="792" y="280" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="328" r="24" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="836" y="336" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#475569">1</text>
+    <foreignObject x="884" y="296" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Hardware: data-center GPUs, NVLink, InfiniBand, and HBM for AI workloads</div>
+    </foreignObject>
+  </g>
+  <g id="card-2">
+    <rect class="card" x="792" y="392" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="440" r="24" fill="#ecfdf5" stroke="#86efac" stroke-width="1.5"/>
+    <text x="836" y="448" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#15803d">2</text>
+    <foreignObject x="884" y="408" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Acceleration: CUDA plus TensorRT compiles models for fast inference</div>
+    </foreignObject>
+  </g>
+  <g id="card-3">
+    <rect class="card" x="792" y="504" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="552" r="24" fill="#ecfeff" stroke="#67e8f9" stroke-width="1.5"/>
+    <text x="836" y="560" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#0e7490">3</text>
+    <foreignObject x="884" y="520" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Triton: production serving with batching, scheduling, and health monitoring</div>
+    </foreignObject>
+  </g>
+  <g id="card-4">
+    <rect class="card" x="792" y="616" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="664" r="24" fill="#eef2ff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="836" y="672" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#1d4ed8">4</text>
+    <foreignObject x="884" y="632" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">NeMo trains models; NIM packages TensorRT and Triton for deployment</div>
+    </foreignObject>
+  </g>
+  <g id="card-5">
+    <rect class="card" x="792" y="728" width="1040" height="96" rx="20" stroke="#c4b5fd" stroke-width="1.5"/>
+    <circle cx="836" cy="776" r="24" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+    <text x="836" y="784" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#5b21b6">5</text>
+    <foreignObject x="884" y="744" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Application layer: your agentic differentiation - NVIDIA provides the platform</div>
+    </foreignObject>
+  </g>
+
+  <g opacity=".92">
+    <rect x="1664" y="122" width="216" height="40" rx="20" fill="#111827"/>
+    <circle cx="1690" cy="142" r="7" fill="#22c55e"/>
+    <text x="1712" y="148" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="800" fill="#fff">stack mode</text>
+  </g>
+</svg>

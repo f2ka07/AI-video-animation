@@ -9,19 +9,22 @@ import { parseModuleContent } from "./parseModuleContent";
 import { computeBulletStarts } from "../src/utils/computeBulletStarts";
 
 /**
- * Load bullet points from generated ModuleN.tsx (for courses without content.json)
- * Parses StickTeacherBulletSlide props: slideName and points
+ * Load bullet points from generated ModuleN.tsx (archived in store/ or src/videos).
+ * Supports SequentialBulletSlide and legacy StickTeacherBulletSlide blocks.
  */
 function loadBulletPointsFromModuleTsx(moduleNumber: number): Record<string, string[]> {
-	const modulePath = path.join(__dirname, "../src/videos", `Module${moduleNumber}.tsx`);
-	if (!fs.existsSync(modulePath)) {
+	const candidates = [
+		path.join(__dirname, "../src/videos", `Module${moduleNumber}.tsx`),
+		path.join(__dirname, "../store/archived-videos", `Module${moduleNumber}.tsx`),
+	];
+	const modulePath = candidates.find((p) => fs.existsSync(p));
+	if (!modulePath) {
 		return {};
 	}
 	const content = fs.readFileSync(modulePath, "utf-8");
 	const result: Record<string, string[]> = {};
 
-	// Find StickTeacherBulletSlide blocks (from opening tag to />)
-	const blockRegex = /<StickTeacherBulletSlide[\s\S]*?\/>/g;
+	const blockRegex = /<(?:StickTeacherBulletSlide|SequentialBulletSlide)[\s\S]*?\/>/g;
 	let block;
 	while ((block = blockRegex.exec(content)) !== null) {
 		const blockStr = block[0];
@@ -246,13 +249,12 @@ export function extractModuleBulletStarts(courseId: string, moduleNumber: number
 			continue;
 		}
 
-		// Only process slides with bullet points (StickTeacherBulletSlide)
+		// Only process slides with bullet points
 		if (!slide.points || slide.points.length === 0) {
 			continue;
 		}
 
-		// Ensure we have exactly 5 bullets (required for StickTeacherBulletSlide)
-		// If we have fewer than 5, pad with empty strings (will be handled by fallback logic)
+		// Pad to 5 bullets when fewer are defined (computeBulletStarts handles short lists)
 		const points = slide.points.length >= 5
 			? slide.points.slice(0, 5)
 			: slide.points.concat(Array(5 - slide.points.length).fill(""));

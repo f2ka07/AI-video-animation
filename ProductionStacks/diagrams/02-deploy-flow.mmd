@@ -1,0 +1,7 @@
+flowchart LR
+  DEV["Developer push main"] --> GHA["GitHub Actions\nbuild image"]
+  GHA --> GHCR["GHCR\nai-video-animation:latest"]
+  GHCR --> HOST["Server pull image"]
+  HOST --> COMPOSE["docker compose up"]
+  COMPOSE --> START["start.sh\nactivate course"]
+  START --> GUI["GUI :3001"]

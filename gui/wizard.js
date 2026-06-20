@@ -267,7 +267,7 @@ async function finalizeVideo() {
         
         // Open Remotion Studio with the segment
         setTimeout(() => {
-            window.location.href = `http://localhost:3000?composition=module-${moduleNumber}`;
+            openRemotionStudioPreview(moduleNumber, currentCourseId);
         }, 1500);
         
     } catch (error) {
@@ -280,6 +280,49 @@ async function finalizeVideo() {
 }
 
 // Render video to MP4
+function getRenderBenchmarkInputs() {
+    const costInput = document.getElementById('render-cost-per-hour');
+    const labelInput = document.getElementById('render-instance-label');
+    const costPerHour = costInput ? costInput.value : '';
+    const instanceLabel = labelInput ? labelInput.value : '';
+    if (costInput) {
+        localStorage.setItem('renderCostPerHour', costPerHour);
+    }
+    if (labelInput) {
+        localStorage.setItem('renderInstanceLabel', instanceLabel);
+    }
+    return { costPerHour, instanceLabel };
+}
+
+function initRenderBenchmarkUi(info) {
+    const costInput = document.getElementById('render-cost-per-hour');
+    const labelInput = document.getElementById('render-instance-label');
+    const vcpuReadout = document.getElementById('render-vcpu-readout');
+    const runpodRow = document.getElementById('render-runpod-target-row');
+    const batchRunpodRow = document.getElementById('batch-render-runpod-row');
+    const metricsLink = document.getElementById('download-metrics-link');
+
+    if (costInput) {
+        costInput.value = localStorage.getItem('renderCostPerHour') || '';
+    }
+    if (labelInput) {
+        labelInput.value = localStorage.getItem('renderInstanceLabel') || '';
+    }
+    if (vcpuReadout && info.cpus) {
+        vcpuReadout.textContent = `Detected: ${info.cpus} vCPU, concurrency ${info.recommendedConcurrency}`;
+    }
+    const showRunpod = info.renderRunpodEnabled === true;
+    if (runpodRow) {
+        runpodRow.style.display = showRunpod ? 'flex' : 'none';
+    }
+    if (batchRunpodRow) {
+        batchRunpodRow.style.display = showRunpod ? 'flex' : 'none';
+    }
+    if (metricsLink) {
+        metricsLink.style.display = 'inline-block';
+    }
+}
+
 async function renderVideo() {
     const renderBtn = document.getElementById('render-video-btn');
     const progressDiv = document.getElementById('render-progress');
@@ -288,8 +331,10 @@ async function renderVideo() {
     const progressPercent = document.getElementById('render-progress-percent');
     const detailsDiv = document.getElementById('render-details');
     const downloadLink = document.getElementById('download-video-link');
+    const metricsLink = document.getElementById('download-metrics-link');
     const moduleSelector = document.getElementById('render-module-select');
     const targetSelect = document.getElementById('render-target-select');
+    const { costPerHour, instanceLabel } = getRenderBenchmarkInputs();
     
     const moduleNumber = moduleSelector ? moduleSelector.value : null;
     
@@ -298,14 +343,10 @@ async function renderVideo() {
         return;
     }
 
-    const target = targetSelect ? targetSelect.value : null;
+    const target = targetSelect ? targetSelect.value : 'local';
     console.log('[renderVideo] targetSelect:', !!targetSelect, 'value:', target);
     if (targetSelect && target === 'runpod') {
         renderRunpod([parseInt(moduleNumber)], { useSingleModuleUI: true });
-        return;
-    }
-    if (!targetSelect) {
-        showToast('Render target selector not found. Refresh the page and try again.', 'error');
         return;
     }
 
@@ -339,10 +380,20 @@ async function renderVideo() {
                 moduleNumber: parseInt(moduleNumber),
                 courseId: currentCourseId || 'default',
                 concurrency: recommendedRenderConcurrency,
+                costPerHour,
+                instanceLabel,
             })
         });
         
         if (!response.ok) {
+            const contentType = response.headers.get('content-type') || '';
+            if (contentType.includes('application/json')) {
+                const errData = await response.json();
+                const missing = errData.missing && errData.missing.length
+                    ? ` Missing: ${errData.missing.slice(0, 3).join(', ')}${errData.missing.length > 3 ? '...' : ''}`
+                    : '';
+                throw new Error((errData.details || errData.error || `HTTP ${response.status}`) + missing);
+            }
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         
@@ -477,6 +528,24 @@ async function renderVideo() {
                                         downloadLink.style.display = 'inline-block';
                                         downloadLink.textContent = `Download MP4 (${(data.fileSize / 1024 / 1024).toFixed(1)}MB)`;
                                     }
+                                    if (data.metricsCsvUrl && metricsLink) {
+                                        metricsLink.href = data.metricsCsvUrl;
+                                        metricsLink.style.display = 'inline-block';
+                                    }
+                                    if (data.metrics) {
+                                        if (data.metrics.wall_seconds_total) {
+                                            details.push(`Wall time: ${Number(data.metrics.wall_seconds_total).toFixed(1)}s`);
+                                        }
+                                        if (data.metrics.frames_total) {
+                                            details.push(`Frames: ${data.metrics.frames_total}`);
+                                        }
+                                        if (data.metrics.estimated_cost_usd) {
+                                            details.push(`Est. cost: $${Number(data.metrics.estimated_cost_usd).toFixed(4)}`);
+                                        }
+                                        if (data.metrics.cost_per_frame_usd) {
+                                            details.push(`Cost/frame: $${Number(data.metrics.cost_per_frame_usd).toFixed(8)}`);
+                                        }
+                                    }
                                     loadRenderedVideos();
                                     updateRenderDetails();
                                     
@@ -529,19 +598,7 @@ async function renderVideo() {
 
 // Open Remotion Studio and force reload (reuse tab if open, otherwise new tab)
 function openRemotionStudioForCourse(moduleNumber, courseId) {
-    const mod = moduleNumber || urlParams.get('module') || '1';
-    const course = courseId || currentCourseId || '';
-    const url = `http://localhost:3000?composition=module-${mod}&course=${encodeURIComponent(course)}&t=${Date.now()}`;
-    const remotionWindow = window.open(url, 'remotion-studio');
-    if (remotionWindow) {
-        try {
-            remotionWindow.location.replace(url);
-        } catch (e) {
-            console.warn('[wizard] Could not reload existing Remotion tab:', e);
-        }
-    } else {
-        showToast('Popup blocked. Open Remotion manually and press Ctrl+R to reload.', 'warning');
-    }
+    openRemotionStudioPreview(moduleNumber || urlParams.get('module') || '1', courseId || currentCourseId || '');
 }
 
 // Generate preview modules (fixed durations, no audio) and open Remotion Studio
@@ -599,15 +656,13 @@ async function renderCourse() {
     const progressPercent = document.getElementById('batch-render-percent');
     const modulesList = document.getElementById('batch-modules-list');
     const forceCheckbox = document.getElementById('batch-render-force');
+    const metricsLink = document.getElementById('download-metrics-link');
+    const { costPerHour, instanceLabel } = getRenderBenchmarkInputs();
 
-    const target = targetSelect ? targetSelect.value : null;
+    const target = targetSelect ? targetSelect.value : 'local';
     console.log('[renderCourse] targetSelect:', !!targetSelect, 'value:', target);
     if (targetSelect && target === 'runpod') {
         renderRunpod(null, { useSingleModuleUI: false, course: currentCourseId });
-        return;
-    }
-    if (!targetSelect) {
-        showToast('Render target selector not found. Refresh the page and try again.', 'error');
         return;
     }
 
@@ -681,10 +736,20 @@ async function renderCourse() {
                 scale: 1,
                 preset: 'fast',
                 force: forceCheckbox ? forceCheckbox.checked : false,
+                costPerHour,
+                instanceLabel,
             })
         });
         
         if (!response.ok) {
+            const contentType = response.headers.get('content-type') || '';
+            if (contentType.includes('application/json')) {
+                const errData = await response.json();
+                const missing = errData.missing && errData.missing.length
+                    ? ` Missing: ${errData.missing.slice(0, 3).join(', ')}${errData.missing.length > 3 ? '...' : ''}`
+                    : '';
+                throw new Error((errData.details || errData.error || `HTTP ${response.status}`) + missing);
+            }
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         
@@ -774,6 +839,10 @@ async function renderCourse() {
                                 } else {
                                     showToast('Some modules failed to render. Check: docker logs slides-app | tail -50', 'warning');
                                     loadRenderedVideos();
+                                }
+                                if (data.metricsCsvUrl && metricsLink) {
+                                    metricsLink.href = data.metricsCsvUrl;
+                                    metricsLink.style.display = 'inline-block';
                                 }
                                 
                                 if (renderCourseBtn) {
@@ -948,6 +1017,12 @@ function initWizard() {
             if (info.recommendedConcurrency) {
                 recommendedRenderConcurrency = info.recommendedConcurrency;
                 console.log(`[wizard] Render concurrency: ${recommendedRenderConcurrency} (${info.cpus} CPUs)`);
+            }
+            initRenderBenchmarkUi(info);
+            if (typeof loadRemotionStudioInfo === 'function') {
+                loadRemotionStudioInfo();
+            } else if (info.remotionStudioReachable === false) {
+                console.warn('[wizard] Remotion Studio is not running:', info.remotionStudioStartHint);
             }
         })
         .catch((error) => {

@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img" aria-label="GPU inference tradeoffs at agent scale">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7fee7"/>
+      <stop offset=".55" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f0fdf4"/>
+    </linearGradient>
+    <linearGradient id="nvGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#86efac"/>
+      <stop offset="1" stop-color="#16a34a"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity=".1"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
+    </marker>
+    <style>
+      .kicker{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;letter-spacing:.22em;fill:#15803d}
+      .title{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;fill:#111827}
+      .sub{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:500;fill:#6b7280}
+      .panelTitle{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:20px;font-weight:800;fill:#334155}
+      .panelSub{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;font-weight:500;fill:#64748b}
+      .nodeTextLight{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:14px;font-weight:800;fill:#ffffff}
+      .nodeSubLight{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:11px;font-weight:600;fill:#f8fafc}
+      .nodeTextDark{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:14px;font-weight:800;fill:#0f172a}
+      .nodeSubDark{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:12px;font-weight:600;fill:#334155}
+      .flowLine{fill:none;stroke:#94a3b8;stroke-width:2.5;stroke-linecap:round}
+      .card{fill:#ffffff;stroke:#bbf7d0;stroke-width:1.2;filter:url(#shadow)}
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <circle cx="1760" cy="140" r="220" fill="#22c55e" opacity=".06"/>
+  <path d="M48 188 H1872" stroke="#e5e7eb" stroke-width="1"/>
+
+  <text x="48" y="52" class="kicker" font-size="14">MODULE 09 - CONCEPT</text>
+  <text x="48" y="108" class="title" font-size="48">GPU Inference at Agent Scale</text>
+  <text x="48" y="152" class="sub" font-size="24">Multiple model calls per request and the latency-cost tradeoff</text>
+
+  <g id="tradeoff-panel">
+    <rect x="72" y="220" width="640" height="780" rx="28" fill="#ffffff" stroke="#bbf7d0" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="112" y="278" class="panelTitle">LATENCY vs THROUGHPUT</text>
+    <text x="112" y="308" class="panelSub">Agents multiply calls - GPUs favor parallel batches</text>
+  </g>
+
+  <g id="section-1">
+    <rect x="108" y="360" width="168" height="200" rx="14" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="192" y="408" text-anchor="middle" class="nodeTextDark" fill="#5b21b6">Agent load</text>
+    <text x="192" y="436" text-anchor="middle" class="nodeSubDark">5-20 model calls</text>
+    <text x="192" y="458" text-anchor="middle" class="nodeSubDark">per user turn</text>
+    <text x="192" y="488" text-anchor="middle" class="nodeSubDark">Latency stacks fast</text>
+  </g>
+
+  <path class="flowLine" d="M276 460 H312" marker-end="url(#arrow)"/>
+
+  <g id="section-2">
+    <rect x="316" y="360" width="168" height="88" rx="14" fill="url(#blue)" filter="url(#shadow)"/>
+    <text x="400" y="396" text-anchor="middle" class="nodeTextLight">Low latency</text>
+    <text x="400" y="418" text-anchor="middle" class="nodeSubLight">Small batches</text>
+    <text x="400" y="436" text-anchor="middle" class="nodeSubLight">Real-time chat</text>
+  </g>
+
+  <text x="400" y="490" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="800" fill="#64748b">Tradeoff</text>
+
+  <g id="section-3">
+    <rect x="316" y="508" width="168" height="88" rx="14" fill="url(#nvGreen)" filter="url(#shadow)"/>
+    <text x="400" y="544" text-anchor="middle" class="nodeTextLight">High throughput</text>
+    <text x="400" y="566" text-anchor="middle" class="nodeSubLight">Large batches</text>
+    <text x="400" y="584" text-anchor="middle" class="nodeSubLight">Background jobs</text>
+  </g>
+
+  <path class="flowLine" d="M484 460 H516" marker-end="url(#arrow)"/>
+
+  <g id="section-4">
+    <rect x="520" y="360" width="164" height="200" rx="14" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+    <text x="602" y="408" text-anchor="middle" class="nodeTextDark">Measure first</text>
+    <text x="602" y="436" text-anchor="middle" class="nodeSubDark">Baseline p50/p95</text>
+    <text x="602" y="458" text-anchor="middle" class="nodeSubDark">Token cost per req</text>
+    <text x="602" y="488" text-anchor="middle" class="nodeSubDark">Then optimize</text>
+  </g>
+
+  <text x="392" y="680" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="600" fill="#475569">Right batch size depends on workload - not one global answer</text>
+
+  <rect x="744" y="220" width="2" height="780" fill="#e5e7eb"/>
+
+  <g id="card-1">
+    <rect class="card" x="792" y="280" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="328" r="24" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+    <text x="836" y="336" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#5b21b6">1</text>
+    <foreignObject x="884" y="296" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Agents multiply inference calls per interaction - 5 to 20 model calls per user turn</div>
+    </foreignObject>
+  </g>
+  <g id="card-2">
+    <rect class="card" x="792" y="392" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="440" r="24" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="836" y="448" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#1d4ed8">2</text>
+    <foreignObject x="884" y="408" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">GPUs excel at parallel batched workloads - small batches for low latency chat</div>
+    </foreignObject>
+  </g>
+  <g id="card-3">
+    <rect class="card" x="792" y="504" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="552" r="24" fill="#ecfdf5" stroke="#86efac" stroke-width="1.5"/>
+    <text x="836" y="560" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#15803d">3</text>
+    <foreignObject x="884" y="520" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Batching trades latency for throughput - large batches for background jobs</div>
+    </foreignObject>
+  </g>
+  <g id="card-4">
+    <rect class="card" x="792" y="616" width="1040" height="96" rx="20" stroke="#86efac" stroke-width="1.5"/>
+    <circle cx="836" cy="664" r="24" fill="#ecfdf5" stroke="#86efac" stroke-width="1.5"/>
+    <text x="836" y="672" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#15803d">4</text>
+    <foreignObject x="884" y="632" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Baseline metrics before turning optimizations on - measure p50, p95, and token cost</div>
+    </foreignObject>
+  </g>
+
+  <g opacity=".92">
+    <rect x="1644" y="122" width="236" height="40" rx="20" fill="#111827"/>
+    <circle cx="1670" cy="142" r="7" fill="#22c55e"/>
+    <text x="1692" y="148" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="800" fill="#fff">inference mode</text>
+  </g>
+</svg>

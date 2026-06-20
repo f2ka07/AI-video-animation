@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img" aria-label="The agent loop pattern">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f5f3ff"/>
+      <stop offset=".55" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eff6ff"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbbf24"/>
+      <stop offset="1" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="core" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f46e5"/>
+      <stop offset="1" stop-color="#312e81"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0f172a" flood-opacity=".12"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
+    </marker>
+    <style>
+      .kicker{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;letter-spacing:.22em;fill:#7c3aed}
+      .title{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;fill:#111827}
+      .sub{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:500;fill:#6b7280}
+      .panelTitle{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:20px;font-weight:800;fill:#334155}
+      .panelSub{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;font-weight:500;fill:#64748b}
+      .nodeTextLight{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;font-weight:800;fill:#ffffff}
+      .nodeTextDark{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;font-weight:800;fill:#0f172a}
+      .nodeSubLight{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:12px;font-weight:600;fill:#f8fafc}
+      .cardText{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:26px;font-weight:650;fill:#1e293b}
+      .card{fill:#ffffff;stroke:#e9e5ff;stroke-width:1.2;filter:url(#shadow)}
+      .loopLine{fill:none;stroke:#94a3b8;stroke-width:2.5;stroke-linecap:round}
+      .loopWire{fill:none;stroke:#7c3aed;stroke-width:3.5;stroke-linecap:round;stroke-dasharray:10 14}
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <circle cx="1760" cy="130" r="220" fill="#8b5cf6" opacity=".06"/>
+  <circle cx="130" cy="950" r="260" fill="#3b82f6" opacity=".05"/>
+  <path d="M48 188 H1872" stroke="#e5e7eb" stroke-width="1"/>
+
+  <text x="48" y="52" class="kicker" font-size="14">MODULE 02 - CONCEPT</text>
+  <text x="48" y="108" class="title" font-size="48">The Agent Loop Pattern</text>
+  <text x="48" y="152" class="sub" font-size="24">Plan, act, observe, adapt - the control loop behind every agent</text>
+
+  <g id="loop-panel">
+    <rect x="72" y="220" width="640" height="780" rx="28" fill="#ffffff" stroke="#ede9fe" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="112" y="278" class="panelTitle">AGENT CONTROL LOOP</text>
+    <text x="112" y="308" class="panelSub">Goal in, iterative cycle, verified output</text>
+    <circle cx="392" cy="500" r="200" fill="none" stroke="#ddd6fe" stroke-width="2" stroke-dasharray="8 10" opacity=".7"/>
+    <path class="loopWire" d="M392 300 L392 360 M560 500 L500 500 M392 640 L392 700 M224 500 L284 500"/>
+  </g>
+
+  <g id="goal">
+    <rect x="292" y="340" width="200" height="56" rx="28" fill="#f8fafc" stroke="#c4b5fd" stroke-width="1.5"/>
+    <text x="392" y="374" text-anchor="middle" class="nodeTextDark">Goal</text>
+    <path class="loopLine" d="M392 396 L392 430" marker-end="url(#arrow)"/>
+  </g>
+
+  <g id="llm-core">
+    <circle cx="392" cy="500" r="52" fill="url(#core)" filter="url(#shadow)"/>
+    <text x="392" y="496" text-anchor="middle" class="nodeTextLight" font-size="16">LLM</text>
+    <text x="392" y="518" text-anchor="middle" class="nodeSubLight">Reasoning core</text>
+  </g>
+
+  <g id="plan">
+    <rect x="472" y="430" width="148" height="72" rx="18" fill="url(#purple)" filter="url(#shadow)"/>
+    <text x="546" y="464" text-anchor="middle" class="nodeTextLight">Plan</text>
+    <text x="546" y="486" text-anchor="middle" class="nodeSubLight">Decompose goal</text>
+  </g>
+
+  <g id="act">
+    <rect x="472" y="548" width="148" height="72" rx="18" fill="url(#blue)" filter="url(#shadow)"/>
+    <text x="546" y="582" text-anchor="middle" class="nodeTextLight">Act</text>
+    <text x="546" y="604" text-anchor="middle" class="nodeSubLight">Execute action</text>
+  </g>
+
+  <g id="observe">
+    <rect x="164" y="548" width="148" height="72" rx="18" fill="url(#green)" filter="url(#shadow)"/>
+    <text x="238" y="582" text-anchor="middle" class="nodeTextLight">Observe</text>
+    <text x="238" y="604" text-anchor="middle" class="nodeSubLight">Check result</text>
+  </g>
+
+  <g id="adapt">
+    <rect x="164" y="430" width="148" height="72" rx="18" fill="url(#amber)" filter="url(#shadow)"/>
+    <text x="238" y="464" text-anchor="middle" class="nodeTextLight">Adapt</text>
+    <text x="238" y="486" text-anchor="middle" class="nodeSubLight">Decide next</text>
+  </g>
+
+  <g id="output">
+    <path class="loopLine" d="M392 700 L392 736" marker-end="url(#arrow)"/>
+    <rect x="292" y="744" width="200" height="56" rx="28" fill="url(#green)" filter="url(#shadow)"/>
+    <text x="392" y="778" text-anchor="middle" class="nodeTextLight">Output</text>
+  </g>
+
+  <rect x="744" y="220" width="2" height="780" fill="#e5e7eb"/>
+
+  <g id="card-1">
+    <rect class="card" x="792" y="280" width="1040" height="88" rx="20"/>
+    <circle cx="836" cy="324" r="24" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+    <text x="836" y="332" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#5b21b6">1</text>
+    <text x="884" y="332" class="cardText">An agent wraps an LLM in a control loop: plan, act, observe, adapt</text>
+  </g>
+
+  <g id="card-2">
+    <rect class="card" x="792" y="388" width="1040" height="88" rx="20"/>
+    <circle cx="836" cy="432" r="24" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="836" y="440" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#475569">2</text>
+    <text x="884" y="440" class="cardText">Single-call inference: one request, one response, every interaction isolated</text>
+  </g>
+
+  <g id="card-3">
+    <rect class="card" x="792" y="496" width="1040" height="88" rx="20"/>
+    <circle cx="836" cy="540" r="24" fill="#eef2ff" stroke="#a5b4fc" stroke-width="1.5"/>
+    <text x="836" y="548" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#4338ca">3</text>
+    <text x="884" y="548" class="cardText">Agentic cycle: receive goal, plan steps, execute, observe results</text>
+  </g>
+
+  <g id="card-4">
+    <rect class="card" x="792" y="604" width="1040" height="88" rx="20"/>
+    <circle cx="836" cy="648" r="24" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.5"/>
+    <text x="836" y="656" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#b45309">4</text>
+    <text x="884" y="656" class="cardText">Repeat until goal complete, task escalated, or stopping condition hit</text>
+  </g>
+
+  <g id="card-5">
+    <rect class="card" x="792" y="712" width="1040" height="96" rx="20" stroke="#c4b5fd" stroke-width="1.5"/>
+    <circle cx="836" cy="760" r="24" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+    <text x="836" y="768" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#5b21b6">5</text>
+    <text x="884" y="768" class="cardText">The agent loop is the foundational pattern behind every agentic system</text>
+  </g>
+
+  <g opacity=".92">
+    <rect x="1676" y="122" width="196" height="40" rx="20" fill="#111827"/>
+    <circle cx="1702" cy="142" r="7" fill="#8b5cf6"/>
+    <text x="1724" y="148" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="800" fill="#fff">loop mode</text>
+  </g>
+</svg>

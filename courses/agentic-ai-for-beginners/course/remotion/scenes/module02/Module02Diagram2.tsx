@@ -1,5 +1,5 @@
-// Module 02 Diagram 2: Agent Components
-// Uses BaseDiagramScene with animated SVG (agent-components.svg + .animation.json)
+// Module 02 Diagram 2: Six Core Agent Components
+// Full-slide premium SVG synced to Gentle word timings
 import React from 'react';
 import { BaseDiagramScene } from '../../shared/BaseDiagramScene';
 import { SceneProps } from '../../shared/types';
@@ -15,10 +15,11 @@ export const Module02Diagram2: React.FC<Module02Diagram2Props> = ({
 			durationInFrames={durationInFrames}
 			cuePoints={cuePoints}
 			title="Six Core Agent Components"
-			subtitle="The six building blocks that make an agent more than a chatbot."
+			subtitle="The building blocks that make an agent more than a chatbot"
 			sectionLabel="Architecture"
-			svgPath="assets/agentic-ai-for-beginners/module02/agent-components.svg"
-			layout="full"
+			layout="immersive"
+			svgPath="assets/agentic-ai-for-beginners/module02/agent-components-premium.svg"
+			animationSpecPath="assets/agentic-ai-for-beginners/module02/agent-components-premium.animation.json"
 			slideName="module-2-architecture"
 			moduleNumber={2}
 		/>

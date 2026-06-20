@@ -10,6 +10,13 @@ import { allModules } from "../src/videos/moduleContent";
 import { saveSlideTimings, loadModuleTimings } from "./saveTimingsJson";
 import { parseModuleContent, ModuleContent } from "./parseModuleContent";
 import { validateSlideTimings } from "./validateWordTimingsQuality";
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
+const {
+	resolveGentleUrl,
+	formatGentleConnectionHelp,
+} = require("./lib/resolveGentleUrl.js");
 
 // Load environment variables from .env file
 dotenv.config({ path: path.join(__dirname, "../.env") });
@@ -26,7 +33,7 @@ interface WordTiming {
 	end: number;
 }
 
-const GENTLE_URL = process.env.GENTLE_URL || "http://localhost:8765";
+let activeGentleUrl = "";
 
 function parseModuleRange(input: string): number[] {
 	if (input === "all" || !input) {
@@ -80,13 +87,13 @@ async function callGentleAPI(
 	// Call Gentle API
 	let response;
 	try {
-		response = await fetch(`${GENTLE_URL}/transcriptions?async=false`, {
+		response = await fetch(`${activeGentleUrl}/transcriptions?async=false`, {
 			method: "POST",
 			body: form,
 			headers: form.getHeaders(),
 		});
 	} catch (error: any) {
-		throw new Error(`Cannot connect to Gentle server at ${GENTLE_URL}: ${error.message}`);
+		throw new Error(`Cannot connect to Gentle server at ${activeGentleUrl}: ${error.message}`);
 	}
 
 	if (!response.ok) {
@@ -249,20 +256,16 @@ async function loadModulesFromScripts(courseId: string): Promise<Array<ModuleCon
 async function extractWordTimingsFromContentGentle(moduleRange?: string, courseIdFilter?: string) {
 	const baseAudioDir = path.join(__dirname, "../public/audio");
 
-	// Check if Gentle is accessible
-	try {
-		const testResponse = await fetch(`${GENTLE_URL}/transcriptions?async=false`, {
-			method: "GET",
-		});
-		// Any response means the server is up (even if it's an error for GET)
-	} catch (error: any) {
-		console.error("❌ Cannot connect to Gentle server at", GENTLE_URL);
-		console.error("   Error:", error.message);
-		console.error("\n💡 To start Gentle:");
-		console.error("   1. Install Docker");
-		console.error("   2. Run: docker run -p 8765:8765 lowerquality/gentle");
-		console.error("   3. Or set GENTLE_URL environment variable if running elsewhere");
+	const gentleResolution = await resolveGentleUrl();
+	if (!gentleResolution.url) {
+		console.error(`❌ ${formatGentleConnectionHelp(gentleResolution.tried)}`);
 		process.exit(1);
+	}
+	activeGentleUrl = gentleResolution.url;
+	if (gentleResolution.fallback && gentleResolution.configuredUrl) {
+		console.log(
+			`Gentle not reachable at ${gentleResolution.configuredUrl}; using ${activeGentleUrl}\n`
+		);
 	}
 
 	// Load modules - try from moduleContent.ts first, then from course's content.json
@@ -339,7 +342,7 @@ async function extractWordTimingsFromContentGentle(moduleRange?: string, courseI
 	}
 
 	console.log("Extracting word timings using Gentle forced alignment...\n");
-	console.log(`Gentle URL: ${GENTLE_URL}`);
+	console.log(`Gentle URL: ${activeGentleUrl}`);
 	console.log(`Processing ${modulesToProcess.length} module(s)...\n`);
 
 	let totalProcessed = 0;
@@ -442,7 +445,7 @@ async function extractWordTimingsFromContentGentle(moduleRange?: string, courseI
 				totalProcessed++;
 			} catch (error: any) {
 				console.error(`\n✗ Failed for ${slide.name}:`, error.message);
-				console.error(`   Make sure Gentle is running and accessible at ${GENTLE_URL}\n`);
+				console.error(`   Make sure Gentle is running and accessible at ${activeGentleUrl}\n`);
 				totalSkipped++;
 				continue;
 			}

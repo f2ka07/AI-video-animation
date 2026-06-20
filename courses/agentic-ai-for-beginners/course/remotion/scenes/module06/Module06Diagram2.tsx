@@ -1,5 +1,5 @@
-// Module 06 Diagram 2: Enterprise use case grid
-// Uses BaseDiagramScene with animated SVG (industry-usecase-grid.svg)
+// Module 06 Diagram 2: Industry use case grid
+// Full-slide premium SVG synced to Gentle word timings
 import React from 'react';
 import { BaseDiagramScene } from '../../shared/BaseDiagramScene';
 import { SceneProps } from '../../shared/types';
@@ -15,11 +15,11 @@ export const Module06Diagram2: React.FC<Module06Diagram2Props> = ({
 			durationInFrames={durationInFrames}
 			cuePoints={cuePoints}
 			title="Industry Use Case Grid"
-			subtitle="Primary use cases: knowledge, support, research, documents, and adjacent domains."
+			subtitle="Where agentic AI deploys today: knowledge, operations, research, documents, and beyond."
 			sectionLabel="Architecture"
-			svgPath="assets/agentic-ai-for-beginners/module06/industry-usecase-grid.svg"
-			animationSpecPath="assets/agentic-ai-for-beginners/module06/industry-usecase-architecture.animation.json"
-			layout="full"
+			layout="immersive"
+			svgPath="assets/agentic-ai-for-beginners/module06/industry-usecases-premium.svg"
+			animationSpecPath="assets/agentic-ai-for-beginners/module06/industry-usecases-premium.animation.json"
 			slideName="module-6-architecture"
 			moduleNumber={6}
 		/>

@@ -1,0 +1,42 @@
+{
+  "diagram": "enterprise-adoption-premium.svg",
+  "sectionSummary": "What pushes enterprises from pilots to production agentic systems",
+  "phases": [
+    {
+      "start": 0,
+      "end": 4,
+      "show": [],
+      "dim": [],
+      "highlight": [],
+      "label": "Why enterprises are transitioning now",
+      "triggerWords": ["enterprises", "drivers", "three"]
+    },
+    {
+      "start": 4,
+      "end": 28,
+      "show": ["reliability"],
+      "dim": [],
+      "highlight": ["reliability"],
+      "label": "First: reliability",
+      "triggerWords": ["first", "reliability"]
+    },
+    {
+      "start": 28,
+      "end": 52,
+      "show": ["reliability", "traceability"],
+      "dim": ["reliability"],
+      "highlight": ["traceability"],
+      "label": "Second: traceability",
+      "triggerWords": ["second", "traceability"]
+    },
+    {
+      "start": 52,
+      "end": 90,
+      "show": ["reliability", "traceability", "integration"],
+      "dim": ["traceability"],
+      "highlight": ["integration"],
+      "label": "Third: integration",
+      "triggerWords": ["third", "integration"]
+    }
+  ]
+}

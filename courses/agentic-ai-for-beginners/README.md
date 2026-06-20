@@ -107,10 +107,23 @@ Module 05 (5 scenes):
 
 Module 06 (5 scenes):
 - Module06Intro.tsx (Enterprise Use Cases intro)
-- Module06Diagram1.tsx (Use Case Grid)
-- Module06Diagram2.tsx (Adoption Journey)
-- Module06Diagram3.tsx (Value Drivers)
-- Module06Recap.tsx (course finale)
+- Module06Diagram1.tsx (Value Drivers)
+- Module06Diagram2.tsx (Industry Use Cases)
+- Module06Diagram3.tsx (Adoption Curve)
+- Module06Recap.tsx (key takeaways)
+
+STAGE 4 EXTENDED: Remotion scene components for Modules 07-12.
+Scenes located in: course/remotion/scenes/module07/ - module12/
+Total: 60 scene components (5 per module x 12 modules)
+
+Module 07 (5 scenes): Agent Architecture Deep Dive
+Module 08 (5 scenes): Reasoning, Planning, and Memory
+Module 09 (5 scenes): NVIDIA Inference Optimization
+Module 10 (5 scenes): Knowledge Integration and RAG
+Module 11 (5 scenes): Evaluation and Monitoring
+Module 12 (5 scenes): Safety and Guardrails (course finale)
+
+PREMIUM BENCHMARK (Modules 01-12): All diagram scenes use layout="immersive" with *-premium.svg (1920x1080) and paired animation JSON. See courses/BENCHMARK.md. Validate: npm run validate-benchmark -- agentic-ai-for-beginners N
 
 Shared components in: course/remotion/shared/
 - types.ts (SceneProps, motion config, color schemes)
@@ -129,7 +142,7 @@ course/
   scripts/         Stage 1 output (complete)
   audio_ssml/      Stage 2 output (complete)
   diagrams/svg/    Stage 3 output (complete)
-  remotion/scenes/ Stage 4 output (complete)
+  remotion/scenes/ Stage 4 output (modules 01-12 complete, premium benchmark)
   audio_final/     Stage 5 output (pending)
   exports/         Stage 6-7 output (pending)
 prompts/

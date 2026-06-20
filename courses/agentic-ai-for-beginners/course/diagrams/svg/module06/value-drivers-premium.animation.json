@@ -1,0 +1,60 @@
+{
+  "diagram": "value-drivers-premium.svg",
+  "sectionSummary": "Why enterprises buy agentic AI: automation, speed, consistency, traceability, scale",
+  "phases": [
+    {
+      "start": 0,
+      "end": 18.7,
+      "show": [],
+      "dim": [],
+      "highlight": [],
+      "label": "Enterprise value drivers",
+      "triggerWords": ["enterprises", "value", "drivers"]
+    },
+    {
+      "start": 18.7,
+      "end": 33.2,
+      "show": ["spider-panel", "driver-automation", "card-1", "card-2"],
+      "dim": [],
+      "highlight": ["driver-automation", "card-2"],
+      "label": "Automation",
+      "triggerWords": ["automation"]
+    },
+    {
+      "start": 33.2,
+      "end": 45.9,
+      "show": ["spider-panel", "driver-automation", "driver-speed", "card-1", "card-2", "card-3"],
+      "dim": ["driver-automation", "card-2"],
+      "highlight": ["driver-speed", "card-3"],
+      "label": "Speed",
+      "triggerWords": ["speed"]
+    },
+    {
+      "start": 45.9,
+      "end": 57.1,
+      "show": ["spider-panel", "driver-automation", "driver-speed", "driver-consistency", "card-1", "card-2", "card-3", "card-4"],
+      "dim": ["driver-speed", "card-3"],
+      "highlight": ["driver-consistency", "card-4"],
+      "label": "Consistency",
+      "triggerWords": ["consistency"]
+    },
+    {
+      "start": 57.1,
+      "end": 65.4,
+      "show": ["spider-panel", "driver-automation", "driver-speed", "driver-consistency", "driver-traceability", "card-1", "card-2", "card-3", "card-4"],
+      "dim": ["driver-consistency", "card-4"],
+      "highlight": ["driver-traceability"],
+      "label": "Traceability",
+      "triggerWords": ["traceability"]
+    },
+    {
+      "start": 65.4,
+      "end": 100,
+      "show": ["spider-panel", "driver-automation", "driver-speed", "driver-consistency", "driver-traceability", "driver-scalability", "card-1", "card-2", "card-3", "card-4", "card-5"],
+      "dim": ["card-4"],
+      "highlight": ["driver-scalability", "card-5"],
+      "label": "Scalability and readiness",
+      "triggerWords": ["scalability", "readiness"]
+    }
+  ]
+}

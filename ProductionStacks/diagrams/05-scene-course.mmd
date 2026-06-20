@@ -1,0 +1,16 @@
+flowchart TB
+  subgraph repo["In git courses/courseId/"]
+    SCENES["remotion/scenes/"]
+    SVG["diagrams/svg/"]
+    ANIM["*.animation.json"]
+    AUDIO["audio WAVs"]
+    TIM["timings/"]
+  end
+  ACT["activateCourse"] --> PUB["public/assets + public/timings"]
+  SCENES --> MOD["src/videos/ModuleX.tsx"]
+  SVG --> PUB
+  ANIM --> PUB
+  TIM --> PUB
+  MOD --> REM["remotion render"]
+  PUB --> REM
+  REM --> MP4["out/courseId/module-N.mp4"]

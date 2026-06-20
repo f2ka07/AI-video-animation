@@ -5,6 +5,11 @@
 import * as fs from "fs";
 import * as path from "path";
 import { execSync } from "child_process";
+import {
+	SCENE_MODULE_FPS,
+	WHOOSH_DURATION_SECONDS,
+	segmentDurationFrames,
+} from "./sceneModuleTiming";
 
 interface ModuleScene {
 	name: string;
@@ -162,7 +167,7 @@ function findSceneComponents(coursePath: string, moduleNumber: number): ModuleSc
 		scenes.push({
 			name: sceneName,
 			component: componentName,
-			importPath: `../../courses/${path.basename(coursePath)}/course/remotion/scenes/${folderName}/${componentName}`,
+			importPath: `../../courses/${path.basename(coursePath)}/course/remotion/scenes/${folderName}`,
 		});
 	}
 
@@ -327,12 +332,14 @@ function generateModuleFromScenes(
 		throw new Error(`No scene components found for module ${moduleNumber}`);
 	}
 
-	// Generate imports
+	// Generate imports (barrel: scenes/module01/index.ts exports all scene components)
+	const sceneImportPath = scenes[0].importPath;
+	const sceneComponents = scenes.map((s) => s.component).join(", ");
 	const imports = [
 		'import React from "react";',
 		'import { Sequence, useVideoConfig, Audio, staticFile } from "remotion";',
 		'import { getAudioDuration } from "../utils/audioDuration";',
-		...scenes.map(s => `import { ${s.component} } from "${s.importPath}";`),
+		`import { ${sceneComponents} } from "${sceneImportPath}";`,
 	];
 
 	// Generate audio file references - use only the audio files that are actually used in scenes
@@ -378,23 +385,29 @@ function generateModuleFromScenes(
 
 	// Generate scene sequences with audio
 	let currentFrame = 0;
-	const fps = 30;
+	const fps = FPS;
 	const sequences: string[] = [];
 
 	for (let i = 0; i < scenes.length; i++) {
 		const scene = scenes[i];
 		const mapping = sceneAudioMappings[i];
+		const isLastScene = i === scenes.length - 1;
 		
 		// Calculate total duration ensuring all sequential audio files fit
-		// For sequential audio, we need: sum of all durations + small buffer
 		let totalAudioDuration = 0;
 		for (const audioFile of mapping.audioFiles) {
 			totalAudioDuration += audioFile.duration;
 		}
 		const duration = totalAudioDuration > 0 ? totalAudioDuration : (mapping.totalDuration || 30);
-		// Add 0.5s buffer to ensure audio doesn't get cut off
-		const durationWithBuffer = duration + 0.5;
-		const durationInFrames = Math.ceil(durationWithBuffer * fps);
+		const durationInFrames =
+			mapping.audioFiles.length === 1
+				? segmentDurationFrames(mapping.audioFiles[0].duration, isLastScene, false)
+				: mapping.audioFiles.length > 1
+					? mapping.audioFiles.reduce((sum, audioFile, idx) => {
+						const isLastSegmentInModule = isLastScene && idx === mapping.audioFiles.length - 1;
+						return sum + segmentDurationFrames(audioFile.duration, isLastSegmentInModule, true);
+					}, 0)
+					: Math.ceil((duration + SCENE_BUFFER_SECONDS) * fps);
 
 		// Generate cuePoints from word timings for this scene
 		const cuePoints = convertTimingsToCuePoints(timings, scene.name, mapping.audioFiles, fps);
@@ -434,7 +447,12 @@ function generateModuleFromScenes(
 			
 			for (let idx = 0; idx < mapping.audioFiles.length; idx++) {
 				const audioFile = mapping.audioFiles[idx];
-				const audioDurationFrames = Math.ceil(audioFile.duration * fps);
+				const isLastSegmentInModule = isLastScene && idx === mapping.audioFiles.length - 1;
+				const audioDurationFrames = segmentDurationFrames(
+					audioFile.duration,
+					isLastSegmentInModule,
+					true
+				);
 				
 				// Generate cuePoints for this specific audio (slice from full cuePoints)
 				// For now, use all cuePoints but they'll be relative to this audio's start
@@ -486,7 +504,7 @@ function generateModuleFromScenes(
 
 		// Add whoosh transition between scenes (except after last)
 		if (i < scenes.length - 1) {
-			const whooshFrames = Math.ceil(0.57 * fps);
+			const whooshFrames = Math.ceil(WHOOSH_DURATION_SECONDS * fps);
 			sequences.push(`
 		{/* Transition */}
 		<Sequence from={${currentFrame}} durationInFrames={${whooshFrames}}>
@@ -526,9 +544,49 @@ ${sequences.join("\n")}
 	return moduleCode;
 }
 
-const FPS = 30;
+const FPS = SCENE_MODULE_FPS;
 const WIDTH = 1920;
 const HEIGHT = 1080;
+
+function computeSceneModuleTotalFrames(
+	scenes: ModuleScene[],
+	sceneAudioMappings: SceneAudioMapping[]
+): number {
+	let totalFrames = 0;
+	const whooshFrames = Math.ceil(WHOOSH_DURATION_SECONDS * FPS);
+
+	for (let i = 0; i < scenes.length; i++) {
+		const mapping = sceneAudioMappings[i];
+		const isLastScene = i === scenes.length - 1;
+
+		if (mapping.audioFiles.length === 0) {
+			totalFrames += Math.ceil(30 * FPS);
+		} else if (mapping.audioFiles.length === 1) {
+			const audioFile = mapping.audioFiles[0];
+			totalFrames += segmentDurationFrames(
+				audioFile.duration,
+				isLastScene,
+				false
+			);
+		} else {
+			for (let idx = 0; idx < mapping.audioFiles.length; idx++) {
+				const audioFile = mapping.audioFiles[idx];
+				const isLastSegmentInModule = isLastScene && idx === mapping.audioFiles.length - 1;
+				totalFrames += segmentDurationFrames(
+					audioFile.duration,
+					isLastSegmentInModule,
+					true
+				);
+			}
+		}
+
+		if (i < scenes.length - 1) {
+			totalFrames += whooshFrames;
+		}
+	}
+
+	return Math.max(totalFrames, FPS * 10);
+}
 
 function calculateSceneModuleDurationSeconds(
 	courseId: string,
@@ -539,13 +597,7 @@ function calculateSceneModuleDurationSeconds(
 	if (scenes.length === 0) return 60;
 	const audioDurations = getAudioDurations(courseId);
 	const mappings = mapAudioToScenes(scenes, audioDurations, courseId, moduleNumber);
-	const whoosh = 0.57;
-	let total = 0;
-	for (let i = 0; i < mappings.length; i++) {
-		total += mappings[i].totalDuration > 0 ? mappings[i].totalDuration : 30;
-		if (i < mappings.length - 1) total += whoosh;
-	}
-	return Math.max(total, 10);
+	return computeSceneModuleTotalFrames(scenes, mappings) / FPS;
 }
 
 function getModuleDurationFromAudio(courseId: string, moduleNumber: number): number {
@@ -581,10 +633,15 @@ function updateRootForModules(
 	const compositions = moduleNumbers
 		.map((n) => {
 			const isScene = sceneModuleNumbers.includes(n);
-			const durationSec = isScene
-				? calculateSceneModuleDurationSeconds(courseId, n, coursePath)
-				: getModuleDurationFromAudio(courseId, n);
-			const frames = Math.ceil(durationSec * FPS);
+			let frames: number;
+			if (isScene) {
+				const sceneList = findSceneComponents(coursePath, n);
+				const audioDurations = getAudioDurations(courseId);
+				const mappings = mapAudioToScenes(sceneList, audioDurations, courseId, n);
+				frames = computeSceneModuleTotalFrames(sceneList, mappings);
+			} else {
+				frames = Math.ceil(getModuleDurationFromAudio(courseId, n) * FPS);
+			}
 			return `\t\t\t<Composition
 \t\t\t\tkey="module-${n}"
 \t\t\t\tid="module-${n}"

@@ -1,0 +1,60 @@
+{
+  "diagram": "adoption-curve-premium.svg",
+  "sectionSummary": "From pilot to platform standardization - and the blockers that slow adoption",
+  "phases": [
+    {
+      "start": 0,
+      "end": 11.5,
+      "show": [],
+      "dim": [],
+      "highlight": [],
+      "label": "Adoption stages",
+      "triggerWords": ["adoption", "stages"]
+    },
+    {
+      "start": 11.5,
+      "end": 33.9,
+      "show": ["adoption-axis", "stage-pilot", "card-1", "card-2"],
+      "dim": [],
+      "highlight": ["stage-pilot", "card-2"],
+      "label": "Stage 1: Pilot",
+      "triggerWords": ["pilot", "stage"]
+    },
+    {
+      "start": 33.9,
+      "end": 53.2,
+      "show": ["adoption-axis", "stage-pilot", "stage-integration", "card-1", "card-2", "card-3"],
+      "dim": ["stage-pilot", "card-2"],
+      "highlight": ["stage-integration", "card-3"],
+      "label": "Stage 2: Integration",
+      "triggerWords": ["integration"]
+    },
+    {
+      "start": 53.2,
+      "end": 73.7,
+      "show": ["adoption-axis", "stage-pilot", "stage-integration", "stage-scale", "card-1", "card-2", "card-3", "card-4"],
+      "dim": ["stage-integration", "card-3"],
+      "highlight": ["stage-scale", "card-4"],
+      "label": "Stage 3: Scale out",
+      "triggerWords": ["scale"]
+    },
+    {
+      "start": 73.7,
+      "end": 108.9,
+      "show": ["adoption-axis", "stage-pilot", "stage-integration", "stage-scale", "stage-platform", "card-1", "card-2", "card-3", "card-4", "card-5"],
+      "dim": ["stage-scale", "card-4"],
+      "highlight": ["stage-platform", "card-5"],
+      "label": "Stage 4: Platform",
+      "triggerWords": ["platform", "standardization"]
+    },
+    {
+      "start": 108.9,
+      "end": 160,
+      "show": ["adoption-axis", "stage-pilot", "stage-integration", "stage-scale", "stage-platform", "card-1", "card-2", "card-3", "card-4", "card-5"],
+      "dim": [],
+      "highlight": [],
+      "label": "Adoption blockers",
+      "triggerWords": ["blockers", "governance", "resistance"]
+    }
+  ]
+}

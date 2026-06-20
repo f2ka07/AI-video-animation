@@ -1,0 +1,11 @@
+flowchart TD
+  A["git clone repo"] --> B["copy .env.example to .env"]
+  B --> C["./start.sh"]
+  C --> D{"Docker installed?"}
+  D -->|no| E["INSTALL_DOCKER=1"]
+  E --> F["docker compose up"]
+  D -->|yes| F
+  F --> G["activateCourse.ts"]
+  G --> H["copy timings + SVGs to public/"]
+  H --> I["generate ModuleX.tsx"]
+  I --> J["GUI ready"]

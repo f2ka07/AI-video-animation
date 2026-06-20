@@ -932,14 +932,14 @@
         },
         {
           "name": "module-7-concept",
-          "type": "mermaid",
+          "type": "content-single",
           "script": "Let's distinguish the four key roles in agentic systems. The planner breaks a goal into subtasks and decides the order. It answers: what do we do first, second, third? The planner can be a language model, a rule-based engine, or a hybrid. Its job is structure, not execution. The executor carries out individual steps. It receives a subtask, calls the right tools, and returns a result. Executors are often single-purpose: run this query, call this API, execute this code. They're predictable and testable. The router decides which agent or tool handles a given request. \"This looks like a retrieval question—send it to the RAG pipeline. This needs a calculation—send it to the code executor.\" Routing can be model-based or rule-based. The key is deterministic behavior when you need it. The orchestrator coordinates the whole flow. It invokes the planner, dispatches to executors, handles retries, and manages state. The orchestrator is the control loop. It's where the observe-reason-act cycle lives.",
           "title": "Concept",
           "mermaidSource": "flowchart LR\n  G[Goal] --> O[Orchestrator<br/>control loop]\n  O -->|invokes| P[Planner<br/>breaks goal into subtasks]\n  P -->|subtasks| R[Router<br/>decides which tool]\n  R -->|retrieval| RAG[RAG pipeline]\n  R -->|calculation| Code[Code executor]\n  RAG -->|result| O\n  Code -->|result| O\n  O --> Out[Output]"
         },
         {
           "name": "module-7-architecture",
-          "type": "mermaid",
+          "type": "content-single",
           "script": "When do you use a single agent versus multiple agents? Single-agent architecture: one model, one loop, multiple tools. The model plans, acts, and observes in a single process. This works when the task is coherent, the steps are sequential, and you don't need specialized reasoning for different subtasks. Single-agent is simpler to build, debug, and deploy. Use it when the problem fits one mind. Multi-agent architecture: multiple specialized agents, each with its own role. A planner agent decomposes the goal. A research agent gathers information. A writer agent synthesizes. A critic agent reviews. Multi-agent shines when subtasks need different capabilities, when you want parallel execution, or when failure in one area shouldn't block others. The tradeoff: coordination complexity, latency, and cost. Use it when the problem demands specialization. The exam will ask scenario-based questions. \"A customer support workflow needs to triage, retrieve knowledge, draft a response, and escalate when uncertain.\" Which architecture fits? Multi-agent: triage, retrieval, and drafting are distinct capabilities. Single-agent might work for simple flows, but complex support needs specialization.",
           "title": "Architecture",
           "mermaidSource": "flowchart TB\n  subgraph Single[Single-agent]\n    direction LR\n    S1[one model, one loop] --- S2[coherent, sequential] --- S3[simpler] --- S4[one mind]\n  end\n  VS[vs]\n  subgraph Multi[Multi-agent]\n    direction LR\n    M1[Planner] --- M2[Research] --- M3[Writer] --- M4[Critic]\n  end\n  Single --> VS --> Multi",

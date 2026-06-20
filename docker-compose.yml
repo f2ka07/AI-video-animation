@@ -53,6 +53,7 @@ services:
     volumes:
       - ./src:/app/src
       - ./public:/app/public
+      - ./courses:/app/courses
       - ./scripts:/app/scripts
     depends_on:
       - app

@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img" aria-label="NVIDIA AI platform stack concept">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7fee7"/>
+      <stop offset=".55" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f0fdf4"/>
+    </linearGradient>
+    <linearGradient id="nvGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#86efac"/>
+      <stop offset="1" stop-color="#16a34a"/>
+    </linearGradient>
+    <linearGradient id="slate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#94a3b8"/>
+      <stop offset="1" stop-color="#334155"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0f172a" flood-opacity=".12"/>
+    </filter>
+    <style>
+      .kicker{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;letter-spacing:.22em;fill:#15803d}
+      .title{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;fill:#111827}
+      .sub{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:500;fill:#6b7280}
+      .panelTitle{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:20px;font-weight:800;fill:#334155}
+      .panelSub{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;font-weight:500;fill:#64748b}
+      .chipText{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:14px;font-weight:700;fill:#334155}
+      .chipTextLight{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:14px;font-weight:700;fill:#ffffff}
+      .layerMini{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:13px;font-weight:700;fill:#ffffff}
+      .card{fill:#ffffff;stroke:#bbf7d0;stroke-width:1.2;filter:url(#shadow)}
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <circle cx="1760" cy="140" r="220" fill="#22c55e" opacity=".06"/>
+  <circle cx="120" cy="940" r="260" fill="#64748b" opacity=".04"/>
+  <path d="M48 188 H1872" stroke="#e5e7eb" stroke-width="1"/>
+
+  <text x="48" y="52" class="kicker" font-size="14">MODULE 03 - CONCEPT</text>
+  <text x="48" y="108" class="title" font-size="48">The Infrastructure Problem</text>
+  <text x="48" y="152" class="sub" font-size="24">Production AI needs GPUs, software, serving, deployment, and integration</text>
+
+  <g id="problem-panel">
+    <rect x="72" y="220" width="640" height="780" rx="28" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="112" y="278" class="panelTitle">BEFORE: FRAGMENTED STACK</text>
+    <text x="112" y="308" class="panelSub">DIY tools stitched together - fragile at every layer</text>
+  </g>
+
+  <g id="frag-gpu">
+    <rect x="110" y="360" width="130" height="56" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="175" y="394" text-anchor="middle" class="chipText">GPUs</text>
+  </g>
+  <g id="frag-software">
+    <rect x="270" y="360" width="150" height="56" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="345" y="394" text-anchor="middle" class="chipText">GPU software</text>
+  </g>
+  <g id="frag-serve">
+    <rect x="450" y="360" width="150" height="56" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="525" y="394" text-anchor="middle" class="chipText">Inference servers</text>
+  </g>
+  <g id="frag-deploy">
+    <rect x="110" y="440" width="170" height="56" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="195" y="474" text-anchor="middle" class="chipText">Model deployment</text>
+  </g>
+  <g id="frag-integrate">
+    <rect x="310" y="440" width="190" height="56" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="405" y="474" text-anchor="middle" class="chipText">Enterprise integration</text>
+  </g>
+
+  <g id="unified-stack">
+    <rect x="100" y="560" width="584" height="400" rx="20" fill="#f8fafc" stroke="#86efac" stroke-width="2" filter="url(#shadow)"/>
+    <text x="392" y="600" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#15803d">NVIDIA AI PLATFORM STACK</text>
+    <rect x="130" y="630" width="524" height="48" rx="12" fill="#8b5cf6" opacity=".85"/>
+    <text x="392" y="660" text-anchor="middle" class="layerMini">Application layer</text>
+    <rect x="130" y="688" width="524" height="48" rx="12" fill="#3b82f6" opacity=".85"/>
+    <text x="392" y="718" text-anchor="middle" class="layerMini">NeMo + NIM</text>
+    <rect x="130" y="746" width="524" height="48" rx="12" fill="#0891b2" opacity=".85"/>
+    <text x="392" y="776" text-anchor="middle" class="layerMini">Triton serving</text>
+    <rect x="130" y="804" width="524" height="48" rx="12" fill="url(#nvGreen)"/>
+    <text x="392" y="834" text-anchor="middle" class="layerMini">CUDA + TensorRT</text>
+    <rect x="130" y="862" width="524" height="48" rx="12" fill="url(#slate)"/>
+    <text x="392" y="892" text-anchor="middle" class="layerMini">GPU hardware</text>
+    <text x="392" y="930" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="600" fill="#475569">Each layer designed to work with the others</text>
+  </g>
+
+  <rect x="744" y="220" width="2" height="780" fill="#e5e7eb"/>
+
+  <g id="card-1">
+    <rect class="card" x="792" y="280" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="328" r="24" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="836" y="336" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#475569">1</text>
+    <foreignObject x="884" y="296" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Production AI is hard because infrastructure is complex, not just models</div>
+    </foreignObject>
+  </g>
+  <g id="card-2">
+    <rect class="card" x="792" y="392" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="440" r="24" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="836" y="448" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#475569">2</text>
+    <foreignObject x="884" y="408" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">GPUs, performance software, inference servers, reliable deployment, and integration</div>
+    </foreignObject>
+  </g>
+  <g id="card-3">
+    <rect class="card" x="792" y="504" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="552" r="24" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+    <text x="836" y="560" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#9a3412">3</text>
+    <foreignObject x="884" y="520" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">DIY stacks work but are fragile - every layer is a failure point, every upgrade a risk</div>
+    </foreignObject>
+  </g>
+  <g id="card-4">
+    <rect class="card" x="792" y="616" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="664" r="24" fill="#ecfdf5" stroke="#86efac" stroke-width="1.5"/>
+    <text x="836" y="672" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#15803d">4</text>
+    <foreignObject x="884" y="632" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">NVIDIA provides a unified platform - hardware and software designed together</div>
+    </foreignObject>
+  </g>
+  <g id="card-5">
+    <rect class="card" x="792" y="728" width="1040" height="96" rx="20" stroke="#86efac" stroke-width="1.5"/>
+    <circle cx="836" cy="776" r="24" fill="#ecfdf5" stroke="#86efac" stroke-width="1.5"/>
+    <text x="836" y="784" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#15803d">5</text>
+    <foreignObject x="884" y="744" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Goal: reduce deployment complexity so engineers focus on applications</div>
+    </foreignObject>
+  </g>
+
+  <g opacity=".92">
+    <rect x="1664" y="122" width="216" height="40" rx="20" fill="#111827"/>
+    <circle cx="1690" cy="142" r="7" fill="#22c55e"/>
+    <text x="1712" y="148" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="800" fill="#fff">platform mode</text>
+  </g>
+</svg>

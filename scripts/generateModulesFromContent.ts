@@ -754,30 +754,19 @@ function main() {
 	console.log(`Generating modules: ${modulesToGenerate.join(", ")}\n`);
 
 	for (const module of modulesToProcess) {
-		console.log(`Generating Module ${module.moduleNumber}: ${module.title}`);
-		console.log(`  ${module.slides.length} slides`);
-
-		// Generate config
-		const configPath = path.join(__dirname, `../src/videos/Module${module.moduleNumber}Config.ts`);
-		fs.writeFileSync(configPath, generateModuleConfig(module, previewMode));
-		console.log(`  ✓ Module${module.moduleNumber}Config.ts`);
-
-		// Generate module file (skip if PRESERVE_MANUAL_EDITS)
-		const modulePath = path.join(__dirname, `../src/videos/Module${module.moduleNumber}.tsx`);
-		const existingModule = fs.existsSync(modulePath) ? fs.readFileSync(modulePath, "utf-8") : "";
-		if (existingModule && /\/\/\s*PRESERVE_MANUAL_EDITS/i.test(existingModule)) {
-			console.log(`  Skipped Module${module.moduleNumber}.tsx (PRESERVE_MANUAL_EDITS)`);
-		} else {
-			fs.writeFileSync(modulePath, generateModuleFile(module, previewMode, bulletsOnly));
-			console.log(`  ✓ Module${module.moduleNumber}.tsx`);
-		}
+		console.log(`Module ${module.moduleNumber}: ${module.title} (${module.slides.length} slides)`);
 	}
 
 	if (!skipRoot) {
-		console.log("\nUpdating Root.tsx...");
+		console.log("\nUpdating Root.tsx (GenericModule)...");
 		updateRootFile(allModules);
-		console.log("  ✓ Root.tsx updated");
+		console.log("  Root.tsx updated");
 	}
+
+	console.log(
+		"\nSkipped ModuleN.tsx / ModuleNConfig.ts (slide courses use GenericModule + moduleContent.ts)."
+	);
+	console.log("  Scene courses: npx tsx scripts/generateModulesFromScenes.ts <courseId> <range>");
 
 	console.log(`\n✅ Modules ${modulesToGenerate.join(", ")} generated!`);
 	if (previewMode) {

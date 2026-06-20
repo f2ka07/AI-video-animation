@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img" aria-label="Implementing memory and guards">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef2ff"/>
+      <stop offset=".55" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f5f3ff"/>
+    </linearGradient>
+    <linearGradient id="indigo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#818cf8"/>
+      <stop offset="1" stop-color="#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity=".1"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
+    </marker>
+    <style>
+      .kicker{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;letter-spacing:.22em;fill:#4338ca}
+      .title{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;fill:#111827}
+      .sub{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:500;fill:#6b7280}
+      .panelTitle{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:20px;font-weight:800;fill:#334155}
+      .panelSub{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;font-weight:500;fill:#64748b}
+      .nodeTextLight{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:14px;font-weight:800;fill:#ffffff}
+      .nodeSubLight{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:11px;font-weight:600;fill:#f8fafc}
+      .flowLine{fill:none;stroke:#94a3b8;stroke-width:2.5;stroke-linecap:round}
+      .card{fill:#ffffff;stroke:#c7d2fe;stroke-width:1.2;filter:url(#shadow)}
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <circle cx="200" cy="880" r="240" fill="#6366f1" opacity=".05"/>
+  <path d="M48 188 H1872" stroke="#e5e7eb" stroke-width="1"/>
+
+  <text x="48" y="52" class="kicker" font-size="14">MODULE 08 - APPLICATION</text>
+  <text x="48" y="108" class="title" font-size="48">Implementing Memory and Guards</text>
+  <text x="48" y="152" class="sub" font-size="24">Critique steps, structured state, retrieval filters, and anti-loop guards</text>
+
+  <g id="patterns-panel">
+    <rect x="72" y="220" width="640" height="780" rx="28" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="112" y="278" class="panelTitle">IMPLEMENTATION PATTERNS</text>
+    <text x="112" y="308" class="panelSub">Reflection, state, retrieval, and safety guards</text>
+  </g>
+
+  <g id="section-1">
+    <rect x="108" y="360" width="268" height="140" rx="14" fill="url(#indigo)" filter="url(#shadow)"/>
+    <text x="242" y="404" text-anchor="middle" class="nodeTextLight">Reflection step</text>
+    <text x="242" y="428" text-anchor="middle" class="nodeSubLight">Critic reviews output</text>
+    <text x="242" y="448" text-anchor="middle" class="nodeSubLight">Retry with feedback</text>
+  </g>
+
+  <path class="flowLine" d="M376 430 H396" marker-end="url(#arrow)"/>
+
+  <g id="section-2">
+    <rect x="400" y="360" width="268" height="140" rx="14" fill="url(#blue)" filter="url(#shadow)"/>
+    <text x="534" y="404" text-anchor="middle" class="nodeTextLight">Working state</text>
+    <text x="534" y="428" text-anchor="middle" class="nodeSubLight">Structured goal + steps</text>
+    <text x="534" y="448" text-anchor="middle" class="nodeSubLight">Re-inject every call</text>
+  </g>
+
+  <path class="flowLine" d="M242 500 L242 528" marker-end="url(#arrow)"/>
+  <path class="flowLine" d="M534 500 L534 528" marker-end="url(#arrow)"/>
+
+  <g id="section-3">
+    <rect x="108" y="532" width="268" height="140" rx="14" fill="url(#green)" filter="url(#shadow)"/>
+    <text x="242" y="576" text-anchor="middle" class="nodeTextLight">Long-term store</text>
+    <text x="242" y="600" text-anchor="middle" class="nodeSubLight">Vector DB or facts DB</text>
+    <text x="242" y="620" text-anchor="middle" class="nodeSubLight">Freshness + citations</text>
+  </g>
+
+  <path class="flowLine" d="M376 602 H396" marker-end="url(#arrow)"/>
+
+  <g id="section-4">
+    <rect x="400" y="532" width="268" height="140" rx="14" fill="#dc2626" stroke="#b91c1c" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="534" y="576" text-anchor="middle" class="nodeTextLight">Anti-loop guards</text>
+    <text x="534" y="600" text-anchor="middle" class="nodeSubLight">Detect repeated tools</text>
+    <text x="534" y="620" text-anchor="middle" class="nodeSubLight">Max-step - escalate</text>
+  </g>
+
+  <text x="392" y="740" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="600" fill="#475569">Latency vs quality: reflection trades speed for accuracy</text>
+
+  <rect x="744" y="220" width="2" height="780" fill="#e5e7eb"/>
+
+  <g id="card-1">
+    <rect class="card" x="792" y="280" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="328" r="24" fill="#eef2ff" stroke="#a5b4fc" stroke-width="1.5"/>
+    <text x="836" y="336" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#4338ca">1</text>
+    <foreignObject x="884" y="296" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Add a critique step for high-stakes outputs - retry with feedback before returning</div>
+    </foreignObject>
+  </g>
+  <g id="card-2">
+    <rect class="card" x="792" y="392" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="440" r="24" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="836" y="448" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#1d4ed8">2</text>
+    <foreignObject x="884" y="408" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Structured working memory state object - re-inject goal and steps every model call</div>
+    </foreignObject>
+  </g>
+  <g id="card-3">
+    <rect class="card" x="792" y="504" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="552" r="24" fill="#ecfdf5" stroke="#86efac" stroke-width="1.5"/>
+    <text x="836" y="560" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#15803d">3</text>
+    <foreignObject x="884" y="520" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Long-term retrieval with freshness rules and citation requirements</div>
+    </foreignObject>
+  </g>
+  <g id="card-4">
+    <rect class="card" x="792" y="616" width="1040" height="96" rx="20" stroke="#fca5a5" stroke-width="1.5"/>
+    <circle cx="836" cy="664" r="24" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+    <text x="836" y="672" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#991b1b">4</text>
+    <foreignObject x="884" y="632" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Anti-loop guards and max-step limits - escalate to human when stuck</div>
+    </foreignObject>
+  </g>
+
+  <g opacity=".92">
+    <rect x="1644" y="122" width="236" height="40" rx="20" fill="#111827"/>
+    <circle cx="1670" cy="142" r="7" fill="#6366f1"/>
+    <text x="1692" y="148" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="800" fill="#fff">production mode</text>
+  </g>
+</svg>

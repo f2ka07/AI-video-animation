@@ -1,0 +1,39 @@
+% Mermaid diagram blocks for documentation.
+% Overleaf: paste .mmd files into https://mermaid.live and export PNG/SVG to figures/
+% Or compile with: npx @mermaid-js/mermaid-cli -i diagrams/ -o figures/
+
+\ProvidesPackage{mermaid}[2026/06/13 Mermaid diagram environments]
+
+\RequirePackage{xcolor}
+\RequirePackage{mdframed}
+\RequirePackage{graphicx}
+\RequirePackage{ifthen}
+
+\definecolor{mermaidbg}{HTML}{F2F5F9}
+\definecolor{mermaidborder}{HTML}{0F2847}
+
+\newenvironment{mermaidsource}[1][]{%
+	\begin{figure}[htbp]
+	\centering
+	\begin{mdframed}[
+		linecolor=mermaidborder,
+		backgroundcolor=mermaidbg,
+		innertopmargin=8pt,
+		innerbottommargin=8pt,
+		innerleftmargin=10pt,
+		innerrightmargin=10pt
+	]
+	\small\ttfamily
+}{%
+	\end{mdframed}
+	\ifthenelse{\equal{#1}{}}{}{\caption{#1}}
+	\end{figure}
+}
+
+\newcommand{\mermaidfigure}[3][]{%
+	\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=#2\textwidth]{#3}
+	\ifthenelse{\equal{#1}{}}{}{\caption{#1}}
+	\end{figure}
+}

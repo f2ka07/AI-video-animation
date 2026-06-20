@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img" aria-label="Workloads vs demos and production requirements">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eff6ff"/>
+      <stop offset=".55" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#ecfeff"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset="1" stop-color="#0891b2"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0f172a" flood-opacity=".1"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
+    </marker>
+    <style>
+      .kicker{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;letter-spacing:.22em;fill:#0369a1}
+      .title{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:800;fill:#111827}
+      .sub{font-family:Inter,Segoe UI,Arial,sans-serif;font-weight:500;fill:#6b7280}
+      .panelTitle{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:20px;font-weight:800;fill:#334155}
+      .panelSub{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;font-weight:500;fill:#64748b}
+      .chipText{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:14px;font-weight:700;fill:#334155}
+      .chipTextLight{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:14px;font-weight:700;fill:#ffffff}
+      .nodeTitle{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:13px;font-weight:800;fill:#ffffff}
+      .nodeSub{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:11px;font-weight:600;fill:#f0f9ff}
+      .flowLine{fill:none;stroke:#94a3b8;stroke-width:2.5;stroke-linecap:round}
+      .card{fill:#ffffff;stroke:#bae6fd;stroke-width:1.2;filter:url(#shadow)}
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <circle cx="1700" cy="180" r="220" fill="#0891b2" opacity=".06"/>
+  <circle cx="120" cy="920" r="260" fill="#2563eb" opacity=".04"/>
+  <path d="M48 188 H1872" stroke="#e5e7eb" stroke-width="1"/>
+
+  <text x="48" y="52" class="kicker" font-size="14">MODULE 04 - CONCEPT</text>
+  <text x="48" y="108" class="title" font-size="48">Workloads vs Demos</text>
+  <text x="48" y="152" class="sub" font-size="24">Workloads are sustained production processes, not one-off demos</text>
+
+  <g id="concept-panel">
+    <rect x="72" y="220" width="640" height="780" rx="28" fill="#ffffff" stroke="#bae6fd" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="112" y="278" class="panelTitle">PRODUCTION REQUIREMENTS</text>
+    <text x="112" y="308" class="panelSub">Demos impress once; workloads survive at scale</text>
+  </g>
+
+  <g id="pipeline-preview">
+    <rect x="100" y="340" width="584" height="200" rx="16" fill="#f8fafc" stroke="#bae6fd" stroke-width="1.5"/>
+    <text x="392" y="378" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="800" fill="#0369a1">MINI INFERENCE PIPELINE</text>
+    <text x="392" y="404" text-anchor="middle" class="panelSub">Continuous requests, not chat-window prompts</text>
+    <rect x="118" y="430" width="108" height="52" rx="12" fill="#64748b" filter="url(#shadow)"/>
+    <text x="172" y="454" text-anchor="middle" class="nodeTitle">Intake</text>
+    <text x="172" y="470" text-anchor="middle" class="nodeSub">Validate</text>
+    <path class="flowLine" d="M226 456 H248" marker-end="url(#arrow)"/>
+    <rect x="252" y="430" width="108" height="52" rx="12" fill="url(#blue)" filter="url(#shadow)"/>
+    <text x="306" y="454" text-anchor="middle" class="nodeTitle">Retrieve</text>
+    <text x="306" y="470" text-anchor="middle" class="nodeSub">Context</text>
+    <path class="flowLine" d="M360 456 H382" marker-end="url(#arrow)"/>
+    <rect x="386" y="430" width="108" height="52" rx="12" fill="url(#teal)" filter="url(#shadow)"/>
+    <text x="440" y="454" text-anchor="middle" class="nodeTitle">Infer</text>
+    <text x="440" y="470" text-anchor="middle" class="nodeSub">LLM runs</text>
+    <path class="flowLine" d="M494 456 H516" marker-end="url(#arrow)"/>
+    <rect x="520" y="430" width="108" height="52" rx="12" fill="#0f766e" filter="url(#shadow)"/>
+    <text x="574" y="454" text-anchor="middle" class="nodeTitle">Output</text>
+    <text x="574" y="470" text-anchor="middle" class="nodeSub">Log + metrics</text>
+    <rect x="130" y="500" width="160" height="28" rx="14" fill="#fef2f2" stroke="#fecaca"/>
+    <text x="210" y="520" text-anchor="middle" class="chipText" fill="#991b1b">Demo: one clever run</text>
+    <rect x="494" y="500" width="160" height="28" rx="14" fill="#ecfeff" stroke="#67e8f9"/>
+    <text x="574" y="520" text-anchor="middle" class="chipText" fill="#0e7490">Workload: 1000s/day</text>
+  </g>
+
+  <g id="req-reliable">
+    <rect x="108" y="580" width="268" height="72" rx="16" fill="#2563eb" filter="url(#shadow)"/>
+    <text x="242" y="612" text-anchor="middle" class="chipTextLight">Reliable</text>
+    <text x="242" y="634" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="600" fill="#dbeafe">Retry, errors, graceful degradation</text>
+  </g>
+  <g id="req-traceable">
+    <rect x="408" y="580" width="268" height="72" rx="16" fill="#0891b2" filter="url(#shadow)"/>
+    <text x="542" y="612" text-anchor="middle" class="chipTextLight">Traceable</text>
+    <text x="542" y="634" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="600" fill="#cffafe">Log inputs, outputs, latency</text>
+  </g>
+  <g id="req-reproducible">
+    <rect x="108" y="672" width="268" height="72" rx="16" fill="#0ea5e9" filter="url(#shadow)"/>
+    <text x="242" y="704" text-anchor="middle" class="chipTextLight">Reproducible</text>
+    <text x="242" y="726" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="600" fill="#e0f2fe">Consistent outputs for same inputs</text>
+  </g>
+  <g id="req-cost">
+    <rect x="408" y="672" width="268" height="72" rx="16" fill="#0f766e" filter="url(#shadow)"/>
+    <text x="542" y="704" text-anchor="middle" class="chipTextLight">Cost-efficient</text>
+    <text x="542" y="726" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="600" fill="#ccfbf1">Optimize latency and token cost</text>
+  </g>
+
+  <text x="392" y="820" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" fill="#0369a1">Workloads are production. Demos are prototypes.</text>
+
+  <rect x="744" y="220" width="2" height="780" fill="#e5e7eb"/>
+
+  <g id="card-1">
+    <rect class="card" x="792" y="280" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="328" r="24" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="836" y="336" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#1d4ed8">1</text>
+    <foreignObject x="884" y="296" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">A workload is a sustained operational process - not a one-off demo or chat prompt</div>
+    </foreignObject>
+  </g>
+  <g id="card-2">
+    <rect class="card" x="792" y="392" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="440" r="24" fill="#ecfeff" stroke="#67e8f9" stroke-width="1.5"/>
+    <text x="836" y="448" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#0e7490">2</text>
+    <foreignObject x="884" y="408" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">AI workloads continuously receive requests, run inference, and return results at scale</div>
+    </foreignObject>
+  </g>
+  <g id="card-3">
+    <rect class="card" x="792" y="504" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="552" r="24" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="836" y="560" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#1d4ed8">3</text>
+    <foreignObject x="884" y="520" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Reliable workloads need retry logic, error handling, and graceful degradation</div>
+    </foreignObject>
+  </g>
+  <g id="card-4">
+    <rect class="card" x="792" y="616" width="1040" height="96" rx="20"/>
+    <circle cx="836" cy="664" r="24" fill="#ecfeff" stroke="#67e8f9" stroke-width="1.5"/>
+    <text x="836" y="672" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#0e7490">4</text>
+    <foreignObject x="884" y="632" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Traceable and reproducible: log every call; consistent outputs for the same inputs</div>
+    </foreignObject>
+  </g>
+  <g id="card-5">
+    <rect class="card" x="792" y="728" width="1040" height="96" rx="20" stroke="#67e8f9" stroke-width="1.5"/>
+    <circle cx="836" cy="776" r="24" fill="#ecfeff" stroke="#67e8f9" stroke-width="1.5"/>
+    <text x="836" y="784" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" fill="#0e7490">5</text>
+    <foreignObject x="884" y="744" width="920" height="64">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:650;color:#1e293b;line-height:1.35;margin:0;">Cost-efficient at scale - every millisecond and token has a cost; workloads are production</div>
+    </foreignObject>
+  </g>
+
+  <g opacity=".92">
+    <rect x="1644" y="122" width="236" height="40" rx="20" fill="#111827"/>
+    <circle cx="1670" cy="142" r="7" fill="#0891b2"/>
+    <text x="1692" y="148" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="800" fill="#fff">pipeline mode</text>
+  </g>
+</svg>

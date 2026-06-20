@@ -41,6 +41,7 @@ services:
     volumes:
       - ./src:/app/src
       - ./public:/app/public
+      - ./courses:/app/courses
       - ./scripts:/app/scripts
     restart: unless-stopped
     networks:

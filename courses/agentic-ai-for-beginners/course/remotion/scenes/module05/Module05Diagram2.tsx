@@ -1,5 +1,5 @@
 // Module 05 Diagram 2: Integration Surfaces
-// Uses BaseDiagramScene with animated SVG (integration-surfaces.svg + .animation.json)
+// Full-slide premium SVG synced to Gentle word timings
 import React from 'react';
 import { BaseDiagramScene } from '../../shared/BaseDiagramScene';
 import { SceneProps } from '../../shared/types';
@@ -17,9 +17,9 @@ export const Module05Diagram2: React.FC<Module05Diagram2Props> = ({
 			title="Integration Surfaces"
 			subtitle="How agents connect to APIs, tools, enterprise data, and policy gateways."
 			sectionLabel="Architecture"
-			svgPath="assets/agentic-ai-for-beginners/module05/integration-surfaces.svg"
-			animationSpecPath="assets/agentic-ai-for-beginners/module05/integration-surfaces-architecture.animation.json"
-			layout="full"
+			layout="immersive"
+			svgPath="assets/agentic-ai-for-beginners/module05/integration-surfaces-premium.svg"
+			animationSpecPath="assets/agentic-ai-for-beginners/module05/integration-surfaces-premium.animation.json"
 			slideName="module-5-architecture"
 			moduleNumber={5}
 		/>

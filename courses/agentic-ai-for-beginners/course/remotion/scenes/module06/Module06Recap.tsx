@@ -1,4 +1,4 @@
-// Module 06 Recap: Key Takeaways - Course Finale
+// Module 06 Recap: Key Takeaways
 import React from 'react';
 import { useCurrentFrame, useVideoConfig, spring, interpolate } from 'remotion';
 import { SceneProps, COLORS } from '../../shared/types';
@@ -23,7 +23,7 @@ export const Module06Recap: React.FC<Module06RecapProps> = ({
 		'Agentic AI is a business category. Enterprises adopt it for automation, speed, consistency, traceability, and scalability.',
 		'Primary use cases: knowledge management, customer ops, research, document automation, data workflows.',
 		'Adoption happens in stages: pilot, integration, scale-out, platform standardization.',
-		'You now understand what agentic AI is, how it works, and where it applies.',
+		'Most organizations are early in this journey - sustained investment and alignment matter.',
 	];
 
 	const getPointSpring = (index: number) => {
@@ -41,14 +41,6 @@ export const Module06Recap: React.FC<Module06RecapProps> = ({
 		fps,
 		config: { damping: 25, stiffness: 70 },
 		delay: fps * 0.2,
-	});
-
-	const finaleSpring = spring({
-		frame,
-		fps,
-		config: { damping: 15, stiffness: 80 },
-		delay: fps * 2,
-		durationInFrames: fps * 0.8,
 	});
 
 	return (
@@ -103,7 +95,7 @@ export const Module06Recap: React.FC<Module06RecapProps> = ({
 						color: COLORS.dark.text,
 					}}
 				>
-					Course Complete
+					Key Takeaways
 				</h2>
 
 				<p style={{ fontSize: 24, margin: 0, marginBottom: 50, opacity: titleSpring, color: COLORS.dark.muted }}>
@@ -168,19 +160,11 @@ export const Module06Recap: React.FC<Module06RecapProps> = ({
 					left: 100,
 					right: 100,
 					textAlign: 'center',
-					opacity: finaleSpring,
-					transform: `translateY(${interpolate(finaleSpring, [0, 1], [20, 0])}px)`,
+					opacity: interpolate(getPointSpring(3), [0, 1], [0, 0.8]),
 				}}
 			>
-				<p
-					style={{
-						fontSize: 36,
-						color: '#ec4899',
-						margin: 0,
-						fontWeight: 600,
-					}}
-				>
-					The rest is practice. Good luck on the exam.
+				<p style={{ fontSize: 32, color: '#ec4899', margin: 0, fontStyle: 'italic' }}>
+					Practical grounding for enterprise adoption - value drivers and use cases.
 				</p>
 			</div>
 

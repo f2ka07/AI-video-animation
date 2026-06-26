@@ -28,14 +28,20 @@ if (Test-PortInUse 3000) {
     Write-Host ""
 }
 
-# Optional: Gentle for word timings (does not bind 3000/3001)
+# Gentle (word timings) + optional MFA via Docker; GUI/Remotion run on the host.
 if (Get-Command docker -ErrorAction SilentlyContinue) {
     try {
         docker info 2>$null | Out-Null
-        Write-Host "Starting Gentle container (word timings)..." -ForegroundColor Yellow
-        docker-compose up -d gentle 2>$null
+        Write-Host "Pulling / starting Gentle (localhost:8765)..." -ForegroundColor Yellow
+        docker compose pull gentle 2>$null
+        docker compose up -d gentle 2>&1 | ForEach-Object { Write-Host $_ }
+        if ($LASTEXITCODE -ne 0) {
+            Write-Host "Gentle failed — port 8765 may already be in use:" -ForegroundColor Yellow
+            Write-Host "  docker ps --filter publish=8765" -ForegroundColor Gray
+            Write-Host "  docker stop <name>  OR set GENTLE_HOST_PORT=8766 in .env" -ForegroundColor Gray
+        }
     } catch {
-        Write-Host "Docker not running - skipping Gentle (Step 4 may need Docker later)" -ForegroundColor Gray
+        Write-Host "Docker not running - skipping Gentle (use MFA or fix Docker for Step 4)" -ForegroundColor Gray
     }
 }
 

@@ -1,4 +1,4 @@
-// Git deploy policy: only the activated course is tracked; archived courses are detached.
+// Git deploy policy: all active (non-archived) courses + their audio are tracked in git.
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
@@ -27,6 +27,27 @@ function readFileSafe(filePath) {
 		return '';
 	}
 	return fs.readFileSync(filePath, 'utf-8');
+}
+
+function readCoursesJson(repoRoot) {
+	const coursesJsonPath = path.join(repoRoot, 'courses.json');
+	if (!fs.existsSync(coursesJsonPath)) {
+		return { courses: [] };
+	}
+	try {
+		return JSON.parse(fs.readFileSync(coursesJsonPath, 'utf-8'));
+	} catch (error) {
+		console.warn('[courseDeployPolicy] Could not read courses.json:', error.message);
+		return { courses: [] };
+	}
+}
+
+function getDeployableCourseIds(repoRoot) {
+	const data = readCoursesJson(repoRoot);
+	return (data.courses || [])
+		.filter((course) => course.status === 'active' && course.id)
+		.map((course) => course.id)
+		.sort();
 }
 
 function getActivatedCourseId(repoRoot) {
@@ -68,24 +89,24 @@ function escapeRegExp(value) {
 	return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-function buildCoursesGitignoreLines(activatedCourseId) {
+function buildCoursesGitignoreLines(deployableCourseIds) {
 	const lines = [
 		'courses/*',
 		'!courses/.gitkeep',
 	];
-	if (activatedCourseId) {
-		lines.push(`!courses/${activatedCourseId}/`);
+	for (const courseId of deployableCourseIds) {
+		lines.push(`!courses/${courseId}/`);
 	}
 	return lines;
 }
 
-function buildAudioGitignoreLines(activatedCourseId) {
+function buildAudioGitignoreLines(deployableCourseIds) {
 	const lines = [
 		'public/audio/*',
 		'!public/audio/whoosh.wav',
 	];
-	if (activatedCourseId) {
-		lines.push(`!public/audio/${activatedCourseId}/`);
+	for (const courseId of deployableCourseIds) {
+		lines.push(`!public/audio/${courseId}/`);
 	}
 	return lines;
 }
@@ -94,15 +115,15 @@ function buildTimingsGitignoreLines() {
 	return ['public/timings/'];
 }
 
-function applyGitignorePolicy(repoRoot, activatedCourseId) {
+function applyGitignorePolicy(repoRoot, deployableCourseIds) {
 	const gitignorePath = path.join(repoRoot, '.gitignore');
 	let content = readFileSafe(gitignorePath);
 	if (!content) {
 		throw new Error('.gitignore not found');
 	}
 
-	content = replaceSection(content, MARKERS.courses, buildCoursesGitignoreLines(activatedCourseId));
-	content = replaceSection(content, MARKERS.audio, buildAudioGitignoreLines(activatedCourseId));
+	content = replaceSection(content, MARKERS.courses, buildCoursesGitignoreLines(deployableCourseIds));
+	content = replaceSection(content, MARKERS.audio, buildAudioGitignoreLines(deployableCourseIds));
 	content = replaceSection(content, MARKERS.timings, buildTimingsGitignoreLines());
 
 	fs.writeFileSync(gitignorePath, content.endsWith('\n') ? content : `${content}\n`);
@@ -114,7 +135,7 @@ function applyGitignorePolicy(repoRoot, activatedCourseId) {
 	}
 }
 
-function writeDeployManifest(repoRoot, activatedCourseId) {
+function writeDeployManifest(repoRoot, deployableCourseIds, activatedCourseId) {
 	const manifestDir = path.join(repoRoot, 'workspace');
 	const manifestPath = path.join(manifestDir, 'deploy-manifest.json');
 	if (!fs.existsSync(manifestDir)) {
@@ -122,8 +143,9 @@ function writeDeployManifest(repoRoot, activatedCourseId) {
 	}
 	const manifest = {
 		activatedCourseId,
+		deployableCourseIds,
 		updatedAt: new Date().toISOString(),
-		policy: 'only-activated-course-deployed',
+		policy: 'all-active-courses-deployed',
 	};
 	fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
 }
@@ -146,21 +168,47 @@ function listTrackedCourseDirs(repoRoot) {
 				dirs.add(parts[1]);
 			}
 		}
-		return [...dirs];
+		return [...dirs].sort();
 	} catch {
 		return [];
 	}
 }
 
-function pruneGitCourseIndex(repoRoot, activatedCourseId) {
+function listTrackedAudioCourseDirs(repoRoot) {
+	try {
+		const output = execSync('git ls-files public/audio/', {
+			cwd: repoRoot,
+			encoding: 'utf-8',
+			stdio: ['ignore', 'pipe', 'ignore'],
+		});
+		const dirs = new Set();
+		for (const line of output.split('\n')) {
+			const trimmed = line.trim();
+			if (!trimmed.startsWith('public/audio/')) {
+				continue;
+			}
+			const parts = trimmed.split('/');
+			if (parts.length >= 3 && parts[2] && parts[2] !== 'whoosh.wav') {
+				dirs.add(parts[2]);
+			}
+		}
+		return [...dirs].sort();
+	} catch {
+		return [];
+	}
+}
+
+function pruneGitCourseIndex(repoRoot, deployableCourseIds) {
 	if (!fs.existsSync(path.join(repoRoot, '.git'))) {
 		return { pruned: [], skipped: true };
 	}
 
-	const tracked = listTrackedCourseDirs(repoRoot);
+	const deployableSet = new Set(deployableCourseIds);
 	const pruned = [];
-	for (const courseId of tracked) {
-		if (courseId === activatedCourseId) {
+
+	const trackedCourses = listTrackedCourseDirs(repoRoot);
+	for (const courseId of trackedCourses) {
+		if (deployableSet.has(courseId)) {
 			continue;
 		}
 		try {
@@ -168,9 +216,25 @@ function pruneGitCourseIndex(repoRoot, activatedCourseId) {
 				cwd: repoRoot,
 				stdio: 'pipe',
 			});
-			pruned.push(courseId);
+			pruned.push(`courses/${courseId}`);
 		} catch (error) {
 			console.warn(`[courseDeployPolicy] git rm --cached failed for ${courseId}:`, error.message);
+		}
+	}
+
+	const trackedAudio = listTrackedAudioCourseDirs(repoRoot);
+	for (const courseId of trackedAudio) {
+		if (deployableSet.has(courseId)) {
+			continue;
+		}
+		try {
+			execSync(`git rm -r --cached --ignore-unmatch "public/audio/${courseId}"`, {
+				cwd: repoRoot,
+				stdio: 'pipe',
+			});
+			pruned.push(`public/audio/${courseId}`);
+		} catch (error) {
+			console.warn(`[courseDeployPolicy] git rm --cached failed for public/audio/${courseId}:`, error.message);
 		}
 	}
 
@@ -255,20 +319,24 @@ export const allModules: ModuleContent[] = [];
 
 function applyCourseDeployPolicy(repoRoot, options = {}) {
 	const root = repoRoot || getRepoRoot(__dirname);
+	const deployableCourseIds = options.deployableCourseIds !== undefined
+		? [...options.deployableCourseIds].sort()
+		: getDeployableCourseIds(root);
 	const activatedCourseId = options.activatedCourseId !== undefined
 		? options.activatedCourseId
 		: getActivatedCourseId(root);
 
-	applyGitignorePolicy(root, activatedCourseId);
-	writeDeployManifest(root, activatedCourseId);
+	applyGitignorePolicy(root, deployableCourseIds);
+	writeDeployManifest(root, deployableCourseIds, activatedCourseId);
 
 	let pruneResult = { pruned: [], skipped: true };
 	if (options.pruneGit) {
-		pruneResult = pruneGitCourseIndex(root, activatedCourseId);
+		pruneResult = pruneGitCourseIndex(root, deployableCourseIds);
 	}
 
 	return {
 		activatedCourseId,
+		deployableCourseIds,
 		pruneResult,
 	};
 }
@@ -286,7 +354,6 @@ function detachArchivedCourse(repoRoot, courseId, options = {}) {
 	}
 
 	const policy = applyCourseDeployPolicy(root, {
-		activatedCourseId: wasActivated ? null : getActivatedCourseId(root),
 		pruneGit: !!options.pruneGit,
 	});
 
@@ -298,40 +365,80 @@ function detachArchivedCourse(repoRoot, courseId, options = {}) {
 	};
 }
 
+function setsEqual(a, b) {
+	if (a.length !== b.length) {
+		return false;
+	}
+	for (let i = 0; i < a.length; i++) {
+		if (a[i] !== b[i]) {
+			return false;
+		}
+	}
+	return true;
+}
+
 function verifyDeployPolicy(repoRoot) {
 	const root = repoRoot || getRepoRoot(__dirname);
 	const activatedCourseId = getActivatedCourseId(root);
-	const tracked = listTrackedCourseDirs(root);
+	const deployableCourseIds = getDeployableCourseIds(root);
+	const trackedCourses = listTrackedCourseDirs(root);
+	const trackedAudio = listTrackedAudioCourseDirs(repoRoot);
 	const errors = [];
 
-	if (!activatedCourseId) {
-		if (tracked.length > 0) {
-			errors.push(`No activated course but git still tracks: ${tracked.join(', ')}`);
+	if (!setsEqual(trackedCourses, deployableCourseIds)) {
+		const missing = deployableCourseIds.filter((id) => !trackedCourses.includes(id));
+		const extra = trackedCourses.filter((id) => !deployableCourseIds.includes(id));
+		if (missing.length > 0) {
+			errors.push(`Active courses not in git index (git add required): ${missing.join(', ')}`);
 		}
-	} else if (tracked.length !== 1 || tracked[0] !== activatedCourseId) {
-		errors.push(
-			`Activated course is "${activatedCourseId}" but git tracks: ${tracked.join(', ') || '(none)'}`
-		);
+		if (extra.length > 0) {
+			errors.push(`Git tracks non-active courses (run sync:deploy-policy --prune-git): ${extra.join(', ')}`);
+		}
+	}
+
+	if (!setsEqual(trackedAudio, deployableCourseIds)) {
+		const missingAudio = deployableCourseIds.filter((id) => !trackedAudio.includes(id));
+		const extraAudio = trackedAudio.filter((id) => !deployableCourseIds.includes(id));
+		if (missingAudio.length > 0) {
+			errors.push(`Active course audio not in git index (git add required): ${missingAudio.join(', ')}`);
+		}
+		if (extraAudio.length > 0) {
+			errors.push(`Git tracks audio for non-active courses: ${extraAudio.join(', ')}`);
+		}
 	}
 
 	const gitignore = readFileSafe(path.join(root, '.gitignore'));
 	if (!gitignore.includes(MARKERS.courses.start)) {
 		errors.push('Missing managed courses section in .gitignore');
 	}
-	if (activatedCourseId && !gitignore.includes(`!courses/${activatedCourseId}/`)) {
-		errors.push(`.gitignore does not whitelist courses/${activatedCourseId}/`);
+	for (const courseId of deployableCourseIds) {
+		if (!gitignore.includes(`!courses/${courseId}/`)) {
+			errors.push(`.gitignore does not whitelist courses/${courseId}/`);
+		}
+		if (!gitignore.includes(`!public/audio/${courseId}/`)) {
+			errors.push(`.gitignore does not whitelist public/audio/${courseId}/`);
+		}
+	}
+
+	if (activatedCourseId && !deployableCourseIds.includes(activatedCourseId)) {
+		errors.push(
+			`Activated course "${activatedCourseId}" is not active in courses.json — activate or archive it`
+		);
 	}
 
 	return {
 		ok: errors.length === 0,
 		activatedCourseId,
-		trackedCourses: tracked,
+		deployableCourseIds,
+		trackedCourses,
+		trackedAudio,
 		errors,
 	};
 }
 
 module.exports = {
 	MARKERS,
+	getDeployableCourseIds,
 	getActivatedCourseId,
 	applyCourseDeployPolicy,
 	detachArchivedCourse,

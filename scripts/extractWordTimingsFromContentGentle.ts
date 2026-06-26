@@ -4,19 +4,23 @@
 import * as fs from "fs";
 import * as path from "path";
 import * as dotenv from "dotenv";
-import FormData from "form-data";
-import fetch from "node-fetch";
 import { allModules } from "../src/videos/moduleContent";
 import { saveSlideTimings, loadModuleTimings } from "./saveTimingsJson";
 import { parseModuleContent, ModuleContent } from "./parseModuleContent";
 import { validateSlideTimings } from "./validateWordTimingsQuality";
 import { createRequire } from "module";
+import { alignTimingsToScript } from "./lib/wordAlignment";
 
 const require = createRequire(import.meta.url);
 const {
 	resolveGentleUrl,
 	formatGentleConnectionHelp,
 } = require("./lib/resolveGentleUrl.js");
+const { callGentleApi } = require("./lib/gentleClient.js");
+const {
+	countModuleAudioFiles,
+	formatMissingAudioHelp,
+} = require("./lib/timingAudioCheck.js");
 
 // Load environment variables from .env file
 dotenv.config({ path: path.join(__dirname, "../.env") });
@@ -66,7 +70,7 @@ function parseModuleRange(input: string): number[] {
 }
 
 /**
- * Call Gentle API for forced alignment
+ * Call Gentle API for forced alignment, then map timings to script words.
  */
 async function callGentleAPI(
 	audioPath: string,
@@ -74,46 +78,9 @@ async function callGentleAPI(
 	slideName: string
 ): Promise<WordTiming[]> {
 	console.log(`   Calling Gentle API (this may take 1-3 minutes)...`);
-	
-	if (!fs.existsSync(audioPath)) {
-		throw new Error(`Audio file not found: ${audioPath}`);
-	}
 
-	// Prepare form data
-	const form = new FormData();
-	form.append("audio", fs.createReadStream(audioPath));
-	form.append("transcript", transcript);
-
-	// Call Gentle API
-	let response;
-	try {
-		response = await fetch(`${activeGentleUrl}/transcriptions?async=false`, {
-			method: "POST",
-			body: form,
-			headers: form.getHeaders(),
-		});
-	} catch (error: any) {
-		throw new Error(`Cannot connect to Gentle server at ${activeGentleUrl}: ${error.message}`);
-	}
-
-	if (!response.ok) {
-		const errorText = await response.text();
-		throw new Error(`Gentle API error (${response.status}): ${errorText}`);
-	}
-
-	const result = await response.json();
-
-	// Convert Gentle format to WordTiming format
-	// Gentle returns: { words: [{ word, start, end, case, ... }] }
-	const words = (result.words || [])
-		.filter((w: any) => w.word !== null && w.start !== null && w.end !== null)
-		.map((w: any) => ({
-			text: w.word,
-			start: typeof w.start === 'number' ? w.start : parseFloat(w.start) || 0,
-			end: typeof w.end === 'number' ? w.end : parseFloat(w.end) || 0,
-		}));
-
-	return words;
+	const rawWords = await callGentleApi(activeGentleUrl, audioPath, transcript);
+	return alignTimingsToScript(transcript, rawWords);
 }
 
 /**
@@ -354,8 +321,14 @@ async function extractWordTimingsFromContentGentle(moduleRange?: string, courseI
 		// Use course-specific audio directory
 		const courseId = module.courseId || 'default';
 		const audioDir = path.join(baseAudioDir, courseId);
-		
-		// Load existing timings to check what's already done
+		const audioCount = countModuleAudioFiles(audioDir, module.moduleNumber);
+		if (audioCount === 0) {
+			console.error(`\n${formatMissingAudioHelp(courseId, module.moduleNumber, audioDir)}\n`);
+			totalSkipped += module.slides.length;
+			continue;
+		}
+		console.log(`   Found ${audioCount} audio file(s) for module ${module.moduleNumber}`);
+
 		const existingTimings = loadModuleTimings(courseId, module.moduleNumber, module.title);
 		
 		// Process all slides (not just code slides, since content slides also need word timings)
@@ -445,7 +418,11 @@ async function extractWordTimingsFromContentGentle(moduleRange?: string, courseI
 				totalProcessed++;
 			} catch (error: any) {
 				console.error(`\n✗ Failed for ${slide.name}:`, error.message);
-				console.error(`   Make sure Gentle is running and accessible at ${activeGentleUrl}\n`);
+				if (/ECONNREFUSED|ECONNRESET|ETIMEDOUT|fetch failed|Cannot connect|timed out/i.test(error.message || "")) {
+					console.error(`   Make sure Gentle is running and accessible at ${activeGentleUrl}\n`);
+				} else if (/Gentle API error/i.test(error.message || "")) {
+					console.error(`   Gentle rejected this slide. Check audio/script match and Gentle container logs.\n`);
+				}
 				totalSkipped++;
 				continue;
 			}
@@ -457,23 +434,32 @@ async function extractWordTimingsFromContentGentle(moduleRange?: string, courseI
 	console.log(`   Skipped: ${totalSkipped} slides`);
 	console.log(`   Saved to: courses/{courseId}/timings/module*.json (per-course, per-module)`);
 	if (totalProcessed === 0 && totalSkipped > 0) {
-		console.log(`\n💡 All slides already have timings! No API calls were made.`);
+		const anyAudio = modulesToProcess.some((m) => {
+			const dir = path.join(baseAudioDir, m.courseId || "default");
+			return countModuleAudioFiles(dir, m.moduleNumber) > 0;
+		});
+		if (anyAudio) {
+			console.log(`\n💡 All slides already have timings! No API calls were made.`);
+		} else {
+			console.error(`\n❌ No audio found for selected module(s). Generate audio first, then retry.`);
+		}
 	}
 
-	// Automatically extract bullet start times for slides with bullet points
-	console.log("\n🔍 Extracting bullet start times...");
-	for (const module of modulesToProcess) {
-		const courseId = module.courseId || "default";
-		const moduleNumber = module.moduleNumber;
-		if (typeof moduleNumber !== "number" || isNaN(moduleNumber) || !courseId || courseId === "all") {
-			console.warn(`⚠ Skipping bullet extraction: invalid module (courseId=${courseId}, moduleNumber=${moduleNumber})`);
-			continue;
-		}
-		try {
-			const bulletExtractor = await import("./extractBulletStartsFromTimings");
-			bulletExtractor.extractModuleBulletStarts(courseId, moduleNumber);
-		} catch (error: any) {
-			console.warn(`⚠ Failed to extract bullet starts for module ${moduleNumber}: ${error.message}`);
+	if (totalProcessed > 0) {
+		console.log("\n🔍 Extracting bullet start times...");
+		for (const module of modulesToProcess) {
+			const courseId = module.courseId || "default";
+			const moduleNumber = module.moduleNumber;
+			if (typeof moduleNumber !== "number" || isNaN(moduleNumber) || !courseId || courseId === "all") {
+				console.warn(`⚠ Skipping bullet extraction: invalid module (courseId=${courseId}, moduleNumber=${moduleNumber})`);
+				continue;
+			}
+			try {
+				const bulletExtractor = await import("./extractBulletStartsFromTimings");
+				bulletExtractor.extractModuleBulletStarts(courseId, moduleNumber);
+			} catch (error: any) {
+				console.warn(`⚠ Failed to extract bullet starts for module ${moduleNumber}: ${error.message}`);
+			}
 		}
 	}
 

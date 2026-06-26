@@ -46,7 +46,7 @@ export class MinimaxVoiceService {
 			// Map voice to Minimax voice ID, or use voice directly if it looks like a Minimax voice ID
 			const voiceId = options.voice && options.voice.includes("_") 
 				? options.voice // Already a Minimax voice ID (e.g., "Wise_Woman")
-				: getVoiceForService(options.voice || "andy", "minimax");
+				: getVoiceForService(options.voice || "francis", "minimax");
 			
 			const response = await fetch(this.apiUrl, {
 				method: "POST",

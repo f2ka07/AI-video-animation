@@ -12,6 +12,7 @@ import { getAudioDuration } from "../src/utils/audioDuration";
 import type { SlideContent } from "../src/videos/moduleContent";
 import { loadTimings, findPhraseInWords } from "./utils/wordTimingUtils";
 import type { WordTiming } from "./utils/wordTimingUtils";
+import { toPremiumBullets } from "../src/utils/premiumDisplayPoints";
 
 const PAUSE_THRESHOLD_SEC = 0.45;
 const MAX_BULLET_WORDS = 18;
@@ -431,6 +432,10 @@ function main() {
 
 		for (const slide of mod.slides || []) {
 			if (slide.type !== "content-single" && slide.type !== "content-two-card" && slide.type !== "story-beat") continue;
+			if (slide.useManualPoints === true) {
+				console.log(`  Skip ${slide.name}: useManualPoints (author bullets kept)`);
+				continue;
+			}
 
 			const slideWords = timings[slide.name]?.words;
 			if (!slideWords || slideWords.length === 0) {
@@ -442,13 +447,25 @@ function main() {
 			const { points, segmentPoints, segmentKeyWords, segmentPhraseTimes } = derivePointsForSlide(slide, slideWords, splitDef, getDur);
 
 			if (points.length > 0) {
-				slide.points = points;
-				updated++;
+				const premium = toPremiumBullets(points, {
+					script: slide.script,
+					keyPhrases: slide.keyPhrases,
+					slideType: slide.type,
+					beat: (slide as { beat?: string }).beat,
+				});
+				slide.points = premium;
 				if (segmentPoints && splitDef) {
 					splitDef.segments = segmentPoints.map((pts, i) => {
+						const premiumSeg = toPremiumBullets(pts, {
+							script: slide.script,
+							keyPhrases: slide.keyPhrases,
+							slideType: slide.type,
+							beat: (slide as { beat?: string }).beat,
+							maxBullets: 4,
+						});
 						const existing = splitDef.segments?.[i];
 						const seg: Record<string, unknown> = {
-							points: pts,
+							points: premiumSeg,
 							keyWords: segmentKeyWords?.[i]?.length ? segmentKeyWords[i] : undefined,
 							phraseTimes: segmentPhraseTimes?.[i],
 						};
@@ -456,7 +473,8 @@ function main() {
 						return seg;
 					});
 				}
-				console.log(`  ${slide.name}: ${points.length} bullets (from word timings)${segmentPoints ? `, ${segmentPoints.length} segments` : ""}`);
+				updated++;
+				console.log(`  ${slide.name}: ${premium.length} bullets (from word timings)${segmentPoints ? `, ${segmentPoints.length} segments` : ""}`);
 			}
 		}
 	}

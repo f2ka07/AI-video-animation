@@ -1,7 +1,17 @@
 // Slide type definitions for reusable slide configurations
 // This makes it easy to create consistent slides across modules
 
-export type SlideType = "title" | "content-two-card" | "content-single" | "code" | "code-diagram" | "comparison" | "sequential-bullet";
+export type SlideType =
+	| "title"
+	| "content-two-card"
+	| "content-single"
+	| "code"
+	| "code-diagram"
+	| "comparison"
+	| "sequential-bullet"
+	| "story-beat"
+	| "bullets-code"
+	| "mermaid";
 
 export interface SlideConfig {
 	type: SlideType;
@@ -57,6 +67,21 @@ export const slideTypes = {
 	"sequential-bullet": {
 		component: "SequentialBulletSlide",
 		layout: "sequential",
+		hasImage: false,
+	},
+	"story-beat": {
+		component: "AnimatedContentSlide",
+		layout: "single",
+		hasImage: true,
+	},
+	"bullets-code": {
+		component: "BulletsAndCodeSlide",
+		layout: "bullets-code",
+		hasImage: false,
+	},
+	mermaid: {
+		component: "MermaidSlide",
+		layout: "single",
 		hasImage: false,
 	},
 };

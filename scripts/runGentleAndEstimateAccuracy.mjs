@@ -10,7 +10,11 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import FormData from "form-data";
-import fetch from "node-fetch";
+
+const fetch = globalThis.fetch?.bind(globalThis);
+if (typeof fetch !== "function") {
+	throw new Error("Global fetch is not available. Use Node.js 18 or newer.");
+}
 import {
 	resolveGentleUrl,
 	formatGentleConnectionHelp,

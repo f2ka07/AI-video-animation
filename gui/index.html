@@ -29,7 +29,10 @@
                 <span class="icon">📚</span> Segments
             </a></li>
             <li><a href="processing-wizard.html" onclick="closeDrawer(); return true;">
-                <span class="icon">⚙️</span> Video Processing
+                <span class="icon">W</span> Video Processing
+            </a></li>
+            <li><a href="render.html" onclick="closeDrawer(); return true;">
+                <span class="icon">R</span> Render Video
             </a></li>
             <li><a href="#" onclick="showView('create-video'); closeDrawer(); return false;">
                 <span class="icon">🎬</span> Video
@@ -238,10 +241,24 @@
                             <h3>Word Timings</h3>
                             <span class="card-badge">Sync</span>
                         </div>
-                        <p class="card-description">Extract word timings for audio sync</p>
-                        <div class="card-actions">
-                            <button class="btn btn-secondary" onclick="extractTimings()">
-                                <span>⏱️</span> Extract Timings
+                        <p class="card-description">Extract word timings for one module at a time. Existing good timings are skipped unless the script changed.</p>
+                        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 12px; margin: 12px 0; background: #f9f9f9;">
+                            <div class="form-group" style="margin: 0 0 8px 0;">
+                                <label style="font-size: 12px;">Module</label>
+                                <select id="timings-module-select" style="width: 100%;">
+                                    <option value="">Select module...</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin: 0 0 8px 0;">
+                                <label style="font-size: 12px;">Method</label>
+                                <select id="timing-method-selector" style="width: 100%;">
+                                    <option value="mfa">MFA (best accuracy, local install)</option>
+                                    <option value="gentle" selected>Gentle (Docker on localhost:8765)</option>
+                                    <option value="whisper">Whisper (ASR fallback)</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-secondary" onclick="extractTimings()" style="width: 100%;">
+                                Extract Timings for Module
                             </button>
                         </div>
                         <div id="timings-status" class="status-message"></div>
@@ -281,8 +298,12 @@
                                 <input type="radio" name="planner-type" value="shorts" id="planner-type-shorts" onchange="updatePlannerType()">
                                 Shorts
                             </label>
+                            <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                                <input type="radio" name="planner-type" value="marketing" id="planner-type-marketing" onchange="updatePlannerType()">
+                                Marketing Pack
+                            </label>
                         </div>
-                        <small style="color: var(--text-muted);">Course: in-depth learning (unchanged). Video: YouTube long-form, 5-20 min each, planner decides how many. Shorts: YouTube short-form, any number.</small>
+                        <small style="color: var(--text-muted);">Course: in-depth learning. Video: YouTube long-form. Shorts: portrait short-form. Marketing Pack: 3 outputs (YouTube Short + Facebook Reel + Udemy trailer).</small>
                     </div>
                     
                     <!-- Simple Prompt Mode -->

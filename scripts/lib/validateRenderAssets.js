@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const { syncCoursePublicAssets } = require('./syncCoursePublicAssets.js');
+const { allSlidesHaveWordTimings, getModuleTimingCoverage } = require('./timingCoverage.js');
 
 function moduleFolder(moduleNumber) {
 	return `module${String(moduleNumber).padStart(2, '0')}`;
@@ -24,6 +25,38 @@ function extractAssetPathsFromScene(filePath) {
 		}
 	}
 	return paths;
+}
+
+function collectContentJsonAssetPaths(courseId, moduleNumbers, repoRoot) {
+	const root = repoRoot || path.join(__dirname, '..', '..');
+	const contentPath = path.join(root, 'courses', courseId, 'content.json');
+	if (!fs.existsSync(contentPath)) {
+		return [];
+	}
+
+	let plan;
+	try {
+		plan = JSON.parse(fs.readFileSync(contentPath, 'utf-8'));
+	} catch {
+		return [];
+	}
+
+	const moduleSet = new Set(moduleNumbers.map((n) => Number(n)));
+	const assetPaths = new Set();
+
+	for (const mod of plan.modules || []) {
+		if (!moduleSet.has(Number(mod.moduleNumber))) continue;
+		for (const slide of mod.slides || []) {
+			if (!slide.imageSrc || typeof slide.imageSrc !== 'string') continue;
+			const normalized = slide.imageSrc.replace(/^\/+/, '');
+			assetPaths.add(normalized);
+			if (normalized.endsWith('.svg')) {
+				assetPaths.add(normalized.replace(/\.svg$/, '.animation.json'));
+			}
+		}
+	}
+
+	return [...assetPaths];
 }
 
 function collectSceneAssetPaths(courseId, moduleNumbers, repoRoot) {
@@ -92,8 +125,20 @@ function validateRenderAssets(courseId, moduleNumbers, repoRoot) {
 		return { ok: false, missing: [], error: err.message };
 	}
 
-	const assetPaths = collectSceneAssetPaths(courseId, moduleNumbers, root);
+	const scenePaths = collectSceneAssetPaths(courseId, moduleNumbers, root);
+	const contentPaths = collectContentJsonAssetPaths(courseId, moduleNumbers, root);
+	const assetPaths = [...new Set([...scenePaths, ...contentPaths])];
 	const missing = verifyPublicAssets(assetPaths, root);
+
+	// Slide-based courses: require at least synced SVGs even when no scene .tsx refs exist
+	if (assetPaths.length === 0 && (syncResult?.svgCount || 0) === 0) {
+		return {
+			ok: false,
+			missing: [],
+			error: `No diagram assets found for ${courseId}. Run Finalize Video to sync SVGs.`,
+			svgCount: syncResult?.svgCount,
+		};
+	}
 
 	return {
 		ok: missing.length === 0,
@@ -106,6 +151,7 @@ function validateRenderAssets(courseId, moduleNumbers, repoRoot) {
 module.exports = {
 	validateRenderAssets,
 	collectSceneAssetPaths,
+	collectContentJsonAssetPaths,
 	verifyPublicAssets,
 	extractAssetPathsFromScene,
 };

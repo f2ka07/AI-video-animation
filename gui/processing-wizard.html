@@ -35,6 +35,7 @@
 
         .wizard-step {
             flex: 1;
+            min-width: 72px;
             position: relative;
             z-index: 1;
             text-align: center;
@@ -245,7 +246,7 @@
             
             <div id="wizard-content" class="wizard-container">
                 <div style="margin-bottom: 24px; padding: 16px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 8px; font-size: 14px; color: var(--text-secondary);">
-                    <strong>Video Processing Workflow:</strong> Complete all 5 steps to finalize your video. Step 4 (Word Timings) is required before Step 5. Use the step indicators above to navigate between steps.
+                    <strong>Video Processing Workflow:</strong> Complete steps 1–4 for the selected video. Steps 1–2 auto-activate the selected course in Remotion (<code>moduleContent.ts</code>) when it differs from the current active course.
                 </div>
                 
                 <!-- Video Selector -->
@@ -254,6 +255,8 @@
                     <select id="course-selector" onchange="changeCourse(this.value)" style="width: 100%; padding: 12px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 16px; font-weight: 600;">
                         <option value="">Loading videos...</option>
                     </select>
+                    <div id="course-activation-banner" style="display: none; margin-top: 16px; padding: 14px 16px; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 8px;"></div>
+                    <div id="timings-coverage-panel" style="display: none; margin-top: 16px; padding: 14px 16px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; font-size: 13px;"></div>
                 </div>
                 
                 <!-- Step Indicator -->
@@ -274,9 +277,9 @@
                         <div class="step-circle">4</div>
                         <div class="step-label">Extract Timings</div>
                     </div>
-                    <div class="wizard-step locked" id="step-5-indicator" data-step="5" onclick="typeof goToStep==='function'&&goToStep(5)" role="button" tabindex="0" title="Step 5">
+                    <div class="wizard-step locked" id="step-5-indicator" data-step="5" onclick="typeof goToRenderPage==='function'&&goToRenderPage()" role="button" tabindex="0" title="Render (step 5)">
                         <div class="step-circle">5</div>
-                        <div class="step-label">Diagram Pipeline</div>
+                        <div class="step-label">Render</div>
                     </div>
                 </div>
 
@@ -287,7 +290,6 @@
                     <button type="button" class="btn btn-secondary" style="padding: 6px 12px; font-size: 13px;" onclick="goToStep(2)">Step 2</button>
                     <button type="button" class="btn btn-secondary" style="padding: 6px 12px; font-size: 13px;" onclick="goToStep(3)">Step 3</button>
                     <button type="button" class="btn btn-secondary" style="padding: 6px 12px; font-size: 13px;" onclick="goToStep(4)">Step 4</button>
-                    <button type="button" class="btn btn-secondary" style="padding: 6px 12px; font-size: 13px;" onclick="goToStep(5)">Step 5</button>
                 </div>
 
                 <!-- Step Content -->
@@ -362,11 +364,14 @@
                         </div>
 
                         <div style="margin-top: 12px; padding: 10px; background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 6px; font-size: 12px; color: var(--text-muted);">
-                            Mermaid diagrams from Step 5 (Diagram Pipeline) are stored in slide-splits.json. Generate Segment Files reads from that file and preserves them. Add <code>// PRESERVE_MANUAL_EDITS</code> in ModuleN.tsx to skip overwriting manual edits.
+                            Slide splits and manual diagram edits are stored in slide-splits.json when used. Add <code>// PRESERVE_MANUAL_EDITS</code> in ModuleN.tsx to skip overwriting manual edits.
                         </div>
                         <div class="step-actions">
                             <button class="btn btn-secondary" id="validate-content-btn" onclick="validateContent()" title="Check for missing properties in slides">
                                 Validate Content
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="viewSegmentsInRemotion()" title="Fixed-duration preview in Remotion; no audio or word timings required">
+                                Preview in Remotion
                             </button>
                             <button class="btn btn-primary" id="step-1-btn" onclick="executeStep1()">
                                 Generate Segment Files
@@ -557,7 +562,7 @@
                         <div class="step-header">
                             <h3>Step 4: Extract Word Timings</h3>
                             <p class="step-description">
-                                Extract precise word timings for audio synchronization. This enables word-by-word animations and is required for finalizing your video.
+                                Extract precise word timings for audio synchronization. After extraction, the pipeline also derives bullet text from narration, maps code line highlights (including spoken &ldquo;Line N&rdquo; cues), and activates the course in Remotion.
                             </p>
                         </div>
 
@@ -581,15 +586,29 @@
 
                         <div style="margin-bottom: 16px;">
                             <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-primary);">
+                                Module:
+                            </label>
+                            <select id="step-4-module-select" style="width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text-primary); font-size: 14px; font-weight: 500;">
+                                <option value="">Select module...</option>
+                            </select>
+                            <p style="margin-top: 8px; font-size: 12px; color: var(--text-secondary);">
+                                Extract timings for one module at a time. Slides with good existing timings are skipped unless the script changed. When finished, bullets and code highlights are synced automatically — no separate derive-bullets step needed.
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 16px;">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-primary);">
                                 Extraction Method:
                             </label>
                             <select id="timing-method-selector" style="width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text-primary); font-size: 14px; font-weight: 500;">
-                                <option value="gentle" style="background: var(--surface); color: var(--text-primary);">Gentle (Forced Alignment) - Recommended</option>
+                                <option value="mfa" style="background: var(--surface); color: var(--text-primary);">MFA (Montreal Forced Aligner) - Best accuracy</option>
+                                <option value="gentle" style="background: var(--surface); color: var(--text-primary);">Gentle (Forced Alignment) - Docker</option>
                                 <option value="whisper" style="background: var(--surface); color: var(--text-primary);">Whisper (ASR) - Fallback</option>
                             </select>
                             <p style="margin-top: 8px; font-size: 12px; color: var(--text-secondary);">
-                                <strong>Gentle:</strong> Uses your script text for 100% accurate alignment. Requires Gentle server running (docker run -p 8765:8765 lowerquality/gentle).<br>
-                                <strong>Whisper:</strong> Automatic transcription. May have accuracy issues with accents. Costs ~$0.006/minute.
+                                <strong>MFA:</strong> Best for TTS + exact script. Uses Docker automatically if conda is not installed (<code>npm run mfa:download-models</code> once).<br>
+                                <strong>Gentle:</strong> Script-based alignment via Docker (<code>docker run -p 8765:8765 lowerquality/gentle</code>). Slower and less maintained than MFA.<br>
+                                <strong>Whisper:</strong> Automatic transcription. May drift from script. Costs ~$0.006/minute.
                             </p>
                         </div>
                         <div class="step-actions">
@@ -598,51 +617,28 @@
                                 Extract Word Timings
                             </button>
                         </div>
-                    </div>
 
-                    <!-- Step 5: Diagram Pipeline (after word timings) -->
-                    <div class="step-content" id="step-5">
-                        <div class="step-header">
-                            <h3>Step 5: Diagram Pipeline</h3>
-                            <p class="step-description">
-                                Run the diagram pipeline: derive segment boundaries from script, derive bullets, classify slides (diagram vs bullets), generate Mermaid diagrams with highlights, and sync. Requires Step 4 (Word Timings) to be complete.
+                        <div id="step-4-finalize-section" style="display: none; margin-top: 24px; padding: 16px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px;">
+                            <p style="margin: 0 0 12px 0; color: var(--text-secondary); font-size: 14px;">
+                                Steps 1–4 are complete for this course. Finalize activates the course in Remotion and rebuilds <code>ModuleX.tsx</code> from your content.
                             </p>
-                        </div>
-
-                        <div id="scene-course-step5-banner" style="display: none; margin-bottom: 16px; padding: 12px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; font-size: 13px; color: var(--text-secondary);"></div>
-
-                        <div class="step-info" id="step-5-info">
-                            <strong>Status:</strong> <span id="step-5-status-text">Waiting for Step 4...</span>
-                        </div>
-
-                        <div id="step-5-status" class="step-status" style="display: none;"></div>
-
-                        <div style="margin-bottom: 16px;">
-                            <label for="step-5-module" style="font-weight: 500; margin-right: 8px;">Run for:</label>
-                            <select id="step-5-module" style="padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); min-width: 180px;">
-                                <option value="">All modules</option>
-                            </select>
-                            <span style="margin-left: 8px; font-size: 12px; color: var(--text-muted);">Run one module at a time for incremental progress.</span>
-                        </div>
-
-                        <div id="step-5-progress" class="segment-progress" style="margin-top: 16px; padding: 16px; background: var(--surface-light); border-radius: 8px; border: 1px solid var(--border);">
-                            <div class="progress-info" style="margin-bottom: 8px; font-weight: 500; color: var(--text-muted);">Idle</div>
-                            <div class="progress-bar-container" style="height: 10px; background: var(--surface); border-radius: 6px; overflow: hidden;">
-                                <div id="step-5-progress-bar" class="segment-progress-bar" style="height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.3s ease;"></div>
-                            </div>
-                            <div id="step-5-details" style="margin-top: 12px; font-size: 12px; color: var(--text-muted); max-height: 200px; overflow-y: auto; display: none;"></div>
-                        </div>
-
-                        <div style="margin-top: 16px; padding: 12px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 8px; font-size: 13px; color: var(--text-secondary);">
-                            <strong>Pipeline order:</strong> derive-boundaries-from-script -> derive-bullets -> classify-slide-visual -> generate-mermaid-segments -> sync-slide-splits. Uses local heuristics only. No API key required.
-                        </div>
-
-                        <div class="step-actions">
-                            <button class="btn btn-secondary" onclick="goToStep(4)">← Previous</button>
-                            <button class="btn btn-secondary" id="step-5-btn" onclick="executeStep5()" disabled title="Disabled for SVG scene courses">
-                                Run Diagram Pipeline
+                            <button type="button" class="btn btn-primary" id="step-4-finalize-btn" onclick="finalizeVideo()" disabled style="font-weight: 600;">
+                                Finalize Video
                             </button>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Layout preview (content only — no audio/timings yet) -->
+                <div id="layout-preview-remotion" class="card" style="display: none; margin-top: 24px; border: 2px solid var(--primary); background: rgba(99, 102, 241, 0.08);">
+                    <div style="text-align: center;">
+                        <h3 style="color: var(--primary); margin-bottom: 12px;">Layout Preview Available</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 14px;">
+                            Preview slides and SVGs in Remotion before audio or word timings exist. Uses estimated slide durations (~15s each). Animations will not sync to narration until Step 4 is complete.
+                        </p>
+                        <button type="button" class="btn btn-primary" onclick="viewSegmentsInRemotion()" style="font-size: 14px; padding: 10px 20px;">
+                            Preview in Remotion
+                        </button>
                     </div>
                 </div>
 
@@ -685,14 +681,13 @@
                 <div id="completion-message" class="card" style="display: none; margin-top: 24px; text-align: center; border: 2px solid var(--success); background: rgba(16, 185, 129, 0.1);">
                     <h3 style="color: var(--success); margin-bottom: 12px;">All Steps Complete!</h3>
                     <p style="color: var(--text-secondary); margin-bottom: 12px;">
-                        Your video is fully complete with word-level animations. All 5 steps are done:
+                        Your video is ready to finalize. Steps 1–4 are done:
                     </p>
                     <ul id="finalize-checklist" style="text-align: left; display: inline-block; color: var(--text-secondary); margin: 12px 0 20px 0;">
                         <li>Segment files generated</li>
                         <li>Audio files created</li>
                         <li>Audio durations measured</li>
                         <li>Word timings extracted</li>
-                        <li id="finalize-diagram-step">Diagram pipeline run (classify + mermaid)</li>
                     </ul>
                     <div id="scene-course-finalize-banner" style="display: none; margin-bottom: 16px; padding: 12px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; font-size: 13px; color: var(--text-secondary);"></div>
                     <p style="color: var(--text-secondary); margin-bottom: 20px; font-weight: 600;">
@@ -703,17 +698,18 @@
                     </p>
                     <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px;">
                         <button class="btn btn-primary" id="finalize-video-btn" onclick="finalizeVideo()" style="font-size: 18px; padding: 14px 28px; font-weight: 600; min-width: 200px;">
-                            ✓ Finalize Video
+                            Finalize Video
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="goToRenderPage()" style="font-size: 16px; padding: 12px 24px;">
+                            Go to Render
                         </button>
                         <button type="button" class="btn btn-secondary" onclick="viewSegmentsInRemotion()" style="font-size: 16px; padding: 12px 24px;">
-                            Open Remotion Studio →
+                            Open Remotion Studio
                         </button>
                     </div>
-                    <div style="border-top: 1px solid rgba(16, 185, 129, 0.3); padding-top: 20px; margin-top: 20px;">
-                        <p style="color: var(--text-secondary); margin-bottom: 0; font-size: 14px;">
-                            To render MP4s and record EC2 benchmark metrics, use the <strong>Render benchmark (EC2 cost)</strong> section below (enter AWS $/hr, pick a module, then render).
-                        </p>
-                    </div>
+                    <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 0;">
+                        After finalize, open the <strong>Render</strong> page (step 5) for EC2 benchmark and overnight batch rendering.
+                    </p>
                 </div>
 
                 <!-- Slide Splits: define splits for long slides before Finalize (shown when audio exists) -->
@@ -729,113 +725,6 @@
                     <button class="btn btn-secondary" id="slide-splits-save-btn" onclick="saveSlideSplits()" style="font-size: 14px;">Save Splits</button>
                 </div>
 
-                </div>
-
-                <!-- Render benchmark: always visible (EC2 cost + single-module render) -->
-                <div id="render-benchmark-card" class="card" style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);">
-                    <h4 style="margin-bottom: 8px; color: var(--text-primary); font-size: 18px;">Render benchmark (EC2 cost)</h4>
-                    <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 14px;">
-                        Enter your instance hourly rate, select a module, and render locally. Metrics append to CSV when the job finishes.
-                    </p>
-                    <div style="margin-bottom: 16px; display: grid; gap: 12px; max-width: 520px; text-align: left;">
-                        <label style="color: var(--text-secondary); font-size: 13px;">
-                            AWS cost per hour (USD)
-                            <input type="number" id="render-cost-per-hour" min="0" step="0.01" placeholder="e.g. 0.34 for c6i.2xlarge" style="display: block; width: 100%; margin-top: 6px; padding: 10px 12px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
-                        </label>
-                        <label style="color: var(--text-secondary); font-size: 13px;">
-                            Instance label (optional)
-                            <input type="text" id="render-instance-label" placeholder="c6i.2xlarge-8vcpu" style="display: block; width: 100%; margin-top: 6px; padding: 10px 12px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
-                        </label>
-                        <p id="render-vcpu-readout" style="font-size: 13px; color: var(--text-muted); margin: 0;"></p>
-                    </div>
-                    <div style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                        <label for="render-module-select" style="color: var(--text-secondary); font-weight: 500;">Module:</label>
-                        <select id="render-module-select" style="padding: 10px 16px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px; min-width: 250px;">
-                            <option value="">Loading modules...</option>
-                        </select>
-                    </div>
-                    <div id="render-runpod-target-row" style="margin-bottom: 16px; display: none; align-items: center; gap: 12px; flex-wrap: wrap;">
-                        <label style="color: var(--text-secondary); font-weight: 500;">Render on:</label>
-                        <select id="render-target-select" style="padding: 10px 16px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
-                            <option value="local" selected>Local</option>
-                            <option value="runpod">RunPod</option>
-                        </select>
-                    </div>
-                    <div id="render-progress" style="display: none; margin-bottom: 16px;">
-                        <div style="background: var(--surface-light); border-radius: 8px; padding: 16px; margin-bottom: 12px;">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                                <span id="render-status-text" style="font-weight: 600;">Rendering...</span>
-                                <span id="render-progress-percent" style="color: var(--text-muted); font-size: 12px;"></span>
-                            </div>
-                            <div class="progress-bar" style="height: 8px;">
-                                <div id="render-progress-bar" class="progress-fill" style="width: 0%;"></div>
-                            </div>
-                            <div id="render-details" style="margin-top: 12px; font-size: 12px; color: var(--text-muted); max-height: 150px; overflow-y: auto;"></div>
-                        </div>
-                    </div>
-                    <div style="display: flex; gap: 12px; justify-content: flex-start; flex-wrap: wrap;">
-                        <button class="btn btn-primary" id="render-video-btn" onclick="renderVideo()" style="font-size: 16px; padding: 12px 24px; font-weight: 600;">
-                            Render Video to MP4
-                        </button>
-                        <a id="download-video-link" href="#" style="display: none; text-decoration: none;" class="btn btn-success" style="font-size: 16px; padding: 12px 24px;">
-                            Download MP4
-                        </a>
-                        <a id="download-metrics-link" href="/api/render-metrics/download" style="display: none; text-decoration: none;" class="btn btn-secondary" style="font-size: 16px; padding: 12px 24px;">
-                            Download results (CSV)
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Overnight Batch Rendering (always visible so user can render without waiting for all steps) -->
-                <div id="batch-render-card" class="card" style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);">
-                    <h4 style="margin-bottom: 12px; color: var(--text-primary); font-size: 18px;">Render batch overnight</h4>
-                    <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">
-                        Render all modules in the course. Speed scales with your computer. Best run overnight.
-                    </p>
-                    <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
-                        View segments in Remotion before generating audio to get a feel for the course structure.
-                    </p>
-                    <div id="batch-render-progress" style="display: none; margin-bottom: 16px;">
-                        <div style="background: var(--surface-light); border-radius: 8px; padding: 16px;">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                                <span id="batch-render-status" style="font-weight: 600;">Starting...</span>
-                                <span id="batch-render-percent" style="color: var(--text-muted); font-size: 12px;" title="Overall course progress"></span>
-                            </div>
-                            <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 6px;">Overall course progress</div>
-                            <div class="progress-bar" style="height: 8px; margin-bottom: 12px;">
-                                <div id="batch-render-progress-bar" class="progress-fill" style="width: 0%;"></div>
-                            </div>
-                            <div id="batch-modules-list" style="font-family: monospace; font-size: 12px; max-height: 200px; overflow-y: auto;"></div>
-                        </div>
-                    </div>
-                    <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--text-secondary); cursor: pointer;">
-                        <input type="checkbox" id="batch-render-force" style="cursor: pointer;">
-                        Re-render modules that already have MP4 files
-                    </label>
-                    <div id="batch-render-runpod-row" style="margin-bottom: 12px; display: none; align-items: center; gap: 12px; flex-wrap: wrap;">
-                        <label style="color: var(--text-secondary); font-weight: 500;">Render on:</label>
-                        <select id="batch-render-target-select" style="padding: 8px 14px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
-                            <option value="local" selected>Local</option>
-                            <option value="runpod">RunPod</option>
-                        </select>
-                    </div>
-                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                        <button class="btn btn-secondary" id="view-segments-btn" onclick="viewSegmentsInRemotion()" style="padding: 10px 20px; font-weight: 600;" title="Generate preview modules (15s per slide) and open Remotion. No audio needed. Run npm start first if Remotion is not running.">
-                            View Segments in Remotion
-                        </button>
-                        <button class="btn" id="render-course-btn" onclick="renderCourse()" style="background: var(--secondary); padding: 10px 20px; font-weight: 600;">
-                            Render Entire Course
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Rendered videos on server (for GUI on RunPod - download from server) -->
-                <div id="rendered-videos-card" class="card" style="display: none; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);">
-                    <h4 style="margin-bottom: 12px; color: var(--text-primary); font-size: 18px;">Download rendered videos</h4>
-                    <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">
-                        Videos rendered on this server. Click to download.
-                    </p>
-                    <div id="rendered-videos-list" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
                 </div>
 
                 <!-- Persistent workflow error (shown when step check fails) -->

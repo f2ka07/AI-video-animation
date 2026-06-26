@@ -29,10 +29,11 @@ if port_in_use 3000; then
 	echo ""
 fi
 
-# Optional: Gentle for word timings
+# Optional: Gentle via Docker (host GUI + Remotion)
 if command -v docker &>/dev/null && docker info &>/dev/null 2>&1; then
-	echo "Starting Gentle container (word timings)..."
-	docker-compose up -d gentle 2>/dev/null || true
+	echo "Pulling / starting Gentle (localhost:8765)..."
+	docker compose pull gentle 2>/dev/null || true
+	docker compose up -d gentle 2>/dev/null || true
 fi
 
 echo "Starting GUI Server on http://localhost:3001 ..."

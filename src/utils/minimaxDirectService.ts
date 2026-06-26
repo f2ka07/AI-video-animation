@@ -1,6 +1,8 @@
 // Minimax Direct TTS service using official MiniMax API
-// API: https://api.minimax.io/v1/t2a_v2 (NOT .chat domain)
+// API: https://api.minimax.io/v1/t2a_v2?GroupId=... (global)
 // Uses v2 API format with Bearer auth
+
+import { getVoiceForService } from "./voiceMapping";
 
 interface VoiceOptions {
 	prompt: string;
@@ -23,7 +25,7 @@ interface MinimaxResponse {
 	status_code?: number;
 	status_msg?: string;
 	data?: {
-		audio?: string; // hex encoded audio
+		audio?: string;
 		status?: number;
 	};
 	audio_file?: string;
@@ -50,35 +52,52 @@ export const MINIMAX_DEFAULT_VOICES = [
 	{ id: "audiobook_female_1", name: "Audiobook (Female)", description: "Storyteller voice" },
 ];
 
+/** Minimax T2A requires integer speed/vol/pitch — floats cause 2013 "invalid params". */
+function toMinimaxInt(value: number, fallback: number): number {
+	if (!Number.isFinite(value)) return fallback;
+	return Math.trunc(value);
+}
+
 export class MinimaxDirectService {
 	private apiKey: string;
-	// Use api.minimax.io (not .chat) for TTS
-	private apiUrl: string = "https://api.minimax.io/v1/t2a_v2";
+	private groupId?: string;
 
-	constructor(apiKey: string) {
+	constructor(apiKey: string, groupId?: string) {
 		if (!apiKey) {
 			throw new Error("MINIMAX_API_KEY is required for Minimax Direct service");
 		}
 		this.apiKey = apiKey;
+		this.groupId = groupId || process.env.MINIMAX_GROUP_ID || undefined;
+	}
+
+	private buildApiUrl(): string {
+		const base = "https://api.minimax.io/v1/t2a_v2";
+		if (this.groupId) {
+			return `${base}?GroupId=${encodeURIComponent(this.groupId)}`;
+		}
+		return base;
 	}
 
 	async generateAudio(
 		options: VoiceOptions
 	): Promise<{ audioUrl: string; jobId: string; audioData?: string; words?: WordTiming[] }> {
 		try {
-			// Use one voice per course for narrator consistency (see docs/code-slide-guidelines.md)
-			const voiceId = options.voice || "English_expressive_narrator";
-			const speed = options.speed || 1.0;
+			const text = (options.prompt ?? "").trim();
+			if (!text) {
+				throw new Error("Text is empty after trimming — cannot call Minimax TTS");
+			}
 
-			// v2 API format per official docs
+			const voiceId = getVoiceForService(options.voice || "francis", "minimax");
+			const speed = toMinimaxInt(options.speed ?? 1, 1);
+
 			const requestBody = {
 				model: "speech-02-hd",
-				text: options.prompt,
+				text,
 				stream: false,
 				output_format: "hex",
 				voice_setting: {
 					voice_id: voiceId,
-					speed: speed,
+					speed,
 					vol: 1,
 					pitch: 0,
 				},
@@ -90,9 +109,10 @@ export class MinimaxDirectService {
 				},
 			};
 
-			console.log(`[MinimaxDirect] Generating audio with voice: ${voiceId}`);
+			const apiUrl = this.buildApiUrl();
+			console.log(`[MinimaxDirect] Generating audio voice=${voiceId} chars=${text.length} group=${this.groupId ? "yes" : "no"}`);
 
-			const response = await fetch(this.apiUrl, {
+			const response = await fetch(apiUrl, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -108,7 +128,6 @@ export class MinimaxDirectService {
 
 			const data: MinimaxResponse = await response.json();
 
-			// Check for v2 API errors (multiple possible formats)
 			if (data.status_code && data.status_code !== 0) {
 				throw new Error(`Minimax API error: ${data.status_msg || "Unknown error"} (code: ${data.status_code})`);
 			}
@@ -116,11 +135,9 @@ export class MinimaxDirectService {
 				throw new Error(`Minimax API error: ${data.base_resp.status_msg || "Unknown error"}`);
 			}
 
-			// Try multiple audio field locations
 			const audioHex = data.data?.audio || data.audio_file || data.audio;
 
 			if (audioHex) {
-				// Minimax returns hex-encoded audio
 				const audioBuffer = Buffer.from(audioHex, "hex");
 				const audioBase64 = audioBuffer.toString("base64");
 
@@ -139,7 +156,6 @@ export class MinimaxDirectService {
 		}
 	}
 
-	// Test a voice with a short sample
 	async testVoice(voiceId: string): Promise<{ success: boolean; audioData?: string; error?: string }> {
 		try {
 			const result = await this.generateAudio({

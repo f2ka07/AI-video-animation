@@ -14,6 +14,8 @@ require('dotenv').config();
 const crypto = require('crypto');
 const { getCpuCount, getOptimalRenderConcurrency } = require('./scripts/lib/renderConcurrency.js');
 const { getGentleUrlCandidates, resolveGentleUrl } = require('./scripts/lib/resolveGentleUrl.js');
+const { resolveMfaCli } = require('./scripts/lib/resolveMfa.js');
+const { resolveDockerStackStatus } = require('./scripts/lib/resolveDockerServices.js');
 const {
 	getRemotionStudioUrlCandidates,
 	resolveRemotionStudioUrl,
@@ -27,16 +29,185 @@ const {
 	getActivatedCourseId,
 } = require('./scripts/lib/courseDeployPolicy.js');
 const { syncCoursePublicAssets } = require('./scripts/lib/syncCoursePublicAssets.js');
+const { normalizePlanSlides } = require('./scripts/lib/normalizePlanSlides.js');
 const {
 	getModuleFrameCount,
 	createJobTimer,
 	buildMetricsRow,
 	appendRenderMetricsRow,
 	readRenderMetricsCsv,
+	ensureMetricsDir,
+	getMetricsCsvPath,
 	parseRemotionStdoutLine,
 	createRemotionParseState,
 } = require('./scripts/lib/renderMetrics.js');
 const { validateRenderAssets } = require('./scripts/lib/validateRenderAssets.js');
+const {
+	allSlidesHaveWordTimings,
+	getModuleTimingCoverage,
+	getCourseTimingCoverage,
+} = require('./scripts/lib/timingCoverage.js');
+
+function runPostExtractTimingsSync(courseId, moduleRange, callback) {
+	const range = String(moduleRange || 'all').trim() || 'all';
+	const cmd = `npx tsx scripts/postExtractTimingsSync.ts ${courseId} ${range}`;
+	exec(cmd, { cwd: __dirname, maxBuffer: 10 * 1024 * 1024 }, callback);
+}
+
+const MFA_DOCKER_LOCK_PATH = path.join(__dirname, 'workspace', '.mfa-docker.lock');
+const mfaExtractState = {
+	inProgress: false,
+	child: null,
+	startedAt: null,
+	moduleRange: null,
+	courseId: null,
+};
+
+function isProcessAlive(pid) {
+	if (!pid || Number.isNaN(pid)) {
+		return false;
+	}
+	try {
+		process.kill(pid, 0);
+		return true;
+	} catch {
+		return false;
+	}
+}
+
+function clearMfaDockerLockFile() {
+	try {
+		if (fs.existsSync(MFA_DOCKER_LOCK_PATH)) {
+			fs.unlinkSync(MFA_DOCKER_LOCK_PATH);
+		}
+	} catch {
+		// Best-effort.
+	}
+}
+
+function releaseMfaExtractLock() {
+	mfaExtractState.inProgress = false;
+	mfaExtractState.child = null;
+	mfaExtractState.startedAt = null;
+	mfaExtractState.moduleRange = null;
+	mfaExtractState.courseId = null;
+}
+
+function cancelMfaExtraction(reason = 'cancelled') {
+	const child = mfaExtractState.child;
+	if (child && !child.killed) {
+		try {
+			child.kill('SIGTERM');
+		} catch (e) {
+			console.warn('[mfa-extract] Could not kill child process:', e.message);
+		}
+	}
+	clearMfaDockerLockFile();
+	releaseMfaExtractLock();
+	console.log(`[mfa-extract] Released MFA lock (${reason})`);
+	return { cancelled: true, reason };
+}
+
+function getMfaExtractionStatus() {
+	if (!mfaExtractState.inProgress) {
+		return { inProgress: false };
+	}
+	const child = mfaExtractState.child;
+	const elapsedMs = mfaExtractState.startedAt ? Date.now() - mfaExtractState.startedAt : null;
+	const baseStatus = {
+		startedAt: mfaExtractState.startedAt,
+		moduleRange: mfaExtractState.moduleRange,
+		courseId: mfaExtractState.courseId,
+		elapsedMs,
+	};
+
+	if (!child) {
+		if (elapsedMs != null && elapsedMs < 15000) {
+			return { inProgress: true, starting: true, ...baseStatus };
+		}
+		cancelMfaExtraction('stale lock cleared (child never started)');
+		return { inProgress: false, staleLockCleared: true };
+	}
+
+	const childAlive = !child.killed && isProcessAlive(child.pid);
+	if (!childAlive) {
+		cancelMfaExtraction('stale lock cleared (child not running)');
+		return { inProgress: false, staleLockCleared: true };
+	}
+	return {
+		inProgress: true,
+		pid: child.pid,
+		...baseStatus,
+	};
+}
+
+function reserveMfaExtraction(meta = {}) {
+	if (getMfaExtractionStatus().inProgress) {
+		return false;
+	}
+	mfaExtractState.inProgress = true;
+	mfaExtractState.child = null;
+	mfaExtractState.startedAt = Date.now();
+	mfaExtractState.moduleRange = meta.moduleRange || null;
+	mfaExtractState.courseId = meta.courseId || null;
+	return true;
+}
+
+function attachMfaExtractionChild(child) {
+	mfaExtractState.child = child;
+}
+
+function formatProcessExitMessage(code, signal) {
+	if (code === 0) {
+		return null;
+	}
+	if (code === null && signal) {
+		return (
+			`Process was stopped (${signal}). ` +
+			'This usually means the browser tab closed, the connection dropped, or MFA was cancelled. Retry Step 4.'
+		);
+	}
+	if (code === null) {
+		return 'Process ended unexpectedly (no exit code). Check the gui-server terminal and Docker Desktop, then retry Step 4.';
+	}
+	return `Process exited with code ${code}. Check the gui-server terminal for details.`;
+}
+
+function isDockerComposeProgressOutput(text) {
+	const value = String(text || '').trim();
+	if (!value) {
+		return true;
+	}
+	const progressPatterns = [
+		/\bContainer\b.*\b(Creating|Created|Starting|Started|Running|Stopping|Stopped|Removing|Removed|Waiting)\b/i,
+		/\bVolume\b.*\b(Creating|Created)\b/i,
+		/\bNetwork\b.*\b(Creating|Created)\b/i,
+		/\bPulling\b/i,
+		/\bDigest:\b/i,
+		/\bStatus:\s*Downloaded\b/i,
+	];
+	return progressPatterns.some((pattern) => pattern.test(value));
+}
+
+function classifyTimingStderrLine(line) {
+	const trimmed = String(line || '').trim();
+	if (!trimmed) {
+		return { kind: 'skip' };
+	}
+	if (/DeprecationWarning|punycode/i.test(trimmed)) {
+		return { kind: 'skip' };
+	}
+	if (isDockerComposeProgressOutput(trimmed)) {
+		return { kind: 'skip' };
+	}
+	if (/^npm warn\b/i.test(trimmed)) {
+		return { kind: 'skip' };
+	}
+	if (/✗ Failed|❌|Traceback|FATAL|Error:/i.test(trimmed)) {
+		return { kind: 'error', message: trimmed };
+	}
+	return { kind: 'warning', message: trimmed };
+}
 
 function isRenderRunpodEnabled() {
 	return process.env.RENDER_RUNPOD_ENABLED === 'true';
@@ -159,6 +330,12 @@ const imageUpload = multer({
 
 const app = express();
 const PORT = 3001;
+
+try {
+	ensureMetricsDir(__dirname);
+} catch (err) {
+	console.warn('[render-metrics] Metrics directory not writable:', err.message);
+}
 
 app.use(cors());
 app.use(express.json());
@@ -341,7 +518,7 @@ function runSceneModuleGeneration(courseId, moduleRange) {
 function ensureCourseActiveSync(courseId) {
 	const activeCourseId = getActiveCourseFromModuleContent();
 	if (activeCourseId === courseId) {
-		return { alreadyActive: true, courseId };
+		return { alreadyActive: true, courseId, previousCourseId: activeCourseId };
 	}
 
 	console.log(`[ensureCourseActive] Activating "${courseId}" (was "${activeCourseId || 'none'}")`);
@@ -353,7 +530,61 @@ function ensureCourseActiveSync(courseId) {
 		throw new Error(`Activation failed: expected "${courseId}" in moduleContent.ts, found "${verified || 'none'}"`);
 	}
 
-	return { alreadyActive: false, courseId };
+	return { alreadyActive: false, courseId, previousCourseId: activeCourseId || null };
+}
+
+// Align Remotion moduleContent.ts with the course the user selected in the GUI.
+function resolveCourseForProcessing(requestedCourseId, { autoActivate = false } = {}) {
+	const targetCourseId = requestedCourseId || getActiveCourseFromModuleContent();
+	if (!targetCourseId) {
+		const err = new Error(
+			'No course selected and moduleContent.ts has no active course. Select a video in the wizard or run: npx tsx scripts/activateCourse.ts <courseId>'
+		);
+		err.code = 'NO_ACTIVE_COURSE';
+		throw err;
+	}
+
+	const activeCourseId = getActiveCourseFromModuleContent();
+	if (!activeCourseId) {
+		if (!autoActivate) {
+			const err = new Error(
+				`moduleContent.ts is missing or has no courseId. Activate "${targetCourseId}" before processing audio or timings.`
+			);
+			err.code = 'NO_MODULE_CONTENT';
+			err.selectedCourseId = targetCourseId;
+			throw err;
+		}
+		const activation = ensureCourseActiveSync(targetCourseId);
+		return {
+			courseId: targetCourseId,
+			activated: true,
+			previousCourseId: activation.previousCourseId,
+		};
+	}
+
+	if (activeCourseId !== targetCourseId) {
+		if (!autoActivate) {
+			const err = new Error(
+				`Selected course "${targetCourseId}" does not match Remotion active course "${activeCourseId}". Activate the course you want to process first.`
+			);
+			err.code = 'COURSE_MISMATCH';
+			err.activeCourseId = activeCourseId;
+			err.selectedCourseId = targetCourseId;
+			throw err;
+		}
+		const activation = ensureCourseActiveSync(targetCourseId);
+		return {
+			courseId: targetCourseId,
+			activated: !activation.alreadyActive,
+			previousCourseId: activation.previousCourseId,
+		};
+	}
+
+	return {
+		courseId: targetCourseId,
+		activated: false,
+		previousCourseId: activeCourseId,
+	};
 }
 
 function clearRemotionWebpackCache() {
@@ -427,18 +658,78 @@ function extractSlideNames(slidesContent) {
 	return names;
 }
 
+function getModuleContentMatch(moduleContentText, moduleNumber) {
+	const moduleMatches = moduleContentText.match(/export const module\d+Content: ModuleContent = \{[\s\S]*?\};/g) || [];
+	for (const match of moduleMatches) {
+		const numMatch = match.match(/export const module(\d+)Content:/);
+		if (numMatch && parseInt(numMatch[1], 10) === moduleNumber) return match;
+	}
+	return null;
+}
+
+function isModuleRegisteredInRoot(rootContent, courseId, moduleNumber) {
+	if (!rootContent) return false;
+	const escaped = courseId.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	const pattern = new RegExp(
+		`courseId:\\s*["']${escaped}["'][\\s\\S]*?moduleNumber:\\s*${moduleNumber}`
+	);
+	return pattern.test(rootContent);
+}
+
+// Slide courses use GenericModule + moduleContent.ts (no ModuleNConfig.ts).
+function isModuleGeneratedForCourse(courseId, moduleNumber, { moduleContentText, rootContent, contentJson, videosDir }) {
+	if (courseUsesSceneVisuals(courseId)) {
+		const moduleFile = path.join(videosDir, `Module${moduleNumber}.tsx`);
+		const configFile = path.join(videosDir, `Module${moduleNumber}Config.ts`);
+		return fs.existsSync(moduleFile) && fs.existsSync(configFile);
+	}
+	const match = getModuleContentMatch(moduleContentText, moduleNumber);
+	if (match) {
+		const moduleCourseId = match.match(/courseId:\s*["']([^"']+)["']/)?.[1];
+		if (moduleCourseId === courseId) return true;
+	}
+	if (contentJson?.modules) {
+		const mod = contentJson.modules.find((m) => m.moduleNumber === moduleNumber);
+		if (mod?.slides?.length > 0) return true;
+	}
+	return isModuleRegisteredInRoot(rootContent, courseId, moduleNumber);
+}
+
 // Word limit constants for AI planner (course: Udemy-quality depth; shorts/video: tighter)
 const MAX_WORDS_PER_SLIDE = 90;  // Allow deeper explanations per slide
 const MAX_SECONDS_PER_SLIDE = 40; // ~90 words at 2.5 wps
 
 // Helper: Count words in text
 function countWords(text) {
-	return text.trim().split(/\s+/).filter(w => w.length > 0).length;
+	if (text == null || typeof text !== 'string') return 0;
+	const trimmed = text.trim();
+	if (!trimmed) return 0;
+	return trimmed.split(/\s+/).filter(w => w.length > 0).length;
+}
+
+function slideWordCount(slide) {
+	if (!slide) return 0;
+	if (Array.isArray(slide.scripts) && slide.scripts.length > 0) {
+		return slide.scripts.reduce((sum, s) => sum + countWords(s), 0);
+	}
+	return countWords(slide.script);
 }
 
 // Helper: Estimate speaking duration
 function estimateDuration(text) {
 	return Math.ceil(countWords(text) / 2.5);
+}
+
+/** Parse module query param; 0 is valid (course preview). Returns null if missing/invalid. */
+function parseModuleNumberParam(value) {
+	if (value === undefined || value === null || value === '') return null;
+	const n = parseInt(String(value), 10);
+	return Number.isNaN(n) ? null : n;
+}
+
+/** True when module number is present; 0 is valid (course preview). */
+function isModuleNumberProvided(value) {
+	return parseModuleNumberParam(value) !== null;
 }
 
 // API: Plan a course using AI
@@ -447,7 +738,9 @@ app.post('/api/plan-course', async (req, res) => {
 		const { prompt, title, description, targetAudience, keyTopics, moduleCount, contentType } = req.body;
 		// Normalize: accept contentType from body (frontend must send it); default course if missing
 		const rawType = (contentType || req.body.content_type || '').toString().toLowerCase();
-		const contentKind = rawType === 'shorts' ? 'shorts' : (rawType === 'video' ? 'video' : 'course');
+		const contentKind = rawType === 'marketing' ? 'marketing'
+			: rawType === 'shorts' ? 'shorts'
+			: (rawType === 'video' ? 'video' : 'course');
 		console.log('[plan-course] Request contentType:', contentType, '-> contentKind:', contentKind);
 		
 		if (!prompt && !title) {
@@ -581,6 +874,65 @@ ${moduleCount ? `- Generate exactly ${moduleCount} shorts (${moduleCount} module
 				if (moduleCount) userPrompt += `Number of shorts (modules): ${moduleCount}\n`;
 				userPrompt += `\nEssay-style (like SAMPLE.md): each slide = one full sentence (15-22 words). 5-10 slides per short. Script carries meaning; bullets optional. Editorial tone, NOT marketing. Same JSON format as above.`;
 			}
+		} else if (contentKind === 'marketing') {
+			systemPrompt = `You are an expert course marketing scriptwriter. Create a MARKETING PACK with exactly 3 modules for one course or product.
+
+OUTPUTS (mandatory — exactly 3 modules):
+1. Module 1: YouTube Short (portrait) — videoCategory: "short", outputPlatform: "youtube-shorts"
+2. Module 2: Facebook Reel (portrait) — videoCategory: "short", outputPlatform: "facebook-reel"
+3. Module 3: Udemy landscape trailer — videoCategory: "standard", outputPlatform: "udemy-trailer"
+
+TRADEMARK RULE (mandatory):
+- Do NOT mention company or product trademarks: no NVIDIA, Cisco, AWS, Azure, Google, ChatGPT, Claude, OpenAI, Meta, etc.
+- Use generic terms: "language models", "chat AI", "cloud platforms", "enterprise systems", "leading providers"
+
+TONE:
+- Marketing-focused: clear value, urgency, benefits, enrollment CTAs
+- Confident but not sleazy. No fake stats. No "10x" or "level up"
+- Portrait modules (1-2): punchy hooks, 15-22 words per slide, 6 slides each (~30 seconds)
+- Landscape module (3): fuller narration, 8 slides, 40-80 words per slide (~90-120 seconds)
+
+PORTRAIT SLIDES (modules 1-2):
+- 6 slides each. Fixed 5-second pacing. One idea per slide.
+- Last slide CTA: Module 1 ends with "link in description" (YouTube). Module 2 ends with "link in bio" (Facebook).
+- Slide types: "title" for hook and CTA, "content-two-card" for middle beats with 1-2 points
+
+SLIDE FIELDS (mandatory — never use "content" without "script"):
+- name: unique id (e.g. yt-hook, fb-cta, udemy-curriculum)
+- script: spoken narration text
+- title: short on-screen headline
+- type: only "title" or "content-two-card"
+
+LANDSCAPE SLIDE (module 3):
+- 8 slides. Hook, problem, definition, architecture, curriculum, audience, outcomes, enroll CTA.
+- Include thumbnailText: max 3 words for Udemy thumbnail
+
+JSON SHAPE:
+{
+  "courseName": "Course Name — Marketing",
+  "courseId": "course-id-marketing",
+  "marketingPack": true,
+  "outputs": [
+    { "moduleNumber": 1, "platform": "youtube-shorts", "format": "portrait", "filename": "youtube-short.mp4" },
+    { "moduleNumber": 2, "platform": "facebook-reel", "format": "portrait", "filename": "facebook-reel.mp4" },
+    { "moduleNumber": 3, "platform": "udemy-trailer", "format": "landscape", "filename": "udemy-trailer.mp4" }
+  ],
+  "modules": [
+    {
+      "moduleNumber": 1,
+      "title": "Punchy Short Title",
+      "subtitle": "YouTube Short — Course Name",
+      "videoCategory": "short",
+      "outputPlatform": "youtube-shorts",
+      "slides": [ ... ]
+    },
+    ...
+  ]
+}`;
+
+			userPrompt = prompt
+				? `Create a 3-output marketing pack based on:\n\n"${prompt}"\n\nExactly 3 modules: YouTube Short, Facebook Reel, Udemy landscape trailer. No vendor trademarks. Marketing tone with clear CTAs.`
+				: `Create a 3-output marketing pack.\n\nTitle: ${title || 'Course'}\nDescription: ${description || ''}\nAudience: ${targetAudience || 'Developers and architects'}\nTopics: ${(keyTopics || []).join(', ')}\n\nExactly 3 modules. No vendor trademarks.`;
 		} else if (contentKind === 'video') {
 			// Video: YouTube long-form - EXPERT BLUEPRINT (Tech Education YouTube Blueprint)
 			// Structure and psychology first; uniform rhythm kills retention
@@ -824,11 +1176,29 @@ MODULE TITLE AND SUBTITLE:
 - No "Module 1", "Part 1", or numbers. Use topic title + descriptive subtitle.
 - Example: title "Introduction to Docker", subtitle "What Containers Are and Why They Matter"
 
+MODULE 0 — COURSE PREVIEW (mandatory for every new course):
+- Always include moduleNumber: 0 as the FIRST module in the modules array, before module 1.
+- Title: "Course Preview". Subtitle: one line on audience and exam/career positioning.
+- 6-8 slides only. Total narration MUST stay under 2 minutes when spoken (~250-300 words across all slides).
+- Purpose: lead-conversion preview video (course page / trailer). Sell the path; do not re-teach module 1 content.
+- Audience: students and working engineers with assumed baseline (define clearly — e.g. CCNA-level networking, basic automation literacy).
+- Position as premium exam prep + labs overview, NOT a beginner-from-zero networking course.
+- No third-party platform or vendor brand names except Cisco (e.g. no Udemy, AWS, Google, Microsoft in scripts).
+- Use title and content-single/content-two-card slides with imageSrc placeholders under module00/ (no code slides).
+- Last slide: clear CTA to start with this course and work labs in order.
+- Teaching modules (moduleNumber 1+) follow all rules below; module 0 is exempt from 10-18 slide count and 35% code rules.
+
 OUTPUT FORMAT (JSON):
 {
   "courseName": "Course Title",
   "courseId": "course-id-with-dashes",
   "modules": [
+    {
+      "moduleNumber": 0,
+      "title": "Course Preview",
+      "subtitle": "Who this path serves and what you will build",
+      "slides": [ ... 6-8 preview slides, module00/ imageSrc, under 2 minutes total ... ]
+    },
     {
       "moduleNumber": 1,
       "title": "Topic Title",
@@ -900,7 +1270,8 @@ CRITICAL - CODE EXPLANATION:
 "${prompt}"
 
 Requirements:
-- Generate ${moduleCount || '6-12'} modules depending on topic complexity. Comprehensive topics need more modules.
+- ALWAYS include moduleNumber 0 (Course Preview) as the first module: 6-8 slides, under 2 minutes total, no third-party brand names except Cisco.
+- Generate ${moduleCount || '6-12'} teaching modules (moduleNumber 1+) depending on topic complexity. Comprehensive topics need more modules.
 - Each module: 10-18 slides. Err on more slides for depth.
 - Udemy quality: comprehensive, beginner-friendly, publishable as-is. No editing needed.
 - Do NOT use "Module 1", "Module 2", etc. in title or subtitle
@@ -975,13 +1346,28 @@ Requirements:
 		const data = await response.json();
 		const content = data.choices[0].message.content;
 		const planOutput = JSON.parse(content);
+
+		normalizePlanSlides(planOutput);
+
+		if (contentKind === 'marketing' && Array.isArray(planOutput.modules)) {
+			planOutput.marketingPack = true;
+			for (const mod of planOutput.modules) {
+				if (mod.moduleNumber === 1 || mod.moduleNumber === 2) {
+					mod.videoCategory = mod.videoCategory || 'short';
+					mod.outputPlatform = mod.outputPlatform || (mod.moduleNumber === 1 ? 'youtube-shorts' : 'facebook-reel');
+				} else if (mod.moduleNumber >= 3) {
+					mod.videoCategory = mod.videoCategory || 'standard';
+					mod.outputPlatform = mod.outputPlatform || 'udemy-trailer';
+				}
+			}
+		}
 		
 		// Post-process: Fix backslash issues and validate scripts
-		const maxWordsForSlide = contentKind === 'shorts' ? 25 : (contentKind === 'video' ? 45 : MAX_WORDS_PER_SLIDE);
-		const minWordsForSlide = contentKind === 'shorts' ? 10 : (contentKind === 'video' ? 8 : 35);
+		const maxWordsDefault = contentKind === 'shorts' ? 25 : (contentKind === 'video' ? 45 : MAX_WORDS_PER_SLIDE);
+		const minWordsDefault = contentKind === 'shorts' ? 10 : (contentKind === 'video' ? 8 : 35);
 		const warnings = [];
-		for (const mod of planOutput.modules) {
-			for (const slide of mod.slides) {
+		for (const mod of planOutput.modules || []) {
+			for (const slide of mod.slides || []) {
 				// Fix improperly escaped backslashes in scripts
 				if (slide.script) {
 					slide.script = slide.script.replace(/\\(?![nrt"\\])/g, '\\\\');
@@ -991,8 +1377,12 @@ Requirements:
 				if (slide.code) {
 					// Code blocks may have intentional backslashes, leave as-is
 				}
+
+				const isMarketingShort = contentKind === 'marketing' && mod.videoCategory === 'short';
+				const maxWordsForSlide = isMarketingShort ? 25 : (contentKind === 'marketing' ? 90 : maxWordsDefault);
+				const minWordsForSlide = isMarketingShort ? 10 : (contentKind === 'marketing' ? 15 : minWordsDefault);
 				
-				const words = countWords(slide.script || '');
+				const words = slideWordCount(slide);
 				
 				// Check for truncated scripts
 				const scriptText = slide.script || '';
@@ -1090,10 +1480,10 @@ Requirements:
 		// Calculate stats
 		let totalSlides = 0;
 		let totalWords = 0;
-		for (const mod of planOutput.modules) {
-			totalSlides += mod.slides.length;
-			for (const slide of mod.slides) {
-				totalWords += countWords(slide.script);
+		for (const mod of planOutput.modules || []) {
+			for (const slide of mod.slides || []) {
+				totalSlides += 1;
+				totalWords += slideWordCount(slide);
 			}
 		}
 		
@@ -1125,8 +1515,12 @@ app.post('/api/save-plan', (req, res) => {
 		if (!plan || !plan.modules || !plan.courseName) {
 			return res.status(400).json({ error: 'Invalid plan structure' });
 		}
+
+		normalizePlanSlides(plan);
 		
-		const contentKind = contentType === 'shorts' ? 'shorts' : (contentType === 'video' ? 'video' : 'course');
+		const contentKind = contentType === 'marketing' ? 'marketing'
+			: contentType === 'shorts' ? 'shorts'
+			: (contentType === 'video' ? 'video' : 'course');
 		
 		// Extract courseId from plan
 		const courseId = plan.courseId || plan.courseName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -1193,8 +1587,13 @@ app.post('/api/save-plan', (req, res) => {
 			lines.push(`	courseId: ${JSON.stringify(courseId)},`);
 			lines.push(`	title: ${JSON.stringify(mod.title)},`);
 			lines.push(`	subtitle: ${JSON.stringify(mod.subtitle)},`);
-			if (contentKind === 'shorts') {
+			if (mod.videoCategory === 'short' || mod.videoCategory === 'standard') {
+				lines.push(`	videoCategory: ${JSON.stringify(mod.videoCategory)},`);
+			} else if (contentKind === 'shorts') {
 				lines.push(`	videoCategory: "short",`);
+			}
+			if (mod.outputPlatform) {
+				lines.push(`	outputPlatform: ${JSON.stringify(mod.outputPlatform)},`);
 			}
 			if (mod.thumbnailText) {
 				lines.push(`	thumbnailText: ${JSON.stringify(mod.thumbnailText)},`);
@@ -1274,7 +1673,9 @@ app.post('/api/save-plan', (req, res) => {
 		const courseEntry = {
 			id: courseId,
 			title: plan.courseName,
-			description: contentKind === 'shorts' ? `Shorts: ${plan.courseName}` : (contentKind === 'video' ? `Video: ${plan.courseName}` : `AI-generated course: ${plan.courseName}`),
+			description: contentKind === 'marketing' ? `Marketing: ${plan.courseName}`
+				: contentKind === 'shorts' ? `Shorts: ${plan.courseName}`
+				: (contentKind === 'video' ? `Video: ${plan.courseName}` : `AI-generated course: ${plan.courseName}`),
 			moduleCount: plan.modules.length,
 			status: 'active',
 			archivedAt: null,
@@ -1682,16 +2083,17 @@ app.post('/api/courses/:id/restore', async (req, res) => {
 			return res.status(500).json({ error: 'Failed to save course data' });
 		}
 
-		applyCourseDeployPolicy(__dirname, { activatedCourseId: courseId, pruneGit: true });
+		const policy = applyCourseDeployPolicy(__dirname, { pruneGit: true });
 		
 		res.json({
 			success: true,
-			message: `Course "${courseName}" has been restored, activated, and set as deployable course`,
+			message: `Course "${courseName}" has been restored, activated, and added to deployable courses`,
 			course: data.courses[courseIndex],
 			courseId,
 			modulesGenerated,
 			timingsCopied,
-			note: 'Only this course is deployable to git. Commit after: npm run sync:deploy-policy -- --prune-git'
+			deployableCourseIds: policy.deployableCourseIds,
+			note: 'All active courses are deployable. Commit after: npm run sync:deploy-policy -- --prune-git'
 		});
 		
 	} catch (error) {
@@ -1718,7 +2120,7 @@ app.post('/api/courses/:id/activate', (req, res) => {
 
 	try {
 		const output = runActivateCourseScript(courseId);
-		applyCourseDeployPolicy(__dirname, { activatedCourseId: courseId, pruneGit: false });
+		const policy = applyCourseDeployPolicy(__dirname, { pruneGit: false });
 		res.json({
 			success: true,
 			message: courseUsesSceneVisuals(courseId)
@@ -1727,6 +2129,7 @@ app.post('/api/courses/:id/activate', (req, res) => {
 			courseId,
 			visualMode: courseUsesSceneVisuals(courseId) ? 'scenes' : 'slides',
 			output: output || undefined,
+			deployableCourseIds: policy.deployableCourseIds,
 			note: 'Restart Remotion Studio. Before git push: npm run sync:deploy-policy -- --prune-git',
 		});
 	} catch (error) {
@@ -1767,10 +2170,18 @@ app.get('/api/modules', (req, res) => {
 					return null;
 				}
 				const moduleNumber = parseInt(moduleNumberMatch[1]);
-				
-				// If courseId is specified, only include modules for that course
-				if (courseId && moduleNumbers.length > 0 && !moduleNumbers.includes(moduleNumber)) {
-					return null;
+
+				// Match courseId inside this module block (source of truth when course is selected)
+				const blockCourseIdMatch = match.match(/courseId:\s*["']([a-zA-Z0-9_-]+)["']/);
+				const blockCourseId = blockCourseIdMatch ? blockCourseIdMatch[1] : null;
+
+				// If courseId is specified, only include modules that belong to that course
+				if (courseId) {
+					if (blockCourseId) {
+						if (blockCourseId !== courseId) return null;
+					} else if (moduleNumbers.length > 0 && !moduleNumbers.includes(moduleNumber)) {
+						return null;
+					}
 				}
 				
 				// Find which course(s) this module belongs to
@@ -2056,7 +2467,7 @@ app.post('/api/modules', (req, res) => {
 	try {
 		const { courseId, moduleNumber, title, subtitle, videoCategory, slides } = req.body;
 		
-		if (!courseId || !moduleNumber || !title || !subtitle) {
+		if (!courseId || !isModuleNumberProvided(moduleNumber) || !title || !subtitle) {
 			return res.status(400).json({ error: 'Course ID, module number, title, and subtitle are required' });
 		}
 		
@@ -2441,14 +2852,6 @@ function validateBeforeModuleGeneration(course, moduleRange) {
 // API: Generate modules
 app.post('/api/generate-modules', (req, res) => {
 	let { moduleRange, course, audioMode } = req.body;
-	course = resolveCourseIdForGeneration(course);
-
-	console.log(`[generate-modules] Received request:`, {
-		moduleRange,
-		course,
-		audioMode,
-		bodyKeys: Object.keys(req.body)
-	});
 
 	if (!course) {
 		return res.status(400).json({
@@ -2456,6 +2859,27 @@ app.post('/api/generate-modules', (req, res) => {
 			details: 'Select a video/course before generating modules. Plain GenericModule generation without a course is disabled.',
 		});
 	}
+
+	let activationInfo;
+	try {
+		activationInfo = resolveCourseForProcessing(course, { autoActivate: true });
+	} catch (err) {
+		return res.status(400).json({
+			error: err.message,
+			code: err.code,
+			activeCourseId: err.activeCourseId,
+			selectedCourseId: err.selectedCourseId,
+		});
+	}
+	course = activationInfo.courseId;
+
+	console.log(`[generate-modules] Received request:`, {
+		moduleRange,
+		course,
+		audioMode,
+		courseActivated: activationInfo.activated,
+		bodyKeys: Object.keys(req.body)
+	});
 	
 	// Derive audioMode from course when not provided (match regenerate-modules behavior)
 	if (!audioMode) {
@@ -2532,7 +2956,10 @@ app.post('/api/generate-modules', (req, res) => {
 					output: stdout,
 					lineMappings: lineMappingStdout || 'Line mappings regenerated',
 					audioMode: audioMode || 'per-slide',
-					validation: validation
+					validation: validation,
+					courseId: course,
+					courseActivated: activationInfo.activated,
+					previousCourseId: activationInfo.previousCourseId,
 				});
 			});
 		} else {
@@ -2541,7 +2968,10 @@ app.post('/api/generate-modules', (req, res) => {
 				output: stdout,
 				audioMode: 'per-module',
 				message: 'Scene-based modules generated',
-				validation: validation
+				validation: validation,
+				courseId: course,
+				courseActivated: activationInfo.activated,
+				previousCourseId: activationInfo.previousCourseId,
 			});
 		}
 	});
@@ -2550,358 +2980,110 @@ app.post('/api/generate-modules', (req, res) => {
 // API: Generate audio (bulk - supports OpenAI, MiniMax, RunPod)
 app.post('/api/generate-audio', async (req, res) => {
 	const { moduleRange, force, course, provider, voice } = req.body;
+
+	if (!course) {
+		return res.status(400).json({
+			error: 'Course is required',
+			details: 'Select a video/course in the GUI. Audio is generated from moduleContent.ts for that course.',
+		});
+	}
+
+	let activationInfo;
+	try {
+		activationInfo = resolveCourseForProcessing(course, { autoActivate: true });
+	} catch (err) {
+		return res.status(400).json({
+			error: err.message,
+			code: err.code,
+			activeCourseId: err.activeCourseId,
+			selectedCourseId: err.selectedCourseId,
+		});
+	}
 	
 	const settings = loadVoiceSettings();
 	const finalProvider = provider || settings.provider || 'openai';
 	const finalVoice = voice || settings.defaultVoice?.[finalProvider] || 'onyx';
+	const finalModuleRange = moduleRange || getModuleRangeForCourse(activationInfo.courseId) || 'all';
 	
-	console.log(`[generate-audio] Provider: ${finalProvider}, Voice: ${finalVoice}, Modules: ${moduleRange || 'all'}`);
+	console.log(`[generate-audio] Provider: ${finalProvider}, Voice: ${finalVoice}, Modules: ${finalModuleRange}, Course: ${activationInfo.courseId}${activationInfo.activated ? ' (activated)' : ''}`);
 	
-	// For OpenAI, do inline generation
-	if (finalProvider === 'openai') {
-		try {
-			const apiKey = process.env.OPENAI_API_KEY;
-			if (!apiKey) {
-				return res.status(400).json({ error: 'OPENAI_API_KEY not configured' });
-			}
-			
-			// Read moduleContent - try require first for scripts support, else parse
-			const contentPath = path.join(__dirname, 'src', 'videos', 'moduleContent.ts');
-			let modules = [];
-			try {
-				const { allModules } = require(contentPath);
-				modules = allModules.map(m => ({
-					moduleNumber: m.moduleNumber,
-					courseId: m.courseId || 'default',
-					slides: m.slides.flatMap(s => {
-						const scripts = (s.scripts && s.scripts.length >= 1) ? s.scripts : (s.script ? [s.script] : []);
-						if (s.type === 'code' && scripts.length > 1) {
-							return scripts.map((script, i) => ({
-								name: `${s.name}-${i + 1}`,
-								script: script,
-								baseName: s.name
-							}));
-						}
-						return [{ name: s.name, script: scripts[0] || '', baseName: s.name }];
-					})
-				}));
-			} catch (e) {
-				// Fallback: parse moduleContent.ts as text
-				const content = fs.readFileSync(contentPath, 'utf-8');
-				const moduleBlocks = content.split(/export const module\d+Content/);
-				for (let i = 1; i < moduleBlocks.length; i++) {
-					const block = moduleBlocks[i];
-					const numMatch = block.match(/moduleNumber:\s*(\d+)/);
-					const courseMatch = block.match(/courseId:\s*["']([^"']+)["']/);
-					if (numMatch) {
-						const moduleNum = parseInt(numMatch[1]);
-						const courseId = courseMatch ? courseMatch[1] : 'default';
-						const slides = [];
-						const slideRegex = /\{\s*name:\s*["']([^"']+)["'][\s\S]*?script:\s*["']([\s\S]*?)["']\s*,/g;
-						const slidesMatch = block.match(/slides:\s*\[([\s\S]*?)\]\s*,?\s*\}/);
-						if (slidesMatch) {
-							let slideMatch;
-							while ((slideMatch = slideRegex.exec(slidesMatch[1])) !== null) {
-								slides.push({
-									name: slideMatch[1],
-									script: slideMatch[2].replace(/\\"/g, '"').replace(/\\n/g, ' ')
-								});
-							}
-						}
-						modules.push({ moduleNumber: moduleNum, courseId, slides });
-					}
-				}
-			}
-			
-			// Filter by range if specified
-			let modulesToProcess = modules;
-			if (moduleRange && moduleRange !== 'all') {
-				const rangeNums = moduleRange.toString().split(',').flatMap(r => {
-					if (r.includes('-')) {
-						const [start, end] = r.split('-').map(n => parseInt(n.trim()));
-						return Array.from({ length: end - start + 1 }, (_, i) => start + i);
-					}
-					return [parseInt(r.trim())];
-				});
-				modulesToProcess = modules.filter(m => rangeNums.includes(m.moduleNumber));
-			}
-			
-			console.log(`[generate-audio] Found ${modules.length} modules, processing ${modulesToProcess.length}`);
-			
-			const results = { generated: 0, skipped: 0, failed: 0, details: [], failedItems: [] };
-			
-			// Load checkpoint if resuming
-			const checkpointPath = path.join(__dirname, '.checkpoints', `audio-generation-${course || 'default'}.json`);
-			let checkpoint = null;
-			if (req.body.resume && fs.existsSync(checkpointPath)) {
-				try {
-					checkpoint = JSON.parse(fs.readFileSync(checkpointPath, 'utf-8'));
-					console.log(`[generate-audio] Resuming from checkpoint: ${checkpoint.completed.length} completed, ${checkpoint.failed.length} failed`);
-				} catch (e) {
-					console.warn('[generate-audio] Could not load checkpoint:', e.message);
-				}
-			}
-			
-			// Ensure checkpoint directory exists
-			const checkpointDir = path.join(__dirname, '.checkpoints');
-			if (!fs.existsSync(checkpointDir)) {
-				fs.mkdirSync(checkpointDir, { recursive: true });
-			}
-			
-			// Initialize checkpoint
-			if (!checkpoint) {
-				checkpoint = {
-					started: new Date().toISOString(),
-					completed: [],
-					failed: [],
-					skipped: []
-				};
-			}
-			
-			for (const module of modulesToProcess) {
-				const audioDir = path.join(__dirname, 'public', 'audio', module.courseId);
-				if (!fs.existsSync(audioDir)) {
-					fs.mkdirSync(audioDir, { recursive: true });
-				}
-				
-				console.log(`[generate-audio] Module ${module.moduleNumber}: ${module.slides.length} slides`);
-				
-				for (const slide of module.slides) {
-					const audioPath = path.join(audioDir, `module${module.moduleNumber}-${slide.name}.wav`);
-					const itemKey = `${module.moduleNumber}-${slide.name}`;
-					
-					// Skip if already completed (checkpoint)
-					if (checkpoint.completed.includes(itemKey)) {
-						results.skipped++;
-						continue;
-					}
-					
-					// Skip if exists and not forcing
-					if (fs.existsSync(audioPath) && !force) {
-						checkpoint.completed.push(itemKey);
-						checkpoint.skipped.push(itemKey);
-						results.skipped++;
-						continue;
-					}
-					
-					try {
-						console.log(`[generate-audio] Generating: Module ${module.moduleNumber} - ${slide.name}`);
-						
-						// Use UnifiedVoiceService for automatic chunking support
-						const { UnifiedVoiceService } = require('./src/utils/unifiedVoiceService');
-						const voiceService = new UnifiedVoiceService();
-						
-						const result = await voiceService.generateAudio({
-							prompt: slide.script,
-							voice: finalVoice,
-							format: 'wav',
-							provider: finalProvider
-						});
-						
-						if (result.audioData) {
-							const base64 = result.audioData.includes(",") ? result.audioData.split(",")[1] : result.audioData;
-							const audioBuffer = Buffer.from(base64, "base64");
-							fs.writeFileSync(audioPath, audioBuffer);
-							
-							checkpoint.completed.push(itemKey);
-							results.generated++;
-							console.log(`[generate-audio] Generated: ${slide.name} (${audioBuffer.length} bytes, service: ${result.serviceUsed})`);
-						} else if (result.audioUrl) {
-							const response = await fetch(result.audioUrl);
-							const buffer = await response.arrayBuffer();
-							fs.writeFileSync(audioPath, Buffer.from(buffer));
-							
-							checkpoint.completed.push(itemKey);
-							results.generated++;
-							console.log(`[generate-audio] Generated: ${slide.name} (${buffer.byteLength} bytes, service: ${result.serviceUsed})`);
-						} else {
-							throw new Error('No audio data or URL returned from voice service');
-						}
-						
-						// Save checkpoint periodically (every 10 items)
-						if (checkpoint.completed.length % 10 === 0) {
-							fs.writeFileSync(checkpointPath, JSON.stringify(checkpoint, null, 2));
-						}
-						
-					} catch (error) {
-						console.error(`[generate-audio] Error: ${slide.name} - ${error.message}`);
-						checkpoint.failed.push({ key: itemKey, error: error.message });
-						results.failed++;
-						results.failedItems.push({ module: module.moduleNumber, slide: slide.name, error: error.message });
-						// Save checkpoint on error
-						fs.writeFileSync(checkpointPath, JSON.stringify(checkpoint, null, 2));
-					}
-				}
-			}
-			
-			// Finalize checkpoint
-			checkpoint.completedAt = new Date().toISOString();
-			fs.writeFileSync(checkpointPath, JSON.stringify(checkpoint, null, 2));
-			
-			console.log(`[generate-audio] Complete: ${results.generated} generated, ${results.skipped} skipped, ${results.failed} failed`);
-			
-			// Clean up checkpoint if all succeeded
-			if (results.failed === 0) {
-				try {
-					fs.unlinkSync(checkpointPath);
-					console.log('[generate-audio] Checkpoint cleared (all succeeded)');
-				} catch (e) {
-					console.warn('[generate-audio] Could not clear checkpoint:', e.message);
-				}
-			}
-			
-			res.json({ 
-				success: true, 
-				...results,
-				canResume: results.failed > 0,
-				checkpointPath: results.failed > 0 ? checkpointPath : null
-			});
-			
-		} catch (error) {
-			console.error('[generate-audio] Error:', error);
-			res.status(500).json({ error: error.message });
-		}
-		return;
+	const scriptPath = path.join(__dirname, 'scripts', 'generateAudioFromContent.ts');
+	let command = `npx tsx "${scriptPath}" ${finalModuleRange} "${finalVoice}" ${finalProvider}`;
+	if (force) {
+		console.warn('[generate-audio] force=true requested but generateAudioFromContent skips existing files by design');
 	}
 	
-	let finalModuleRange = moduleRange || (course ? getModuleRangeForCourse(course) : null);
-	
-	const command = finalModuleRange
-		? `npx tsx "${path.join(__dirname, 'scripts', 'generateAudioFromContent.ts')}" ${finalModuleRange} ${finalVoice}`
-		: `npx tsx "${path.join(__dirname, 'scripts', 'generateAudioFromContent.ts')}" all ${finalVoice}`;
-	
-	exec(command, { cwd: __dirname }, (error, stdout, stderr) => {
+	exec(command, { cwd: __dirname, maxBuffer: 10 * 1024 * 1024 }, (error, stdout, stderr) => {
 		if (error) {
-			return res.status(500).json({ error: error.message, stderr });
+			return res.status(500).json({ error: error.message, stderr, output: stdout });
 		}
-		res.json({ success: true, output: stdout });
+		const generatedMatch = stdout.match(/Generated:\s*(\d+)/);
+		const skippedMatch = stdout.match(/Skipped:\s*(\d+)/);
+		const failedMatch = stdout.match(/Failed:\s*(\d+)/);
+		res.json({
+			success: true,
+			output: stdout,
+			generated: generatedMatch ? parseInt(generatedMatch[1], 10) : 0,
+			skipped: skippedMatch ? parseInt(skippedMatch[1], 10) : 0,
+			failed: failedMatch ? parseInt(failedMatch[1], 10) : 0,
+			canResume: failedMatch ? parseInt(failedMatch[1], 10) > 0 : false,
+			courseId: activationInfo.courseId,
+			courseActivated: activationInfo.activated,
+			previousCourseId: activationInfo.previousCourseId,
+		});
 	});
 });
 
-// API: Generate audio for specific module (supports OpenAI)
+// API: Generate audio for specific module (supports OpenAI, MiniMax, RunPod)
 app.post('/api/generate-audio-module', async (req, res) => {
-	const { moduleNumber, provider, voice, force } = req.body;
-	if (!moduleNumber) {
+	const { moduleNumber, provider, voice, force, course } = req.body;
+	if (!isModuleNumberProvided(moduleNumber)) {
 		return res.status(400).json({ error: 'Module number is required' });
+	}
+	if (!course) {
+		return res.status(400).json({
+			error: 'Course is required',
+			details: 'Pass the selected course id so moduleContent.ts can be activated before TTS runs.',
+		});
+	}
+
+	let activationInfo;
+	try {
+		activationInfo = resolveCourseForProcessing(course, { autoActivate: true });
+	} catch (err) {
+		return res.status(400).json({
+			error: err.message,
+			code: err.code,
+			activeCourseId: err.activeCourseId,
+			selectedCourseId: err.selectedCourseId,
+		});
 	}
 	
 	const settings = loadVoiceSettings();
 	const finalProvider = provider || settings.provider || 'openai';
 	const finalVoice = voice || settings.defaultVoice?.[finalProvider] || 'onyx';
 	
-	console.log(`[generate-audio-module] Module ${moduleNumber}, Provider: ${finalProvider}, Voice: ${finalVoice}`);
+	console.log(`[generate-audio-module] Module ${moduleNumber}, Course: ${activationInfo.courseId}, Provider: ${finalProvider}, Voice: ${finalVoice}`);
 	
-	if (finalProvider === 'openai') {
-		// Use the bulk endpoint with module filter
-		req.body.moduleRange = moduleNumber.toString();
-		req.body.provider = finalProvider;
-		req.body.voice = finalVoice;
-		req.body.force = force;
-		
-		// Forward to bulk endpoint logic
-		const fakeRes = {
-			status: (code) => ({ json: (data) => res.status(code).json(data) }),
-			json: (data) => res.json(data)
-		};
-		
-		// Call the generate-audio handler directly by making internal request
-		try {
-			const apiKey = process.env.OPENAI_API_KEY;
-			if (!apiKey) {
-				return res.status(400).json({ error: 'OPENAI_API_KEY not configured' });
-			}
-			
-			const contentPath = path.join(__dirname, 'src', 'videos', 'moduleContent.ts');
-			const content = fs.readFileSync(contentPath, 'utf-8');
-			
-			// Find the specific module
-			const modulePattern = new RegExp(`export const module${moduleNumber}Content[\\s\\S]*?moduleNumber:\\s*${moduleNumber}[\\s\\S]*?courseId:\\s*["']([^"']+)["'][\\s\\S]*?slides:\\s*\\[([\\s\\S]*?)\\]\\s*,?\\s*\\}`, 'm');
-			const moduleMatch = content.match(modulePattern);
-			
-			if (!moduleMatch) {
-				return res.status(404).json({ error: `Module ${moduleNumber} not found` });
-			}
-			
-			const courseId = moduleMatch[1];
-			const slidesContent = moduleMatch[2];
-			
-			// Parse slides
-			const slides = [];
-			const slideRegex = /\{\s*name:\s*["']([^"']+)["'][\s\S]*?script:\s*["']([\s\S]*?)["']\s*,/g;
-			let slideMatch;
-			while ((slideMatch = slideRegex.exec(slidesContent)) !== null) {
-				slides.push({
-					name: slideMatch[1],
-					script: slideMatch[2].replace(/\\"/g, '"').replace(/\\n/g, ' ')
-				});
-			}
-			
-			const audioDir = path.join(__dirname, 'public', 'audio', courseId);
-			if (!fs.existsSync(audioDir)) {
-				fs.mkdirSync(audioDir, { recursive: true });
-			}
-			
-			console.log(`[generate-audio-module] Found ${slides.length} slides`);
-			
-			const results = { generated: 0, skipped: 0, failed: 0 };
-			
-			for (const slide of slides) {
-				const audioPath = path.join(audioDir, `module${moduleNumber}-${slide.name}.wav`);
-				
-				if (fs.existsSync(audioPath) && !force) {
-					results.skipped++;
-					continue;
-				}
-				
-				try {
-					console.log(`[generate-audio-module] Generating: ${slide.name}`);
-					
-					const response = await fetch('https://api.openai.com/v1/audio/speech', {
-						method: 'POST',
-						headers: {
-							'Content-Type': 'application/json',
-							'Authorization': `Bearer ${apiKey}`
-						},
-						body: JSON.stringify({
-							model: 'tts-1-hd',
-							voice: finalVoice,
-							input: slide.script,
-							response_format: 'wav'
-						})
-					});
-					
-					if (!response.ok) {
-						results.failed++;
-						continue;
-					}
-					
-					const audioBuffer = await response.arrayBuffer();
-					fs.writeFileSync(audioPath, Buffer.from(audioBuffer));
-					results.generated++;
-					
-				} catch (error) {
-					results.failed++;
-				}
-			}
-			
-			res.json({ success: true, module: moduleNumber, ...results });
-			
-		} catch (error) {
-			res.status(500).json({ error: error.message });
-		}
-		return;
+	const scriptPath = path.join(__dirname, 'scripts', 'generateAudioFromContent.ts');
+	let command = `npx tsx "${scriptPath}" ${moduleNumber} "${finalVoice}" ${finalProvider}`;
+	if (force) {
+		console.warn('[generate-audio-module] force=true requested but generateAudioFromContent skips existing files by design');
 	}
-	
-	// Fallback to script
-	const scriptPath = path.join(__dirname, 'scripts', 'generateAudioForModule.ts');
-	const command = `npx tsx "${scriptPath}" ${moduleNumber}`;
 	
 	exec(command, { cwd: __dirname, maxBuffer: 10 * 1024 * 1024 }, (error, stdout, stderr) => {
 		if (error) {
 			console.error('Audio generation error:', error);
-			return res.status(500).json({ error: error.message, stderr: stderr || stdout });
+			return res.status(500).json({ error: error.message, stderr: stderr || stdout, output: stdout });
 		}
-		res.json({ success: true, output: stdout });
+		res.json({
+			success: true,
+			module: moduleNumber,
+			output: stdout,
+			courseId: activationInfo.courseId,
+			courseActivated: activationInfo.activated,
+			previousCourseId: activationInfo.previousCourseId,
+		});
 	});
 });
 
@@ -3182,9 +3364,9 @@ function loadVoiceSettings() {
 		console.error('[voice-settings] Error loading:', error);
 	}
 	return {
-		provider: 'runpod',
+		provider: 'minimax',
 		customVoices: [],
-		defaultVoice: { runpod: 'andy', minimax: 'presenter_male' }
+		defaultVoice: { runpod: 'andy', minimax: 'moss_audio_302ca737-f4d5-11f0-89d3-26cb62c33ed5', openai: 'onyx' }
 	};
 }
 
@@ -3463,7 +3645,7 @@ app.post('/api/voices/test', async (req, res) => {
 			}
 			
 			// MiniMax v2 API: use api.minimax.io domain (not .chat)
-			const requestUrl = `https://api.minimax.io/v1/t2a_v2`;
+			const requestUrl = `https://api.minimax.io/v1/t2a_v2?GroupId=${encodeURIComponent(groupId)}`;
 			console.log(`[voice-test] Calling: ${requestUrl}`);
 			
 			const response = await fetch(requestUrl, {
@@ -3591,7 +3773,7 @@ app.post('/api/upload-audio', audioUpload.single('audio'), (req, res) => {
 			return res.status(400).json({ error: 'No audio file provided' });
 		}
 		
-		if (!moduleNumber || !slideName) {
+		if (!isModuleNumberProvided(moduleNumber) || !slideName) {
 			// Clean up temp file
 			fs.unlinkSync(file.path);
 			return res.status(400).json({ error: 'Module number and slide name are required' });
@@ -3790,7 +3972,7 @@ app.post('/api/split-audio', audioUpload.single('audio'), (req, res) => {
 
 			// Auto-create slides if requested (using internal function call)
 			if (autoCreateSlides === 'true' || autoCreateSlides === true) {
-				if (!moduleNumber || !slideName) {
+				if (!isModuleNumberProvided(moduleNumber) || !slideName) {
 					result.warning = 'Cannot auto-create slides: module number and slide name required';
 				} else {
 					try {
@@ -3891,7 +4073,7 @@ app.post('/api/upload-image', imageUpload.single('image'), (req, res) => {
 			return res.status(400).json({ error: 'No image file provided' });
 		}
 		
-		if (!moduleNumber || !slideName) {
+		if (!isModuleNumberProvided(moduleNumber) || !slideName) {
 			fs.unlinkSync(file.path);
 			return res.status(400).json({ error: 'Module number and slide name are required' });
 		}
@@ -4115,8 +4297,27 @@ app.post('/api/validate-audio', (req, res) => {
 // API: Generate and measure audio in alternating workflow
 app.post('/api/generate-and-measure-audio', (req, res) => {
 	const { moduleRange, course, voice, provider } = req.body;
+
+	if (!course) {
+		return res.status(400).json({
+			error: 'Course is required',
+			details: 'Select a video in the processing wizard. Audio is generated from moduleContent.ts for the selected course.',
+		});
+	}
+
+	let activationInfo;
+	try {
+		activationInfo = resolveCourseForProcessing(course, { autoActivate: true });
+	} catch (err) {
+		return res.status(400).json({
+			error: err.message,
+			code: err.code,
+			activeCourseId: err.activeCourseId,
+			selectedCourseId: err.selectedCourseId,
+		});
+	}
 	
-	let finalModuleRange = moduleRange || (course ? getModuleRangeForCourse(course) : null);
+	let finalModuleRange = moduleRange || getModuleRangeForCourse(activationInfo.courseId) || null;
 	
 	const scriptPath = path.join(__dirname, 'scripts', 'generateAndMeasureAudio.ts');
 	const finalVoice = voice || 'andy';
@@ -4159,8 +4360,13 @@ app.post('/api/generate-and-measure-audio', (req, res) => {
 	
 	res.write(`data: ${JSON.stringify({ 
 		type: 'start', 
-		message: 'Starting audio generation...', 
-		total: totalSlides 
+		message: activationInfo.activated
+			? `Activated "${activationInfo.courseId}" in Remotion — starting audio generation...`
+			: 'Starting audio generation...',
+		total: totalSlides,
+		courseId: activationInfo.courseId,
+		courseActivated: activationInfo.activated,
+		previousCourseId: activationInfo.previousCourseId,
 	})}\n\n`);
 	
 	childProcess.stdout.on('data', (data) => {
@@ -4326,36 +4532,55 @@ app.post('/api/extract-timings', (req, res) => {
 	const { moduleRange, course, courseId, method = 'whisper' } = req.body;
 	const targetCourseId = courseId || course; // Support both 'course' and 'courseId' for compatibility
 
-	// Enforce course match: Remotion uses moduleContent.ts as source of truth.
-	// Video processing must use the same course that is in moduleContent.
-	const activeCourseId = getActiveCourseFromModuleContent();
-	if (!activeCourseId) {
+	if (!targetCourseId) {
 		return res.status(400).json({
-			error: 'No active course in moduleContent.ts',
-			details: 'Activate a course first (restore or activate from GUI) before extracting timings.'
+			error: 'Course is required',
+			details: 'Select a video in the processing wizard before extracting word timings.',
 		});
 	}
-	if (targetCourseId && targetCourseId !== activeCourseId) {
-		return res.status(400).json({
-			error: 'Course mismatch',
-			details: `Selected course "${targetCourseId}" does not match the course in Remotion ("${activeCourseId}"). Activate the course you want to process first.`,
-			activeCourseId,
-			selectedCourseId: targetCourseId
-		});
-	}
-	const effectiveCourseId = targetCourseId || activeCourseId;
 
-	let finalModuleRange = moduleRange || (effectiveCourseId ? getModuleRangeForCourse(effectiveCourseId) : null);
-	
+	let activationInfo;
+	try {
+		activationInfo = resolveCourseForProcessing(targetCourseId, { autoActivate: true });
+	} catch (err) {
+		return res.status(400).json({
+			error: err.message,
+			code: err.code,
+			activeCourseId: err.activeCourseId,
+			selectedCourseId: err.selectedCourseId,
+		});
+	}
+	const effectiveCourseId = activationInfo.courseId;
+	const finalModuleRange = moduleRange || getModuleRangeForCourse(effectiveCourseId);
+
+	if (method === 'mfa' && !reserveMfaExtraction({
+		moduleRange: finalModuleRange,
+		courseId: effectiveCourseId,
+	})) {
+		const mfaStatus = getMfaExtractionStatus();
+		return res.status(409).json({
+			error: 'MFA extraction already in progress',
+			details:
+				'Only one MFA alignment run can run at a time (each slide takes 1-3 minutes). ' +
+				'Wait for the current run to finish, or POST /api/cancel-mfa-extraction to stop a stuck job.',
+			...mfaStatus,
+		});
+	}
+
 	// Choose script based on method
-	const scriptName = method === 'gentle' 
-		? 'extractWordTimingsFromContentGentle.ts'
-		: 'extractWordTimingsFromContent.ts';
+	let scriptName;
+	if (method === 'gentle') {
+		scriptName = 'extractWordTimingsFromContentGentle.ts';
+	} else if (method === 'mfa') {
+		scriptName = 'extractWordTimingsFromContentMfa.ts';
+	} else {
+		scriptName = 'extractWordTimingsFromContent.ts';
+	}
 	const scriptPath = path.join(__dirname, 'scripts', scriptName);
 	
-	// Build command - Gentle needs courseId; Whisper uses allModules from moduleContent
+	// Build command - Gentle/MFA need courseId; Whisper uses allModules from moduleContent
 	let command;
-	if (method === 'gentle') {
+	if (method === 'gentle' || method === 'mfa') {
 		command = finalModuleRange
 			? `npx tsx "${scriptPath}" ${finalModuleRange} ${effectiveCourseId}`
 			: `npx tsx "${scriptPath}" all ${effectiveCourseId}`;
@@ -4377,8 +4602,37 @@ app.post('/api/extract-timings', (req, res) => {
 	
 	// Parse progress from stdout
 	const childProcess = exec(command, { cwd: __dirname, maxBuffer: 10 * 1024 * 1024 });
+	let responseFinished = false;
+	if (method === 'mfa') {
+		attachMfaExtractionChild(childProcess);
+	}
+	const releaseMfaExtractLockForRequest = () => {
+		if (method === 'mfa' && mfaExtractState.child === childProcess) {
+			releaseMfaExtractLock();
+		}
+	};
+
+	const writeSse = (payload) => {
+		if (responseFinished || res.writableFinished) {
+			return false;
+		}
+		try {
+			res.write(`data: ${JSON.stringify(payload)}\n\n`);
+			return true;
+		} catch {
+			return false;
+		}
+	};
+
+	// Keep MFA running if the browser disconnects (same as batch render).
+	res.on('close', () => {
+		if (method === 'mfa' && !responseFinished && !res.writableFinished) {
+			console.log('[extract-timings] Client disconnected — MFA extraction continues in background');
+		}
+	});
 	
 	let buffer = '';
+	let stderrBuffer = '';
 	let currentModule = '';
 	let currentSlide = '';
 	let totalSlides = 0;
@@ -4386,14 +4640,38 @@ app.post('/api/extract-timings', (req, res) => {
 	let moduleSlides = 0;
 	
 	// Send initial progress with method info
-	const methodName = method === 'gentle' ? 'Gentle' : 'Whisper';
-	res.write(`data: ${JSON.stringify({ type: 'start', message: `Starting word timing extraction using ${methodName}...` })}\n\n`);
+	const methodLabels = { gentle: 'Gentle', mfa: 'MFA', whisper: 'Whisper' };
+	const methodName = methodLabels[method] || 'Whisper';
+	const startMessage = activationInfo.activated
+		? `Activated "${effectiveCourseId}" in Remotion — extracting timings with ${methodName}...`
+		: `Starting word timing extraction using ${methodName}...`;
+	res.write(`data: ${JSON.stringify({
+		type: 'start',
+		message: startMessage,
+		courseId: effectiveCourseId,
+		courseActivated: activationInfo.activated,
+		previousCourseId: activationInfo.previousCourseId,
+	})}\n\n`);
 
-	// Heartbeat: if no stdout for 12s, send "loading" (Node pipes buffer output; first data can take 30-60s)
+	// Heartbeat: if no stdout for 12s, send staged loading hints
 	let gotFirstOutput = false;
+	let heartbeatCount = 0;
+	const heartbeatMessages = method === 'mfa'
+		? [
+			'Starting MFA script...',
+			'Checking MFA / Docker (tsx compile can take 30-60s)...',
+			'Still waiting for first output...',
+			'If stuck >2 min: ensure Docker Desktop engine is running (docker version shows Server)',
+		]
+		: [
+			'Loading script and modules... (first output can take 30-60 seconds)',
+			'Still loading modules...',
+			'If stuck >2 min, check the terminal or server logs',
+		];
 	const heartbeat = setInterval(() => {
 		if (!gotFirstOutput && !childProcess.killed) {
-			res.write(`data: ${JSON.stringify({ type: 'progress', message: `Loading script and modules... (first output can take 30-60 seconds)` })}\n\n`);
+			const idx = Math.min(heartbeatCount++, heartbeatMessages.length - 1);
+			res.write(`data: ${JSON.stringify({ type: 'progress', message: heartbeatMessages[idx] })}\n\n`);
 		}
 	}, 12000);
 
@@ -4407,6 +4685,24 @@ app.post('/api/extract-timings', (req, res) => {
 		for (const line of lines) {
 			if (!line.trim()) continue;
 			
+			// MFA / Docker setup progress
+			if (
+				line.includes('Starting MFA') ||
+				line.includes('Checking MFA') ||
+				line.includes('Checking Docker') ||
+				line.includes('Checking for local MFA') ||
+				line.includes('Checking for MFA image') ||
+				line.includes('Local MFA not found') ||
+				line.includes('Loading course modules') ||
+				line.includes('Preparing MFA Docker') ||
+				line.includes('Docker MFA align_one') ||
+				line.includes('Running MFA align_one') ||
+				line.includes('Pulling MFA Docker image') ||
+				line.includes('Downloading MFA')
+			) {
+				res.write(`data: ${JSON.stringify({ type: 'progress', message: line.trim() })}\n\n`);
+			}
+
 			// Parse early "Extracting..." / "Processing N module(s)..." for immediate feedback
 			if (line.includes('Extracting word timings')) {
 				res.write(`data: ${JSON.stringify({ type: 'progress', message: `Script started. Loading modules...` })}\n\n`);
@@ -4439,13 +4735,14 @@ app.post('/api/extract-timings', (req, res) => {
 					currentSlide = match[1];
 					moduleSlides++;
 					processedSlides++;
+					const slideEta = method === 'mfa' ? '30-120 seconds' : '1-3 minutes';
 					res.write(`data: ${JSON.stringify({ 
 						type: 'slide', 
 						module: currentModule,
 						slide: currentSlide,
 						processed: processedSlides,
 						total: totalSlides,
-						message: `Processing ${currentSlide}... (this takes 1-3 minutes)`
+						message: `Processing ${currentSlide}... (this takes ${slideEta})`
 					})}\n\n`);
 				}
 			}
@@ -4464,6 +4761,10 @@ app.post('/api/extract-timings', (req, res) => {
 				}
 			}
 			
+			if (line.includes('❌ No audio') || line.includes('No new timings were saved') || line.includes('Generate audio first')) {
+				res.write(`data: ${JSON.stringify({ type: 'error', message: line.trim() })}\n\n`);
+			}
+
 			// Parse warnings
 			if (line.includes('⚠ Skipping') || line.includes('⚠ No words')) {
 				res.write(`data: ${JSON.stringify({ 
@@ -4505,73 +4806,110 @@ app.post('/api/extract-timings', (req, res) => {
 	});
 	
 	childProcess.stderr.on('data', (data) => {
-		const msg = data.toString().trim();
-		// Ignore deprecation warnings (they're not real errors)
-		if (msg.includes('DeprecationWarning') || msg.includes('punycode')) {
-			return;
+		stderrBuffer += data.toString();
+		const lines = stderrBuffer.split('\n');
+		stderrBuffer = lines.pop() || '';
+
+		for (const line of lines) {
+			const classified = classifyTimingStderrLine(line);
+			if (classified.kind === 'skip') {
+				continue;
+			}
+			gotFirstOutput = true;
+			clearInterval(heartbeat);
+			res.write(`data: ${JSON.stringify({ 
+				type: classified.kind === 'error' ? 'error' : 'warning', 
+				message: classified.message
+			})}\n\n`);
 		}
-		res.write(`data: ${JSON.stringify({ 
-			type: 'error', 
-			message: msg
-		})}\n\n`);
 	});
 	
-	childProcess.on('close', (code) => {
+	childProcess.on('close', (code, signal) => {
 		clearInterval(heartbeat);
+		releaseMfaExtractLockForRequest();
+
+		if (responseFinished || res.writableFinished) {
+			return;
+		}
+		if (method === 'mfa' && mfaExtractState.child !== childProcess && code !== 0) {
+			console.log('[extract-timings] Ignoring exit from superseded MFA run');
+			responseFinished = true;
+			return;
+		}
+
 		if (code === 0) {
-			// Word timings extracted successfully - now generate line mappings
 			res.write(`data: ${JSON.stringify({ 
 				type: 'summary', 
-				message: 'Generating line mappings for code highlighting...'
+				message: 'Syncing bullets, line highlights, and Remotion content...'
 			})}\n\n`);
 			
-			const lineMappingScript = path.join(__dirname, 'scripts', 'generateLineMappingsFromContent.ts');
-			const lineMappingCommand = finalModuleRange 
-				? `npx tsx "${lineMappingScript}" ${finalModuleRange}`
-				: `npx tsx "${lineMappingScript}" all`;
-			
-			exec(lineMappingCommand, { cwd: __dirname, maxBuffer: 10 * 1024 * 1024 }, (err, stdout, stderr) => {
+			runPostExtractTimingsSync(effectiveCourseId, finalModuleRange, (err, stdout, stderr) => {
 				if (err) {
-					console.error('Line mapping generation error:', err);
+					console.error('Post-extract sync error:', err);
 					res.write(`data: ${JSON.stringify({ 
 						type: 'warning', 
-						message: 'Line mapping generation had issues (cues may be limited)'
+						message: 'Post-timing sync had issues (line highlights or bullets may be incomplete)'
 					})}\n\n`);
 				} else {
-					// Parse the number of mappings generated
-					const mappingMatch = stdout.match(/Generated (\d+) mappings/);
-					const count = mappingMatch ? mappingMatch[1] : 'some';
 					res.write(`data: ${JSON.stringify({ 
 						type: 'summary', 
-						message: `Generated ${count} line mappings for code highlighting`
+						message: 'Line mappings, bullets, and course activation complete'
 					})}\n\n`);
 				}
 				
 				res.write(`data: ${JSON.stringify({ 
 					type: 'done', 
 					success: true,
-					message: 'Word timing extraction and line mapping complete!'
+					message: 'Word timings, line highlights, and bullets synced!'
 				})}\n\n`);
+				responseFinished = true;
 				res.end();
 			});
 		} else {
-			res.write(`data: ${JSON.stringify({ 
-				type: 'done', 
+			const exitMessage = formatProcessExitMessage(code, signal);
+			if (code === null && signal) {
+				console.warn(`[extract-timings] MFA child stopped: signal=${signal}`);
+			} else if (code !== 0) {
+				console.warn(`[extract-timings] MFA child failed: code=${code} signal=${signal || 'none'}`);
+			}
+			writeSse({
+				type: 'done',
 				success: false,
-				message: `Process exited with code ${code}`
-			})}\n\n`);
-			res.end();
+				message: exitMessage,
+			});
+			responseFinished = true;
+			try {
+				res.end();
+			} catch {
+				// Client already disconnected.
+			}
 		}
 	});
 	
 	childProcess.on('error', (error) => {
 		clearInterval(heartbeat);
+		releaseMfaExtractLockForRequest();
 		res.write(`data: ${JSON.stringify({ 
 			type: 'error', 
 			message: error.message
 		})}\n\n`);
+		responseFinished = true;
 		res.end();
 	});
+});
+
+app.get('/api/mfa-extraction-status', (req, res) => {
+	res.json(getMfaExtractionStatus());
+});
+
+app.post('/api/cancel-mfa-extraction', (req, res) => {
+	const status = getMfaExtractionStatus();
+	if (!status.inProgress) {
+		clearMfaDockerLockFile();
+		return res.json({ success: true, cancelled: false, message: 'No MFA extraction was running (cleared docker lock if present).' });
+	}
+	const result = cancelMfaExtraction('user cancelled');
+	res.json({ success: true, ...result, previous: status });
 });
 
 // API: Check if timings are extracted (now checks course-specific JSON files)
@@ -4625,10 +4963,10 @@ app.get('/api/check-timings', (req, res) => {
 // API: Get slide statuses for a module
 app.get('/api/slide-statuses', (req, res) => {
 	try {
-		const moduleNumber = req.query.module;
+		const moduleNumber = parseModuleNumberParam(req.query.module);
 		const courseId = req.query.course || 'aws-pulumi';
 		
-		if (!moduleNumber) {
+		if (moduleNumber === null) {
 			return res.status(400).json({ error: 'Module number is required' });
 		}
 		
@@ -4798,17 +5136,38 @@ app.get('/api/slide-statuses', (req, res) => {
 					}
 				}
 				
-				// Video status (check if module file exists and includes this slide)
-				// A slide is "video complete" if the module is generated and includes this slide
+				// Video status: scene courses use ModuleN.tsx; slide courses use GenericModule + moduleContent
 				let videoStatus = 'pending';
-				const moduleFile = path.join(__dirname, 'src', 'videos', `Module${moduleNumber}.tsx`);
-				const configFile = path.join(__dirname, 'src', 'videos', `Module${moduleNumber}Config.ts`);
-				
-				if (fs.existsSync(moduleFile) && fs.existsSync(configFile)) {
-					const moduleFileContent = fs.readFileSync(moduleFile, 'utf-8');
-					// Check if slide is referenced in the module file
-					if (moduleFileContent.includes(slideName) || moduleFileContent.includes(`"${slideName}"`)) {
-						videoStatus = 'complete';
+				const rootPath = path.join(__dirname, 'src', 'Root.tsx');
+				const rootContent = fs.existsSync(rootPath) ? fs.readFileSync(rootPath, 'utf-8') : '';
+				const contentJsonPath = path.join(__dirname, 'courses', courseId, 'content.json');
+				let contentJson = null;
+				if (fs.existsSync(contentJsonPath)) {
+					try {
+						contentJson = JSON.parse(fs.readFileSync(contentJsonPath, 'utf-8'));
+					} catch (e) { /* ignore */ }
+				}
+				const moduleContentPath = path.join(__dirname, 'src', 'videos', 'moduleContent.ts');
+				const moduleContentText = fs.existsSync(moduleContentPath)
+					? fs.readFileSync(moduleContentPath, 'utf-8')
+					: '';
+				const videosDir = path.join(__dirname, 'src', 'videos');
+				const moduleRegistered = isModuleGeneratedForCourse(courseId, moduleNumber, {
+					moduleContentText,
+					rootContent,
+					contentJson,
+					videosDir,
+				});
+				if (moduleRegistered) {
+					videoStatus = 'complete';
+				} else {
+					const moduleFile = path.join(__dirname, 'src', 'videos', `Module${moduleNumber}.tsx`);
+					const configFile = path.join(__dirname, 'src', 'videos', `Module${moduleNumber}Config.ts`);
+					if (fs.existsSync(moduleFile) && fs.existsSync(configFile)) {
+						const moduleFileContent = fs.readFileSync(moduleFile, 'utf-8');
+						if (moduleFileContent.includes(slideName) || moduleFileContent.includes(`"${slideName}"`)) {
+							videoStatus = 'complete';
+						}
 					}
 				}
 				
@@ -4847,14 +5206,15 @@ app.get('/api/workflow-status', (req, res) => {
 		const videosDir = path.join(__dirname, 'src', 'videos');
 		const contentPath = path.join(__dirname, 'src', 'videos', 'moduleContent.ts');
 		
-		// Read module content
+		// Read module content and Root.tsx (slide courses register GenericModule here)
 		const content = fs.readFileSync(contentPath, 'utf-8');
-		const moduleMatches = content.match(/export const module\d+Content: ModuleContent = \{[\s\S]*?\};/g) || [];
+		const rootPath = path.join(__dirname, 'src', 'Root.tsx');
+		const rootContent = fs.existsSync(rootPath) ? fs.readFileSync(rootPath, 'utf-8') : '';
 		
 		const workflowStatus = {
 			modules: [],
 			summary: {
-				totalModules: moduleMatches.length,
+				totalModules: 0,
 				modulesGenerated: 0,
 				audioFilesGenerated: 0,
 				totalAudioFiles: 0
@@ -4890,6 +5250,7 @@ app.get('/api/workflow-status', (req, res) => {
 				} catch (e2) { /* ignore */ }
 			}
 			if (moduleNumbers.length === 0) {
+				const moduleMatches = content.match(/export const module\d+Content: ModuleContent = \{[\s\S]*?\};/g) || [];
 				moduleNumbers = moduleMatches.map((_, i) => i + 1);
 			}
 		}
@@ -4903,18 +5264,13 @@ app.get('/api/workflow-status', (req, res) => {
 			} catch (e) { /* ignore */ }
 		}
 
-		// Check each module
-		moduleMatches.forEach((match, index) => {
-			const moduleNumber = index + 1;
-			
-			// Skip if not in this course
-			if (!moduleNumbers.includes(moduleNumber)) {
-				return;
-			}
-			const moduleCourseId = match.match(/courseId:\s*["']([^"']+)["']/)?.[1];
+		// Check each module in this course (from mapping or content.json)
+		moduleNumbers.forEach((moduleNumber) => {
+			const match = getModuleContentMatch(content, moduleNumber);
+			const moduleCourseId = match?.match(/courseId:\s*["']([^"']+)["']/)?.[1];
 			// Prefer slide names from moduleContent when course matches; else use content.json
 			let slideNames = [];
-			if (moduleCourseId === courseId) {
+			if (match && moduleCourseId === courseId) {
 				const slidesContent = extractSlidesContent(match);
 				slideNames = slidesContent ? extractSlideNames(slidesContent) : [];
 			}
@@ -4922,39 +5278,41 @@ app.get('/api/workflow-status', (req, res) => {
 				const mod = contentJson.modules.find((m) => m.moduleNumber === moduleNumber);
 				if (mod?.slides) slideNames = mod.slides.map((s) => s.name).filter(Boolean);
 			}
-			if (slideNames.length === 0) {
+			if (slideNames.length === 0 && match) {
 				const slidesContent = extractSlidesContent(match);
 				slideNames = slidesContent ? extractSlideNames(slidesContent) : [];
 			}
-			const titleMatch = match.match(/title:\s*"([^"]+)"/);
+			const titleFromContent = contentJson?.modules?.find((m) => m.moduleNumber === moduleNumber)?.title;
+			const titleMatch = match?.match(/title:\s*"([^"]+)"/);
 			
-			// Check if module files exist
-			const moduleFile = path.join(videosDir, `Module${moduleNumber}.tsx`);
-			const configFile = path.join(videosDir, `Module${moduleNumber}Config.ts`);
-			const moduleGenerated = fs.existsSync(moduleFile) && fs.existsSync(configFile);
+			const moduleGenerated = isModuleGeneratedForCourse(courseId, moduleNumber, {
+				moduleContentText: content,
+				rootContent,
+				contentJson,
+				videosDir,
+			});
 			
-			// Check audio files
+			// Check audio files (always list every slide, even when the course audio folder is new/empty)
 			const audioFiles = [];
 			let audioComplete = 0;
 			
-			if (fs.existsSync(audioDir)) {
-				slideNames.forEach(slideName => {
-					const audioFileName = `module${moduleNumber}-${slideName}.wav`;
-					const audioPath = path.join(audioDir, audioFileName);
-					const exists = fs.existsSync(audioPath);
-					
-					audioFiles.push({
-						name: slideName,
-						fileName: audioFileName,
-						exists,
-						size: exists ? fs.statSync(audioPath).size : 0
-					});
-					
-					if (exists && fs.statSync(audioPath).size > 0) {
-						audioComplete++;
-					}
+			slideNames.forEach(slideName => {
+				const audioFileName = `module${moduleNumber}-${slideName}.wav`;
+				const audioPath = path.join(audioDir, audioFileName);
+				const exists = fs.existsSync(audioPath);
+				const size = exists ? fs.statSync(audioPath).size : 0;
+				
+				audioFiles.push({
+					name: slideName,
+					fileName: audioFileName,
+					exists,
+					size,
 				});
-			}
+				
+				if (exists && size > 0) {
+					audioComplete++;
+				}
+			});
 			
 			// Check audio durations (with course prefix)
 			const audioDurationPath = path.join(__dirname, 'src', 'utils', 'audioDuration.ts');
@@ -4971,34 +5329,22 @@ app.get('/api/workflow-status', (req, res) => {
 			}
 			
 			// Check word timings from course-specific directory
-			const courseTimingsDir = path.join(__dirname, 'courses', courseId, 'timings');
-			const timingsJsonPath = path.join(courseTimingsDir, `module${moduleNumber}.json`);
-			let timingsExtracted = false;
-			if (fs.existsSync(timingsJsonPath)) {
-				try {
-					const moduleTimings = JSON.parse(fs.readFileSync(timingsJsonPath, 'utf-8'));
-					if (moduleTimings.slides) {
-						for (const slideName of slideNames) {
-							const slideTimings = moduleTimings.slides[slideName];
-							if (slideTimings && slideTimings.words && slideTimings.words.length > 0) {
-								timingsExtracted = true;
-								break;
-							}
-						}
-					}
-				} catch (e) {
-					// Invalid JSON
-				}
-			}
+			const timingCoverage = getModuleTimingCoverage(courseId, moduleNumber, slideNames, __dirname);
+			const timingsExtracted = timingCoverage.timingsExtracted;
 			
-			// Determine status: basicPreview (Steps 1-3) vs fullyAnimated (Steps 1-4) vs diagramReady (Steps 1-5)
-			const basicPreview = moduleGenerated && audioComplete === slideNames.length && audioMeasured;
-			// Fully animated requires ALL slides to have word timings
+			// layoutPreview: content registered (preview in Remotion without audio/timings)
+			// basicPreview: Steps 1-3 (audio + durations)
+			// fullyAnimated: Step 4 (word timings)
+			const layoutPreview = moduleGenerated;
+			const basicPreview = layoutPreview && audioComplete === slideNames.length && slideNames.length > 0 && audioMeasured;
 			const fullyAnimated = basicPreview && timingsExtracted;
+			const animationStatus = fullyAnimated
+				? 'fullyAnimated'
+				: (basicPreview ? 'basicPreview' : (layoutPreview ? 'layoutPreview' : 'incomplete'));
 			
 			workflowStatus.modules.push({
 				moduleNumber,
-				title: titleMatch ? titleMatch[1] : `Module ${moduleNumber}`,
+				title: titleFromContent || (titleMatch ? titleMatch[1] : `Module ${moduleNumber}`),
 				moduleGenerated,
 				audioFiles,
 				audioComplete,
@@ -5006,14 +5352,44 @@ app.get('/api/workflow-status', (req, res) => {
 				audioProgress: slideNames.length > 0 ? (audioComplete / slideNames.length) * 100 : 0,
 				audioMeasured,
 				timingsExtracted,
-				readyForRemotion: basicPreview, // Legacy: basic preview
-				animationStatus: fullyAnimated ? 'fullyAnimated' : (basicPreview ? 'basicPreview' : 'incomplete')
+				timingsFileExists: timingCoverage.timingsFileExists,
+				timingSlidesComplete: timingCoverage.timingSlidesComplete,
+				timingSlidesTotal: timingCoverage.timingSlidesTotal,
+				missingTimingSlides: timingCoverage.missingTimingSlides,
+				layoutPreview,
+				readyForRemotion: layoutPreview || basicPreview,
+				animationStatus
 			});
 			
 			if (moduleGenerated) workflowStatus.summary.modulesGenerated++;
 			workflowStatus.summary.audioFilesGenerated += audioComplete;
 			workflowStatus.summary.totalAudioFiles += slideNames.length;
 		});
+		
+		workflowStatus.summary.totalModules = workflowStatus.modules.length;
+
+		const timingSlidesComplete = workflowStatus.modules.reduce(
+			(n, m) => n + (m.timingSlidesComplete || 0),
+			0
+		);
+		const timingSlidesTotal = workflowStatus.modules.reduce(
+			(n, m) => n + (m.timingSlidesTotal || 0),
+			0
+		);
+		workflowStatus.summary.timingSlidesComplete = timingSlidesComplete;
+		workflowStatus.summary.timingSlidesTotal = timingSlidesTotal;
+		workflowStatus.summary.timingsModulesComplete = workflowStatus.modules.filter(
+			(m) => m.timingsExtracted
+		).length;
+		workflowStatus.summary.timingsModulesMissing = workflowStatus.modules
+			.filter((m) => !m.timingsExtracted)
+			.map((m) => ({
+				moduleNumber: m.moduleNumber,
+				title: m.title,
+				missingCount: (m.missingTimingSlides || []).length,
+				missingTimingSlides: m.missingTimingSlides || [],
+				timingsFileExists: m.timingsFileExists,
+			}));
 		
 		// Calculate overall progress
 		workflowStatus.summary.overallProgress = workflowStatus.summary.totalModules > 0
@@ -5045,10 +5421,57 @@ app.get('/api/workflow-status', (req, res) => {
 		workflowStatus.summary.usesSceneVisuals = courseUsesSceneVisuals(courseId);
 		// Propagate to all modules for consistency
 		workflowStatus.modules.forEach((m) => { m.diagramPipelineComplete = diagramPipelineComplete; });
+
+		const activeCourseId = getActiveCourseFromModuleContent();
+		workflowStatus.activeCourseId = activeCourseId;
+		workflowStatus.selectedCourseId = courseId;
+		workflowStatus.courseMismatch = Boolean(activeCourseId && courseId && activeCourseId !== courseId);
+		if (workflowStatus.courseMismatch) {
+			workflowStatus.courseMismatchMessage =
+				`Remotion is using "${activeCourseId}" but you selected "${courseId}". Audio and timings run from moduleContent.ts — Step 2 will auto-activate the selected course, or click Activate below.`;
+		}
 		
 		res.json(workflowStatus);
 	} catch (error) {
 		console.error('Error getting workflow status:', error);
+		res.status(500).json({ error: error.message });
+	}
+});
+
+// API: Word timing coverage for one course or all active courses (GUI panels)
+app.get('/api/timings-coverage', (req, res) => {
+	try {
+		const scope = req.query.scope || 'course';
+		const courseId = req.query.course;
+
+		if (scope === 'all-active') {
+			const data = readCoursesJson();
+			const activeCourses = (data.courses || []).filter((c) => c.status === 'active');
+			const courses = activeCourses.map((c) => getCourseTimingCoverage(c.id, __dirname));
+			res.json({
+				scope: 'all-active',
+				courses,
+			});
+			return;
+		}
+
+		let targetCourseId = courseId;
+		if (!targetCourseId || targetCourseId === 'default') {
+			targetCourseId = getActiveCourseFromModuleContent();
+		}
+		if (!targetCourseId) {
+			return res.status(400).json({
+				error: 'No course selected',
+				details: 'Pass ?course=<id> or activate a course first.',
+			});
+		}
+
+		res.json({
+			scope: 'course',
+			...getCourseTimingCoverage(targetCourseId, __dirname),
+		});
+	} catch (error) {
+		console.error('Error getting timings coverage:', error);
 		res.status(500).json({ error: error.message });
 	}
 });
@@ -5303,125 +5726,71 @@ app.post('/api/clear-checkpoint', (req, res) => {
 // API: Generate audio for single slide (supports OpenAI, MiniMax, RunPod)
 // For multi-audio code slides: pass base name to generate all chunks (-1, -2, -3)
 app.post('/api/generate-audio-slide', async (req, res) => {
-	const { moduleNumber, slideName, force, voice, provider } = req.body;
+	const { moduleNumber, slideName, force, voice, provider, course } = req.body;
 	
-	if (!moduleNumber || !slideName) {
+	const parsedModuleNumber = parseModuleNumberParam(moduleNumber);
+	if (parsedModuleNumber === null || !slideName) {
 		return res.status(400).json({ error: 'Module number and slide name are required' });
+	}
+	if (!course) {
+		return res.status(400).json({
+			error: 'Course is required',
+			details: 'Select a video in the wizard so moduleContent.ts matches before generating slide audio.',
+		});
+	}
+
+	let activationInfo;
+	try {
+		activationInfo = resolveCourseForProcessing(course, { autoActivate: true });
+	} catch (err) {
+		return res.status(400).json({
+			error: err.message,
+			code: err.code,
+			activeCourseId: err.activeCourseId,
+			selectedCourseId: err.selectedCourseId,
+		});
 	}
 	
 	const settings = loadVoiceSettings();
 	const finalProvider = provider || settings.provider || 'openai';
 	const finalVoice = voice || settings.defaultVoice?.[finalProvider] || 'onyx';
 	
-	console.log(`[generate-audio-slide] Module ${moduleNumber}, Slide: ${slideName}, Provider: ${finalProvider}, Voice: ${finalVoice}`);
+	console.log(`[generate-audio-slide] Course: ${activationInfo.courseId}, Module ${parsedModuleNumber}, Slide: ${slideName}, Provider: ${finalProvider}, Voice: ${finalVoice}${activationInfo.activated ? ' (activated)' : ''}`);
 	
-	try {
-		let itemsToGenerate = []; // { audioFileName, script }
-		let courseId = 'default';
-		const moduleContentPath = path.join(__dirname, 'src', 'videos', 'moduleContent.ts');
-
-		try {
-			// Clear require cache so we always read current moduleContent (fixes stale content after file change)
-			try {
-				const resolved = require.resolve(moduleContentPath);
-				delete require.cache[resolved];
-			} catch (_) { /* ignore if resolve fails */ }
-			const { allModules } = require(moduleContentPath);
-			const mod = allModules.find(m => m.moduleNumber === parseInt(moduleNumber));
-			if (!mod) return res.status(404).json({ error: `Module ${moduleNumber} not found` });
-			courseId = mod.courseId || 'default';
-			const slide = mod.slides.find(s => s.name === slideName || slideName.startsWith(s.name + '-'));
-			if (!slide) return res.status(404).json({ error: `Slide ${slideName} not found in module ${moduleNumber}` });
-
-			const baseName = slide.name;
-			const scripts = (slide.scripts && slide.scripts.length >= 1) ? slide.scripts : (slide.script ? [slide.script] : []);
-
-			const chunkMatch = slideName.match(/^(.+)-(\d+)$/);
-			const chunkIndex = chunkMatch && chunkMatch[1] === baseName ? parseInt(chunkMatch[2]) - 1 : -1;
-
-			if (slide.type === 'code' && scripts.length > 1) {
-				if (chunkIndex >= 0 && chunkIndex < scripts.length) {
-					itemsToGenerate.push({
-						audioFileName: `module${moduleNumber}-${baseName}-${chunkIndex + 1}`,
-						script: scripts[chunkIndex]
-					});
-				} else {
-					for (let i = 0; i < scripts.length; i++) {
-						itemsToGenerate.push({
-							audioFileName: `module${moduleNumber}-${baseName}-${i + 1}`,
-							script: scripts[i]
-						});
-					}
-				}
-			} else {
-				itemsToGenerate.push({
-					audioFileName: `module${moduleNumber}-${baseName}`,
-					script: scripts[0] || ''
-				});
-			}
-		} catch (e) {
-			const content = fs.readFileSync(moduleContentPath, 'utf-8');
-			// Match module block: slides array ends with "];" then "};" (not "], }")
-			const modulePattern = new RegExp(`module${moduleNumber}Content[\\s\\S]*?slides:\\s*\\[([\\s\\S]*?)\\]\\s*;?\\s*\\}\\s*;`, 'm');
-			const moduleMatch = content.match(modulePattern);
-			if (!moduleMatch) return res.status(404).json({ error: `Module ${moduleNumber} not found` });
-			const courseIdMatch = moduleMatch[0].match(/courseId:\s*["']([^"']+)["']/);
-			courseId = courseIdMatch ? courseIdMatch[1] : 'default';
-			const slidePattern = new RegExp(`name:\\s*["']${slideName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["'][\\s\\S]*?script:\\s*"((?:[^"\\\\]|\\\\.)*)"`, 'm');
-			const slideMatch = moduleMatch[1].match(slidePattern);
-			if (!slideMatch) return res.status(404).json({ error: `Slide ${slideName} not found in module ${moduleNumber}` });
-			itemsToGenerate = [{
-				audioFileName: `module${moduleNumber}-${slideName}`,
-				script: slideMatch[1].replace(/\\"/g, '"').replace(/\\n/g, ' ')
-			}];
+	const scriptPath = path.join(__dirname, 'scripts', 'generateAudioForSlide.ts');
+	const flags = force ? '--force' : '';
+	const cmd = `npx tsx "${scriptPath}" ${parsedModuleNumber} ${slideName} "${finalVoice}" ${finalProvider}${flags ? ` ${flags}` : ''}`;
+	
+	exec(cmd, { cwd: __dirname, maxBuffer: 10 * 1024 * 1024 }, (error, stdout, stderr) => {
+		if (error) {
+			console.error('[generate-audio-slide] Error:', stderr || error.message);
+			return res.status(500).json({ error: stderr || error.message, output: stdout });
 		}
 
-		const audioDir = path.join(__dirname, 'public', 'audio', courseId);
-		if (!fs.existsSync(audioDir)) fs.mkdirSync(audioDir, { recursive: true });
-
-		if (finalProvider === 'openai' || finalProvider === 'minimax' || finalProvider === 'runpod' || finalProvider === 'elevenlabs') {
-			const { UnifiedVoiceService } = require('./src/utils/unifiedVoiceService');
-			const voiceService = new UnifiedVoiceService();
-			let totalSize = 0;
-			for (const item of itemsToGenerate) {
-				const audioPath = path.join(audioDir, `${item.audioFileName}.wav`);
-				if (fs.existsSync(audioPath) && !force) continue;
-				const result = await voiceService.generateAudio({
-					prompt: item.script,
-					voice: finalVoice,
-					format: 'wav',
-					provider: finalProvider
-				});
-				if (result.audioData) {
-					const base64 = result.audioData.includes(",") ? result.audioData.split(",")[1] : result.audioData;
-					const buf = Buffer.from(base64, "base64");
-					fs.writeFileSync(audioPath, buf);
-					totalSize += buf.length;
-				} else if (result.audioUrl) {
-					const resp = await fetch(result.audioUrl);
-					const buf = Buffer.from(await resp.arrayBuffer());
-					fs.writeFileSync(audioPath, buf);
-					totalSize += buf.length;
-				}
-			}
-			res.json({ success: true, path: path.join(audioDir, itemsToGenerate[0].audioFileName + '.wav'), size: totalSize, provider: finalProvider, chunksGenerated: itemsToGenerate.length });
-		} else {
-			const scriptPath = path.join(__dirname, 'scripts', 'generateAudioForSlide.ts');
-			const runOne = (item) => {
-				const targetName = item.audioFileName.replace(`module${moduleNumber}-`, '').replace('.wav', '');
-				const cmd = force ? `npx tsx "${scriptPath}" ${moduleNumber} ${targetName} ${finalVoice} ${finalProvider} --force` : `npx tsx "${scriptPath}" ${moduleNumber} ${targetName} ${finalVoice} ${finalProvider}`;
-				return new Promise((resolve, reject) => {
-					exec(cmd, { cwd: __dirname }, (err, out, stderr) => err ? reject(new Error(stderr || err.message)) : resolve(out));
-				});
-			};
-			Promise.all(itemsToGenerate.map(runOne))
-				.then(outputs => res.json({ success: true, output: outputs.join('\n') }))
-				.catch(err => res.status(500).json({ error: err.message }));
+		const output = `${stdout || ''}\n${stderr || ''}`;
+		const skipped = /already exists/i.test(output);
+		const completedMatch = output.match(/Completed:\s*(\S+\.wav)\s*\(([\d.]+)KB/i);
+		const audioFileName = completedMatch
+			? completedMatch[1]
+			: `module${parsedModuleNumber}-${slideName}.wav`;
+		const audioPath = path.join(__dirname, 'public', 'audio', activationInfo.courseId, audioFileName);
+		let size = 0;
+		if (fs.existsSync(audioPath)) {
+			size = fs.statSync(audioPath).size;
 		}
-	} catch (error) {
-		console.error('[generate-audio-slide] Error:', error);
-		res.status(500).json({ error: error.message });
-	}
+
+		res.json({
+			success: !skipped,
+			skipped,
+			output: stdout,
+			provider: finalProvider,
+			courseId: activationInfo.courseId,
+			courseActivated: activationInfo.activated,
+			previousCourseId: activationInfo.previousCourseId,
+			audioFile: audioFileName,
+			size,
+		});
+	});
 });
 
 // Helper: Validate exported video
@@ -5525,12 +5894,28 @@ app.post('/api/render-video', (req, res) => {
 	const preset = 'gui-default';
 	const costPerHourUsd = costPerHour !== undefined && costPerHour !== null ? String(costPerHour) : '';
 	console.log(`[render-video] LOCAL RENDER - ${concurrency} threads (Chromium + ffmpeg) job=${jobId}`);
-	if (!moduleNumber) {
+	if (!isModuleNumberProvided(moduleNumber)) {
 		return res.status(400).json({ error: 'Module number is required' });
 	}
 	
 	// Use course-specific output directory
 	const course = courseId || getActiveCourseFromModuleContent() || 'default';
+
+	if (course !== 'default') {
+		try {
+			const activation = ensureCourseActiveSync(course);
+			if (!activation.alreadyActive) {
+				console.log(`[render-video] Auto-activated "${course}" before render`);
+			}
+		} catch (activateErr) {
+			console.error('[render-video] Course activation failed:', activateErr.message);
+			return res.status(400).json({
+				error: 'Could not activate course for render',
+				details: activateErr.message,
+				hint: 'Open Processing Wizard, select this course, and click Finalize Video.',
+			});
+		}
+	}
 
 	if (course !== 'default') {
 		const preflight = validateRenderAssets(course, [Number(moduleNumber)], __dirname);
@@ -5881,12 +6266,31 @@ app.post('/api/render-video', (req, res) => {
 
 // API: Render metrics (benchmark CSV)
 app.get('/api/render-metrics/download', (req, res) => {
-	const { header, rows, path: csvPath } = readRenderMetricsCsv(__dirname);
+	try {
+		ensureMetricsDir(__dirname);
+	} catch (err) {
+		return res.status(503).json({
+			error: err.message || 'Render metrics directory is not writable. Fix volume permissions.',
+		});
+	}
+	let header;
+	let rows;
+	let csvPath;
+	try {
+		({ header, rows, path: csvPath } = readRenderMetricsCsv(__dirname));
+	} catch (err) {
+		if (err.code === 'EACCES' || err.code === 'EPERM') {
+			return res.status(503).json({
+				error: `Cannot read render metrics CSV (permission denied). Path: ${getMetricsCsvPath(__dirname)}`,
+			});
+		}
+		throw err;
+	}
 	if (!rows.length && !fs.existsSync(csvPath)) {
 		return res.status(404).json({ error: 'No render metrics recorded yet. Run a local render first.' });
 	}
 	const content = rows.length ? `${header}\n${rows.join('\n')}\n` : `${header}\n`;
-	res.setHeader('Content-Type', 'text/csv');
+	res.setHeader('Content-Type', 'text/csv; charset=utf-8');
 	res.setHeader('Content-Disposition', 'attachment; filename="render-results.csv"');
 	res.send(content);
 });
@@ -5950,7 +6354,7 @@ app.get('/api/rendered-videos', (req, res) => {
 
 // API: Generate preview modules (fixed durations, no audio) and prepare for Remotion
 // Lets user view segments in Remotion Studio before generating audio
-app.post('/api/generate-preview-modules', (req, res) => {
+app.post('/api/generate-preview-modules', async (req, res) => {
 	try {
 		const { course } = req.body;
 		if (!course) {
@@ -5987,17 +6391,27 @@ app.post('/api/generate-preview-modules', (req, res) => {
 		}
 
 		const activeCourseId = getActiveCourseFromModuleContent();
-		const studioBase = getConfiguredRemotionStudioUrl();
+		const studioResolution = await resolveRemotionStudioUrl({ timeoutMs: 2000 });
+		const studioBase = studioResolution.reachable ? studioResolution.url : getConfiguredRemotionStudioUrl();
+		let previewModule = 1;
+		try {
+			const coursesData = readCoursesJson();
+			const mapped = coursesData.courseModuleMapping?.[course];
+			if (Array.isArray(mapped) && mapped.length > 0) {
+				previewModule = mapped[0];
+			}
+		} catch (e) { /* ignore */ }
 		console.log('[generate-preview-modules] Preview modules generated successfully');
 		res.json({
 			success: true,
 			message: courseUsesSceneVisuals(course)
-				? `Scene modules ready for "${activeCourseId}". Restart "npm start", then open module-1 (SVG scenes, not Mermaid).`
-				: `Preview ready for "${activeCourseId}". Stop and restart "npm start" (Remotion Studio), then open the preview again.`,
+				? `Scene modules ready for "${activeCourseId}". Start Remotion (npm start or docker compose --profile studio up -d remotion), then open module-${previewModule}.`
+				: `Preview ready for "${activeCourseId}". Start Remotion (npm start or docker compose --profile studio up -d remotion), then open module-${previewModule}.`,
 			courseId: activeCourseId,
+			previewModule,
 			visualMode: courseUsesSceneVisuals(course) ? 'scenes' : 'slides',
 			requiresRemotionRestart: true,
-			remotionStudioUrl: buildRemotionStudioOpenUrl(studioBase, 1, activeCourseId),
+			remotionStudioUrl: buildRemotionStudioOpenUrl(studioBase, previewModule, activeCourseId),
 		});
 	} catch (error) {
 		console.error('[generate-preview-modules] Error:', error);
@@ -6027,6 +6441,22 @@ app.post('/api/render-course', (req, res) => {
 	const costPerHourUsd = costPerHour !== undefined && costPerHour !== null ? String(costPerHour) : '';
 	const batchJobId = crypto.randomUUID();
 	console.log(`[render-course] LOCAL BATCH RENDER - ${optimalConcurrency} threads job=${batchJobId}`);
+
+	if (courseId !== 'default') {
+		try {
+			const activation = ensureCourseActiveSync(courseId);
+			if (!activation.alreadyActive) {
+				console.log(`[render-course] Auto-activated "${courseId}" before batch render`);
+			}
+		} catch (activateErr) {
+			console.error('[render-course] Course activation failed:', activateErr.message);
+			return res.status(400).json({
+				error: 'Could not activate course for render',
+				details: activateErr.message,
+				hint: 'Open Processing Wizard, select this course, and click Finalize Video.',
+			});
+		}
+	}
 
 	let modulesToValidate = [];
 	if (modules && Array.isArray(modules) && modules.length > 0) {
@@ -6444,11 +6874,12 @@ app.post('/api/render-runpod', (req, res) => {
 app.post('/api/generate-timings-slide', (req, res) => {
 	const { moduleNumber, slideName } = req.body;
 	
-	if (!moduleNumber || !slideName) {
+	const parsedModuleNumber = parseModuleNumberParam(moduleNumber);
+	if (parsedModuleNumber === null || !slideName) {
 		return res.status(400).json({ error: 'Module number and slide name are required' });
 	}
 	
-	const command = `npx tsx scripts/extractTimingsForSlide.ts ${moduleNumber} ${slideName}`;
+	const command = `npx tsx scripts/extractTimingsForSlide.ts ${parsedModuleNumber} ${slideName}`;
 	
 	// Set headers for streaming
 	res.setHeader('Content-Type', 'text/event-stream');
@@ -6493,17 +6924,14 @@ app.post('/api/generate-timings-slide', (req, res) => {
 	
 	childProcess.on('close', (code) => {
 		if (code === 0) {
-			// Word timings extracted - now generate line mappings for this module
-			res.write(`data: ${JSON.stringify({ type: 'progress', message: 'Generating line mappings...' })}\n\n`);
+			const activeCourseId = getActiveCourseFromModuleContent();
+			res.write(`data: ${JSON.stringify({ type: 'progress', message: 'Syncing bullets and line highlights...' })}\n\n`);
 			
-			const lineMappingScript = path.join(__dirname, 'scripts', 'generateLineMappingsFromContent.ts');
-			const lineMappingCommand = `npx tsx "${lineMappingScript}" ${moduleNumber}`;
-			
-			exec(lineMappingCommand, { cwd: __dirname, maxBuffer: 10 * 1024 * 1024 }, (err, stdout, stderr) => {
+			runPostExtractTimingsSync(activeCourseId, moduleNumber, (err) => {
 				if (err) {
-					console.error('Line mapping generation error:', err);
+					console.error('Post-extract sync error:', err);
 				}
-				res.write(`data: ${JSON.stringify({ type: 'done', success: true, message: 'Timings and line mappings generated!' })}\n\n`);
+				res.write(`data: ${JSON.stringify({ type: 'done', success: true, message: 'Timings, bullets, and line mappings synced!' })}\n\n`);
 				res.end();
 			});
 		} else {
@@ -6521,9 +6949,9 @@ app.post('/api/generate-timings-slide', (req, res) => {
 // API: Get detailed module status (for finalize button)
 // Supports multi-audio code slides (scripts array -> -1, -2, -3 audio files)
 app.get('/api/module-status', (req, res) => {
-	const moduleNumber = parseInt(req.query.moduleNumber);
+	const moduleNumber = parseModuleNumberParam(req.query.moduleNumber);
 	const courseId = req.query.course || 'default';
-	if (!moduleNumber || isNaN(moduleNumber)) {
+	if (moduleNumber === null) {
 		return res.status(400).json({ error: 'Module number is required' });
 	}
 
@@ -6555,9 +6983,26 @@ app.get('/api/module-status', (req, res) => {
 	}
 
 	try {
-		const moduleFile = path.join(__dirname, 'src', 'videos', `Module${moduleNumber}.tsx`);
-		const configFile = path.join(__dirname, 'src', 'videos', `Module${moduleNumber}Config.ts`);
-		const hasModuleFiles = fs.existsSync(moduleFile) && fs.existsSync(configFile);
+		const rootPath = path.join(__dirname, 'src', 'Root.tsx');
+		const rootContent = fs.existsSync(rootPath) ? fs.readFileSync(rootPath, 'utf-8') : '';
+		const contentJsonPath = path.join(__dirname, 'courses', courseId, 'content.json');
+		let contentJson = null;
+		if (fs.existsSync(contentJsonPath)) {
+			try {
+				contentJson = JSON.parse(fs.readFileSync(contentJsonPath, 'utf-8'));
+			} catch (e) { /* ignore */ }
+		}
+		const moduleContentPath = path.join(__dirname, 'src', 'videos', 'moduleContent.ts');
+		const moduleContentText = fs.existsSync(moduleContentPath)
+			? fs.readFileSync(moduleContentPath, 'utf-8')
+			: '';
+		const videosDir = path.join(__dirname, 'src', 'videos');
+		const hasModuleFiles = isModuleGeneratedForCourse(courseId, moduleNumber, {
+			moduleContentText,
+			rootContent,
+			contentJson,
+			videosDir,
+		});
 
 		let audioItems = [];
 		try {
@@ -6630,18 +7075,23 @@ app.get('/api/module-status', (req, res) => {
 			missingTimings.push(...slideNames);
 		}
 
-		const basicPreview = hasModuleFiles && missingAudioFiles.length === 0 && missingAudioDurations.length === 0;
+		const layoutPreview = hasModuleFiles;
+		const basicPreview = layoutPreview && missingAudioFiles.length === 0 && missingAudioDurations.length === 0;
 		const fullyAnimated = basicPreview && hasAllTimings;
+		const animationStatus = fullyAnimated
+			? 'fullyAnimated'
+			: (basicPreview ? 'basicPreview' : (layoutPreview ? 'layoutPreview' : 'incomplete'));
 
 		res.json({
 			moduleNumber,
 			hasModuleFiles,
+			layoutPreview,
 			missingAudioFiles,
 			existingAudioFiles,
 			missingAudioDurations,
 			missingTimings,
-			readyForRemotion: basicPreview,
-			animationStatus: fullyAnimated ? 'fullyAnimated' : (basicPreview ? 'basicPreview' : 'incomplete'),
+			readyForRemotion: layoutPreview || basicPreview,
+			animationStatus,
 			canFinalize: fullyAnimated
 		});
 	} catch (error) {
@@ -6655,8 +7105,9 @@ app.get('/api/diagnose', (req, res) => {
 	try {
 		const { moduleNumber, course } = req.query;
 		const courseId = course || 'default';
+		const parsedDiagnoseModule = parseModuleNumberParam(moduleNumber);
 		const diagnostics = {
-			moduleNumber: moduleNumber || 'all',
+			moduleNumber: parsedDiagnoseModule !== null ? parsedDiagnoseModule : 'all',
 			courseId: courseId,
 			issues: [],
 			warnings: [],
@@ -6664,8 +7115,8 @@ app.get('/api/diagnose', (req, res) => {
 		};
 
 		// Check if module files exist and are valid
-		if (moduleNumber) {
-			const modNum = parseInt(moduleNumber);
+		if (isModuleNumberProvided(moduleNumber)) {
+			const modNum = parseModuleNumberParam(moduleNumber);
 			const moduleFile = path.join(__dirname, 'src', 'videos', `Module${modNum}.tsx`);
 			const configFile = path.join(__dirname, 'src', 'videos', `Module${modNum}Config.ts`);
 			
@@ -6804,21 +7255,36 @@ app.post('/api/auth/login', (req, res) => {
 
 // Host CPU info for render tuning
 app.get('/api/system-info', async (req, res) => {
-	const gentleResolution = await resolveGentleUrl({ timeoutMs: 3000 });
-	const studioResolution = await resolveRemotionStudioUrl({ timeoutMs: 3000 });
+	const stack = await resolveDockerStackStatus({ timeoutMs: 3000 });
+	const gentleResolution = { url: stack.gentle.url, tried: stack.gentle.candidates };
+	const mfaResolution = stack.mfa;
+	const studioResolution = stack.remotion;
 	res.json({
 		cpus: getCpuCount(),
 		recommendedConcurrency: getOptimalRenderConcurrency(),
 		renderRunpodEnabled: isRenderRunpodEnabled(),
-		gentleUrl: gentleResolution.url || process.env.GENTLE_URL || 'http://localhost:8765',
+		dockerEngineRunning: stack.dockerEngineRunning,
+		dockerStackReady: stack.stackReady,
+		dockerPreviewReady: stack.previewReady,
+		dockerServices: stack,
+		gentleUrl: stack.gentle.url || process.env.GENTLE_URL || 'http://localhost:8765',
 		gentleUrlConfigured: process.env.GENTLE_URL || null,
-		gentleUrlCandidates: getGentleUrlCandidates(),
-		gentleUrlReachable: Boolean(gentleResolution.url),
-		remotionStudioUrl: studioResolution.url,
+		gentleUrlCandidates: stack.gentle.candidates,
+		gentleUrlReachable: stack.gentle.reachable,
+		gentleStartHint: stack.gentle.startHint,
+		mfaAvailable: stack.mfa.available,
+		mfaMode: stack.mfa.mode || null,
+		mfaBin: stack.mfa.bin || null,
+		mfaVersion: stack.mfa.version || null,
+		mfaDictionary: stack.mfa.dictionary,
+		mfaAcousticModel: stack.mfa.acousticModel,
+		mfaError: stack.mfa.available ? null : stack.mfa.error,
+		mfaStartHint: stack.mfa.startHint,
+		remotionStudioUrl: stack.remotion.reachable ? stack.remotion.url : stack.remotion.configuredUrl,
 		remotionStudioUrlConfigured: process.env.REMOTION_STUDIO_URL || null,
-		remotionStudioUrlCandidates: getRemotionStudioUrlCandidates(),
-		remotionStudioReachable: studioResolution.reachable === true,
-		remotionStudioStartHint: getRemotionStudioStartHint(),
+		remotionStudioUrlCandidates: stack.remotion.candidates,
+		remotionStudioReachable: stack.remotion.reachable,
+		remotionStudioStartHint: stack.remotion.startHint,
 		remotionServiceUrl: process.env.REMOTION_URL || null,
 		authRequired: requiresAuth(),
 		cpuReserve: parseInt(process.env.REMOTION_CPU_RESERVE || '2', 10),

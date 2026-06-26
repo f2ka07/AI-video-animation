@@ -11,6 +11,8 @@ import { UnifiedVoiceService } from "../src/utils/unifiedVoiceService";
 import { saveWordTimings, generateMappingHelper } from "./saveWordTimings";
 import { allModules } from "../src/videos/moduleContent";
 
+const { getDefaultVoice, getDefaultProvider } = require("./lib/loadVoiceSettings");
+
 dotenv.config({ path: path.join(__dirname, "../.env") });
 
 function getScripts(slide: { script?: string; scripts?: string[] }): string[] {
@@ -86,6 +88,8 @@ function updateAudioDurationFile(measurements: AudioMeasurement[]) {
 		const content = `// Utility to get audio duration from files
 // This will be used to dynamically adjust slide durations based on actual audio length
 
+import { estimateAudioDuration } from "./audioLengthEstimation";
+
 export interface AudioInfo {
 	path: string;
 	duration: number; // in seconds
@@ -95,6 +99,20 @@ export interface AudioInfo {
 export const audioDurations: Record<string, number> = {
 ${durationsObject}
 };
+
+export function getAudioDurationOrEstimate(
+	audioFileName: string,
+	script?: string
+): number {
+	const duration = audioDurations[audioFileName];
+	if (typeof duration === "number") {
+		return duration;
+	}
+	if (script && script.trim().length > 0) {
+		return estimateAudioDuration(script);
+	}
+	return 5;
+}
 
 export function getAudioDuration(audioFileName: string): number {
 	const duration = audioDurations[audioFileName];
@@ -144,7 +162,8 @@ async function generateAndMeasureAudio(moduleRange?: string, voice?: string, pro
 	// When provider is specified, UnifiedVoiceService uses ONLY that provider (no fallback)
 	// This maintains voice consistency across all audio files
 	const voiceService = new UnifiedVoiceService();
-	const selectedProvider = provider as "runpod" | "minimax" | "elevenlabs" | "openai" | undefined;
+	const selectedProvider = (provider || getDefaultProvider()) as "runpod" | "minimax" | "elevenlabs" | "openai" | undefined;
+	const selectedVoice = voice || getDefaultVoice(selectedProvider);
 	
 	if (selectedProvider) {
 		console.log(`[Config] Provider: ${selectedProvider} (strict mode - no fallback)`);
@@ -241,7 +260,7 @@ async function generateAndMeasureAudio(moduleRange?: string, voice?: string, pro
 						try {
 							const result = await voiceService.generateAudio({
 								prompt: slide.scripts![i],
-								voice: voice || "andy",
+								voice: selectedVoice,
 								format: "wav",
 								provider: selectedProvider,
 							});
@@ -282,7 +301,13 @@ async function generateAndMeasureAudio(moduleRange?: string, voice?: string, pro
 			const audioFileName = `module${module.moduleNumber}-${slide.name}`;
 			const audioKey = `${courseId}/${audioFileName}`;
 			const outputPath = path.join(outputDir, `${audioFileName}.wav`);
-			const script = scripts[0] || "";
+			const script = (scripts[0] || "").trim();
+
+			if (!script) {
+				console.error(`[SKIP] ${audioFileName}: empty script — add script text in content.json`);
+				failedSlides.push(`${audioFileName}: empty script`);
+				continue;
+			}
 
 			let needsGeneration = !fs.existsSync(outputPath) || fs.statSync(outputPath).size === 0;
 			const needsMeasurement = needsGeneration || !allMeasurements.find(m => m.name === audioKey)?.duration;
@@ -293,7 +318,7 @@ async function generateAndMeasureAudio(moduleRange?: string, voice?: string, pro
 				try {
 					const result = await voiceService.generateAudio({
 						prompt: script,
-						voice: voice || "andy",
+						voice: selectedVoice,
 						format: "wav",
 						provider: selectedProvider,
 					});

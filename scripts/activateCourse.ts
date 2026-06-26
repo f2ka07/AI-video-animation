@@ -17,6 +17,7 @@ import {
 } from "./courseVisualMode";
 
 const require = createRequire(import.meta.url);
+const { normalizePlanSlides } = require("./lib/normalizePlanSlides.js");
 
 interface CourseData {
 	courses: Array<{
@@ -58,6 +59,8 @@ function generateModuleContentTs(plan: any, courseId: string): string {
 		`	title?: string;`,
 		`	subtitle?: string;`,
 		`	points?: string[];`,
+		`	keyPhrases?: string[];`,
+		`	useManualPoints?: boolean;`,
 		`	code?: string;`,
 		`	language?: string;`,
 		`	imageSrc?: string;`,
@@ -65,6 +68,7 @@ function generateModuleContentTs(plan: any, courseId: string): string {
 		`	leftItems?: string[];`,
 		`	rightTitle?: string;`,
 		`	rightItems?: string[];`,
+		`	comparisonCues?: { left?: string[]; right?: string[] };`,
 		`	scene?: string;`,
 		`	visibleLineRange?: [number, number];`,
 		`	codeContext?: string;`,
@@ -78,6 +82,9 @@ function generateModuleContentTs(plan: any, courseId: string): string {
 		`	title: string;`,
 		`	subtitle: string;`,
 		`	slides: SlideContent[];`,
+		`	videoCategory?: "standard" | "short";`,
+		`	thumbnailText?: string;`,
+		`	outputPlatform?: string;`,
 		`}`,
 		``
 	];
@@ -89,6 +96,15 @@ function generateModuleContentTs(plan: any, courseId: string): string {
 		lines.push(`	courseId: ${JSON.stringify(courseId)},`);
 		lines.push(`	title: ${JSON.stringify(mod.title)},`);
 		lines.push(`	subtitle: ${JSON.stringify(mod.subtitle)},`);
+		if (mod.videoCategory === "short" || mod.videoCategory === "standard") {
+			lines.push(`	videoCategory: ${JSON.stringify(mod.videoCategory)},`);
+		}
+		if (mod.thumbnailText) {
+			lines.push(`	thumbnailText: ${JSON.stringify(mod.thumbnailText)},`);
+		}
+		if (mod.outputPlatform) {
+			lines.push(`	outputPlatform: ${JSON.stringify(mod.outputPlatform)},`);
+		}
 		lines.push(`	slides: [`);
 		
 		for (const slide of mod.slides) {
@@ -104,6 +120,8 @@ function generateModuleContentTs(plan: any, courseId: string): string {
 			if (slide.title) lines.push(`			title: ${JSON.stringify(slide.title)},`);
 			if (slide.subtitle) lines.push(`			subtitle: ${JSON.stringify(slide.subtitle)},`);
 			if (slide.points) lines.push(`			points: ${JSON.stringify(slide.points)},`);
+			if (slide.keyPhrases) lines.push(`			keyPhrases: ${JSON.stringify(slide.keyPhrases)},`);
+			if (slide.useManualPoints === true) lines.push(`			useManualPoints: true,`);
 			if (slide.code) lines.push(`			code: ${JSON.stringify(slide.code)},`);
 			if (slide.language) lines.push(`			language: ${JSON.stringify(slide.language)},`);
 			if (slide.imageSrc) lines.push(`			imageSrc: ${JSON.stringify(slide.imageSrc)},`);
@@ -111,6 +129,7 @@ function generateModuleContentTs(plan: any, courseId: string): string {
 			if (slide.leftItems) lines.push(`			leftItems: ${JSON.stringify(slide.leftItems)},`);
 			if (slide.rightTitle) lines.push(`			rightTitle: ${JSON.stringify(slide.rightTitle)},`);
 			if (slide.rightItems) lines.push(`			rightItems: ${JSON.stringify(slide.rightItems)},`);
+			if (slide.comparisonCues) lines.push(`			comparisonCues: ${JSON.stringify(slide.comparisonCues)},`);
 			if (slide.mermaidSource) lines.push(`			mermaidSource: ${JSON.stringify(slide.mermaidSource)},`);
 			if (slide.visibleLineRange) lines.push(`			visibleLineRange: ${JSON.stringify(slide.visibleLineRange)},`);
 			if (slide.codeContext) lines.push(`			codeContext: ${JSON.stringify(slide.codeContext)},`);
@@ -148,8 +167,11 @@ async function activateCourse(courseId: string) {
 	}
 	
 	console.log("Step 1: Loading content.json...");
-	const plan = JSON.parse(fs.readFileSync(contentJsonPath, "utf-8"));
+	let plan = JSON.parse(fs.readFileSync(contentJsonPath, "utf-8"));
+	normalizePlanSlides(plan);
+	fs.writeFileSync(contentJsonPath, JSON.stringify(plan, null, 2));
 	console.log(`  Loaded: ${plan.courseName} (${plan.modules?.length || 0} modules)`);
+	console.log("  Normalized slide names/scripts/types in content.json");
 
 	const useScenes = courseUsesSceneVisuals(courseId);
 	if (useScenes) {
@@ -250,13 +272,18 @@ async function activateCourse(courseId: string) {
 	
 	// Mark all other courses as not the "current" one (optional: could add a currentCourse field)
 	const courseIndex = coursesData.courses.findIndex(c => c.id === courseId);
+	const moduleNumbers = plan.modules?.map((m: any) => m.moduleNumber) || [];
 	if (courseIndex >= 0) {
-		// Ensure the course is active (not archived)
+		// Ensure the course is active (not archived) and module list stays in sync with content.json
+		coursesData.courses[courseIndex].moduleCount = plan.modules?.length || 0;
+		coursesData.courses[courseIndex].title = plan.courseName || coursesData.courses[courseIndex].title;
 		if (coursesData.courses[courseIndex].status === 'archived') {
 			coursesData.courses[courseIndex].status = 'active';
 			coursesData.courses[courseIndex].archivedAt = null;
 			console.log(`  Restored course from archive`);
 		}
+		coursesData.courseModuleMapping[courseId] = moduleNumbers;
+		console.log(`  Updated course: ${moduleNumbers.length} module(s)`);
 	} else {
 		// Add course if not in list
 		coursesData.courses.push({
@@ -267,22 +294,21 @@ async function activateCourse(courseId: string) {
 			status: 'active',
 			archivedAt: null
 		});
-		coursesData.courseModuleMapping[courseId] = plan.modules?.map((m: any) => m.moduleNumber) || [];
+		coursesData.courseModuleMapping[courseId] = moduleNumbers;
 		console.log(`  Added course to courses.json`);
 	}
 	
 	writeCoursesJson(coursesData);
 	console.log(`  courses.json updated`);
 
-	// Step 6: Git deploy policy — only this activated course is deployable
+	// Step 6: Git deploy policy — all active courses are deployable
 	console.log("\nStep 6: Applying git deploy policy...");
 	const { applyCourseDeployPolicy } = require("./lib/courseDeployPolicy.js");
 	const repoRoot = path.join(__dirname, "..");
 	const policy = applyCourseDeployPolicy(repoRoot, {
-		activatedCourseId: courseId,
 		pruneGit: process.argv.includes("--prune-git"),
 	});
-	console.log(`  Only courses/${courseId}/ is deployable to git`);
+	console.log(`  Deployable courses: ${policy.deployableCourseIds.join(", ") || "(none)"}`);
 	if (policy.pruneResult.pruned.length > 0) {
 		console.log(`  Removed from git index: ${policy.pruneResult.pruned.join(", ")}`);
 	}

@@ -1,6 +1,6 @@
 {
   "benchmark": {
-    "courseId": "agentic-ai-for-beginners",
+    "courseId": "network-automation-program-networks",
     "moduleNumber": 1,
     "doc": "courses/BENCHMARK.md"
   },
@@ -10,10 +10,19 @@
       "title": "Agentic AI for Beginners",
       "description": "NVIDIA Agentic AI Professional - Certification Prep & Applied Skills (12 modules)",
       "moduleCount": 12,
-      "status": "active",
-      "archivedAt": null,
+      "status": "archived",
+      "archivedAt": "2026-06-25T12:00:00.000Z",
       "visualMode": "scenes",
       "audioMode": "per-module"
+    },
+    {
+      "id": "agentic-ai-marketing",
+      "title": "Agentic AI for Beginners — Marketing",
+      "description": "Marketing: YouTube Short, Facebook Reel, and Udemy landscape trailer (3 outputs)",
+      "moduleCount": 3,
+      "status": "archived",
+      "archivedAt": null,
+      "contentType": "marketing"
     },
     {
       "id": "aws-pulumi",
@@ -259,6 +268,51 @@
       "title": "Container Security Essentials",
       "description": "AI-generated course: Container Security Essentials",
       "moduleCount": 5,
+      "status": "archived",
+      "archivedAt": "2026-06-25T12:00:00.000Z",
+      "contentType": "course"
+    },
+    {
+      "id": "agentic-ai-beginners-marketing",
+      "title": "Agentic AI for Beginners — Marketing",
+      "description": "Marketing: Agentic AI for Beginners — Marketing",
+      "moduleCount": 3,
+      "status": "archived",
+      "archivedAt": "2026-06-25T12:00:00.000Z",
+      "contentType": "marketing"
+    },
+    {
+      "id": "network-automation-program-networks",
+      "title": "Network Automation: Build and Program Modern Networks",
+      "description": "AI-generated course: Network Automation: Build and Program Modern Networks",
+      "moduleCount": 6,
+      "status": "active",
+      "archivedAt": null,
+      "contentType": "course"
+    },
+    {
+      "id": "infrastructure-as-code-versioned-networks",
+      "title": "Infrastructure as Code: Build Reproducible and Versioned Networks",
+      "description": "CCNP AUTOCOR track course 2: Git, CI/CD, containers, simulation, and source of truth (objectives 2.1-2.7)",
+      "moduleCount": 5,
+      "status": "active",
+      "archivedAt": null,
+      "contentType": "course"
+    },
+    {
+      "id": "network-operations-automated-networks",
+      "title": "Network Operations: Operate, Validate and Secure Automated Networks",
+      "description": "CCNP AUTOCOR track course 3: telemetry, logging, pyATS validation, TLS, and secure automation (objectives 3.1-3.6)",
+      "moduleCount": 5,
+      "status": "active",
+      "archivedAt": null,
+      "contentType": "course"
+    },
+    {
+      "id": "ai-in-automation-networks",
+      "title": "AI in Automation: Build Intelligent and Agent Driven Network Automation",
+      "description": "Course 4 of the AUTOCOR path: govern AI-assisted drafting, build MCP tools, wire conversational agents, benchmark accuracy, and integrate the full assistant in a capstone lab",
+      "moduleCount": 5,
       "status": "active",
       "archivedAt": null,
       "contentType": "course"
@@ -278,6 +332,11 @@
       10,
       11,
       12
+    ],
+    "agentic-ai-marketing": [
+      1,
+      2,
+      3
     ],
     "aws-pulumi": [
       1,
@@ -442,6 +501,40 @@
       4
     ],
     "container-security-essentials": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "agentic-ai-beginners-marketing": [
+      1,
+      2,
+      3
+    ],
+    "network-automation-program-networks": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "infrastructure-as-code-versioned-networks": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "network-operations-automated-networks": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "ai-in-automation-networks": [
       1,
       2,
       3,

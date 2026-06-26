@@ -55,8 +55,13 @@ function parseModuleRange(input: string): number[] {
 	return [...new Set(modules)].sort((a, b) => a - b);
 }
 
-async function generateAllAudio(moduleRange?: string, voice?: string) {
+async function generateAllAudio(
+	moduleRange?: string,
+	voice?: string,
+	provider?: "runpod" | "minimax" | "elevenlabs" | "openai"
+) {
 	const apiKey =
+		process.env.OPENAI_API_KEY ||
 		process.env.RESEMBLE_API_KEY ||
 		process.env.MINIMAX_API_KEY ||
 		process.env.RUNPOD_API_KEY ||
@@ -66,8 +71,14 @@ async function generateAllAudio(moduleRange?: string, voice?: string) {
 		throw new Error("API key environment variable is required");
 	}
 
-	const voiceService = new UnifiedVoiceService(apiKey);
+	const voiceService = new UnifiedVoiceService();
+	const selectedProvider = provider;
+	const selectedVoice = voice || "andy";
 	const baseOutputDir = path.join(__dirname, "../public/audio");
+
+	if (selectedProvider) {
+		console.log(`[Config] Provider: ${selectedProvider} (strict mode - no fallback)`);
+	}
 
 	let modulesToProcess = allModules;
 	if (moduleRange) {
@@ -78,14 +89,9 @@ async function generateAllAudio(moduleRange?: string, voice?: string) {
 				throw new Error(`No modules found for: ${moduleRange}`);
 			}
 		} catch (error: any) {
-			console.error(`❌ Error: ${error.message}`);
+			console.error(`Error: ${error.message}`);
 			console.error("\nUsage:");
-			console.error("  tsx scripts/generateAudioFromContent.ts [module-range]");
-			console.error("\nExamples:");
-			console.error("  tsx scripts/generateAudioFromContent.ts 1        # Module 1 only");
-			console.error("  tsx scripts/generateAudioFromContent.ts 1-3     # Modules 1, 2, 3");
-			console.error("  tsx scripts/generateAudioFromContent.ts 1,3,5  # Modules 1, 3, 5");
-			console.error("  tsx scripts/generateAudioFromContent.ts all     # All modules (default)");
+			console.error("  tsx scripts/generateAudioFromContent.ts [module-range] [voice] [provider]");
 			process.exit(1);
 		}
 	}
@@ -94,6 +100,7 @@ async function generateAllAudio(moduleRange?: string, voice?: string) {
 
 	let totalGenerated = 0;
 	let totalSkipped = 0;
+	const failedSlides: string[] = [];
 
 	for (const module of modulesToProcess) {
 		console.log(`\n=== Module ${module.moduleNumber}: ${module.title} ===`);
@@ -132,8 +139,9 @@ async function generateAllAudio(moduleRange?: string, voice?: string) {
 					try {
 						const result = await voiceService.generateAudio({
 							prompt: scriptChunk,
-							voice: voice || "andy",
+							voice: selectedVoice,
 							format: "wav",
+							provider: selectedProvider,
 						});
 
 						if (result.audioData) {
@@ -151,7 +159,7 @@ async function generateAllAudio(moduleRange?: string, voice?: string) {
 						totalGenerated++;
 					} catch (error) {
 						console.error(`  Failed for ${audioFileName}:`, error);
-						throw error;
+						failedSlides.push(`${audioFileName}: ${error}`);
 					}
 				}
 				continue;
@@ -176,8 +184,9 @@ async function generateAllAudio(moduleRange?: string, voice?: string) {
 			try {
 				const result = await voiceService.generateAudio({
 					prompt: script,
-					voice: voice || "andy",
+					voice: selectedVoice,
 					format: "wav",
+					provider: selectedProvider,
 				});
 
 				if (result.audioData) {
@@ -200,16 +209,22 @@ async function generateAllAudio(moduleRange?: string, voice?: string) {
 				totalGenerated++;
 			} catch (error) {
 				console.error(`  Failed for ${slide.name}:`, error);
-				throw error;
+				failedSlides.push(`${audioFileName}: ${error}`);
 			}
 		}
 	}
 
-	console.log("\n✅ Audio generation complete!");
+	console.log("\nAudio generation complete!");
 	console.log(`   Generated: ${totalGenerated} files`);
 	console.log(`   Skipped: ${totalSkipped} files (already exist)`);
+	if (failedSlides.length > 0) {
+		console.log(`   Failed: ${failedSlides.length} (run again to generate only remaining)`);
+		failedSlides.forEach((f) => console.log(`      - ${f}`));
+		process.exitCode = 1;
+	}
 }
 
 const moduleRange = process.argv[2];
 const voice = process.argv[3];
-generateAllAudio(moduleRange, voice).catch(console.error);
+const provider = process.argv[4] as "runpod" | "minimax" | "elevenlabs" | "openai" | undefined;
+generateAllAudio(moduleRange, voice, provider).catch(console.error);

@@ -1,11 +1,9 @@
-# RunPod / GPU pod profile: host networking (RunPod proxy exposes ports on the pod IP)
+# RunPod / GPU pod profile for docker-compose.prod.yml (full platform deploy only).
 #
 # Usage:
-#   docker compose -f docker-compose.yml -f docker-compose.runpod.yml up -d --build
 #   docker compose -f docker-compose.prod.yml -f docker-compose.runpod.yml up -d
 #
-# With host mode, services use localhost (not Docker DNS names).
-# Open GUI at http://<pod-ip>:3001 (RunPod HTTP proxy / Connect)
+# Not used with slim docker-compose.yml (local helpers only).
 
 services:
   app:

@@ -27,6 +27,7 @@ function getCodeFromContentJson(courseId: string, moduleNumber: number, slideNam
 	}
 }
 import { findWordRange } from "../src/utils/wordRangeFinder";
+import { extractLineMappingsFromWordTimings } from "./lib/extractLineMappingsFromWordTimings";
 import { loadModuleTimings, saveModuleTimings } from "./saveTimingsJson";
 
 interface LineMapping {
@@ -332,10 +333,20 @@ function generateLineMappings(
 		return [];
 	}
 
+	const codeLineCount = code.split("\n").length;
+	const fromNarration = extractLineMappingsFromWordTimings(timings.words, codeLineCount);
+	const mappedLines = new Set(fromNarration.map((m) => m.line));
+	for (const m of fromNarration) {
+		console.log(
+			`  ✓ Line ${m.line} → words[${m.wordRange[0]}-${m.wordRange[1]}] (from narration)`
+		);
+	}
+
 	const phrases = extractCodePhrases(code, script);
-	const mappings: LineMapping[] = [];
+	const mappings: LineMapping[] = [...fromNarration];
 
 	for (const { phrase, line } of phrases) {
+		if (mappedLines.has(line)) continue;
 		// Try to find phrase in word timings
 		const wordRange = findWordRange(timings.words, phrase);
 		if (wordRange) {

@@ -4,6 +4,8 @@ import { interpolate, useCurrentFrame, useVideoConfig, spring, staticFile } from
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useModuleTimings } from "../hooks/useModuleTimings";
+import { PremiumSlideBackground, premiumSlideRootStyle } from "./PremiumSlideBackground";
+import { premiumTheme } from "../theme/premiumTheme";
 
 // Define when to highlight each line (as percentage of audio duration)
 export interface LineCue {
@@ -53,6 +55,10 @@ export const AnimatedCodeSlide: React.FC<AnimatedCodeSlideProps> = ({
 	const codeLines = codeToRender.trim().split("\n");
 	const lineCount = codeLines.length;
 
+	// Teaching snippets (typical lab slides): always show every line — ignore visibleLineRange.
+	const TEACHING_SNIPPET_MAX_LINES = 24;
+	const forceFullSnippet = lineCount > 0 && lineCount <= TEACHING_SNIPPET_MAX_LINES;
+
 	// Slide-relative time for highlight and scroll (needed early for effectiveLineRange)
 	const currentTimeSeconds = (frame - (audioStartFrame ?? 0)) / fps;
 	const entranceTime = 0;
@@ -76,6 +82,9 @@ export const AnimatedCodeSlide: React.FC<AnimatedCodeSlideProps> = ({
 
 	// Effective line range: visibleLineRange, or sliding window, or full (or auto window if too many lines)
 	const effectiveLineRange: [number, number] = (() => {
+		if (forceFullSnippet) {
+			return [1, lineCount];
+		}
 		if (
 			visibleLineRange &&
 			Array.isArray(visibleLineRange) &&
@@ -83,7 +92,14 @@ export const AnimatedCodeSlide: React.FC<AnimatedCodeSlideProps> = ({
 			typeof visibleLineRange[0] === "number" &&
 			typeof visibleLineRange[1] === "number"
 		) {
-			return [Math.max(1, visibleLineRange[0]), Math.min(lineCount, visibleLineRange[1])];
+			const start = Math.max(1, visibleLineRange[0]);
+			const end = Math.min(lineCount, visibleLineRange[1]);
+			// Small teaching snippets (<=12 lines): always show the full block.
+			// Stale visibleLineRange values (e.g. [1,6] on 8-line code) must not truncate.
+			if (end < lineCount && lineCount <= 12) {
+				return [1, lineCount];
+			}
+			return [start, end];
 		}
 		const maxLines = maxVisibleLines ?? (lineCount > maxLinesThatFitAtMinFont ? maxLinesThatFitAtMinFont : null);
 		if (maxLines != null && lineCount > maxLines) {
@@ -95,10 +111,10 @@ export const AnimatedCodeSlide: React.FC<AnimatedCodeSlideProps> = ({
 		}
 		return [1, lineCount];
 	})();
-	const codeLinesDisplayed = codeLines.slice(effectiveLineRange[0] - 1, effectiveLineRange[1]);
-	const lineCountDisplayed = codeLinesDisplayed.length;
+	const codeLinesDisplayed = forceFullSnippet
+		? codeLines
+		: codeLines.slice(effectiveLineRange[0] - 1, effectiveLineRange[1]);
 	const codeToRenderDisplayed = codeLinesDisplayed.join("\n");
-	const showContinuedHint = effectiveLineRange[1] < lineCount;
 
 	// Available width for code text: subtract line numbers (~60px), horizontal padding (~64px)
 	const availableCodeWidth = Math.min(1600, width - padding * 2) - 124;
@@ -163,27 +179,6 @@ export const AnimatedCodeSlide: React.FC<AnimatedCodeSlideProps> = ({
 		fps,
 		config: { damping: 20, stiffness: 60 },
 		delay: fps * 0.3,
-	});
-
-	// Dynamic camera movements
-	const cameraZoom = 1 + Math.sin(frame / 130) * 0.01;
-	const cameraPanX = Math.sin(frame / 170) * 4;
-	const cameraPanY = Math.cos(frame / 190) * 3;
-
-	// Particle system
-	const particleCount = 10;
-	const particles = Array.from({ length: particleCount }, (_, i) => {
-		const baseX = (i * 137.5) % 100;
-		const baseY = (i * 97.3) % 100;
-		const speed = 0.2 + (i % 3) * 0.08;
-		const size = 2 + (i % 3) * 1;
-		return {
-			x: baseX + Math.sin(frame / (70 + i * 6)) * 12,
-			y: baseY + Math.cos(frame / (80 + i * 7)) * 10,
-			size,
-			opacity: 0.12 + Math.sin(frame / (50 + i * 4)) * 0.08,
-			speed,
-		};
 	});
 
 	// Get spring for each code line (staggered reveal)
@@ -335,148 +330,14 @@ export const AnimatedCodeSlide: React.FC<AnimatedCodeSlideProps> = ({
 	return (
 		<div
 			style={{
-				width: "100%",
-				height: "100%",
-				flex: 1,
-				background: "radial-gradient(circle at top left, #020617 0%, #020617 45%, #000000 100%)",
-				color: "white",
+				...premiumSlideRootStyle,
 				display: "flex",
 				flexDirection: "column",
 				padding: 64,
 				boxSizing: "border-box",
-				fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
-				position: "relative",
-				transform: `scale(${cameraZoom}) translate(${cameraPanX}px, ${cameraPanY}px)`,
-				transformOrigin: "center center",
 			}}
 		>
-			{/* Animated top accent with glow */}
-			<div
-				style={{
-					position: "absolute",
-					top: 0,
-					left: 0,
-					width: `${interpolate(decorSpring, [0, 1], [0, 100])}%`,
-					height: 4,
-					background: "linear-gradient(90deg, #38bdf8 0%, #6366f1 50%, #22c55e 100%)",
-					opacity: 0.95,
-					boxShadow: `0 0 ${20 * decorSpring}px rgba(56, 189, 248, ${0.7 * decorSpring}), 0 0 ${40 * decorSpring}px rgba(99, 102, 241, ${0.4 * decorSpring})`,
-				}}
-			/>
-
-			{/* Floating particles */}
-			{particles.map((particle, i) => (
-				<div
-					key={i}
-					style={{
-						position: "absolute",
-						left: `${particle.x}%`,
-						top: `${particle.y}%`,
-						width: particle.size,
-						height: particle.size,
-						borderRadius: "50%",
-						background: `radial-gradient(circle, rgba(56, 189, 248, ${particle.opacity}) 0%, transparent 70%)`,
-						boxShadow: `0 0 ${particle.size * 3}px rgba(56, 189, 248, ${particle.opacity * 0.5})`,
-						pointerEvents: "none",
-					}}
-				/>
-			))}
-
-			{/* Floating decorative orbs with pulsing */}
-			<div
-				style={{
-					position: "absolute",
-					bottom: "15%",
-					right: "5%",
-					width: 100,
-					height: 100,
-					borderRadius: "50%",
-					background: "radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%)",
-					opacity: decorSpring * 0.5,
-					transform: `scale(${0.8 + decorSpring * 0.3 + Math.sin(frame / 30) * 0.08}) translateY(${Math.sin(frame / 35) * 10}px) translateX(${Math.cos(frame / 40) * 6}px)`,
-					boxShadow: `0 0 ${30 + Math.sin(frame / 25) * 20}px rgba(56, 189, 248, ${0.3 + Math.sin(frame / 30) * 0.2})`,
-				}}
-			/>
-			<div
-				style={{
-					position: "absolute",
-					top: "20%",
-					left: "3%",
-					width: 80,
-					height: 80,
-					borderRadius: "50%",
-					background: "radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%)",
-					opacity: decorSpring * 0.4,
-					transform: `scale(${0.7 + decorSpring * 0.25 + Math.cos(frame / 28) * 0.06}) translateY(${Math.cos(frame / 32) * 8}px)`,
-					boxShadow: `0 0 ${25 + Math.cos(frame / 22) * 15}px rgba(99, 102, 241, ${0.25 + Math.cos(frame / 28) * 0.15})`,
-				}}
-			/>
-
-			{/* Multi-layer animated texture */}
-			<div
-				style={{
-					position: "absolute",
-					top: 0,
-					left: 0,
-					right: 0,
-					bottom: 0,
-					opacity: 0.05 + Math.sin(frame / 80) * 0.025,
-					backgroundImage: "radial-gradient(circle at 1px 1px, #1f2937 1px, transparent 0)",
-					backgroundSize: "28px 28px",
-					transform: `translateY(${Math.sin(frame / 120) * 5}px) translateX(${Math.cos(frame / 140) * 3}px)`,
-				}}
-			/>
-			<div
-				style={{
-					position: "absolute",
-					top: 0,
-					left: 0,
-					right: 0,
-					bottom: 0,
-					opacity: 0.03 + Math.cos(frame / 90) * 0.015,
-					backgroundImage: "radial-gradient(circle at 1px 1px, #374151 0.5px, transparent 0)",
-					backgroundSize: "40px 40px",
-					transform: `translateY(${Math.cos(frame / 110) * 4}px) translateX(${Math.sin(frame / 130) * 2}px)`,
-				}}
-			/>
-
-			{/* Moving gradient spotlight with multiple layers */}
-			<div
-				style={{
-					position: "absolute",
-					top: 0,
-					left: 0,
-					right: 0,
-					bottom: 0,
-					background: `radial-gradient(ellipse at ${30 + Math.sin(frame / 100) * 15}% ${40 + Math.cos(frame / 80) * 20}%, rgba(56, 189, 248, 0.08) 0%, transparent 40%)`,
-					pointerEvents: "none",
-				}}
-			/>
-			<div
-				style={{
-					position: "absolute",
-					top: 0,
-					left: 0,
-					right: 0,
-					bottom: 0,
-					background: `radial-gradient(ellipse at ${70 + Math.cos(frame / 85) * 20}% ${60 + Math.sin(frame / 95) * 18}%, rgba(99, 102, 241, 0.06) 0%, transparent 35%)`,
-					pointerEvents: "none",
-				}}
-			/>
-
-			{/* Animated scan line */}
-			<div
-				style={{
-					position: "absolute",
-					top: `${(frame / 2.2) % 100}%`,
-					left: 0,
-					right: 0,
-					height: 1.5,
-					background: "linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.3) 50%, transparent 100%)",
-					opacity: 0.35,
-					pointerEvents: "none",
-				}}
-			/>
+			<PremiumSlideBackground decorProgress={decorSpring} />
 
 			<div
 				style={{
@@ -548,11 +409,11 @@ export const AnimatedCodeSlide: React.FC<AnimatedCodeSlideProps> = ({
 							maxWidth: 1600,
 							opacity: codeOpacity,
 							transform: `translateY(${codeY}px)`,
-							borderRadius: 16,
+							borderRadius: premiumTheme.radius.card,
 							overflow: "hidden",
-							border: "1px solid rgba(148, 163, 184, 0.35)",
-							backgroundColor: "#020617",
-							boxShadow: "0 22px 44px rgba(15, 23, 42, 0.95), 0 0 0 1px rgba(15,23,42,0.8)",
+							border: `1px solid ${premiumTheme.colors.codeBorder}`,
+							backgroundColor: premiumTheme.colors.codePanel,
+							boxShadow: premiumTheme.shadow.svgFrame,
 							display: "flex",
 							flexDirection: "column",
 							maxHeight: "100%",
@@ -587,10 +448,14 @@ export const AnimatedCodeSlide: React.FC<AnimatedCodeSlideProps> = ({
 							{codeContext && (
 								<span
 									style={{
-										marginLeft: 12,
+										marginLeft: "auto",
+										marginRight: 16,
 										fontSize: 14,
-										color: "#6b7280",
+										color: premiumTheme.colors.accentBlueMuted,
 										fontFamily: "monospace",
+										padding: "4px 10px",
+										background: "rgba(59, 130, 246, 0.12)",
+										borderRadius: 6,
 									}}
 								>
 									{codeContext}
@@ -649,18 +514,6 @@ export const AnimatedCodeSlide: React.FC<AnimatedCodeSlideProps> = ({
 							>
 								{codeToRenderDisplayed}
 							</SyntaxHighlighter>
-							{showContinuedHint && (
-								<div
-									style={{
-										padding: "8px 32px 24px",
-										fontSize: fontSize * 0.85,
-										color: "#6b7280",
-										fontStyle: "italic",
-									}}
-								>
-									{"// ... continued"}
-								</div>
-							)}
 						</div>
 					</div>
 				</div>

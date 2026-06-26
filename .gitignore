@@ -26,12 +26,18 @@ public/audio/*.mp3
 # --- deploy: courses (managed by courseDeployPolicy) ---
 courses/*
 !courses/.gitkeep
-!courses/agentic-ai-for-beginners/
+!courses/ai-in-automation-networks/
+!courses/infrastructure-as-code-versioned-networks/
+!courses/network-automation-program-networks/
+!courses/network-operations-automated-networks/
 # --- end deploy: courses ---
 # --- deploy: audio (managed by courseDeployPolicy) ---
 public/audio/*
 !public/audio/whoosh.wav
-!public/audio/agentic-ai-for-beginners/
+!public/audio/ai-in-automation-networks/
+!public/audio/infrastructure-as-code-versioned-networks/
+!public/audio/network-automation-program-networks/
+!public/audio/network-operations-automated-networks/
 # --- end deploy: audio ---
 # --- deploy: timings (managed by courseDeployPolicy) ---
 public/timings/
@@ -39,12 +45,15 @@ public/timings/
 # Render output - track directory only, not rendered files
 out/*
 !out/.gitkeep
+# Local archive (retired course trees — never deploy)
+courses/archived-courses/
 # Local archive (retired code) - track directory only
 store/*
 !store/.gitkeep
 build/
 workspace/logs/
 workspace/render-metrics/
+workspace/.mfa-align/
 workspace/deploy-manifest.json
 doc/
 .remotion/

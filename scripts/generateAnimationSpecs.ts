@@ -358,8 +358,23 @@ function generateAllAnimationSpecs(courseId: string, moduleRange?: string) {
         };
       }
       
-      // Save animation spec
+      // Save animation spec (keep hand-authored visual-panel specs from generatePremiumCourseSvgs)
       const specPath = path.join(modulePath, `${svgName}.animation.json`);
+      if (fs.existsSync(specPath)) {
+        try {
+          const existing = JSON.parse(fs.readFileSync(specPath, "utf-8")) as AnimationSpec;
+          const isVisualPanelSpec = existing.phases?.some((p) =>
+            p.show?.some((g) => typeof g === "string" && g.startsWith("viz-"))
+          );
+          if (isVisualPanelSpec) {
+            console.log(`  ↷ Kept visual-panel spec for ${svgName}.animation.json`);
+            totalGenerated++;
+            continue;
+          }
+        } catch {
+          // fall through and overwrite corrupt file
+        }
+      }
       fs.writeFileSync(specPath, JSON.stringify(spec, null, 2));
       console.log(`  ✓ Generated ${svgName}.animation.json`);
       console.log(`    Phases: ${spec.phases.length}, Groups: ${suggestedGroups.length > 0 ? suggestedGroups.join(", ") : "none (add manually)"}`);

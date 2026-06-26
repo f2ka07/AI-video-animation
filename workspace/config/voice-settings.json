@@ -11,8 +11,8 @@
   ],
   "defaultVoice": {
     "runpod": "andy",
-    "minimax": "presenter_male",
+    "minimax": "moss_audio_302ca737-f4d5-11f0-89d3-26cb62c33ed5",
     "openai": "onyx"
   },
-  "audioMode": "per-module"
+  "audioMode": "per-slide"
 }

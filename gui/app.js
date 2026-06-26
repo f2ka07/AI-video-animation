@@ -728,16 +728,18 @@ async function finalizeModuleConfirmed(moduleNumber, courseId, needsModules, nee
         // Step 3: Extract Word Timings (REQUIRED for animations)
         if (needsTimings) {
             updateStatus('Step 3: Extracting word timings (REQUIRED for animations)...');
-            updateStatus('(This uses Whisper API and may take 1-3 minutes per slide)');
-            
-            // Use Gentle by default (better accuracy), fallback to Whisper if not available
+            updateStatus('(Forced alignment: typically 30-90s per slide with MFA, 1-3 min with Gentle)');
+
+            const methodSelector = document.getElementById('timing-method-selector');
+            const timingMethod = methodSelector ? methodSelector.value : 'gentle';
+
             const timingsResponse = await fetch('/api/extract-timings', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
                     course: courseId, 
                     moduleRange: moduleNumber.toString(),
-                    method: 'gentle' // Use Gentle for better accuracy
+                    method: timingMethod
                 })
             });
             
@@ -941,6 +943,7 @@ function updateWorkflowUI() {
     
     // Populate audio module dropdown
     populateAudioModuleDropdown();
+    populateTimingsModuleDropdown();
 }
 
 function updateProcessingView() {
@@ -1149,7 +1152,7 @@ async function generateAudioAllConfirmed() {
         const response = await fetch('/api/generate-audio', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ force: true })
+            body: JSON.stringify({ force: true, course: currentCourseId })
         });
         
         const data = await response.json();
@@ -1272,7 +1275,7 @@ async function generateAudioConfirmed(statusEl, moduleNumber) {
         const response = await fetch('/api/generate-audio', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ moduleRange: moduleNumber || null })
+            body: JSON.stringify({ moduleRange: moduleNumber || null, course: currentCourseId })
         });
 
         const data = await response.json();
@@ -1290,19 +1293,25 @@ async function generateAudioConfirmed(statusEl, moduleNumber) {
 
 async function generateAudioModule() {
     const moduleNumber = document.getElementById('audio-module-number')?.value;
-    if (!moduleNumber) {
+    if (moduleNumber === '' || moduleNumber == null) {
         showToast('Please enter a module number', 'warning');
         return;
     }
     
+    const parsedModuleNumber = parseInt(moduleNumber, 10);
+    if (Number.isNaN(parsedModuleNumber)) {
+        showToast('Please enter a valid module number', 'warning');
+        return;
+    }
+    
     const statusEl = document.getElementById('audio-status');
-    showStatus(statusEl, 'loading', `Generating audio for Module ${moduleNumber}...`);
+    showStatus(statusEl, 'loading', `Generating audio for Module ${parsedModuleNumber}...`);
 
     try {
         const response = await fetch('/api/generate-audio-module', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ moduleNumber })
+            body: JSON.stringify({ moduleNumber: parsedModuleNumber, course: currentCourseId })
         });
 
         const data = await response.json();
@@ -1317,13 +1326,21 @@ async function generateAudioModule() {
     }
 }
 
-// Populate module dropdown for single audio generation
+// Populate module dropdowns for single audio and per-module timings
 function populateAudioModuleDropdown() {
-    const select = document.getElementById('audio-module-select');
+    populateModuleSelect('audio-module-select', 'Select...');
+}
+
+function populateTimingsModuleDropdown() {
+    populateModuleSelect('timings-module-select', 'Select module...');
+}
+
+function populateModuleSelect(selectId, placeholder) {
+    const select = document.getElementById(selectId);
     if (!select || !workflowStatus) return;
-    
-    select.innerHTML = '<option value="">Select...</option>';
-    
+
+    select.innerHTML = `<option value="">${placeholder}</option>`;
+
     const modules = workflowStatus.modules || [];
     modules.forEach(m => {
         const option = document.createElement('option');
@@ -1370,21 +1387,24 @@ async function generateSingleAudio() {
     const slideName = document.getElementById('audio-slide-select')?.value;
     const force = document.getElementById('force-single-audio')?.checked || false;
     
-    if (!moduleNumber || !slideName) {
+    if (moduleNumber === '' || moduleNumber == null || !slideName) {
         showToast('Please select both module and slide', 'warning');
         return;
     }
     
+    const parsedModuleNumber = parseInt(moduleNumber, 10);
+    
     const statusEl = document.getElementById('audio-status');
-    showStatus(statusEl, 'loading', `Generating audio for Module ${moduleNumber} - ${slideName}...`);
+    showStatus(statusEl, 'loading', `Generating audio for Module ${parsedModuleNumber} - ${slideName}...`);
     
     try {
         const response = await fetch('/api/generate-audio-slide', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
-                moduleNumber: parseInt(moduleNumber), 
+                moduleNumber: parsedModuleNumber, 
                 slideName,
+                course: currentCourseId,
                 force
             })
         });
@@ -1451,7 +1471,7 @@ async function generateAllAudioMissing() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
                 force: false,
-                resume: true, // Enable resume capability
+                resume: true,
                 course: currentCourseId || 'default'
             })
         });
@@ -1487,7 +1507,7 @@ async function generateAllAudioForce() {
                 const response = await fetch('/api/generate-audio', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ force: true })
+                    body: JSON.stringify({ force: true, course: currentCourseId })
                 });
                 
                 const data = await response.json();
@@ -1556,7 +1576,7 @@ async function generateFullCourse() {
             const audioResponse = await fetch('/api/generate-audio', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({})
+                body: JSON.stringify({ course: currentCourseId })
             });
 
             const audioData = await audioResponse.json();
@@ -1601,7 +1621,14 @@ async function measureAudio() {
 
 async function extractTimings() {
     const statusEl = document.getElementById('timings-status');
-    showStatus(statusEl, 'loading', 'Extracting word timings... This may take a while.');
+    const moduleNumber = document.getElementById('timings-module-select')?.value;
+
+    if (!moduleNumber) {
+        showStatus(statusEl, 'error', 'Select a module first. Run timings one module at a time.');
+        return;
+    }
+
+    showStatus(statusEl, 'loading', `Extracting word timings for Module ${moduleNumber}... This may take a while.`);
 
     try {
         const methodSelector = document.getElementById('timing-method-selector');
@@ -1610,7 +1637,11 @@ async function extractTimings() {
         const response = await fetch('/api/extract-timings', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ method: method })
+            body: JSON.stringify({
+                method: method,
+                moduleRange: moduleNumber,
+                courseId: currentCourseId
+            })
         });
 
         if (!response.ok) {
@@ -1673,11 +1704,14 @@ function updatePlannerType() {
     const typeCourse = document.getElementById('planner-type-course').checked;
     const typeVideo = document.getElementById('planner-type-video').checked;
     const typeShorts = document.getElementById('planner-type-shorts').checked;
+    const typeMarketing = document.getElementById('planner-type-marketing')?.checked;
     const simpleLabel = document.getElementById('planner-simple-count-label');
     const simpleCount = document.getElementById('planner-simple-count');
     const modulesLabel = document.getElementById('planner-modules-label');
     const modulesInput = document.getElementById('planner-modules');
-    const labels = typeCourse
+    const labels = typeMarketing
+        ? { simple: 'Fixed 3 outputs (YouTube + Facebook + Udemy)', structured: 'Fixed 3 outputs', placeholder: '3 (auto)', max: '3' }
+        : typeCourse
         ? { simple: 'Number of videos (optional)', structured: 'Number of videos (optional)', placeholder: 'Auto (4-8)', max: 20 }
         : typeVideo
             ? { simple: 'Number of videos (optional)', structured: 'Number of videos (optional)', placeholder: 'Auto - planner exhausts topic', max: '' }
@@ -1686,6 +1720,8 @@ function updatePlannerType() {
     if (simpleCount) {
         simpleCount.min = '1';
         simpleCount.placeholder = labels.placeholder;
+        simpleCount.value = typeMarketing ? '3' : simpleCount.value;
+        simpleCount.disabled = !!typeMarketing;
         simpleCount.removeAttribute('max');
         if (labels.max) simpleCount.setAttribute('max', String(labels.max));
     }
@@ -1723,7 +1759,9 @@ async function planCourse() {
         return;
     }
     const input = { prompt, contentType };
-    if (countVal && !isNaN(countVal)) input.moduleCount = countVal;
+    if (contentType === 'marketing') {
+        input.moduleCount = 3;
+    } else if (countVal && !isNaN(countVal)) input.moduleCount = countVal;
     await executePlanCourse(input);
 }
 
@@ -1743,7 +1781,9 @@ async function planCourseStructured() {
     if (description) input.description = description;
     if (audience) input.targetAudience = audience;
     if (topics) input.keyTopics = topics.split(',').map(t => t.trim()).filter(t => t);
-    if (modules) input.moduleCount = parseInt(modules);
+    if (contentType === 'marketing') {
+        input.moduleCount = 3;
+    } else if (modules) input.moduleCount = parseInt(modules);
     await executePlanCourse(input);
 }
 
@@ -1756,7 +1796,9 @@ async function executePlanCourse(input) {
     const planBtnStructured = document.getElementById('plan-course-structured-btn');
     
     // Show loading state (include type so user sees Shorts/Course/Video was sent)
-    const typeLabel = input.contentType === 'shorts' ? 'Shorts' : (input.contentType === 'video' ? 'Video' : 'Course');
+    const typeLabel = input.contentType === 'marketing' ? 'Marketing Pack'
+        : input.contentType === 'shorts' ? 'Shorts'
+        : (input.contentType === 'video' ? 'Video' : 'Course');
     statusDiv.style.display = 'block';
     previewDiv.style.display = 'none';
     statusText.innerHTML = `Generating <strong>${typeLabel}</strong> plan with AI... This may take 30-60 seconds.`;

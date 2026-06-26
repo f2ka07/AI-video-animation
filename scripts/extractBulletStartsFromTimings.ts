@@ -241,11 +241,21 @@ export function extractModuleBulletStarts(courseId: string, moduleNumber: number
 
 	const bulletStartsData: Record<string, number[]> = {};
 
+	const slidesWithWords = Object.entries(timings.slides).filter(
+		([, slideData]) => slideData?.words && slideData.words.length > 0
+	);
+	if (slidesWithWords.length === 0) {
+		console.error(
+			`❌ No word timings in module${moduleNumber}.json for ${courseId}. ` +
+				`Generate audio for this module, then run extract-timings (MFA/Gentle) before bullet extraction.`
+		);
+		return;
+	}
+
 	// Process each slide
 	for (const slide of module.slides) {
 		const slideData = timings.slides[slide.name];
 		if (!slideData || !slideData.words || slideData.words.length === 0) {
-			console.log(`⚠ Skipping ${slide.name}: No word timings`);
 			continue;
 		}
 

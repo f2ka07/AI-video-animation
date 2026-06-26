@@ -104,7 +104,7 @@ async function generateSlideAudio(moduleNumber: number, slideName: string, voice
 }
 
 // Get arguments from command line
-const moduleNumber = parseInt(process.argv[2]);
+const moduleNumber = parseInt(process.argv[2], 10);
 const slideName = process.argv[3];
 // Voice is 4th arg, but check if it's a flag
 const voiceArg = process.argv[4];
@@ -116,7 +116,7 @@ const provider = providerArg && !providerArg.startsWith('--')
 	: undefined;
 const force = process.argv.includes('--force');
 
-if (!moduleNumber || !slideName) {
+if (Number.isNaN(moduleNumber) || !slideName) {
 	console.error("Usage: tsx scripts/generateAudioForSlide.ts <moduleNumber> <slideName> [voice] [provider] [--force]");
 	process.exit(1);
 }

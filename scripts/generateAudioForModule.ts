@@ -80,8 +80,8 @@ async function generateModuleAudio(moduleNumber: number) {
 }
 
 // Get module number from command line
-const moduleNumber = parseInt(process.argv[2]);
-if (!moduleNumber || isNaN(moduleNumber)) {
+const moduleNumber = parseInt(process.argv[2], 10);
+if (Number.isNaN(moduleNumber)) {
 	console.error("Usage: tsx scripts/generateAudioForModule.ts <moduleNumber>");
 	console.error("Example: tsx scripts/generateAudioForModule.ts 2");
 	process.exit(1);

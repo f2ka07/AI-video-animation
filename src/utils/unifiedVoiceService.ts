@@ -58,7 +58,10 @@ export class UnifiedVoiceService {
 
 		// Use direct Minimax API if key is available (preferred over RunPod)
 		if (minimaxKey) {
-			this.minimaxDirectService = new MinimaxDirectService(minimaxKey);
+			this.minimaxDirectService = new MinimaxDirectService(
+				minimaxKey,
+				process.env.MINIMAX_GROUP_ID
+			);
 		}
 
 		if (elevenLabsKey) {
@@ -144,7 +147,6 @@ export class UnifiedVoiceService {
 			};
 		} catch (error) {
 			const errorMsg = error instanceof Error ? error.message : String(error);
-			// No fallback - throw immediately with clear message
 			throw new Error(
 				`${provider} TTS failed: ${errorMsg}\n` +
 				`No fallback attempted to maintain voice consistency. ` +
@@ -210,10 +212,15 @@ export class UnifiedVoiceService {
 	/** Prepare prompt for provider: strip SSML if provider doesn't support it */
 	private preparePromptForProvider(provider: string, options: VoiceOptions): VoiceOptions {
 		const shouldStrip = options.stripSSMLForProvider ?? !UnifiedVoiceService.PROVIDER_SUPPORTS_SSML[provider];
-		if (shouldStrip && containsSSML(options.prompt)) {
-			return { ...options, prompt: stripSSML(options.prompt) };
+		let prompt = options.prompt ?? "";
+		if (shouldStrip && containsSSML(prompt)) {
+			prompt = stripSSML(prompt);
 		}
-		return options;
+		prompt = prompt.trim();
+		if (!prompt) {
+			throw new Error(`TTS text is empty for ${provider} (check slide script or SSML stripping)`);
+		}
+		return { ...options, prompt };
 	}
 
 	/**

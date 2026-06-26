@@ -23,6 +23,8 @@ export interface PhraseTime {
 export interface SlideTimings {
   words: WordTiming[];
   phraseTimes?: (PhraseTime | null)[];
+  leftPhraseTimes?: (PhraseTime | null)[];
+  rightPhraseTimes?: (PhraseTime | null)[];
 }
 
 export interface ModuleTimings {

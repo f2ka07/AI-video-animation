@@ -60,7 +60,7 @@ test("allModules array should not be empty", () => {
 
 test("each module should have required fields", () => {
 	for (const module of allModules) {
-		expect(module.moduleNumber).toBeGreaterThan(0);
+		expect(module.moduleNumber).toBeGreaterThan(-1);
 		expect(module.title).toBeTruthy();
 		expect(module.subtitle).toBeTruthy();
 		expect(module.slides.length).toBeGreaterThan(0);

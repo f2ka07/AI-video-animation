@@ -13,30 +13,31 @@ export interface VoiceMapping {
  */
 const VOICE_MAPPINGS: Record<string, VoiceMapping> = {
 	andy: {
-		runpod: "andy", // Chatterbox voice
-		minimax: "Wise_Woman", // Minimax voice (using Wise_Woman as default - verify available voices)
-		elevenlabs: "21m00Tcm4TlvDq8ikWAM", // Rachel (similar tone)
+		runpod: "andy",
+		minimax: "English_expressive_narrator",
+		elevenlabs: "21m00Tcm4TlvDq8ikWAM",
 	},
 	sarah: {
-		runpod: "sarah", // Chatterbox voice
-		minimax: "Wise_Woman", // Minimax voice (female, professional)
-		elevenlabs: "EXAVITQu4vr4xnSDxMaL", // Bella (female)
+		runpod: "sarah",
+		minimax: "presenter_female",
+		elevenlabs: "EXAVITQu4vr4xnSDxMaL",
 	},
 	tom: {
-		runpod: "tom", // Chatterbox voice
-		minimax: "Wise_Woman", // Minimax voice (using Wise_Woman as default - verify available voices)
-		elevenlabs: "pNInz6obpgDQGcFmaJgB", // Adam (male)
+		runpod: "tom",
+		minimax: "presenter_male",
+		elevenlabs: "pNInz6obpgDQGcFmaJgB",
 	},
 	lucy: {
-		runpod: "lucy", // Chatterbox voice
-		minimax: "Wise_Woman", // Minimax voice (female, friendly)
-		elevenlabs: "EXAVITQu4vr4xnSDxMaL", // Bella (female)
+		runpod: "lucy",
+		minimax: "audiobook_female_1",
+		elevenlabs: "EXAVITQu4vr4xnSDxMaL",
+	},
+	francis: {
+		runpod: "andy",
+		minimax: "moss_audio_302ca737-f4d5-11f0-89d3-26cb62c33ed5",
+		elevenlabs: "21m00Tcm4TlvDq8ikWAM",
 	},
 };
-
-/**
- * Get the appropriate voice ID for a specific service
- */
 export function getVoiceForService(
 	voiceName: string,
 	service: "runpod" | "minimax" | "elevenlabs"
@@ -58,7 +59,7 @@ export function getVoiceForService(
 			if (voiceName && voiceName.includes("_")) {
 				return voiceName;
 			}
-			return "Wise_Woman"; // Default Minimax voice (adjust if this doesn't exist)
+			return "moss_audio_302ca737-f4d5-11f0-89d3-26cb62c33ed5";
 		case "elevenlabs":
 			return "21m00Tcm4TlvDq8ikWAM"; // Default ElevenLabs voice (Rachel)
 		default:

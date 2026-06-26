@@ -1,70 +1,23 @@
-# Build once; remotion reuses the same image (saves disk on RunPod/small VMs)
-x-app-image: &app-image
-  build:
-    context: .
-    dockerfile: Dockerfile
-  image: slides-app:local
-  pull_policy: never
+# Local Docker helpers only — NOT the full video platform.
+#
+# Host GUI (npm run gui) connects to these via localhost ports:
+#   Gentle   -> http://127.0.0.1:8765  (GENTLE_URL)
+#   Remotion -> http://127.0.0.1:3000  (REMOTION_STUDIO_URL; host npm start OR container)
+#   MFA      -> ephemeral jobs only: npm run mfa:download-models / GUI Step 4 (method=mfa)
+#
+#   docker compose up -d                              # Gentle only
+#   docker compose --profile studio up -d --build     # + Remotion container
+#   npm run mfa:download-models                       # one-time MFA models (compose run, not up)
+#
+# Production full platform: docker-compose.prod.yml + SLIDES_IMAGE
 
 services:
-  # Main app: GUI + Remotion (headless render)
-  app:
-    <<: *app-image
-    container_name: slides-app
-    ports:
-      - "3001:3001"
-    shm_size: '2gb'
-    environment:
-      - NODE_ENV=production
-      - GENTLE_URL=http://gentle:8765
-      - REMOTION_URL=http://remotion:3000
-      - GUI_AUTH_USERNAME=${GUI_AUTH_USERNAME:-}
-      - GUI_AUTH_PASSWORD=${GUI_AUTH_PASSWORD:-}
-      - GUI_SESSION_SECRET=${GUI_SESSION_SECRET:-}
-      - REMOTION_CPU_RESERVE=${REMOTION_CPU_RESERVE:-2}
-      - REMOTION_CONCURRENCY=${REMOTION_CONCURRENCY:-}
-    volumes:
-      - ./public:/app/public
-      - ./courses:/app/courses
-      - ./out:/app/out
-      - ./src:/app/src
-      - ./gui:/app/gui
-      - ./scripts:/app/scripts
-      - ./workspace:/app/workspace
-      - ./gui-server.js:/app/gui-server.js
-    depends_on:
-      gentle:
-        condition: service_healthy
-    restart: unless-stopped
-    networks:
-      - slides-network
-
-  # Remotion Studio for preview (optional — use: docker compose --profile studio up -d)
-  remotion:
-    <<: *app-image
-    profiles:
-      - studio
-    container_name: slides-remotion
-    command: ["npx", "remotion", "studio", "src/index.tsx"]
-    ports:
-      - "127.0.0.1:3000:3000"
-    environment:
-      - NODE_ENV=production
-    volumes:
-      - ./src:/app/src
-      - ./public:/app/public
-      - ./courses:/app/courses
-      - ./scripts:/app/scripts
-    depends_on:
-      - app
-    restart: unless-stopped
-    networks:
-      - slides-network
-
-  # Gentle: word alignment for extract-timings (internal only, not exposed)
   gentle:
     image: lowerquality/gentle:latest
     container_name: slides-gentle
+    pull_policy: always
+    ports:
+      - "127.0.0.1:${GENTLE_HOST_PORT:-8765}:8765"
     restart: unless-stopped
     healthcheck:
       test: ['CMD-SHELL', 'wget -q -O /dev/null http://localhost:8765/ || exit 1']
@@ -75,7 +28,46 @@ services:
     networks:
       - slides-network
 
-volumes: {}
+  # MFA: never `docker compose up mfa` — scripts use `compose run --rm --entrypoint mfa mfa ...`
+  mfa:
+    image: mmcauliffe/montreal-forced-aligner:latest
+    profiles:
+      - mfa
+    pull_policy: if_not_present
+    volumes:
+      - mfa-models:/home/mfauser/Documents/MFA
+    environment:
+      - MFA_ROOT_DIR=/home/mfauser/Documents/MFA
+    networks:
+      - slides-network
+
+  remotion:
+    build:
+      context: .
+      dockerfile: Dockerfile.remotion
+    image: slides-remotion:local
+    pull_policy: never
+    container_name: slides-remotion
+    profiles:
+      - studio
+      - stack
+    ports:
+      - "127.0.0.1:${REMOTION_HOST_PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./courses:/app/courses
+      - ./scripts:/app/scripts
+      - ./remotion.config.ts:/app/remotion.config.ts
+      - ./tsconfig.json:/app/tsconfig.json
+    restart: unless-stopped
+    networks:
+      - slides-network
+
+volumes:
+  mfa-models: {}
 
 networks:
   slides-network:

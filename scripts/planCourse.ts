@@ -87,13 +87,14 @@ function validateScripts(modules: ModuleContent[]): { valid: boolean; errors: st
 	
 	for (const mod of modules) {
 		totalSlides += mod.slides.length;
-		
-		// Check minimum slides per module - ERROR if too few
-		if (mod.slides.length < MIN_SLIDES_PER_MODULE_ERROR) {
+		const isPreviewModule = mod.moduleNumber === 0;
+
+		// Check minimum slides per module - ERROR if too few (module 0 exempt)
+		if (!isPreviewModule && mod.slides.length < MIN_SLIDES_PER_MODULE_ERROR) {
 			errors.push(
 				`Module ${mod.moduleNumber}: Only ${mod.slides.length} slides (minimum: ${MIN_SLIDES_PER_MODULE_ERROR}). Break down topics into more slides.`
 			);
-		} else if (mod.slides.length < TARGET_SLIDES_PER_MODULE) {
+		} else if (!isPreviewModule && mod.slides.length < TARGET_SLIDES_PER_MODULE) {
 			warnings.push(
 				`Module ${mod.moduleNumber}: ${mod.slides.length} slides (target: ${TARGET_SLIDES_PER_MODULE}). Consider adding more depth.`
 			);
@@ -102,7 +103,7 @@ function validateScripts(modules: ModuleContent[]): { valid: boolean; errors: st
 		// Check code slide ratio
 		const codeSlides = mod.slides.filter(s => s.type === 'code' || s.type === 'code-diagram').length;
 		const codeRatio = mod.slides.length > 0 ? codeSlides / mod.slides.length : 0;
-		if (codeRatio < MIN_CODE_SLIDE_RATIO && mod.slides.length > 2) {
+		if (!isPreviewModule && codeRatio < MIN_CODE_SLIDE_RATIO && mod.slides.length > 2) {
 			warnings.push(
 				`Module ${mod.moduleNumber}: Only ${codeSlides}/${mod.slides.length} code slides (${Math.round(codeRatio * 100)}%). Add more code examples.`
 			);
@@ -208,11 +209,23 @@ CONTENT DEPTH:
 
 MODULE TITLE AND SUBTITLE: No "Module 1" or numbers. Use topic title + descriptive subtitle.
 
+MODULE 0 — COURSE PREVIEW (mandatory):
+- First module in array: moduleNumber 0, title "Course Preview".
+- 6-8 slides, under 2 minutes total (~250-300 words). Lead-conversion preview; premium exam prep + labs positioning.
+- Assume stated baseline (e.g. CCNA-level); not beginner-from-zero. No third-party brands except Cisco.
+- imageSrc under module00/; no code slides. Teaching modules (1+) follow all rules below.
+
 OUTPUT FORMAT:
 {
   "courseName": "Course Title",
   "courseId": "course-id-with-dashes",
   "modules": [
+    {
+      "moduleNumber": 0,
+      "title": "Course Preview",
+      "subtitle": "Audience and path overview",
+      "slides": [ ... ]
+    },
     {
       "moduleNumber": 1,
       "title": "Topic Title",
@@ -347,7 +360,7 @@ function parseResponse(jsonString: string): PlannerOutput {
 		
 		// Validate each module and fix backslash issues
 		for (const mod of parsed.modules) {
-			if (!mod.moduleNumber || !mod.title || !mod.slides) {
+			if (mod.moduleNumber === undefined || mod.moduleNumber === null || !mod.title || !mod.slides) {
 				throw new Error(`Invalid module structure in module ${mod.moduleNumber}`);
 			}
 			

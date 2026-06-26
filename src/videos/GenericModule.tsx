@@ -18,8 +18,13 @@ import { getAudioDurationOrEstimate } from "../utils/audioDuration";
 import { allModules } from "./moduleContent";
 import { expandSlidesWithSplits } from "../utils/expandSlidesWithSplits";
 import { slideSplitsByCourse } from "../utils/slideSplitsData";
+import {
+	buildGenericModuleTimeline,
+	WHOOSH_DURATION_SECONDS,
+} from "./genericModuleTimeline";
 import type { SlideContent, ModuleContent } from "./moduleContent";
 import type { DiagramScene } from "../diagrams/sceneTypes";
+import { toPremiumBullets, toPremiumComparisonItems } from "../utils/premiumDisplayPoints";
 
 function isMultiAudioCodeSlide(slide: { type: string; scripts?: string[] }): boolean {
 	return slide.type === "code" && !!slide.scripts && slide.scripts.length >= 1;
@@ -58,7 +63,7 @@ interface GenericModuleProps {
 export const GenericModule: React.FC<GenericModuleProps> = ({ courseId, moduleNumber }) => {
 	const { fps } = useVideoConfig();
 	const crossFadeDuration = 0.3;
-	const whooshDuration = 0.57;
+	const whooshDuration = WHOOSH_DURATION_SECONDS;
 
 	const module = allModules.find(
 		(m) => m.courseId === courseId && m.moduleNumber === moduleNumber
@@ -71,8 +76,6 @@ export const GenericModule: React.FC<GenericModuleProps> = ({ courseId, moduleNu
 			</div>
 		);
 	}
-
-	const isShort = (module as ModuleContent & { videoCategory?: string }).videoCategory === "short";
 
 	const getDur = (slideName: string, script?: string): number =>
 		getAudioDurationOrEstimate(
@@ -96,18 +99,8 @@ export const GenericModule: React.FC<GenericModuleProps> = ({ courseId, moduleNu
 		return getDur(slideName, slide?.script);
 	};
 
-	const effectiveSegments = isShort
-		? module.slides.map((slide, i) => ({
-				slideName: slide.name,
-				segmentIndex: 0,
-				segmentStartSeconds: 0,
-				segmentDurationSeconds: 5,
-				points: slide.points || [],
-				isLastInGroup: true,
-				isLastInModule: i === module.slides.length - 1,
-				slide,
-		  }))
-		: expandSlidesWithSplits(module.slides, splits, getDurForSlide);
+	const effectiveSegments = expandSlidesWithSplits(module.slides, splits, getDurForSlide);
+	const timeline = buildGenericModuleTimeline(courseId, module as ModuleContent & { videoCategory?: string });
 
 	// Group segments by slide - one Sequence per slide, audio plays continuously (no cuts)
 	const slideGroups: Array<{ slide: SlideContent; segments: typeof effectiveSegments }> = [];
@@ -149,51 +142,43 @@ export const GenericModule: React.FC<GenericModuleProps> = ({ courseId, moduleNu
 	}> = [];
 
 	for (let i = 0; i < slideGroups.length; i++) {
-		const { slide, segments } = slideGroups[i];
-		const fullAudioDur = isMultiAudioCodeSlide(slide)
-			? (slide.scripts as string[]).reduce(
-					(sum, chunkScript, j) =>
-						sum +
-						getAudioDurationOrEstimate(
-							`${courseId}/module${moduleNumber}-${slide.name}-${j + 1}`,
-							chunkScript
-						),
-					0
-			  )
-			: segments.reduce((s, seg) => s + seg.segmentDurationSeconds, 0);
-		const buf = i === slideGroups.length - 1 ? 1.2 : 1.0;
-		const slideDuration = fullAudioDur + buf;
-		const whooshTime = i < slideGroups.length - 1 ? whooshDuration : 0;
-		const totalTime = slideDuration + whooshTime;
+		const entry = timeline.slides[i];
+		if (!entry) continue;
+		const slideDuration = entry.slideDuration;
+		const whooshTime = entry.whooshAfter ? whooshDuration : 0;
 		slideGroupVars.push({
 			start: currentFrame,
 			duration: slideDuration * fps,
 			slideDuration,
-			audioDuration: fullAudioDur,
+			audioDuration: entry.audioDuration,
 		});
-		currentFrame += totalTime * fps;
+		currentFrame += (slideDuration + whooshTime) * fps;
 	}
 
+	const getPremiumOptions = (slide: SlideContent) => {
+		const ext = slide as SlideContent & { beat?: string; keyPhrases?: string[] };
+		const isLab = slide.name?.includes("lab-setup") || slide.title?.toLowerCase().includes("lab");
+		return {
+			script: slide.script,
+			keyPhrases: ext.keyPhrases,
+			slideType: slide.type,
+			beat: ext.beat,
+			allowLabDense: isLab,
+		};
+	};
+
 	const getEffectivePoints = (points: string[], slide: SlideContent): string[] => {
-		if (points.length > 0) return points;
-		const script = slide.script?.trim();
-		if (script && script.length > 0) {
-			const sentences = script.match(/[^.!?]+[.!?]+/g) || [script];
-			const bullets: string[] = [];
-			const maxLen = 85;
-			const maxBullets = 3;
-			for (const s of sentences) {
-				const trimmed = s.trim();
-				if (trimmed.length === 0) continue;
-				if (bullets.length >= maxBullets) break;
-				bullets.push(trimmed.length > maxLen ? trimmed.slice(0, maxLen - 3) + "..." : trimmed);
-			}
-			if (bullets.length === 0) {
-				bullets.push(script.length > maxLen ? script.slice(0, maxLen - 3) + "..." : script);
-			}
-			return bullets;
+		const manual = slide as SlideContent & { useManualPoints?: boolean };
+		const opts = getPremiumOptions(slide);
+		let resolved: string[];
+		if (manual.useManualPoints === true && slide.points && slide.points.length > 0) {
+			resolved = slide.points;
+		} else if (points.length > 0) {
+			resolved = points;
+		} else {
+			resolved = [];
 		}
-		return points;
+		return toPremiumBullets(resolved, opts);
 	};
 
 	const getStoryBeatTitle = (slide: SlideContent): string => {
@@ -213,18 +198,22 @@ export const GenericModule: React.FC<GenericModuleProps> = ({ courseId, moduleNu
 		const isFirst = groupIndex === 0;
 		const isLast = groupIndex === slideGroups.length - 1;
 		const needsWhoosh = !isLast;
-		const hasVisualSplits = segments.length > 1;
+		const manualBullets = (slide as SlideContent & { useManualPoints?: boolean }).useManualPoints === true;
+		const hasVisualSplits = !manualBullets && segments.length > 1;
 		const firstSeg = segments[0];
 
 		let slideEl: React.ReactNode;
 		switch (slide.type) {
 			case "title": {
 				const subtitleText = normalizeSubtitle(slide.subtitle || module.subtitle);
+				const slideTitle = slide.title?.trim() || module.title;
 				slideEl = (
 					<TitleSlide
-						title={module.title}
+						title={slideTitle}
 						subtitle={subtitleText}
 						animation={(slide as SlideContent & { animation?: string }).animation}
+						imageSrc={slide.imageSrc}
+						audioDuration={slideVar.audioDuration}
 					/>
 				);
 				break;
@@ -264,7 +253,7 @@ export const GenericModule: React.FC<GenericModuleProps> = ({ courseId, moduleNu
 				) : (
 					<AnimatedContentSlide
 						title={slideTitle}
-						points={firstSeg.points}
+						points={getEffectivePoints(firstSeg.points, slide)}
 						slideName={slide.name}
 						audioDuration={slideVar.audioDuration}
 						moduleNumber={moduleNumber}
@@ -364,11 +353,17 @@ export const GenericModule: React.FC<GenericModuleProps> = ({ courseId, moduleNu
 			}
 			case "code": {
 				const code = slide.code ?? "";
+				const codeLineCount = code.trim() ? code.trim().split("\n").length : 0;
+				const visibleLineRange =
+					codeLineCount > 0 && codeLineCount <= 24 ? undefined : slide.visibleLineRange;
 				const audioChunkDurations = isMultiAudioCodeSlide(slide)
 					? slide.scripts!.map(
 							(_, j) =>
 								audioDurations[`${slide.name}-${j + 1}`] ??
-								getAudioDuration(`${courseId}/module${moduleNumber}-${slide.name}-${j + 1}`)
+								getAudioDurationOrEstimate(
+									`${courseId}/module${moduleNumber}-${slide.name}-${j + 1}`,
+									slide.scripts![j]
+								)
 					  )
 					: undefined;
 				const codeContext = slide.codeContext ?? slide.filePath ?? "";
@@ -381,7 +376,7 @@ export const GenericModule: React.FC<GenericModuleProps> = ({ courseId, moduleNu
 						audioDuration={slideVar.audioDuration}
 						moduleNumber={moduleNumber}
 						audioChunkDurations={audioChunkDurations}
-						visibleLineRange={slide.visibleLineRange}
+						visibleLineRange={visibleLineRange}
 						codeContext={codeContext || undefined}
 					/>
 				);
@@ -389,6 +384,11 @@ export const GenericModule: React.FC<GenericModuleProps> = ({ courseId, moduleNu
 			}
 			case "code-diagram": {
 				const codeDiagram = slide.code ?? "";
+				const codeDiagramLineCount = codeDiagram.trim() ? codeDiagram.trim().split("\n").length : 0;
+				const codeDiagramVisibleLineRange =
+					codeDiagramLineCount > 0 && codeDiagramLineCount <= 24
+						? undefined
+						: slide.visibleLineRange;
 				const scene = parseScene(slide.scene);
 				slideEl = scene ? (
 					<CodeAndDiagram
@@ -407,24 +407,32 @@ export const GenericModule: React.FC<GenericModuleProps> = ({ courseId, moduleNu
 						slideName={slide.name}
 						audioDuration={slideVar.audioDuration}
 						moduleNumber={moduleNumber}
-						visibleLineRange={slide.visibleLineRange}
+						visibleLineRange={codeDiagramVisibleLineRange}
 						codeContext={slide.codeContext ?? slide.filePath ?? undefined}
 					/>
 				);
 				break;
 			}
-			case "comparison":
+			case "comparison": {
+				const comparisonCopy = toPremiumComparisonItems(
+					slide.leftItems ?? [],
+					slide.rightItems ?? []
+				);
 				slideEl = (
 					<AnimatedComparisonSlide
 						title={slide.title ?? ""}
 						leftTitle={slide.leftTitle ?? ""}
-						leftItems={slide.leftItems ?? []}
+						leftItems={comparisonCopy.leftItems}
 						rightTitle={slide.rightTitle ?? ""}
-						rightItems={slide.rightItems ?? []}
+						rightItems={comparisonCopy.rightItems}
 						slideName={slide.name}
+						audioDuration={slideVar.audioDuration}
+						imageSrc={slide.imageSrc}
+						moduleNumber={moduleNumber}
 					/>
 				);
 				break;
+			}
 			case "sequential-bullet":
 				slideEl = (
 					<SequentialBulletSlide

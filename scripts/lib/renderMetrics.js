@@ -36,6 +36,24 @@ function getMetricsCsvPath(repoRoot) {
 	return path.join(getMetricsDir(repoRoot), 'render-results.csv');
 }
 
+/** Create metrics dir and verify the process can write to it (Docker volume permissions). */
+function ensureMetricsDir(repoRoot) {
+	const dir = getMetricsDir(repoRoot);
+	if (!fs.existsSync(dir)) {
+		fs.mkdirSync(dir, { recursive: true, mode: 0o775 });
+	}
+	try {
+		fs.accessSync(dir, fs.constants.W_OK);
+	} catch (e) {
+		const err = new Error(
+			`Render metrics directory is not writable: ${dir}. Fix volume ownership or permissions.`
+		);
+		err.code = 'EACCES';
+		throw err;
+	}
+	return dir;
+}
+
 function escapeCsvField(value) {
 	const str = value === null || value === undefined ? '' : String(value);
 	if (str.includes('"') || str.includes(',') || str.includes('\n') || str.includes('\r')) {
@@ -186,10 +204,7 @@ function rowToCsvLine(row) {
 
 function appendRenderMetricsRow(row, repoRoot) {
 	const csvPath = getMetricsCsvPath(repoRoot);
-	const dir = path.dirname(csvPath);
-	if (!fs.existsSync(dir)) {
-		fs.mkdirSync(dir, { recursive: true });
-	}
+	const dir = ensureMetricsDir(repoRoot);
 	const needsHeader = !fs.existsSync(csvPath) || fs.statSync(csvPath).size === 0;
 	const line = rowToCsvLine(row);
 	const header = CSV_COLUMNS.join(',');
@@ -203,7 +218,13 @@ function readRenderMetricsCsv(repoRoot) {
 	if (!fs.existsSync(csvPath)) {
 		return { header: CSV_COLUMNS.join(','), rows: [], path: csvPath };
 	}
-	const content = fs.readFileSync(csvPath, 'utf-8').trim();
+	let content;
+	try {
+		content = fs.readFileSync(csvPath, 'utf-8').trim();
+	} catch (err) {
+		err.path = csvPath;
+		throw err;
+	}
 	if (!content) {
 		return { header: CSV_COLUMNS.join(','), rows: [], path: csvPath };
 	}
@@ -280,7 +301,9 @@ function createRemotionParseState() {
 
 module.exports = {
 	CSV_COLUMNS,
+	getMetricsDir,
 	getMetricsCsvPath,
+	ensureMetricsDir,
 	getModuleFrameCount,
 	createJobTimer,
 	computeCostMetrics,

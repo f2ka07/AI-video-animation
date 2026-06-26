@@ -18,6 +18,8 @@ import * as dotenv from "dotenv";
 
 dotenv.config({ path: path.join(__dirname, "../.env") });
 
+const { getDefaultVoice, getDefaultProvider } = require("./lib/loadVoiceSettings");
+
 // Import voice service if available
 let UnifiedVoiceService: any;
 try {
@@ -148,10 +150,12 @@ async function generateWithAPI(
 
 	try {
 		const voiceService = new UnifiedVoiceService();
+		const resolvedProvider = provider || getDefaultProvider();
+		const resolvedVoice = voice || getDefaultVoice(resolvedProvider);
 		const result = await voiceService.generateAudio({
 			prompt: text,
-			voice: voice || "andy",
-			provider: provider as any,
+			voice: resolvedVoice,
+			provider: resolvedProvider as any,
 		});
 
 		// Save the audio file
@@ -285,8 +289,8 @@ async function generateAudioForCourse(options: GenerationOptions): Promise<void>
 
 	// API mode - generate audio
 	console.log(`=== API GENERATION MODE ===`);
-	console.log(`Provider: ${options.provider || "auto"}`);
-	console.log(`Voice: ${options.voice || "andy"}\n`);
+	console.log(`Provider: ${options.provider || getDefaultProvider()}`);
+	console.log(`Voice: ${options.voice || getDefaultVoice(options.provider || getDefaultProvider())}\n`);
 
 	let generated = 0;
 	let skipped = 0;

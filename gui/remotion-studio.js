@@ -16,9 +16,12 @@
 		try {
 			const response = await fetch('/api/system-info');
 			const info = await response.json();
-			studioBaseUrl = info.remotionStudioUrl || 'http://localhost:3000';
-			studioReachable = Boolean(info.remotionStudioReachable);
-			studioHint = info.remotionStudioStartHint || '';
+			const remotion = info.dockerServices?.remotion || info;
+			studioBaseUrl = (remotion.reachable ? remotion.url : remotion.configuredUrl)
+				|| info.remotionStudioUrl
+				|| 'http://localhost:3000';
+			studioReachable = Boolean(remotion.reachable ?? info.remotionStudioReachable);
+			studioHint = remotion.startHint || info.remotionStudioStartHint || '';
 			return info;
 		} catch (error) {
 			console.warn('[remotion-studio] Could not load system info:', error);
@@ -28,7 +31,10 @@
 	}
 
 	function buildRemotionStudioUrl(moduleNumber, courseId) {
-		const mod = moduleNumber || 1;
+		const mod =
+			moduleNumber !== undefined && moduleNumber !== null && moduleNumber !== ''
+				? moduleNumber
+				: 1;
 		const params = new URLSearchParams({
 			composition: `module-${mod}`,
 			t: String(Date.now()),

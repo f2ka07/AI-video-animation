@@ -1,0 +1,11 @@
+# Slim Remotion Studio image: npm deps only. Course assets mount at runtime (not baked in).
+FROM node:20-bookworm-slim
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci
+
+EXPOSE 3000
+
+CMD ["npx", "remotion", "studio", "src/index.tsx", "--host", "0.0.0.0", "--port", "3000"]

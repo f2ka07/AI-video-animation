@@ -143,10 +143,10 @@ async function extractSlideTimings(moduleNumber: number, slideName: string) {
 }
 
 // Get arguments from command line
-const moduleNumber = parseInt(process.argv[2]);
+const moduleNumber = parseInt(process.argv[2], 10);
 const slideName = process.argv[3];
 
-if (!moduleNumber || !slideName) {
+if (Number.isNaN(moduleNumber) || !slideName) {
 	console.error("Usage: tsx scripts/extractTimingsForSlide.ts <moduleNumber> <slideName>");
 	process.exit(1);
 }

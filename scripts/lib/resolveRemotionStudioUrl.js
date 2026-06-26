@@ -79,7 +79,10 @@ async function resolveRemotionStudioUrl(options = {}) {
 }
 
 function buildRemotionStudioOpenUrl(baseUrl, moduleNumber, courseId) {
-	const mod = moduleNumber || 1;
+	const mod =
+		moduleNumber !== undefined && moduleNumber !== null && moduleNumber !== ''
+			? moduleNumber
+			: 1;
 	const params = new URLSearchParams({
 		composition: `module-${mod}`,
 		t: String(Date.now()),
@@ -90,13 +93,17 @@ function buildRemotionStudioOpenUrl(baseUrl, moduleNumber, courseId) {
 	return `${normalizeStudioBaseUrl(baseUrl)}?${params.toString()}`;
 }
 
-function getRemotionStudioStartHint() {
-	return [
-		'Remotion Studio is not running.',
-		'Local dev: npm start  (or workspace/ops/start-all.ps1 on Windows)',
-		'Docker preview: docker compose --profile studio up -d remotion',
-		'Deploy mode uses headless render in the app container; Studio is optional for preview only.',
-	].join(' ');
+function getRemotionStudioStartHint(options = {}) {
+	const dockerAvailable = options.dockerAvailable === true;
+	const lines = [
+		'Remotion Studio is not running on http://localhost:3000.',
+		'Option 1 (host, preferred): npm start',
+	];
+	if (dockerAvailable) {
+		lines.push('Option 2 (Docker fallback): docker compose --profile studio up -d --build remotion');
+	}
+	lines.push('Headless renders still run from the GUI on the host (no Studio required).');
+	return lines.join(' ');
 }
 
 module.exports = {

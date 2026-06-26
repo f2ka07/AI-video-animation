@@ -21,7 +21,7 @@ if [[ -f .env ]]; then
 	set +a
 fi
 
-SLIDES_COURSE_ID="${SLIDES_COURSE_ID:-agentic-ai-for-beginners}"
+SLIDES_COURSE_ID="${SLIDES_COURSE_ID:-network-automation-program-networks}"
 INSTALL_DOCKER="${INSTALL_DOCKER:-0}"
 USE_HOST_NETWORK="${USE_HOST_NETWORK:-0}"
 SKIP_ACTIVATE="${SKIP_ACTIVATE:-0}"
@@ -116,7 +116,16 @@ if [[ -f .env ]]; then
 	source .env
 	set +a
 fi
-SLIDES_COURSE_ID="${SLIDES_COURSE_ID:-agentic-ai-for-beginners}"
+SLIDES_COURSE_ID="${SLIDES_COURSE_ID:-network-automation-program-networks}"
+
+# Do not overwrite a course already activated in moduleContent.ts (common dev mistake).
+if [[ -f src/videos/moduleContent.ts ]]; then
+	MC_COURSE=$(grep -m1 'courseId:' src/videos/moduleContent.ts | sed -n 's/.*"\([^"]*\)".*/\1/p')
+	if [[ -n "${MC_COURSE}" && "${MC_COURSE}" != "${SLIDES_COURSE_ID}" ]]; then
+		warn "SLIDES_COURSE_ID=${SLIDES_COURSE_ID} but moduleContent.ts is ${MC_COURSE} — activating ${MC_COURSE}"
+		SLIDES_COURSE_ID="${MC_COURSE}"
+	fi
+fi
 
 if [[ ! -d "courses/${SLIDES_COURSE_ID}" ]]; then
 	die "Course not found: courses/${SLIDES_COURSE_ID}/ — set SLIDES_COURSE_ID or clone the course content"
@@ -136,16 +145,17 @@ if [[ -n "${SLIDES_IMAGE:-}" ]] && [[ "${SLIDES_IMAGE}" == ghcr.io/* ]]; then
 	COMPOSE_ARGS=(-f docker-compose.prod.yml -f docker-compose.cloud.yml)
 	[[ "$USE_HOST_NETWORK" == "1" ]] && COMPOSE_ARGS+=(-f docker-compose.runpod.yml)
 	export SLIDES_IMAGE
-	log "Pulling image: $SLIDES_IMAGE"
+	log "Pulling production image: $SLIDES_IMAGE"
 	compose "${COMPOSE_ARGS[@]}" pull app || warn "Image pull failed — falling back to local build"
 fi
 
 if [[ "$USE_REGISTRY_IMAGE" == "1" ]] && docker_cmd image inspect "${SLIDES_IMAGE}" &>/dev/null; then
-	log "Starting stack (registry image)..."
+	log "Starting production stack (app + gentle from registry)..."
 	compose "${COMPOSE_ARGS[@]}" up -d
 else
-	log "Building and starting stack (app + gentle)..."
-	compose "${COMPOSE_ARGS[@]}" up -d --build
+	log "Starting local Docker helpers (Gentle only; GUI runs on host — not containerized)..."
+	compose "${COMPOSE_ARGS[@]}" pull gentle || warn "Gentle pull failed — is Docker running?"
+	compose "${COMPOSE_ARGS[@]}" up -d gentle
 fi
 
 # --- 5. Wait for Gentle + GUI ---
@@ -162,22 +172,47 @@ for i in $(seq 1 36); do
 done
 
 log "Waiting for GUI on port ${GUI_PORT}..."
-for i in $(seq 1 30); do
+if [[ "$USE_REGISTRY_IMAGE" == "1" ]]; then
+	for i in $(seq 1 30); do
+		if curl -sf "http://127.0.0.1:${GUI_PORT}/api/health" >/dev/null 2>&1; then
+			log "GUI is ready"
+			break
+		fi
+		if [[ "$i" -eq 30 ]]; then
+			die "GUI did not start. Check: docker logs slides-app"
+		fi
+		sleep 2
+	done
+else
 	if curl -sf "http://127.0.0.1:${GUI_PORT}/api/health" >/dev/null 2>&1; then
-		log "GUI is ready"
-		break
+		log "GUI already running on host"
+	else
+		log "Starting GUI on host (npm run gui)..."
+		nohup npm run gui > workspace/logs/gui.log 2>&1 &
+		for i in $(seq 1 30); do
+			if curl -sf "http://127.0.0.1:${GUI_PORT}/api/health" >/dev/null 2>&1; then
+				log "GUI is ready"
+				break
+			fi
+			if [[ "$i" -eq 30 ]]; then
+				warn "GUI did not start in time — run: npm run gui"
+			fi
+			sleep 2
+		done
 	fi
-	if [[ "$i" -eq 30 ]]; then
-		die "GUI did not start. Check: docker logs slides-app"
-	fi
-	sleep 2
-done
+fi
 
 # --- 6. Activate course (timings, SVGs, moduleContent, Remotion modules) ---
 if [[ "$SKIP_ACTIVATE" != "1" ]]; then
 	log "Activating course: ${SLIDES_COURSE_ID} (timings, assets, Remotion modules)..."
-	if ! docker_cmd exec slides-app npx tsx scripts/activateCourse.ts "${SLIDES_COURSE_ID}"; then
-		die "Course activation failed. Check: docker logs slides-app"
+	if [[ "$USE_REGISTRY_IMAGE" == "1" ]]; then
+		if ! docker_cmd exec slides-app npx tsx scripts/activateCourse.ts "${SLIDES_COURSE_ID}"; then
+			die "Course activation failed. Check: docker logs slides-app"
+		fi
+	else
+		if ! npx tsx scripts/activateCourse.ts "${SLIDES_COURSE_ID}"; then
+			die "Course activation failed on host"
+		fi
 	fi
 	log "Course activated"
 else
@@ -197,7 +232,11 @@ if [[ "$AUDIO_COUNT" -eq 0 ]]; then
 	warn "No audio in public/audio/${SLIDES_COURSE_ID}/ — git pull or generate audio in the GUI (Step 2)"
 fi
 if [[ ! -d "$ASSET_DIR" ]] || [[ "$SVG_COUNT" -eq 0 ]]; then
-	die "No SVG assets in ${ASSET_DIR} — renders will show blank diagrams. Run: docker exec slides-app npx tsx scripts/copySvgsToPublic.ts ${SLIDES_COURSE_ID}"
+	if [[ "$USE_REGISTRY_IMAGE" == "1" ]]; then
+		die "No SVG assets in ${ASSET_DIR} — run: docker exec slides-app npx tsx scripts/copySvgsToPublic.ts ${SLIDES_COURSE_ID}"
+	else
+		die "No SVG assets in ${ASSET_DIR} — run: npx tsx scripts/copySvgsToPublic.ts ${SLIDES_COURSE_ID}"
+	fi
 fi
 log "Found ${SVG_COUNT} SVG files in ${ASSET_DIR}"
 
@@ -229,11 +268,17 @@ else
 	echo "  GUI:        http://localhost:${GUI_PORT}/"
 fi
 echo ""
-echo "  Logs:       docker logs -f slides-app"
-echo "  Stop:       docker compose -f docker-compose.yml -f docker-compose.cloud.yml down"
-echo "  Re-activate: docker exec slides-app npx tsx scripts/activateCourse.ts ${SLIDES_COURSE_ID}"
-echo ""
-echo "  Render one module:"
-echo "    docker exec slides-app npx remotion render src/index.tsx module-1 \\"
-echo "      /app/out/${SLIDES_COURSE_ID}/module-1.mp4 --concurrency=1 --timeout=120000"
+if [[ "$USE_REGISTRY_IMAGE" == "1" ]]; then
+	echo "  Logs:       docker logs -f slides-app"
+	echo "  Stop:       docker compose -f docker-compose.prod.yml down"
+	echo "  Re-activate: docker exec slides-app npx tsx scripts/activateCourse.ts ${SLIDES_COURSE_ID}"
+	echo ""
+	echo "  Render one module:"
+	echo "    docker exec slides-app npx remotion render src/index.tsx module-1 \\"
+	echo "      /app/out/${SLIDES_COURSE_ID}/module-1.mp4 --concurrency=1 --timeout=120000"
+else
+	echo "  Logs:       tail -f workspace/logs/gui.log"
+	echo "  Stop:       docker compose down  (Gentle only; stop GUI separately)"
+	echo "  Re-activate: npx tsx scripts/activateCourse.ts ${SLIDES_COURSE_ID}"
+fi
 echo "========================================"

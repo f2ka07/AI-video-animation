@@ -31,7 +31,7 @@ interface SegmentedContentSlideProps {
 }
 
 const SEGMENT_TRANSITION_SEC = 0.4;
-const MAX_VISIBLE_BULLETS = 5;
+const MAX_VISIBLE_BULLETS = 3;
 
 export const SegmentedContentSlide: React.FC<SegmentedContentSlideProps> = ({
 	title,

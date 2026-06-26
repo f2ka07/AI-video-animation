@@ -3,6 +3,7 @@
 
 import * as fs from "fs";
 import * as path from "path";
+import { prepareSvgForRemotion } from "../src/utils/prepareSvgForRemotion";
 
 /**
  * Copy SVGs and animation specs for a course to public/assets/
@@ -52,8 +53,8 @@ function copySvgsToPublic(courseId: string): void {
     for (const svgFile of svgFiles) {
       const sourcePath = path.join(modulePath, svgFile);
       const destPath = path.join(publicModulePath, svgFile);
-      
-      fs.copyFileSync(sourcePath, destPath);
+      const rawSvg = fs.readFileSync(sourcePath, "utf-8");
+      fs.writeFileSync(destPath, prepareSvgForRemotion(rawSvg), "utf-8");
       totalSvgs++;
       console.log(`  Copied ${moduleDir}/${svgFile}`);
     }

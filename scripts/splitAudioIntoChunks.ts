@@ -174,7 +174,7 @@ function generateSlideSuggestions(
 	chunks: string[],
 	options: SplitOptions
 ): void {
-	if (!options.moduleNumber || !options.slideName) {
+	if (options.moduleNumber === undefined || options.moduleNumber === null || !options.slideName) {
 		return;
 	}
 

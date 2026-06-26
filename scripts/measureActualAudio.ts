@@ -136,6 +136,8 @@ function updateAudioDurationFile(measurements: AudioMeasurement[]) {
 	const content = `// Utility to get audio duration from files
 // This will be used to dynamically adjust slide durations based on actual audio length
 
+import { estimateAudioDuration } from "./audioLengthEstimation";
+
 export interface AudioInfo {
 	path: string;
 	duration: number; // in seconds
@@ -147,6 +149,20 @@ export interface AudioInfo {
 export const audioDurations: Record<string, number> = {
 ${entries.map(([k, v]) => `\t"${k}": ${v},`).join("\n")}
 };
+
+export function getAudioDurationOrEstimate(
+	audioFileName: string,
+	script?: string
+): number {
+	const duration = audioDurations[audioFileName];
+	if (typeof duration === "number") {
+		return duration;
+	}
+	if (script && script.trim().length > 0) {
+		return estimateAudioDuration(script);
+	}
+	return 5;
+}
 
 /**
  * Get audio duration for a slide

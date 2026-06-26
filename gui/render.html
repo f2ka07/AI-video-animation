@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Render Video - Skilleo AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="auth-guard.js"></script>
+    <script src="remotion-studio.js"></script>
+    <script src="wizard.js" defer></script>
+    <style>
+        .render-container {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .render-nav-steps {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .render-nav-steps a {
+            text-decoration: none;
+            font-size: 13px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            background: var(--surface);
+        }
+
+        .render-nav-steps a.active {
+            border-color: var(--primary);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .render-nav-steps a.complete {
+            border-color: var(--success);
+            color: var(--success);
+        }
+    </style>
+</head>
+<body class="render-page">
+    <div class="app-container">
+        <header class="app-bar">
+            <a href="processing-wizard.html" class="icon-button" style="text-decoration: none; color: inherit;" title="Back to Processing Wizard">
+                <span>&larr;</span>
+            </a>
+            <h1 class="app-title">Render Video</h1>
+            <div class="app-bar-actions">
+                <button class="icon-button" onclick="checkAllSteps()" title="Refresh Status">
+                    <span>R</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div id="no-active-courses" style="display: none; text-align: center; padding: 80px 20px;">
+                <h2 style="margin-bottom: 12px; color: var(--text-secondary);">No Active Videos</h2>
+                <p style="color: var(--text-muted); margin-bottom: 32px;">Select or create a video to render.</p>
+                <a href="index.html" class="btn btn-primary" style="text-decoration: none;">Go to Segments</a>
+            </div>
+
+            <div id="render-page-content" class="render-container">
+                <div class="render-nav-steps">
+                    <a href="processing-wizard.html" id="render-nav-wizard">Processing (steps 1-4)</a>
+                    <a href="#" class="active" id="render-nav-render">Render</a>
+                </div>
+
+                <div style="margin-bottom: 24px; padding: 20px; background: var(--surface); border-radius: 12px; border: 1px solid var(--border);">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Select Video</label>
+                    <select id="course-selector" onchange="changeCourse(this.value)" style="width: 100%; padding: 12px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 16px; font-weight: 600;">
+                        <option value="">Loading videos...</option>
+                    </select>
+                    <div id="course-activation-banner" style="display: none; margin-top: 16px; padding: 14px 16px; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 8px;"></div>
+                    <div id="timings-coverage-panel" style="display: none; margin-top: 16px; padding: 14px 16px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; font-size: 13px;"></div>
+                </div>
+
+                <div id="render-not-ready-gate" class="card" style="display: none; margin-bottom: 24px; border: 2px solid var(--warning); background: rgba(245, 158, 11, 0.08);">
+                    <h3 style="color: var(--warning); margin-bottom: 12px;">Course not ready to render yet</h3>
+                    <p id="render-not-ready-text" style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">
+                        Complete Step 4 for at least one module in the Processing Wizard.
+                    </p>
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <a id="render-back-to-wizard" href="processing-wizard.html" class="btn btn-warning" style="text-decoration: none;">Open Processing Wizard</a>
+                        <button type="button" class="btn btn-secondary" onclick="checkAllSteps()">Refresh status</button>
+                    </div>
+                </div>
+
+                <div id="render-ready-content" style="display: none;">
+                    <p id="render-partial-notice" style="display: none; margin-bottom: 16px; padding: 12px 14px; background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; font-size: 13px; color: var(--text-secondary);"></p>
+                    <div class="card" style="margin-bottom: 24px; border: 2px solid var(--success); background: rgba(16, 185, 129, 0.08); text-align: center;">
+                        <h3 style="color: var(--success); margin-bottom: 8px;">Ready to render</h3>
+                        <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">
+                            Render any module that shows ready in the timing list. Batch render skips modules without timings.
+                        </p>
+                        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                            <button type="button" class="btn btn-primary" onclick="finalizeVideo()" id="render-page-finalize-btn" style="font-weight: 600;">
+                                Finalize Video (if not done)
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="viewSegmentsInRemotion()">
+                                Open Remotion Studio
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="render-benchmark-card" class="card" style="margin-bottom: 24px;">
+                        <h4 style="margin-bottom: 8px; color: var(--text-primary); font-size: 18px;">Render benchmark (EC2 cost)</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 14px;">
+                            Enter your instance hourly rate, select a module, and render locally. Metrics append to CSV when the job finishes.
+                        </p>
+                        <div style="margin-bottom: 16px; display: grid; gap: 12px; max-width: 520px; text-align: left;">
+                            <label style="color: var(--text-secondary); font-size: 13px;">
+                                AWS cost per hour (USD)
+                                <input type="number" id="render-cost-per-hour" min="0" step="0.01" placeholder="e.g. 0.34 for c6i.2xlarge" style="display: block; width: 100%; margin-top: 6px; padding: 10px 12px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
+                            </label>
+                            <label style="color: var(--text-secondary); font-size: 13px;">
+                                Instance label (optional)
+                                <input type="text" id="render-instance-label" placeholder="c6i.2xlarge-8vcpu" style="display: block; width: 100%; margin-top: 6px; padding: 10px 12px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
+                            </label>
+                            <p id="render-vcpu-readout" style="font-size: 13px; color: var(--text-muted); margin: 0;"></p>
+                        </div>
+                        <div style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                            <label for="render-module-select" style="color: var(--text-secondary); font-weight: 500;">Module:</label>
+                            <select id="render-module-select" style="padding: 10px 16px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px; min-width: 250px;">
+                                <option value="">Loading modules...</option>
+                            </select>
+                        </div>
+                        <div id="render-runpod-target-row" style="margin-bottom: 16px; display: none; align-items: center; gap: 12px; flex-wrap: wrap;">
+                            <label style="color: var(--text-secondary); font-weight: 500;">Render on:</label>
+                            <select id="render-target-select" style="padding: 10px 16px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
+                                <option value="local" selected>Local</option>
+                                <option value="runpod">RunPod</option>
+                            </select>
+                        </div>
+                        <div id="render-progress" style="display: none; margin-bottom: 16px;">
+                            <div style="background: var(--surface-light); border-radius: 8px; padding: 16px; margin-bottom: 12px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                    <span id="render-status-text" style="font-weight: 600;">Rendering...</span>
+                                    <span id="render-progress-percent" style="color: var(--text-muted); font-size: 12px;"></span>
+                                </div>
+                                <div class="progress-bar" style="height: 8px;">
+                                    <div id="render-progress-bar" class="progress-fill" style="width: 0%;"></div>
+                                </div>
+                                <div id="render-details" style="margin-top: 12px; font-size: 12px; color: var(--text-muted); max-height: 150px; overflow-y: auto;"></div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 12px; justify-content: flex-start; flex-wrap: wrap;">
+                            <button class="btn btn-primary" id="render-video-btn" onclick="renderVideo()" style="font-size: 16px; padding: 12px 24px; font-weight: 600;">
+                                Render Video to MP4
+                            </button>
+                            <a id="download-video-link" href="#" style="display: none; text-decoration: none;" class="btn btn-success" style="font-size: 16px; padding: 12px 24px;">
+                                Download MP4
+                            </a>
+                            <button type="button" id="download-metrics-btn" class="btn btn-secondary" onclick="downloadRenderMetricsCsv()" style="display: none; font-size: 16px; padding: 12px 24px;">
+                                Download results (CSV)
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="batch-render-card" class="card" style="margin-bottom: 24px;">
+                        <h4 style="margin-bottom: 12px; color: var(--text-primary); font-size: 18px;">Render batch overnight</h4>
+                        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">
+                            Render all modules in the course. Speed scales with your computer. Best run overnight.
+                        </p>
+                        <div id="batch-render-progress" style="display: none; margin-bottom: 16px;">
+                            <div style="background: var(--surface-light); border-radius: 8px; padding: 16px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                    <span id="batch-render-status" style="font-weight: 600;">Starting...</span>
+                                    <span id="batch-render-percent" style="color: var(--text-muted); font-size: 12px;" title="Overall course progress"></span>
+                                </div>
+                                <div class="progress-bar" style="height: 8px; margin-bottom: 12px;">
+                                    <div id="batch-render-progress-bar" class="progress-fill" style="width: 0%;"></div>
+                                </div>
+                                <div id="batch-modules-list" style="font-family: monospace; font-size: 12px; max-height: 200px; overflow-y: auto;"></div>
+                            </div>
+                        </div>
+                        <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; color: var(--text-secondary); cursor: pointer;">
+                            <input type="checkbox" id="batch-render-force" style="cursor: pointer;">
+                            Re-render modules that already have MP4 files
+                        </label>
+                        <div id="batch-render-runpod-row" style="margin-bottom: 12px; display: none; align-items: center; gap: 12px; flex-wrap: wrap;">
+                            <label style="color: var(--text-secondary); font-weight: 500;">Render on:</label>
+                            <select id="batch-render-target-select" style="padding: 8px 14px; background: var(--surface-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px;">
+                                <option value="local" selected>Local</option>
+                                <option value="runpod">RunPod</option>
+                            </select>
+                        </div>
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                            <button class="btn btn-secondary" id="view-segments-btn" onclick="viewSegmentsInRemotion()" style="padding: 10px 20px; font-weight: 600;">
+                                View Segments in Remotion
+                            </button>
+                            <button class="btn" id="render-course-btn" onclick="renderCourse()" style="background: var(--secondary); padding: 10px 20px; font-weight: 600;">
+                                Render Entire Course
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="rendered-videos-card" class="card" style="display: none;">
+                        <h4 style="margin-bottom: 12px; color: var(--text-primary); font-size: 18px;">Download rendered videos</h4>
+                        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">
+                            Videos rendered on this server. Click to download.
+                        </p>
+                        <div id="rendered-videos-list" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+</body>
+</html>

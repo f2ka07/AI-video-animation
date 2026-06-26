@@ -6,6 +6,10 @@ let slides = [];
 let currentCourseId = 'aws-pulumi';
 let courses = [];
 
+function isModuleSelected(moduleNumber) {
+    return moduleNumber !== null && moduleNumber !== undefined;
+}
+
 // Check if ready for next step
 function checkReadyForNextStep() {
     const nextBtn = document.getElementById('next-to-processing-btn');
@@ -13,7 +17,7 @@ function checkReadyForNextStep() {
     
     // Show button if we have slides (audio/timings will be generated in Video Processing)
     // The button is always available once slides exist - users can generate audio/timings in the next step
-    if (slides.length > 0 && currentModuleNumber) {
+    if (slides.length > 0 && isModuleSelected(currentModuleNumber)) {
         nextBtn.style.display = 'inline-block';
     } else {
         nextBtn.style.display = 'none';
@@ -22,7 +26,7 @@ function checkReadyForNextStep() {
 
 // Navigate to Video Processing
 function goToVideoProcessing() {
-    if (!currentModuleNumber) {
+    if (!isModuleSelected(currentModuleNumber)) {
         showToast('Please select a segment first', 'warning');
         return;
     }
@@ -256,9 +260,11 @@ async function loadSlides() {
 // Update module summary
 function updateModuleSummary() {
     const module = modules.find(m => m.moduleNumber === currentModuleNumber);
-    if (module) {
-        document.getElementById('module-title').textContent = `Segment ${module.moduleNumber}: ${module.title}`;
-        document.getElementById('module-summary').style.display = 'block';
+    const moduleTitle = document.getElementById('module-title');
+    const moduleSummary = document.getElementById('module-summary');
+    if (module && moduleTitle) {
+        moduleTitle.textContent = `Segment ${module.moduleNumber}: ${module.title}`;
+        if (moduleSummary) moduleSummary.style.display = 'block';
     }
     
     const total = slides.length;
@@ -266,10 +272,14 @@ function updateModuleSummary() {
     const timingsComplete = slides.filter(s => s.timingsStatus === 'complete').length;
     const moduleComplete = total > 0 ? Math.round(((audioComplete + timingsComplete) / (total * 2)) * 100) : 0;
     
-    document.getElementById('total-slides').textContent = total;
-    document.getElementById('audio-complete').textContent = `${audioComplete}/${total}`;
-    document.getElementById('timings-complete').textContent = `${timingsComplete}/${total}`;
-    document.getElementById('module-complete').textContent = `${moduleComplete}%`;
+    const totalEl = document.getElementById('total-slides');
+    const audioEl = document.getElementById('audio-complete');
+    const timingsEl = document.getElementById('timings-complete');
+    const completeEl = document.getElementById('module-complete');
+    if (totalEl) totalEl.textContent = total;
+    if (audioEl) audioEl.textContent = `${audioComplete}/${total}`;
+    if (timingsEl) timingsEl.textContent = `${timingsComplete}/${total}`;
+    if (completeEl) completeEl.textContent = `${moduleComplete}%`;
 }
 
 // Render slides
@@ -355,15 +365,18 @@ function renderSlide(slide, index) {
                 </div>
                 
                 <div class="action-group">
+                    <div class="action-group-label">Preview</div>
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary btn-small" onclick="previewVideo('${slide.name}')" title="Open in Remotion (no timings required)">Preview</button>
+                    </div>
+                </div>
+                
+                <div class="action-group">
                     <div class="action-group-label">Module File</div>
                     <div class="action-buttons">
                         ${slide.videoStatus === 'complete' 
-                            ? `<button class="btn btn-secondary btn-small" onclick="regenerateModule()">🔄 Regenerate Module</button>`
-                            : `<button class="btn btn-primary btn-small" onclick="generateModule()">📝 Generate Module</button>`
-                        }
-                        ${slide.videoStatus === 'complete' 
-                            ? `<button class="btn btn-secondary btn-small" onclick="previewVideo('${slide.name}')">👁️ Preview</button>`
-                            : ''
+                            ? `<button class="btn btn-secondary btn-small" onclick="regenerateModule()">Regenerate Module</button>`
+                            : `<button class="btn btn-primary btn-small" onclick="generateModule()">Generate Module</button>`
                         }
                     </div>
                 </div>
@@ -386,9 +399,15 @@ function getStatusBadge(label, status, size = null) {
             text += ` (${(size / 1024).toFixed(1)}KB)`;
         }
     } else if (status === 'missing') {
-        icon = '✗';
-        className = 'missing';
-        text = 'Missing';
+        if (label === 'Timings') {
+            icon = '-';
+            className = 'pending';
+            text = 'Not yet';
+        } else {
+            icon = 'X';
+            className = 'missing';
+            text = 'Missing';
+        }
     }
     
     return `<div class="status-badge ${className}">
@@ -417,6 +436,7 @@ async function generateAudio(slideName) {
             body: JSON.stringify({
                 moduleNumber: currentModuleNumber,
                 slideName: slideName,
+                course: currentCourseId,
                 force: false,
                 voice: selectedVoice
             })
@@ -472,6 +492,7 @@ async function regenerateAudioConfirmed(slideName) {
             body: JSON.stringify({
                 moduleNumber: currentModuleNumber,
                 slideName: slideName,
+                course: currentCourseId,
                 force: true,
                 voice: selectedVoice
             })
@@ -611,7 +632,7 @@ async function generateModuleConfirmed() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 course: currentCourseId,
-                moduleRange: currentModuleNumber ? currentModuleNumber.toString() : undefined
+                moduleRange: isModuleSelected(currentModuleNumber) ? currentModuleNumber.toString() : undefined
             })
         });
         
@@ -646,9 +667,33 @@ async function regenerateModuleConfirmed() {
     await generateModuleConfirmed();
 }
 
-// Preview video (placeholder)
+// Preview video — activates preview mode then opens Remotion (timings optional)
 async function previewVideo(slideName) {
-    await openRemotionStudioPreview(currentModuleNumber, currentCourseId);
+    if (!currentCourseId) {
+        showToast('No course selected', 'error');
+        return;
+    }
+    try {
+        const response = await fetch('/api/generate-preview-modules', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ course: currentCourseId })
+        });
+        const data = await response.json();
+        if (!response.ok) {
+            throw new Error(data.error || data.details || 'Preview preparation failed');
+        }
+        if (data.requiresRemotionRestart) {
+            showToast('Restart Remotion (npm start), then click Preview again.', 'warning');
+        }
+        const mod =
+            currentModuleNumber !== undefined && currentModuleNumber !== null
+                ? currentModuleNumber
+                : 1;
+        await openRemotionStudioPreview(mod, currentCourseId);
+    } catch (error) {
+        showToast(`Error: ${error.message}`, 'error');
+    }
 }
 
 // Play audio

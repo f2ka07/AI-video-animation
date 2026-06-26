@@ -1,0 +1,177 @@
+
+Processing 6 module(s)...
+
+
+=== module00 ===
+  ⚠ Could not generate spec for autocor-execution-not-memorization.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for autocor-execution-not-memorization.animation.json
+  ⚠ Could not generate spec for built-for-ccna-ready-engineers.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for built-for-ccna-ready-engineers.animation.json
+  ⚠ Could not generate spec for four-course-path-starts-here.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for four-course-path-starts-here.animation.json
+  ⚠ Could not generate spec for pillar-ai-with-guardrails.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for pillar-ai-with-guardrails.animation.json
+  ⚠ Could not generate spec for pillar-operate-and-validate.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for pillar-operate-and-validate.animation.json
+  ⚠ Could not generate spec for pillar-program-and-automate.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for pillar-program-and-automate.animation.json
+  ⚠ Could not generate spec for pillar-version-network-intent.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for pillar-version-network-intent.animation.json
+
+=== module01 ===
+  ⚠ Could not generate spec for agentless-vs-controller.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for agentless-vs-controller.animation.json
+  ⚠ Could not generate spec for architecture-patterns-overview.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for architecture-patterns-overview.animation.json
+  ⚠ Could not generate spec for automation-as-infrastructure.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for automation-as-infrastructure.animation.json
+  ⚠ Could not generate spec for certification-alignment.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for certification-alignment.animation.json
+  ⚠ Could not generate spec for choose-your-lab-environment.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for choose-your-lab-environment.animation.json
+  ⚠ Could not generate spec for declarative-vs-imperative.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for declarative-vs-imperative.animation.json
+  ⚠ Could not generate spec for evolution-of-network-operations.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for evolution-of-network-operations.animation.json
+  ⚠ Could not generate spec for importance-of-idempotency.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for importance-of-idempotency.animation.json
+  ⚠ Could not generate spec for lab-setup-introduction.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for lab-setup-introduction.animation.json
+  ⚠ Could not generate spec for manual-cli-challenges.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for manual-cli-challenges.animation.json
+  ⚠ Could not generate spec for open-your-terminal.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for open-your-terminal.animation.json
+  ⚠ Could not generate spec for story-beat-common-mistake.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for story-beat-common-mistake.animation.json
+  ⚠ Could not generate spec for story-beat-recap.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for story-beat-recap.animation.json
+  ⚠ Could not generate spec for what-automation-means.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for what-automation-means.animation.json
+
+=== module02 ===
+  ⚠ Could not generate spec for certification-alignment-python.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for certification-alignment-python.animation.json
+  ⚠ Could not generate spec for config-data-from-files.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for config-data-from-files.animation.json
+  ⚠ Could not generate spec for data-structures-for-device-data.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for data-structures-for-device-data.animation.json
+  ⚠ Could not generate spec for error-handling-that-saves-outages.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for error-handling-that-saves-outages.animation.json
+  ⚠ Could not generate spec for lab-setup-python-automation.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for lab-setup-python-automation.animation.json
+  ⚠ Could not generate spec for netmiko-connection-pattern.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for netmiko-connection-pattern.animation.json
+  ⚠ Could not generate spec for python-automation-ready.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for python-automation-ready.animation.json
+  ⚠ Could not generate spec for python-essentials-for-networkers.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for python-essentials-for-networkers.animation.json
+  ⚠ Could not generate spec for python-powers-network-automation.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for python-powers-network-automation.animation.json
+  ⚠ Could not generate spec for reading-python-without-fear.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for reading-python-without-fear.animation.json
+  ⚠ Could not generate spec for resume-your-lab-environment.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for resume-your-lab-environment.animation.json
+  ⚠ Could not generate spec for story-beat-common-mistake-python.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for story-beat-common-mistake-python.animation.json
+  ⚠ Could not generate spec for story-beat-recap-python.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for story-beat-recap-python.animation.json
+  ⚠ Could not generate spec for yaml-json-xml-formats.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for yaml-json-xml-formats.animation.json
+
+=== module03 ===
+  ⚠ Could not generate spec for api-auth-and-rate-limits.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for api-auth-and-rate-limits.animation.json
+  ⚠ Could not generate spec for apis-beyond-ssh-scraping.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for apis-beyond-ssh-scraping.animation.json
+  ⚠ Could not generate spec for apis-programmability-ready.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for apis-programmability-ready.animation.json
+  ⚠ Could not generate spec for certification-alignment-apis.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for certification-alignment-apis.animation.json
+  ⚠ Could not generate spec for http-errors-and-pagination.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for http-errors-and-pagination.animation.json
+  ⚠ Could not generate spec for lab-setup-restconf.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for lab-setup-restconf.animation.json
+  ⚠ Could not generate spec for rest-for-network-engineers.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for rest-for-network-engineers.animation.json
+  ⚠ Could not generate spec for restconf-urls-and-methods.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for restconf-urls-and-methods.animation.json
+  ⚠ Could not generate spec for restconf-vs-netconf.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for restconf-vs-netconf.animation.json
+  ⚠ Could not generate spec for resume-lab-install-restconf-tools.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for resume-lab-install-restconf-tools.animation.json
+  ⚠ Could not generate spec for story-beat-common-mistake-restconf.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for story-beat-common-mistake-restconf.animation.json
+  ⚠ Could not generate spec for story-beat-recap-apis.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for story-beat-recap-apis.animation.json
+  ⚠ Could not generate spec for what-is-rest.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for what-is-rest.animation.json
+  ⚠ Could not generate spec for yang-explained-plain-language.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for yang-explained-plain-language.animation.json
+  ⚠ Could not generate spec for yang-structure-basics.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for yang-structure-basics.animation.json
+
+=== module04 ===
+  ⚠ Could not generate spec for ansible-modules-and-idempotency.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for ansible-modules-and-idempotency.animation.json
+  ⚠ Could not generate spec for ansible-playbook-anatomy.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for ansible-playbook-anatomy.animation.json
+  ⚠ Could not generate spec for ansible-vs-python-scripts.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for ansible-vs-python-scripts.animation.json
+  ⚠ Could not generate spec for certification-alignment-toolchains.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for certification-alignment-toolchains.animation.json
+  ⚠ Could not generate spec for choosing-your-automation-approach.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for choosing-your-automation-approach.animation.json
+  ⚠ Could not generate spec for lab-setup-full-workflow.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for lab-setup-full-workflow.animation.json
+  ⚠ Could not generate spec for low-code-vs-custom-automation.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for low-code-vs-custom-automation.animation.json
+  ⚠ Could not generate spec for resume-lab-ansible-ready.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for resume-lab-ansible-ready.animation.json
+  ⚠ Could not generate spec for story-beat-common-mistake-toolchains.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for story-beat-common-mistake-toolchains.animation.json
+  ⚠ Could not generate spec for story-beat-recap-toolchains.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for story-beat-recap-toolchains.animation.json
+  ⚠ Could not generate spec for terraform-selection-basics.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for terraform-selection-basics.animation.json
+  ⚠ Could not generate spec for terraform-vs-ansible-selection.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for terraform-vs-ansible-selection.animation.json
+  ⚠ Could not generate spec for toolchains-beyond-single-scripts.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for toolchains-beyond-single-scripts.animation.json
+  ⚠ Could not generate spec for toolchains-ready-capstone-next.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for toolchains-ready-capstone-next.animation.json
+  ⚠ Could not generate spec for why-ansible-for-networks.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for why-ansible-for-networks.animation.json
+
+=== module05 ===
+  ⚠ Could not generate spec for architecture-pillars-in-practice.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for architecture-pillars-in-practice.animation.json
+  ⚠ Could not generate spec for branch-network-reference-design.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for branch-network-reference-design.animation.json
+  ⚠ Could not generate spec for capstone-change-runbook.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for capstone-change-runbook.animation.json
+  ⚠ Could not generate spec for capstone-integrates-four-modules.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for capstone-integrates-four-modules.animation.json
+  ⚠ Could not generate spec for capstone-tool-matrix.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for capstone-tool-matrix.animation.json
+  ⚠ Could not generate spec for certification-alignment-full-course.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for certification-alignment-full-course.animation.json
+  ⚠ Could not generate spec for course-complete-enterprise-automation.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for course-complete-enterprise-automation.animation.json
+  ⚠ Could not generate spec for enterprise-branch-capstone.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for enterprise-branch-capstone.animation.json
+  ⚠ Could not generate spec for git-as-source-of-truth.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for git-as-source-of-truth.animation.json
+  ⚠ Could not generate spec for lab-setup-enterprise-branch.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for lab-setup-enterprise-branch.animation.json
+  ⚠ Could not generate spec for orchestration-layer-choices.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for orchestration-layer-choices.animation.json
+  ⚠ Could not generate spec for resume-all-modules-lab.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for resume-all-modules-lab.animation.json
+  ⚠ Could not generate spec for story-beat-common-mistake-capstone.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for story-beat-common-mistake-capstone.animation.json
+  ⚠ Could not generate spec for story-beat-recap-capstone.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for story-beat-recap-capstone.animation.json
+  ⚠ Could not generate spec for verify-before-you-close.svg (no matching slide timings)
+  ↷ Kept visual-panel spec for verify-before-you-close.animation.json
+
+✅ Generated 80 animation spec(s)

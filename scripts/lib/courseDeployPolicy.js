@@ -117,9 +117,13 @@ function buildTimingsGitignoreLines() {
 
 function applyGitignorePolicy(repoRoot, deployableCourseIds) {
 	const gitignorePath = path.join(repoRoot, '.gitignore');
+	if (!fs.existsSync(gitignorePath)) {
+		// Docker images omit .gitignore (.dockerignore); runtime activate must not fail.
+		return { skipped: true, reason: 'no-gitignore' };
+	}
 	let content = readFileSafe(gitignorePath);
 	if (!content) {
-		throw new Error('.gitignore not found');
+		return { skipped: true, reason: 'empty-gitignore' };
 	}
 
 	content = replaceSection(content, MARKERS.courses, buildCoursesGitignoreLines(deployableCourseIds));
@@ -133,6 +137,7 @@ function applyGitignorePolicy(repoRoot, deployableCourseIds) {
 		fs.mkdirSync(path.dirname(coursesKeepPath), { recursive: true });
 		fs.writeFileSync(coursesKeepPath, '');
 	}
+	return { skipped: false };
 }
 
 function writeDeployManifest(repoRoot, deployableCourseIds, activatedCourseId) {
@@ -326,8 +331,14 @@ function applyCourseDeployPolicy(repoRoot, options = {}) {
 		? options.activatedCourseId
 		: getActivatedCourseId(root);
 
-	applyGitignorePolicy(root, deployableCourseIds);
-	writeDeployManifest(root, deployableCourseIds, activatedCourseId);
+	const gitignoreResult = applyGitignorePolicy(root, deployableCourseIds);
+	if (gitignoreResult.skipped) {
+		console.log(
+			`[courseDeployPolicy] Skipped .gitignore update (${gitignoreResult.reason}) — normal in Docker/runtime`
+		);
+	} else {
+		writeDeployManifest(root, deployableCourseIds, activatedCourseId);
+	}
 
 	let pruneResult = { pruned: [], skipped: true };
 	if (options.pruneGit) {
@@ -337,6 +348,7 @@ function applyCourseDeployPolicy(repoRoot, options = {}) {
 	return {
 		activatedCourseId,
 		deployableCourseIds,
+		gitignoreSkipped: !!gitignoreResult.skipped,
 		pruneResult,
 	};
 }

@@ -54,6 +54,44 @@ function runPostExtractTimingsSync(courseId, moduleRange, callback) {
 	exec(cmd, { cwd: __dirname, maxBuffer: 10 * 1024 * 1024 }, callback);
 }
 
+function parseModuleNumbersFromRange(moduleRange, allModuleNumbers) {
+	if (!moduleRange || moduleRange === 'all') {
+		return [...allModuleNumbers];
+	}
+	const nums = new Set();
+	for (const part of String(moduleRange).split(',')) {
+		const trimmed = part.trim();
+		if (!trimmed) continue;
+		if (trimmed.includes('-')) {
+			const [start, end] = trimmed.split('-').map((n) => parseInt(n.trim(), 10));
+			if (!Number.isNaN(start) && !Number.isNaN(end)) {
+				for (let i = start; i <= end; i++) nums.add(i);
+			}
+		} else {
+			const n = parseInt(trimmed, 10);
+			if (!Number.isNaN(n)) nums.add(n);
+		}
+	}
+	return [...nums].sort((a, b) => a - b);
+}
+
+function getMissingTimingSlidesForRange(courseId, moduleRange, repoRoot) {
+	const coverage = getCourseTimingCoverage(courseId, repoRoot);
+	if (!coverage.found) {
+		return [];
+	}
+	const allModuleNumbers = (coverage.modules || []).map((m) => m.moduleNumber);
+	const moduleNumbers = parseModuleNumbersFromRange(moduleRange, allModuleNumbers);
+	const missing = [];
+	for (const mod of coverage.modules || []) {
+		if (!moduleNumbers.includes(mod.moduleNumber)) continue;
+		for (const slide of mod.missingTimingSlides || []) {
+			missing.push({ moduleNumber: mod.moduleNumber, moduleTitle: mod.title, slide });
+		}
+	}
+	return missing;
+}
+
 const MFA_DOCKER_LOCK_PATH = path.join(__dirname, 'workspace', '.mfa-docker.lock');
 const mfaExtractState = {
 	inProgress: false,
@@ -4659,9 +4697,9 @@ app.post('/api/extract-timings', (req, res) => {
 	const heartbeatMessages = method === 'mfa'
 		? [
 			'Starting MFA script...',
-			'Checking MFA / Docker (tsx compile can take 30-60s)...',
-			'Still waiting for first output...',
-			'If stuck >2 min: ensure Docker Desktop engine is running (docker version shows Server)',
+			'Checking MFA / Docker (first run can take 2-5 minutes while the image starts)...',
+			'Docker MFA is aligning audio to script — wait for "Processing <slide>..."',
+			'Still waiting — normal on EC2 cold start. Check: docker ps | grep mfa',
 		]
 		: [
 			'Loading script and modules... (first output can take 30-60 seconds)',
@@ -4856,11 +4894,34 @@ app.post('/api/extract-timings', (req, res) => {
 						message: 'Line mappings, bullets, and course activation complete'
 					})}\n\n`);
 				}
+
+				const missingSlides = getMissingTimingSlidesForRange(
+					effectiveCourseId,
+					finalModuleRange,
+					__dirname
+				);
+				const allComplete = missingSlides.length === 0;
+				if (!allComplete) {
+					const preview = missingSlides
+						.slice(0, 5)
+						.map((m) => `M${m.moduleNumber}: ${m.slide}`)
+						.join(', ');
+					const suffix = missingSlides.length > 5 ? ` (+${missingSlides.length - 5} more)` : '';
+					res.write(`data: ${JSON.stringify({
+						type: 'warning',
+						message: `Still missing timings for ${missingSlides.length} slide(s): ${preview}${suffix}. Try MFA for the remaining slide(s).`,
+						missingSlides,
+					})}\n\n`);
+				}
 				
 				res.write(`data: ${JSON.stringify({ 
 					type: 'done', 
-					success: true,
-					message: 'Word timings, line highlights, and bullets synced!'
+					success: allComplete,
+					partial: !allComplete,
+					missingSlides,
+					message: allComplete
+						? 'Word timings, line highlights, and bullets synced!'
+						: `Extraction finished but ${missingSlides.length} slide(s) still need timings (see warnings above).`,
 				})}\n\n`);
 				responseFinished = true;
 				res.end();

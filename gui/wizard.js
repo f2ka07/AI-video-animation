@@ -1605,13 +1605,6 @@ async function updateTimingsCoveragePanel() {
     }
 
     try {
-        const modules = workflowStatus?.modules;
-        if (modules?.length) {
-            panel.innerHTML = `<div style="font-weight:700;margin-bottom:8px;">Word timings</div>${renderModuleTimingLines(modules)}`;
-            panel.style.display = 'block';
-            return;
-        }
-
         const response = await fetch(`/api/timings-coverage?course=${encodeURIComponent(currentCourseId)}`);
         if (!response.ok) {
             panel.style.display = 'none';
@@ -3834,7 +3827,7 @@ async function executeStep4Confirmed(moduleNumber) {
                                 if (data.success) {
                                     showStatus(statusEl, 'success', 'Word timings extracted successfully!');
                                     if (progressInfo) {
-                                        progressInfo.textContent = 'Complete – ' + processedCount + ' slides processed';
+                                        progressInfo.textContent = 'Complete – all slides in range have timings';
                                         progressInfo.style.color = 'var(--success)';
                                     }
                                     if (progressBarEl) {
@@ -3842,15 +3835,30 @@ async function executeStep4Confirmed(moduleNumber) {
                                         progressBarEl.className = 'segment-progress-bar success';
                                     }
                                     if (progressEl) progressEl.style.borderColor = 'var(--success)';
-                                    details.push('[done] ' + (data.message || ''));
-                                    updateDetails();
-                                    await checkAllSteps();
-                                    updateUI();
+                                } else if (data.partial || (data.missingSlides && data.missingSlides.length > 0)) {
+                                    const missingList = (data.missingSlides || [])
+                                        .map((m) => `M${m.moduleNumber}: ${m.slide}`)
+                                        .join(', ');
+                                    const msg = data.message || `Still missing: ${missingList}`;
+                                    showStatus(statusEl, 'error', msg);
+                                    showToast(msg, 'warning');
+                                    if (progressInfo) {
+                                        progressInfo.textContent = msg;
+                                        progressInfo.style.color = 'var(--warning)';
+                                    }
+                                    if (progressBarEl) {
+                                        progressBarEl.style.width = '100%';
+                                        progressBarEl.className = 'segment-progress-bar';
+                                    }
+                                    if (progressEl) progressEl.style.borderColor = 'var(--warning)';
                                 } else {
-                                    showStatus(statusEl, 'error', data.message);
-                                    await checkAllSteps();
-                                    updateUI();
+                                    showStatus(statusEl, 'error', data.message || 'Extraction failed');
                                 }
+                                details.push('[done] ' + (data.message || ''));
+                                updateDetails();
+                                await checkAllSteps();
+                                await updateTimingsCoveragePanel();
+                                updateUI();
                                 break;
                         }
                     } catch (e) {

@@ -301,18 +301,25 @@ async function activateCourse(courseId: string) {
 	writeCoursesJson(coursesData);
 	console.log(`  courses.json updated`);
 
-	// Step 6: Git deploy policy — all active courses are deployable
+	// Step 6: Git deploy policy — all active courses are deployable (skipped in Docker when no .gitignore)
 	console.log("\nStep 6: Applying git deploy policy...");
-	const { applyCourseDeployPolicy } = require("./lib/courseDeployPolicy.js");
-	const repoRoot = path.join(__dirname, "..");
-	const policy = applyCourseDeployPolicy(repoRoot, {
-		pruneGit: process.argv.includes("--prune-git"),
-	});
-	console.log(`  Deployable courses: ${policy.deployableCourseIds.join(", ") || "(none)"}`);
-	if (policy.pruneResult.pruned.length > 0) {
-		console.log(`  Removed from git index: ${policy.pruneResult.pruned.join(", ")}`);
+	try {
+		const { applyCourseDeployPolicy } = require("./lib/courseDeployPolicy.js");
+		const repoRoot = path.join(__dirname, "..");
+		const policy = applyCourseDeployPolicy(repoRoot, {
+			pruneGit: process.argv.includes("--prune-git"),
+		});
+		if (policy.gitignoreSkipped) {
+			console.log("  Skipped .gitignore update (Docker/runtime — activation continues)");
+		} else {
+			console.log(`  Deployable courses: ${policy.deployableCourseIds.join(", ") || "(none)"}`);
+		}
+		if (policy.pruneResult.pruned.length > 0) {
+			console.log(`  Removed from git index: ${policy.pruneResult.pruned.join(", ")}`);
+		}
+	} catch (error: any) {
+		console.warn(`  Deploy policy skipped: ${error.message}`);
 	}
-	console.log(`  Run: npm run sync:deploy-policy -- --prune-git  (before commit, to detach archived courses)`);
 
 	console.log(`\n========================================`);
 	console.log(`Course "${courseId}" is now active!`);

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="CI/CD lab setup">
+  <rect width="800" height="900" fill="#071525"/>
+  <text x="40" y="52" fill="#049FD9" font-family="Inter,sans-serif" font-size="13" font-weight="800" letter-spacing=".16em">LAB</text>
+  <text x="40" y="96" fill="#fff" font-family="Inter,sans-serif" font-size="28" font-weight="800">Extend netops_iac_lab</text>
+  <g transform="translate(400 340)">
+    <rect x="-260" y="-100" width="520" height="200" rx="14" fill="#0f172a" stroke="#6CC04A" stroke-width="2"/>
+    <text x="-220" y="-50" fill="#bbf7d0" font-family="monospace" font-size="14">requirements.txt</text>
+    <text x="-220" y="-15" fill="#94a3b8" font-family="monospace" font-size="14">playbooks/deploy_vlans.yml</text>
+    <text x="-220" y="20" fill="#94a3b8" font-family="monospace" font-size="14">scripts/validate_intent.py</text>
+    <text x="-220" y="55" fill="#049FD9" font-family="monospace" font-size="14">.gitlab-ci.yml</text>
+  </g>
+</svg>

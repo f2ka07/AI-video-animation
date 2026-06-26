@@ -1,0 +1,10 @@
+{
+  "diagram": "pillar-program-and-automate.svg",
+  "phases": [
+    {"start": 0, "end": 16, "show": ["viz-main", "viz-devices"], "dim": [], "highlight": ["viz-devices"]},
+    {"start": 4, "end": 16, "show": ["viz-main", "viz-devices", "viz-python"], "dim": ["viz-devices"], "highlight": ["viz-python"]},
+    {"start": 7, "end": 16, "show": ["viz-main", "viz-devices", "viz-python", "viz-api"], "dim": ["viz-python"], "highlight": ["viz-api"]},
+    {"start": 10, "end": 16, "show": ["viz-main", "viz-devices", "viz-python", "viz-api", "viz-ansible"], "dim": ["viz-api"], "highlight": ["viz-ansible"]},
+    {"start": 13, "end": 16, "show": ["viz-main", "viz-devices", "viz-python", "viz-api", "viz-ansible", "viz-objective"], "dim": ["viz-devices", "viz-python"], "highlight": ["viz-objective"]}
+  ]
+}

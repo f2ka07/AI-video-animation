@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="CML plain language">
+  <rect width="800" height="900" fill="#071525"/>
+  <text x="40" y="52" fill="#f59e0b" font-family="Inter,sans-serif" font-size="13" font-weight="800" letter-spacing=".16em">CML</text>
+  <text x="40" y="96" fill="#fff" font-family="Inter,sans-serif" font-size="28" font-weight="800">Cisco simulation</text>
+  <g transform="translate(200 420)"><circle r="40" fill="#422006" stroke="#f59e0b" stroke-width="2"/><text y="8" text-anchor="middle" fill="#fcd34d" font-family="Inter,sans-serif" font-size="14" font-weight="700">R1</text></g>
+  <path d="M240 420 H560" stroke="#049FD9" stroke-width="3"/>
+  <g transform="translate(600 420)"><circle r="40" fill="#422006" stroke="#f59e0b" stroke-width="2"/><text y="8" text-anchor="middle" fill="#fcd34d" font-family="Inter,sans-serif" font-size="14" font-weight="700">R2</text></g>
+  <text x="400" y="560" text-anchor="middle" fill="#94a3b8" font-family="Inter,sans-serif" font-size="14">Exam 2.4: construct simulation, run Ansible</text>
+</svg>

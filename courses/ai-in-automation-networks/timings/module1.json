@@ -1,0 +1,5820 @@
+{
+  "moduleNumber": 1,
+  "title": "AI Assisted Automation",
+  "slides": {
+    "secure-ops-to-ai-bridge": {
+      "words": [
+        {
+          "text": "Picture",
+          "start": 0.17,
+          "end": 0.47
+        },
+        {
+          "text": "a",
+          "start": 0.47,
+          "end": 0.6
+        },
+        {
+          "text": "Tuesday",
+          "start": 0.6,
+          "end": 0.96
+        },
+        {
+          "text": "night",
+          "start": 0.96,
+          "end": 1.19
+        },
+        {
+          "text": "change",
+          "start": 1.19,
+          "end": 1.47
+        },
+        {
+          "text": "window",
+          "start": 1.47,
+          "end": 1.8
+        },
+        {
+          "text": "A",
+          "start": 2.64,
+          "end": 2.73
+        },
+        {
+          "text": "VLAN",
+          "start": 3.06,
+          "end": 3.9
+        },
+        {
+          "text": "standardization",
+          "start": 3.9,
+          "end": 4.58
+        },
+        {
+          "text": "request",
+          "start": 4.94,
+          "end": 5.42
+        },
+        {
+          "text": "lands",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "text": "in",
+          "start": 5.56,
+          "end": 5.7
+        },
+        {
+          "text": "your",
+          "start": 5.74,
+          "end": 6.06
+        },
+        {
+          "text": "queue",
+          "start": 6.49,
+          "end": 6.64
+        },
+        {
+          "text": "and",
+          "start": 6.64,
+          "end": 7.09
+        },
+        {
+          "text": "someone",
+          "start": 7.58,
+          "end": 7.71
+        },
+        {
+          "text": "pastes",
+          "start": 7.71,
+          "end": 7.96
+        },
+        {
+          "text": "the",
+          "start": 7.99,
+          "end": 8.32
+        },
+        {
+          "text": "ask",
+          "start": 8.32,
+          "end": 8.37
+        },
+        {
+          "text": "into",
+          "start": 8.37,
+          "end": 8.74
+        },
+        {
+          "text": "a",
+          "start": 8.74,
+          "end": 9.12
+        },
+        {
+          "text": "chat",
+          "start": 9.95,
+          "end": 10.16
+        },
+        {
+          "text": "model",
+          "start": 10.16,
+          "end": 10.48
+        },
+        {
+          "text": "Ten",
+          "start": 10.48,
+          "end": 10.75
+        },
+        {
+          "text": "minutes",
+          "start": 10.75,
+          "end": 10.88
+        },
+        {
+          "text": "later",
+          "start": 10.88,
+          "end": 11.12
+        },
+        {
+          "text": "you",
+          "start": 11.12,
+          "end": 11.23
+        },
+        {
+          "text": "have",
+          "start": 12.3,
+          "end": 12.5
+        },
+        {
+          "text": "an",
+          "start": 12.5,
+          "end": 12.87
+        },
+        {
+          "text": "Ansible",
+          "start": 12.95,
+          "end": 13.46
+        },
+        {
+          "text": "playbook",
+          "start": 13.46,
+          "end": 13.7
+        },
+        {
+          "text": "that",
+          "start": 14.33,
+          "end": 14.55
+        },
+        {
+          "text": "looks",
+          "start": 14.55,
+          "end": 14.65
+        },
+        {
+          "text": "almost",
+          "start": 14.65,
+          "end": 14.75
+        },
+        {
+          "text": "right",
+          "start": 14.75,
+          "end": 15.23
+        },
+        {
+          "text": "That",
+          "start": 15.23,
+          "end": 15.43
+        },
+        {
+          "text": "is",
+          "start": 15.43,
+          "end": 15.79
+        },
+        {
+          "text": "the",
+          "start": 15.87,
+          "end": 16.610001
+        },
+        {
+          "text": "moment",
+          "start": 17,
+          "end": 17.41
+        },
+        {
+          "text": "this",
+          "start": 17.41,
+          "end": 17.73
+        },
+        {
+          "text": "course",
+          "start": 17.73,
+          "end": 18.08
+        },
+        {
+          "text": "addresses",
+          "start": 18.209999,
+          "end": 18.610001
+        },
+        {
+          "text": "Courses",
+          "start": 18.9,
+          "end": 19.17
+        },
+        {
+          "text": "one",
+          "start": 19.17,
+          "end": 19.370001
+        },
+        {
+          "text": "through",
+          "start": 19.459999,
+          "end": 19.74
+        },
+        {
+          "text": "three",
+          "start": 21.01,
+          "end": 21.57
+        },
+        {
+          "text": "taught",
+          "start": 21.57,
+          "end": 22.26
+        },
+        {
+          "text": "you",
+          "start": 22.620001,
+          "end": 23.129999
+        },
+        {
+          "text": "to",
+          "start": 23.129999,
+          "end": 23.299999
+        },
+        {
+          "text": "automate",
+          "start": 23.299999,
+          "end": 24.01
+        },
+        {
+          "text": "version",
+          "start": 25.049999,
+          "end": 25.76
+        },
+        {
+          "text": "intent",
+          "start": 26.139999,
+          "end": 26.309999
+        },
+        {
+          "text": "observe",
+          "start": 26.309999,
+          "end": 26.85
+        },
+        {
+          "text": "the",
+          "start": 26.85,
+          "end": 27.1
+        },
+        {
+          "text": "network",
+          "start": 28.129999,
+          "end": 28.41
+        },
+        {
+          "text": "validate",
+          "start": 28.41,
+          "end": 28.92
+        },
+        {
+          "text": "changes",
+          "start": 29.190001,
+          "end": 29.65
+        },
+        {
+          "text": "and",
+          "start": 29.700001,
+          "end": 30.09
+        },
+        {
+          "text": "secure",
+          "start": 30.09,
+          "end": 30.540001
+        },
+        {
+          "text": "your",
+          "start": 30.540001,
+          "end": 31.120001
+        },
+        {
+          "text": "toolchain",
+          "start": 31.24,
+          "end": 31.41
+        },
+        {
+          "text": "Course",
+          "start": 31.41,
+          "end": 31.48
+        },
+        {
+          "text": "four",
+          "start": 31.48,
+          "end": 32
+        },
+        {
+          "text": "adds",
+          "start": 32,
+          "end": 32.740002
+        },
+        {
+          "text": "large",
+          "start": 32.82,
+          "end": 33.200001
+        },
+        {
+          "text": "language",
+          "start": 33.290001,
+          "end": 33.490002
+        },
+        {
+          "text": "models",
+          "start": 33.490002,
+          "end": 33.580002
+        },
+        {
+          "text": "as",
+          "start": 33.580002,
+          "end": 34.220001
+        },
+        {
+          "text": "a",
+          "start": 34.220001,
+          "end": 34.380001
+        },
+        {
+          "text": "drafting",
+          "start": 34.380001,
+          "end": 34.540001
+        },
+        {
+          "text": "assistant",
+          "start": 34.540001,
+          "end": 35.189999
+        },
+        {
+          "text": "-",
+          "start": 35.639999,
+          "end": 35.759998
+        },
+        {
+          "text": "not",
+          "start": 35.759998,
+          "end": 35.959999
+        },
+        {
+          "text": "as",
+          "start": 35.959999,
+          "end": 36.279999
+        },
+        {
+          "text": "a",
+          "start": 36.279999,
+          "end": 36.34
+        },
+        {
+          "text": "replacement",
+          "start": 36.34,
+          "end": 36.810001
+        },
+        {
+          "text": "for",
+          "start": 36.810001,
+          "end": 36.959999
+        },
+        {
+          "text": "your",
+          "start": 36.959999,
+          "end": 37.189999
+        },
+        {
+          "text": "judgment",
+          "start": 37.189999,
+          "end": 37.75
+        },
+        {
+          "text": "We",
+          "start": 37.950001,
+          "end": 38.110001
+        },
+        {
+          "text": "will",
+          "start": 38.110001,
+          "end": 38.220001
+        },
+        {
+          "text": "build",
+          "start": 38.220001,
+          "end": 38.450001
+        },
+        {
+          "text": "a",
+          "start": 38.450001,
+          "end": 38.665001000000004
+        },
+        {
+          "text": "workflow",
+          "start": 38.665001000000004,
+          "end": 38.880001
+        },
+        {
+          "text": "you",
+          "start": 38.880001,
+          "end": 39.27
+        },
+        {
+          "text": "can",
+          "start": 39.419998,
+          "end": 39.664998999999995
+        },
+        {
+          "text": "defend",
+          "start": 39.664998999999995,
+          "end": 39.91
+        },
+        {
+          "text": "in",
+          "start": 39.970001,
+          "end": 40.380001
+        },
+        {
+          "text": "a",
+          "start": 40.380001,
+          "end": 40.614999499999996
+        },
+        {
+          "text": "real",
+          "start": 40.614999499999996,
+          "end": 40.849998
+        },
+        {
+          "text": "change",
+          "start": 40.98,
+          "end": 41.459999
+        },
+        {
+          "text": "review",
+          "start": 41.610001,
+          "end": 41.75
+        },
+        {
+          "text": "prompt",
+          "start": 41.75,
+          "end": 41.889999
+        },
+        {
+          "text": "human",
+          "start": 41.889999,
+          "end": 42.290001
+        },
+        {
+          "text": "review",
+          "start": 42.43,
+          "end": 42.520000499999995
+        },
+        {
+          "text": "lint",
+          "start": 42.520000499999995,
+          "end": 42.610001
+        },
+        {
+          "text": "check",
+          "start": 42.610001,
+          "end": 42.75
+        },
+        {
+          "text": "mode",
+          "start": 42.75,
+          "end": 42.924999
+        },
+        {
+          "text": "and",
+          "start": 42.924999,
+          "end": 43.099998
+        },
+        {
+          "text": "an",
+          "start": 43.150002,
+          "end": 43.52
+        },
+        {
+          "text": "audit",
+          "start": 43.52,
+          "end": 43.729999500000005
+        },
+        {
+          "text": "trail",
+          "start": 43.729999500000005,
+          "end": 43.939999
+        },
+        {
+          "text": "before",
+          "start": 43.939999,
+          "end": 44.139999
+        },
+        {
+          "text": "any",
+          "start": 44.139999,
+          "end": 44.354999500000005
+        },
+        {
+          "text": "device",
+          "start": 44.354999500000005,
+          "end": 44.57
+        },
+        {
+          "text": "touch",
+          "start": 44.57,
+          "end": 44.860001
+        }
+      ]
+    },
+    "ai-coding-workflows-plain-language": {
+      "words": [
+        {
+          "text": "Before",
+          "start": 0.15,
+          "end": 0.52
+        },
+        {
+          "text": "we",
+          "start": 0.52,
+          "end": 0.67
+        },
+        {
+          "text": "open",
+          "start": 0.67,
+          "end": 1
+        },
+        {
+          "text": "a",
+          "start": 1,
+          "end": 1.05
+        },
+        {
+          "text": "model",
+          "start": 1.05,
+          "end": 1.57
+        },
+        {
+          "text": "define",
+          "start": 2.05,
+          "end": 2.55
+        },
+        {
+          "text": "the",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "text": "workflow",
+          "start": 2.65,
+          "end": 3.23
+        },
+        {
+          "text": "in",
+          "start": 3.26,
+          "end": 3.47
+        },
+        {
+          "text": "plain",
+          "start": 3.47,
+          "end": 3.84
+        },
+        {
+          "text": "language",
+          "start": 3.84,
+          "end": 4.48
+        },
+        {
+          "text": "You",
+          "start": 4.85,
+          "end": 4.98
+        },
+        {
+          "text": "describe",
+          "start": 4.98,
+          "end": 5.51
+        },
+        {
+          "text": "the",
+          "start": 5.51,
+          "end": 5.7
+        },
+        {
+          "text": "task",
+          "start": 5.74,
+          "end": 6.14
+        },
+        {
+          "text": "and",
+          "start": 6.17,
+          "end": 6.35
+        },
+        {
+          "text": "constraints",
+          "start": 6.4,
+          "end": 7.19
+        },
+        {
+          "text": "in",
+          "start": 7.25,
+          "end": 7.42
+        },
+        {
+          "text": "a",
+          "start": 7.42,
+          "end": 7.48
+        },
+        {
+          "text": "structured",
+          "start": 7.48,
+          "end": 8.06
+        },
+        {
+          "text": "prompt",
+          "start": 8.14,
+          "end": 8.57
+        },
+        {
+          "text": "-",
+          "start": 8.57,
+          "end": 9.22
+        },
+        {
+          "text": "platform",
+          "start": 10.75,
+          "end": 11.34
+        },
+        {
+          "text": "idempotency",
+          "start": 11.34,
+          "end": 11.93
+        },
+        {
+          "text": "forbidden",
+          "start": 12.22,
+          "end": 12.51
+        },
+        {
+          "text": "patterns",
+          "start": 12.51,
+          "end": 13.04
+        },
+        {
+          "text": "like",
+          "start": 13.04,
+          "end": 13.75
+        },
+        {
+          "text": "embedded",
+          "start": 14.14,
+          "end": 14.24
+        },
+        {
+          "text": "passwords",
+          "start": 14.24,
+          "end": 14.65
+        },
+        {
+          "text": "The",
+          "start": 14.65,
+          "end": 15.08
+        },
+        {
+          "text": "model",
+          "start": 15.08,
+          "end": 15.17
+        },
+        {
+          "text": "returns",
+          "start": 15.17,
+          "end": 15.71
+        },
+        {
+          "text": "a",
+          "start": 16.08,
+          "end": 16.139999
+        },
+        {
+          "text": "draft",
+          "start": 16.139999,
+          "end": 16.49
+        },
+        {
+          "text": "A",
+          "start": 16.49,
+          "end": 17.129999
+        },
+        {
+          "text": "human",
+          "start": 17.4,
+          "end": 17.75
+        },
+        {
+          "text": "engineer",
+          "start": 17.75,
+          "end": 17.85
+        },
+        {
+          "text": "reads",
+          "start": 18.23,
+          "end": 18.32
+        },
+        {
+          "text": "the",
+          "start": 18.32,
+          "end": 18.6
+        },
+        {
+          "text": "diff",
+          "start": 18.6,
+          "end": 18.809999
+        },
+        {
+          "text": "the",
+          "start": 18.809999,
+          "end": 18.92
+        },
+        {
+          "text": "same",
+          "start": 18.92,
+          "end": 19.16
+        },
+        {
+          "text": "way",
+          "start": 19.16,
+          "end": 19.5
+        },
+        {
+          "text": "they",
+          "start": 19.5,
+          "end": 19.6
+        },
+        {
+          "text": "would",
+          "start": 19.6,
+          "end": 19.969999
+        },
+        {
+          "text": "review",
+          "start": 19.969999,
+          "end": 20.049999
+        },
+        {
+          "text": "a",
+          "start": 20.049999,
+          "end": 20.26
+        },
+        {
+          "text": "colleague's",
+          "start": 20.26,
+          "end": 20.91
+        },
+        {
+          "text": "pull",
+          "start": 21.57,
+          "end": 21.85
+        },
+        {
+          "text": "request",
+          "start": 21.889999,
+          "end": 22.309999
+        },
+        {
+          "text": "Only",
+          "start": 22.309999,
+          "end": 22.48
+        },
+        {
+          "text": "after",
+          "start": 22.48,
+          "end": 22.92
+        },
+        {
+          "text": "that",
+          "start": 23.08,
+          "end": 23.23
+        },
+        {
+          "text": "review",
+          "start": 23.23,
+          "end": 23.389999
+        },
+        {
+          "text": "do",
+          "start": 23.389999,
+          "end": 23.66
+        },
+        {
+          "text": "you",
+          "start": 24.09,
+          "end": 24.68
+        },
+        {
+          "text": "run",
+          "start": 25.959999,
+          "end": 26.07
+        },
+        {
+          "text": "ansible-lint",
+          "start": 27.1,
+          "end": 27.26
+        },
+        {
+          "text": "yamllint",
+          "start": 27.26,
+          "end": 27.530001
+        },
+        {
+          "text": "and",
+          "start": 27.530001,
+          "end": 27.83
+        },
+        {
+          "text": "ansible-playbook",
+          "start": 28.16,
+          "end": 28.42
+        },
+        {
+          "text": "in",
+          "start": 28.48,
+          "end": 28.690001
+        },
+        {
+          "text": "check",
+          "start": 28.690001,
+          "end": 29.139999
+        },
+        {
+          "text": "mode",
+          "start": 29.18,
+          "end": 29.450001
+        },
+        {
+          "text": "Treat",
+          "start": 29.450001,
+          "end": 29.76
+        },
+        {
+          "text": "those",
+          "start": 29.790001,
+          "end": 30.280001
+        },
+        {
+          "text": "steps",
+          "start": 30.700001,
+          "end": 31.27
+        },
+        {
+          "text": "as",
+          "start": 31.27,
+          "end": 31.809999
+        },
+        {
+          "text": "non-optional",
+          "start": 31.98,
+          "end": 32.119999
+        },
+        {
+          "text": "Skipping",
+          "start": 32.119999,
+          "end": 32.41
+        },
+        {
+          "text": "review",
+          "start": 32.439999,
+          "end": 32.919998
+        },
+        {
+          "text": "is",
+          "start": 32.919998,
+          "end": 33.290001
+        },
+        {
+          "text": "how",
+          "start": 34.049999,
+          "end": 34.360001
+        },
+        {
+          "text": "plausible-looking",
+          "start": 34.360001,
+          "end": 35.099998
+        },
+        {
+          "text": "YAML",
+          "start": 35.279999,
+          "end": 35.509998
+        },
+        {
+          "text": "reaches",
+          "start": 35.509998,
+          "end": 35.709998999999996
+        },
+        {
+          "text": "production",
+          "start": 35.709998999999996,
+          "end": 35.91
+        },
+        {
+          "text": "and",
+          "start": 35.98,
+          "end": 36.18
+        },
+        {
+          "text": "breaks",
+          "start": 36.220001,
+          "end": 36.2849995
+        },
+        {
+          "text": "at",
+          "start": 36.2849995,
+          "end": 36.349998
+        },
+        {
+          "text": "two",
+          "start": 36.349998,
+          "end": 36.459999
+        },
+        {
+          "text": "in",
+          "start": 36.459999,
+          "end": 36.5
+        },
+        {
+          "text": "the",
+          "start": 36.5,
+          "end": 36.540001
+        },
+        {
+          "text": "morning",
+          "start": 36.540001,
+          "end": 36.950001
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 8.14,
+          "end": 13.04
+        },
+        null,
+        null
+      ]
+    },
+    "benefits-of-ai-assisted-coding": {
+      "words": [
+        {
+          "text": "Used",
+          "start": 0.13,
+          "end": 0.47
+        },
+        {
+          "text": "well",
+          "start": 0.47,
+          "end": 0.84
+        },
+        {
+          "text": "a",
+          "start": 1.06,
+          "end": 1.15
+        },
+        {
+          "text": "model",
+          "start": 1.15,
+          "end": 1.54
+        },
+        {
+          "text": "is",
+          "start": 1.54,
+          "end": 1.83
+        },
+        {
+          "text": "a",
+          "start": 1.83,
+          "end": 1.91
+        },
+        {
+          "text": "fast",
+          "start": 1.91,
+          "end": 2.39
+        },
+        {
+          "text": "first",
+          "start": 2.42,
+          "end": 2.83
+        },
+        {
+          "text": "pair",
+          "start": 2.9,
+          "end": 3.14
+        },
+        {
+          "text": "of",
+          "start": 3.17,
+          "end": 3.36
+        },
+        {
+          "text": "hands",
+          "start": 3.36,
+          "end": 3.79
+        },
+        {
+          "text": "for",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "text": "boilerplate",
+          "start": 3.97,
+          "end": 4.81
+        },
+        {
+          "text": "It",
+          "start": 5.32,
+          "end": 5.49
+        },
+        {
+          "text": "can",
+          "start": 5.49,
+          "end": 5.71
+        },
+        {
+          "text": "draft",
+          "start": 5.71,
+          "end": 6.13
+        },
+        {
+          "text": "the",
+          "start": 6.13,
+          "end": 6.23
+        },
+        {
+          "text": "repetitive",
+          "start": 6.23,
+          "end": 6.77
+        },
+        {
+          "text": "skeleton",
+          "start": 6.77,
+          "end": 7.56
+        },
+        {
+          "text": "of",
+          "start": 7.56,
+          "end": 7.7
+        },
+        {
+          "text": "a",
+          "start": 7.7,
+          "end": 7.78
+        },
+        {
+          "text": "VLAN",
+          "start": 9.18,
+          "end": 9.72
+        },
+        {
+          "text": "playbook",
+          "start": 10.29,
+          "end": 10.6
+        },
+        {
+          "text": "suggest",
+          "start": 10.6,
+          "end": 11.25
+        },
+        {
+          "text": "Ansible",
+          "start": 11.37,
+          "end": 11.56
+        },
+        {
+          "text": "task",
+          "start": 11.56,
+          "end": 11.68
+        },
+        {
+          "text": "structure",
+          "start": 11.68,
+          "end": 11.73
+        },
+        {
+          "text": "when",
+          "start": 11.73,
+          "end": 11.96
+        },
+        {
+          "text": "you",
+          "start": 12.04,
+          "end": 12.15
+        },
+        {
+          "text": "are",
+          "start": 12.15,
+          "end": 12.2
+        },
+        {
+          "text": "new",
+          "start": 12.2,
+          "end": 12.72
+        },
+        {
+          "text": "to",
+          "start": 13.09,
+          "end": 13.24
+        },
+        {
+          "text": "a",
+          "start": 13.24,
+          "end": 13.84
+        },
+        {
+          "text": "module",
+          "start": 13.87,
+          "end": 14.35
+        },
+        {
+          "text": "or",
+          "start": 14.35,
+          "end": 14.76
+        },
+        {
+          "text": "translate",
+          "start": 14.76,
+          "end": 15.31
+        },
+        {
+          "text": "between",
+          "start": 15.31,
+          "end": 15.51
+        },
+        {
+          "text": "JSON",
+          "start": 16.09,
+          "end": 16.299999
+        },
+        {
+          "text": "intent",
+          "start": 16.299999,
+          "end": 16.41
+        },
+        {
+          "text": "and",
+          "start": 16.41,
+          "end": 16.51
+        },
+        {
+          "text": "YAML",
+          "start": 16.549999,
+          "end": 16.959999
+        },
+        {
+          "text": "when",
+          "start": 16.959999,
+          "end": 17.16
+        },
+        {
+          "text": "you",
+          "start": 17.959999,
+          "end": 18.469999
+        },
+        {
+          "text": "are",
+          "start": 18.870001,
+          "end": 19.120001
+        },
+        {
+          "text": "tired",
+          "start": 19.120001,
+          "end": 19.32
+        },
+        {
+          "text": "of",
+          "start": 19.32,
+          "end": 19.6
+        },
+        {
+          "text": "indentation",
+          "start": 19.6,
+          "end": 20.219999
+        },
+        {
+          "text": "errors",
+          "start": 20.309999,
+          "end": 20.469999
+        },
+        {
+          "text": "None",
+          "start": 20.469999,
+          "end": 21.110001
+        },
+        {
+          "text": "of",
+          "start": 21.110001,
+          "end": 21.73
+        },
+        {
+          "text": "that",
+          "start": 22.290001,
+          "end": 22.469999
+        },
+        {
+          "text": "removes",
+          "start": 22.83,
+          "end": 23.49
+        },
+        {
+          "text": "your",
+          "start": 23.639999,
+          "end": 23.98
+        },
+        {
+          "text": "networking",
+          "start": 23.98,
+          "end": 24.370001
+        },
+        {
+          "text": "judgment",
+          "start": 24.370001,
+          "end": 24.860001
+        },
+        {
+          "text": "The",
+          "start": 24.92,
+          "end": 25.129999
+        },
+        {
+          "text": "VLAN",
+          "start": 25.129999,
+          "end": 25.559999
+        },
+        {
+          "text": "numbers",
+          "start": 25.559999,
+          "end": 26.129999
+        },
+        {
+          "text": "still",
+          "start": 26.700001,
+          "end": 26.790001
+        },
+        {
+          "text": "must",
+          "start": 26.790001,
+          "end": 27.24
+        },
+        {
+          "text": "match",
+          "start": 27.24,
+          "end": 28.01
+        },
+        {
+          "text": "your",
+          "start": 28.16,
+          "end": 28.540001
+        },
+        {
+          "text": "design",
+          "start": 28.540001,
+          "end": 28.870001
+        },
+        {
+          "text": "standard",
+          "start": 28.870001,
+          "end": 29.15
+        },
+        {
+          "text": "The",
+          "start": 29.15,
+          "end": 29.43
+        },
+        {
+          "text": "target",
+          "start": 29.43,
+          "end": 29.805
+        },
+        {
+          "text": "devices",
+          "start": 29.805,
+          "end": 30.18
+        },
+        {
+          "text": "still",
+          "start": 30.540001,
+          "end": 30.77
+        },
+        {
+          "text": "must",
+          "start": 30.77,
+          "end": 31.434998999999998
+        },
+        {
+          "text": "come",
+          "start": 31.434998999999998,
+          "end": 32.099998
+        },
+        {
+          "text": "from",
+          "start": 32.130001,
+          "end": 32.220001
+        },
+        {
+          "text": "inventory",
+          "start": 32.220001,
+          "end": 32.4099995
+        },
+        {
+          "text": "AI",
+          "start": 32.4099995,
+          "end": 32.599998
+        },
+        {
+          "text": "accelerates",
+          "start": 32.689999,
+          "end": 33.110001
+        },
+        {
+          "text": "the",
+          "start": 33.419998,
+          "end": 33.4799995
+        },
+        {
+          "text": "blank",
+          "start": 33.4799995,
+          "end": 33.540001
+        },
+        {
+          "text": "page",
+          "start": 33.540001,
+          "end": 33.860001
+        },
+        {
+          "text": "you",
+          "start": 33.860001,
+          "end": 34
+        },
+        {
+          "text": "still",
+          "start": 34,
+          "end": 34.139999
+        },
+        {
+          "text": "own",
+          "start": 34.139999,
+          "end": 34.25
+        },
+        {
+          "text": "the",
+          "start": 34.25,
+          "end": 34.424999
+        },
+        {
+          "text": "change",
+          "start": 34.424999,
+          "end": 34.599998
+        },
+        {
+          "text": "ticket",
+          "start": 34.599998,
+          "end": 35.07
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 1.91,
+          "end": 4.81
+        },
+        null,
+        {
+          "start": 33.860001,
+          "end": 35.07
+        }
+      ]
+    },
+    "risks-privacy-ip-ownership": {
+      "words": [
+        {
+          "text": "Speed",
+          "start": 0.09,
+          "end": 0.4
+        },
+        {
+          "text": "without",
+          "start": 0.4,
+          "end": 0.72
+        },
+        {
+          "text": "guardrails",
+          "start": 1.42,
+          "end": 1.77
+        },
+        {
+          "text": "creates",
+          "start": 1.77,
+          "end": 2.29
+        },
+        {
+          "text": "exposure",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "text": "you",
+          "start": 2.45,
+          "end": 2.62
+        },
+        {
+          "text": "may",
+          "start": 2.62,
+          "end": 2.84
+        },
+        {
+          "text": "not",
+          "start": 2.84,
+          "end": 3.16
+        },
+        {
+          "text": "see",
+          "start": 3.16,
+          "end": 3.33
+        },
+        {
+          "text": "on",
+          "start": 3.33,
+          "end": 3.36
+        },
+        {
+          "text": "a",
+          "start": 3.99,
+          "end": 4.36
+        },
+        {
+          "text": "CCNA",
+          "start": 4.99,
+          "end": 5.03
+        },
+        {
+          "text": "lab",
+          "start": 5.03,
+          "end": 5.57
+        },
+        {
+          "text": "Pasting",
+          "start": 5.57,
+          "end": 5.87
+        },
+        {
+          "text": "a",
+          "start": 6.33,
+          "end": 6.6
+        },
+        {
+          "text": "production",
+          "start": 6.6,
+          "end": 6.66
+        },
+        {
+          "text": "running-config",
+          "start": 6.66,
+          "end": 7.07
+        },
+        {
+          "text": "into",
+          "start": 7.07,
+          "end": 7.49
+        },
+        {
+          "text": "a",
+          "start": 7.54,
+          "end": 7.73
+        },
+        {
+          "text": "public",
+          "start": 7.73,
+          "end": 7.98
+        },
+        {
+          "text": "model",
+          "start": 7.98,
+          "end": 8.47
+        },
+        {
+          "text": "can",
+          "start": 8.47,
+          "end": 9.02
+        },
+        {
+          "text": "leak",
+          "start": 9.52,
+          "end": 10.09
+        },
+        {
+          "text": "customer",
+          "start": 10.51,
+          "end": 10.63
+        },
+        {
+          "text": "addressing",
+          "start": 10.63,
+          "end": 11.29
+        },
+        {
+          "text": "VPN",
+          "start": 11.29,
+          "end": 11.43
+        },
+        {
+          "text": "details",
+          "start": 11.43,
+          "end": 11.95
+        },
+        {
+          "text": "or",
+          "start": 12.13,
+          "end": 12.25
+        },
+        {
+          "text": "credentials",
+          "start": 12.25,
+          "end": 12.65
+        },
+        {
+          "text": "in",
+          "start": 12.65,
+          "end": 12.89
+        },
+        {
+          "text": "comments",
+          "start": 12.89,
+          "end": 13.1
+        },
+        {
+          "text": "Your",
+          "start": 13.1,
+          "end": 13.61
+        },
+        {
+          "text": "employer",
+          "start": 13.91,
+          "end": 14.26
+        },
+        {
+          "text": "may",
+          "start": 14.34,
+          "end": 14.5
+        },
+        {
+          "text": "have",
+          "start": 14.53,
+          "end": 14.85
+        },
+        {
+          "text": "rules",
+          "start": 14.85,
+          "end": 15.43
+        },
+        {
+          "text": "about",
+          "start": 15.43,
+          "end": 15.82
+        },
+        {
+          "text": "who",
+          "start": 16.15,
+          "end": 16.33
+        },
+        {
+          "text": "owns",
+          "start": 16.33,
+          "end": 16.58
+        },
+        {
+          "text": "generated",
+          "start": 16.58,
+          "end": 17.15
+        },
+        {
+          "text": "code",
+          "start": 17.15,
+          "end": 17.24
+        },
+        {
+          "text": "and",
+          "start": 17.24,
+          "end": 17.4
+        },
+        {
+          "text": "which",
+          "start": 17.4,
+          "end": 17.85
+        },
+        {
+          "text": "providers",
+          "start": 18.27,
+          "end": 18.74
+        },
+        {
+          "text": "you",
+          "start": 18.74,
+          "end": 19.02
+        },
+        {
+          "text": "may",
+          "start": 19.02,
+          "end": 19.450001
+        },
+        {
+          "text": "use",
+          "start": 20.059999,
+          "end": 20.219999
+        },
+        {
+          "text": "Models",
+          "start": 20.219999,
+          "end": 20.73
+        },
+        {
+          "text": "also",
+          "start": 20.84,
+          "end": 21.379999
+        },
+        {
+          "text": "invent",
+          "start": 23.620001,
+          "end": 23.780001
+        },
+        {
+          "text": "APIs",
+          "start": 24.26,
+          "end": 24.74
+        },
+        {
+          "text": "that",
+          "start": 25.15,
+          "end": 25.940001
+        },
+        {
+          "text": "sound",
+          "start": 25.940001,
+          "end": 26.469999
+        },
+        {
+          "text": "real",
+          "start": 26.780001,
+          "end": 27.32
+        },
+        {
+          "text": "-",
+          "start": 27.32,
+          "end": 27.440001
+        },
+        {
+          "text": "iosxe_restconfpush_vlan",
+          "start": 27.440001,
+          "end": 27.74
+        },
+        {
+          "text": "might",
+          "start": 27.74,
+          "end": 27.969999
+        },
+        {
+          "text": "read",
+          "start": 27.969999,
+          "end": 28.66
+        },
+        {
+          "text": "convincingly",
+          "start": 29.059999,
+          "end": 29.16
+        },
+        {
+          "text": "even",
+          "start": 29.16,
+          "end": 29.559999
+        },
+        {
+          "text": "when",
+          "start": 29.610001,
+          "end": 29.83
+        },
+        {
+          "text": "no",
+          "start": 29.83,
+          "end": 29.940001
+        },
+        {
+          "text": "such",
+          "start": 29.940001,
+          "end": 30.155001
+        },
+        {
+          "text": "call",
+          "start": 30.155001,
+          "end": 30.370001
+        },
+        {
+          "text": "exists",
+          "start": 30.370001,
+          "end": 30.969999
+        },
+        {
+          "text": "The",
+          "start": 31.120001,
+          "end": 31.215
+        },
+        {
+          "text": "fix",
+          "start": 31.215,
+          "end": 31.309999
+        },
+        {
+          "text": "is",
+          "start": 31.309999,
+          "end": 31.709999
+        },
+        {
+          "text": "the",
+          "start": 31.77,
+          "end": 32.1049995
+        },
+        {
+          "text": "same",
+          "start": 32.1049995,
+          "end": 32.439999
+        },
+        {
+          "text": "discipline",
+          "start": 33.73,
+          "end": 34.119999
+        },
+        {
+          "text": "you",
+          "start": 34.119999,
+          "end": 34.354999500000005
+        },
+        {
+          "text": "already",
+          "start": 34.354999500000005,
+          "end": 34.59
+        },
+        {
+          "text": "practice",
+          "start": 35.200001,
+          "end": 35.400002
+        },
+        {
+          "text": "validate",
+          "start": 35.400002,
+          "end": 35.535
+        },
+        {
+          "text": "before",
+          "start": 35.535,
+          "end": 35.669998
+        },
+        {
+          "text": "merge",
+          "start": 35.669998,
+          "end": 36.169998
+        },
+        {
+          "text": "and",
+          "start": 36.200001,
+          "end": 36.450001
+        },
+        {
+          "text": "never",
+          "start": 36.450001,
+          "end": 36.700001
+        },
+        {
+          "text": "treat",
+          "start": 36.740002,
+          "end": 37.209999
+        },
+        {
+          "text": "fluent",
+          "start": 37.66,
+          "end": 37.7999995
+        },
+        {
+          "text": "prose",
+          "start": 37.7999995,
+          "end": 37.939999
+        },
+        {
+          "text": "as",
+          "start": 38.02,
+          "end": 38.380001
+        },
+        {
+          "text": "proof",
+          "start": 38.470001,
+          "end": 38.55500000000001
+        },
+        {
+          "text": "of",
+          "start": 38.55500000000001,
+          "end": 38.639999
+        },
+        {
+          "text": "correctness",
+          "start": 38.689999,
+          "end": 39.43
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 2.84,
+          "end": 5.57
+        },
+        {
+          "start": 29.83,
+          "end": 31.309999
+        },
+        null
+      ]
+    },
+    "code-validation-after-generation": {
+      "words": [
+        {
+          "text": "Here",
+          "start": 0.1,
+          "end": 0.45999999999999996
+        },
+        {
+          "text": "is",
+          "start": 0.65,
+          "end": 0.82
+        },
+        {
+          "text": "the",
+          "start": 0.82,
+          "end": 0.89
+        },
+        {
+          "text": "habit",
+          "start": 0.89,
+          "end": 1.33
+        },
+        {
+          "text": "that",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "separates",
+          "start": 1.78,
+          "end": 2.42
+        },
+        {
+          "text": "a",
+          "start": 2.51,
+          "end": 2.6
+        },
+        {
+          "text": "demo",
+          "start": 2.6,
+          "end": 2.99
+        },
+        {
+          "text": "from",
+          "start": 3.07,
+          "end": 3.36
+        },
+        {
+          "text": "production",
+          "start": 3.36,
+          "end": 3.97
+        },
+        {
+          "text": "practice",
+          "start": 3.97,
+          "end": 4.58
+        },
+        {
+          "text": "Run",
+          "start": 5.11,
+          "end": 5.36
+        },
+        {
+          "text": "the",
+          "start": 5.36,
+          "end": 5.45
+        },
+        {
+          "text": "same",
+          "start": 5.45,
+          "end": 5.87
+        },
+        {
+          "text": "gates",
+          "start": 5.87,
+          "end": 6.41
+        },
+        {
+          "text": "on",
+          "start": 6.68,
+          "end": 6.89
+        },
+        {
+          "text": "AI",
+          "start": 6.94,
+          "end": 7.11
+        },
+        {
+          "text": "output",
+          "start": 7.11,
+          "end": 7.8
+        },
+        {
+          "text": "that",
+          "start": 8.29,
+          "end": 8.51
+        },
+        {
+          "text": "you",
+          "start": 8.51,
+          "end": 8.57
+        },
+        {
+          "text": "run",
+          "start": 8.57,
+          "end": 8.98
+        },
+        {
+          "text": "on",
+          "start": 9.06,
+          "end": 9.24
+        },
+        {
+          "text": "human-written",
+          "start": 9.24,
+          "end": 9.72
+        },
+        {
+          "text": "playbooks",
+          "start": 9.72,
+          "end": 10.09
+        },
+        {
+          "text": "ansible-lint",
+          "start": 11.47,
+          "end": 12.13
+        },
+        {
+          "text": "yamllint",
+          "start": 13.36,
+          "end": 13.88
+        },
+        {
+          "text": "schema",
+          "start": 13.88,
+          "end": 14.41
+        },
+        {
+          "text": "checks",
+          "start": 14.69,
+          "end": 14.88
+        },
+        {
+          "text": "on",
+          "start": 14.88,
+          "end": 15.36
+        },
+        {
+          "text": "intent",
+          "start": 15.36,
+          "end": 15.96
+        },
+        {
+          "text": "files",
+          "start": 16.24,
+          "end": 16.41
+        },
+        {
+          "text": "then",
+          "start": 17.5,
+          "end": 17.709999
+        },
+        {
+          "text": "ansible-playbook",
+          "start": 17.709999,
+          "end": 18.059999
+        },
+        {
+          "text": "with",
+          "start": 18.1,
+          "end": 18.34
+        },
+        {
+          "text": "check",
+          "start": 19.139999,
+          "end": 19.459999
+        },
+        {
+          "text": "and",
+          "start": 19.459999,
+          "end": 19.610001
+        },
+        {
+          "text": "diff",
+          "start": 19.610001,
+          "end": 20.07
+        },
+        {
+          "text": "Store",
+          "start": 20.15,
+          "end": 20.299999
+        },
+        {
+          "text": "the",
+          "start": 20.299999,
+          "end": 20.389999
+        },
+        {
+          "text": "prompt",
+          "start": 20.389999,
+          "end": 21
+        },
+        {
+          "text": "and",
+          "start": 21,
+          "end": 21.389999
+        },
+        {
+          "text": "the",
+          "start": 21.51,
+          "end": 21.68
+        },
+        {
+          "text": "generated",
+          "start": 21.68,
+          "end": 21.76
+        },
+        {
+          "text": "file",
+          "start": 21.76,
+          "end": 22.16
+        },
+        {
+          "text": "in",
+          "start": 22.16,
+          "end": 22.620001
+        },
+        {
+          "text": "the",
+          "start": 22.76,
+          "end": 23.059999
+        },
+        {
+          "text": "change",
+          "start": 23.09,
+          "end": 23.27
+        },
+        {
+          "text": "ticket",
+          "start": 23.27,
+          "end": 23.65
+        },
+        {
+          "text": "so",
+          "start": 23.65,
+          "end": 23.85
+        },
+        {
+          "text": "an",
+          "start": 23.85,
+          "end": 24.52
+        },
+        {
+          "text": "auditor",
+          "start": 24.52,
+          "end": 24.700001
+        },
+        {
+          "text": "can",
+          "start": 24.700001,
+          "end": 24.790001
+        },
+        {
+          "text": "reconstruct",
+          "start": 24.790001,
+          "end": 25.18
+        },
+        {
+          "text": "what",
+          "start": 25.18,
+          "end": 25.4
+        },
+        {
+          "text": "the",
+          "start": 25.4,
+          "end": 25.809999
+        },
+        {
+          "text": "model",
+          "start": 25.9,
+          "end": 26.059999
+        },
+        {
+          "text": "was",
+          "start": 26.059999,
+          "end": 26.360001
+        },
+        {
+          "text": "asked",
+          "start": 26.360001,
+          "end": 26.540001
+        },
+        {
+          "text": "and",
+          "start": 26.540001,
+          "end": 27.059999
+        },
+        {
+          "text": "what",
+          "start": 27.459999,
+          "end": 27.68
+        },
+        {
+          "text": "it",
+          "start": 27.74,
+          "end": 28.059999
+        },
+        {
+          "text": "returned",
+          "start": 28.059999,
+          "end": 28.35
+        },
+        {
+          "text": "If",
+          "start": 28.35,
+          "end": 29.040001
+        },
+        {
+          "text": "check",
+          "start": 29.15,
+          "end": 29.35
+        },
+        {
+          "text": "mode",
+          "start": 29.35,
+          "end": 29.58
+        },
+        {
+          "text": "fails",
+          "start": 29.58,
+          "end": 30
+        },
+        {
+          "text": "you",
+          "start": 30,
+          "end": 30.219999
+        },
+        {
+          "text": "re-prompt",
+          "start": 30.219999,
+          "end": 30.57
+        },
+        {
+          "text": "with",
+          "start": 30.6,
+          "end": 31.379999
+        },
+        {
+          "text": "tighter",
+          "start": 31.49,
+          "end": 31.690001
+        },
+        {
+          "text": "constraints",
+          "start": 31.690001,
+          "end": 31.799999
+        },
+        {
+          "text": "-",
+          "start": 31.799999,
+          "end": 32.07
+        },
+        {
+          "text": "you",
+          "start": 32.07,
+          "end": 32.400002
+        },
+        {
+          "text": "do",
+          "start": 32.400002,
+          "end": 32.720001
+        },
+        {
+          "text": "not",
+          "start": 32.759998,
+          "end": 33.290001
+        },
+        {
+          "text": "hand-patch",
+          "start": 34.169998,
+          "end": 34.3599985
+        },
+        {
+          "text": "unsafe",
+          "start": 34.3599985,
+          "end": 34.549999
+        },
+        {
+          "text": "YAML",
+          "start": 34.549999,
+          "end": 34.59
+        },
+        {
+          "text": "just",
+          "start": 34.59,
+          "end": 34.729999500000005
+        },
+        {
+          "text": "to",
+          "start": 34.729999500000005,
+          "end": 34.869999
+        },
+        {
+          "text": "make",
+          "start": 34.869999,
+          "end": 34.970001
+        },
+        {
+          "text": "the",
+          "start": 34.970001,
+          "end": 35.2849995
+        },
+        {
+          "text": "pipeline",
+          "start": 35.2849995,
+          "end": 35.599998
+        },
+        {
+          "text": "green",
+          "start": 35.599998,
+          "end": 36
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 2.51,
+          "end": 5.36
+        },
+        {
+          "start": 29.15,
+          "end": 31.690001
+        },
+        null
+      ]
+    },
+    "security-risks-ai-automation": {
+      "words": [
+        {
+          "text": "New",
+          "start": 0.13,
+          "end": 0.36
+        },
+        {
+          "text": "attack",
+          "start": 0.36,
+          "end": 0.72
+        },
+        {
+          "text": "surfaces",
+          "start": 0.72,
+          "end": 1.27
+        },
+        {
+          "text": "appear",
+          "start": 1.27,
+          "end": 1.8
+        },
+        {
+          "text": "when",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "text": "models",
+          "start": 2.04,
+          "end": 2.59
+        },
+        {
+          "text": "and",
+          "start": 2.59,
+          "end": 2.81
+        },
+        {
+          "text": "tools",
+          "start": 2.81,
+          "end": 3.17
+        },
+        {
+          "text": "enter",
+          "start": 3.17,
+          "end": 3.44
+        },
+        {
+          "text": "the",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "text": "workflow",
+          "start": 3.56,
+          "end": 4.13
+        },
+        {
+          "text": "Prompt",
+          "start": 4.63,
+          "end": 4.96
+        },
+        {
+          "text": "injection",
+          "start": 4.96,
+          "end": 5.61
+        },
+        {
+          "text": "tries",
+          "start": 5.61,
+          "end": 5.97
+        },
+        {
+          "text": "to",
+          "start": 6.02,
+          "end": 6.09
+        },
+        {
+          "text": "override",
+          "start": 6.61,
+          "end": 6.72
+        },
+        {
+          "text": "your",
+          "start": 6.72,
+          "end": 7.44
+        },
+        {
+          "text": "instructions",
+          "start": 7.44,
+          "end": 7.86
+        },
+        {
+          "text": "inside",
+          "start": 7.86,
+          "end": 8.14
+        },
+        {
+          "text": "user",
+          "start": 8.14,
+          "end": 8.62
+        },
+        {
+          "text": "text",
+          "start": 9.18,
+          "end": 9.44
+        },
+        {
+          "text": "Over-privileged",
+          "start": 9.44,
+          "end": 10.07
+        },
+        {
+          "text": "tools",
+          "start": 10.07,
+          "end": 10.51
+        },
+        {
+          "text": "let",
+          "start": 10.92,
+          "end": 11.2
+        },
+        {
+          "text": "an",
+          "start": 11.2,
+          "end": 11.32
+        },
+        {
+          "text": "assistant",
+          "start": 11.32,
+          "end": 11.93
+        },
+        {
+          "text": "push",
+          "start": 11.93,
+          "end": 12.13
+        },
+        {
+          "text": "configuration",
+          "start": 12.13,
+          "end": 12.98
+        },
+        {
+          "text": "you",
+          "start": 12.98,
+          "end": 13.11
+        },
+        {
+          "text": "never",
+          "start": 13.11,
+          "end": 13.4
+        },
+        {
+          "text": "approved",
+          "start": 13.4,
+          "end": 14.08
+        },
+        {
+          "text": "Sensitive",
+          "start": 14.41,
+          "end": 14.94
+        },
+        {
+          "text": "context",
+          "start": 14.94,
+          "end": 15.63
+        },
+        {
+          "text": "sent",
+          "start": 15.63,
+          "end": 15.97
+        },
+        {
+          "text": "to",
+          "start": 16.09,
+          "end": 16.34
+        },
+        {
+          "text": "the",
+          "start": 16.370001,
+          "end": 16.48
+        },
+        {
+          "text": "wrong",
+          "start": 16.48,
+          "end": 16.719999
+        },
+        {
+          "text": "endpoint",
+          "start": 17.35,
+          "end": 17.809999
+        },
+        {
+          "text": "becomes",
+          "start": 17.809999,
+          "end": 17.870001
+        },
+        {
+          "text": "a",
+          "start": 17.870001,
+          "end": 18.16
+        },
+        {
+          "text": "data",
+          "start": 18.16,
+          "end": 18.42
+        },
+        {
+          "text": "leak",
+          "start": 19.040001,
+          "end": 19.65
+        },
+        {
+          "text": "Generated",
+          "start": 19.65,
+          "end": 20.08
+        },
+        {
+          "text": "scripts",
+          "start": 20.08,
+          "end": 20.68
+        },
+        {
+          "text": "sometimes",
+          "start": 20.68,
+          "end": 21.209999
+        },
+        {
+          "text": "disable",
+          "start": 21.82,
+          "end": 22.65
+        },
+        {
+          "text": "TLS",
+          "start": 22.719999,
+          "end": 23.02
+        },
+        {
+          "text": "verification",
+          "start": 23.049999,
+          "end": 23.48
+        },
+        {
+          "text": "or",
+          "start": 23.51,
+          "end": 23.92
+        },
+        {
+          "text": "embed",
+          "start": 23.92,
+          "end": 24.280001
+        },
+        {
+          "text": "API",
+          "start": 24.700001,
+          "end": 25.07
+        },
+        {
+          "text": "keys",
+          "start": 25.07,
+          "end": 25.17
+        },
+        {
+          "text": "because",
+          "start": 25.17,
+          "end": 25.6
+        },
+        {
+          "text": "the",
+          "start": 25.6,
+          "end": 26.07
+        },
+        {
+          "text": "model",
+          "start": 26.07,
+          "end": 26.48
+        },
+        {
+          "text": "pattern-matched",
+          "start": 26.51,
+          "end": 27.08
+        },
+        {
+          "text": "insecure",
+          "start": 27.08,
+          "end": 27.799999
+        },
+        {
+          "text": "examples",
+          "start": 27.799999,
+          "end": 28.1
+        },
+        {
+          "text": "from",
+          "start": 28.1,
+          "end": 28.17
+        },
+        {
+          "text": "the",
+          "start": 28.17,
+          "end": 28.780001
+        },
+        {
+          "text": "internet",
+          "start": 29.07,
+          "end": 29.49
+        },
+        {
+          "text": "Design",
+          "start": 29.49,
+          "end": 29.65
+        },
+        {
+          "text": "for",
+          "start": 29.65,
+          "end": 29.940001
+        },
+        {
+          "text": "least",
+          "start": 29.969999,
+          "end": 30.59
+        },
+        {
+          "text": "privilege",
+          "start": 30.889999,
+          "end": 31.5
+        },
+        {
+          "text": "sandbox",
+          "start": 31.5,
+          "end": 31.780001
+        },
+        {
+          "text": "tool",
+          "start": 31.780001,
+          "end": 32.34
+        },
+        {
+          "text": "access",
+          "start": 32.75,
+          "end": 32.889999
+        },
+        {
+          "text": "and",
+          "start": 32.889999,
+          "end": 33.470001
+        },
+        {
+          "text": "explicit",
+          "start": 33.470001,
+          "end": 33.779999
+        },
+        {
+          "text": "human",
+          "start": 33.779999,
+          "end": 34.27
+        },
+        {
+          "text": "approval",
+          "start": 34.27,
+          "end": 34.709999
+        },
+        {
+          "text": "before",
+          "start": 34.75,
+          "end": 35.009998
+        },
+        {
+          "text": "any",
+          "start": 35.009998,
+          "end": 35.439999
+        },
+        {
+          "text": "write",
+          "start": 35.009998,
+          "end": 35.439999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 4.63,
+          "end": 7.86
+        },
+        {
+          "start": 6.61,
+          "end": 9.44
+        },
+        {
+          "start": 17.870001,
+          "end": 21.209999
+        }
+      ]
+    },
+    "governance-for-ai-automation": {
+      "words": [
+        {
+          "text": "Governance",
+          "start": 0.1,
+          "end": 0.68
+        },
+        {
+          "text": "is",
+          "start": 0.72,
+          "end": 0.85
+        },
+        {
+          "text": "how",
+          "start": 0.85,
+          "end": 1.08
+        },
+        {
+          "text": "policy",
+          "start": 1.08,
+          "end": 1.49
+        },
+        {
+          "text": "survives",
+          "start": 1.49,
+          "end": 2.02
+        },
+        {
+          "text": "contact",
+          "start": 2.02,
+          "end": 2.56
+        },
+        {
+          "text": "with",
+          "start": 2.56,
+          "end": 2.71
+        },
+        {
+          "text": "a",
+          "start": 2.71,
+          "end": 2.75
+        },
+        {
+          "text": "busy",
+          "start": 2.75,
+          "end": 3.05
+        },
+        {
+          "text": "team",
+          "start": 3.05,
+          "end": 3.42
+        },
+        {
+          "text": "Publish",
+          "start": 3.81,
+          "end": 4.29
+        },
+        {
+          "text": "which",
+          "start": 4.29,
+          "end": 4.5
+        },
+        {
+          "text": "models",
+          "start": 4.5,
+          "end": 4.99
+        },
+        {
+          "text": "and",
+          "start": 4.99,
+          "end": 5.2
+        },
+        {
+          "text": "endpoints",
+          "start": 5.2,
+          "end": 5.82
+        },
+        {
+          "text": "are",
+          "start": 5.87,
+          "end": 5.97
+        },
+        {
+          "text": "approved",
+          "start": 5.97,
+          "end": 6.59
+        },
+        {
+          "text": "which",
+          "start": 6.99,
+          "end": 7.2
+        },
+        {
+          "text": "data",
+          "start": 7.2,
+          "end": 7.46
+        },
+        {
+          "text": "classes",
+          "start": 7.46,
+          "end": 7.96
+        },
+        {
+          "text": "must",
+          "start": 7.96,
+          "end": 8.24
+        },
+        {
+          "text": "never",
+          "start": 8.24,
+          "end": 8.48
+        },
+        {
+          "text": "appear",
+          "start": 8.48,
+          "end": 8.89
+        },
+        {
+          "text": "in",
+          "start": 8.89,
+          "end": 9.12
+        },
+        {
+          "text": "prompts",
+          "start": 9.12,
+          "end": 9.67
+        },
+        {
+          "text": "and",
+          "start": 10.03,
+          "end": 10.15
+        },
+        {
+          "text": "how",
+          "start": 10.15,
+          "end": 10.42
+        },
+        {
+          "text": "long",
+          "start": 10.42,
+          "end": 10.68
+        },
+        {
+          "text": "you",
+          "start": 10.68,
+          "end": 10.82
+        },
+        {
+          "text": "retain",
+          "start": 10.82,
+          "end": 11.22
+        },
+        {
+          "text": "prompt",
+          "start": 11.22,
+          "end": 11.59
+        },
+        {
+          "text": "logs",
+          "start": 11.59,
+          "end": 12.04
+        },
+        {
+          "text": "Align",
+          "start": 12.28,
+          "end": 12.78
+        },
+        {
+          "text": "that",
+          "start": 12.78,
+          "end": 13.06
+        },
+        {
+          "text": "with",
+          "start": 13.06,
+          "end": 13.21
+        },
+        {
+          "text": "secret",
+          "start": 13.21,
+          "end": 13.72
+        },
+        {
+          "text": "management",
+          "start": 13.72,
+          "end": 14.39
+        },
+        {
+          "text": "from",
+          "start": 14.39,
+          "end": 14.67
+        },
+        {
+          "text": "course",
+          "start": 14.72,
+          "end": 15.12
+        },
+        {
+          "text": "three",
+          "start": 15.17,
+          "end": 15.44
+        },
+        {
+          "text": "-",
+          "start": 15.44,
+          "end": 16.48
+        },
+        {
+          "text": "configuration",
+          "start": 16.48,
+          "end": 16.74
+        },
+        {
+          "text": "in",
+          "start": 16.74,
+          "end": 17.16
+        },
+        {
+          "text": "Git",
+          "start": 17.540001,
+          "end": 18.34
+        },
+        {
+          "text": "credentials",
+          "start": 18.34,
+          "end": 18.719999
+        },
+        {
+          "text": "from",
+          "start": 18.719999,
+          "end": 18.790001
+        },
+        {
+          "text": "the",
+          "start": 18.790001,
+          "end": 19.790001
+        },
+        {
+          "text": "environment",
+          "start": 20,
+          "end": 20.26
+        },
+        {
+          "text": "not",
+          "start": 20.26,
+          "end": 20.549999
+        },
+        {
+          "text": "from",
+          "start": 20.58,
+          "end": 20.879999
+        },
+        {
+          "text": "chat",
+          "start": 20.879999,
+          "end": 21.450001
+        },
+        {
+          "text": "history",
+          "start": 21.709999,
+          "end": 21.860001
+        },
+        {
+          "text": "The",
+          "start": 21.860001,
+          "end": 22.43
+        },
+        {
+          "text": "assistant",
+          "start": 22.43,
+          "end": 22.6
+        },
+        {
+          "text": "is",
+          "start": 22.6,
+          "end": 22.690001
+        },
+        {
+          "text": "a",
+          "start": 22.690001,
+          "end": 22.99
+        },
+        {
+          "text": "power",
+          "start": 23.049999,
+          "end": 23.370001
+        },
+        {
+          "text": "tool",
+          "start": 23.690001,
+          "end": 23.84
+        },
+        {
+          "text": "your",
+          "start": 23.84,
+          "end": 24.219999
+        },
+        {
+          "text": "change",
+          "start": 24.219999,
+          "end": 24.66
+        },
+        {
+          "text": "process",
+          "start": 24.66,
+          "end": 25.040001
+        },
+        {
+          "text": "still",
+          "start": 25.040001,
+          "end": 25.51
+        },
+        {
+          "text": "owns",
+          "start": 25.51,
+          "end": 25.610001
+        },
+        {
+          "text": "the",
+          "start": 25.610001,
+          "end": 26.16
+        },
+        {
+          "text": "blast",
+          "start": 26.200001,
+          "end": 26.76
+        },
+        {
+          "text": "radius",
+          "start": 26.200001,
+          "end": 26.76
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 2.71,
+          "end": 4.99
+        },
+        null,
+        {
+          "start": 11.59,
+          "end": 14.39
+        }
+      ]
+    },
+    "human-review-vs-auto-merge": {
+      "words": [
+        {
+          "text": "A",
+          "start": 0.16,
+          "end": 0.31
+        },
+        {
+          "text": "green",
+          "start": 0.31,
+          "end": 0.78
+        },
+        {
+          "text": "linter",
+          "start": 0.9,
+          "end": 1.41
+        },
+        {
+          "text": "result",
+          "start": 1.69,
+          "end": 1.84
+        },
+        {
+          "text": "is",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "text": "not",
+          "start": 2.21,
+          "end": 2.28
+        },
+        {
+          "text": "a",
+          "start": 2.28,
+          "end": 2.82
+        },
+        {
+          "text": "network",
+          "start": 2.85,
+          "end": 3.37
+        },
+        {
+          "text": "design",
+          "start": 3.49,
+          "end": 3.92
+        },
+        {
+          "text": "review",
+          "start": 4.82,
+          "end": 5.14
+        },
+        {
+          "text": "Linters",
+          "start": 5.14,
+          "end": 5.78
+        },
+        {
+          "text": "catch",
+          "start": 5.86,
+          "end": 6.06
+        },
+        {
+          "text": "syntax",
+          "start": 6.06,
+          "end": 6.29
+        },
+        {
+          "text": "and",
+          "start": 6.29,
+          "end": 6.63
+        },
+        {
+          "text": "many",
+          "start": 6.63,
+          "end": 7.24
+        },
+        {
+          "text": "style",
+          "start": 7.59,
+          "end": 7.71
+        },
+        {
+          "text": "problems",
+          "start": 7.71,
+          "end": 7.84
+        },
+        {
+          "text": "they",
+          "start": 7.84,
+          "end": 8.14
+        },
+        {
+          "text": "do",
+          "start": 8.14,
+          "end": 8.46
+        },
+        {
+          "text": "not",
+          "start": 8.49,
+          "end": 9.04
+        },
+        {
+          "text": "catch",
+          "start": 10.24,
+          "end": 10.31
+        },
+        {
+          "text": "applying",
+          "start": 10.31,
+          "end": 10.44
+        },
+        {
+          "text": "VLAN",
+          "start": 10.44,
+          "end": 10.68
+        },
+        {
+          "text": "400",
+          "start": 10.68,
+          "end": 11.09
+        },
+        {
+          "text": "to",
+          "start": 11.27,
+          "end": 11.39
+        },
+        {
+          "text": "the",
+          "start": 11.86,
+          "end": 12.09
+        },
+        {
+          "text": "wrong",
+          "start": 12.68,
+          "end": 13.06
+        },
+        {
+          "text": "site",
+          "start": 13.06,
+          "end": 13.4
+        },
+        {
+          "text": "or",
+          "start": 13.77,
+          "end": 13.81
+        },
+        {
+          "text": "trusting",
+          "start": 13.81,
+          "end": 14.26
+        },
+        {
+          "text": "a",
+          "start": 14.26,
+          "end": 14.91
+        },
+        {
+          "text": "hallucinated",
+          "start": 15.09,
+          "end": 15.39
+        },
+        {
+          "text": "module",
+          "start": 15.39,
+          "end": 15.5
+        },
+        {
+          "text": "name",
+          "start": 16.48,
+          "end": 16.73
+        },
+        {
+          "text": "A",
+          "start": 16.73,
+          "end": 16.99
+        },
+        {
+          "text": "human",
+          "start": 16.99,
+          "end": 17.290001
+        },
+        {
+          "text": "reviewer",
+          "start": 17.690001,
+          "end": 17.85
+        },
+        {
+          "text": "reads",
+          "start": 17.85,
+          "end": 18.440001
+        },
+        {
+          "text": "the",
+          "start": 18.440001,
+          "end": 18.549999
+        },
+        {
+          "text": "diff",
+          "start": 18.549999,
+          "end": 18.870001
+        },
+        {
+          "text": "runs",
+          "start": 18.870001,
+          "end": 19.33
+        },
+        {
+          "text": "check",
+          "start": 19.33,
+          "end": 19.950001
+        },
+        {
+          "text": "mode",
+          "start": 20.379999,
+          "end": 20.68
+        },
+        {
+          "text": "and",
+          "start": 21.73,
+          "end": 22.059999
+        },
+        {
+          "text": "confirms",
+          "start": 22.59,
+          "end": 23
+        },
+        {
+          "text": "the",
+          "start": 23.389999,
+          "end": 23.469999
+        },
+        {
+          "text": "change",
+          "start": 23.469999,
+          "end": 23.620001
+        },
+        {
+          "text": "matches",
+          "start": 23.620001,
+          "end": 23.65
+        },
+        {
+          "text": "intent",
+          "start": 23.65,
+          "end": 23.74
+        },
+        {
+          "text": "from",
+          "start": 23.74,
+          "end": 23.99
+        },
+        {
+          "text": "netops_iac_lab",
+          "start": 23.99,
+          "end": 24.280001
+        },
+        {
+          "text": "Auto-merging",
+          "start": 24.32,
+          "end": 24.68
+        },
+        {
+          "text": "AI",
+          "start": 25.530001,
+          "end": 26.059999
+        },
+        {
+          "text": "output",
+          "start": 26.379999,
+          "end": 26.469999
+        },
+        {
+          "text": "to",
+          "start": 26.469999,
+          "end": 26.559999
+        },
+        {
+          "text": "main",
+          "start": 26.75,
+          "end": 26.959999
+        },
+        {
+          "text": "might",
+          "start": 27.15,
+          "end": 27.260000499999997
+        },
+        {
+          "text": "save",
+          "start": 27.260000499999997,
+          "end": 27.370001
+        },
+        {
+          "text": "five",
+          "start": 27.370001,
+          "end": 27.82
+        },
+        {
+          "text": "minutes",
+          "start": 28.02,
+          "end": 28.1900005
+        },
+        {
+          "text": "in",
+          "start": 28.1900005,
+          "end": 28.360001
+        },
+        {
+          "text": "a",
+          "start": 28.360001,
+          "end": 28.719999
+        },
+        {
+          "text": "lab",
+          "start": 29.200001,
+          "end": 29.280001
+        },
+        {
+          "text": "and",
+          "start": 29.280001,
+          "end": 29.360001
+        },
+        {
+          "text": "cost",
+          "start": 29.51,
+          "end": 29.620001
+        },
+        {
+          "text": "hours",
+          "start": 29.889999,
+          "end": 30.1099995
+        },
+        {
+          "text": "in",
+          "start": 30.1099995,
+          "end": 30.33
+        },
+        {
+          "text": "an",
+          "start": 30.42,
+          "end": 30.709999
+        },
+        {
+          "text": "outage",
+          "start": 30.790001,
+          "end": 30.8200005
+        },
+        {
+          "text": "when",
+          "start": 30.8200005,
+          "end": 30.85
+        },
+        {
+          "text": "the",
+          "start": 30.85,
+          "end": 31.280001
+        },
+        {
+          "text": "model",
+          "start": 31.280001,
+          "end": 31.400000499999997
+        },
+        {
+          "text": "guessed",
+          "start": 31.400000499999997,
+          "end": 31.52
+        },
+        {
+          "text": "wrong",
+          "start": 31.860001,
+          "end": 32.810001
+        }
+      ],
+      "leftPhraseTimes": [
+        {
+          "start": 18.549999,
+          "end": 23
+        },
+        null,
+        null
+      ],
+      "rightPhraseTimes": [
+        null,
+        null,
+        {
+          "start": 0.16,
+          "end": 2.28
+        }
+      ]
+    },
+    "story-beat-recap-ai-assisted": {
+      "words": [
+        {
+          "text": "Pause",
+          "start": 0.14,
+          "end": 0.41
+        },
+        {
+          "text": "before",
+          "start": 0.41,
+          "end": 0.78
+        },
+        {
+          "text": "the",
+          "start": 0.78,
+          "end": 0.91
+        },
+        {
+          "text": "lab",
+          "start": 0.91,
+          "end": 1.26
+        },
+        {
+          "text": "You",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "text": "have",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "text": "seen",
+          "start": 2.01,
+          "end": 2.41
+        },
+        {
+          "text": "why",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "text": "teams",
+          "start": 2.61,
+          "end": 3.06
+        },
+        {
+          "text": "reach",
+          "start": 3.06,
+          "end": 3.34
+        },
+        {
+          "text": "for",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "text": "models",
+          "start": 3.48,
+          "end": 4.11
+        },
+        {
+          "text": "what",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "text": "can",
+          "start": 4.69,
+          "end": 4.94
+        },
+        {
+          "text": "go",
+          "start": 4.94,
+          "end": 5.13
+        },
+        {
+          "text": "wrong",
+          "start": 5.13,
+          "end": 5.48
+        },
+        {
+          "text": "how",
+          "start": 5.66,
+          "end": 5.94
+        },
+        {
+          "text": "validation",
+          "start": 5.94,
+          "end": 6.73
+        },
+        {
+          "text": "and",
+          "start": 6.73,
+          "end": 6.9
+        },
+        {
+          "text": "governance",
+          "start": 6.9,
+          "end": 7.56
+        },
+        {
+          "text": "keep",
+          "start": 7.61,
+          "end": 7.86
+        },
+        {
+          "text": "speed",
+          "start": 7.86,
+          "end": 8.24
+        },
+        {
+          "text": "safe",
+          "start": 8.24,
+          "end": 8.7
+        },
+        {
+          "text": "and",
+          "start": 9.08,
+          "end": 9.28
+        },
+        {
+          "text": "why",
+          "start": 9.32,
+          "end": 9.53
+        },
+        {
+          "text": "human",
+          "start": 9.53,
+          "end": 9.91
+        },
+        {
+          "text": "review",
+          "start": 9.91,
+          "end": 10.38
+        },
+        {
+          "text": "stays",
+          "start": 10.38,
+          "end": 10.95
+        },
+        {
+          "text": "in",
+          "start": 11.03,
+          "end": 11.19
+        },
+        {
+          "text": "the",
+          "start": 11.19,
+          "end": 11.3
+        },
+        {
+          "text": "loop",
+          "start": 11.3,
+          "end": 11.56
+        },
+        {
+          "text": "Next",
+          "start": 11.9,
+          "end": 12.23
+        },
+        {
+          "text": "you",
+          "start": 12.23,
+          "end": 12.29
+        },
+        {
+          "text": "will",
+          "start": 12.29,
+          "end": 12.4
+        },
+        {
+          "text": "live",
+          "start": 12.4,
+          "end": 12.6
+        },
+        {
+          "text": "the",
+          "start": 12.6,
+          "end": 12.69
+        },
+        {
+          "text": "workflow",
+          "start": 12.69,
+          "end": 13.15
+        },
+        {
+          "text": "in",
+          "start": 13.15,
+          "end": 13.42
+        },
+        {
+          "text": "netops_ai_lab",
+          "start": 14.33,
+          "end": 14.79
+        },
+        {
+          "text": "write",
+          "start": 15.26,
+          "end": 15.32
+        },
+        {
+          "text": "a",
+          "start": 15.32,
+          "end": 15.68
+        },
+        {
+          "text": "prompt",
+          "start": 16.209999,
+          "end": 16.309999
+        },
+        {
+          "text": "for",
+          "start": 16.309999,
+          "end": 16.360001
+        },
+        {
+          "text": "a",
+          "start": 18.43,
+          "end": 18.719999
+        },
+        {
+          "text": "VLAN",
+          "start": 18.719999,
+          "end": 18.870001
+        },
+        {
+          "text": "playbook",
+          "start": 18.870001,
+          "end": 19.41
+        },
+        {
+          "text": "save",
+          "start": 19.77,
+          "end": 20.110001
+        },
+        {
+          "text": "the",
+          "start": 20.110001,
+          "end": 20.43
+        },
+        {
+          "text": "draft",
+          "start": 20.73,
+          "end": 20.870001
+        },
+        {
+          "text": "lint",
+          "start": 20.870001,
+          "end": 21.129999
+        },
+        {
+          "text": "it",
+          "start": 21.129999,
+          "end": 21.440001
+        },
+        {
+          "text": "and",
+          "start": 21.440001,
+          "end": 21.77
+        },
+        {
+          "text": "run",
+          "start": 22.360001,
+          "end": 22.58
+        },
+        {
+          "text": "check",
+          "start": 22.58,
+          "end": 22.809999
+        },
+        {
+          "text": "mode",
+          "start": 22.809999,
+          "end": 23.4
+        },
+        {
+          "text": "Use",
+          "start": 23.4,
+          "end": 23.700001
+        },
+        {
+          "text": "lab",
+          "start": 23.700001,
+          "end": 23.84
+        },
+        {
+          "text": "topology",
+          "start": 23.84,
+          "end": 24.309999
+        },
+        {
+          "text": "only",
+          "start": 24.530001,
+          "end": 24.690001
+        },
+        {
+          "text": "in",
+          "start": 24.690001,
+          "end": 24.74
+        },
+        {
+          "text": "prompts",
+          "start": 24.74,
+          "end": 25.030001
+        },
+        {
+          "text": "If",
+          "start": 25.030001,
+          "end": 25.540001
+        },
+        {
+          "text": "a",
+          "start": 25.799999,
+          "end": 26.09
+        },
+        {
+          "text": "step",
+          "start": 26.09,
+          "end": 26.16
+        },
+        {
+          "text": "fails",
+          "start": 26.16,
+          "end": 26.540001
+        },
+        {
+          "text": "fix",
+          "start": 26.540001,
+          "end": 26.860000499999998
+        },
+        {
+          "text": "it",
+          "start": 26.860000499999998,
+          "end": 27.18
+        },
+        {
+          "text": "before",
+          "start": 27.18,
+          "end": 27.25
+        },
+        {
+          "text": "continuing",
+          "start": 27.25,
+          "end": 27.470000499999998
+        },
+        {
+          "text": "-",
+          "start": 27.470000499999998,
+          "end": 27.690001
+        },
+        {
+          "text": "the",
+          "start": 27.719999,
+          "end": 28.16
+        },
+        {
+          "text": "habit",
+          "start": 28.16,
+          "end": 28.34
+        },
+        {
+          "text": "matters",
+          "start": 28.34,
+          "end": 28.52
+        },
+        {
+          "text": "more",
+          "start": 28.68,
+          "end": 28.860001
+        },
+        {
+          "text": "than",
+          "start": 28.860001,
+          "end": 28.905001
+        },
+        {
+          "text": "the",
+          "start": 28.905001,
+          "end": 28.950001
+        },
+        {
+          "text": "speed",
+          "start": 28.950001,
+          "end": 29.379999
+        }
+      ]
+    },
+    "lab-setup-ai-lab": {
+      "words": [
+        {
+          "text": "Welcome",
+          "start": 0.14,
+          "end": 0.78
+        },
+        {
+          "text": "to",
+          "start": 1.22,
+          "end": 1.29
+        },
+        {
+          "text": "the",
+          "start": 1.29,
+          "end": 1.42
+        },
+        {
+          "text": "lab",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "text": "portion",
+          "start": 1.72,
+          "end": 2.23
+        },
+        {
+          "text": "Today",
+          "start": 2.95,
+          "end": 3.46
+        },
+        {
+          "text": "you",
+          "start": 3.67,
+          "end": 3.84
+        },
+        {
+          "text": "will",
+          "start": 3.84,
+          "end": 3.96
+        },
+        {
+          "text": "not",
+          "start": 3.96,
+          "end": 4.22
+        },
+        {
+          "text": "touch",
+          "start": 4.22,
+          "end": 4.7
+        },
+        {
+          "text": "production",
+          "start": 4.75,
+          "end": 5.36
+        },
+        {
+          "text": "devices",
+          "start": 5.36,
+          "end": 6.06
+        },
+        {
+          "text": "Create",
+          "start": 6.55,
+          "end": 6.94
+        },
+        {
+          "text": "netops_ai_lab",
+          "start": 8.38,
+          "end": 9.03
+        },
+        {
+          "text": "beside",
+          "start": 9.03,
+          "end": 9.17
+        },
+        {
+          "text": "your",
+          "start": 10.26,
+          "end": 10.46
+        },
+        {
+          "text": "IaC",
+          "start": 11.49,
+          "end": 11.69
+        },
+        {
+          "text": "and",
+          "start": 11.69,
+          "end": 11.88
+        },
+        {
+          "text": "ops",
+          "start": 11.88,
+          "end": 12.5
+        },
+        {
+          "text": "repos",
+          "start": 12.93,
+          "end": 13.28
+        },
+        {
+          "text": "with",
+          "start": 13.28,
+          "end": 13.38
+        },
+        {
+          "text": "three",
+          "start": 13.38,
+          "end": 13.62
+        },
+        {
+          "text": "folders",
+          "start": 13.62,
+          "end": 13.75
+        },
+        {
+          "text": "prompts",
+          "start": 13.75,
+          "end": 13.96
+        },
+        {
+          "text": "for",
+          "start": 14.05,
+          "end": 14.12
+        },
+        {
+          "text": "what",
+          "start": 14.12,
+          "end": 14.59
+        },
+        {
+          "text": "you",
+          "start": 14.95,
+          "end": 15.53
+        },
+        {
+          "text": "ask",
+          "start": 15.53,
+          "end": 15.71
+        },
+        {
+          "text": "the",
+          "start": 15.71,
+          "end": 15.9
+        },
+        {
+          "text": "model",
+          "start": 15.9,
+          "end": 16.48
+        },
+        {
+          "text": "generated",
+          "start": 16.84,
+          "end": 17
+        },
+        {
+          "text": "for",
+          "start": 17,
+          "end": 17.48
+        },
+        {
+          "text": "raw",
+          "start": 17.48,
+          "end": 17.639999
+        },
+        {
+          "text": "output",
+          "start": 17.639999,
+          "end": 18.030001
+        },
+        {
+          "text": "and",
+          "start": 18.030001,
+          "end": 18.33
+        },
+        {
+          "text": "reviews",
+          "start": 18.33,
+          "end": 18.629999
+        },
+        {
+          "text": "for",
+          "start": 18.959999,
+          "end": 19.129999
+        },
+        {
+          "text": "human",
+          "start": 19.129999,
+          "end": 19.85
+        },
+        {
+          "text": "sign-off",
+          "start": 19.85,
+          "end": 20.23
+        },
+        {
+          "text": "That",
+          "start": 20.23,
+          "end": 20.42
+        },
+        {
+          "text": "separation",
+          "start": 20.42,
+          "end": 20.879999
+        },
+        {
+          "text": "mirrors",
+          "start": 20.879999,
+          "end": 21.26
+        },
+        {
+          "text": "how",
+          "start": 21.26,
+          "end": 21.530001
+        },
+        {
+          "text": "mature",
+          "start": 22.25,
+          "end": 22.74
+        },
+        {
+          "text": "teams",
+          "start": 23.059999,
+          "end": 23.360001
+        },
+        {
+          "text": "keep",
+          "start": 23.360001,
+          "end": 23.700001
+        },
+        {
+          "text": "untrusted",
+          "start": 23.700001,
+          "end": 24.049999
+        },
+        {
+          "text": "drafts",
+          "start": 25,
+          "end": 25.43
+        },
+        {
+          "text": "away",
+          "start": 25.43,
+          "end": 25.790001
+        },
+        {
+          "text": "from",
+          "start": 25.82,
+          "end": 26.360001
+        },
+        {
+          "text": "merged",
+          "start": 26.73,
+          "end": 27.01
+        },
+        {
+          "text": "playbooks",
+          "start": 27.01,
+          "end": 27.540001
+        },
+        {
+          "text": "until",
+          "start": 27.540001,
+          "end": 27.7600005
+        },
+        {
+          "text": "review",
+          "start": 27.7600005,
+          "end": 27.98
+        },
+        {
+          "text": "passes",
+          "start": 27.98,
+          "end": 28.120001
+        },
+        {
+          "text": "Every",
+          "start": 28.120001,
+          "end": 28.370001
+        },
+        {
+          "text": "command",
+          "start": 28.370001,
+          "end": 28.620001
+        },
+        {
+          "text": "appears",
+          "start": 28.91,
+          "end": 29.200001
+        },
+        {
+          "text": "on",
+          "start": 29.200001,
+          "end": 29.29
+        },
+        {
+          "text": "screen",
+          "start": 29.29,
+          "end": 29.379999
+        },
+        {
+          "text": "pause",
+          "start": 29.379999,
+          "end": 29.49
+        },
+        {
+          "text": "when",
+          "start": 29.49,
+          "end": 29.604999499999998
+        },
+        {
+          "text": "you",
+          "start": 29.604999499999998,
+          "end": 29.719999
+        },
+        {
+          "text": "need",
+          "start": 29.76,
+          "end": 29.860001
+        },
+        {
+          "text": "to",
+          "start": 29.889999,
+          "end": 30.034999499999998
+        },
+        {
+          "text": "catch",
+          "start": 30.034999499999998,
+          "end": 30.18
+        },
+        {
+          "text": "up",
+          "start": 30.18,
+          "end": 30.41
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 13.75,
+          "end": 15.9
+        },
+        null,
+        null
+      ]
+    },
+    "save-network-automation-prompt": {
+      "words": [
+        {
+          "text": "Step",
+          "start": 0.14,
+          "end": 0.49
+        },
+        {
+          "text": "one",
+          "start": 0.49,
+          "end": 0.76
+        },
+        {
+          "text": "writes",
+          "start": 0.76,
+          "end": 1.1
+        },
+        {
+          "text": "the",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "text": "prompt",
+          "start": 1.2,
+          "end": 1.6
+        },
+        {
+          "text": "as",
+          "start": 1.63,
+          "end": 1.78
+        },
+        {
+          "text": "a",
+          "start": 1.78,
+          "end": 1.84
+        },
+        {
+          "text": "file",
+          "start": 1.84,
+          "end": 2.31
+        },
+        {
+          "text": "not",
+          "start": 2.52,
+          "end": 2.88
+        },
+        {
+          "text": "as",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "text": "a",
+          "start": 3.11,
+          "end": 3.17
+        },
+        {
+          "text": "disposable",
+          "start": 3.17,
+          "end": 3.86
+        },
+        {
+          "text": "chat",
+          "start": 3.86,
+          "end": 4.19
+        },
+        {
+          "text": "message",
+          "start": 4.19,
+          "end": 4.75
+        },
+        {
+          "text": "State",
+          "start": 5.33,
+          "end": 5.74
+        },
+        {
+          "text": "the",
+          "start": 5.77,
+          "end": 5.89
+        },
+        {
+          "text": "task",
+          "start": 5.89,
+          "end": 6.4
+        },
+        {
+          "text": "target",
+          "start": 6.62,
+          "end": 7.06
+        },
+        {
+          "text": "platform",
+          "start": 7.06,
+          "end": 7.64
+        },
+        {
+          "text": "idempotency",
+          "start": 8.85,
+          "end": 9.55
+        },
+        {
+          "text": "requirement",
+          "start": 9.74,
+          "end": 9.92
+        },
+        {
+          "text": "and",
+          "start": 9.98,
+          "end": 10.54
+        },
+        {
+          "text": "constraints",
+          "start": 10.54,
+          "end": 10.79
+        },
+        {
+          "text": "such",
+          "start": 10.79,
+          "end": 10.94
+        },
+        {
+          "text": "as",
+          "start": 11.48,
+          "end": 11.76
+        },
+        {
+          "text": "ansible-lint",
+          "start": 11.76,
+          "end": 12.06
+        },
+        {
+          "text": "clean",
+          "start": 12.06,
+          "end": 12.28
+        },
+        {
+          "text": "and",
+          "start": 12.28,
+          "end": 12.4
+        },
+        {
+          "text": "no",
+          "start": 12.4,
+          "end": 13.08
+        },
+        {
+          "text": "credentials",
+          "start": 13.08,
+          "end": 13.21
+        },
+        {
+          "text": "in",
+          "start": 13.25,
+          "end": 13.82
+        },
+        {
+          "text": "output",
+          "start": 14.21,
+          "end": 14.71
+        },
+        {
+          "text": "Saving",
+          "start": 14.71,
+          "end": 14.92
+        },
+        {
+          "text": "under",
+          "start": 14.92,
+          "end": 15.46
+        },
+        {
+          "text": "prompts",
+          "start": 15.81,
+          "end": 16.139999
+        },
+        {
+          "text": "lets",
+          "start": 16.139999,
+          "end": 16.200001
+        },
+        {
+          "text": "you",
+          "start": 16.58,
+          "end": 16.91
+        },
+        {
+          "text": "diff",
+          "start": 16.959999,
+          "end": 17.59
+        },
+        {
+          "text": "prompt",
+          "start": 18.200001,
+          "end": 18.43
+        },
+        {
+          "text": "versions",
+          "start": 18.43,
+          "end": 18.68
+        },
+        {
+          "text": "re-run",
+          "start": 18.68,
+          "end": 19.41
+        },
+        {
+          "text": "generation",
+          "start": 19.41,
+          "end": 19.77
+        },
+        {
+          "text": "after",
+          "start": 19.77,
+          "end": 19.809999
+        },
+        {
+          "text": "a",
+          "start": 19.809999,
+          "end": 20.42
+        },
+        {
+          "text": "failure",
+          "start": 20.85,
+          "end": 20.99
+        },
+        {
+          "text": "and",
+          "start": 20.99,
+          "end": 21.25
+        },
+        {
+          "text": "show",
+          "start": 21.25,
+          "end": 21.93
+        },
+        {
+          "text": "auditors",
+          "start": 21.93,
+          "end": 22.43
+        },
+        {
+          "text": "exactly",
+          "start": 22.43,
+          "end": 22.66
+        },
+        {
+          "text": "what",
+          "start": 22.66,
+          "end": 22.799999
+        },
+        {
+          "text": "you",
+          "start": 22.860001,
+          "end": 23.139999
+        },
+        {
+          "text": "asked",
+          "start": 23.139999,
+          "end": 23.209999
+        },
+        {
+          "text": "the",
+          "start": 23.209999,
+          "end": 23.719999
+        },
+        {
+          "text": "model",
+          "start": 23.98,
+          "end": 24.4
+        },
+        {
+          "text": "during",
+          "start": 24.4,
+          "end": 24.51
+        },
+        {
+          "text": "a",
+          "start": 24.51,
+          "end": 24.889999
+        },
+        {
+          "text": "change",
+          "start": 24.889999,
+          "end": 25.379999
+        },
+        {
+          "text": "review",
+          "start": 24.889999,
+          "end": 25.379999
+        }
+      ]
+    },
+    "generate-playbook-with-llm": {
+      "words": [
+        {
+          "text": "Step",
+          "start": 0.14,
+          "end": 0.55
+        },
+        {
+          "text": "two",
+          "start": 0.55,
+          "end": 0.84
+        },
+        {
+          "text": "saves",
+          "start": 1.02,
+          "end": 1.5
+        },
+        {
+          "text": "model",
+          "start": 1.5,
+          "end": 1.92
+        },
+        {
+          "text": "output",
+          "start": 1.92,
+          "end": 2.52
+        },
+        {
+          "text": "into",
+          "start": 2.76,
+          "end": 3.02
+        },
+        {
+          "text": "generated",
+          "start": 3.02,
+          "end": 3.85
+        },
+        {
+          "text": "and",
+          "start": 3.92,
+          "end": 4.12
+        },
+        {
+          "text": "logs",
+          "start": 4.12,
+          "end": 4.69
+        },
+        {
+          "text": "ai-draft",
+          "start": 4.88,
+          "end": 5.27
+        },
+        {
+          "text": "in",
+          "start": 5.3,
+          "end": 5.78
+        },
+        {
+          "text": "reviews",
+          "start": 6.01,
+          "end": 6.2
+        },
+        {
+          "text": "That",
+          "start": 6.23,
+          "end": 6.79
+        },
+        {
+          "text": "log",
+          "start": 7.09,
+          "end": 7.44
+        },
+        {
+          "text": "line",
+          "start": 7.44,
+          "end": 7.71
+        },
+        {
+          "text": "matters",
+          "start": 7.71,
+          "end": 7.98
+        },
+        {
+          "text": "it",
+          "start": 7.98,
+          "end": 8.59
+        },
+        {
+          "text": "proves",
+          "start": 9,
+          "end": 9.19
+        },
+        {
+          "text": "generation",
+          "start": 9.23,
+          "end": 9.71
+        },
+        {
+          "text": "happened",
+          "start": 9.92,
+          "end": 10.58
+        },
+        {
+          "text": "before",
+          "start": 10.58,
+          "end": 11.1
+        },
+        {
+          "text": "a",
+          "start": 11.1,
+          "end": 11.58
+        },
+        {
+          "text": "human",
+          "start": 11.58,
+          "end": 11.61
+        },
+        {
+          "text": "signed",
+          "start": 11.61,
+          "end": 12.1
+        },
+        {
+          "text": "off",
+          "start": 12.1,
+          "end": 12.46
+        },
+        {
+          "text": "Treat",
+          "start": 12.46,
+          "end": 12.76
+        },
+        {
+          "text": "everything",
+          "start": 13.21,
+          "end": 13.51
+        },
+        {
+          "text": "in",
+          "start": 13.59,
+          "end": 14.18
+        },
+        {
+          "text": "generated",
+          "start": 14.22,
+          "end": 14.39
+        },
+        {
+          "text": "as",
+          "start": 14.39,
+          "end": 15.19
+        },
+        {
+          "text": "untrusted",
+          "start": 15.53,
+          "end": 15.81
+        },
+        {
+          "text": "until",
+          "start": 16.969999,
+          "end": 17.309999
+        },
+        {
+          "text": "lint",
+          "start": 17.309999,
+          "end": 17.68
+        },
+        {
+          "text": "and",
+          "start": 17.76,
+          "end": 17.92
+        },
+        {
+          "text": "check",
+          "start": 17.92,
+          "end": 18.25
+        },
+        {
+          "text": "mode",
+          "start": 18.25,
+          "end": 18.559999
+        },
+        {
+          "text": "pass",
+          "start": 18.620001,
+          "end": 19.040001
+        },
+        {
+          "text": "Do",
+          "start": 19.469999,
+          "end": 19.559999
+        },
+        {
+          "text": "not",
+          "start": 19.559999,
+          "end": 19.889999
+        },
+        {
+          "text": "copy",
+          "start": 20.02,
+          "end": 20.530001
+        },
+        {
+          "text": "it",
+          "start": 20.559999,
+          "end": 20.76
+        },
+        {
+          "text": "straight",
+          "start": 20.76,
+          "end": 21.26
+        },
+        {
+          "text": "into",
+          "start": 21.299999,
+          "end": 21.639999
+        },
+        {
+          "text": "your",
+          "start": 21.639999,
+          "end": 21.799999
+        },
+        {
+          "text": "production",
+          "start": 21.799999,
+          "end": 22.4
+        },
+        {
+          "text": "playbooks",
+          "start": 22.959999,
+          "end": 23.450001
+        },
+        {
+          "text": "folder",
+          "start": 23.91,
+          "end": 24.360001
+        },
+        {
+          "text": "without",
+          "start": 24.4,
+          "end": 24.5
+        },
+        {
+          "text": "the",
+          "start": 24.5,
+          "end": 25.200001
+        },
+        {
+          "text": "validation",
+          "start": 25.200001,
+          "end": 25.74
+        },
+        {
+          "text": "steps",
+          "start": 25.889999,
+          "end": 26.120001
+        },
+        {
+          "text": "that",
+          "start": 26.120001,
+          "end": 26.559999
+        },
+        {
+          "text": "follow",
+          "start": 26.120001,
+          "end": 26.559999
+        }
+      ]
+    },
+    "lint-generated-playbook": {
+      "words": [
+        {
+          "text": "Step",
+          "start": 0.07,
+          "end": 0.4
+        },
+        {
+          "text": "three",
+          "start": 0.4,
+          "end": 0.84
+        },
+        {
+          "text": "copies",
+          "start": 0.9,
+          "end": 1.26
+        },
+        {
+          "text": "the",
+          "start": 1.26,
+          "end": 1.35
+        },
+        {
+          "text": "draft",
+          "start": 1.35,
+          "end": 1.77
+        },
+        {
+          "text": "into",
+          "start": 1.77,
+          "end": 2.01
+        },
+        {
+          "text": "your",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "text": "IaC",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "text": "playbooks",
+          "start": 4.11,
+          "end": 4.35
+        },
+        {
+          "text": "path",
+          "start": 4.35,
+          "end": 4.5
+        },
+        {
+          "text": "only",
+          "start": 4.5,
+          "end": 5.28
+        },
+        {
+          "text": "for",
+          "start": 5.63,
+          "end": 5.86
+        },
+        {
+          "text": "validation",
+          "start": 5.86,
+          "end": 6.17
+        },
+        {
+          "text": "then",
+          "start": 6.7,
+          "end": 7.03
+        },
+        {
+          "text": "runs",
+          "start": 7.03,
+          "end": 7.2
+        },
+        {
+          "text": "ansible-lint",
+          "start": 7.2,
+          "end": 7.28
+        },
+        {
+          "text": "and",
+          "start": 7.28,
+          "end": 7.71
+        },
+        {
+          "text": "the",
+          "start": 7.71,
+          "end": 8.21
+        },
+        {
+          "text": "secure",
+          "start": 8.74,
+          "end": 8.97
+        },
+        {
+          "text": "intent",
+          "start": 8.97,
+          "end": 9.27
+        },
+        {
+          "text": "validator",
+          "start": 9.27,
+          "end": 9.58
+        },
+        {
+          "text": "from",
+          "start": 10.05,
+          "end": 10.39
+        },
+        {
+          "text": "course",
+          "start": 10.39,
+          "end": 10.9
+        },
+        {
+          "text": "three",
+          "start": 11.08,
+          "end": 11.4
+        },
+        {
+          "text": "These",
+          "start": 11.45,
+          "end": 11.9
+        },
+        {
+          "text": "gates",
+          "start": 11.94,
+          "end": 12.59
+        },
+        {
+          "text": "catch",
+          "start": 12.77,
+          "end": 13.19
+        },
+        {
+          "text": "unsafe",
+          "start": 13.19,
+          "end": 14.02
+        },
+        {
+          "text": "modules",
+          "start": 14.44,
+          "end": 14.6
+        },
+        {
+          "text": "style",
+          "start": 14.6,
+          "end": 15.04
+        },
+        {
+          "text": "violations",
+          "start": 16.24,
+          "end": 16.43
+        },
+        {
+          "text": "and",
+          "start": 16.43,
+          "end": 16.799999
+        },
+        {
+          "text": "intent",
+          "start": 16.799999,
+          "end": 16.950001
+        },
+        {
+          "text": "mismatches",
+          "start": 16.950001,
+          "end": 17.200001
+        },
+        {
+          "text": "while",
+          "start": 17.200001,
+          "end": 17.5
+        },
+        {
+          "text": "failure",
+          "start": 18.110001,
+          "end": 18.280001
+        },
+        {
+          "text": "is",
+          "start": 18.309999,
+          "end": 18.639999
+        },
+        {
+          "text": "still",
+          "start": 18.639999,
+          "end": 19.280001
+        },
+        {
+          "text": "cheap",
+          "start": 19.67,
+          "end": 20.08
+        },
+        {
+          "text": "If",
+          "start": 20.08,
+          "end": 20.18
+        },
+        {
+          "text": "lint",
+          "start": 20.18,
+          "end": 20.395000500000002
+        },
+        {
+          "text": "fails",
+          "start": 20.395000500000002,
+          "end": 20.610001
+        },
+        {
+          "text": "tighten",
+          "start": 20.610001,
+          "end": 21.35
+        },
+        {
+          "text": "the",
+          "start": 21.9,
+          "end": 21.99
+        },
+        {
+          "text": "prompt",
+          "start": 21.99,
+          "end": 22.08
+        },
+        {
+          "text": "constraints",
+          "start": 22.08,
+          "end": 22.549999
+        },
+        {
+          "text": "and",
+          "start": 22.549999,
+          "end": 22.795
+        },
+        {
+          "text": "generate",
+          "start": 22.795,
+          "end": 23.040001
+        },
+        {
+          "text": "again",
+          "start": 23.200001,
+          "end": 23.469999
+        },
+        {
+          "text": "rather",
+          "start": 23.469999,
+          "end": 23.5749995
+        },
+        {
+          "text": "than",
+          "start": 23.5749995,
+          "end": 23.68
+        },
+        {
+          "text": "arguing",
+          "start": 23.719999,
+          "end": 24.120001
+        },
+        {
+          "text": "with",
+          "start": 24.120001,
+          "end": 24.17
+        },
+        {
+          "text": "the",
+          "start": 24.17,
+          "end": 24.219999
+        },
+        {
+          "text": "linter",
+          "start": 24.219999,
+          "end": 24.34
+        }
+      ]
+    },
+    "check-mode-ai-playbook": {
+      "words": [
+        {
+          "text": "Step",
+          "start": 0.09,
+          "end": 0.44
+        },
+        {
+          "text": "four",
+          "start": 0.44,
+          "end": 0.8
+        },
+        {
+          "text": "runs",
+          "start": 0.83,
+          "end": 1.32
+        },
+        {
+          "text": "ansible-playbook",
+          "start": 2.29,
+          "end": 2.4
+        },
+        {
+          "text": "with",
+          "start": 2.49,
+          "end": 2.73
+        },
+        {
+          "text": "check",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "text": "and",
+          "start": 3.09,
+          "end": 3.56
+        },
+        {
+          "text": "diff",
+          "start": 3.78,
+          "end": 3.89
+        },
+        {
+          "text": "so",
+          "start": 3.89,
+          "end": 4.14
+        },
+        {
+          "text": "you",
+          "start": 4.14,
+          "end": 4.63
+        },
+        {
+          "text": "see",
+          "start": 4.63,
+          "end": 5.18
+        },
+        {
+          "text": "planned",
+          "start": 5.27,
+          "end": 5.66
+        },
+        {
+          "text": "changes",
+          "start": 5.66,
+          "end": 6.11
+        },
+        {
+          "text": "without",
+          "start": 6.11,
+          "end": 6.34
+        },
+        {
+          "text": "applying",
+          "start": 6.78,
+          "end": 7.07
+        },
+        {
+          "text": "them",
+          "start": 7.07,
+          "end": 7.19
+        },
+        {
+          "text": "Read",
+          "start": 7.19,
+          "end": 7.75
+        },
+        {
+          "text": "the",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "text": "output",
+          "start": 7.98,
+          "end": 8.17
+        },
+        {
+          "text": "the",
+          "start": 8.17,
+          "end": 8.37
+        },
+        {
+          "text": "way",
+          "start": 8.37,
+          "end": 8.54
+        },
+        {
+          "text": "you",
+          "start": 8.54,
+          "end": 8.86
+        },
+        {
+          "text": "would",
+          "start": 8.9,
+          "end": 9
+        },
+        {
+          "text": "read",
+          "start": 9,
+          "end": 9.28
+        },
+        {
+          "text": "a",
+          "start": 9.28,
+          "end": 9.62
+        },
+        {
+          "text": "dry-run",
+          "start": 9.65,
+          "end": 9.79
+        },
+        {
+          "text": "on",
+          "start": 9.79,
+          "end": 9.88
+        },
+        {
+          "text": "a",
+          "start": 9.88,
+          "end": 10.12
+        },
+        {
+          "text": "real",
+          "start": 10.12,
+          "end": 10.61
+        },
+        {
+          "text": "change",
+          "start": 10.95,
+          "end": 11.16
+        },
+        {
+          "text": "When",
+          "start": 11.16,
+          "end": 11.28
+        },
+        {
+          "text": "the",
+          "start": 11.32,
+          "end": 11.63
+        },
+        {
+          "text": "plan",
+          "start": 11.63,
+          "end": 12.11
+        },
+        {
+          "text": "matches",
+          "start": 12.11,
+          "end": 12.81
+        },
+        {
+          "text": "intent",
+          "start": 13.38,
+          "end": 13.7
+        },
+        {
+          "text": "log",
+          "start": 13.7,
+          "end": 14.13
+        },
+        {
+          "text": "human-approved",
+          "start": 14.13,
+          "end": 14.75
+        },
+        {
+          "text": "in",
+          "start": 14.92,
+          "end": 15.09
+        },
+        {
+          "text": "reviews",
+          "start": 15.09,
+          "end": 15.69
+        },
+        {
+          "text": "That",
+          "start": 16.209999,
+          "end": 16.41
+        },
+        {
+          "text": "single",
+          "start": 16.41,
+          "end": 16.860001
+        },
+        {
+          "text": "log",
+          "start": 16.860001,
+          "end": 17.17
+        },
+        {
+          "text": "entry",
+          "start": 17.17,
+          "end": 17.780001
+        },
+        {
+          "text": "is",
+          "start": 17.940001,
+          "end": 18.360001
+        },
+        {
+          "text": "evidence",
+          "start": 18.42,
+          "end": 19.08
+        },
+        {
+          "text": "your",
+          "start": 19.08,
+          "end": 19.18
+        },
+        {
+          "text": "governance",
+          "start": 19.18,
+          "end": 19.91
+        },
+        {
+          "text": "workflow",
+          "start": 19.91,
+          "end": 20.620001
+        },
+        {
+          "text": "was",
+          "start": 20.940001,
+          "end": 21.16
+        },
+        {
+          "text": "followed",
+          "start": 21.16,
+          "end": 21.73
+        }
+      ]
+    },
+    "troubleshoot-unsafe-ai-output": {
+      "words": [
+        {
+          "text": "When",
+          "start": 0.13,
+          "end": 0.29
+        },
+        {
+          "text": "a",
+          "start": 0.29,
+          "end": 0.36
+        },
+        {
+          "text": "draft",
+          "start": 0.36,
+          "end": 0.74
+        },
+        {
+          "text": "fails",
+          "start": 0.74,
+          "end": 1.14
+        },
+        {
+          "text": "review",
+          "start": 1.14,
+          "end": 1.7
+        },
+        {
+          "text": "search",
+          "start": 2.37,
+          "end": 2.93
+        },
+        {
+          "text": "before",
+          "start": 2.93,
+          "end": 3.25
+        },
+        {
+          "text": "you",
+          "start": 3.25,
+          "end": 3.35
+        },
+        {
+          "text": "discard",
+          "start": 3.35,
+          "end": 4.1
+        },
+        {
+          "text": "Grep",
+          "start": 5.04,
+          "end": 5.22
+        },
+        {
+          "text": "for",
+          "start": 5.22,
+          "end": 5.99
+        },
+        {
+          "text": "passwords",
+          "start": 6.48,
+          "end": 6.96
+        },
+        {
+          "text": "API",
+          "start": 6.96,
+          "end": 7.5
+        },
+        {
+          "text": "keys",
+          "start": 7.87,
+          "end": 8.06
+        },
+        {
+          "text": "and",
+          "start": 8.06,
+          "end": 8.6
+        },
+        {
+          "text": "disabled",
+          "start": 9.08,
+          "end": 9.8
+        },
+        {
+          "text": "TLS",
+          "start": 10.5,
+          "end": 11.11
+        },
+        {
+          "text": "settings",
+          "start": 11.83,
+          "end": 12.22
+        },
+        {
+          "text": "Reject",
+          "start": 12.22,
+          "end": 12.84
+        },
+        {
+          "text": "hallucinated",
+          "start": 13.28,
+          "end": 13.47
+        },
+        {
+          "text": "module",
+          "start": 13.47,
+          "end": 14.21
+        },
+        {
+          "text": "names",
+          "start": 14.21,
+          "end": 14.77
+        },
+        {
+          "text": "and",
+          "start": 14.91,
+          "end": 15.33
+        },
+        {
+          "text": "destructive",
+          "start": 15.36,
+          "end": 15.91
+        },
+        {
+          "text": "tasks",
+          "start": 16.34,
+          "end": 16.42
+        },
+        {
+          "text": "without",
+          "start": 16.42,
+          "end": 16.76
+        },
+        {
+          "text": "guards",
+          "start": 16.76,
+          "end": 16.959999
+        },
+        {
+          "text": "The",
+          "start": 16.959999,
+          "end": 17.25
+        },
+        {
+          "text": "model",
+          "start": 17.25,
+          "end": 17.879999
+        },
+        {
+          "text": "is",
+          "start": 17.950001,
+          "end": 18.17
+        },
+        {
+          "text": "not",
+          "start": 18.17,
+          "end": 18.559999
+        },
+        {
+          "text": "malicious",
+          "start": 18.559999,
+          "end": 19.209999
+        },
+        {
+          "text": "-",
+          "start": 19.32,
+          "end": 19.59
+        },
+        {
+          "text": "it",
+          "start": 19.59,
+          "end": 19.98
+        },
+        {
+          "text": "pattern-completes",
+          "start": 19.98,
+          "end": 20.379999
+        },
+        {
+          "text": "from",
+          "start": 20.549999,
+          "end": 20.709999
+        },
+        {
+          "text": "training",
+          "start": 20.709999,
+          "end": 21.27
+        },
+        {
+          "text": "data",
+          "start": 21.27,
+          "end": 21.384999999999998
+        },
+        {
+          "text": "that",
+          "start": 21.384999999999998,
+          "end": 21.5
+        },
+        {
+          "text": "included",
+          "start": 21.5,
+          "end": 22.27
+        },
+        {
+          "text": "bad",
+          "start": 22.34,
+          "end": 22.509999999999998
+        },
+        {
+          "text": "examples",
+          "start": 22.509999999999998,
+          "end": 22.68
+        },
+        {
+          "text": "Fix",
+          "start": 22.68,
+          "end": 22.780001
+        },
+        {
+          "text": "the",
+          "start": 22.780001,
+          "end": 23.020000500000002
+        },
+        {
+          "text": "prompt",
+          "start": 23.020000500000002,
+          "end": 23.26
+        },
+        {
+          "text": "regenerate",
+          "start": 23.379999,
+          "end": 24.17
+        },
+        {
+          "text": "and",
+          "start": 24.32,
+          "end": 24.41
+        },
+        {
+          "text": "validate",
+          "start": 24.41,
+          "end": 24.5
+        },
+        {
+          "text": "again",
+          "start": 25.040001,
+          "end": 25.5
+        }
+      ]
+    },
+    "ai-assisted-ready-for-mcp": {
+      "words": [
+        {
+          "text": "You",
+          "start": 0.15,
+          "end": 0.29
+        },
+        {
+          "text": "now",
+          "start": 0.29,
+          "end": 0.51
+        },
+        {
+          "text": "have",
+          "start": 0.59,
+          "end": 0.87
+        },
+        {
+          "text": "a",
+          "start": 0.96,
+          "end": 1.06
+        },
+        {
+          "text": "defensible",
+          "start": 2.12,
+          "end": 2.52
+        },
+        {
+          "text": "AI",
+          "start": 2.52,
+          "end": 3.06
+        },
+        {
+          "text": "drafting",
+          "start": 3.06,
+          "end": 3.6
+        },
+        {
+          "text": "workflow",
+          "start": 3.8,
+          "end": 4.01
+        },
+        {
+          "text": "with",
+          "start": 4.06,
+          "end": 4.6
+        },
+        {
+          "text": "artifacts",
+          "start": 4.67,
+          "end": 4.73
+        },
+        {
+          "text": "to",
+          "start": 4.73,
+          "end": 5.16
+        },
+        {
+          "text": "show",
+          "start": 5.23,
+          "end": 5.37
+        },
+        {
+          "text": "in",
+          "start": 5.37,
+          "end": 5.48
+        },
+        {
+          "text": "a",
+          "start": 5.48,
+          "end": 5.99
+        },
+        {
+          "text": "review",
+          "start": 6.34,
+          "end": 6.62
+        },
+        {
+          "text": "prompt",
+          "start": 6.62,
+          "end": 7.07
+        },
+        {
+          "text": "file",
+          "start": 7.54,
+          "end": 8.19
+        },
+        {
+          "text": "generated",
+          "start": 8.19,
+          "end": 8.75
+        },
+        {
+          "text": "draft",
+          "start": 8.97,
+          "end": 9.35
+        },
+        {
+          "text": "lint",
+          "start": 9.35,
+          "end": 9.89
+        },
+        {
+          "text": "results",
+          "start": 10.21,
+          "end": 10.53
+        },
+        {
+          "text": "check",
+          "start": 10.53,
+          "end": 10.79
+        },
+        {
+          "text": "mode",
+          "start": 10.85,
+          "end": 11.4
+        },
+        {
+          "text": "output",
+          "start": 11.67,
+          "end": 11.84
+        },
+        {
+          "text": "and",
+          "start": 11.84,
+          "end": 12.28
+        },
+        {
+          "text": "approval",
+          "start": 12.28,
+          "end": 12.64
+        },
+        {
+          "text": "log",
+          "start": 13.28,
+          "end": 13.52
+        },
+        {
+          "text": "That",
+          "start": 13.52,
+          "end": 13.64
+        },
+        {
+          "text": "is",
+          "start": 13.64,
+          "end": 13.73
+        },
+        {
+          "text": "the",
+          "start": 13.73,
+          "end": 14.46
+        },
+        {
+          "text": "foundation",
+          "start": 14.78,
+          "end": 15.51
+        },
+        {
+          "text": "intelligent",
+          "start": 15.54,
+          "end": 16.35
+        },
+        {
+          "text": "automation",
+          "start": 16.610001,
+          "end": 17.1
+        },
+        {
+          "text": "builds",
+          "start": 17.1,
+          "end": 17.33
+        },
+        {
+          "text": "on",
+          "start": 17.59,
+          "end": 17.98
+        },
+        {
+          "text": "Module",
+          "start": 17.98,
+          "end": 18.34
+        },
+        {
+          "text": "two",
+          "start": 18.530001,
+          "end": 19.139999
+        },
+        {
+          "text": "tackles",
+          "start": 19.42,
+          "end": 19.6
+        },
+        {
+          "text": "the",
+          "start": 19.6,
+          "end": 20.02
+        },
+        {
+          "text": "next",
+          "start": 20.049999,
+          "end": 20.57
+        },
+        {
+          "text": "problem",
+          "start": 20.57,
+          "end": 21.16
+        },
+        {
+          "text": "models",
+          "start": 21.25,
+          "end": 21.629999
+        },
+        {
+          "text": "have",
+          "start": 21.75,
+          "end": 21.92
+        },
+        {
+          "text": "on",
+          "start": 21.92,
+          "end": 22.129999
+        },
+        {
+          "text": "their",
+          "start": 22.129999,
+          "end": 22.48
+        },
+        {
+          "text": "own",
+          "start": 22.700001,
+          "end": 22.809999
+        },
+        {
+          "text": "they",
+          "start": 22.809999,
+          "end": 22.940001
+        },
+        {
+          "text": "do",
+          "start": 22.940001,
+          "end": 23.16
+        },
+        {
+          "text": "not",
+          "start": 23.190001,
+          "end": 23.5
+        },
+        {
+          "text": "know",
+          "start": 23.5,
+          "end": 23.73
+        },
+        {
+          "text": "your",
+          "start": 24.469999,
+          "end": 25.01
+        },
+        {
+          "text": "VLANs",
+          "start": 25.040001,
+          "end": 25.200001
+        },
+        {
+          "text": "unless",
+          "start": 25.200001,
+          "end": 25.345000499999998
+        },
+        {
+          "text": "you",
+          "start": 25.345000499999998,
+          "end": 25.49
+        },
+        {
+          "text": "give",
+          "start": 25.49,
+          "end": 25.809999
+        },
+        {
+          "text": "them",
+          "start": 25.85,
+          "end": 26.110000499999998
+        },
+        {
+          "text": "safe",
+          "start": 26.110000499999998,
+          "end": 26.370001
+        },
+        {
+          "text": "read",
+          "start": 26.48,
+          "end": 26.82
+        },
+        {
+          "text": "access",
+          "start": 26.91,
+          "end": 27.205
+        },
+        {
+          "text": "through",
+          "start": 27.205,
+          "end": 27.5
+        },
+        {
+          "text": "MCP",
+          "start": 27.639999,
+          "end": 27.879999
+        }
+      ]
+    }
+  },
+  "lineMappings": {
+    "save-network-automation-prompt": [
+      {
+        "id": "task",
+        "line": 3,
+        "wordRange": [
+          16,
+          16
+        ]
+      },
+      {
+        "id": "constraints",
+        "line": 4,
+        "wordRange": [
+          22,
+          22
+        ]
+      }
+    ]
+  }
+}

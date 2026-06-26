@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Lab workspace setup">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    <g id="viz-folder" transform="translate(80 100)">
+      <rect width="220" height="200" rx="16" fill="#081827" stroke="#203a56" stroke-width="1.5"/>
+      <text x="24" y="40" fill="#12b5e5" font-family="monospace" font-size="14" font-weight="700">lab/</text>
+      <text x="40" y="72" fill="#9fb3c8" font-family="monospace" font-size="13">intended/</text>
+      <text x="56" y="100" fill="#6CC04A" font-family="monospace" font-size="13">config.yaml</text>
+      <text x="40" y="132" fill="#64748b" font-family="monospace" font-size="12">scripts/</text>
+    </g>
+    <g id="viz-terminal" transform="translate(340 120)">
+      <rect width="280" height="180" rx="14" fill="#020617" stroke="#12b5e5" stroke-width="2"/>
+      <circle cx="24" cy="24" r="6" fill="#ef4444"/><circle cx="44" cy="24" r="6" fill="#f59e0b"/><circle cx="64" cy="24" r="6" fill="#6CC04A"/>
+      <text x="20" y="60" fill="#6CC04A" font-family="monospace" font-size="12">$ python -m venv .venv</text>
+      <text x="20" y="84" fill="#9fb3c8" font-family="monospace" font-size="12">$ source .venv/bin/activate</text>
+      <text x="20" y="108" fill="#9fb3c8" font-family="monospace" font-size="12">$ pip install -r requirements.txt</text>
+    </g>
+    <g id="viz-check" transform="translate(280 360)">
+      <circle cx="80" cy="40" r="28" fill="#112115" stroke="#6CC04A" stroke-width="3"/>
+      <path d="M68 40l8 8 18-20" fill="none" stroke="#6CC04A" stroke-width="4" stroke-linecap="round"/>
+      <text x="80" y="90" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" text-anchor="middle">Workspace ready</text>
+    </g>
+  
+  </g>
+</svg>

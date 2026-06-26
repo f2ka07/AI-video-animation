@@ -1,0 +1,14 @@
+{
+  "diagram": "source-of-truth-plain-language.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 10,
+      "show": [
+        "main"
+      ],
+      "dim": [],
+      "highlight": []
+    }
+  ]
+}

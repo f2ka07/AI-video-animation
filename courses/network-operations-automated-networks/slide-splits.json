@@ -1,0 +1,6199 @@
+{
+  "_comment": "Auto-bootstrapped from content + audio durations. Run derive-boundaries-from-script after timings.",
+  "polling-vs-streaming": {
+    "splitAt": [
+      13.39,
+      26.77
+    ],
+    "segments": [
+      {
+        "points": [
+          "Traditional monitoring often polls every five minutes an NMS",
+          "SNMP get requests and stores whatever counters happened",
+          "That works for slow — moving links but misses"
+        ],
+        "keyWords": [
+          [
+            "Traditional",
+            "monitoring",
+            "often",
+            "polls"
+          ],
+          [
+            "SNMP",
+            "get",
+            "requests",
+            "stores"
+          ],
+          [
+            "works",
+            "slow-moving",
+            "links",
+            "misses"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 4.78
+          },
+          {
+            "start": 5.43,
+            "end": 10.06
+          },
+          {
+            "start": 10.63,
+            "end": 13.78
+          }
+        ]
+      },
+      {
+        "points": [
+          "CPU spike or a flap that cleared before",
+          "Every second or on change —"
+        ],
+        "keyWords": [
+          [
+            "Streaming",
+            "telemetry",
+            "CPU",
+            "spike"
+          ],
+          [
+            "change"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.18,
+            "end": 22.16
+          },
+          {
+            "start": 22.719999,
+            "end": 25.01
+          }
+        ]
+      },
+      {
+        "points": [
+          "The device is the publisher your collector listens",
+          "Data feeds validation scripts dashboards and anomaly detectors without"
+        ],
+        "keyWords": [
+          [
+            "streaming",
+            "device",
+            "publisher",
+            "your"
+          ],
+          [
+            "data",
+            "feeds",
+            "validation",
+            "scripts"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 26.99,
+            "end": 33.990002
+          },
+          {
+            "start": 35.119999,
+            "end": 40.07
+          }
+        ]
+      }
+    ]
+  },
+  "what-model-driven-telemetry-means": {
+    "splitAt": [
+      14.37,
+      28.73
+    ],
+    "segments": [
+      {
+        "points": [
+          "Model — driven telemetry often shortened to MDT",
+          "YANG models the platform already understands — not random"
+        ],
+        "keyWords": [
+          [
+            "Model-driven",
+            "telemetry",
+            "Model",
+            "often"
+          ],
+          [
+            "model",
+            "YANG",
+            "models",
+            "platform"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.13,
+            "end": 2.79
+          },
+          {
+            "start": 3.86,
+            "end": 14.56
+          }
+        ]
+      },
+      {
+        "points": [
+          "The model is the contract between",
+          "Model — driven telemetry, often shortened to MDT, means",
+          "A path like interfaces — state slash interface slash",
+          "The model is the contract between producer and consumer."
+        ],
+        "keyWords": [
+          [
+            "model",
+            "contract"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.75,
+            "end": 29.190001
+          }
+        ]
+      },
+      {
+        "points": [
+          "That is why exam three point one focuses",
+          "OID from legacy SNMP"
+        ],
+        "keyWords": [
+          [
+            "exam",
+            "three",
+            "point",
+            "one"
+          ],
+          [
+            "OID",
+            "legacy",
+            "SNMP"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 29.34,
+            "end": 39.669998
+          },
+          {
+            "start": 40.279999,
+            "end": 42.009998
+          }
+        ]
+      }
+    ]
+  },
+  "mdt-architecture-components": {
+    "splitAt": [
+      11.01,
+      22.02,
+      33.03
+    ],
+    "segments": [
+      {
+        "points": [
+          "Exam three point one names",
+          "Four architectural pieces you should sketch from memory",
+          "The data producer is the network device — router"
+        ],
+        "keyWords": [
+          [
+            "Exam",
+            "three",
+            "point",
+            "one"
+          ],
+          [
+            "architectural",
+            "pieces",
+            "sketch",
+            "memory"
+          ],
+          [
+            "data",
+            "producer",
+            "network",
+            "device"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 1.97
+          },
+          {
+            "start": 2.52,
+            "end": 5.75
+          },
+          {
+            "start": 6.26,
+            "end": 11.06
+          }
+        ]
+      },
+      {
+        "points": [
+          "A telemetry agent that reads",
+          "The transport is usually gRPC over TCP sometimes"
+        ],
+        "keyWords": [
+          [
+            "telemetry",
+            "agent",
+            "reads"
+          ],
+          [
+            "transport",
+            "usually",
+            "gRPC",
+            "over"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 11.06,
+            "end": 13.27
+          },
+          {
+            "start": 13.76,
+            "end": 22.209999
+          }
+        ]
+      },
+      {
+        "points": [
+          "YANG path or sensor group to an update policy",
+          "The consumer is anything that ingests"
+        ],
+        "keyWords": [
+          [
+            "YANG",
+            "path",
+            "sensor",
+            "group"
+          ],
+          [
+            "consumer",
+            "anything",
+            "ingests"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 22.209999,
+            "end": 29.709999
+          },
+          {
+            "start": 30.98,
+            "end": 32.900002
+          }
+        ]
+      },
+      {
+        "points": [
+          "Prometheus with a gNMI exporter Telegraf Kafka or your",
+          "Config looks correct"
+        ],
+        "keyWords": [
+          [
+            "Prometheus",
+            "gNMI",
+            "exporter",
+            "Telegraf"
+          ],
+          [
+            "config",
+            "looks",
+            "correct"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 33.41,
+            "end": 42.34
+          },
+          {
+            "start": 42.91,
+            "end": 43.869999
+          }
+        ]
+      }
+    ]
+  },
+  "yang-models-in-telemetry": {
+    "splitAt": [
+      15.05,
+      30.09
+    ],
+    "segments": [
+      {
+        "points": [
+          "YANG models from module four of course two reappear",
+          "Cisco — IOS — XE — platform — oper"
+        ],
+        "keyWords": [
+          [
+            "YANG",
+            "models",
+            "Cisco",
+            "module"
+          ],
+          [
+            "Cisco-IOS-XE-platform-oper",
+            "Cisco",
+            "oper",
+            "platform"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.09,
+            "end": 9.31
+          },
+          {
+            "start": 10.38,
+            "end": 14.34
+          }
+        ]
+      },
+      {
+        "points": [
+          "CPU and memory A subscription references these paths —",
+          "XPath or OpenConfig equivalents depending on platform The collector",
+          "Names it decodes what"
+        ],
+        "keyWords": [
+          [
+            "CPU",
+            "memory",
+            "subscription",
+            "references"
+          ],
+          [
+            "platform",
+            "XPath",
+            "OpenConfig",
+            "equivalents"
+          ],
+          [
+            "names",
+            "decodes"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 15.28,
+            "end": 21.379999
+          },
+          {
+            "start": 22.110001,
+            "end": 28.41
+          },
+          {
+            "start": 28.99,
+            "end": 30.469999
+          }
+        ]
+      },
+      {
+        "points": [
+          "When troubleshooting empty streams verify the path exists",
+          "YANG models from module four of course two reappear",
+          "Cisco publishes models such as Cisco — IOS —",
+          "A subscription references these paths — either native XPath"
+        ],
+        "keyWords": [
+          [
+            "platform",
+            "stream",
+            "troubleshooting",
+            "empty"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 30.790001,
+            "end": 44.970001
+          }
+        ]
+      }
+    ]
+  },
+  "story-beat-recap-telemetry": {
+    "splitAt": [
+      12.63,
+      25.25
+    ],
+    "segments": [
+      {
+        "points": [
+          "Why polling misses real problems what model — driven",
+          "YANG models"
+        ],
+        "keyWords": [
+          [
+            "telemetry",
+            "Pause",
+            "seen",
+            "polling"
+          ],
+          [
+            "YANG",
+            "models"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.1,
+            "end": 6.15
+          },
+          {
+            "start": 7.16,
+            "end": 12.71
+          }
+        ]
+      },
+      {
+        "points": [
+          "Stand up",
+          "Netops_ops_lab with a collector container enable",
+          "IOS XE style"
+        ],
+        "keyWords": [
+          [
+            "Next",
+            "stand",
+            "up"
+          ],
+          [
+            "lab",
+            "netops_ops_lab",
+            "collector",
+            "container"
+          ],
+          [
+            "IOS",
+            "XE",
+            "style"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.27,
+            "end": 17.99
+          },
+          {
+            "start": 18.870001,
+            "end": 22.540001
+          },
+          {
+            "start": 23.629999,
+            "end": 25.299999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Prometheus Open",
+          "WSL or Linux workflow as courses one"
+        ],
+        "keyWords": [
+          [
+            "Prometheus",
+            "Open"
+          ],
+          [
+            "WSL",
+            "Linux",
+            "workflow",
+            "courses"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 25.299999,
+            "end": 31.879999
+          },
+          {
+            "start": 32.66,
+            "end": 37.66
+          }
+        ]
+      }
+    ]
+  },
+  "lab-setup-telemetry": {
+    "splitAt": [
+      14.83,
+      29.66
+    ],
+    "segments": [
+      {
+        "points": [
+          "Telemetry lab",
+          "Create a folder named netops_ops_lab beside your course",
+          "Operate and observe not replace your"
+        ],
+        "keyWords": [
+          [
+            "telemetry",
+            "lab",
+            "Welcome"
+          ],
+          [
+            "lab",
+            "Create",
+            "folder",
+            "named"
+          ],
+          [
+            "operate",
+            "observe",
+            "replace",
+            "your"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.07,
+            "end": 1.6
+          },
+          {
+            "start": 2.15,
+            "end": 10.16
+          },
+          {
+            "start": 10.75,
+            "end": 14.83
+          }
+        ]
+      },
+      {
+        "points": [
+          "Git repo Inside netops_ops_lab add a docker — compose",
+          "Prometheus and a gNMI or MDT",
+          "Collector image the exact file",
+          "Is on the next slides"
+        ],
+        "keyWords": [
+          [
+            "lab",
+            "Git",
+            "repo",
+            "Inside"
+          ],
+          [
+            "Prometheus",
+            "gNMI",
+            "MDT"
+          ],
+          [
+            "collector",
+            "image",
+            "exact",
+            "file"
+          ],
+          [
+            "next",
+            "slides"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 15.06,
+            "end": 18.48
+          },
+          {
+            "start": 19.83,
+            "end": 23.83
+          },
+          {
+            "start": 24.389999,
+            "end": 26.01
+          },
+          {
+            "start": 26.83,
+            "end": 27.65
+          }
+        ]
+      },
+      {
+        "points": [
+          "CML node to the collector IP on port",
+          "Five seven five zero zero for gRPC Confirm",
+          "This lab never touches production use sandbox credentials only"
+        ],
+        "keyWords": [
+          [
+            "CML",
+            "node",
+            "collector",
+            "IP"
+          ],
+          [
+            "five",
+            "seven",
+            "zero",
+            "gRPC"
+          ],
+          [
+            "lab",
+            "never",
+            "touches",
+            "production"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 30.57,
+            "end": 34.029999
+          },
+          {
+            "start": 35.09,
+            "end": 38.41
+          },
+          {
+            "start": 38.919998,
+            "end": 44.240002
+          }
+        ]
+      }
+    ]
+  },
+  "certification-alignment-telemetry": {
+    "splitAt": [
+      11.38,
+      22.75
+    ],
+    "segments": [
+      {
+        "points": [
+          "Module one maps to exam objective three point one",
+          "You should explain producer, transport, subscription, and consumer without",
+          "Compare SNMP polling to gNMI streaming.",
+          "Describe dial — out versus dial — in."
+        ],
+        "keyWords": [
+          [
+            "exam",
+            "objective",
+            "Module",
+            "one"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.18,
+            "end": 11.81
+          }
+        ]
+      },
+      {
+        "points": [
+          "Compare SNMP polling to gNMI streaming Describe dial —",
+          "Module one maps to exam objective three point one",
+          "You should explain producer, transport, subscription, and consumer without",
+          "Compare SNMP polling to gNMI streaming."
+        ],
+        "keyWords": [
+          [
+            "Compare",
+            "SNMP",
+            "polling",
+            "gNMI"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 11.99,
+            "end": 22.809999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Exam scenarios may show a broken diagram and ask",
+          "Module one maps to exam objective three point one",
+          "You should explain producer, transport, subscription, and consumer without",
+          "Compare SNMP polling to gNMI streaming."
+        ],
+        "keyWords": [
+          [
+            "Exam",
+            "scenarios",
+            "show",
+            "broken"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 22.809999,
+            "end": 33.799999
+          }
+        ]
+      }
+    ]
+  },
+  "telemetry-ready-for-logging": {
+    "splitAt": [
+      12.9,
+      25.8
+    ],
+    "segments": [
+      {
+        "points": [
+          "You started this module with show commands and five",
+          "That stream is evidence"
+        ],
+        "keyWords": [
+          [
+            "started",
+            "module",
+            "show",
+            "commands"
+          ],
+          [
+            "stream",
+            "evidence"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.1,
+            "end": 9.65
+          },
+          {
+            "start": 10.37,
+            "end": 13.36
+          }
+        ]
+      },
+      {
+        "points": [
+          "— the same kind of evidence module two uses",
+          "When syslog and webhooks capture",
+          "Keep netops_ops_lab running module two",
+          "Adds structured logging targets and teaches"
+        ],
+        "keyWords": [
+          [
+            "kind",
+            "evidence",
+            "module",
+            "two"
+          ],
+          [
+            "syslog",
+            "webhooks",
+            "capture"
+          ],
+          [
+            "Keep",
+            "netops_ops_lab",
+            "running",
+            "module"
+          ],
+          [
+            "logging",
+            "adds",
+            "structured",
+            "targets"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.58,
+            "end": 16.530001
+          },
+          {
+            "start": 17.27,
+            "end": 19.85
+          },
+          {
+            "start": 21,
+            "end": 24.49
+          },
+          {
+            "start": 24.969999,
+            "end": 25.809999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Teaches you to diagnose pipeline failures from log",
+          "Never point telemetry collectors at production without change control",
+          "TLS planning — module four covers"
+        ],
+        "keyWords": [
+          [
+            "teaches",
+            "diagnose",
+            "pipeline",
+            "failures"
+          ],
+          [
+            "telemetry",
+            "Never",
+            "point",
+            "collectors"
+          ],
+          [
+            "TLS",
+            "planning",
+            "module",
+            "covers"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 25.809999,
+            "end": 29.59
+          },
+          {
+            "start": 30.18,
+            "end": 32.73
+          },
+          {
+            "start": 34.91,
+            "end": 36.779999
+          }
+        ]
+      }
+    ]
+  },
+  "metrics-without-logs-blind-spots": {
+    "splitAt": [
+      13.81,
+      27.61
+    ],
+    "segments": [
+      {
+        "points": [
+          "Prometheus may show interface errors climbing while your",
+          "Playbook log sits on one engineer's laptop",
+          "GitLab shows a red pipeline X but not"
+        ],
+        "keyWords": [
+          [
+            "Prometheus",
+            "show",
+            "interface",
+            "errors"
+          ],
+          [
+            "playbook",
+            "log",
+            "sits",
+            "one"
+          ],
+          [
+            "GitLab",
+            "shows",
+            "red",
+            "pipeline"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.13,
+            "end": 3.79
+          },
+          {
+            "start": 4.4,
+            "end": 6.56
+          },
+          {
+            "start": 7.36,
+            "end": 13.75
+          }
+        ]
+      },
+      {
+        "points": [
+          "A syslog gap means",
+          "BGP flap timestamp with a config push",
+          "Logging strategy means deciding what to record at which"
+        ],
+        "keyWords": [
+          [
+            "syslog",
+            "gap",
+            "means"
+          ],
+          [
+            "BGP",
+            "flap",
+            "timestamp",
+            "config"
+          ],
+          [
+            "Logging",
+            "strategy",
+            "means",
+            "deciding"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.09,
+            "end": 16.799999
+          },
+          {
+            "start": 17.34,
+            "end": 22.57
+          },
+          {
+            "start": 23.08,
+            "end": 27.690001
+          }
+        ]
+      },
+      {
+        "points": [
+          "Network automation multiplies",
+          "APIs and webhooks Each layer must emit events"
+        ],
+        "keyWords": [
+          [
+            "Network",
+            "automation",
+            "multiplies"
+          ],
+          [
+            "APIs",
+            "webhooks",
+            "layer",
+            "emit"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 27.690001,
+            "end": 34.66
+          },
+          {
+            "start": 36.389999,
+            "end": 41.240002
+          }
+        ]
+      }
+    ]
+  },
+  "what-logging-strategy-means": {
+    "splitAt": [
+      16.32,
+      32.65
+    ],
+    "segments": [
+      {
+        "points": [
+          "Exam three point two asks you to implement",
+          "In plain language choose log sources",
+          "Python scripts Ansible"
+        ],
+        "keyWords": [
+          [
+            "logging",
+            "strategy",
+            "Exam",
+            "three"
+          ],
+          [
+            "plain",
+            "language",
+            "choose",
+            "log"
+          ],
+          [
+            "Python",
+            "scripts",
+            "Ansible"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 5.65
+          },
+          {
+            "start": 6.19,
+            "end": 11.63
+          },
+          {
+            "start": 13.53,
+            "end": 16.52
+          }
+        ]
+      },
+      {
+        "points": [
+          "GitLab jobs IOS XE — pick a format",
+          "JSON beats unparsed text for search — select transports"
+        ],
+        "keyWords": [
+          [
+            "GitLab",
+            "jobs",
+            "IOS",
+            "XE"
+          ],
+          [
+            "JSON",
+            "beats",
+            "unparsed",
+            "text"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.700001,
+            "end": 21.65
+          },
+          {
+            "start": 22.43,
+            "end": 32.389999
+          }
+        ]
+      },
+      {
+        "points": [
+          "A strategy document lists severity levels required fields like",
+          "And which destination receives which event class",
+          "Device config changes might go to syslog Pipeline",
+          "One size does not fit all destinations"
+        ],
+        "keyWords": [
+          [
+            "strategy",
+            "document",
+            "lists",
+            "severity"
+          ],
+          [
+            "destination",
+            "receives",
+            "event",
+            "class"
+          ],
+          [
+            "Device",
+            "config",
+            "changes",
+            "go"
+          ],
+          [
+            "One",
+            "size",
+            "fit",
+            "destinations"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 32.720001,
+            "end": 38.299999
+          },
+          {
+            "start": 38.849998,
+            "end": 40.669998
+          },
+          {
+            "start": 41.639999,
+            "end": 43.25
+          },
+          {
+            "start": 43.860001,
+            "end": 48.66
+          }
+        ]
+      }
+    ]
+  },
+  "logging-architecture-components": {
+    "splitAt": [
+      10.22,
+      20.43,
+      30.65
+    ],
+    "segments": [
+      {
+        "points": [
+          "Mirror the telemetry mental model with four logging pieces",
+          "Python log dot"
+        ],
+        "keyWords": [
+          [
+            "logging",
+            "pieces",
+            "Mirror",
+            "telemetry"
+          ],
+          [
+            "Python",
+            "log",
+            "dot"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.08,
+            "end": 6.56
+          },
+          {
+            "start": 7.06,
+            "end": 10.34
+          }
+        ]
+      },
+      {
+        "points": [
+          "The format encodes fields — plain syslog text",
+          "Mirror the telemetry mental model with four logging pieces.",
+          "The event producer emits a record — a switch",
+          "The transport delivers — syslog forwarder, HTTPS webhook,"
+        ],
+        "keyWords": [
+          [
+            "format",
+            "encodes",
+            "fields",
+            "plain"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 10.59,
+            "end": 16.42
+          }
+        ]
+      },
+      {
+        "points": [
+          "The transport delivers — syslog forwarder HTTPS webhook",
+          "The sink stores and indexes — rsyslog files Elasticsearch"
+        ],
+        "keyWords": [
+          [
+            "transport",
+            "delivers",
+            "syslog",
+            "forwarder"
+          ],
+          [
+            "sink",
+            "stores",
+            "indexes",
+            "rsyslog"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 21.02,
+            "end": 22.879999
+          },
+          {
+            "start": 23.77,
+            "end": 30.780001
+          }
+        ]
+      },
+      {
+        "points": [
+          "A broken strategy usually omits correlation IDs —",
+          "ID in both log"
+        ],
+        "keyWords": [
+          [
+            "broken",
+            "strategy",
+            "usually",
+            "omits"
+          ],
+          [
+            "ID",
+            "log"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 30.780001,
+            "end": 35.34
+          },
+          {
+            "start": 35.790001,
+            "end": 40.790001
+          }
+        ]
+      }
+    ]
+  },
+  "structured-vs-unstructured-logs": {
+    "splitAt": [
+      14.75,
+      29.5
+    ],
+    "segments": [
+      {
+        "points": [
+          "Unstructured logs read well",
+          "Ansible failed on host sw1 — but grep"
+        ],
+        "keyWords": [
+          [
+            "logs",
+            "structured",
+            "Unstructured",
+            "read"
+          ],
+          [
+            "Structured",
+            "Ansible",
+            "failed",
+            "host"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.87,
+            "end": 2.83
+          },
+          {
+            "start": 3.4,
+            "end": 12.57
+          }
+        ]
+      },
+      {
+        "points": [
+          "JSON fields timestamp level request_id host playbook task error",
+          "JSON lines — one JSON object per line —"
+        ],
+        "keyWords": [
+          [
+            "Automation",
+            "JSON",
+            "fields",
+            "timestamp"
+          ],
+          [
+            "JSON",
+            "lines",
+            "one",
+            "object"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.81,
+            "end": 23.309999
+          },
+          {
+            "start": 24.58,
+            "end": 29.709999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Exam scenarios may show a log snippet and ask",
+          "JSON formatter is enough for lab work",
+          "Versioning"
+        ],
+        "keyWords": [
+          [
+            "Exam",
+            "scenarios",
+            "show",
+            "log"
+          ],
+          [
+            "JSON",
+            "formatter",
+            "enough",
+            "lab"
+          ],
+          [
+            "versioning"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 29.709999,
+            "end": 37.200001
+          },
+          {
+            "start": 38.419998,
+            "end": 41.279999
+          },
+          {
+            "start": 41.75,
+            "end": 43.459999
+          }
+        ]
+      }
+    ]
+  },
+  "event-workflows-for-automation": {
+    "splitAt": [
+      13.06,
+      26.11
+    ],
+    "segments": [
+      {
+        "points": [
+          "Event workflow means what happens after something is logged",
+          "A typical automation flow: trigger — merge to main",
+          "Module one telemetry might trigger an alert on threshold;",
+          "Design workflows so noisy INFO logs do not page"
+        ],
+        "keyWords": [
+          [
+            "Event",
+            "workflow",
+            "means",
+            "happens"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.11,
+            "end": 13.22
+          }
+        ]
+      },
+      {
+        "points": [
+          "And end with job ID —",
+          "ID in GitLab Ansible",
+          "ERROR level —"
+        ],
+        "keyWords": [
+          [
+            "end",
+            "job",
+            "ID"
+          ],
+          [
+            "ID",
+            "GitLab",
+            "Ansible"
+          ],
+          [
+            "ERROR",
+            "level"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.22,
+            "end": 15.54
+          },
+          {
+            "start": 17.43,
+            "end": 22.459999
+          },
+          {
+            "start": 23.02,
+            "end": 26.115001
+          }
+        ]
+      },
+      {
+        "points": [
+          "Act — engineer or runbook",
+          "Module one telemetry might trigger an alert on threshold",
+          "Design workflows so noisy INFO logs do not page",
+          "CRITICAL webhook failures do"
+        ],
+        "keyWords": [
+          [
+            "act",
+            "engineer",
+            "runbook"
+          ],
+          [
+            "Module",
+            "one",
+            "telemetry",
+            "trigger"
+          ],
+          [
+            "workflows",
+            "Design",
+            "noisy",
+            "INFO"
+          ],
+          [
+            "CRITICAL",
+            "webhook",
+            "failures"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 26.115001,
+            "end": 27.49
+          },
+          {
+            "start": 28.049999,
+            "end": 31.15
+          },
+          {
+            "start": 31.73,
+            "end": 36.75
+          },
+          {
+            "start": 36.779999,
+            "end": 38.889999
+          }
+        ]
+      }
+    ]
+  },
+  "root-cause-analysis-plain-language": {
+    "splitAt": [
+      14.35,
+      28.69
+    ],
+    "segments": [
+      {
+        "points": [
+          "Root cause analysis RCA is not blame —",
+          "Exam three point three gives you logs and output",
+          "Start at the symptom — pipeline red, VLAN missing",
+          "Hypothesis, test with one log query, confirm or eliminate."
+        ],
+        "keyWords": [
+          [
+            "Root",
+            "cause",
+            "analysis",
+            "RCA"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.17,
+            "end": 14.78
+          }
+        ]
+      },
+      {
+        "points": [
+          "Event and asks what failed and why Start",
+          "VLAN missing — walk backward through timestamps — prevalidation"
+        ],
+        "keyWords": [
+          [
+            "event",
+            "asks",
+            "failed",
+            "Start"
+          ],
+          [
+            "VLAN",
+            "missing",
+            "walk",
+            "backward"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.78,
+            "end": 18.51
+          },
+          {
+            "start": 19.26,
+            "end": 28.99
+          }
+        ]
+      },
+      {
+        "points": [
+          "Oh four — compare layers",
+          "Hypothesis test with one",
+          "The wrong answer picks the first error line without"
+        ],
+        "keyWords": [
+          [
+            "oh",
+            "compare",
+            "layers"
+          ],
+          [
+            "Hypothesis",
+            "test",
+            "one"
+          ],
+          [
+            "wrong",
+            "answer",
+            "picks",
+            "error"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 29.280001,
+            "end": 32.580002
+          },
+          {
+            "start": 33.040001,
+            "end": 37.09
+          },
+          {
+            "start": 37.540001,
+            "end": 42.84
+          }
+        ]
+      }
+    ]
+  },
+  "diagnose-automation-from-logs": {
+    "splitAt": [
+      14.42,
+      28.85
+    ],
+    "segments": [
+      {
+        "points": [
+          "Three failure patterns repeat",
+          "AUTOCOR exam for three point",
+          "Missing dependency — job",
+          "ModuleNotFoundError or command not found — fix requirements"
+        ],
+        "keyWords": [
+          [
+            "Three",
+            "failure",
+            "patterns",
+            "repeat"
+          ],
+          [
+            "AUTOCOR",
+            "exam",
+            "three",
+            "point"
+          ],
+          [
+            "Missing",
+            "dependency",
+            "job"
+          ],
+          [
+            "ModuleNotFoundError",
+            "command",
+            "found",
+            "fix"
+          ],
+          [
+            "Wrong",
+            "inventory"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.1,
+            "end": 2.11
+          },
+          {
+            "start": 2.58,
+            "end": 4.2
+          },
+          {
+            "start": 4.69,
+            "end": 6.82
+          },
+          {
+            "start": 8.35,
+            "end": 12.64
+          },
+          {
+            "start": 13.31,
+            "end": 14.87
+          }
+        ]
+      },
+      {
+        "points": [
+          "Ansible skips hosts or targets production — log shows",
+          "Script exits one — log shows assert VLAN two"
+        ],
+        "keyWords": [
+          [
+            "log",
+            "Ansible",
+            "skips",
+            "hosts"
+          ],
+          [
+            "log",
+            "script",
+            "exits",
+            "one"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.91,
+            "end": 24.969999
+          },
+          {
+            "start": 25.66,
+            "end": 29.040001
+          }
+        ]
+      },
+      {
+        "points": [
+          "Webhook not received —",
+          "Pipeline succeeded locally but SIEM",
+          "URL TLS and firewall Always read the first ERROR"
+        ],
+        "keyWords": [
+          [
+            "Webhook",
+            "received"
+          ],
+          [
+            "pipeline",
+            "succeeded",
+            "locally",
+            "SIEM"
+          ],
+          [
+            "URL",
+            "TLS",
+            "firewall",
+            "Always"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 29.26,
+            "end": 33.93
+          },
+          {
+            "start": 34.5,
+            "end": 35.59
+          },
+          {
+            "start": 36.669998,
+            "end": 43.040001
+          }
+        ]
+      }
+    ]
+  },
+  "story-beat-recap-logging": {
+    "splitAt": [
+      12.87,
+      25.75
+    ],
+    "segments": [
+      {
+        "points": [
+          "Why metrics need logs what a logging strategy covers",
+          "Structured"
+        ],
+        "keyWords": [
+          [
+            "logging",
+            "Pause",
+            "seen",
+            "metrics"
+          ],
+          [
+            "structured"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 5.43
+          },
+          {
+            "start": 6.24,
+            "end": 12.77
+          }
+        ]
+      },
+      {
+        "points": [
+          "JSON for search event workflows RCA steps and common",
+          "Extend netops_ops_lab with a Python"
+        ],
+        "keyWords": [
+          [
+            "JSON",
+            "search",
+            "event",
+            "workflows"
+          ],
+          [
+            "Next",
+            "lab",
+            "extend",
+            "netops_ops_lab"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 12.92,
+            "end": 19.540001
+          },
+          {
+            "start": 20.6,
+            "end": 25.07
+          }
+        ]
+      },
+      {
+        "points": [
+          "JSON logs an rsyslog receiver for syslog",
+          "It still runs logging adds a parallel evidence path"
+        ],
+        "keyWords": [
+          [
+            "JSON",
+            "logs",
+            "rsyslog",
+            "receiver"
+          ],
+          [
+            "logging",
+            "still",
+            "runs",
+            "adds"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 26,
+            "end": 35.939999
+          },
+          {
+            "start": 36.419998,
+            "end": 38.380001
+          }
+        ]
+      }
+    ]
+  },
+  "lab-setup-logging": {
+    "splitAt": [
+      13.29,
+      26.57
+    ],
+    "segments": [
+      {
+        "points": [
+          "In netops_ops_lab create a logging subfolder Add scripts slash",
+          "In netops_ops_lab create a logging subfolder.",
+          "Add scripts slash run_deploy dot py — a Python",
+          "Add docker — compose override or extend compose"
+        ],
+        "keyWords": [
+          [
+            "netops_ops_lab",
+            "logging",
+            "create",
+            "subfolder"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.13,
+            "end": 13.14
+          }
+        ]
+      },
+      {
+        "points": [
+          "Add docker — compose override",
+          "Or extend compose with an rsyslog container listening",
+          "Add webhook slash handler dot py —"
+        ],
+        "keyWords": [
+          [
+            "Add",
+            "docker-compose",
+            "override"
+          ],
+          [
+            "extend",
+            "compose",
+            "rsyslog",
+            "container"
+          ],
+          [
+            "Add",
+            "webhook",
+            "slash",
+            "handler"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.51,
+            "end": 16.879999
+          },
+          {
+            "start": 17.540001,
+            "end": 22.040001
+          },
+          {
+            "start": 22.6,
+            "end": 26.84
+          }
+        ]
+      },
+      {
+        "points": [
+          "Flask or http dot server listener on port eight",
+          "GitLab pipeline webhooks No production secrets in webhook URLs"
+        ],
+        "keyWords": [
+          [
+            "Flask",
+            "http",
+            "dot",
+            "server"
+          ],
+          [
+            "GitLab",
+            "pipeline",
+            "webhooks",
+            "production"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 26.870001,
+            "end": 31.07
+          },
+          {
+            "start": 31.540001,
+            "end": 39.75
+          }
+        ]
+      }
+    ]
+  },
+  "certification-alignment-logging": {
+    "splitAt": [
+      14.03,
+      28.07
+    ],
+    "segments": [
+      {
+        "points": [
+          "Module two maps to exam objectives three",
+          "With syslog and webhook destinations explain sources format"
+        ],
+        "keyWords": [
+          [
+            "exam",
+            "objectives",
+            "Module",
+            "two"
+          ],
+          [
+            "syslog",
+            "webhook",
+            "destinations",
+            "explain"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.16,
+            "end": 7.93
+          },
+          {
+            "start": 8.62,
+            "end": 14.05
+          }
+        ]
+      },
+      {
+        "points": [
+          "Three point three — diagnose",
+          "Automation problems given log snippets build timeline identify missing",
+          "Inventory failed validation or missing"
+        ],
+        "keyWords": [
+          [
+            "Three",
+            "point",
+            "diagnose"
+          ],
+          [
+            "automation",
+            "problems",
+            "given",
+            "log"
+          ],
+          [
+            "inventory",
+            "failed",
+            "validation",
+            "missing"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.05,
+            "end": 16.49
+          },
+          {
+            "start": 17.34,
+            "end": 24.32
+          },
+          {
+            "start": 25.23,
+            "end": 28.01
+          }
+        ]
+      },
+      {
+        "points": [
+          "Practice explaining RCA out loud using your chg —",
+          "Module three adds pyATS change validation before",
+          "You trust deploy logs that say success"
+        ],
+        "keyWords": [
+          [
+            "Practice",
+            "explaining",
+            "RCA",
+            "out"
+          ],
+          [
+            "Module",
+            "three",
+            "adds",
+            "pyATS"
+          ],
+          [
+            "trust",
+            "deploy",
+            "logs",
+            "say"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 28.23,
+            "end": 32.59
+          },
+          {
+            "start": 34.5,
+            "end": 36.34
+          },
+          {
+            "start": 36.950001,
+            "end": 39.349998
+          }
+        ]
+      }
+    ]
+  },
+  "logging-ready-for-validation": {
+    "splitAt": [
+      14.89,
+      29.79
+    ],
+    "segments": [
+      {
+        "points": [
+          "You started module two with Prometheus counters that could",
+          "You finish with JSON application",
+          "Logs syslog collection webhook pipeline"
+        ],
+        "keyWords": [
+          [
+            "started",
+            "module",
+            "two",
+            "Prometheus"
+          ],
+          [
+            "finish",
+            "JSON",
+            "application"
+          ],
+          [
+            "logs",
+            "syslog",
+            "collection",
+            "webhook"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 6.22
+          },
+          {
+            "start": 7.23,
+            "end": 9.89
+          },
+          {
+            "start": 10.9,
+            "end": 14.52
+          }
+        ]
+      },
+      {
+        "points": [
+          "Logs tell you something broke",
+          "Do not always prove the network matches",
+          "Module three"
+        ],
+        "keyWords": [
+          [
+            "Logs",
+            "tell",
+            "something",
+            "broke"
+          ],
+          [
+            "always",
+            "prove",
+            "network",
+            "matches"
+          ],
+          [
+            "Module",
+            "three"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 15.36,
+            "end": 19.950001
+          },
+          {
+            "start": 20.75,
+            "end": 23.48
+          },
+          {
+            "start": 27.42,
+            "end": 30.200001
+          }
+        ]
+      },
+      {
+        "points": [
+          "CLI validation and automated rollback — exam three",
+          "Keep netops_ops_lab logging running validation jobs should emit",
+          "Same request_id for one continuous audit chain"
+        ],
+        "keyWords": [
+          [
+            "validation",
+            "CLI",
+            "automated",
+            "rollback"
+          ],
+          [
+            "logging",
+            "validation",
+            "Keep",
+            "netops_ops_lab"
+          ],
+          [
+            "request_id",
+            "one",
+            "continuous",
+            "audit"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 30.92,
+            "end": 36.419998
+          },
+          {
+            "start": 37.970001,
+            "end": 41.490002
+          },
+          {
+            "start": 42.400002,
+            "end": 44.48
+          }
+        ]
+      }
+    ]
+  },
+  "deploy-success-without-proof": {
+    "splitAt": [
+      13.85,
+      27.71
+    ],
+    "segments": [
+      {
+        "points": [
+          "Three false confidence traps appear in network automation incidents",
+          "Ansible recap shows ok equals three changed equals zero",
+          "GitLab post — validation passed —"
+        ],
+        "keyWords": [
+          [
+            "Three",
+            "false",
+            "confidence",
+            "traps"
+          ],
+          [
+            "Ansible",
+            "recap",
+            "shows",
+            "ok"
+          ],
+          [
+            "GitLab",
+            "post-validation",
+            "passed"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 4.52
+          },
+          {
+            "start": 5.12,
+            "end": 10.75
+          },
+          {
+            "start": 11.74,
+            "end": 14.1
+          }
+        ]
+      },
+      {
+        "points": [
+          "Python script only parsed",
+          "Syslog shows config commit — but the wrong feature"
+        ],
+        "keyWords": [
+          [
+            "Python",
+            "script",
+            "parsed"
+          ],
+          [
+            "Syslog",
+            "shows",
+            "config",
+            "commit"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.1,
+            "end": 17.280001
+          },
+          {
+            "start": 18.629999,
+            "end": 27.85
+          }
+        ]
+      },
+      {
+        "points": [
+          "Testing network state against expected outcomes",
+          "UI alone pyATS adds device — side test cases"
+        ],
+        "keyWords": [
+          [
+            "testing",
+            "network",
+            "state",
+            "against"
+          ],
+          [
+            "UI",
+            "alone",
+            "pyATS",
+            "adds"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 27.85,
+            "end": 29.190001
+          },
+          {
+            "start": 29.809999,
+            "end": 40.82
+          }
+        ]
+      }
+    ]
+  },
+  "what-change-validation-means": {
+    "splitAt": [
+      14.89,
+      29.77
+    ],
+    "segments": [
+      {
+        "points": [
+          "Exam three point four — implement change validation",
+          "CLI tools Change validation",
+          "Gate that asks after automation ran does"
+        ],
+        "keyWords": [
+          [
+            "change",
+            "validation",
+            "Exam",
+            "three"
+          ],
+          [
+            "Change",
+            "validation",
+            "CLI",
+            "tools"
+          ],
+          [
+            "gate",
+            "asks",
+            "automation",
+            "ran"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.11,
+            "end": 4.1
+          },
+          {
+            "start": 5.04,
+            "end": 8.38
+          },
+          {
+            "start": 9.07,
+            "end": 14.69
+          }
+        ]
+      },
+      {
+        "points": [
+          "It includes pre — change baseline capture post —",
+          "CLI entry points — pyats run job"
+        ],
+        "keyWords": [
+          [
+            "change",
+            "includes",
+            "pre-change",
+            "baseline"
+          ],
+          [
+            "CLI",
+            "entry",
+            "points",
+            "pyats"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.93,
+            "end": 20.889999
+          },
+          {
+            "start": 22.17,
+            "end": 29.76
+          }
+        ]
+      },
+      {
+        "points": [
+          "Pyats learn pyats diff —",
+          "Python test cases under the aetest framework Validation runs",
+          "Fail validation and you do not celebrate —",
+          "You rollback or fix forward with evidence"
+        ],
+        "keyWords": [
+          [
+            "pyats",
+            "learn",
+            "diff"
+          ],
+          [
+            "Validation",
+            "Python",
+            "test",
+            "cases"
+          ],
+          [
+            "validation",
+            "Fail",
+            "celebrate"
+          ],
+          [
+            "rollback",
+            "fix",
+            "forward",
+            "evidence"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 29.809999,
+            "end": 32.970001
+          },
+          {
+            "start": 33.700001,
+            "end": 38.790001
+          },
+          {
+            "start": 39.349998,
+            "end": 41.98
+          },
+          {
+            "start": 42.68,
+            "end": 44.369999
+          }
+        ]
+      }
+    ]
+  },
+  "testing-strategy-for-automation": {
+    "splitAt": [
+      12.64,
+      25.27
+    ],
+    "segments": [
+      {
+        "points": [
+          "A testing strategy layers gates before and after deploy",
+          "Pre — change — lint intent dry — run",
+          "Change window — apply"
+        ],
+        "keyWords": [
+          [
+            "testing",
+            "strategy",
+            "layers",
+            "testing strategy layers"
+          ],
+          [
+            "Pre-change",
+            "lint",
+            "intent",
+            "dry-run"
+          ],
+          [
+            "Change",
+            "window",
+            "apply"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 3.72
+          },
+          {
+            "start": 4.37,
+            "end": 6.65
+          },
+          {
+            "start": 7.22,
+            "end": 12.45
+          }
+        ]
+      },
+      {
+        "points": [
+          "Automation with request_id in logs from module",
+          "Post — change — pyats run job",
+          "With test cases for VLANs",
+          "API responses Regression"
+        ],
+        "keyWords": [
+          [
+            "automation",
+            "request_id",
+            "logs",
+            "module"
+          ],
+          [
+            "Post-change",
+            "pyats",
+            "run",
+            "job"
+          ],
+          [
+            "test",
+            "cases",
+            "VLANs"
+          ],
+          [
+            "API",
+            "responses",
+            "Regression"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.63,
+            "end": 16.879999
+          },
+          {
+            "start": 17.379999,
+            "end": 18.99
+          },
+          {
+            "start": 19.889999,
+            "end": 22.440001
+          },
+          {
+            "start": 23,
+            "end": 25.07
+          }
+        ]
+      },
+      {
+        "points": [
+          "— optional nightly jobs on lab testbed",
+          "The exam cares that you can place pyATS",
+          "In the post — change slot and interpret job",
+          "Passed failed errored — not that you built"
+        ],
+        "keyWords": [
+          [
+            "optional",
+            "nightly",
+            "jobs",
+            "lab"
+          ],
+          [
+            "exam",
+            "cares",
+            "place",
+            "pyATS"
+          ],
+          [
+            "post-change",
+            "slot",
+            "interpret",
+            "job"
+          ],
+          [
+            "passed",
+            "failed",
+            "errored",
+            "built"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 26.059999,
+            "end": 28.110001
+          },
+          {
+            "start": 29.16,
+            "end": 30.43
+          },
+          {
+            "start": 30.889999,
+            "end": 33.98
+          },
+          {
+            "start": 34.939999,
+            "end": 37.73
+          }
+        ]
+      }
+    ]
+  },
+  "pyats-plain-language": {
+    "splitAt": [
+      15.54,
+      31.08
+    ],
+    "segments": [
+      {
+        "points": [
+          "Python Automated Test System — is Cisco's framework",
+          "A testbed YAML file lists devices addresses credentials"
+        ],
+        "keyWords": [
+          [
+            "Python",
+            "Automated",
+            "Test",
+            "System"
+          ],
+          [
+            "testbed",
+            "YAML",
+            "file",
+            "lists"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 1.33,
+            "end": 6.02
+          },
+          {
+            "start": 6.66,
+            "end": 13.84
+          }
+        ]
+      },
+      {
+        "points": [
+          "Job file orchestrates sections — common setup connects devices",
+          "Easypy wraps",
+          "Jobs for reporting The CLI",
+          "AUTOCOR pyats version shows install pyats run job"
+        ],
+        "keyWords": [
+          [
+            "job",
+            "file",
+            "orchestrates",
+            "sections"
+          ],
+          [
+            "Easypy",
+            "wraps"
+          ],
+          [
+            "jobs",
+            "reporting",
+            "CLI"
+          ],
+          [
+            "pyats",
+            "AUTOCOR",
+            "version",
+            "shows"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 15.65,
+            "end": 20.719999
+          },
+          {
+            "start": 22.27,
+            "end": 24.16
+          },
+          {
+            "start": 24.700001,
+            "end": 25.610001
+          },
+          {
+            "start": 27.07,
+            "end": 31.3050005
+          }
+        ]
+      },
+      {
+        "points": [
+          "Executes a job against a testbed pyats learn captures",
+          "Install with pip install pyats",
+          "Ansible is fine"
+        ],
+        "keyWords": [
+          [
+            "pyats",
+            "executes",
+            "job",
+            "against"
+          ],
+          [
+            "pyats",
+            "Install",
+            "pip"
+          ],
+          [
+            "Ansible",
+            "fine"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 31.3050005,
+            "end": 36.130001
+          },
+          {
+            "start": 37.200001,
+            "end": 40.59
+          },
+          {
+            "start": 41.700001,
+            "end": 46.419998
+          }
+        ]
+      }
+    ]
+  },
+  "pyats-architecture-components": {
+    "splitAt": [
+      9.77,
+      19.54,
+      29.31
+    ],
+    "segments": [
+      {
+        "points": [
+          "Four pyATS pieces mirror telemetry and logging",
+          "Testbed — inventory of devices",
+          "Under test"
+        ],
+        "keyWords": [
+          [
+            "pyATS",
+            "pieces",
+            "mirror",
+            "telemetry"
+          ],
+          [
+            "Testbed",
+            "inventory",
+            "devices"
+          ],
+          [
+            "test"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.05,
+            "end": 4.26
+          },
+          {
+            "start": 4.97,
+            "end": 7.93
+          },
+          {
+            "start": 8.43,
+            "end": 9.4
+          }
+        ]
+      },
+      {
+        "points": [
+          "Ansible inventory but pyATS native Job — Python",
+          "File with aetest sections and test cases Runtime"
+        ],
+        "keyWords": [
+          [
+            "pyATS",
+            "Ansible",
+            "inventory",
+            "native"
+          ],
+          [
+            "file",
+            "aetest",
+            "sections",
+            "test"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 10.21,
+            "end": 15.39
+          },
+          {
+            "start": 15.89,
+            "end": 19.75
+          }
+        ]
+      },
+      {
+        "points": [
+          "Easypy to execute and log results Artifacts — learn",
+          "Output and job reports stored on disk"
+        ],
+        "keyWords": [
+          [
+            "Easypy",
+            "execute",
+            "log",
+            "results"
+          ],
+          [
+            "output",
+            "job",
+            "reports",
+            "stored"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 20.08,
+            "end": 25.92
+          },
+          {
+            "start": 26.5,
+            "end": 28.530001
+          }
+        ]
+      },
+      {
+        "points": [
+          "In GitLab post — validation stage you call pyats",
+          "Keep testbed credentials in CI variables — module four"
+        ],
+        "keyWords": [
+          [
+            "pyats",
+            "GitLab",
+            "post-validation",
+            "stage"
+          ],
+          [
+            "Keep",
+            "testbed",
+            "credentials",
+            "CI"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 29.389999,
+            "end": 33.619999
+          },
+          {
+            "start": 34.09,
+            "end": 38.98
+          }
+        ]
+      }
+    ]
+  },
+  "change-assurance-workflow": {
+    "splitAt": [
+      14.53,
+      29.07
+    ],
+    "segments": [
+      {
+        "points": [
+          "Change assurance is the end — to — end",
+          "Git tag on intent Step two — deploy",
+          "With request_id logged"
+        ],
+        "keyWords": [
+          [
+            "Change",
+            "assurance",
+            "end-to-end",
+            "story"
+          ],
+          [
+            "Git",
+            "tag",
+            "intent",
+            "Step"
+          ],
+          [
+            "request_id",
+            "logged"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.12,
+            "end": 6.34
+          },
+          {
+            "start": 6.94,
+            "end": 11.29
+          },
+          {
+            "start": 12.15,
+            "end": 14.02
+          }
+        ]
+      },
+      {
+        "points": [
+          "Step three — pyats run job post — validation",
+          "The change fail triggers rollback",
+          "Step five —"
+        ],
+        "keyWords": [
+          [
+            "Step",
+            "three",
+            "pyats",
+            "run"
+          ],
+          [
+            "change",
+            "fail",
+            "triggers",
+            "rollback"
+          ],
+          [
+            "Step",
+            "five"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.62,
+            "end": 21.01
+          },
+          {
+            "start": 22.200001,
+            "end": 25.379999
+          },
+          {
+            "start": 26.09,
+            "end": 28.639999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Modules one and two supply telemetry and logs",
+          "Change assurance is the end — to — end",
+          "Step one — baseline with pyats learn",
+          "Step two — deploy with request_id logged."
+        ],
+        "keyWords": [
+          [
+            "Modules",
+            "one",
+            "two",
+            "supply"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 29.110001,
+            "end": 43.349998
+          }
+        ]
+      }
+    ]
+  },
+  "automated-rollback-when-validation-fails": {
+    "splitAt": [
+      14.92,
+      29.84
+    ],
+    "segments": [
+      {
+        "points": [
+          "Automated rollback means validation failure starts a scripted undo",
+          "Ansible — playbook"
+        ],
+        "keyWords": [
+          [
+            "rollback",
+            "validation",
+            "Automated",
+            "means"
+          ],
+          [
+            "ansible-playbook"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.09,
+            "end": 13.02
+          },
+          {
+            "start": 14.32,
+            "end": 15.04
+          }
+        ]
+      },
+      {
+        "points": [
+          "With previous intent or push last — known —",
+          "PyATS re — run confirms rollback — second pyats",
+          "Wire rollback in GitLab as a manual job"
+        ],
+        "keyWords": [
+          [
+            "last-known-good",
+            "last",
+            "known",
+            "good"
+          ],
+          [
+            "rollback",
+            "pyATS",
+            "re-run",
+            "confirms"
+          ],
+          [
+            "rollback",
+            "Wire",
+            "GitLab",
+            "manual"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 15.04,
+            "end": 18.76
+          },
+          {
+            "start": 20.4,
+            "end": 25.65
+          },
+          {
+            "start": 26.139999,
+            "end": 30.190001
+          }
+        ]
+      },
+      {
+        "points": [
+          "A failed — post — validation trigger with strict",
+          "Same request_id from module two",
+          "Fail closed — if validation is unreachable do not"
+        ],
+        "keyWords": [
+          [
+            "failed-post-validation",
+            "failed",
+            "post",
+            "validation"
+          ],
+          [
+            "request_id",
+            "module",
+            "two"
+          ],
+          [
+            "validation",
+            "Fail",
+            "closed",
+            "if"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 30.370001,
+            "end": 34.02
+          },
+          {
+            "start": 35.16,
+            "end": 38.84
+          },
+          {
+            "start": 39.380001,
+            "end": 44.549999
+          }
+        ]
+      }
+    ]
+  },
+  "story-beat-recap-validation": {
+    "splitAt": [
+      12.3,
+      24.6
+    ],
+    "segments": [
+      {
+        "points": [
+          "Why deploy success is not enough what change validation",
+          "CLI tools pre versus post — change gates"
+        ],
+        "keyWords": [
+          [
+            "Pause",
+            "seen",
+            "deploy",
+            "success"
+          ],
+          [
+            "CLI",
+            "tools",
+            "pre",
+            "versus"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.06,
+            "end": 7.09
+          },
+          {
+            "start": 8.14,
+            "end": 12.57
+          }
+        ]
+      },
+      {
+        "points": [
+          "Change assurance workflow and rollback when pyATS fails Next",
+          "We add a pyats folder to netops"
+        ],
+        "keyWords": [
+          [
+            "pyATS",
+            "Next",
+            "change",
+            "assurance"
+          ],
+          [
+            "pyats",
+            "add",
+            "folder",
+            "netops"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 12.63,
+            "end": 18.32
+          },
+          {
+            "start": 18.790001,
+            "end": 24.26
+          }
+        ]
+      },
+      {
+        "points": [
+          "YAML a minimal",
+          "Validation job pyats learn baseline simulated deploy pyats run",
+          "Point pyATS at production without approval"
+        ],
+        "keyWords": [
+          [
+            "YAML",
+            "minimal"
+          ],
+          [
+            "pyats",
+            "validation",
+            "job",
+            "learn"
+          ],
+          [
+            "pyATS",
+            "point",
+            "production",
+            "without"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 25.040001,
+            "end": 27.200001
+          },
+          {
+            "start": 27.969999,
+            "end": 34.189999
+          },
+          {
+            "start": 34.91,
+            "end": 36.68
+          }
+        ]
+      }
+    ]
+  },
+  "lab-setup-pyats": {
+    "splitAt": [
+      12.44,
+      24.87
+    ],
+    "segments": [
+      {
+        "points": [
+          "Inside netops_ops_lab create pyats slash testbed dot yaml pyats",
+          "Activate the same Python virtualenv you used",
+          "Your testbed needs at least one lab router",
+          "If you have no live device today, the job"
+        ],
+        "keyWords": [
+          [
+            "netops_ops_lab",
+            "pyats",
+            "Inside",
+            "create"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.13,
+            "end": 13.01
+          }
+        ]
+      },
+      {
+        "points": [
+          "Requirements — pyats dot txt with pinned pyats",
+          "Activate the same Python virtualenv you used"
+        ],
+        "keyWords": [
+          [
+            "pyats",
+            "requirements-pyats",
+            "dot",
+            "txt"
+          ],
+          [
+            "pyats",
+            "Activate",
+            "Python",
+            "virtualenv"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.36,
+            "end": 17.709999
+          },
+          {
+            "start": 18.209999,
+            "end": 24.32
+          }
+        ]
+      },
+      {
+        "points": [
+          "Needs at least one lab router or switch reachable",
+          "SSH — CML VIRL or a sandbox from course",
+          "Real hostnames before the exam lab"
+        ],
+        "keyWords": [
+          [
+            "needs",
+            "least",
+            "one",
+            "lab"
+          ],
+          [
+            "SSH",
+            "CML",
+            "VIRL",
+            "sandbox"
+          ],
+          [
+            "real",
+            "hostnames",
+            "exam",
+            "lab"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 25.860001,
+            "end": 27.68
+          },
+          {
+            "start": 28.309999,
+            "end": 35.549999
+          },
+          {
+            "start": 36.029999,
+            "end": 37.040001
+          }
+        ]
+      }
+    ]
+  },
+  "certification-alignment-validation": {
+    "splitAt": [
+      10.74,
+      21.49
+    ],
+    "segments": [
+      {
+        "points": [
+          "Module three maps to exam objective three point four",
+          "CLI tools You should run pyats run"
+        ],
+        "keyWords": [
+          [
+            "exam",
+            "objective",
+            "Module",
+            "three"
+          ],
+          [
+            "CLI",
+            "tools",
+            "run",
+            "pyats"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.13,
+            "end": 5.52
+          },
+          {
+            "start": 7.1,
+            "end": 10.84
+          }
+        ]
+      },
+      {
+        "points": [
+          "Job with a testbed interpret pass and fail",
+          "Use pyats learn for baseline",
+          "And pyats diff for comparison and describe rollback"
+        ],
+        "keyWords": [
+          [
+            "job",
+            "testbed",
+            "interpret",
+            "pass"
+          ],
+          [
+            "use",
+            "pyats",
+            "learn",
+            "baseline"
+          ],
+          [
+            "pyats",
+            "diff",
+            "comparison",
+            "describe"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 10.91,
+            "end": 13.82
+          },
+          {
+            "start": 14.48,
+            "end": 16.290001
+          },
+          {
+            "start": 16.91,
+            "end": 21.77
+          }
+        ]
+      },
+      {
+        "points": [
+          "Practice explaining each CLI without reading notes",
+          "Module four adds TLS certificate deployment and secure coding",
+          "Testbed passwords move out of plain YAML"
+        ],
+        "keyWords": [
+          [
+            "Practice",
+            "explaining",
+            "CLI",
+            "without"
+          ],
+          [
+            "Module",
+            "adds",
+            "TLS",
+            "certificate"
+          ],
+          [
+            "testbed",
+            "passwords",
+            "move",
+            "out"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 21.84,
+            "end": 24.209999
+          },
+          {
+            "start": 25.1,
+            "end": 29.030001
+          },
+          {
+            "start": 29.66,
+            "end": 31.690001
+          }
+        ]
+      }
+    ]
+  },
+  "validation-ready-for-security": {
+    "splitAt": [
+      13.19,
+      26.39
+    ],
+    "segments": [
+      {
+        "points": [
+          "You started module three with green deploy logs",
+          "PyATS test cases learn baselines diff evidence"
+        ],
+        "keyWords": [
+          [
+            "started",
+            "module",
+            "three",
+            "green"
+          ],
+          [
+            "pyATS",
+            "test",
+            "cases",
+            "learn"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.07,
+            "end": 5.81
+          },
+          {
+            "start": 6.81,
+            "end": 12
+          }
+        ]
+      },
+      {
+        "points": [
+          "Validation proves state",
+          "Does not encrypt your SSH",
+          "Passwords or sign your gRPC sessions",
+          "Module four covers CA — signed TLS deployment"
+        ],
+        "keyWords": [
+          [
+            "Validation",
+            "proves",
+            "state"
+          ],
+          [
+            "encrypt",
+            "your",
+            "SSH"
+          ],
+          [
+            "passwords",
+            "sign",
+            "your",
+            "gRPC"
+          ],
+          [
+            "Module",
+            "covers",
+            "CA-signed",
+            "TLS"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.3,
+            "end": 14.95
+          },
+          {
+            "start": 15.69,
+            "end": 17.530001
+          },
+          {
+            "start": 19.25,
+            "end": 22.309999
+          },
+          {
+            "start": 22.76,
+            "end": 26.290001
+          }
+        ]
+      },
+      {
+        "points": [
+          "And secure coding — input validation authentication secret management",
+          "Pyats slash testbed dot yaml free of committed production"
+        ],
+        "keyWords": [
+          [
+            "validation",
+            "secure",
+            "coding",
+            "input"
+          ],
+          [
+            "pyats",
+            "slash",
+            "testbed",
+            "dot"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 26.58,
+            "end": 34.41
+          },
+          {
+            "start": 34.98,
+            "end": 38.779999
+          }
+        ]
+      }
+    ]
+  },
+  "plaintext-secrets-risk": {
+    "splitAt": [
+      16.04,
+      32.08
+    ],
+    "segments": [
+      {
+        "points": [
+          "Two habits from earlier modules must not reach production",
+          "Git pyATS testbed YAML with a literal password"
+        ],
+        "keyWords": [
+          [
+            "Two",
+            "habits",
+            "earlier",
+            "modules"
+          ],
+          [
+            "Git",
+            "pyATS",
+            "testbed",
+            "YAML"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.11,
+            "end": 6.81
+          },
+          {
+            "start": 9.33,
+            "end": 16.110001
+          }
+        ]
+      },
+      {
+        "points": [
+          "API tokens in playbooks Anyone with repo read access",
+          "Module one telemetry with grpc — tcp"
+        ],
+        "keyWords": [
+          [
+            "API",
+            "tokens",
+            "playbooks",
+            "Anyone"
+          ],
+          [
+            "Module",
+            "one",
+            "telemetry",
+            "grpc-tcp"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.110001,
+            "end": 25.790001
+          },
+          {
+            "start": 27.629999,
+            "end": 30.58
+          }
+        ]
+      },
+      {
+        "points": [
+          "TLS module two HTTP webhooks unencrypted syslog across untrusted",
+          "Attackers replay tokens or inject fake webhook events Security"
+        ],
+        "keyWords": [
+          [
+            "TLS",
+            "module",
+            "two",
+            "HTTP"
+          ],
+          [
+            "Attackers",
+            "replay",
+            "tokens",
+            "inject"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 33.169998,
+            "end": 37.740002
+          },
+          {
+            "start": 38.310001,
+            "end": 47.900002
+          }
+        ]
+      }
+    ]
+  },
+  "what-tls-protects-in-automation": {
+    "splitAt": [
+      15.77,
+      31.55
+    ],
+    "segments": [
+      {
+        "points": [
+          "TLS — Transport Layer Security — encrypts data",
+          "For network automation that covers HTTPS GitLab"
+        ],
+        "keyWords": [
+          [
+            "TLS",
+            "Transport",
+            "Layer",
+            "Security"
+          ],
+          [
+            "network",
+            "automation",
+            "covers",
+            "HTTPS"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.48,
+            "end": 5.3
+          },
+          {
+            "start": 5.75,
+            "end": 15.54
+          }
+        ]
+      },
+      {
+        "points": [
+          "TLS REST APIs on controllers and HTTPS downloads of",
+          "Does not replace authentication — it protects credentials",
+          "It does not validate"
+        ],
+        "keyWords": [
+          [
+            "TLS",
+            "REST",
+            "APIs",
+            "controllers"
+          ],
+          [
+            "replace",
+            "authentication",
+            "protects",
+            "credentials"
+          ],
+          [
+            "validate"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.379999,
+            "end": 23.799999
+          },
+          {
+            "start": 24.27,
+            "end": 29.76
+          },
+          {
+            "start": 31.110001,
+            "end": 31.764999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Pair TLS on the transport with token or certificate",
+          "Server certificate not every cipher suite name"
+        ],
+        "keyWords": [
+          [
+            "TLS",
+            "Pair",
+            "transport",
+            "token"
+          ],
+          [
+            "server",
+            "certificate",
+            "cipher",
+            "suite"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 31.764999,
+            "end": 44.66
+          },
+          {
+            "start": 45.220001,
+            "end": 47.16
+          }
+        ]
+      }
+    ]
+  },
+  "pki-plain-language": {
+    "splitAt": [
+      15.99,
+      31.98
+    ],
+    "segments": [
+      {
+        "points": [
+          "Public Key Infrastructure PKI is the trust system",
+          "TLS A Certificate Authority CA signs certificates that bind",
+          "Your server"
+        ],
+        "keyWords": [
+          [
+            "PKI",
+            "Public",
+            "Key",
+            "Infrastructure"
+          ],
+          [
+            "TLS",
+            "Certificate",
+            "Authority",
+            "CA"
+          ],
+          [
+            "Your",
+            "server"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 5.19
+          },
+          {
+            "start": 6.24,
+            "end": 12.11
+          },
+          {
+            "start": 12.74,
+            "end": 16.139999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Clients trust the CA root or intermediate chain installed",
+          "CA — Microsoft AD CS"
+        ],
+        "keyWords": [
+          [
+            "Clients",
+            "trust",
+            "CA",
+            "root"
+          ],
+          [
+            "CA",
+            "Microsoft",
+            "AD",
+            "CS"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.139999,
+            "end": 26.969999
+          },
+          {
+            "start": 28.450001,
+            "end": 32.110001
+          }
+        ]
+      },
+      {
+        "points": [
+          "OpenSSL private CA or Cisco PKI —",
+          "Self — signed certs work",
+          "CA — signed certs chain to a root your"
+        ],
+        "keyWords": [
+          [
+            "PKI",
+            "OpenSSL",
+            "private",
+            "CA"
+          ],
+          [
+            "Self-signed",
+            "certs",
+            "work"
+          ],
+          [
+            "CA-signed",
+            "certs",
+            "chain",
+            "root"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 32.369999,
+            "end": 35.400002
+          },
+          {
+            "start": 36.02,
+            "end": 39.950001
+          },
+          {
+            "start": 40.43,
+            "end": 47.700001
+          }
+        ]
+      }
+    ]
+  },
+  "obtain-ca-signed-cert-process": {
+    "splitAt": [
+      17.52,
+      35.05
+    ],
+    "segments": [
+      {
+        "points": [
+          "Exam three point five — describe the process",
+          "Certificate Signing Request CSR with subject"
+        ],
+        "keyWords": [
+          [
+            "obtain",
+            "deploy",
+            "CA-signed",
+            "obtain and deploy CA"
+          ],
+          [
+            "Certificate",
+            "Signing",
+            "Request",
+            "CSR"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.16,
+            "end": 14.62
+          },
+          {
+            "start": 15.88,
+            "end": 17.790001
+          }
+        ]
+      },
+      {
+        "points": [
+          "DNS name clients use Step three — submit CSR",
+          "Exam three point five — describe the process",
+          "Step one — generate a private key",
+          "Step two — create a Certificate Signing Request, CSR,"
+        ],
+        "keyWords": [
+          [
+            "DNS",
+            "name",
+            "clients",
+            "use"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 17.790001,
+            "end": 33.82
+          }
+        ]
+      },
+      {
+        "points": [
+          "GitLab runner IOS XE trustpoint for gRPC Step six",
+          "Automation"
+        ],
+        "keyWords": [
+          [
+            "GitLab",
+            "runner",
+            "IOS",
+            "XE"
+          ],
+          [
+            "automation"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 35.349998,
+            "end": 45.98
+          },
+          {
+            "start": 47.23,
+            "end": 52.459999
+          }
+        ]
+      }
+    ]
+  },
+  "deploy-tls-on-automation-services": {
+    "splitAt": [
+      16.87,
+      33.73
+    ],
+    "segments": [
+      {
+        "points": [
+          "Deploy means matching certificate to the service clients actually",
+          "Webhook handler — terminate TLS",
+          "Python with cert"
+        ],
+        "keyWords": [
+          [
+            "Deploy",
+            "means",
+            "matching",
+            "certificate"
+          ],
+          [
+            "TLS",
+            "Webhook",
+            "handler",
+            "terminate"
+          ],
+          [
+            "Python",
+            "cert"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.08,
+            "end": 4.21
+          },
+          {
+            "start": 4.94,
+            "end": 8.54
+          },
+          {
+            "start": 9.05,
+            "end": 12.4
+          }
+        ]
+      },
+      {
+        "points": [
+          "GitLab webhook URL becomes https gRPC telemetry",
+          "IOS XE trustpoint references CA cert telemetry receiver uses",
+          "Cert on port five seven five zero zero GitLab",
+          "APIs — runner trusts"
+        ],
+        "keyWords": [
+          [
+            "GitLab",
+            "webhook",
+            "URL",
+            "becomes"
+          ],
+          [
+            "IOS",
+            "XE",
+            "trustpoint",
+            "references"
+          ],
+          [
+            "cert",
+            "port",
+            "five",
+            "seven"
+          ],
+          [
+            "APIs",
+            "runner",
+            "trusts"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 18.049999,
+            "end": 22.469999
+          },
+          {
+            "start": 22.93,
+            "end": 25.1
+          },
+          {
+            "start": 25.99,
+            "end": 30.059999
+          },
+          {
+            "start": 30.91,
+            "end": 33.77
+          }
+        ]
+      },
+      {
+        "points": [
+          "Device cert or presents client",
+          "TLS required Ansible over HTTPS network APIs — verify",
+          "Document which file is cert which is key which"
+        ],
+        "keyWords": [
+          [
+            "device",
+            "cert",
+            "presents",
+            "client"
+          ],
+          [
+            "TLS",
+            "required",
+            "Ansible",
+            "over"
+          ],
+          [
+            "Document",
+            "file",
+            "cert",
+            "key"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 34.560001,
+            "end": 38.029999
+          },
+          {
+            "start": 38.799999,
+            "end": 43.849998
+          },
+          {
+            "start": 44.490002,
+            "end": 50.419998
+          }
+        ]
+      }
+    ]
+  },
+  "secure-coding-three-pillars": {
+    "splitAt": [
+      15.34,
+      30.67
+    ],
+    "segments": [
+      {
+        "points": [
+          "Exam three point six — implement secure coding practices",
+          "Input validation — never trust YAML JSON or API"
+        ],
+        "keyWords": [
+          [
+            "three",
+            "secure",
+            "coding",
+            "Exam"
+          ],
+          [
+            "Input",
+            "validation",
+            "never",
+            "trust"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 8.06
+          },
+          {
+            "start": 8.57,
+            "end": 14.95
+          }
+        ]
+      },
+      {
+        "points": [
+          "VLAN IDs outside policy before ansible runs",
+          "Authentication — prove who calls your script or webhook",
+          "TLS or SSH"
+        ],
+        "keyWords": [
+          [
+            "VLAN",
+            "IDs",
+            "outside",
+            "policy"
+          ],
+          [
+            "Authentication",
+            "prove",
+            "calls",
+            "your"
+          ],
+          [
+            "TLS",
+            "SSH"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.17,
+            "end": 22.48
+          },
+          {
+            "start": 22.959999,
+            "end": 28.629999
+          },
+          {
+            "start": 29.139999,
+            "end": 31.389999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Secret management — load credentials from environment variables vaults",
+          "Pipeline job and webhook handler you built in courses"
+        ],
+        "keyWords": [
+          [
+            "Secret",
+            "management",
+            "load",
+            "credentials"
+          ],
+          [
+            "three",
+            "pipeline",
+            "job",
+            "webhook"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 31.450001,
+            "end": 42.529999
+          },
+          {
+            "start": 43.060001,
+            "end": 45.860001
+          }
+        ]
+      }
+    ]
+  },
+  "input-validation-for-automation": {
+    "splitAt": [
+      16.28,
+      32.56
+    ],
+    "segments": [
+      {
+        "points": [
+          "Input validation blocks malicious or accidental bad intent early",
+          "Parse YAML with safe_load not load Validate against JSON",
+          "From course two — VLAN"
+        ],
+        "keyWords": [
+          [
+            "Input",
+            "validation",
+            "Input validation",
+            "blocks"
+          ],
+          [
+            "Parse",
+            "YAML",
+            "safe_load",
+            "load"
+          ],
+          [
+            "course",
+            "two",
+            "VLAN"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.09,
+            "end": 5.06
+          },
+          {
+            "start": 5.6,
+            "end": 14.43
+          },
+          {
+            "start": 14.92,
+            "end": 16.459999
+          }
+        ]
+      },
+      {
+        "points": [
+          "ID range one to four zero nine four names",
+          "File arguments — no dot dot",
+          "Sanitize data before shell commands"
+        ],
+        "keyWords": [
+          [
+            "ID",
+            "range",
+            "one",
+            "zero"
+          ],
+          [
+            "file",
+            "arguments",
+            "dot"
+          ],
+          [
+            "Sanitize",
+            "data",
+            "shell",
+            "commands"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.459999,
+            "end": 23.459999
+          },
+          {
+            "start": 23.969999,
+            "end": 27.620001
+          },
+          {
+            "start": 28.59,
+            "end": 30.129999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Os dot system with f — strings from webhook",
+          "JSON GitLab prevalidation stage runs yamllint and schema checks",
+          "Show a webhook payload and ask what validation"
+        ],
+        "keyWords": [
+          [
+            "os",
+            "dot",
+            "system",
+            "f-strings"
+          ],
+          [
+            "validation",
+            "JSON",
+            "GitLab",
+            "prevalidation"
+          ],
+          [
+            "validation",
+            "show",
+            "webhook",
+            "payload"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 32.799999,
+            "end": 35.099998
+          },
+          {
+            "start": 35.630001,
+            "end": 41.580002
+          },
+          {
+            "start": 43.200001,
+            "end": 45.57
+          }
+        ]
+      }
+    ]
+  },
+  "secret-management-practices": {
+    "splitAt": [
+      16.17,
+      32.34
+    ],
+    "segments": [
+      {
+        "points": [
+          "Practical secret management for AUTOCOR labs and exams One",
+          "— dot gitignore for local env",
+          "Two — GitLab Settings CI slash"
+        ],
+        "keyWords": [
+          [
+            "secret",
+            "management",
+            "Practical",
+            "AUTOCOR"
+          ],
+          [
+            "dot",
+            "gitignore",
+            "local",
+            "env"
+          ],
+          [
+            "Two",
+            "GitLab",
+            "Settings",
+            "CI"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 5.47
+          },
+          {
+            "start": 6.41,
+            "end": 10.06
+          },
+          {
+            "start": 10.7,
+            "end": 16.540001
+          }
+        ]
+      },
+      {
+        "points": [
+          "CD Variables with masked and protected flags for LAB_SSH_PASSWORD",
+          "Four — least",
+          "VLANs only not enable secret Five — audit access",
+          "Variable settings"
+        ],
+        "keyWords": [
+          [
+            "SECRET",
+            "CD",
+            "Variables",
+            "masked"
+          ],
+          [
+            "least"
+          ],
+          [
+            "secret",
+            "VLANs",
+            "enable",
+            "Five"
+          ],
+          [
+            "variable",
+            "settings"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.639999,
+            "end": 21.15
+          },
+          {
+            "start": 21.65,
+            "end": 25.290001
+          },
+          {
+            "start": 26.33,
+            "end": 30.66
+          },
+          {
+            "start": 31.379999,
+            "end": 31.530001
+          }
+        ]
+      },
+      {
+        "points": [
+          "Ansible Vault encrypts files you may commit — password",
+          "CI variable only Module four lab",
+          "Refactors pyats testbed and webhook handler to read secrets",
+          "To the webhook listener"
+        ],
+        "keyWords": [
+          [
+            "Ansible",
+            "Vault",
+            "encrypts",
+            "files"
+          ],
+          [
+            "CI",
+            "variable",
+            "Module",
+            "lab"
+          ],
+          [
+            "secret",
+            "refactors",
+            "pyats",
+            "testbed"
+          ],
+          [
+            "webhook",
+            "listener"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 33.650002,
+            "end": 35.73
+          },
+          {
+            "start": 37.169998,
+            "end": 39.580002
+          },
+          {
+            "start": 42.279999,
+            "end": 46.490002
+          },
+          {
+            "start": 47.200001,
+            "end": 48.389999
+          }
+        ]
+      }
+    ]
+  },
+  "story-beat-recap-security": {
+    "splitAt": [
+      15.75,
+      31.49
+    ],
+    "segments": [
+      {
+        "points": [
+          "TLS and PKI basics the CA — signed obtain",
+          "CA — signed where TLS lands",
+          "Validation"
+        ],
+        "keyWords": [
+          [
+            "obtain-and-deploy",
+            "obtain",
+            "deploy",
+            "Pause"
+          ],
+          [
+            "CA-signed",
+            "TLS",
+            "lands"
+          ],
+          [
+            "validation"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.1,
+            "end": 6.46
+          },
+          {
+            "start": 6.93,
+            "end": 8.8
+          },
+          {
+            "start": 9.3,
+            "end": 15.72
+          }
+        ]
+      },
+      {
+        "points": [
+          "CI variable practices Next we create a lab CA",
+          "With openssl sign a cert"
+        ],
+        "keyWords": [
+          [
+            "Next",
+            "lab",
+            "CI",
+            "variable"
+          ],
+          [
+            "openssl",
+            "sign",
+            "cert"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.200001,
+            "end": 24.540001
+          },
+          {
+            "start": 26.290001,
+            "end": 29.26
+          }
+        ]
+      },
+      {
+        "points": [
+          "HTTPS refactor pyats testbed credentials to environment variables add",
+          "VLAN intent and configure",
+          "GitLab masked variables Remove any plaintext production passwords"
+        ],
+        "keyWords": [
+          [
+            "HTTPS",
+            "refactor",
+            "pyats",
+            "testbed"
+          ],
+          [
+            "VLAN",
+            "intent",
+            "configure"
+          ],
+          [
+            "Lab",
+            "GitLab",
+            "masked",
+            "variables"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 32.290001,
+            "end": 38.150002
+          },
+          {
+            "start": 38.700001,
+            "end": 40.689999
+          },
+          {
+            "start": 41.299999,
+            "end": 46.990002
+          }
+        ]
+      }
+    ]
+  },
+  "lab-setup-security": {
+    "splitAt": [
+      14.05,
+      28.09
+    ],
+    "segments": [
+      {
+        "points": [
+          "In netops_ops_lab add tls slash with ca server cert",
+          "Update webhook handler",
+          "HTTPS or place nginx"
+        ],
+        "keyWords": [
+          [
+            "netops_ops_lab",
+            "tls",
+            "add",
+            "slash"
+          ],
+          [
+            "Update",
+            "webhook",
+            "handler"
+          ],
+          [
+            "HTTPS",
+            "place",
+            "nginx"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.08,
+            "end": 7.41
+          },
+          {
+            "start": 8.72,
+            "end": 9.67
+          },
+          {
+            "start": 11.99,
+            "end": 14.17
+          }
+        ]
+      },
+      {
+        "points": [
+          "Copy pyats slash testbed dot",
+          "Yaml to testbed dot yaml dot example without secrets",
+          "Create dot",
+          "LAB_SSH_PASSWORD"
+        ],
+        "keyWords": [
+          [
+            "Copy",
+            "pyats",
+            "slash",
+            "testbed"
+          ],
+          [
+            "yaml",
+            "testbed",
+            "dot",
+            "example"
+          ],
+          [
+            "Create",
+            "dot"
+          ],
+          [
+            "LAB_SSH_PASSWORD"
+          ],
+          [
+            "WEBHOOK_SECRET",
+            "real"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.17,
+            "end": 17.200001
+          },
+          {
+            "start": 18.790001,
+            "end": 22.17
+          },
+          {
+            "start": 22.76,
+            "end": 24.290001
+          },
+          {
+            "start": 25.17,
+            "end": 26.370001
+          },
+          {
+            "start": 26.98,
+            "end": 27.43
+          }
+        ]
+      },
+      {
+        "points": [
+          "You need openssl on your runner",
+          "Linux and WSL"
+        ],
+        "keyWords": [
+          [
+            "openssl",
+            "your",
+            "runner"
+          ],
+          [
+            "Linux",
+            "WSL"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 28.9,
+            "end": 32.540001
+          },
+          {
+            "start": 33.240002,
+            "end": 35.200001
+          }
+        ]
+      }
+    ]
+  },
+  "certification-alignment-security": {
+    "splitAt": [
+      15.6,
+      31.21
+    ],
+    "segments": [
+      {
+        "points": [
+          "Module four maps to exam objectives three point five",
+          "TLS certificates generate key CSR CA"
+        ],
+        "keyWords": [
+          [
+            "exam",
+            "objectives",
+            "Module",
+            "maps"
+          ],
+          [
+            "TLS",
+            "certificates",
+            "generate",
+            "key"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.05,
+            "end": 10.44
+          },
+          {
+            "start": 11.5,
+            "end": 15.79
+          }
+        ]
+      },
+      {
+        "points": [
+          "Three point six",
+          "Automation",
+          "API callers manage secrets via env",
+          "CI variables not Git"
+        ],
+        "keyWords": [
+          [
+            "Three",
+            "point",
+            "six"
+          ],
+          [
+            "automation"
+          ],
+          [
+            "API",
+            "callers",
+            "manage",
+            "secrets"
+          ],
+          [
+            "CI",
+            "variables",
+            "Git"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 15.79,
+            "end": 20.190001
+          },
+          {
+            "start": 20.76,
+            "end": 24.379999
+          },
+          {
+            "start": 24.860001,
+            "end": 29.549999
+          },
+          {
+            "start": 30.09,
+            "end": 31.360000499999998
+          }
+        ]
+      },
+      {
+        "points": [
+          "Practice narrating the openssl flow",
+          "PEM file installs Capstone module five",
+          "TLS into one secure zero — touch operations pipeline"
+        ],
+        "keyWords": [
+          [
+            "Practice",
+            "narrating",
+            "openssl",
+            "flow"
+          ],
+          [
+            "PEM",
+            "file",
+            "installs",
+            "Capstone"
+          ],
+          [
+            "TLS",
+            "one",
+            "secure",
+            "zero-touch"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 31.360000499999998,
+            "end": 32.02
+          },
+          {
+            "start": 33.029999,
+            "end": 37.209999
+          },
+          {
+            "start": 39.68,
+            "end": 46.66
+          }
+        ]
+      }
+    ]
+  },
+  "security-ready-for-capstone": {
+    "splitAt": [
+      14.57,
+      29.15
+    ],
+    "segments": [
+      {
+        "points": [
+          "You started module four with plaintext passwords and HTTP",
+          "CA signed server certificate HTTPS",
+          "Webhook with token"
+        ],
+        "keyWords": [
+          [
+            "started",
+            "module",
+            "plaintext",
+            "passwords"
+          ],
+          [
+            "CA",
+            "signed",
+            "server",
+            "certificate"
+          ],
+          [
+            "webhook",
+            "token"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.08,
+            "end": 6.91
+          },
+          {
+            "start": 7.39,
+            "end": 12.29
+          },
+          {
+            "start": 12.95,
+            "end": 14.03
+          }
+        ]
+      },
+      {
+        "points": [
+          "Credentials",
+          "VLAN intent and GitLab masked variables Course",
+          "Three capstone runs the full operate — validate —",
+          "Structured"
+        ],
+        "keyWords": [
+          [
+            "credentials"
+          ],
+          [
+            "VLAN",
+            "intent",
+            "GitLab",
+            "masked"
+          ],
+          [
+            "capstone",
+            "operate-validate-secure",
+            "operate",
+            "validate"
+          ],
+          [
+            "structured"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.87,
+            "end": 18.26
+          },
+          {
+            "start": 18.73,
+            "end": 23.74
+          },
+          {
+            "start": 24.25,
+            "end": 27.15
+          },
+          {
+            "start": 28.42,
+            "end": 29.240001
+          }
+        ]
+      },
+      {
+        "points": [
+          "TLS — protected webhooks — on the repos",
+          "Netops_ops_lab and netops_iac_lab for stray secrets",
+          "Before the capstone merge"
+        ],
+        "keyWords": [
+          [
+            "TLS-protected",
+            "webhooks",
+            "repos",
+            "built"
+          ],
+          [
+            "netops_ops_lab",
+            "netops_iac_lab",
+            "stray",
+            "secrets"
+          ],
+          [
+            "capstone",
+            "merge"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 29.240001,
+            "end": 36.080002
+          },
+          {
+            "start": 36.91,
+            "end": 39.700001
+          },
+          {
+            "start": 40.209999,
+            "end": 41.619999
+          }
+        ]
+      }
+    ]
+  },
+  "capstone-integrates-four-modules": {
+    "splitAt": [
+      17.72,
+      35.44
+    ],
+    "segments": [
+      {
+        "points": [
+          "Module four ended with HTTPS webhooks and secrets",
+          "Module one — telemetry stream still healthy in Prometheus"
+        ],
+        "keyWords": [
+          [
+            "capstone",
+            "Module",
+            "ended",
+            "HTTPS"
+          ],
+          [
+            "Module",
+            "one",
+            "telemetry",
+            "stream"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 8.43
+          },
+          {
+            "start": 9.4,
+            "end": 17.860001
+          }
+        ]
+      },
+      {
+        "points": [
+          "JSON deploy logs",
+          "Chg — capstone",
+          "Module three — pyats run job must pass after",
+          "TLS and WEBHOOK_SECRET pyATS reads LAB_SSH_PASSWORD from env not"
+        ],
+        "keyWords": [
+          [
+            "JSON",
+            "deploy",
+            "logs"
+          ],
+          [
+            "capstone",
+            "chg-capstone"
+          ],
+          [
+            "Module",
+            "three",
+            "pyats",
+            "run"
+          ],
+          [
+            "TLS",
+            "WEBHOOK_SECRET",
+            "pyATS",
+            "reads"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 18.25,
+            "end": 20.379999
+          },
+          {
+            "start": 22.540001,
+            "end": 24.129999
+          },
+          {
+            "start": 25.059999,
+            "end": 28.450001
+          },
+          {
+            "start": 29.15,
+            "end": 35.23
+          }
+        ]
+      },
+      {
+        "points": [
+          "You add VLAN three fifty to intended slash vlans",
+          "Dot yaml in netops_iac_lab — same pattern as course",
+          "Pass criteria include ops gates not only green GitLab"
+        ],
+        "keyWords": [
+          [
+            "add",
+            "VLAN",
+            "three",
+            "fifty"
+          ],
+          [
+            "capstone",
+            "dot",
+            "yaml",
+            "netops_iac_lab"
+          ],
+          [
+            "pass",
+            "criteria",
+            "include",
+            "ops"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 35.610001,
+            "end": 37.75
+          },
+          {
+            "start": 39.41,
+            "end": 43.279999
+          },
+          {
+            "start": 44.130001,
+            "end": 48.450001
+          }
+        ]
+      }
+    ]
+  },
+  "capstone-two-repo-layout": {
+    "splitAt": [
+      15.38,
+      30.77
+    ],
+    "segments": [
+      {
+        "points": [
+          "Know which repo owns which concern before",
+          "Lab netops_iac_lab — intended slash",
+          "Deploy_vlans",
+          "Netops_ops_lab"
+        ],
+        "keyWords": [
+          [
+            "Know",
+            "repo",
+            "owns",
+            "concern"
+          ],
+          [
+            "lab",
+            "netops_iac_lab",
+            "intended",
+            "slash"
+          ],
+          [
+            "deploy_vlans"
+          ],
+          [
+            "netops_ops_lab"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 2.76
+          },
+          {
+            "start": 4.08,
+            "end": 6.37
+          },
+          {
+            "start": 7.3,
+            "end": 12.97
+          },
+          {
+            "start": 14.1,
+            "end": 15.73
+          }
+        ]
+      },
+      {
+        "points": [
+          "Prometheus and rsyslog",
+          "Validate_vlans",
+          "PEM files from module"
+        ],
+        "keyWords": [
+          [
+            "Prometheus",
+            "rsyslog"
+          ],
+          [
+            "validate_vlans"
+          ],
+          [
+            "PEM",
+            "files",
+            "module"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 15.85,
+            "end": 19.440001
+          },
+          {
+            "start": 20.07,
+            "end": 22.75
+          },
+          {
+            "start": 23.299999,
+            "end": 28.040001
+          }
+        ]
+      },
+      {
+        "points": [
+          "The pipeline runs in iac repo ops",
+          "CI jobs call across directories with relative paths"
+        ],
+        "keyWords": [
+          [
+            "pipeline",
+            "runs",
+            "iac",
+            "repo"
+          ],
+          [
+            "CI",
+            "jobs",
+            "call",
+            "across"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 32.709999,
+            "end": 37.18
+          },
+          {
+            "start": 37.849998,
+            "end": 45.869999
+          }
+        ]
+      }
+    ]
+  },
+  "seven-steps-ops-runbook": {
+    "splitAt": [
+      16.56,
+      33.12
+    ],
+    "segments": [
+      {
+        "points": [
+          "Run the capstone in this order One — start",
+          "Prometheus rsyslog HTTPS webhook handler",
+          "Two — edit VLAN three fifty",
+          "Netops_iac_lab on a feature branch Three —"
+        ],
+        "keyWords": [
+          [
+            "order",
+            "Run",
+            "capstone",
+            "One"
+          ],
+          [
+            "Prometheus",
+            "rsyslog",
+            "HTTPS",
+            "webhook"
+          ],
+          [
+            "Two",
+            "edit",
+            "VLAN",
+            "three"
+          ],
+          [
+            "netops_iac_lab",
+            "feature",
+            "branch",
+            "Three"
+          ],
+          [
+            "local",
+            "validate_intent_secure",
+            "pipeline"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.12,
+            "end": 4.46
+          },
+          {
+            "start": 7.44,
+            "end": 10.53
+          },
+          {
+            "start": 11.15,
+            "end": 12.87
+          },
+          {
+            "start": 13.37,
+            "end": 15.44
+          },
+          {
+            "start": 16.01,
+            "end": 16.52
+          }
+        ]
+      },
+      {
+        "points": [
+          "Four — merge to main deploy job runs",
+          "Confirm telemetry metrics still flow",
+          "And grep logs for request_id Six —",
+          "Pyats run job"
+        ],
+        "keyWords": [
+          [
+            "merge",
+            "main",
+            "deploy",
+            "job"
+          ],
+          [
+            "confirm",
+            "telemetry",
+            "metrics",
+            "still"
+          ],
+          [
+            "grep",
+            "logs",
+            "request_id",
+            "Six"
+          ],
+          [
+            "pyats",
+            "run",
+            "job"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.85,
+            "end": 23.74
+          },
+          {
+            "start": 24.950001,
+            "end": 28.07
+          },
+          {
+            "start": 28.969999,
+            "end": 30.57
+          },
+          {
+            "start": 31.41,
+            "end": 32.310001
+          }
+        ]
+      },
+      {
+        "points": [
+          "Seven — read HTTPS webhook",
+          "Stop at the first red gate and use",
+          "RCA on the logs"
+        ],
+        "keyWords": [
+          [
+            "Seven",
+            "read",
+            "HTTPS",
+            "webhook"
+          ],
+          [
+            "Stop",
+            "red",
+            "gate",
+            "use"
+          ],
+          [
+            "RCA",
+            "logs"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 34.580002,
+            "end": 37.720001
+          },
+          {
+            "start": 39.369999,
+            "end": 43.75
+          },
+          {
+            "start": 45.709999,
+            "end": 46.720001
+          }
+        ]
+      }
+    ]
+  },
+  "four-pillars-capstone-chain": {
+    "splitAt": [
+      12.03,
+      24.07
+    ],
+    "segments": [
+      {
+        "points": [
+          "Four pillars carry the capstone evidence chain — maps",
+          "Telemetry — Prometheus query shows interface counters during change"
+        ],
+        "keyWords": [
+          [
+            "pillars",
+            "evidence",
+            "carry",
+            "capstone"
+          ],
+          [
+            "Telemetry",
+            "Prometheus",
+            "query",
+            "shows"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.08,
+            "end": 5.66
+          },
+          {
+            "start": 6.12,
+            "end": 12.19
+          }
+        ]
+      },
+      {
+        "points": [
+          "Logging — deploy dot json and syslog with chg",
+          "Validation — pyats run job exit"
+        ],
+        "keyWords": [
+          [
+            "Logging",
+            "deploy",
+            "dot",
+            "json"
+          ],
+          [
+            "Validation",
+            "pyats",
+            "run",
+            "job"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 12.25,
+            "end": 19.620001
+          },
+          {
+            "start": 20.18,
+            "end": 24.6
+          }
+        ]
+      },
+      {
+        "points": [
+          "Security —",
+          "HTTPS webhook with token and secrets from CI variables",
+          "Exercising"
+        ],
+        "keyWords": [
+          [
+            "Security"
+          ],
+          [
+            "HTTPS",
+            "webhook",
+            "token",
+            "secrets"
+          ],
+          [
+            "exercising"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 25.98,
+            "end": 27.99
+          },
+          {
+            "start": 28.450001,
+            "end": 33.389999
+          },
+          {
+            "start": 33.959999,
+            "end": 35.900002
+          }
+        ]
+      }
+    ]
+  },
+  "verify-ops-pipeline-before-close": {
+    "splitAt": [
+      13.7,
+      27.41
+    ],
+    "segments": [
+      {
+        "points": [
+          "Do not close the capstone when git merge succeeds",
+          "GitLab post — validation job must pass",
+          "PASSED for validate_vlans Prometheus"
+        ],
+        "keyWords": [
+          [
+            "close",
+            "capstone",
+            "git",
+            "merge"
+          ],
+          [
+            "GitLab",
+            "post-validation",
+            "job",
+            "pass"
+          ],
+          [
+            "PASSED",
+            "validate_vlans",
+            "Prometheus"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 3.93
+          },
+          {
+            "start": 4.77,
+            "end": 7.14
+          },
+          {
+            "start": 8.38,
+            "end": 12.83
+          }
+        ]
+      },
+      {
+        "points": [
+          "Return non — zero series for interface metrics —",
+          "Json must contain chg — capstone with deploy ok"
+        ],
+        "keyWords": [
+          [
+            "return",
+            "non-zero",
+            "series",
+            "interface"
+          ],
+          [
+            "json",
+            "contain",
+            "chg-capstone",
+            "deploy"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.72,
+            "end": 19.790001
+          },
+          {
+            "start": 20.299999,
+            "end": 26.16
+          }
+        ]
+      },
+      {
+        "points": [
+          "HTTPS webhook handler",
+          "JSON line If any",
+          "Pillar is missing the change is not zero —"
+        ],
+        "keyWords": [
+          [
+            "HTTPS",
+            "webhook",
+            "handler"
+          ],
+          [
+            "JSON",
+            "line",
+            "If",
+            "any"
+          ],
+          [
+            "pillar",
+            "missing",
+            "change",
+            "zero-touch"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 27.559999,
+            "end": 30.190001
+          },
+          {
+            "start": 30.690001,
+            "end": 33.34
+          },
+          {
+            "start": 33.860001,
+            "end": 39.41
+          }
+        ]
+      }
+    ]
+  },
+  "capstone-nothing-new-ops": {
+    "splitAt": [
+      14.36,
+      28.73
+    ],
+    "segments": [
+      {
+        "points": [
+          "You already built every tool this capstone needs",
+          "Module one — docker compose telemetry stack Module",
+          "Two — run_deploy dot py",
+          "And rsyslog Module"
+        ],
+        "keyWords": [
+          [
+            "already",
+            "built",
+            "tool",
+            "capstone"
+          ],
+          [
+            "Module",
+            "one",
+            "docker",
+            "compose"
+          ],
+          [
+            "two",
+            "run_deploy",
+            "dot",
+            "py"
+          ],
+          [
+            "rsyslog",
+            "Module"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.09,
+            "end": 2.96
+          },
+          {
+            "start": 3.45,
+            "end": 7
+          },
+          {
+            "start": 7.54,
+            "end": 10.77
+          },
+          {
+            "start": 12.36,
+            "end": 13.18
+          }
+        ]
+      },
+      {
+        "points": [
+          "Module four — tls certs",
+          "Course two —",
+          "If pyats connection fails fix module three"
+        ],
+        "keyWords": [
+          [
+            "Module",
+            "tls",
+            "certs"
+          ],
+          [
+            "Course",
+            "two"
+          ],
+          [
+            "If",
+            "pyats",
+            "connection",
+            "fails"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 15.42,
+            "end": 23.549999
+          },
+          {
+            "start": 24.07,
+            "end": 25.120001
+          },
+          {
+            "start": 25.65,
+            "end": 28.530001
+          }
+        ]
+      },
+      {
+        "points": [
+          "If webhook returns four zero one",
+          "WEBHOOK_SECRET in module four If Prometheus empty fix",
+          "The capstone passes when one VLAN intent change flows"
+        ],
+        "keyWords": [
+          [
+            "If",
+            "webhook",
+            "returns",
+            "zero"
+          ],
+          [
+            "WEBHOOK_SECRET",
+            "module",
+            "If",
+            "Prometheus"
+          ],
+          [
+            "new",
+            "install",
+            "capstone",
+            "passes"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 29.549999,
+            "end": 31.74
+          },
+          {
+            "start": 32.369999,
+            "end": 37.77
+          },
+          {
+            "start": 38.220001,
+            "end": 42.130001
+          }
+        ]
+      }
+    ]
+  },
+  "story-beat-recap-ops-capstone": {
+    "splitAt": [
+      13.39,
+      26.79
+    ],
+    "segments": [
+      {
+        "points": [
+          "The capstone is course two intent change plus course",
+          "Gates in seven steps You",
+          "Know the two — repo layout the four evidence"
+        ],
+        "keyWords": [
+          [
+            "capstone",
+            "operate-validate-secure",
+            "operate",
+            "validate"
+          ],
+          [
+            "gates",
+            "seven",
+            "steps"
+          ],
+          [
+            "know",
+            "two-repo",
+            "layout",
+            "evidence"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 6.89
+          },
+          {
+            "start": 7.6,
+            "end": 9.79
+          },
+          {
+            "start": 10.32,
+            "end": 13.68
+          }
+        ]
+      },
+      {
+        "points": [
+          "Next slides walk commands line by line — start",
+          "Validate merge log"
+        ],
+        "keyWords": [
+          [
+            "Next",
+            "slides",
+            "walk",
+            "commands"
+          ],
+          [
+            "validate",
+            "merge",
+            "log"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.68,
+            "end": 22.190001
+          },
+          {
+            "start": 23.34,
+            "end": 25.360001
+          }
+        ]
+      },
+      {
+        "points": [
+          "Correlation pyATS webhook optional rollback drill — the same",
+          "Both netops_iac_lab and netops_ops_lab Lab",
+          "And simulation targets only"
+        ],
+        "keyWords": [
+          [
+            "correlation",
+            "pyATS",
+            "webhook",
+            "optional"
+          ],
+          [
+            "Lab",
+            "netops_iac_lab",
+            "netops_ops_lab"
+          ],
+          [
+            "simulation",
+            "targets"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 27.76,
+            "end": 33.220001
+          },
+          {
+            "start": 34.150002,
+            "end": 36.119999
+          },
+          {
+            "start": 36.84,
+            "end": 38.799999
+          }
+        ]
+      }
+    ]
+  },
+  "lab-setup-ops-capstone": {
+    "splitAt": [
+      14.36,
+      28.73
+    ],
+    "segments": [
+      {
+        "points": [
+          "Capstone lab setup checklist In netops_ops_lab run docker compose",
+          "Prometheus rsyslog and collector Start webhook handler_tls dot py"
+        ],
+        "keyWords": [
+          [
+            "Capstone",
+            "lab",
+            "setup",
+            "Capstone lab setup"
+          ],
+          [
+            "Prometheus",
+            "rsyslog",
+            "collector",
+            "Start"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.1,
+            "end": 6.9
+          },
+          {
+            "start": 7.65,
+            "end": 13.16
+          }
+        ]
+      },
+      {
+        "points": [
+          "WEBHOOK_SECRET from dot env",
+          "In netops_iac_lab run git status on main — clean",
+          "Confirm GitLab CI variables LAB_SSH_PASSWORD and WEBHOOK_SECRET"
+        ],
+        "keyWords": [
+          [
+            "WEBHOOK_SECRET",
+            "dot",
+            "env"
+          ],
+          [
+            "lab",
+            "netops_iac_lab",
+            "run",
+            "git"
+          ],
+          [
+            "Lab",
+            "Confirm",
+            "GitLab",
+            "CI"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 15.12,
+            "end": 17.809999
+          },
+          {
+            "start": 19.01,
+            "end": 21
+          },
+          {
+            "start": 23.32,
+            "end": 28.68
+          }
+        ]
+      },
+      {
+        "points": [
+          "Export REQUEST_ID equals chg — capstone for this run",
+          "Before editing intent"
+        ],
+        "keyWords": [
+          [
+            "capstone",
+            "Export",
+            "REQUEST_ID",
+            "equals"
+          ],
+          [
+            "Pause",
+            "editing",
+            "intent"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 28.83,
+            "end": 31.700001
+          },
+          {
+            "start": 32.200001,
+            "end": 34.25
+          }
+        ]
+      }
+    ]
+  },
+  "resume-ops-capstone-prerequisites": {
+    "splitAt": [
+      10.42,
+      20.85
+    ],
+    "segments": [
+      {
+        "points": [
+          "Sixty — second readiness across course three modules",
+          "Module two — logger test line",
+          "Appears in rsyslog"
+        ],
+        "keyWords": [
+          [
+            "modules",
+            "one",
+            "Sixty-second",
+            "readiness"
+          ],
+          [
+            "Module",
+            "two",
+            "logger",
+            "test"
+          ],
+          [
+            "appears",
+            "rsyslog"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.04,
+            "end": 6.05
+          },
+          {
+            "start": 6.6,
+            "end": 8.54
+          },
+          {
+            "start": 9.36,
+            "end": 10.79
+          }
+        ]
+      },
+      {
+        "points": [
+          "Module three — pyats version works and testbed loads",
+          "Sixty — second readiness across course three modules.",
+          "Module one — curl Prometheus query returns data.",
+          "Module two — logger test line appears in rsyslog"
+        ],
+        "keyWords": [
+          [
+            "Module",
+            "three",
+            "pyats",
+            "version"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 10.79,
+            "end": 20.9
+          }
+        ]
+      },
+      {
+        "points": [
+          "CA Course two — ansible — playbook check",
+          "If any step fails repair that module before capstone"
+        ],
+        "keyWords": [
+          [
+            "CA",
+            "Course",
+            "two",
+            "ansible-playbook"
+          ],
+          [
+            "one",
+            "If",
+            "any",
+            "step"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 20.9,
+            "end": 25.07
+          },
+          {
+            "start": 25.690001,
+            "end": 31.059999
+          }
+        ]
+      }
+    ]
+  },
+  "course-three-objectives-complete": {
+    "splitAt": [
+      14.63,
+      29.27
+    ],
+    "segments": [
+      {
+        "points": [
+          "Course three capstone maps AUTOCOR network operations objectives three",
+          "Three point two and three point three"
+        ],
+        "keyWords": [
+          [
+            "Course",
+            "three",
+            "objectives",
+            "capstone"
+          ],
+          [
+            "Three",
+            "point",
+            "two"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 11.32
+          },
+          {
+            "start": 11.79,
+            "end": 15.07
+          }
+        ]
+      },
+      {
+        "points": [
+          "Request_id",
+          "Three point four — pyATS post — change validation",
+          "TLS webhook",
+          "Secure secrets in CI You"
+        ],
+        "keyWords": [
+          [
+            "request_id"
+          ],
+          [
+            "Three",
+            "point",
+            "pyATS",
+            "post-change"
+          ],
+          [
+            "TLS",
+            "webhook"
+          ],
+          [
+            "secure",
+            "secrets",
+            "CI"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 15.07,
+            "end": 18.950001
+          },
+          {
+            "start": 20.58,
+            "end": 24.639999
+          },
+          {
+            "start": 25.790001,
+            "end": 27.67
+          },
+          {
+            "start": 28.690001,
+            "end": 29.3550005
+          }
+        ]
+      },
+      {
+        "points": [
+          "Ran them across netops_ops_lab and netops_iac_lab — not",
+          "The CCNP AUTOCOR track continues beyond section three"
+        ],
+        "keyWords": [
+          [
+            "ran",
+            "them",
+            "across",
+            "netops_ops_lab"
+          ],
+          [
+            "three",
+            "CCNP",
+            "AUTOCOR",
+            "track"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 29.3550005,
+            "end": 35.189999
+          },
+          {
+            "start": 36.07,
+            "end": 40.990002
+          }
+        ]
+      }
+    ]
+  },
+  "ops-capstone-complete": {
+    "splitAt": [
+      13.71,
+      27.41
+    ],
+    "segments": [
+      {
+        "points": [
+          "You started course three asking how to know",
+          "You finish with streaming",
+          "Telemetry correlated syslog and JSON logs"
+        ],
+        "keyWords": [
+          [
+            "network",
+            "started",
+            "course",
+            "three"
+          ],
+          [
+            "finish",
+            "streaming"
+          ],
+          [
+            "telemetry",
+            "correlated",
+            "syslog",
+            "JSON"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 5.37
+          },
+          {
+            "start": 6.36,
+            "end": 8.33
+          },
+          {
+            "start": 8.82,
+            "end": 13.58
+          }
+        ]
+      },
+      {
+        "points": [
+          "VLAN intent landed TLS — protected webhooks and secrets",
+          "That is secure zero — touch",
+          "Operations"
+        ],
+        "keyWords": [
+          [
+            "VLAN",
+            "intent",
+            "landed",
+            "TLS-protected"
+          ],
+          [
+            "secure",
+            "zero-touch"
+          ],
+          [
+            "operations"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.97,
+            "end": 21.24
+          },
+          {
+            "start": 21.92,
+            "end": 25.93
+          },
+          {
+            "start": 26.43,
+            "end": 27.4449995
+          }
+        ]
+      },
+      {
+        "points": [
+          "AUTOCOR section three story Keep netops_ops_lab beside netops_iac_lab",
+          "Observe first validate before close secure every"
+        ],
+        "keyWords": [
+          [
+            "AUTOCOR",
+            "section",
+            "three",
+            "story"
+          ],
+          [
+            "validate",
+            "Observe",
+            "close",
+            "secure"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 27.4449995,
+            "end": 32.189999
+          },
+          {
+            "start": 32.73,
+            "end": 36.48
+          }
+        ]
+      }
+    ]
+  }
+}

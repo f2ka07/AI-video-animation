@@ -1,0 +1,49 @@
+{
+  "diagram": "importance-of-idempotency.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-run-once"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-run-once"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-run-once",
+        "viz-run-again"
+      ],
+      "dim": [
+        "viz-run-once"
+      ],
+      "highlight": [
+        "viz-run-again"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-run-once",
+        "viz-run-again",
+        "viz-same-state"
+      ],
+      "dim": [
+        "viz-run-once",
+        "viz-run-again"
+      ],
+      "highlight": [
+        "viz-same-state"
+      ]
+    }
+  ]
+}

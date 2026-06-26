@@ -1,0 +1,49 @@
+{
+  "diagram": "secure-ops-to-ai-bridge.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-scenario"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-scenario"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-scenario",
+        "viz-workflow"
+      ],
+      "dim": [
+        "viz-scenario"
+      ],
+      "highlight": [
+        "viz-workflow"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-scenario",
+        "viz-workflow",
+        "viz-guardrail"
+      ],
+      "dim": [
+        "viz-scenario",
+        "viz-workflow"
+      ],
+      "highlight": [
+        "viz-guardrail"
+      ]
+    }
+  ]
+}

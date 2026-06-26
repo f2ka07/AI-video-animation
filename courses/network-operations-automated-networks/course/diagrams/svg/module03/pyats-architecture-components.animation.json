@@ -1,0 +1,68 @@
+{
+  "diagram": "pyats-architecture-components.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-testbed"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-testbed"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-testbed",
+        "viz-learn"
+      ],
+      "dim": [
+        "viz-testbed"
+      ],
+      "highlight": [
+        "viz-learn"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-testbed",
+        "viz-learn",
+        "viz-compare"
+      ],
+      "dim": [
+        "viz-testbed",
+        "viz-learn"
+      ],
+      "highlight": [
+        "viz-compare"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-testbed",
+        "viz-learn",
+        "viz-compare",
+        "viz-report"
+      ],
+      "dim": [
+        "viz-testbed",
+        "viz-learn",
+        "viz-compare"
+      ],
+      "highlight": [
+        "viz-report"
+      ]
+    }
+  ]
+}

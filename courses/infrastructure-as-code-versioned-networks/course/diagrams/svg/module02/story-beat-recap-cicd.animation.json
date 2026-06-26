@@ -1,0 +1,14 @@
+{
+  "diagram": "story-beat-recap-cicd.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 10,
+      "show": [
+        "main"
+      ],
+      "dim": [],
+      "highlight": []
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "diagram": "what-is-rest.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-url"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-url"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-url",
+        "viz-verbs"
+      ],
+      "dim": [
+        "viz-url"
+      ],
+      "highlight": [
+        "viz-verbs"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-url",
+        "viz-verbs",
+        "viz-status"
+      ],
+      "dim": [
+        "viz-url",
+        "viz-verbs"
+      ],
+      "highlight": [
+        "viz-status"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3605 @@
+{
+  "moduleNumber": 5,
+  "title": "AI Powered Network Assistant Capstone",
+  "slides": {
+    "ai-capstone-intro": {
+      "words": [
+        {
+          "text": "This",
+          "start": 0.14,
+          "end": 0.31
+        },
+        {
+          "text": "is",
+          "start": 0.31,
+          "end": 0.45
+        },
+        {
+          "text": "the",
+          "start": 0.45,
+          "end": 0.51
+        },
+        {
+          "text": "integration",
+          "start": 0.51,
+          "end": 1.26
+        },
+        {
+          "text": "lab",
+          "start": 1.26,
+          "end": 1.57
+        },
+        {
+          "text": "netops_ai_lab",
+          "start": 3.27,
+          "end": 3.45
+        },
+        {
+          "text": "already",
+          "start": 3.45,
+          "end": 3.82
+        },
+        {
+          "text": "contains",
+          "start": 4.42,
+          "end": 4.76
+        },
+        {
+          "text": "governed",
+          "start": 4.76,
+          "end": 5.04
+        },
+        {
+          "text": "AI",
+          "start": 5.04,
+          "end": 5.33
+        },
+        {
+          "text": "drafting",
+          "start": 5.33,
+          "end": 5.42
+        },
+        {
+          "text": "an",
+          "start": 7.79,
+          "end": 7.92
+        },
+        {
+          "text": "MCP",
+          "start": 7.92,
+          "end": 7.95
+        },
+        {
+          "text": "server",
+          "start": 7.95,
+          "end": 8.57
+        },
+        {
+          "text": "a",
+          "start": 8.57,
+          "end": 8.9
+        },
+        {
+          "text": "conversational",
+          "start": 8.9,
+          "end": 9.03
+        },
+        {
+          "text": "agent",
+          "start": 9.64,
+          "end": 10.09
+        },
+        {
+          "text": "with",
+          "start": 10.09,
+          "end": 10.36
+        },
+        {
+          "text": "approval",
+          "start": 10.36,
+          "end": 10.46
+        },
+        {
+          "text": "gates",
+          "start": 10.46,
+          "end": 10.55
+        },
+        {
+          "text": "and",
+          "start": 10.55,
+          "end": 11.06
+        },
+        {
+          "text": "a",
+          "start": 11.06,
+          "end": 11.25
+        },
+        {
+          "text": "benchmark",
+          "start": 11.46,
+          "end": 11.55
+        },
+        {
+          "text": "suite",
+          "start": 11.55,
+          "end": 12.04
+        },
+        {
+          "text": "You",
+          "start": 12.68,
+          "end": 12.77
+        },
+        {
+          "text": "will",
+          "start": 12.77,
+          "end": 12.93
+        },
+        {
+          "text": "run",
+          "start": 12.93,
+          "end": 13.82
+        },
+        {
+          "text": "one",
+          "start": 14.29,
+          "end": 14.54
+        },
+        {
+          "text": "realistic",
+          "start": 14.54,
+          "end": 15.19
+        },
+        {
+          "text": "operator",
+          "start": 15.19,
+          "end": 15.28
+        },
+        {
+          "text": "session",
+          "start": 15.41,
+          "end": 15.63
+        },
+        {
+          "text": "ask",
+          "start": 16.57,
+          "end": 16.969999
+        },
+        {
+          "text": "about",
+          "start": 17.42,
+          "end": 17.66
+        },
+        {
+          "text": "VLAN",
+          "start": 17.66,
+          "end": 17.709999
+        },
+        {
+          "text": "intent",
+          "start": 17.709999,
+          "end": 18.219999
+        },
+        {
+          "text": "receive",
+          "start": 18.219999,
+          "end": 18.700001
+        },
+        {
+          "text": "a",
+          "start": 18.700001,
+          "end": 18.99
+        },
+        {
+          "text": "grounded",
+          "start": 19.25,
+          "end": 19.32
+        },
+        {
+          "text": "answer",
+          "start": 19.32,
+          "end": 19.780001
+        },
+        {
+          "text": "let",
+          "start": 19.780001,
+          "end": 20.530001
+        },
+        {
+          "text": "the",
+          "start": 20.530001,
+          "end": 20.66
+        },
+        {
+          "text": "agent",
+          "start": 21.09,
+          "end": 21.360001
+        },
+        {
+          "text": "propose",
+          "start": 21.469999,
+          "end": 21.700001
+        },
+        {
+          "text": "a",
+          "start": 21.700001,
+          "end": 22.059999
+        },
+        {
+          "text": "lab",
+          "start": 22.059999,
+          "end": 22.120001
+        },
+        {
+          "text": "change",
+          "start": 22.120001,
+          "end": 23.01
+        },
+        {
+          "text": "approve",
+          "start": 25.790001,
+          "end": 26.32
+        },
+        {
+          "text": "it",
+          "start": 26.629999,
+          "end": 27.219999
+        },
+        {
+          "text": "explicitly",
+          "start": 27.219999,
+          "end": 27.76
+        },
+        {
+          "text": "validate",
+          "start": 28.09,
+          "end": 28.51
+        },
+        {
+          "text": "and",
+          "start": 28.51,
+          "end": 28.73
+        },
+        {
+          "text": "record",
+          "start": 28.809999,
+          "end": 28.879999
+        },
+        {
+          "text": "scores",
+          "start": 28.879999,
+          "end": 29.134999
+        },
+        {
+          "text": "Nothing",
+          "start": 29.134999,
+          "end": 29.389999
+        },
+        {
+          "text": "new",
+          "start": 29.639999,
+          "end": 29.93
+        },
+        {
+          "text": "to",
+          "start": 29.93,
+          "end": 29.9949995
+        },
+        {
+          "text": "install",
+          "start": 29.9949995,
+          "end": 30.059999
+        },
+        {
+          "text": "-",
+          "start": 30.059999,
+          "end": 30.629999
+        },
+        {
+          "text": "only",
+          "start": 30.629999,
+          "end": 30.705
+        },
+        {
+          "text": "the",
+          "start": 30.705,
+          "end": 30.780001
+        },
+        {
+          "text": "discipline",
+          "start": 30.780001,
+          "end": 31.02
+        },
+        {
+          "text": "to",
+          "start": 31.02,
+          "end": 31.0700005
+        },
+        {
+          "text": "run",
+          "start": 31.0700005,
+          "end": 31.120001
+        },
+        {
+          "text": "the",
+          "start": 31.120001,
+          "end": 31.6
+        },
+        {
+          "text": "steps",
+          "start": 31.6,
+          "end": 31.6950005
+        },
+        {
+          "text": "in",
+          "start": 31.6950005,
+          "end": 31.790001
+        },
+        {
+          "text": "order",
+          "start": 31.790001,
+          "end": 32.18
+        }
+      ]
+    },
+    "capstone-integrates-four-modules": {
+      "words": [
+        {
+          "text": "Module",
+          "start": 0.23,
+          "end": 0.53
+        },
+        {
+          "text": "one",
+          "start": 0.53,
+          "end": 0.86
+        },
+        {
+          "text": "gave",
+          "start": 0.86,
+          "end": 1.1
+        },
+        {
+          "text": "you",
+          "start": 1.1,
+          "end": 1.19
+        },
+        {
+          "text": "reviewed",
+          "start": 1.19,
+          "end": 1.57
+        },
+        {
+          "text": "AI-generated",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "text": "code",
+          "start": 1.85,
+          "end": 2.47
+        },
+        {
+          "text": "Module",
+          "start": 2.47,
+          "end": 2.8
+        },
+        {
+          "text": "two",
+          "start": 3.26,
+          "end": 3.65
+        },
+        {
+          "text": "grounded",
+          "start": 3.72,
+          "end": 4.03
+        },
+        {
+          "text": "answers",
+          "start": 4.16,
+          "end": 4.61
+        },
+        {
+          "text": "in",
+          "start": 4.61,
+          "end": 5.14
+        },
+        {
+          "text": "real",
+          "start": 5.22,
+          "end": 5.38
+        },
+        {
+          "text": "intent",
+          "start": 5.38,
+          "end": 5.71
+        },
+        {
+          "text": "Module",
+          "start": 5.74,
+          "end": 6.33
+        },
+        {
+          "text": "three",
+          "start": 6.78,
+          "end": 7.12
+        },
+        {
+          "text": "let",
+          "start": 7.12,
+          "end": 7.58
+        },
+        {
+          "text": "operators",
+          "start": 7.68,
+          "end": 7.99
+        },
+        {
+          "text": "ask",
+          "start": 7.99,
+          "end": 8.57
+        },
+        {
+          "text": "questions",
+          "start": 8.57,
+          "end": 8.84
+        },
+        {
+          "text": "in",
+          "start": 8.84,
+          "end": 9.51
+        },
+        {
+          "text": "plain",
+          "start": 9.51,
+          "end": 9.68
+        },
+        {
+          "text": "language",
+          "start": 9.68,
+          "end": 9.96
+        },
+        {
+          "text": "Module",
+          "start": 9.96,
+          "end": 10.46
+        },
+        {
+          "text": "four",
+          "start": 10.86,
+          "end": 11.2
+        },
+        {
+          "text": "measures",
+          "start": 11.2,
+          "end": 11.6
+        },
+        {
+          "text": "accuracy",
+          "start": 11.7,
+          "end": 12.2
+        },
+        {
+          "text": "Courses",
+          "start": 12.25,
+          "end": 12.97
+        },
+        {
+          "text": "one",
+          "start": 13.45,
+          "end": 13.94
+        },
+        {
+          "text": "through",
+          "start": 13.94,
+          "end": 14.21
+        },
+        {
+          "text": "three",
+          "start": 14.21,
+          "end": 14.63
+        },
+        {
+          "text": "still",
+          "start": 14.63,
+          "end": 14.93
+        },
+        {
+          "text": "supply",
+          "start": 14.96,
+          "end": 15.32
+        },
+        {
+          "text": "the",
+          "start": 15.32,
+          "end": 15.82
+        },
+        {
+          "text": "IaC",
+          "start": 15.82,
+          "end": 15.98
+        },
+        {
+          "text": "and",
+          "start": 17.15,
+          "end": 17.35
+        },
+        {
+          "text": "validation",
+          "start": 17.35,
+          "end": 18.01
+        },
+        {
+          "text": "scripts",
+          "start": 18.01,
+          "end": 18.620001
+        },
+        {
+          "text": "underneath",
+          "start": 18.67,
+          "end": 19.18
+        },
+        {
+          "text": "The",
+          "start": 19.629999,
+          "end": 19.719999
+        },
+        {
+          "text": "capstone",
+          "start": 19.719999,
+          "end": 20.27
+        },
+        {
+          "text": "proves",
+          "start": 20.27,
+          "end": 20.799999
+        },
+        {
+          "text": "those",
+          "start": 21.209999,
+          "end": 21.459999
+        },
+        {
+          "text": "pieces",
+          "start": 21.459999,
+          "end": 21.860001
+        },
+        {
+          "text": "work",
+          "start": 21.860001,
+          "end": 22.09
+        },
+        {
+          "text": "together",
+          "start": 22.09,
+          "end": 22.620001
+        },
+        {
+          "text": "not",
+          "start": 22.940001,
+          "end": 23.280001
+        },
+        {
+          "text": "in",
+          "start": 23.280001,
+          "end": 23.379999
+        },
+        {
+          "text": "isolation",
+          "start": 23.379999,
+          "end": 24.129999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 1.57,
+          "end": 4.61
+        },
+        null,
+        null
+      ]
+    },
+    "capstone-lab-layout": {
+      "words": [
+        {
+          "text": "Know",
+          "start": 0.15,
+          "end": 0.38
+        },
+        {
+          "text": "where",
+          "start": 0.38,
+          "end": 0.61
+        },
+        {
+          "text": "artifacts",
+          "start": 0.61,
+          "end": 1.2
+        },
+        {
+          "text": "live",
+          "start": 1.2,
+          "end": 1.53
+        },
+        {
+          "text": "before",
+          "start": 1.83,
+          "end": 2.21
+        },
+        {
+          "text": "you",
+          "start": 2.21,
+          "end": 2.31
+        },
+        {
+          "text": "start",
+          "start": 2.31,
+          "end": 2.78
+        },
+        {
+          "text": "netops_ai_lab",
+          "start": 3.8,
+          "end": 4.25
+        },
+        {
+          "text": "holds",
+          "start": 4.45,
+          "end": 4.92
+        },
+        {
+          "text": "prompts",
+          "start": 5.35,
+          "end": 5.89
+        },
+        {
+          "text": "generated",
+          "start": 5.89,
+          "end": 6.57
+        },
+        {
+          "text": "drafts",
+          "start": 6.95,
+          "end": 7.28
+        },
+        {
+          "text": "reviews",
+          "start": 8.21,
+          "end": 8.74
+        },
+        {
+          "text": "mcp",
+          "start": 8.94,
+          "end": 9.13
+        },
+        {
+          "text": "agent",
+          "start": 9.24,
+          "end": 10.28
+        },
+        {
+          "text": "and",
+          "start": 10.42,
+          "end": 10.63
+        },
+        {
+          "text": "benchmarks",
+          "start": 11.79,
+          "end": 11.92
+        },
+        {
+          "text": "netops_iac_lab",
+          "start": 11.92,
+          "end": 12.4
+        },
+        {
+          "text": "and",
+          "start": 13.16,
+          "end": 13.23
+        },
+        {
+          "text": "netops_ops_lab",
+          "start": 13.45,
+          "end": 14.24
+        },
+        {
+          "text": "supply",
+          "start": 14.24,
+          "end": 14.71
+        },
+        {
+          "text": "intent",
+          "start": 14.85,
+          "end": 15.02
+        },
+        {
+          "text": "YAML",
+          "start": 15.49,
+          "end": 15.9
+        },
+        {
+          "text": "and",
+          "start": 15.98,
+          "end": 16.379999
+        },
+        {
+          "text": "validation",
+          "start": 16.49,
+          "end": 16.66
+        },
+        {
+          "text": "scripts",
+          "start": 16.66,
+          "end": 16.8850005
+        },
+        {
+          "text": "When",
+          "start": 16.8850005,
+          "end": 17.110001
+        },
+        {
+          "text": "something",
+          "start": 17.209999,
+          "end": 17.370001
+        },
+        {
+          "text": "fails",
+          "start": 17.370001,
+          "end": 17.54
+        },
+        {
+          "text": "you",
+          "start": 17.54,
+          "end": 17.709999
+        },
+        {
+          "text": "fix",
+          "start": 17.85,
+          "end": 18.1
+        },
+        {
+          "text": "the",
+          "start": 18.1,
+          "end": 18.355000500000003
+        },
+        {
+          "text": "owning",
+          "start": 18.355000500000003,
+          "end": 18.610001
+        },
+        {
+          "text": "folder",
+          "start": 18.610001,
+          "end": 18.799999
+        },
+        {
+          "text": "instead",
+          "start": 18.799999,
+          "end": 18.909999499999998
+        },
+        {
+          "text": "of",
+          "start": 18.909999499999998,
+          "end": 19.02
+        },
+        {
+          "text": "patching",
+          "start": 19.309999,
+          "end": 19.41
+        },
+        {
+          "text": "the",
+          "start": 19.41,
+          "end": 19.7
+        },
+        {
+          "text": "capstone",
+          "start": 19.7,
+          "end": 19.99
+        },
+        {
+          "text": "script",
+          "start": 19.99,
+          "end": 20.540001
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 3.8,
+          "end": 8.74
+        },
+        {
+          "start": 11.92,
+          "end": 15.9
+        },
+        null
+      ]
+    },
+    "assistant-vs-chatbot": {
+      "words": [
+        {
+          "text": "A",
+          "start": 0.16,
+          "end": 0.24
+        },
+        {
+          "text": "generic",
+          "start": 0.24,
+          "end": 0.81
+        },
+        {
+          "text": "chatbot",
+          "start": 2.58,
+          "end": 2.82
+        },
+        {
+          "text": "guesses",
+          "start": 2.82,
+          "end": 3.28
+        },
+        {
+          "text": "from",
+          "start": 3.28,
+          "end": 3.71
+        },
+        {
+          "text": "training",
+          "start": 4.27,
+          "end": 4.42
+        },
+        {
+          "text": "data",
+          "start": 4.42,
+          "end": 4.96
+        },
+        {
+          "text": "Your",
+          "start": 4.96,
+          "end": 5.55
+        },
+        {
+          "text": "network",
+          "start": 5.55,
+          "end": 5.98
+        },
+        {
+          "text": "assistant",
+          "start": 6.76,
+          "end": 7.31
+        },
+        {
+          "text": "calls",
+          "start": 7.71,
+          "end": 8.13
+        },
+        {
+          "text": "MCP",
+          "start": 8.13,
+          "end": 9.01
+        },
+        {
+          "text": "tools",
+          "start": 9.32,
+          "end": 9.51
+        },
+        {
+          "text": "logs",
+          "start": 9.51,
+          "end": 10.13
+        },
+        {
+          "text": "approvals",
+          "start": 10.16,
+          "end": 10.99
+        },
+        {
+          "text": "and",
+          "start": 11.1,
+          "end": 11.23
+        },
+        {
+          "text": "passes",
+          "start": 11.23,
+          "end": 11.84
+        },
+        {
+          "text": "benchmarks",
+          "start": 12.29,
+          "end": 12.51
+        },
+        {
+          "text": "you",
+          "start": 12.54,
+          "end": 13.26
+        },
+        {
+          "text": "defined",
+          "start": 13.44,
+          "end": 13.65
+        },
+        {
+          "text": "That",
+          "start": 13.65,
+          "end": 13.92
+        },
+        {
+          "text": "difference",
+          "start": 13.95,
+          "end": 14.25
+        },
+        {
+          "text": "is",
+          "start": 14.25,
+          "end": 14.36
+        },
+        {
+          "text": "what",
+          "start": 14.36,
+          "end": 14.84
+        },
+        {
+          "text": "makes",
+          "start": 14.9,
+          "end": 14.96
+        },
+        {
+          "text": "the",
+          "start": 14.96,
+          "end": 15.25
+        },
+        {
+          "text": "workflow",
+          "start": 15.25,
+          "end": 15.34
+        },
+        {
+          "text": "auditable",
+          "start": 15.34,
+          "end": 15.54
+        },
+        {
+          "text": "-",
+          "start": 15.69,
+          "end": 15.86
+        },
+        {
+          "text": "an",
+          "start": 15.86,
+          "end": 16.24
+        },
+        {
+          "text": "auditor",
+          "start": 16.24,
+          "end": 16.450001
+        },
+        {
+          "text": "can",
+          "start": 16.58,
+          "end": 16.875
+        },
+        {
+          "text": "follow",
+          "start": 16.875,
+          "end": 17.17
+        },
+        {
+          "text": "tool",
+          "start": 17.610001,
+          "end": 17.889999
+        },
+        {
+          "text": "calls",
+          "start": 18.200001,
+          "end": 18.2650005
+        },
+        {
+          "text": "and",
+          "start": 18.2650005,
+          "end": 18.33
+        },
+        {
+          "text": "reviewlog",
+          "start": 18.33,
+          "end": 18.610001
+        },
+        {
+          "text": "not",
+          "start": 18.610001,
+          "end": 18.6850005
+        },
+        {
+          "text": "just",
+          "start": 18.6850005,
+          "end": 18.76
+        },
+        {
+          "text": "read",
+          "start": 18.76,
+          "end": 18.790001
+        },
+        {
+          "text": "a",
+          "start": 19.129999,
+          "end": 19.219999
+        },
+        {
+          "text": "polished",
+          "start": 19.219999,
+          "end": 19.309999
+        },
+        {
+          "text": "paragraph",
+          "start": 19.309999,
+          "end": 19.809999
+        }
+      ],
+      "leftPhraseTimes": [
+        {
+          "start": 8.13,
+          "end": 11.84
+        },
+        {
+          "start": 0.16,
+          "end": 4.42
+        },
+        {
+          "start": 0.16,
+          "end": 4.42
+        }
+      ],
+      "rightPhraseTimes": [
+        {
+          "start": 0.16,
+          "end": 4.42
+        },
+        {
+          "start": 18.610001,
+          "end": 19.809999
+        },
+        {
+          "start": 0.16,
+          "end": 4.42
+        }
+      ]
+    },
+    "six-steps-ai-capstone-runbook": {
+      "words": [
+        {
+          "text": "Run",
+          "start": 0.15,
+          "end": 0.42000000000000004
+        },
+        {
+          "text": "six",
+          "start": 0.42,
+          "end": 0.69
+        },
+        {
+          "text": "steps",
+          "start": 0.69,
+          "end": 1.14
+        },
+        {
+          "text": "in",
+          "start": 1.19,
+          "end": 1.38
+        },
+        {
+          "text": "order",
+          "start": 1.41,
+          "end": 1.74
+        },
+        {
+          "text": "start",
+          "start": 1.96,
+          "end": 2.35
+        },
+        {
+          "text": "MCP",
+          "start": 3.07,
+          "end": 3.22
+        },
+        {
+          "text": "and",
+          "start": 3.28,
+          "end": 3.79
+        },
+        {
+          "text": "agent",
+          "start": 4,
+          "end": 4.36
+        },
+        {
+          "text": "record",
+          "start": 4.36,
+          "end": 4.42
+        },
+        {
+          "text": "a",
+          "start": 4.42,
+          "end": 5.07
+        },
+        {
+          "text": "benchmark",
+          "start": 5.07,
+          "end": 5.73
+        },
+        {
+          "text": "baseline",
+          "start": 6.2,
+          "end": 6.48
+        },
+        {
+          "text": "ask",
+          "start": 6.48,
+          "end": 6.61
+        },
+        {
+          "text": "a",
+          "start": 7.04,
+          "end": 7.6
+        },
+        {
+          "text": "VLAN",
+          "start": 7.79,
+          "end": 8
+        },
+        {
+          "text": "question",
+          "start": 8,
+          "end": 8.16
+        },
+        {
+          "text": "let",
+          "start": 8.16,
+          "end": 8.64
+        },
+        {
+          "text": "the",
+          "start": 8.64,
+          "end": 9.06
+        },
+        {
+          "text": "agent",
+          "start": 9.06,
+          "end": 9.13
+        },
+        {
+          "text": "propose",
+          "start": 9.13,
+          "end": 9.71
+        },
+        {
+          "text": "a",
+          "start": 10.03,
+          "end": 10.54
+        },
+        {
+          "text": "change",
+          "start": 10.54,
+          "end": 10.79
+        },
+        {
+          "text": "approve",
+          "start": 11.58,
+          "end": 11.77
+        },
+        {
+          "text": "and",
+          "start": 11.77,
+          "end": 12.16
+        },
+        {
+          "text": "validate",
+          "start": 12.16,
+          "end": 12.25
+        },
+        {
+          "text": "then",
+          "start": 12.25,
+          "end": 12.64
+        },
+        {
+          "text": "record",
+          "start": 12.64,
+          "end": 13.03
+        },
+        {
+          "text": "the",
+          "start": 13.39,
+          "end": 14.04
+        },
+        {
+          "text": "final",
+          "start": 14.04,
+          "end": 14.1
+        },
+        {
+          "text": "score",
+          "start": 14.1,
+          "end": 14.46
+        },
+        {
+          "text": "Skipping",
+          "start": 14.64,
+          "end": 15.09
+        },
+        {
+          "text": "a",
+          "start": 15.09,
+          "end": 15.22
+        },
+        {
+          "text": "step",
+          "start": 15.22,
+          "end": 15.61
+        },
+        {
+          "text": "breaks",
+          "start": 15.61,
+          "end": 15.79
+        },
+        {
+          "text": "the",
+          "start": 15.79,
+          "end": 15.99
+        },
+        {
+          "text": "story",
+          "start": 15.99,
+          "end": 16.360001
+        },
+        {
+          "text": "you",
+          "start": 16.440001,
+          "end": 16.59
+        },
+        {
+          "text": "would",
+          "start": 16.59,
+          "end": 16.68
+        },
+        {
+          "text": "tell",
+          "start": 16.68,
+          "end": 17.16
+        },
+        {
+          "text": "in",
+          "start": 17.16,
+          "end": 17.620001
+        },
+        {
+          "text": "a",
+          "start": 18,
+          "end": 18.42
+        },
+        {
+          "text": "change",
+          "start": 18.42,
+          "end": 18.625
+        },
+        {
+          "text": "review",
+          "start": 18.625,
+          "end": 18.83
+        },
+        {
+          "text": "about",
+          "start": 18.83,
+          "end": 18.950001
+        },
+        {
+          "text": "how",
+          "start": 18.950001,
+          "end": 19.325001
+        },
+        {
+          "text": "the",
+          "start": 19.325001,
+          "end": 19.700001
+        },
+        {
+          "text": "assistant",
+          "start": 19.74,
+          "end": 19.969999
+        },
+        {
+          "text": "was",
+          "start": 19.969999,
+          "end": 20.205
+        },
+        {
+          "text": "used",
+          "start": 20.205,
+          "end": 20.440001
+        },
+        {
+          "text": "safely",
+          "start": 20.65,
+          "end": 21.35
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 1.96,
+          "end": 6.61
+        },
+        {
+          "start": 5.07,
+          "end": 8.64
+        },
+        null
+      ]
+    },
+    "five-objectives-capstone-chain": {
+      "words": [
+        {
+          "text": "One",
+          "start": 0.15,
+          "end": 0.47
+        },
+        {
+          "text": "session",
+          "start": 0.47,
+          "end": 0.94
+        },
+        {
+          "text": "chains",
+          "start": 0.94,
+          "end": 1.46
+        },
+        {
+          "text": "every",
+          "start": 1.51,
+          "end": 1.8
+        },
+        {
+          "text": "skill",
+          "start": 1.8,
+          "end": 2.12
+        },
+        {
+          "text": "you",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "text": "built",
+          "start": 2.32,
+          "end": 2.84
+        },
+        {
+          "text": "governed",
+          "start": 3.24,
+          "end": 3.71
+        },
+        {
+          "text": "code",
+          "start": 3.71,
+          "end": 3.96
+        },
+        {
+          "text": "generation",
+          "start": 3.96,
+          "end": 4.72
+        },
+        {
+          "text": "safe",
+          "start": 4.91,
+          "end": 5.32
+        },
+        {
+          "text": "tool",
+          "start": 5.32,
+          "end": 5.52
+        },
+        {
+          "text": "exposure",
+          "start": 5.52,
+          "end": 6.18
+        },
+        {
+          "text": "conversational",
+          "start": 6.39,
+          "end": 7.21
+        },
+        {
+          "text": "queries",
+          "start": 7.21,
+          "end": 7.65
+        },
+        {
+          "text": "with",
+          "start": 7.65,
+          "end": 7.8
+        },
+        {
+          "text": "approval",
+          "start": 7.8,
+          "end": 8.41
+        },
+        {
+          "text": "and",
+          "start": 8.83,
+          "end": 9.04
+        },
+        {
+          "text": "measured",
+          "start": 9.04,
+          "end": 9.45
+        },
+        {
+          "text": "accuracy",
+          "start": 9.48,
+          "end": 10.21
+        },
+        {
+          "text": "reviewsreviewlog",
+          "start": 10.59,
+          "end": 11.5
+        },
+        {
+          "text": "shows",
+          "start": 11.93,
+          "end": 12.62
+        },
+        {
+          "text": "who",
+          "start": 13.55,
+          "end": 14.09
+        },
+        {
+          "text": "approved",
+          "start": 14.4,
+          "end": 15.18
+        },
+        {
+          "text": "what",
+          "start": 15.53,
+          "end": 15.67
+        },
+        {
+          "text": "resultsscoretxt",
+          "start": 15.67,
+          "end": 16.360001
+        },
+        {
+          "text": "shows",
+          "start": 16.51,
+          "end": 17.110001
+        },
+        {
+          "text": "whether",
+          "start": 17.59,
+          "end": 18.440001
+        },
+        {
+          "text": "the",
+          "start": 18.77,
+          "end": 19.42
+        },
+        {
+          "text": "assistant",
+          "start": 21.450001,
+          "end": 22.120001
+        },
+        {
+          "text": "still",
+          "start": 22.24,
+          "end": 22.559999
+        },
+        {
+          "text": "passes",
+          "start": 22.559999,
+          "end": 22.68
+        },
+        {
+          "text": "after",
+          "start": 22.68,
+          "end": 23.34
+        },
+        {
+          "text": "the",
+          "start": 23.34,
+          "end": 23.879999
+        },
+        {
+          "text": "full",
+          "start": 23.99,
+          "end": 24.52
+        },
+        {
+          "text": "workflow",
+          "start": 24.559999,
+          "end": 25.02
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 3.71,
+          "end": 7.21
+        },
+        null,
+        null
+      ]
+    },
+    "verify-capstone-before-close": {
+      "words": [
+        {
+          "text": "Before",
+          "start": 0.14,
+          "end": 0.41
+        },
+        {
+          "text": "you",
+          "start": 0.41,
+          "end": 0.53
+        },
+        {
+          "text": "close",
+          "start": 0.53,
+          "end": 0.78
+        },
+        {
+          "text": "the",
+          "start": 0.78,
+          "end": 0.89
+        },
+        {
+          "text": "lab",
+          "start": 0.89,
+          "end": 1.27
+        },
+        {
+          "text": "confirm",
+          "start": 1.54,
+          "end": 2.08
+        },
+        {
+          "text": "MCP",
+          "start": 2.63,
+          "end": 3.07
+        },
+        {
+          "text": "returns",
+          "start": 3.07,
+          "end": 3.33
+        },
+        {
+          "text": "live",
+          "start": 3.33,
+          "end": 3.78
+        },
+        {
+          "text": "intent",
+          "start": 3.78,
+          "end": 4.24
+        },
+        {
+          "text": "data",
+          "start": 4.66,
+          "end": 4.82
+        },
+        {
+          "text": "your",
+          "start": 4.82,
+          "end": 5.35
+        },
+        {
+          "text": "benchmark",
+          "start": 5.35,
+          "end": 5.64
+        },
+        {
+          "text": "meets",
+          "start": 5.64,
+          "end": 5.76
+        },
+        {
+          "text": "the",
+          "start": 5.76,
+          "end": 6.27
+        },
+        {
+          "text": "threshold",
+          "start": 6.27,
+          "end": 6.36
+        },
+        {
+          "text": "you",
+          "start": 6.36,
+          "end": 6.8
+        },
+        {
+          "text": "set",
+          "start": 7.12,
+          "end": 7.26
+        },
+        {
+          "text": "and",
+          "start": 7.26,
+          "end": 7.75
+        },
+        {
+          "text": "approval",
+          "start": 7.75,
+          "end": 7.92
+        },
+        {
+          "text": "is",
+          "start": 7.92,
+          "end": 8.23
+        },
+        {
+          "text": "logged",
+          "start": 8.23,
+          "end": 8.77
+        },
+        {
+          "text": "before",
+          "start": 8.77,
+          "end": 9.01
+        },
+        {
+          "text": "any",
+          "start": 9.61,
+          "end": 10.11
+        },
+        {
+          "text": "IaC",
+          "start": 10.5,
+          "end": 10.82
+        },
+        {
+          "text": "edit",
+          "start": 10.82,
+          "end": 11.27
+        },
+        {
+          "text": "These",
+          "start": 11.27,
+          "end": 11.68
+        },
+        {
+          "text": "checks",
+          "start": 11.71,
+          "end": 11.82
+        },
+        {
+          "text": "mirror",
+          "start": 11.82,
+          "end": 12.46
+        },
+        {
+          "text": "a",
+          "start": 12.46,
+          "end": 12.96
+        },
+        {
+          "text": "production",
+          "start": 12.99,
+          "end": 13.17
+        },
+        {
+          "text": "readiness",
+          "start": 13.17,
+          "end": 13.32
+        },
+        {
+          "text": "review",
+          "start": 13.32,
+          "end": 13.43
+        },
+        {
+          "text": "-",
+          "start": 13.43,
+          "end": 13.79
+        },
+        {
+          "text": "proof",
+          "start": 14.39,
+          "end": 14.49
+        },
+        {
+          "text": "the",
+          "start": 14.76,
+          "end": 14.96
+        },
+        {
+          "text": "system",
+          "start": 15.07,
+          "end": 15.2
+        },
+        {
+          "text": "is",
+          "start": 15.42,
+          "end": 15.92
+        },
+        {
+          "text": "safe",
+          "start": 15.92,
+          "end": 16.129999
+        },
+        {
+          "text": "to",
+          "start": 16.66,
+          "end": 16.78
+        },
+        {
+          "text": "rely",
+          "start": 16.78,
+          "end": 16.9
+        },
+        {
+          "text": "on",
+          "start": 17.07,
+          "end": 17.190001
+        },
+        {
+          "text": "not",
+          "start": 17.190001,
+          "end": 17.625
+        },
+        {
+          "text": "a",
+          "start": 17.625,
+          "end": 18.059999
+        },
+        {
+          "text": "formality",
+          "start": 18.15,
+          "end": 18.200001
+        },
+        {
+          "text": "to",
+          "start": 18.200001,
+          "end": 18.295
+        },
+        {
+          "text": "rush",
+          "start": 18.295,
+          "end": 18.389999
+        },
+        {
+          "text": "through",
+          "start": 18.389999,
+          "end": 19.049999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 2.63,
+          "end": 5.64
+        },
+        {
+          "start": 5.35,
+          "end": 7.26
+        },
+        {
+          "start": 7.75,
+          "end": 10.82
+        }
+      ]
+    },
+    "capstone-nothing-new-ai": {
+      "words": [
+        {
+          "text": "If",
+          "start": 0.11,
+          "end": 0.32
+        },
+        {
+          "text": "MCP",
+          "start": 1.27,
+          "end": 1.87
+        },
+        {
+          "text": "agent",
+          "start": 2.13,
+          "end": 2.3
+        },
+        {
+          "text": "or",
+          "start": 2.3,
+          "end": 2.98
+        },
+        {
+          "text": "benchmark",
+          "start": 2.98,
+          "end": 3.38
+        },
+        {
+          "text": "fails",
+          "start": 3.38,
+          "end": 3.74
+        },
+        {
+          "text": "here",
+          "start": 3.95,
+          "end": 4.45
+        },
+        {
+          "text": "return",
+          "start": 4.48,
+          "end": 4.55
+        },
+        {
+          "text": "to",
+          "start": 4.55,
+          "end": 4.66
+        },
+        {
+          "text": "the",
+          "start": 4.66,
+          "end": 5.18
+        },
+        {
+          "text": "module",
+          "start": 5.18,
+          "end": 5.39
+        },
+        {
+          "text": "that",
+          "start": 5.48,
+          "end": 5.8
+        },
+        {
+          "text": "owns",
+          "start": 5.83,
+          "end": 6.04
+        },
+        {
+          "text": "that",
+          "start": 6.09,
+          "end": 6.84
+        },
+        {
+          "text": "component",
+          "start": 7.03,
+          "end": 7.17
+        },
+        {
+          "text": "The",
+          "start": 7.17,
+          "end": 7.83
+        },
+        {
+          "text": "capstone",
+          "start": 7.88,
+          "end": 8.11
+        },
+        {
+          "text": "is",
+          "start": 8.16,
+          "end": 9.04
+        },
+        {
+          "text": "integration",
+          "start": 9.2,
+          "end": 9.47
+        },
+        {
+          "text": "not",
+          "start": 9.47,
+          "end": 9.53
+        },
+        {
+          "text": "a",
+          "start": 9.53,
+          "end": 9.95
+        },
+        {
+          "text": "second",
+          "start": 9.95,
+          "end": 10.32
+        },
+        {
+          "text": "chance",
+          "start": 10.38,
+          "end": 10.44
+        },
+        {
+          "text": "to",
+          "start": 10.44,
+          "end": 10.76
+        },
+        {
+          "text": "learn",
+          "start": 11.71,
+          "end": 11.97
+        },
+        {
+          "text": "FastMCP",
+          "start": 11.97,
+          "end": 12.55
+        },
+        {
+          "text": "from",
+          "start": 12.91,
+          "end": 13.31
+        },
+        {
+          "text": "scratch",
+          "start": 13.31,
+          "end": 13.59
+        },
+        {
+          "text": "Reuse",
+          "start": 13.59,
+          "end": 13.63
+        },
+        {
+          "text": "what",
+          "start": 13.63,
+          "end": 14.21
+        },
+        {
+          "text": "you",
+          "start": 14.43,
+          "end": 15.08
+        },
+        {
+          "text": "built",
+          "start": 15.17,
+          "end": 15.41
+        },
+        {
+          "text": "repair",
+          "start": 15.41,
+          "end": 15.56
+        },
+        {
+          "text": "what",
+          "start": 15.56,
+          "end": 16.15
+        },
+        {
+          "text": "is",
+          "start": 15.56,
+          "end": 16.15
+        },
+        {
+          "text": "broken",
+          "start": 15.56,
+          "end": 16.15
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 9.53,
+          "end": 12.55
+        },
+        null,
+        null
+      ]
+    },
+    "story-beat-recap-ai-capstone": {
+      "words": [
+        {
+          "text": "The",
+          "start": 0.11,
+          "end": 0.18
+        },
+        {
+          "text": "following",
+          "start": 0.18,
+          "end": 0.52
+        },
+        {
+          "text": "code",
+          "start": 0.52,
+          "end": 0.75
+        },
+        {
+          "text": "slides",
+          "start": 0.75,
+          "end": 1.44
+        },
+        {
+          "text": "walk",
+          "start": 1.47,
+          "end": 1.95
+        },
+        {
+          "text": "the",
+          "start": 1.95,
+          "end": 2.03
+        },
+        {
+          "text": "six-step",
+          "start": 2.03,
+          "end": 2.3
+        },
+        {
+          "text": "runbook",
+          "start": 2.3,
+          "end": 2.58
+        },
+        {
+          "text": "line",
+          "start": 3.15,
+          "end": 3.42
+        },
+        {
+          "text": "by",
+          "start": 3.42,
+          "end": 3.57
+        },
+        {
+          "text": "line",
+          "start": 3.57,
+          "end": 3.98
+        },
+        {
+          "text": "Keep",
+          "start": 4.19,
+          "end": 4.4
+        },
+        {
+          "text": "both",
+          "start": 4.43,
+          "end": 4.82
+        },
+        {
+          "text": "AI",
+          "start": 4.91,
+          "end": 5.07
+        },
+        {
+          "text": "and",
+          "start": 5.07,
+          "end": 5.49
+        },
+        {
+          "text": "IaC",
+          "start": 6.59,
+          "end": 7.04
+        },
+        {
+          "text": "repos",
+          "start": 7.22,
+          "end": 7.5
+        },
+        {
+          "text": "open",
+          "start": 7.5,
+          "end": 8.05
+        },
+        {
+          "text": "use",
+          "start": 8.05,
+          "end": 8.6
+        },
+        {
+          "text": "sandbox",
+          "start": 8.6,
+          "end": 9.02
+        },
+        {
+          "text": "models",
+          "start": 9.18,
+          "end": 9.34
+        },
+        {
+          "text": "only",
+          "start": 9.34,
+          "end": 9.62
+        },
+        {
+          "text": "and",
+          "start": 9.66,
+          "end": 9.76
+        },
+        {
+          "text": "treat",
+          "start": 10.32,
+          "end": 10.53
+        },
+        {
+          "text": "the",
+          "start": 10.56,
+          "end": 11.1
+        },
+        {
+          "text": "runbook",
+          "start": 11.1,
+          "end": 11.17
+        },
+        {
+          "text": "as",
+          "start": 11.17,
+          "end": 11.35
+        },
+        {
+          "text": "evidence",
+          "start": 11.35,
+          "end": 11.64
+        },
+        {
+          "text": "you",
+          "start": 11.64,
+          "end": 11.93
+        },
+        {
+          "text": "could",
+          "start": 12.03,
+          "end": 12.15
+        },
+        {
+          "text": "attach",
+          "start": 12.15,
+          "end": 12.175
+        },
+        {
+          "text": "to",
+          "start": 12.175,
+          "end": 12.2
+        },
+        {
+          "text": "a",
+          "start": 12.2,
+          "end": 12.42
+        },
+        {
+          "text": "real",
+          "start": 12.42,
+          "end": 12.615
+        },
+        {
+          "text": "change",
+          "start": 12.615,
+          "end": 12.81
+        },
+        {
+          "text": "ticket",
+          "start": 12.81,
+          "end": 13.27
+        }
+      ]
+    },
+    "lab-setup-ai-capstone": {
+      "words": [
+        {
+          "text": "Start",
+          "start": 0.15,
+          "end": 0.55
+        },
+        {
+          "text": "the",
+          "start": 0.58,
+          "end": 0.65
+        },
+        {
+          "text": "MCP",
+          "start": 1.24,
+          "end": 1.75
+        },
+        {
+          "text": "server",
+          "start": 1.86,
+          "end": 2.01
+        },
+        {
+          "text": "in",
+          "start": 2.01,
+          "end": 2.09
+        },
+        {
+          "text": "the",
+          "start": 2.09,
+          "end": 2.73
+        },
+        {
+          "text": "background",
+          "start": 2.92,
+          "end": 3.32
+        },
+        {
+          "text": "launch",
+          "start": 3.32,
+          "end": 3.45
+        },
+        {
+          "text": "the",
+          "start": 3.48,
+          "end": 4.03
+        },
+        {
+          "text": "agent",
+          "start": 4.1,
+          "end": 4.23
+        },
+        {
+          "text": "and",
+          "start": 4.23,
+          "end": 4.79
+        },
+        {
+          "text": "confirm",
+          "start": 6.53,
+          "end": 7.29
+        },
+        {
+          "text": "golden_qajsonl",
+          "start": 7.46,
+          "end": 7.72
+        },
+        {
+          "text": "exists",
+          "start": 7.72,
+          "end": 8.39
+        },
+        {
+          "text": "Tail",
+          "start": 8.69,
+          "end": 8.85
+        },
+        {
+          "text": "reviewslog",
+          "start": 8.89,
+          "end": 9.23
+        },
+        {
+          "text": "so",
+          "start": 9.75,
+          "end": 10.56
+        },
+        {
+          "text": "approvals",
+          "start": 10.63,
+          "end": 11.19
+        },
+        {
+          "text": "appear",
+          "start": 11.42,
+          "end": 11.65
+        },
+        {
+          "text": "as",
+          "start": 11.65,
+          "end": 11.8
+        },
+        {
+          "text": "you",
+          "start": 11.8,
+          "end": 12.09
+        },
+        {
+          "text": "go",
+          "start": 12.44,
+          "end": 13
+        },
+        {
+          "text": "Baseline",
+          "start": 13,
+          "end": 13.08
+        },
+        {
+          "text": "the",
+          "start": 13.08,
+          "end": 13.55
+        },
+        {
+          "text": "benchmark",
+          "start": 13.62,
+          "end": 13.92
+        },
+        {
+          "text": "before",
+          "start": 13.92,
+          "end": 14.02
+        },
+        {
+          "text": "you",
+          "start": 14.02,
+          "end": 14.35
+        },
+        {
+          "text": "change",
+          "start": 14.38,
+          "end": 14.84
+        },
+        {
+          "text": "prompts",
+          "start": 14.84,
+          "end": 15.08
+        },
+        {
+          "text": "mid-session",
+          "start": 15.08,
+          "end": 15.61
+        }
+      ],
+      "phraseTimes": [
+        null,
+        null,
+        {
+          "start": 9.75,
+          "end": 13
+        }
+      ]
+    },
+    "resume-ai-capstone-prerequisites": {
+      "words": [
+        {
+          "text": "Confirm",
+          "start": 0.08,
+          "end": 0.65
+        },
+        {
+          "text": "modules",
+          "start": 0.65,
+          "end": 1.29
+        },
+        {
+          "text": "one",
+          "start": 1.59,
+          "end": 1.84
+        },
+        {
+          "text": "through",
+          "start": 1.84,
+          "end": 2.11
+        },
+        {
+          "text": "four",
+          "start": 2.11,
+          "end": 2.51
+        },
+        {
+          "text": "are",
+          "start": 2.74,
+          "end": 2.89
+        },
+        {
+          "text": "green",
+          "start": 2.89,
+          "end": 3.31
+        },
+        {
+          "text": "governed",
+          "start": 3.72,
+          "end": 4.2
+        },
+        {
+          "text": "playbook",
+          "start": 4.76,
+          "end": 5.48
+        },
+        {
+          "text": "exists",
+          "start": 6.74,
+          "end": 6.86
+        },
+        {
+          "text": "list_vlans",
+          "start": 7.83,
+          "end": 9.21
+        },
+        {
+          "text": "works",
+          "start": 11.82,
+          "end": 12.04
+        },
+        {
+          "text": "run_turn",
+          "start": 12.04,
+          "end": 12.32
+        },
+        {
+          "text": "responds",
+          "start": 12.32,
+          "end": 12.44
+        },
+        {
+          "text": "run_evalpy",
+          "start": 12.44,
+          "end": 13.07
+        },
+        {
+          "text": "prints",
+          "start": 14.51,
+          "end": 14.62
+        },
+        {
+          "text": "a",
+          "start": 14.71,
+          "end": 15.03
+        },
+        {
+          "text": "score",
+          "start": 17.209999,
+          "end": 17.65
+        },
+        {
+          "text": "Activate",
+          "start": 18.780001,
+          "end": 19.040001
+        },
+        {
+          "text": "venv-mcp",
+          "start": 19.200001,
+          "end": 19.375
+        },
+        {
+          "text": "and",
+          "start": 19.375,
+          "end": 19.549999
+        },
+        {
+          "text": "verify",
+          "start": 19.549999,
+          "end": 19.92
+        },
+        {
+          "text": "netops_iac_labintendedvlansyaml",
+          "start": 20.110001,
+          "end": 20.320000999999998
+        },
+        {
+          "text": "is",
+          "start": 20.320000999999998,
+          "end": 20.530001
+        },
+        {
+          "text": "present",
+          "start": 20.75,
+          "end": 21.23
+        },
+        {
+          "text": "Starting",
+          "start": 21.23,
+          "end": 21.349999500000003
+        },
+        {
+          "text": "the",
+          "start": 21.349999500000003,
+          "end": 21.469999
+        },
+        {
+          "text": "capstone",
+          "start": 21.77,
+          "end": 22.440001
+        },
+        {
+          "text": "on",
+          "start": 22.84,
+          "end": 23
+        },
+        {
+          "text": "a",
+          "start": 23,
+          "end": 23.16
+        },
+        {
+          "text": "broken",
+          "start": 23.27,
+          "end": 23.870001
+        },
+        {
+          "text": "foundation",
+          "start": 23.950001,
+          "end": 24.0650005
+        },
+        {
+          "text": "wastes",
+          "start": 24.0650005,
+          "end": 24.18
+        },
+        {
+          "text": "time",
+          "start": 25.02,
+          "end": 26.15
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 0.65,
+          "end": 3.31
+        },
+        {
+          "start": 14.71,
+          "end": 19.92
+        },
+        {
+          "start": 19.200001,
+          "end": 21.23
+        }
+      ]
+    },
+    "capstone-start-mcp-and-agent": {
+      "words": [
+        {
+          "text": "Step",
+          "start": 0.06,
+          "end": 0.43
+        },
+        {
+          "text": "one",
+          "start": 0.43,
+          "end": 0.75
+        },
+        {
+          "text": "launches",
+          "start": 0.98,
+          "end": 1.61
+        },
+        {
+          "text": "MCP",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "text": "and",
+          "start": 1.8,
+          "end": 2.37
+        },
+        {
+          "text": "sanity-checks",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "text": "the",
+          "start": 2.72,
+          "end": 2.89
+        },
+        {
+          "text": "agent",
+          "start": 2.89,
+          "end": 3.4
+        },
+        {
+          "text": "with",
+          "start": 3.78,
+          "end": 4.02
+        },
+        {
+          "text": "a",
+          "start": 4.02,
+          "end": 4.15
+        },
+        {
+          "text": "simple",
+          "start": 4.15,
+          "end": 4.53
+        },
+        {
+          "text": "query",
+          "start": 4.66,
+          "end": 4.78
+        },
+        {
+          "text": "Both",
+          "start": 4.78,
+          "end": 5.05
+        },
+        {
+          "text": "processes",
+          "start": 5.43,
+          "end": 5.79
+        },
+        {
+          "text": "must",
+          "start": 6.07,
+          "end": 6.4
+        },
+        {
+          "text": "stay",
+          "start": 6.59,
+          "end": 6.75
+        },
+        {
+          "text": "healthy",
+          "start": 6.86,
+          "end": 8.2
+        },
+        {
+          "text": "before",
+          "start": 8.2,
+          "end": 8.82
+        },
+        {
+          "text": "operator",
+          "start": 8.82,
+          "end": 9.32
+        },
+        {
+          "text": "questions",
+          "start": 9.32,
+          "end": 10.02
+        },
+        {
+          "text": "or",
+          "start": 10.34,
+          "end": 10.49
+        },
+        {
+          "text": "benchmarks",
+          "start": 10.49,
+          "end": 11.21
+        },
+        {
+          "text": "in",
+          "start": 11.42,
+          "end": 11.56
+        },
+        {
+          "text": "later",
+          "start": 11.56,
+          "end": 11.91
+        },
+        {
+          "text": "steps",
+          "start": 11.91,
+          "end": 12.43
+        }
+      ]
+    },
+    "capstone-run-benchmark-baseline": {
+      "words": [
+        {
+          "text": "Step",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "text": "two",
+          "start": 0.52,
+          "end": 0.78
+        },
+        {
+          "text": "records",
+          "start": 1.2,
+          "end": 1.75
+        },
+        {
+          "text": "accuracy",
+          "start": 1.81,
+          "end": 2.63
+        },
+        {
+          "text": "before",
+          "start": 2.79,
+          "end": 3.16
+        },
+        {
+          "text": "the",
+          "start": 3.16,
+          "end": 3.29
+        },
+        {
+          "text": "session",
+          "start": 3.29,
+          "end": 3.79
+        },
+        {
+          "text": "changes",
+          "start": 3.79,
+          "end": 4.43
+        },
+        {
+          "text": "behavior",
+          "start": 4.56,
+          "end": 5.2
+        },
+        {
+          "text": "capstone-baselinetxt",
+          "start": 5.51,
+          "end": 6.09
+        },
+        {
+          "text": "gives",
+          "start": 6.09,
+          "end": 6.77
+        },
+        {
+          "text": "you",
+          "start": 8.12,
+          "end": 8.49
+        },
+        {
+          "text": "a",
+          "start": 8.49,
+          "end": 8.75
+        },
+        {
+          "text": "before",
+          "start": 8.92,
+          "end": 9.03
+        },
+        {
+          "text": "picture",
+          "start": 9.03,
+          "end": 9.47
+        },
+        {
+          "text": "when",
+          "start": 9.47,
+          "end": 10.03
+        },
+        {
+          "text": "you",
+          "start": 10.23,
+          "end": 10.42
+        },
+        {
+          "text": "compare",
+          "start": 10.42,
+          "end": 10.55
+        },
+        {
+          "text": "final",
+          "start": 10.58,
+          "end": 11.18
+        },
+        {
+          "text": "scores",
+          "start": 11.28,
+          "end": 11.76
+        },
+        {
+          "text": "scores",
+          "start": 11.76,
+          "end": 12.39
+        }
+      ]
+    },
+    "capstone-operator-vlan-query": {
+      "words": [
+        {
+          "text": "Step",
+          "start": 0.12,
+          "end": 0.46
+        },
+        {
+          "text": "three",
+          "start": 0.46,
+          "end": 0.86
+        },
+        {
+          "text": "is",
+          "start": 0.99,
+          "end": 1.19
+        },
+        {
+          "text": "the",
+          "start": 1.19,
+          "end": 1.29
+        },
+        {
+          "text": "operator",
+          "start": 1.29,
+          "end": 1.86
+        },
+        {
+          "text": "moment",
+          "start": 1.86,
+          "end": 2.45
+        },
+        {
+          "text": "a",
+          "start": 2.72,
+          "end": 2.8
+        },
+        {
+          "text": "natural",
+          "start": 2.8,
+          "end": 3.32
+        },
+        {
+          "text": "language",
+          "start": 3.32,
+          "end": 3.86
+        },
+        {
+          "text": "VLAN",
+          "start": 4.34,
+          "end": 4.9
+        },
+        {
+          "text": "question",
+          "start": 5.17,
+          "end": 5.35
+        },
+        {
+          "text": "that",
+          "start": 5.35,
+          "end": 5.65
+        },
+        {
+          "text": "should",
+          "start": 5.72,
+          "end": 6.1
+        },
+        {
+          "text": "trigger",
+          "start": 6.78,
+          "end": 7.33
+        },
+        {
+          "text": "MCP",
+          "start": 7.6,
+          "end": 7.79
+        },
+        {
+          "text": "grounding",
+          "start": 7.79,
+          "end": 8.17
+        },
+        {
+          "text": "The",
+          "start": 8.17,
+          "end": 8.54
+        },
+        {
+          "text": "answer",
+          "start": 8.54,
+          "end": 8.91
+        },
+        {
+          "text": "must",
+          "start": 8.96,
+          "end": 9.4
+        },
+        {
+          "text": "match",
+          "start": 9.4,
+          "end": 9.99
+        },
+        {
+          "text": "intent",
+          "start": 10.2,
+          "end": 10.56
+        },
+        {
+          "text": "files",
+          "start": 10.56,
+          "end": 10.98
+        },
+        {
+          "text": "not",
+          "start": 10.98,
+          "end": 11.56
+        },
+        {
+          "text": "model",
+          "start": 10.98,
+          "end": 11.56
+        },
+        {
+          "text": "memory",
+          "start": 10.98,
+          "end": 11.56
+        }
+      ]
+    },
+    "capstone-propose-and-approve": {
+      "words": [
+        {
+          "text": "Step",
+          "start": 0.11,
+          "end": 0.45
+        },
+        {
+          "text": "four",
+          "start": 0.45,
+          "end": 0.84
+        },
+        {
+          "text": "logs",
+          "start": 1.43,
+          "end": 1.81
+        },
+        {
+          "text": "a",
+          "start": 1.81,
+          "end": 1.91
+        },
+        {
+          "text": "VLAN",
+          "start": 2.27,
+          "end": 2.82
+        },
+        {
+          "text": "proposal",
+          "start": 3.13,
+          "end": 3.3
+        },
+        {
+          "text": "and",
+          "start": 3.3,
+          "end": 3.65
+        },
+        {
+          "text": "waits",
+          "start": 3.65,
+          "end": 3.8
+        },
+        {
+          "text": "for",
+          "start": 3.8,
+          "end": 4.45
+        },
+        {
+          "text": "explicit",
+          "start": 4.45,
+          "end": 5.01
+        },
+        {
+          "text": "approval",
+          "start": 5.61,
+          "end": 6.16
+        },
+        {
+          "text": "Nothing",
+          "start": 6.16,
+          "end": 6.27
+        },
+        {
+          "text": "in",
+          "start": 7.79,
+          "end": 8.36
+        },
+        {
+          "text": "netops_iac_lab",
+          "start": 8.5,
+          "end": 8.8
+        },
+        {
+          "text": "changes",
+          "start": 8.8,
+          "end": 8.95
+        },
+        {
+          "text": "until",
+          "start": 8.95,
+          "end": 9.33
+        },
+        {
+          "text": "you",
+          "start": 9.33,
+          "end": 9.75
+        },
+        {
+          "text": "type",
+          "start": 9.92,
+          "end": 10.06
+        },
+        {
+          "text": "yes",
+          "start": 10.52,
+          "end": 10.94
+        },
+        {
+          "text": "and",
+          "start": 10.94,
+          "end": 11.47
+        },
+        {
+          "text": "append",
+          "start": 11.54,
+          "end": 11.61
+        },
+        {
+          "text": "capstone-approved",
+          "start": 11.61,
+          "end": 12.18
+        },
+        {
+          "text": "to",
+          "start": 11.61,
+          "end": 12.18
+        },
+        {
+          "text": "reviews",
+          "start": 11.61,
+          "end": 12.18
+        }
+      ]
+    },
+    "capstone-validate-proposed-change": {
+      "words": [
+        {
+          "text": "Step",
+          "start": 0.15,
+          "end": 0.5
+        },
+        {
+          "text": "five",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "text": "runs",
+          "start": 1.1,
+          "end": 1.46
+        },
+        {
+          "text": "secure",
+          "start": 1.46,
+          "end": 1.79
+        },
+        {
+          "text": "validation",
+          "start": 1.79,
+          "end": 2.5
+        },
+        {
+          "text": "from",
+          "start": 2.65,
+          "end": 2.98
+        },
+        {
+          "text": "course",
+          "start": 2.98,
+          "end": 3.31
+        },
+        {
+          "text": "three",
+          "start": 3.31,
+          "end": 3.63
+        },
+        {
+          "text": "and",
+          "start": 3.93,
+          "end": 4.26
+        },
+        {
+          "text": "ansible-lint",
+          "start": 4.9,
+          "end": 5.36
+        },
+        {
+          "text": "on",
+          "start": 5.56,
+          "end": 5.72
+        },
+        {
+          "text": "the",
+          "start": 5.72,
+          "end": 6.11
+        },
+        {
+          "text": "AI-generated",
+          "start": 6.11,
+          "end": 6.29
+        },
+        {
+          "text": "playbook",
+          "start": 6.29,
+          "end": 6.96
+        },
+        {
+          "text": "Validation",
+          "start": 7.82,
+          "end": 8.38
+        },
+        {
+          "text": "after",
+          "start": 8.38,
+          "end": 8.65
+        },
+        {
+          "text": "approval",
+          "start": 8.65,
+          "end": 9.16
+        },
+        {
+          "text": "shows",
+          "start": 9.26,
+          "end": 9.63
+        },
+        {
+          "text": "you",
+          "start": 9.63,
+          "end": 9.7
+        },
+        {
+          "text": "still",
+          "start": 9.7,
+          "end": 9.99
+        },
+        {
+          "text": "enforce",
+          "start": 9.99,
+          "end": 10.42
+        },
+        {
+          "text": "gates",
+          "start": 10.42,
+          "end": 10.82
+        },
+        {
+          "text": "even",
+          "start": 10.88,
+          "end": 11.2
+        },
+        {
+          "text": "when",
+          "start": 11.2,
+          "end": 11.36
+        },
+        {
+          "text": "the",
+          "start": 11.36,
+          "end": 11.46
+        },
+        {
+          "text": "assistant",
+          "start": 11.46,
+          "end": 12
+        },
+        {
+          "text": "drafted",
+          "start": 12.04,
+          "end": 12.5
+        },
+        {
+          "text": "the",
+          "start": 12.5,
+          "end": 12.65
+        },
+        {
+          "text": "change",
+          "start": 12.65,
+          "end": 13.19
+        }
+      ]
+    },
+    "capstone-final-benchmark-and-tag": {
+      "words": [
+        {
+          "text": "Step",
+          "start": 0.14,
+          "end": 0.44
+        },
+        {
+          "text": "six",
+          "start": 0.44,
+          "end": 0.92
+        },
+        {
+          "text": "re-runs",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "text": "the",
+          "start": 1.41,
+          "end": 1.68
+        },
+        {
+          "text": "benchmark",
+          "start": 1.68,
+          "end": 1.77
+        },
+        {
+          "text": "saves",
+          "start": 1.77,
+          "end": 2.26
+        },
+        {
+          "text": "capstone-finaltxt",
+          "start": 2.63,
+          "end": 3.03
+        },
+        {
+          "text": "and",
+          "start": 3.03,
+          "end": 3.49
+        },
+        {
+          "text": "optionally",
+          "start": 3.49,
+          "end": 3.91
+        },
+        {
+          "text": "tags",
+          "start": 4.85,
+          "end": 5
+        },
+        {
+          "text": "the",
+          "start": 5.05,
+          "end": 5.58
+        },
+        {
+          "text": "IaC",
+          "start": 5.58,
+          "end": 6
+        },
+        {
+          "text": "repo",
+          "start": 6,
+          "end": 6.1
+        },
+        {
+          "text": "to",
+          "start": 6.92,
+          "end": 6.96
+        },
+        {
+          "text": "mark",
+          "start": 7.06,
+          "end": 7.29
+        },
+        {
+          "text": "completion",
+          "start": 7.29,
+          "end": 8.05
+        },
+        {
+          "text": "Compare",
+          "start": 8.2,
+          "end": 8.55
+        },
+        {
+          "text": "final",
+          "start": 8.55,
+          "end": 8.92
+        },
+        {
+          "text": "score",
+          "start": 8.92,
+          "end": 9.36
+        },
+        {
+          "text": "to",
+          "start": 9.5,
+          "end": 9.57
+        },
+        {
+          "text": "baseline",
+          "start": 9.57,
+          "end": 10.11
+        },
+        {
+          "text": "-",
+          "start": 10.11,
+          "end": 10.35
+        },
+        {
+          "text": "that",
+          "start": 10.4,
+          "end": 10.92
+        },
+        {
+          "text": "delta",
+          "start": 11.04,
+          "end": 11.22
+        },
+        {
+          "text": "is",
+          "start": 11.22,
+          "end": 11.52
+        },
+        {
+          "text": "part",
+          "start": 11.52,
+          "end": 11.64
+        },
+        {
+          "text": "of",
+          "start": 11.64,
+          "end": 11.86
+        },
+        {
+          "text": "your",
+          "start": 11.86,
+          "end": 12.32
+        },
+        {
+          "text": "evidence",
+          "start": 12.32,
+          "end": 12.67
+        },
+        {
+          "text": "pack",
+          "start": 12.32,
+          "end": 12.67
+        }
+      ]
+    },
+    "ai-capstone-complete": {
+      "words": [
+        {
+          "text": "You",
+          "start": 0.2,
+          "end": 0.31
+        },
+        {
+          "text": "finish",
+          "start": 0.31,
+          "end": 0.74
+        },
+        {
+          "text": "course",
+          "start": 0.74,
+          "end": 0.99
+        },
+        {
+          "text": "four",
+          "start": 0.99,
+          "end": 1.38
+        },
+        {
+          "text": "with",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "text": "something",
+          "start": 1.75,
+          "end": 2.15
+        },
+        {
+          "text": "concrete",
+          "start": 2.15,
+          "end": 2.79
+        },
+        {
+          "text": "an",
+          "start": 3.09,
+          "end": 3.32
+        },
+        {
+          "text": "auditable",
+          "start": 3.68,
+          "end": 4.21
+        },
+        {
+          "text": "assistant",
+          "start": 4.21,
+          "end": 4.78
+        },
+        {
+          "text": "workflow",
+          "start": 5,
+          "end": 5.46
+        },
+        {
+          "text": "grounded",
+          "start": 5.46,
+          "end": 5.58
+        },
+        {
+          "text": "in",
+          "start": 6.49,
+          "end": 6.94
+        },
+        {
+          "text": "MCP",
+          "start": 6.94,
+          "end": 7.07
+        },
+        {
+          "text": "guarded",
+          "start": 7.07,
+          "end": 7.44
+        },
+        {
+          "text": "by",
+          "start": 7.44,
+          "end": 8
+        },
+        {
+          "text": "human",
+          "start": 8.17,
+          "end": 8.34
+        },
+        {
+          "text": "approval",
+          "start": 8.34,
+          "end": 8.69
+        },
+        {
+          "text": "and",
+          "start": 8.69,
+          "end": 8.82
+        },
+        {
+          "text": "measured",
+          "start": 8.82,
+          "end": 9.49
+        },
+        {
+          "text": "by",
+          "start": 9.49,
+          "end": 9.87
+        },
+        {
+          "text": "benchmarks",
+          "start": 9.87,
+          "end": 10
+        },
+        {
+          "text": "-",
+          "start": 10.88,
+          "end": 11.53
+        },
+        {
+          "text": "built",
+          "start": 11.83,
+          "end": 12.09
+        },
+        {
+          "text": "on",
+          "start": 12.12,
+          "end": 12.66
+        },
+        {
+          "text": "automate",
+          "start": 12.66,
+          "end": 13.49
+        },
+        {
+          "text": "version",
+          "start": 13.49,
+          "end": 13.79
+        },
+        {
+          "text": "and",
+          "start": 13.82,
+          "end": 14.52
+        },
+        {
+          "text": "secure",
+          "start": 14.62,
+          "end": 14.93
+        },
+        {
+          "text": "operations",
+          "start": 14.93,
+          "end": 15.26
+        },
+        {
+          "text": "from",
+          "start": 15.26,
+          "end": 15.6
+        },
+        {
+          "text": "courses",
+          "start": 16.049999,
+          "end": 16.68
+        },
+        {
+          "text": "one",
+          "start": 16.68,
+          "end": 17.219999
+        },
+        {
+          "text": "through",
+          "start": 17.219999,
+          "end": 17.65
+        },
+        {
+          "text": "three",
+          "start": 17.790001,
+          "end": 18.200001
+        },
+        {
+          "text": "Intelligent",
+          "start": 18.200001,
+          "end": 18.629999
+        },
+        {
+          "text": "automation",
+          "start": 18.629999,
+          "end": 19.49
+        },
+        {
+          "text": "here",
+          "start": 19.57,
+          "end": 19.76
+        },
+        {
+          "text": "means",
+          "start": 19.76,
+          "end": 19.799999
+        },
+        {
+          "text": "safer",
+          "start": 19.799999,
+          "end": 20.15
+        },
+        {
+          "text": "operations",
+          "start": 20.190001,
+          "end": 20.58
+        },
+        {
+          "text": "with",
+          "start": 20.75,
+          "end": 21.01
+        },
+        {
+          "text": "a",
+          "start": 21.01,
+          "end": 21.68
+        },
+        {
+          "text": "paper",
+          "start": 21.719999,
+          "end": 22.110001
+        },
+        {
+          "text": "trail",
+          "start": 22.110001,
+          "end": 22.17
+        },
+        {
+          "text": "not",
+          "start": 22.17,
+          "end": 22.505000000000003
+        },
+        {
+          "text": "shortcuts",
+          "start": 22.505000000000003,
+          "end": 22.84
+        },
+        {
+          "text": "around",
+          "start": 22.84,
+          "end": 22.91
+        },
+        {
+          "text": "the",
+          "start": 22.91,
+          "end": 23.1099995
+        },
+        {
+          "text": "judgment",
+          "start": 23.1099995,
+          "end": 23.309999
+        },
+        {
+          "text": "you",
+          "start": 23.34,
+          "end": 23.709999
+        },
+        {
+          "text": "already",
+          "start": 23.74,
+          "end": 23.83
+        },
+        {
+          "text": "earned",
+          "start": 23.83,
+          "end": 23.92
+        },
+        {
+          "text": "as",
+          "start": 23.92,
+          "end": 24
+        },
+        {
+          "text": "a",
+          "start": 24,
+          "end": 24.1949995
+        },
+        {
+          "text": "network",
+          "start": 24.1949995,
+          "end": 24.389999
+        },
+        {
+          "text": "engineer",
+          "start": 24.459999,
+          "end": 25.040001
+        }
+      ]
+    }
+  },
+  "lineMappings": {
+    "capstone-propose-and-approve": [
+      {
+        "id": "proposal",
+        "line": 1,
+        "wordRange": [
+          5,
+          5
+        ]
+      }
+    ]
+  }
+}

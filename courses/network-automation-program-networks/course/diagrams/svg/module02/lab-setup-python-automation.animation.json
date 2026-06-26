@@ -1,0 +1,112 @@
+{
+  "diagram": "lab-setup-python-automation.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-switch"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-switch"
+      ]
+    },
+    {
+      "start": 2,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-switch",
+        "viz-vlan"
+      ],
+      "dim": [
+        "viz-switch"
+      ],
+      "highlight": [
+        "viz-vlan"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-switch",
+        "viz-vlan",
+        "viz-intf"
+      ],
+      "dim": [
+        "viz-switch",
+        "viz-vlan"
+      ],
+      "highlight": [
+        "viz-intf"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-switch",
+        "viz-vlan",
+        "viz-intf",
+        "viz-ospf"
+      ],
+      "dim": [
+        "viz-switch",
+        "viz-vlan",
+        "viz-intf"
+      ],
+      "highlight": [
+        "viz-ospf"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-switch",
+        "viz-vlan",
+        "viz-intf",
+        "viz-ospf",
+        "viz-acl"
+      ],
+      "dim": [
+        "viz-switch",
+        "viz-vlan",
+        "viz-intf",
+        "viz-ospf"
+      ],
+      "highlight": [
+        "viz-acl"
+      ]
+    },
+    {
+      "start": 10,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-switch",
+        "viz-vlan",
+        "viz-intf",
+        "viz-ospf",
+        "viz-acl",
+        "viz-script"
+      ],
+      "dim": [
+        "viz-switch",
+        "viz-vlan",
+        "viz-intf",
+        "viz-ospf",
+        "viz-acl"
+      ],
+      "highlight": [
+        "viz-script"
+      ]
+    }
+  ]
+}

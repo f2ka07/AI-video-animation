@@ -1,0 +1,68 @@
+{
+  "diagram": "python-automation-ready.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-python"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-python"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-python",
+        "viz-ssh"
+      ],
+      "dim": [
+        "viz-python"
+      ],
+      "highlight": [
+        "viz-ssh"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-python",
+        "viz-ssh",
+        "viz-api"
+      ],
+      "dim": [
+        "viz-python",
+        "viz-ssh"
+      ],
+      "highlight": [
+        "viz-api"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-python",
+        "viz-ssh",
+        "viz-api",
+        "viz-carry"
+      ],
+      "dim": [
+        "viz-python",
+        "viz-ssh",
+        "viz-api"
+      ],
+      "highlight": [
+        "viz-carry"
+      ]
+    }
+  ]
+}

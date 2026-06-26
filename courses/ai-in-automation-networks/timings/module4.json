@@ -1,0 +1,2768 @@
+{
+  "moduleNumber": 4,
+  "title": "AI Evaluation",
+  "slides": {
+    "evaluation-bridge-from-agents": {
+      "words": [
+        {
+          "text": "An",
+          "start": 0.14,
+          "end": 0.29
+        },
+        {
+          "text": "assistant",
+          "start": 0.29,
+          "end": 0.91
+        },
+        {
+          "text": "that",
+          "start": 0.99,
+          "end": 1.2
+        },
+        {
+          "text": "sounds",
+          "start": 1.2,
+          "end": 1.51
+        },
+        {
+          "text": "confident",
+          "start": 1.51,
+          "end": 2.35
+        },
+        {
+          "text": "is",
+          "start": 2.43,
+          "end": 2.61
+        },
+        {
+          "text": "not",
+          "start": 2.61,
+          "end": 2.83
+        },
+        {
+          "text": "the",
+          "start": 2.88,
+          "end": 2.99
+        },
+        {
+          "text": "same",
+          "start": 2.99,
+          "end": 3.32
+        },
+        {
+          "text": "as",
+          "start": 3.36,
+          "end": 3.56
+        },
+        {
+          "text": "one",
+          "start": 3.56,
+          "end": 3.94
+        },
+        {
+          "text": "that",
+          "start": 3.97,
+          "end": 4.15
+        },
+        {
+          "text": "is",
+          "start": 4.15,
+          "end": 4.28
+        },
+        {
+          "text": "correct",
+          "start": 4.31,
+          "end": 4.88
+        },
+        {
+          "text": "Module",
+          "start": 5.28,
+          "end": 5.58
+        },
+        {
+          "text": "four",
+          "start": 5.58,
+          "end": 5.85
+        },
+        {
+          "text": "teaches",
+          "start": 5.85,
+          "end": 6.28
+        },
+        {
+          "text": "measurement",
+          "start": 6.28,
+          "end": 6.99
+        },
+        {
+          "text": "golden",
+          "start": 7.42,
+          "end": 7.82
+        },
+        {
+          "text": "questions",
+          "start": 7.82,
+          "end": 8.44
+        },
+        {
+          "text": "with",
+          "start": 8.44,
+          "end": 8.68
+        },
+        {
+          "text": "known",
+          "start": 8.68,
+          "end": 8.99
+        },
+        {
+          "text": "answers",
+          "start": 9.03,
+          "end": 9.66
+        },
+        {
+          "text": "pass-fail",
+          "start": 10.04,
+          "end": 10.28
+        },
+        {
+          "text": "scoring",
+          "start": 10.28,
+          "end": 10.59
+        },
+        {
+          "text": "and",
+          "start": 10.59,
+          "end": 11.23
+        },
+        {
+          "text": "prompt",
+          "start": 11.65,
+          "end": 11.83
+        },
+        {
+          "text": "tuning",
+          "start": 11.89,
+          "end": 12.32
+        },
+        {
+          "text": "from",
+          "start": 12.32,
+          "end": 12.76
+        },
+        {
+          "text": "failed",
+          "start": 12.76,
+          "end": 13.08
+        },
+        {
+          "text": "rows",
+          "start": 13.08,
+          "end": 13.47
+        },
+        {
+          "text": "You",
+          "start": 13.47,
+          "end": 13.95
+        },
+        {
+          "text": "will",
+          "start": 14.45,
+          "end": 14.61
+        },
+        {
+          "text": "stop",
+          "start": 14.61,
+          "end": 14.78
+        },
+        {
+          "text": "debating",
+          "start": 14.78,
+          "end": 15.13
+        },
+        {
+          "text": "whether",
+          "start": 15.13,
+          "end": 15.8
+        },
+        {
+          "text": "the",
+          "start": 15.9,
+          "end": 16.24
+        },
+        {
+          "text": "model",
+          "start": 16.24,
+          "end": 16.360001
+        },
+        {
+          "text": "feels",
+          "start": 16.360001,
+          "end": 16.709999
+        },
+        {
+          "text": "smart",
+          "start": 16.709999,
+          "end": 17.040001
+        },
+        {
+          "text": "and",
+          "start": 17.040001,
+          "end": 17.559999
+        },
+        {
+          "text": "start",
+          "start": 17.809999,
+          "end": 17.99
+        },
+        {
+          "text": "showing",
+          "start": 17.99,
+          "end": 18.34
+        },
+        {
+          "text": "whether",
+          "start": 18.34,
+          "end": 18.93
+        },
+        {
+          "text": "it",
+          "start": 19.049999,
+          "end": 19.440001
+        },
+        {
+          "text": "returns",
+          "start": 19.440001,
+          "end": 19.719999
+        },
+        {
+          "text": "the",
+          "start": 19.719999,
+          "end": 20.18
+        },
+        {
+          "text": "same",
+          "start": 20.18,
+          "end": 20.290001
+        },
+        {
+          "text": "VLANs",
+          "start": 20.290001,
+          "end": 20.66
+        },
+        {
+          "text": "your",
+          "start": 21.33,
+          "end": 21.610001
+        },
+        {
+          "text": "intent",
+          "start": 21.639999,
+          "end": 22.139999
+        },
+        {
+          "text": "files",
+          "start": 22.139999,
+          "end": 22.59
+        },
+        {
+          "text": "contain",
+          "start": 22.59,
+          "end": 23.200001
+        }
+      ]
+    },
+    "why-evaluate-ai-recommendations": {
+      "words": [
+        {
+          "text": "Operators",
+          "start": 0.17,
+          "end": 0.93
+        },
+        {
+          "text": "trust",
+          "start": 1.22,
+          "end": 1.57
+        },
+        {
+          "text": "tools",
+          "start": 1.57,
+          "end": 2.09
+        },
+        {
+          "text": "that",
+          "start": 2.26,
+          "end": 2.51
+        },
+        {
+          "text": "fail",
+          "start": 2.51,
+          "end": 3.02
+        },
+        {
+          "text": "predictably",
+          "start": 3.21,
+          "end": 4.13
+        },
+        {
+          "text": "and",
+          "start": 4.29,
+          "end": 4.44
+        },
+        {
+          "text": "measurably",
+          "start": 5.42,
+          "end": 5.84
+        },
+        {
+          "text": "not",
+          "start": 5.89,
+          "end": 6.35
+        },
+        {
+          "text": "tools",
+          "start": 6.48,
+          "end": 6.68
+        },
+        {
+          "text": "that",
+          "start": 6.68,
+          "end": 7.14
+        },
+        {
+          "text": "fail",
+          "start": 7.42,
+          "end": 7.99
+        },
+        {
+          "text": "rarely",
+          "start": 8.07,
+          "end": 8.34
+        },
+        {
+          "text": "but",
+          "start": 8.34,
+          "end": 9.36
+        },
+        {
+          "text": "spectacularly",
+          "start": 9.52,
+          "end": 9.61
+        },
+        {
+          "text": "A",
+          "start": 9.61,
+          "end": 10.27
+        },
+        {
+          "text": "benchmark",
+          "start": 10.27,
+          "end": 10.7
+        },
+        {
+          "text": "suite",
+          "start": 10.74,
+          "end": 11.1
+        },
+        {
+          "text": "turns",
+          "start": 11.1,
+          "end": 11.56
+        },
+        {
+          "text": "trust",
+          "start": 11.59,
+          "end": 11.87
+        },
+        {
+          "text": "into",
+          "start": 11.87,
+          "end": 12.35
+        },
+        {
+          "text": "data",
+          "start": 12.91,
+          "end": 13.18
+        },
+        {
+          "text": "Run",
+          "start": 13.18,
+          "end": 13.37
+        },
+        {
+          "text": "it",
+          "start": 13.37,
+          "end": 13.53
+        },
+        {
+          "text": "when",
+          "start": 13.53,
+          "end": 13.61
+        },
+        {
+          "text": "you",
+          "start": 13.61,
+          "end": 14.01
+        },
+        {
+          "text": "change",
+          "start": 14.09,
+          "end": 14.73
+        },
+        {
+          "text": "prompts",
+          "start": 15.03,
+          "end": 15.41
+        },
+        {
+          "text": "swap",
+          "start": 15.41,
+          "end": 16.139999
+        },
+        {
+          "text": "models",
+          "start": 16.610001,
+          "end": 16.780001
+        },
+        {
+          "text": "or",
+          "start": 16.809999,
+          "end": 17
+        },
+        {
+          "text": "add",
+          "start": 17,
+          "end": 17.059999
+        },
+        {
+          "text": "a",
+          "start": 17.059999,
+          "end": 17.33
+        },
+        {
+          "text": "new",
+          "start": 17.370001,
+          "end": 17.719999
+        },
+        {
+          "text": "tool",
+          "start": 18.18,
+          "end": 18.969999
+        },
+        {
+          "text": "Regression",
+          "start": 19.120001,
+          "end": 19.41
+        },
+        {
+          "text": "should",
+          "start": 19.41,
+          "end": 19.65
+        },
+        {
+          "text": "show",
+          "start": 19.65,
+          "end": 19.82
+        },
+        {
+          "text": "up",
+          "start": 19.98,
+          "end": 20.139999
+        },
+        {
+          "text": "in",
+          "start": 20.139999,
+          "end": 20.67
+        },
+        {
+          "text": "scores",
+          "start": 20.75,
+          "end": 21.110001
+        },
+        {
+          "text": "before",
+          "start": 21.110001,
+          "end": 21.219999
+        },
+        {
+          "text": "it",
+          "start": 21.219999,
+          "end": 21.559999
+        },
+        {
+          "text": "shows",
+          "start": 21.559999,
+          "end": 21.790001
+        },
+        {
+          "text": "up",
+          "start": 21.84,
+          "end": 21.99
+        },
+        {
+          "text": "in",
+          "start": 21.99,
+          "end": 22.059999
+        },
+        {
+          "text": "a",
+          "start": 22.059999,
+          "end": 22.700001
+        },
+        {
+          "text": "production",
+          "start": 22.74,
+          "end": 23.290001
+        },
+        {
+          "text": "ticket",
+          "start": 22.74,
+          "end": 23.290001
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 0.17,
+          "end": 6.68
+        },
+        {
+          "start": 5.42,
+          "end": 10.7
+        },
+        {
+          "start": 10.27,
+          "end": 14.01
+        }
+      ]
+    },
+    "hallucinations-in-network-context": {
+      "words": [
+        {
+          "text": "In",
+          "start": 0.15,
+          "end": 0.33
+        },
+        {
+          "text": "networking",
+          "start": 0.33,
+          "end": 1.02
+        },
+        {
+          "text": "hallucination",
+          "start": 1.19,
+          "end": 2.06
+        },
+        {
+          "text": "is",
+          "start": 2.06,
+          "end": 2.18
+        },
+        {
+          "text": "not",
+          "start": 2.18,
+          "end": 2.4
+        },
+        {
+          "text": "abstract",
+          "start": 2.4,
+          "end": 3.07
+        },
+        {
+          "text": "-",
+          "start": 3.14,
+          "end": 3.31
+        },
+        {
+          "text": "it",
+          "start": 3.31,
+          "end": 3.52
+        },
+        {
+          "text": "is",
+          "start": 3.67,
+          "end": 4.28
+        },
+        {
+          "text": "VLAN",
+          "start": 4.28,
+          "end": 4.56
+        },
+        {
+          "text": "999",
+          "start": 4.56,
+          "end": 5.18
+        },
+        {
+          "text": "on",
+          "start": 5.45,
+          "end": 5.77
+        },
+        {
+          "text": "an",
+          "start": 5.77,
+          "end": 5.85
+        },
+        {
+          "text": "interface",
+          "start": 5.85,
+          "end": 5.97
+        },
+        {
+          "text": "that",
+          "start": 5.97,
+          "end": 6.46
+        },
+        {
+          "text": "does",
+          "start": 6.46,
+          "end": 6.52
+        },
+        {
+          "text": "not",
+          "start": 6.52,
+          "end": 6.6
+        },
+        {
+          "text": "exist",
+          "start": 7.97,
+          "end": 8.33
+        },
+        {
+          "text": "or",
+          "start": 8.33,
+          "end": 8.46
+        },
+        {
+          "text": "an",
+          "start": 8.46,
+          "end": 8.6
+        },
+        {
+          "text": "IOS",
+          "start": 8.6,
+          "end": 8.71
+        },
+        {
+          "text": "command",
+          "start": 8.83,
+          "end": 9.41
+        },
+        {
+          "text": "from",
+          "start": 10.1,
+          "end": 10.35
+        },
+        {
+          "text": "the",
+          "start": 10.94,
+          "end": 11.28
+        },
+        {
+          "text": "wrong",
+          "start": 13.12,
+          "end": 13.36
+        },
+        {
+          "text": "platform",
+          "start": 13.36,
+          "end": 13.56
+        },
+        {
+          "text": "MCP",
+          "start": 13.56,
+          "end": 13.81
+        },
+        {
+          "text": "grounding",
+          "start": 13.81,
+          "end": 14.32
+        },
+        {
+          "text": "reduces",
+          "start": 14.37,
+          "end": 14.65
+        },
+        {
+          "text": "guesses",
+          "start": 14.95,
+          "end": 15.48
+        },
+        {
+          "text": "but",
+          "start": 15.78,
+          "end": 16.209999
+        },
+        {
+          "text": "does",
+          "start": 16.42,
+          "end": 17.040001
+        },
+        {
+          "text": "not",
+          "start": 17.08,
+          "end": 17.41
+        },
+        {
+          "text": "eliminate",
+          "start": 17.41,
+          "end": 17.93
+        },
+        {
+          "text": "them",
+          "start": 17.93,
+          "end": 18.015
+        },
+        {
+          "text": "Count",
+          "start": 18.015,
+          "end": 18.1
+        },
+        {
+          "text": "what",
+          "start": 18.1,
+          "end": 18.25
+        },
+        {
+          "text": "remains",
+          "start": 18.25,
+          "end": 18.404999500000002
+        },
+        {
+          "text": "after",
+          "start": 18.404999500000002,
+          "end": 18.559999
+        },
+        {
+          "text": "grounding",
+          "start": 18.780001,
+          "end": 19.040001
+        },
+        {
+          "text": "so",
+          "start": 19.1,
+          "end": 19.135
+        },
+        {
+          "text": "you",
+          "start": 19.135,
+          "end": 19.17
+        },
+        {
+          "text": "know",
+          "start": 19.17,
+          "end": 19.629999
+        },
+        {
+          "text": "whether",
+          "start": 19.629999,
+          "end": 19.6799995
+        },
+        {
+          "text": "to",
+          "start": 19.6799995,
+          "end": 19.73
+        },
+        {
+          "text": "widen",
+          "start": 19.76,
+          "end": 20.139999
+        },
+        {
+          "text": "the",
+          "start": 20.139999,
+          "end": 20.1899995
+        },
+        {
+          "text": "agent's",
+          "start": 20.1899995,
+          "end": 20.24
+        },
+        {
+          "text": "scope",
+          "start": 20.360001,
+          "end": 20.83
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 0.15,
+          "end": 4.56
+        },
+        {
+          "start": 8.6,
+          "end": 13.81
+        },
+        {
+          "start": 13.56,
+          "end": 17.41
+        }
+      ]
+    },
+    "accuracy-metrics-plain-language": {
+      "words": [
+        {
+          "text": "Start",
+          "start": 0.17,
+          "end": 0.56
+        },
+        {
+          "text": "simple",
+          "start": 0.56,
+          "end": 1.06
+        },
+        {
+          "text": "For",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "text": "structured",
+          "start": 1.66,
+          "end": 2.18
+        },
+        {
+          "text": "answers",
+          "start": 2.24,
+          "end": 2.8
+        },
+        {
+          "text": "check",
+          "start": 3,
+          "end": 3.27
+        },
+        {
+          "text": "whether",
+          "start": 3.27,
+          "end": 3.49
+        },
+        {
+          "text": "the",
+          "start": 3.49,
+          "end": 3.81
+        },
+        {
+          "text": "VLAN",
+          "start": 4.07,
+          "end": 4.34
+        },
+        {
+          "text": "list",
+          "start": 4.37,
+          "end": 4.47
+        },
+        {
+          "text": "or",
+          "start": 4.47,
+          "end": 4.96
+        },
+        {
+          "text": "device",
+          "start": 4.96,
+          "end": 5.38
+        },
+        {
+          "text": "name",
+          "start": 5.52,
+          "end": 5.96
+        },
+        {
+          "text": "matches",
+          "start": 5.96,
+          "end": 6.33
+        },
+        {
+          "text": "ground",
+          "start": 6.33,
+          "end": 6.6
+        },
+        {
+          "text": "truth",
+          "start": 7.18,
+          "end": 7.47
+        },
+        {
+          "text": "Track",
+          "start": 7.47,
+          "end": 7.68
+        },
+        {
+          "text": "how",
+          "start": 7.68,
+          "end": 8.07
+        },
+        {
+          "text": "often",
+          "start": 8.07,
+          "end": 8.18
+        },
+        {
+          "text": "the",
+          "start": 8.18,
+          "end": 8.6
+        },
+        {
+          "text": "agent",
+          "start": 8.6,
+          "end": 8.94
+        },
+        {
+          "text": "calls",
+          "start": 8.94,
+          "end": 9.07
+        },
+        {
+          "text": "the",
+          "start": 9.07,
+          "end": 9.27
+        },
+        {
+          "text": "right",
+          "start": 9.41,
+          "end": 9.62
+        },
+        {
+          "text": "tool",
+          "start": 9.62,
+          "end": 10.11
+        },
+        {
+          "text": "before",
+          "start": 10.11,
+          "end": 10.64
+        },
+        {
+          "text": "answering",
+          "start": 11.05,
+          "end": 11.53
+        },
+        {
+          "text": "Optional",
+          "start": 11.53,
+          "end": 11.97
+        },
+        {
+          "text": "human",
+          "start": 12.67,
+          "end": 12.99
+        },
+        {
+          "text": "rubrics",
+          "start": 13.34,
+          "end": 13.65
+        },
+        {
+          "text": "help",
+          "start": 13.65,
+          "end": 14.38
+        },
+        {
+          "text": "judge",
+          "start": 14.41,
+          "end": 14.95
+        },
+        {
+          "text": "explanation",
+          "start": 15.11,
+          "end": 15.29
+        },
+        {
+          "text": "quality",
+          "start": 15.29,
+          "end": 15.63
+        },
+        {
+          "text": "but",
+          "start": 15.63,
+          "end": 16.09
+        },
+        {
+          "text": "field",
+          "start": 16.15,
+          "end": 16.370001
+        },
+        {
+          "text": "match",
+          "start": 16.370001,
+          "end": 16.620001
+        },
+        {
+          "text": "and",
+          "start": 16.620001,
+          "end": 17.290001
+        },
+        {
+          "text": "tool",
+          "start": 17.35,
+          "end": 17.450001
+        },
+        {
+          "text": "success",
+          "start": 17.450001,
+          "end": 17.969999
+        },
+        {
+          "text": "are",
+          "start": 18.1,
+          "end": 18.26
+        },
+        {
+          "text": "enough",
+          "start": 18.26,
+          "end": 18.389999
+        },
+        {
+          "text": "for",
+          "start": 18.389999,
+          "end": 18.790001
+        },
+        {
+          "text": "the",
+          "start": 18.790001,
+          "end": 19.379999
+        },
+        {
+          "text": "lab",
+          "start": 18.790001,
+          "end": 19.379999
+        },
+        {
+          "text": "baseline",
+          "start": 18.790001,
+          "end": 19.379999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 0.17,
+          "end": 4.47
+        },
+        {
+          "start": 7.47,
+          "end": 10.64
+        },
+        {
+          "start": 13.34,
+          "end": 17.450001
+        }
+      ]
+    },
+    "benchmark-dataset-design": {
+      "words": [
+        {
+          "text": "Build",
+          "start": 0.13,
+          "end": 0.53
+        },
+        {
+          "text": "ten",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "text": "to",
+          "start": 0.98,
+          "end": 1.04
+        },
+        {
+          "text": "twenty",
+          "start": 1.04,
+          "end": 1.42
+        },
+        {
+          "text": "questions",
+          "start": 1.45,
+          "end": 1.95
+        },
+        {
+          "text": "from",
+          "start": 1.95,
+          "end": 2.23
+        },
+        {
+          "text": "files",
+          "start": 2.23,
+          "end": 2.69
+        },
+        {
+          "text": "you",
+          "start": 2.69,
+          "end": 2.79
+        },
+        {
+          "text": "already",
+          "start": 2.79,
+          "end": 3.08
+        },
+        {
+          "text": "trust",
+          "start": 3.08,
+          "end": 3.69
+        },
+        {
+          "text": "-",
+          "start": 5.87,
+          "end": 6.46
+        },
+        {
+          "text": "vlansyaml",
+          "start": 6.74,
+          "end": 6.96
+        },
+        {
+          "text": "inventory",
+          "start": 6.96,
+          "end": 7.34
+        },
+        {
+          "text": "JSON",
+          "start": 7.34,
+          "end": 7.63
+        },
+        {
+          "text": "Include",
+          "start": 7.63,
+          "end": 8.32
+        },
+        {
+          "text": "negative",
+          "start": 8.78,
+          "end": 8.95
+        },
+        {
+          "text": "cases",
+          "start": 8.95,
+          "end": 9.3
+        },
+        {
+          "text": "false",
+          "start": 9.3,
+          "end": 9.36
+        },
+        {
+          "text": "premises",
+          "start": 9.36,
+          "end": 9.59
+        },
+        {
+          "text": "the",
+          "start": 9.59,
+          "end": 9.76
+        },
+        {
+          "text": "agent",
+          "start": 9.85,
+          "end": 10.33
+        },
+        {
+          "text": "should",
+          "start": 10.77,
+          "end": 10.9
+        },
+        {
+          "text": "refuse",
+          "start": 11.53,
+          "end": 12.32
+        },
+        {
+          "text": "or",
+          "start": 12.35,
+          "end": 12.52
+        },
+        {
+          "text": "questions",
+          "start": 12.52,
+          "end": 12.81
+        },
+        {
+          "text": "that",
+          "start": 12.81,
+          "end": 12.84
+        },
+        {
+          "text": "require",
+          "start": 12.84,
+          "end": 13.13
+        },
+        {
+          "text": "a",
+          "start": 13.13,
+          "end": 13.33
+        },
+        {
+          "text": "tool",
+          "start": 13.47,
+          "end": 13.83
+        },
+        {
+          "text": "call",
+          "start": 14.35,
+          "end": 14.54
+        },
+        {
+          "text": "instead",
+          "start": 14.9,
+          "end": 15.09
+        },
+        {
+          "text": "of",
+          "start": 15.17,
+          "end": 15.52
+        },
+        {
+          "text": "memory",
+          "start": 15.55,
+          "end": 15.61
+        },
+        {
+          "text": "Version",
+          "start": 15.61,
+          "end": 16.209999
+        },
+        {
+          "text": "the",
+          "start": 16.209999,
+          "end": 16.34
+        },
+        {
+          "text": "dataset",
+          "start": 16.34,
+          "end": 16.440001
+        },
+        {
+          "text": "in",
+          "start": 16.440001,
+          "end": 16.530001
+        },
+        {
+          "text": "Git",
+          "start": 16.530001,
+          "end": 16.76
+        },
+        {
+          "text": "like",
+          "start": 16.959999,
+          "end": 17.23
+        },
+        {
+          "text": "any",
+          "start": 17.23,
+          "end": 17.469999
+        },
+        {
+          "text": "test",
+          "start": 17.59,
+          "end": 17.969999
+        },
+        {
+          "text": "fixture",
+          "start": 18.379999,
+          "end": 18.639999
+        },
+        {
+          "text": "so",
+          "start": 18.639999,
+          "end": 18.77
+        },
+        {
+          "text": "scores",
+          "start": 18.77,
+          "end": 19.139999
+        },
+        {
+          "text": "are",
+          "start": 19.209999,
+          "end": 19.290001
+        },
+        {
+          "text": "comparable",
+          "start": 19.290001,
+          "end": 21.469999
+        },
+        {
+          "text": "over",
+          "start": 19.290001,
+          "end": 21.469999
+        },
+        {
+          "text": "time",
+          "start": 19.290001,
+          "end": 21.469999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 0.13,
+          "end": 3.69
+        },
+        {
+          "start": 7.34,
+          "end": 9.76
+        },
+        {
+          "start": 8.78,
+          "end": 12.81
+        }
+      ]
+    },
+    "safety-guardrails-for-agents": {
+      "words": [
+        {
+          "text": "Guardrails",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "text": "are",
+          "start": 0.78,
+          "end": 0.89
+        },
+        {
+          "text": "the",
+          "start": 0.89,
+          "end": 1.65
+        },
+        {
+          "text": "policies",
+          "start": 1.73,
+          "end": 1.9
+        },
+        {
+          "text": "you",
+          "start": 1.9,
+          "end": 2.24
+        },
+        {
+          "text": "already",
+          "start": 2.24,
+          "end": 2.86
+        },
+        {
+          "text": "believe",
+          "start": 3.3,
+          "end": 3.86
+        },
+        {
+          "text": "enforced",
+          "start": 3.86,
+          "end": 4.02
+        },
+        {
+          "text": "in",
+          "start": 4.02,
+          "end": 4.4
+        },
+        {
+          "text": "code",
+          "start": 5.09,
+          "end": 5.28
+        },
+        {
+          "text": "no",
+          "start": 5.28,
+          "end": 5.66
+        },
+        {
+          "text": "writes",
+          "start": 5.66,
+          "end": 6.04
+        },
+        {
+          "text": "without",
+          "start": 6.04,
+          "end": 6.66
+        },
+        {
+          "text": "approval",
+          "start": 7.25,
+          "end": 7.68
+        },
+        {
+          "text": "refuse",
+          "start": 7.73,
+          "end": 7.96
+        },
+        {
+          "text": "out-of-scope",
+          "start": 7.96,
+          "end": 8.08
+        },
+        {
+          "text": "commands",
+          "start": 8.08,
+          "end": 8.43
+        },
+        {
+          "text": "strip",
+          "start": 8.47,
+          "end": 9.18
+        },
+        {
+          "text": "secrets",
+          "start": 9.62,
+          "end": 9.99
+        },
+        {
+          "text": "from",
+          "start": 9.99,
+          "end": 10.52
+        },
+        {
+          "text": "eval",
+          "start": 10.52,
+          "end": 10.77
+        },
+        {
+          "text": "logs",
+          "start": 11.09,
+          "end": 11.65
+        },
+        {
+          "text": "They",
+          "start": 12.08,
+          "end": 12.31
+        },
+        {
+          "text": "connect",
+          "start": 12.34,
+          "end": 12.7
+        },
+        {
+          "text": "back",
+          "start": 12.7,
+          "end": 13.05
+        },
+        {
+          "text": "to",
+          "start": 13.17,
+          "end": 13.55
+        },
+        {
+          "text": "TLS",
+          "start": 14.84,
+          "end": 15.15
+        },
+        {
+          "text": "and",
+          "start": 15.15,
+          "end": 15.62
+        },
+        {
+          "text": "secret",
+          "start": 15.62,
+          "end": 16.200001
+        },
+        {
+          "text": "handling",
+          "start": 16.459999,
+          "end": 16.82
+        },
+        {
+          "text": "from",
+          "start": 16.99,
+          "end": 17.33
+        },
+        {
+          "text": "earlier",
+          "start": 17.33,
+          "end": 17.969999
+        },
+        {
+          "text": "courses",
+          "start": 18.139999,
+          "end": 18.799999
+        },
+        {
+          "text": "-",
+          "start": 18.799999,
+          "end": 19.549999
+        },
+        {
+          "text": "intelligent",
+          "start": 19.75,
+          "end": 20.370001
+        },
+        {
+          "text": "automation",
+          "start": 20.540001,
+          "end": 21.15
+        },
+        {
+          "text": "still",
+          "start": 21.280001,
+          "end": 21.65
+        },
+        {
+          "text": "sits",
+          "start": 21.76,
+          "end": 22.290001
+        },
+        {
+          "text": "on",
+          "start": 22.290001,
+          "end": 23.209999
+        },
+        {
+          "text": "secure",
+          "start": 23.43,
+          "end": 23.83
+        },
+        {
+          "text": "operations",
+          "start": 23.940001,
+          "end": 24.379999
+        },
+        {
+          "text": "not",
+          "start": 24.379999,
+          "end": 24.639999
+        },
+        {
+          "text": "beside",
+          "start": 24.379999,
+          "end": 24.639999
+        },
+        {
+          "text": "it",
+          "start": 24.379999,
+          "end": 24.639999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 0.68,
+          "end": 5.28
+        },
+        {
+          "start": 5.09,
+          "end": 9.99
+        },
+        {
+          "start": 12.08,
+          "end": 16.82
+        }
+      ]
+    },
+    "story-beat-recap-evaluation": {
+      "words": [
+        {
+          "text": "You",
+          "start": 0.09,
+          "end": 0.24
+        },
+        {
+          "text": "know",
+          "start": 0.24,
+          "end": 0.42
+        },
+        {
+          "text": "why",
+          "start": 0.42,
+          "end": 0.68
+        },
+        {
+          "text": "benchmarks",
+          "start": 0.68,
+          "end": 1.38
+        },
+        {
+          "text": "matter",
+          "start": 1.44,
+          "end": 2.02
+        },
+        {
+          "text": "and",
+          "start": 2.24,
+          "end": 2.38
+        },
+        {
+          "text": "how",
+          "start": 2.38,
+          "end": 2.65
+        },
+        {
+          "text": "to",
+          "start": 2.73,
+          "end": 2.79
+        },
+        {
+          "text": "design",
+          "start": 2.79,
+          "end": 3.22
+        },
+        {
+          "text": "them",
+          "start": 3.22,
+          "end": 3.45
+        },
+        {
+          "text": "Next",
+          "start": 3.79,
+          "end": 4.2
+        },
+        {
+          "text": "you",
+          "start": 4.2,
+          "end": 4.29
+        },
+        {
+          "text": "create",
+          "start": 4.29,
+          "end": 4.78
+        },
+        {
+          "text": "benchmarksgolden_qajsonl",
+          "start": 4.84,
+          "end": 5.6
+        },
+        {
+          "text": "and",
+          "start": 7.05,
+          "end": 7.11
+        },
+        {
+          "text": "run_evalpy",
+          "start": 9.37,
+          "end": 10.15
+        },
+        {
+          "text": "against",
+          "start": 10.15,
+          "end": 10.39
+        },
+        {
+          "text": "your",
+          "start": 10.39,
+          "end": 10.63
+        },
+        {
+          "text": "agent",
+          "start": 10.73,
+          "end": 11.07
+        },
+        {
+          "text": "Treat",
+          "start": 11.07,
+          "end": 11.86
+        },
+        {
+          "text": "failed",
+          "start": 12.35,
+          "end": 12.49
+        },
+        {
+          "text": "rows",
+          "start": 12.49,
+          "end": 12.62
+        },
+        {
+          "text": "as",
+          "start": 12.62,
+          "end": 13.1
+        },
+        {
+          "text": "engineering",
+          "start": 13.64,
+          "end": 13.78
+        },
+        {
+          "text": "work",
+          "start": 13.78,
+          "end": 14.61
+        },
+        {
+          "text": "mandatory",
+          "start": 15.38,
+          "end": 15.63
+        },
+        {
+          "text": "tool",
+          "start": 15.63,
+          "end": 15.93
+        },
+        {
+          "text": "calls",
+          "start": 15.93,
+          "end": 16.26
+        },
+        {
+          "text": "path",
+          "start": 16.26,
+          "end": 16.870001
+        },
+        {
+          "text": "fixes",
+          "start": 17.360001,
+          "end": 17.57
+        },
+        {
+          "text": "or",
+          "start": 17.690001,
+          "end": 17.93
+        },
+        {
+          "text": "stronger",
+          "start": 17.93,
+          "end": 18.440001
+        },
+        {
+          "text": "system",
+          "start": 18.879999,
+          "end": 19.23
+        },
+        {
+          "text": "prompts",
+          "start": 18.879999,
+          "end": 19.23
+        }
+      ]
+    },
+    "lab-setup-benchmark": {
+      "words": [
+        {
+          "text": "Add",
+          "start": 0.12,
+          "end": 0.34
+        },
+        {
+          "text": "netops_ai_labbenchmarks",
+          "start": 0.6,
+          "end": 1.37
+        },
+        {
+          "text": "with",
+          "start": 1.61,
+          "end": 1.8
+        },
+        {
+          "text": "golden_qajsonl",
+          "start": 2.48,
+          "end": 2.81
+        },
+        {
+          "text": "and",
+          "start": 5.18,
+          "end": 5.44
+        },
+        {
+          "text": "run_evalpy",
+          "start": 5.5,
+          "end": 5.83
+        },
+        {
+          "text": "Store",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "text": "results",
+          "start": 6.36,
+          "end": 6.61
+        },
+        {
+          "text": "under",
+          "start": 6.61,
+          "end": 6.81
+        },
+        {
+          "text": "results",
+          "start": 6.81,
+          "end": 6.92
+        },
+        {
+          "text": "so",
+          "start": 7.11,
+          "end": 7.3
+        },
+        {
+          "text": "you",
+          "start": 7.3,
+          "end": 7.45
+        },
+        {
+          "text": "can",
+          "start": 7.45,
+          "end": 7.78
+        },
+        {
+          "text": "compare",
+          "start": 7.99,
+          "end": 8.45
+        },
+        {
+          "text": "runs",
+          "start": 8.65,
+          "end": 8.96
+        },
+        {
+          "text": "after",
+          "start": 9.05,
+          "end": 9.45
+        },
+        {
+          "text": "prompt",
+          "start": 9.77,
+          "end": 9.86
+        },
+        {
+          "text": "tuning",
+          "start": 9.86,
+          "end": 10.13
+        },
+        {
+          "text": "and",
+          "start": 10.25,
+          "end": 10.35
+        },
+        {
+          "text": "again",
+          "start": 10.35,
+          "end": 10.69
+        },
+        {
+          "text": "in",
+          "start": 10.69,
+          "end": 11.49
+        },
+        {
+          "text": "the",
+          "start": 10.69,
+          "end": 11.49
+        },
+        {
+          "text": "capstone",
+          "start": 10.69,
+          "end": 11.49
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 0.12,
+          "end": 6.92
+        },
+        {
+          "start": 6.36,
+          "end": 9.86
+        }
+      ]
+    },
+    "run-agent-benchmark": {
+      "words": [
+        {
+          "text": "run_evalpy",
+          "start": 2.15,
+          "end": 2.57
+        },
+        {
+          "text": "calls",
+          "start": 3.3,
+          "end": 3.45
+        },
+        {
+          "text": "run_turn",
+          "start": 3.45,
+          "end": 3.55
+        },
+        {
+          "text": "for",
+          "start": 3.55,
+          "end": 4.48
+        },
+        {
+          "text": "each",
+          "start": 4.56,
+          "end": 4.72
+        },
+        {
+          "text": "question",
+          "start": 4.72,
+          "end": 5.15
+        },
+        {
+          "text": "and",
+          "start": 5.18,
+          "end": 5.36
+        },
+        {
+          "text": "checks",
+          "start": 5.36,
+          "end": 6.14
+        },
+        {
+          "text": "for",
+          "start": 7.38,
+          "end": 7.44
+        },
+        {
+          "text": "expected",
+          "start": 7.44,
+          "end": 7.82
+        },
+        {
+          "text": "substrings",
+          "start": 7.82,
+          "end": 8.06
+        },
+        {
+          "text": "A",
+          "start": 8.06,
+          "end": 8.37
+        },
+        {
+          "text": "simple",
+          "start": 8.37,
+          "end": 8.5
+        },
+        {
+          "text": "pass",
+          "start": 8.5,
+          "end": 8.8
+        },
+        {
+          "text": "count",
+          "start": 8.84,
+          "end": 8.89
+        },
+        {
+          "text": "is",
+          "start": 8.89,
+          "end": 9.37
+        },
+        {
+          "text": "enough",
+          "start": 9.92,
+          "end": 10.44
+        },
+        {
+          "text": "to",
+          "start": 10.44,
+          "end": 10.78
+        },
+        {
+          "text": "start",
+          "start": 10.78,
+          "end": 11.2
+        },
+        {
+          "text": "production",
+          "start": 11.2,
+          "end": 11.53
+        },
+        {
+          "text": "teams",
+          "start": 11.53,
+          "end": 11.66
+        },
+        {
+          "text": "often",
+          "start": 11.74,
+          "end": 12.2
+        },
+        {
+          "text": "log",
+          "start": 12.2,
+          "end": 12.61
+        },
+        {
+          "text": "per-question",
+          "start": 12.96,
+          "end": 13.4
+        },
+        {
+          "text": "detail",
+          "start": 13.4,
+          "end": 14
+        },
+        {
+          "text": "Save",
+          "start": 14.15,
+          "end": 14.62
+        },
+        {
+          "text": "output",
+          "start": 14.73,
+          "end": 15.52
+        },
+        {
+          "text": "to",
+          "start": 15.52,
+          "end": 15.72
+        },
+        {
+          "text": "results",
+          "start": 15.72,
+          "end": 15.88
+        },
+        {
+          "text": "for",
+          "start": 15.88,
+          "end": 16.639999
+        },
+        {
+          "text": "the",
+          "start": 16.74,
+          "end": 17.34
+        },
+        {
+          "text": "capstone",
+          "start": 17.43,
+          "end": 17.77
+        },
+        {
+          "text": "evidence",
+          "start": 17.43,
+          "end": 17.77
+        },
+        {
+          "text": "pack",
+          "start": 17.43,
+          "end": 17.77
+        }
+      ]
+    },
+    "review-failed-benchmark-cases": {
+      "words": [
+        {
+          "text": "Read",
+          "start": 0.17,
+          "end": 0.47
+        },
+        {
+          "text": "failed",
+          "start": 0.47,
+          "end": 0.89
+        },
+        {
+          "text": "questions",
+          "start": 0.89,
+          "end": 1.46
+        },
+        {
+          "text": "beside",
+          "start": 1.46,
+          "end": 1.92
+        },
+        {
+          "text": "raw",
+          "start": 1.92,
+          "end": 2.05
+        },
+        {
+          "text": "answers",
+          "start": 2.05,
+          "end": 2.63
+        },
+        {
+          "text": "Decide",
+          "start": 3.06,
+          "end": 3.45
+        },
+        {
+          "text": "whether",
+          "start": 3.45,
+          "end": 3.7
+        },
+        {
+          "text": "you",
+          "start": 3.7,
+          "end": 3.87
+        },
+        {
+          "text": "need",
+          "start": 3.87,
+          "end": 4.19
+        },
+        {
+          "text": "a",
+          "start": 4.23,
+          "end": 4.3
+        },
+        {
+          "text": "mandatory",
+          "start": 4.3,
+          "end": 4.89
+        },
+        {
+          "text": "tool",
+          "start": 4.92,
+          "end": 5.17
+        },
+        {
+          "text": "call",
+          "start": 5.17,
+          "end": 5.52
+        },
+        {
+          "text": "a",
+          "start": 5.93,
+          "end": 6.06
+        },
+        {
+          "text": "corrected",
+          "start": 6.06,
+          "end": 6.7
+        },
+        {
+          "text": "MCP",
+          "start": 7.25,
+          "end": 7.63
+        },
+        {
+          "text": "path",
+          "start": 8.03,
+          "end": 8.19
+        },
+        {
+          "text": "or",
+          "start": 8.19,
+          "end": 8.24
+        },
+        {
+          "text": "a",
+          "start": 8.24,
+          "end": 8.69
+        },
+        {
+          "text": "stronger",
+          "start": 8.69,
+          "end": 9.18
+        },
+        {
+          "text": "system",
+          "start": 9.18,
+          "end": 9.76
+        },
+        {
+          "text": "prompt",
+          "start": 10.22,
+          "end": 10.52
+        },
+        {
+          "text": "Change",
+          "start": 10.52,
+          "end": 10.77
+        },
+        {
+          "text": "one",
+          "start": 10.77,
+          "end": 11.14
+        },
+        {
+          "text": "thing",
+          "start": 11.45,
+          "end": 11.7
+        },
+        {
+          "text": "re-run",
+          "start": 11.7,
+          "end": 12.09
+        },
+        {
+          "text": "and",
+          "start": 12.52,
+          "end": 12.7
+        },
+        {
+          "text": "compare",
+          "start": 12.7,
+          "end": 13.29
+        },
+        {
+          "text": "-",
+          "start": 13.52,
+          "end": 13.65
+        },
+        {
+          "text": "the",
+          "start": 13.65,
+          "end": 13.97
+        },
+        {
+          "text": "same",
+          "start": 13.97,
+          "end": 14.57
+        },
+        {
+          "text": "scientific",
+          "start": 14.57,
+          "end": 14.98
+        },
+        {
+          "text": "habit",
+          "start": 14.98,
+          "end": 15.12
+        },
+        {
+          "text": "you",
+          "start": 15.12,
+          "end": 15.52
+        },
+        {
+          "text": "use",
+          "start": 15.52,
+          "end": 15.7
+        },
+        {
+          "text": "for",
+          "start": 15.7,
+          "end": 16.110001
+        },
+        {
+          "text": "flaky",
+          "start": 16.110001,
+          "end": 16.690001
+        },
+        {
+          "text": "automation",
+          "start": 16.690001,
+          "end": 17.110001
+        },
+        {
+          "text": "jobs",
+          "start": 16.690001,
+          "end": 17.110001
+        }
+      ]
+    },
+    "tune-prompt-from-eval": {
+      "words": [
+        {
+          "text": "Add",
+          "start": 0.16,
+          "end": 0.35
+        },
+        {
+          "text": "instructions",
+          "start": 0.35,
+          "end": 1.14
+        },
+        {
+          "text": "such",
+          "start": 1.14,
+          "end": 1.43
+        },
+        {
+          "text": "as",
+          "start": 1.43,
+          "end": 1.74
+        },
+        {
+          "text": "always",
+          "start": 1.79,
+          "end": 2.2
+        },
+        {
+          "text": "call",
+          "start": 2.2,
+          "end": 2.5
+        },
+        {
+          "text": "list_vlans",
+          "start": 3.09,
+          "end": 3.36
+        },
+        {
+          "text": "before",
+          "start": 3.36,
+          "end": 3.77
+        },
+        {
+          "text": "answering",
+          "start": 4.96,
+          "end": 5.62
+        },
+        {
+          "text": "VLAN",
+          "start": 6.09,
+          "end": 6.25
+        },
+        {
+          "text": "questions",
+          "start": 6.25,
+          "end": 6.63
+        },
+        {
+          "text": "and",
+          "start": 6.67,
+          "end": 7.02
+        },
+        {
+          "text": "cite",
+          "start": 7.02,
+          "end": 7.27
+        },
+        {
+          "text": "only",
+          "start": 7.27,
+          "end": 7.74
+        },
+        {
+          "text": "tool-returned",
+          "start": 7.74,
+          "end": 8.13
+        },
+        {
+          "text": "data",
+          "start": 8.53,
+          "end": 8.95
+        },
+        {
+          "text": "Prompt",
+          "start": 8.98,
+          "end": 9.43
+        },
+        {
+          "text": "tuning",
+          "start": 9.46,
+          "end": 9.84
+        },
+        {
+          "text": "often",
+          "start": 9.84,
+          "end": 10.21
+        },
+        {
+          "text": "beats",
+          "start": 10.21,
+          "end": 10.6
+        },
+        {
+          "text": "model",
+          "start": 10.6,
+          "end": 11.12
+        },
+        {
+          "text": "swapping",
+          "start": 11.12,
+          "end": 11.29
+        },
+        {
+          "text": "for",
+          "start": 11.29,
+          "end": 11.82
+        },
+        {
+          "text": "grounding",
+          "start": 11.82,
+          "end": 12.45
+        },
+        {
+          "text": "failures",
+          "start": 12.81,
+          "end": 12.94
+        },
+        {
+          "text": "and",
+          "start": 12.94,
+          "end": 13.46
+        },
+        {
+          "text": "costs",
+          "start": 13.46,
+          "end": 13.77
+        },
+        {
+          "text": "less",
+          "start": 13.77,
+          "end": 14.49
+        },
+        {
+          "text": "operational",
+          "start": 14.49,
+          "end": 14.85
+        },
+        {
+          "text": "risk",
+          "start": 14.49,
+          "end": 14.85
+        }
+      ]
+    },
+    "troubleshoot-low-accuracy": {
+      "words": [
+        {
+          "text": "Low",
+          "start": 0.14,
+          "end": 0.35
+        },
+        {
+          "text": "scores",
+          "start": 0.35,
+          "end": 0.88
+        },
+        {
+          "text": "usually",
+          "start": 0.88,
+          "end": 1.37
+        },
+        {
+          "text": "trace",
+          "start": 1.37,
+          "end": 1.71
+        },
+        {
+          "text": "to",
+          "start": 1.79,
+          "end": 1.9
+        },
+        {
+          "text": "skipped",
+          "start": 1.9,
+          "end": 2.57
+        },
+        {
+          "text": "tool",
+          "start": 2.6,
+          "end": 2.85
+        },
+        {
+          "text": "calls",
+          "start": 2.85,
+          "end": 3.36
+        },
+        {
+          "text": "wrong",
+          "start": 3.82,
+          "end": 4.06
+        },
+        {
+          "text": "file",
+          "start": 4.06,
+          "end": 4.34
+        },
+        {
+          "text": "paths",
+          "start": 4.34,
+          "end": 4.84
+        },
+        {
+          "text": "or",
+          "start": 5.28,
+          "end": 5.63
+        },
+        {
+          "text": "weak",
+          "start": 5.66,
+          "end": 5.97
+        },
+        {
+          "text": "system",
+          "start": 5.97,
+          "end": 6.44
+        },
+        {
+          "text": "prompts",
+          "start": 6.44,
+          "end": 6.96
+        },
+        {
+          "text": "Fix",
+          "start": 7.32,
+          "end": 7.7
+        },
+        {
+          "text": "grounding",
+          "start": 7.7,
+          "end": 8.35
+        },
+        {
+          "text": "before",
+          "start": 8.49,
+          "end": 8.83
+        },
+        {
+          "text": "you",
+          "start": 8.83,
+          "end": 8.98
+        },
+        {
+          "text": "blame",
+          "start": 8.98,
+          "end": 9.31
+        },
+        {
+          "text": "the",
+          "start": 9.31,
+          "end": 9.41
+        },
+        {
+          "text": "model",
+          "start": 9.41,
+          "end": 9.83
+        },
+        {
+          "text": "Re-run",
+          "start": 10.31,
+          "end": 10.51
+        },
+        {
+          "text": "on",
+          "start": 10.51,
+          "end": 10.87
+        },
+        {
+          "text": "the",
+          "start": 10.98,
+          "end": 11.14
+        },
+        {
+          "text": "same",
+          "start": 11.14,
+          "end": 11.23
+        },
+        {
+          "text": "golden",
+          "start": 11.23,
+          "end": 11.6
+        },
+        {
+          "text": "set",
+          "start": 11.6,
+          "end": 11.97
+        },
+        {
+          "text": "after",
+          "start": 11.97,
+          "end": 12.46
+        },
+        {
+          "text": "each",
+          "start": 12.86,
+          "end": 13.32
+        },
+        {
+          "text": "change",
+          "start": 13.4,
+          "end": 13.68
+        },
+        {
+          "text": "so",
+          "start": 13.68,
+          "end": 14.12
+        },
+        {
+          "text": "improvement",
+          "start": 14.44,
+          "end": 14.62
+        },
+        {
+          "text": "is",
+          "start": 14.62,
+          "end": 15.25
+        },
+        {
+          "text": "visible",
+          "start": 15.25,
+          "end": 15.41
+        },
+        {
+          "text": "visible",
+          "start": 15.41,
+          "end": 15.89
+        }
+      ]
+    },
+    "evaluation-ready-for-capstone": {
+      "words": [
+        {
+          "text": "You",
+          "start": 0.14,
+          "end": 0.27
+        },
+        {
+          "text": "can",
+          "start": 0.27,
+          "end": 0.45
+        },
+        {
+          "text": "score",
+          "start": 0.45,
+          "end": 0.75
+        },
+        {
+          "text": "the",
+          "start": 0.75,
+          "end": 0.93
+        },
+        {
+          "text": "agent",
+          "start": 0.96,
+          "end": 1.36
+        },
+        {
+          "text": "against",
+          "start": 1.36,
+          "end": 1.83
+        },
+        {
+          "text": "golden",
+          "start": 1.83,
+          "end": 2.25
+        },
+        {
+          "text": "questions",
+          "start": 2.25,
+          "end": 2.9
+        },
+        {
+          "text": "and",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "text": "tune",
+          "start": 3.29,
+          "end": 3.57
+        },
+        {
+          "text": "from",
+          "start": 3.57,
+          "end": 3.82
+        },
+        {
+          "text": "failures",
+          "start": 3.82,
+          "end": 4.51
+        },
+        {
+          "text": "The",
+          "start": 4.98,
+          "end": 5.05
+        },
+        {
+          "text": "capstone",
+          "start": 5.05,
+          "end": 5.6
+        },
+        {
+          "text": "runs",
+          "start": 5.6,
+          "end": 5.93
+        },
+        {
+          "text": "the",
+          "start": 5.93,
+          "end": 6.02
+        },
+        {
+          "text": "full",
+          "start": 6.05,
+          "end": 6.39
+        },
+        {
+          "text": "pipeline",
+          "start": 6.39,
+          "end": 6.98
+        },
+        {
+          "text": "-",
+          "start": 6.98,
+          "end": 7.43
+        },
+        {
+          "text": "draft",
+          "start": 7.53,
+          "end": 8.14
+        },
+        {
+          "text": "tools",
+          "start": 8.49,
+          "end": 9.34
+        },
+        {
+          "text": "conversation",
+          "start": 9.77,
+          "end": 10.45
+        },
+        {
+          "text": "measurement",
+          "start": 10.45,
+          "end": 10.6
+        },
+        {
+          "text": "-",
+          "start": 10.6,
+          "end": 10.81
+        },
+        {
+          "text": "in",
+          "start": 10.81,
+          "end": 11.26
+        },
+        {
+          "text": "one",
+          "start": 11.26,
+          "end": 11.8
+        },
+        {
+          "text": "operator",
+          "start": 12.18,
+          "end": 12.33
+        },
+        {
+          "text": "session",
+          "start": 12.33,
+          "end": 12.57
+        },
+        {
+          "text": "you",
+          "start": 12.57,
+          "end": 13.24
+        },
+        {
+          "text": "could",
+          "start": 13.31,
+          "end": 13.41
+        },
+        {
+          "text": "demonstrate",
+          "start": 13.41,
+          "end": 13.47
+        },
+        {
+          "text": "to",
+          "start": 13.51,
+          "end": 14.09
+        },
+        {
+          "text": "a",
+          "start": 13.51,
+          "end": 14.09
+        },
+        {
+          "text": "teammate",
+          "start": 13.51,
+          "end": 14.09
+        }
+      ]
+    }
+  },
+  "lineMappings": {
+    "review-failed-benchmark-cases": [
+      {
+        "id": "re-run",
+        "line": 2,
+        "wordRange": [
+          26,
+          26
+        ]
+      }
+    ],
+    "tune-prompt-from-eval": [
+      {
+        "id": "always-call",
+        "line": 2,
+        "wordRange": [
+          4,
+          5
+        ]
+      },
+      {
+        "id": "cite-only",
+        "line": 3,
+        "wordRange": [
+          12,
+          13
+        ]
+      }
+    ]
+  }
+}

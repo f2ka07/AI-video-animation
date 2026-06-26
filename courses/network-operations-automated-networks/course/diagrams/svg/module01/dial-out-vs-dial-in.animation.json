@@ -1,0 +1,32 @@
+{
+  "diagram": "dial-out-vs-dial-in.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-dial-out"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-dial-out"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-dial-out",
+        "viz-dial-in"
+      ],
+      "dim": [
+        "viz-dial-out"
+      ],
+      "highlight": [
+        "viz-dial-in"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "diagram": "when-copy-paste-breaks-teams.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-without"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-without"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-without",
+        "viz-with-git"
+      ],
+      "dim": [
+        "viz-without"
+      ],
+      "highlight": [
+        "viz-with-git"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-without",
+        "viz-with-git",
+        "viz-divider",
+        "viz-cap"
+      ],
+      "dim": [
+        "viz-without",
+        "viz-with-git"
+      ],
+      "highlight": [
+        "viz-cap"
+      ]
+    }
+  ]
+}

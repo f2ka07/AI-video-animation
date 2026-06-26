@@ -1,0 +1,68 @@
+{
+  "diagram": "commits-as-save-points.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-intent"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-intent"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-intent",
+        "viz-apply"
+      ],
+      "dim": [
+        "viz-intent"
+      ],
+      "highlight": [
+        "viz-apply"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-intent",
+        "viz-apply",
+        "viz-verify"
+      ],
+      "dim": [
+        "viz-intent",
+        "viz-apply"
+      ],
+      "highlight": [
+        "viz-verify"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-intent",
+        "viz-apply",
+        "viz-verify",
+        "viz-record"
+      ],
+      "dim": [
+        "viz-intent",
+        "viz-apply",
+        "viz-verify"
+      ],
+      "highlight": [
+        "viz-record"
+      ]
+    }
+  ]
+}

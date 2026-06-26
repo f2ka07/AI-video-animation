@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="CI CD plain language">
+  <rect width="800" height="900" fill="#071525"/>
+  <text x="40" y="52" fill="#049FD9" font-family="Inter,sans-serif" font-size="13" font-weight="800" letter-spacing=".16em">CI / CD</text>
+  <text x="40" y="96" fill="#fff" font-family="Inter,sans-serif" font-size="28" font-weight="800">Plain language</text>
+  <g transform="translate(220 340)">
+    <rect x="-160" y="-55" width="320" height="110" rx="14" fill="#1e3a5f" stroke="#049FD9" stroke-width="2"/>
+    <text y="-10" text-anchor="middle" fill="#bae6fd" font-family="Inter,sans-serif" font-size="16" font-weight="700">CI</text>
+    <text y="22" text-anchor="middle" fill="#94a3b8" font-family="Inter,sans-serif" font-size="13">Test every change</text>
+  </g>
+  <g transform="translate(580 340)">
+    <rect x="-160" y="-55" width="320" height="110" rx="14" fill="#14532d" stroke="#6CC04A" stroke-width="2"/>
+    <text y="-10" text-anchor="middle" fill="#bbf7d0" font-family="Inter,sans-serif" font-size="16" font-weight="700">CD</text>
+    <text y="22" text-anchor="middle" fill="#94a3b8" font-family="Inter,sans-serif" font-size="13">Deploy when gates pass</text>
+  </g>
+  <text x="400" y="520" text-anchor="middle" fill="#94a3b8" font-family="Inter,sans-serif" font-size="14">Runners execute jobs from .gitlab-ci.yml</text>
+</svg>

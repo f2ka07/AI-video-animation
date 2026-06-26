@@ -1,0 +1,49 @@
+{
+  "diagram": "main-branch-vs-feature-branch.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-left-meta"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-left-meta"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-left-meta",
+        "viz-right-meta"
+      ],
+      "dim": [
+        "viz-left-meta"
+      ],
+      "highlight": [
+        "viz-right-meta"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-left-meta",
+        "viz-right-meta",
+        "viz-divider"
+      ],
+      "dim": [
+        "viz-left-meta",
+        "viz-right-meta"
+      ],
+      "highlight": [
+        "viz-divider"
+      ]
+    }
+  ]
+}

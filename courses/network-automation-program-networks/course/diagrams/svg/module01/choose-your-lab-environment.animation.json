@@ -1,0 +1,68 @@
+{
+  "diagram": "choose-your-lab-environment.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-env-1"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-env-1"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-env-1",
+        "viz-env-2"
+      ],
+      "dim": [
+        "viz-env-1"
+      ],
+      "highlight": [
+        "viz-env-2"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-env-1",
+        "viz-env-2",
+        "viz-env-3"
+      ],
+      "dim": [
+        "viz-env-1",
+        "viz-env-2"
+      ],
+      "highlight": [
+        "viz-env-3"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-env-1",
+        "viz-env-2",
+        "viz-env-3",
+        "viz-env-4"
+      ],
+      "dim": [
+        "viz-env-1",
+        "viz-env-2",
+        "viz-env-3"
+      ],
+      "highlight": [
+        "viz-env-4"
+      ]
+    }
+  ]
+}

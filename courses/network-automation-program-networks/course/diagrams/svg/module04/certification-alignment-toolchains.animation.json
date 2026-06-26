@@ -1,0 +1,112 @@
+{
+  "diagram": "certification-alignment-toolchains.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-badge"
+      ]
+    },
+    {
+      "start": 2,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge",
+        "viz-play"
+      ],
+      "dim": [
+        "viz-badge"
+      ],
+      "highlight": [
+        "viz-play"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge",
+        "viz-play",
+        "viz-check"
+      ],
+      "dim": [
+        "viz-badge",
+        "viz-play"
+      ],
+      "highlight": [
+        "viz-check"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge",
+        "viz-play",
+        "viz-check",
+        "viz-tf"
+      ],
+      "dim": [
+        "viz-badge",
+        "viz-play",
+        "viz-check"
+      ],
+      "highlight": [
+        "viz-tf"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge",
+        "viz-play",
+        "viz-check",
+        "viz-tf",
+        "viz-pick"
+      ],
+      "dim": [
+        "viz-badge",
+        "viz-play",
+        "viz-check",
+        "viz-tf"
+      ],
+      "highlight": [
+        "viz-pick"
+      ]
+    },
+    {
+      "start": 10,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge",
+        "viz-play",
+        "viz-check",
+        "viz-tf",
+        "viz-pick",
+        "viz-skill"
+      ],
+      "dim": [
+        "viz-badge",
+        "viz-play",
+        "viz-check",
+        "viz-tf",
+        "viz-pick"
+      ],
+      "highlight": [
+        "viz-skill"
+      ]
+    }
+  ]
+}

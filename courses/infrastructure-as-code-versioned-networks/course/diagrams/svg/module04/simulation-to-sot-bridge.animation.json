@@ -1,0 +1,14 @@
+{
+  "diagram": "simulation-to-sot-bridge.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 10,
+      "show": [
+        "main"
+      ],
+      "dim": [],
+      "highlight": []
+    }
+  ]
+}

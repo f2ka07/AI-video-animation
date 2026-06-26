@@ -1,0 +1,68 @@
+{
+  "diagram": "ai-coding-workflows-plain-language.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-prompt"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-prompt"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-prompt",
+        "viz-review"
+      ],
+      "dim": [
+        "viz-prompt"
+      ],
+      "highlight": [
+        "viz-review"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-prompt",
+        "viz-review",
+        "viz-lint"
+      ],
+      "dim": [
+        "viz-prompt",
+        "viz-review"
+      ],
+      "highlight": [
+        "viz-lint"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-prompt",
+        "viz-review",
+        "viz-lint",
+        "viz-check"
+      ],
+      "dim": [
+        "viz-prompt",
+        "viz-review",
+        "viz-lint"
+      ],
+      "highlight": [
+        "viz-check"
+      ]
+    }
+  ]
+}

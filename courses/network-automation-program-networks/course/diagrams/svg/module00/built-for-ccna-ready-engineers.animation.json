@@ -1,0 +1,7 @@
+{
+  "diagram": "built-for-ccna-ready-engineers.svg",
+  "phases": [
+    {"start": 0, "end": 16, "show": ["viz-main", "viz-student", "viz-engineer"], "dim": [], "highlight": ["viz-student", "viz-engineer"]},
+    {"start": 7, "end": 16, "show": ["viz-main", "viz-student", "viz-engineer", "viz-prereq"], "dim": ["viz-student", "viz-engineer"], "highlight": ["viz-prereq"]}
+  ]
+}

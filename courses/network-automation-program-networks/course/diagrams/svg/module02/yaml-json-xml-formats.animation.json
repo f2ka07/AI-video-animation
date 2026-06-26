@@ -1,0 +1,89 @@
+{
+  "diagram": "yaml-json-xml-formats.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-yaml"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-yaml"
+      ]
+    },
+    {
+      "start": 2.4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-yaml",
+        "viz-json"
+      ],
+      "dim": [
+        "viz-yaml"
+      ],
+      "highlight": [
+        "viz-json"
+      ]
+    },
+    {
+      "start": 4.8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-yaml",
+        "viz-json",
+        "viz-xml"
+      ],
+      "dim": [
+        "viz-yaml",
+        "viz-json"
+      ],
+      "highlight": [
+        "viz-xml"
+      ]
+    },
+    {
+      "start": 7.199999999999999,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-yaml",
+        "viz-json",
+        "viz-xml",
+        "viz-python-dict"
+      ],
+      "dim": [
+        "viz-yaml",
+        "viz-json",
+        "viz-xml"
+      ],
+      "highlight": [
+        "viz-python-dict"
+      ]
+    },
+    {
+      "start": 9.6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-yaml",
+        "viz-json",
+        "viz-xml",
+        "viz-python-dict",
+        "viz-switch"
+      ],
+      "dim": [
+        "viz-yaml",
+        "viz-json",
+        "viz-xml",
+        "viz-python-dict"
+      ],
+      "highlight": [
+        "viz-switch"
+      ]
+    }
+  ]
+}

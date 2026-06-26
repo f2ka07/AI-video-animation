@@ -1,0 +1,32 @@
+{
+  "diagram": "why-evaluate-ai-recommendations.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-trust"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-trust"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-trust",
+        "viz-prove"
+      ],
+      "dim": [
+        "viz-trust"
+      ],
+      "highlight": [
+        "viz-prove"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "diagram": "accuracy-metrics-plain-language.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-match"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-match"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-match",
+        "viz-tool"
+      ],
+      "dim": [
+        "viz-match"
+      ],
+      "highlight": [
+        "viz-tool"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-match",
+        "viz-tool",
+        "viz-score"
+      ],
+      "dim": [
+        "viz-match",
+        "viz-tool"
+      ],
+      "highlight": [
+        "viz-score"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-match",
+        "viz-tool",
+        "viz-score",
+        "viz-tune"
+      ],
+      "dim": [
+        "viz-match",
+        "viz-tool",
+        "viz-score"
+      ],
+      "highlight": [
+        "viz-tune"
+      ]
+    }
+  ]
+}

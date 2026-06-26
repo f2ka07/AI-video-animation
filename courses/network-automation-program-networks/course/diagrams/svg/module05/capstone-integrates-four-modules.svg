@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Four modules in one capstone">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    <g id="viz-m1">
+      <g id="viz-m1">
+    <rect x="60" y="100" width="110" height="50" rx="14" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+    <text x="115" y="130" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">M1 Git</text>
+  </g>
+      <line x1="170" y1="125" x2="210" y2="125" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+      <g id="viz-m2">
+    <rect x="210" y="100" width="110" height="50" rx="14" fill="#081827" stroke="#f59e0b" stroke-width="2"/>
+    <text x="265" y="130" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">M2 Python</text>
+  </g>
+      <line x1="320" y1="125" x2="360" y2="125" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+      <g id="viz-m3">
+    <rect x="360" y="100" width="110" height="50" rx="14" fill="#081827" stroke="#6CC04A" stroke-width="2"/>
+    <text x="415" y="130" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">M3 REST</text>
+  </g>
+      <line x1="470" y1="125" x2="510" y2="125" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+      <g id="viz-m4">
+    <rect x="510" y="100" width="110" height="50" rx="14" fill="#081827" stroke="#a78bfa" stroke-width="2"/>
+    <text x="565" y="130" fill="#a78bfa" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">M4 Ansible</text>
+  </g>
+    </g>
+    <g id="viz-flow">
+      <rect x="120" y="200" width="480" height="120" rx="16" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+      <text x="360" y="232" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Capstone sequence</text>
+      <text x="360" y="258" fill="#a78bfa" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">Ansible apply (M4)</text>
+      <text x="360" y="280" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">Python verify show vlan (M2)</text>
+      <text x="360" y="302" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">RESTCONF GET optional (M3)</text>
+    </g>
+    <text x="336" y="370" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">Same tools — fixed order on two lab switches</text>
+  </g>
+</svg>

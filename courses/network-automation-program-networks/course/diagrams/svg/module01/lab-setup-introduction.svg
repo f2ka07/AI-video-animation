@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Lab workspace">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    <g id="viz-folder">
+      <rect x="80" y="100" width="200" height="180" rx="14" fill="#081827" stroke="#203a56" stroke-width="1.5"/>
+      <text x="104" y="132" fill="#12b5e5" font-family="monospace" font-size="13" font-weight="700">automation_project/</text>
+      <text x="120" y="158" fill="#9fb3c8" font-family="monospace" font-size="12">inventory.yml</text>
+      <text x="120" y="180" fill="#6CC04A" font-family="monospace" font-size="12">requirements.txt</text>
+    </g>
+    <g id="viz-terminal">
+      <rect x="320" y="110" width="280" height="170" rx="12" fill="#020617" stroke="#12b5e5" stroke-width="2"/>
+      <circle cx="344" cy="132" r="5" fill="#ef4444"/><circle cx="360" cy="132" r="5" fill="#f59e0b"/><circle cx="376" cy="132" r="5" fill="#6CC04A"/>
+      <text x="336" y="162" fill="#6CC04A" font-family="monospace" font-size="12">$ python3 --version</text>
+      <text x="336" y="184" fill="#9fb3c8" font-family="monospace" font-size="12">$ python3 -m venv env</text>
+      <text x="336" y="206" fill="#9fb3c8" font-family="monospace" font-size="12">$ source env/bin/activate</text>
+    </g>
+    <g id="viz-check">
+      <circle cx="336" cy="340" r="24" fill="#112115" stroke="#6CC04A" stroke-width="2"/>
+      <path d="M324 340l8 8 16-18" fill="none" stroke="#6CC04A" stroke-width="3" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

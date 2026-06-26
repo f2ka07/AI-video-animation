@@ -1,0 +1,4792 @@
+{
+  "_comment": "Auto-bootstrapped from content + audio durations. Run derive-boundaries-from-script after timings.",
+  "what-git-does-plain-language": {
+    "splitAt": [
+      13.48,
+      26.97
+    ],
+    "segments": [
+      {
+        "points": [
+          "Git watches a folder on disk"
+        ],
+        "keyWords": [
+          [
+            "Git",
+            "version",
+            "control",
+            "tool"
+          ],
+          [
+            "git",
+            "mark",
+            "snapshots",
+            "commit"
+          ],
+          [
+            "short",
+            "message",
+            "like",
+            "save"
+          ],
+          [
+            "create",
+            "branches"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.16,
+            "end": 4.959999999999999
+          },
+          {
+            "start": 5.68,
+            "end": 8.36
+          },
+          {
+            "start": 8.87,
+            "end": 11.870000000000001
+          },
+          {
+            "start": 12.34,
+            "end": 13.51
+          }
+        ]
+      },
+      {
+        "points": [
+          "Git commit marks labeled save points"
+        ],
+        "keyWords": [
+          [
+            "VLAN",
+            "change",
+            "without",
+            "touching"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.509999,
+            "end": 27.27
+          }
+        ]
+      },
+      {
+        "points": [
+          "Exam: merge, cherry — pick, reset, revert"
+        ],
+        "keyWords": [
+          [
+            "module",
+            "focuses",
+            "handful",
+            "CCNP"
+          ],
+          [
+            "checkout",
+            "revert"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 27.29,
+            "end": 37.739999
+          },
+          {
+            "start": 38.309999,
+            "end": 39.870000000000005
+          }
+        ]
+      }
+    ]
+  },
+  "commits-as-save-points": {
+    "splitAt": [
+      13.37,
+      26.73
+    ],
+    "segments": [
+      {
+        "points": [
+          "Changes, message, author, timestamp"
+        ],
+        "keyWords": [
+          [
+            "commit",
+            "captures",
+            "three",
+            "things"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.25,
+            "end": 13.42
+          }
+        ]
+      },
+      {
+        "points": [
+          "Stage files with git add first"
+        ],
+        "keyWords": [
+          [
+            "commit",
+            "stage",
+            "files",
+            "git"
+          ],
+          [
+            "commits",
+            "Small"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.42,
+            "end": 21.580000000000002
+          },
+          {
+            "start": 22.52,
+            "end": 27.009999999999998
+          }
+        ]
+      },
+      {
+        "points": [
+          "One logical change per commit"
+        ],
+        "keyWords": [
+          [
+            "VLAN",
+            "routing",
+            "ACL",
+            "changes"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 27.08,
+            "end": 39.83
+          }
+        ]
+      }
+    ]
+  },
+  "merge-and-conflicts-explained": {
+    "splitAt": [
+      14.05,
+      28.09
+    ],
+    "segments": [
+      {
+        "points": [
+          "One branch edited: auto — merge"
+        ],
+        "keyWords": [
+          [
+            "If",
+            "one",
+            "branch",
+            "edited"
+          ],
+          [
+            "forward",
+            "main",
+            "simply",
+            "moves"
+          ],
+          [
+            "If",
+            "branches",
+            "edited",
+            "line"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.18,
+            "end": 4.08
+          },
+          {
+            "start": 4.19,
+            "end": 10.79
+          },
+          {
+            "start": 11.27,
+            "end": 13.57
+          }
+        ]
+      },
+      {
+        "points": [
+          "Same line edited: conflict markers"
+        ],
+        "keyWords": [
+          [
+            "conflict",
+            "Git",
+            "stops",
+            "marks"
+          ],
+          [
+            "edit",
+            "file",
+            "keep",
+            "correct"
+          ],
+          [
+            "merge",
+            "add",
+            "fixed",
+            "file"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.19,
+            "end": 17.079999
+          },
+          {
+            "start": 17.559999,
+            "end": 23.51
+          },
+          {
+            "start": 24.27,
+            "end": 28.32
+          }
+        ]
+      },
+      {
+        "points": [
+          "Fix file, git add, commit merge"
+        ],
+        "keyWords": [
+          [
+            "merge",
+            "conflict",
+            "resolution",
+            "merge and conflict resolution"
+          ],
+          [
+            "Ansible",
+            "pipelines",
+            "fail",
+            "parsing"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 28.32,
+            "end": 38.32
+          },
+          {
+            "start": 39.13,
+            "end": 41.94
+          }
+        ]
+      }
+    ]
+  },
+  "reset-revert-cherry-pick-checkout": {
+    "splitAt": [
+      15.7,
+      31.39
+    ],
+    "segments": [
+      {
+        "points": [
+          "Cherry — pick: one commit onto branch"
+        ],
+        "keyWords": [
+          [
+            "commands",
+            "exam",
+            "expects",
+            "know"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.11,
+            "end": 15.889999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Revert: safe undo on shared main"
+        ],
+        "keyWords": [
+          [
+            "creates",
+            "new",
+            "commit",
+            "undoes"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.16,
+            "end": 31.259999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Reset and checkout restore branch or file"
+        ],
+        "keyWords": [
+          [
+            "exam",
+            "hard",
+            "reset",
+            "discards"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 31.599999,
+            "end": 46.92
+          }
+        ]
+      }
+    ]
+  },
+  "story-beat-recap-git": {
+    "splitAt": [
+      12.77,
+      25.54
+    ],
+    "segments": [
+      {
+        "points": [
+          "Commits, branches, merge, conflicts"
+        ],
+        "keyWords": [
+          [
+            "Git",
+            "Pause",
+            "seen",
+            "copy"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.67,
+            "end": 13.15
+          }
+        ]
+      },
+      {
+        "points": [
+          "Cherry — pick, revert, reset, checkout"
+        ],
+        "keyWords": [
+          [
+            "Next",
+            "lab",
+            "Git",
+            "netops"
+          ],
+          [
+            "YAML",
+            "file",
+            "branch",
+            "merge"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.219999,
+            "end": 19.919999999999998
+          },
+          {
+            "start": 21.65,
+            "end": 25.69
+          }
+        ]
+      },
+      {
+        "points": [
+          "Lab: netops_iac_lab step by step"
+        ],
+        "keyWords": [
+          [
+            "Open",
+            "terminal",
+            "WSL",
+            "Mac"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 25.75,
+            "end": 38.13999999999999
+          }
+        ]
+      }
+    ]
+  },
+  "lab-setup-git-for-networks": {
+    "splitAt": [
+      14.16,
+      28.33
+    ],
+    "segments": [
+      {
+        "points": [
+          "Create netops_iac_lab project folder"
+        ],
+        "keyWords": [
+          [
+            "Git",
+            "lab",
+            "Welcome",
+            "Create"
+          ],
+          [
+            "Inside",
+            "add"
+          ],
+          [
+            "Infrastructure",
+            "Code"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.04,
+            "end": 3.31
+          },
+          {
+            "start": 4.41,
+            "end": 14.2
+          },
+          {
+            "start": 7.2,
+            "end": 8.46
+          }
+        ]
+      },
+      {
+        "points": [
+          "Add intended/vlans.yaml VLAN intent file"
+        ],
+        "keyWords": [
+          [
+            "VLAN",
+            "IDs",
+            "names",
+            "kind"
+          ],
+          [
+            "Git",
+            "If",
+            "command",
+            "found"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.309999,
+            "end": 21.73
+          },
+          {
+            "start": 22.4,
+            "end": 29.08
+          }
+        ]
+      },
+      {
+        "points": [
+          "Confirm Git installed: git — — version"
+        ],
+        "keyWords": [
+          [
+            "lab",
+            "Windows",
+            "use",
+            "your"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 29.219999,
+            "end": 42.019999999999996
+          }
+        ]
+      }
+    ]
+  },
+  "certification-alignment-git": {
+    "splitAt": [
+      12.89,
+      25.78
+    ],
+    "segments": [
+      {
+        "points": [
+          "2.1a: merge, squash, conflict resolution"
+        ],
+        "keyWords": [
+          [
+            "exam",
+            "objective",
+            "Module",
+            "one"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 12.919998999999999
+          }
+        ]
+      },
+      {
+        "points": [
+          "2.1b — e: cherry — pick, reset, checkout, revert"
+        ],
+        "keyWords": [
+          [
+            "Cherry",
+            "pick",
+            "dot",
+            "Reset"
+          ],
+          [
+            "Exam",
+            "Revert",
+            "dot",
+            "scenarios"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 12.99,
+            "end": 18.63
+          },
+          {
+            "start": 19.55,
+            "end": 26.27
+          }
+        ]
+      },
+      {
+        "points": [
+          "Explain each command from lab history"
+        ],
+        "keyWords": [
+          [
+            "Module",
+            "two",
+            "adds",
+            "GitLab"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 26.29,
+            "end": 38.489999999999995
+          }
+        ]
+      }
+    ]
+  },
+  "git-ready-for-cicd": {
+    "splitAt": [
+      14.09,
+      28.18
+    ],
+    "segments": [
+      {
+        "points": [
+          "Repo with branches and exam commands"
+        ],
+        "keyWords": [
+          [
+            "started",
+            "module",
+            "saving",
+            "configs"
+          ],
+          [
+            "Git",
+            "repository",
+            "feature",
+            "branches"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 4.97
+          },
+          {
+            "start": 5.45,
+            "end": 14.190000000000001
+          }
+        ]
+      },
+      {
+        "points": [
+          "Versioned intent before any pipeline"
+        ],
+        "keyWords": [
+          [
+            "foundation",
+            "infrastructure",
+            "code",
+            "builds"
+          ],
+          [
+            "Git",
+            "Module",
+            "two",
+            "connects"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.21,
+            "end": 23.25
+          },
+          {
+            "start": 23.82,
+            "end": 27.259999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Module two: GitLab CI/CD stages next"
+        ],
+        "keyWords": [
+          [
+            "build",
+            "prevalidation",
+            "deploy",
+            "post"
+          ],
+          [
+            "netops_iac_lab",
+            "commit",
+            "often",
+            "clear"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 28.65,
+            "end": 34.169999999999995
+          },
+          {
+            "start": 36.109999,
+            "end": 42.1
+          }
+        ]
+      }
+    ]
+  },
+  "manual-deploy-breaks-teams": {
+    "splitAt": [
+      12.77,
+      25.55
+    ],
+    "segments": [
+      {
+        "points": [
+          "Manual ansible — playbook from jump host"
+        ],
+        "keyWords": [
+          [
+            "Without",
+            "pipeline",
+            "senior",
+            "engineer"
+          ],
+          [
+            "SSHs",
+            "jump",
+            "host"
+          ],
+          [
+            "Nobody",
+            "sees",
+            "log",
+            "unless"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.17,
+            "end": 2.15
+          },
+          {
+            "start": 2.96,
+            "end": 4.62
+          },
+          {
+            "start": 5.93,
+            "end": 11.41
+          }
+        ]
+      },
+      {
+        "points": [
+          "Bad YAML reaches switches unchecked"
+        ],
+        "keyWords": [
+          [
+            "typo",
+            "vlans",
+            "dot",
+            "yaml"
+          ],
+          [
+            "because",
+            "nobody",
+            "ran",
+            "linter"
+          ],
+          [
+            "Tuesday",
+            "CICD"
+          ],
+          [
+            "replace"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 12.9,
+            "end": 17.209999
+          },
+          {
+            "start": 18.52,
+            "end": 21.629999
+          },
+          {
+            "start": 22.440001,
+            "end": 24.82
+          },
+          {
+            "start": 25.469999,
+            "end": 25.769999499999997
+          }
+        ]
+      },
+      {
+        "points": [
+          "Rollback means guessing last deploy"
+        ],
+        "keyWords": [
+          [
+            "lab",
+            "adds"
+          ],
+          [
+            "netops_iac_lab"
+          ],
+          [
+            "repo",
+            "module",
+            "one"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 25.769999499999997,
+            "end": 31.23
+          },
+          {
+            "start": 32.860001,
+            "end": 34.959999
+          },
+          {
+            "start": 37.189999,
+            "end": 38.119999
+          }
+        ]
+      }
+    ]
+  },
+  "what-cicd-does-plain-language": {
+    "splitAt": [
+      14.99,
+      29.97
+    ],
+    "segments": [
+      {
+        "points": [
+          "CI: automated checks on every push"
+        ],
+        "keyWords": [
+          [
+            "CI",
+            "means",
+            "continuous",
+            "integration"
+          ],
+          [
+            "YAML",
+            "never",
+            "merges",
+            "quietly"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.59,
+            "end": 7.39
+          },
+          {
+            "start": 8.03,
+            "end": 15.26
+          }
+        ]
+      },
+      {
+        "points": [
+          "CD: deploy after checks pass"
+        ],
+        "keyWords": [
+          [
+            "GitLab",
+            "CE",
+            "stores",
+            "pipeline"
+          ],
+          [
+            "dot",
+            "gitlab-ci",
+            "dot gitlab",
+            "definitions"
+          ],
+          [
+            "dot",
+            "yml",
+            "repository",
+            "root"
+          ],
+          [
+            "GitLab",
+            "reads",
+            "file",
+            "spawns"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 15.26,
+            "end": 21.92
+          },
+          {
+            "start": 23.290001,
+            "end": 25.73
+          },
+          {
+            "start": 26.74,
+            "end": 28.030001
+          },
+          {
+            "start": 28.5,
+            "end": 30.32
+          }
+        ]
+      },
+      {
+        "points": [
+          "Gitlab — ci.yml defines jobs on runners"
+        ],
+        "keyWords": [
+          [
+            "network",
+            "automation",
+            "runners",
+            "often"
+          ],
+          [
+            "DMZ",
+            "cloud",
+            "VPC",
+            "reachability"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 30.360001,
+            "end": 36.459999
+          },
+          {
+            "start": 36.939999,
+            "end": 44.799999
+          }
+        ]
+      }
+    ]
+  },
+  "four-pipeline-stages-exam": {
+    "splitAt": [
+      10.74,
+      21.48,
+      32.22
+    ],
+    "segments": [
+      {
+        "points": [
+          "Build: install Python and Ansible"
+        ],
+        "keyWords": [
+          [
+            "Exam",
+            "stages",
+            "objective",
+            "two"
+          ],
+          [
+            "GitLab",
+            "CE",
+            "Build",
+            "prepares"
+          ],
+          [
+            "install",
+            "Python"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.1,
+            "end": 4.7
+          },
+          {
+            "start": 5.79,
+            "end": 8.58
+          },
+          {
+            "start": 9.42,
+            "end": 11
+          }
+        ]
+      },
+      {
+        "points": [
+          "Prevalidation: YAML lint and schema"
+        ],
+        "keyWords": [
+          [
+            "Ansible",
+            "collections",
+            "requirements",
+            "dot"
+          ],
+          [
+            "checks",
+            "intent",
+            "any",
+            "device"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 11.04,
+            "end": 15.61
+          },
+          {
+            "start": 16.17,
+            "end": 21.75
+          }
+        ]
+      },
+      {
+        "points": [
+          "Deploy check mode; post — validation asserts"
+        ],
+        "keyWords": [
+          [
+            "Deploy",
+            "applies",
+            "automation",
+            "often"
+          ],
+          [
+            "then"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 22.01,
+            "end": 30.75
+          },
+          {
+            "start": 31.68,
+            "end": 32.599998
+          }
+        ]
+      },
+      {
+        "points": [],
+        "keyWords": [
+          [
+            "Post-validation",
+            "confirms",
+            "outcome"
+          ],
+          [
+            "API",
+            "polling",
+            "script",
+            "asserts"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 32.869999,
+            "end": 34.689999
+          },
+          {
+            "start": 35.68,
+            "end": 42.779999
+          }
+        ]
+      }
+    ]
+  },
+  "gitlab-ci-yaml-anatomy": {
+    "splitAt": [
+      12.39,
+      24.77
+    ],
+    "segments": [
+      {
+        "points": [
+          "Stages list runs top to bottom"
+        ],
+        "keyWords": [
+          [
+            "dot",
+            "gitlab-ci",
+            "yml",
+            "file"
+          ],
+          [
+            "GitLab",
+            "runs",
+            "top",
+            "bottom"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.09,
+            "end": 5.88
+          },
+          {
+            "start": 6.42,
+            "end": 12.56
+          }
+        ]
+      },
+      {
+        "points": [
+          "Jobs: name, stage, image, script"
+        ],
+        "keyWords": [
+          [
+            "Jobs",
+            "stage",
+            "run"
+          ],
+          [
+            "Use",
+            "rules",
+            "clauses",
+            "run"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 12.56,
+            "end": 20.059999
+          },
+          {
+            "start": 20.51,
+            "end": 24.66
+          }
+        ]
+      },
+      {
+        "points": [
+          "Rules limit deploy to main branch"
+        ],
+        "keyWords": [
+          [
+            "Artifacts",
+            "pass",
+            "files",
+            "jobs"
+          ],
+          [
+            "virtualenv"
+          ],
+          [
+            "Network",
+            "teams",
+            "keep",
+            "playbooks"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 25.15,
+            "end": 27.809999
+          },
+          {
+            "start": 28.299999,
+            "end": 30.43
+          },
+          {
+            "start": 31.57,
+            "end": 36.860001
+          }
+        ]
+      }
+    ]
+  },
+  "diagnose-pipeline-failures": {
+    "splitAt": [
+      14.44,
+      28.87
+    ],
+    "segments": [
+      {
+        "points": [
+          "Missing dependency: command not found"
+        ],
+        "keyWords": [
+          [
+            "diagnose",
+            "Exam",
+            "objective",
+            "two"
+          ],
+          [
+            "pipeline",
+            "failures",
+            "GitLab",
+            "CE"
+          ],
+          [
+            "Missing",
+            "dependency",
+            "job",
+            "log"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 3.92
+          },
+          {
+            "start": 4.85,
+            "end": 8.74
+          },
+          {
+            "start": 9.84,
+            "end": 14.63
+          }
+        ]
+      },
+      {
+        "points": [
+          "Version conflict: pip or Ansible error"
+        ],
+        "keyWords": [
+          [
+            "found",
+            "because",
+            "requirements",
+            "dot"
+          ],
+          [
+            "Incompatible",
+            "versions",
+            "Ansible",
+            "core"
+          ],
+          [
+            "log",
+            "shows",
+            "ERROR"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 15.56,
+            "end": 19.639999
+          },
+          {
+            "start": 20.27,
+            "end": 25.65
+          },
+          {
+            "start": 26.110001,
+            "end": 29.35
+          }
+        ]
+      },
+      {
+        "points": [
+          "Failed tests: post — validation assertion"
+        ],
+        "keyWords": [
+          [
+            "Failed",
+            "tests",
+            "post-validation",
+            "script"
+          ],
+          [
+            "Reading",
+            "failed",
+            "job",
+            "log"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 29.379999,
+            "end": 38.59
+          },
+          {
+            "start": 39.060001,
+            "end": 42.66
+          }
+        ]
+      }
+    ]
+  },
+  "story-beat-recap-cicd": {
+    "splitAt": [
+      13.92,
+      27.83
+    ],
+    "segments": [
+      {
+        "points": [
+          "CI/CD meaning and four exam stages"
+        ],
+        "keyWords": [
+          [
+            "Pause",
+            "seen",
+            "manual"
+          ],
+          [
+            "Ansible",
+            "runs",
+            "fail",
+            "teams"
+          ],
+          [
+            "post-validation"
+          ],
+          [
+            "lab",
+            "dot",
+            "gitlab-ci"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 2.52
+          },
+          {
+            "start": 3.08,
+            "end": 8.33
+          },
+          {
+            "start": 9.51,
+            "end": 11.89
+          },
+          {
+            "start": 12.59,
+            "end": 13.95
+          }
+        ]
+      },
+      {
+        "points": [
+          "Gitlab — ci.yml structure and main gates"
+        ],
+        "keyWords": [
+          [
+            "dot",
+            "yml",
+            "structured",
+            "pipelines"
+          ],
+          [
+            "Next",
+            "failure",
+            "logs",
+            "missing"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.95,
+            "end": 19.379999
+          },
+          {
+            "start": 19.98,
+            "end": 26.16
+          }
+        ]
+      },
+      {
+        "points": [
+          "Lab: extend netops_iac_lab pipeline"
+        ],
+        "keyWords": [
+          [
+            "lab",
+            "extend",
+            "netops_iac_lab",
+            "requirements"
+          ],
+          [
+            "Lab",
+            "GitLab",
+            "pipeline",
+            "file"
+          ],
+          [
+            "continuing"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 28.23,
+            "end": 32.040001
+          },
+          {
+            "start": 32.599998,
+            "end": 38.470001
+          },
+          {
+            "start": 39.580002,
+            "end": 41.599998
+          }
+        ]
+      }
+    ]
+  },
+  "lab-setup-cicd-for-networks": {
+    "splitAt": [
+      16.58,
+      33.17
+    ],
+    "segments": [
+      {
+        "points": [
+          "Add requirements.txt with pinned versions"
+        ],
+        "keyWords": [
+          [
+            "lab",
+            "Open",
+            "your",
+            "netops_iac_lab"
+          ],
+          [
+            "CICD",
+            "requirements"
+          ],
+          [
+            "dot",
+            "txt",
+            "listing",
+            "ansible-core"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.16,
+            "end": 4.02
+          },
+          {
+            "start": 4.58,
+            "end": 8.48
+          },
+          {
+            "start": 10.18,
+            "end": 17.01
+          }
+        ]
+      },
+      {
+        "points": [
+          "Add deploy_vlans.yml VLAN playbook file"
+        ],
+        "keyWords": [
+          [
+            "playbooks",
+            "slash",
+            "deploy_vlans",
+            "dot"
+          ],
+          [
+            "push",
+            "yml",
+            "playbook",
+            "reads"
+          ],
+          [
+            "scripts",
+            "slash"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 17.809999,
+            "end": 20.77
+          },
+          {
+            "start": 21.25,
+            "end": 27.23
+          },
+          {
+            "start": 28.34,
+            "end": 33.17
+          }
+        ]
+      },
+      {
+        "points": [
+          "Add validate_intent.py post — validation script"
+        ],
+        "keyWords": [
+          [
+            "Python",
+            "script"
+          ],
+          [
+            "post-validation",
+            "job",
+            "runs",
+            "Create"
+          ],
+          [
+            "lab",
+            "dot",
+            "gitlab-ci",
+            "yml"
+          ],
+          [
+            "root",
+            "last",
+            "understand"
+          ],
+          [
+            "Push",
+            "commit-and-push",
+            "commit",
+            "Lab"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 33.17,
+            "end": 35.720001
+          },
+          {
+            "start": 36.950001,
+            "end": 38.080002
+          },
+          {
+            "start": 39.529999,
+            "end": 41.77
+          },
+          {
+            "start": 42.43,
+            "end": 42.98
+          },
+          {
+            "start": 44.560001,
+            "end": 49.599998
+          }
+        ]
+      }
+    ]
+  },
+  "certification-alignment-cicd": {
+    "splitAt": [
+      13.47,
+      26.93
+    ],
+    "segments": [
+      {
+        "points": [
+          "2.2: diagnose pipeline failures from logs"
+        ],
+        "keyWords": [
+          [
+            "exam",
+            "objectives",
+            "Module",
+            "two"
+          ],
+          [
+            "GitLab",
+            "CE",
+            "pipeline",
+            "failures"
+          ],
+          [
+            "fixed",
+            "missing",
+            "ansible-core",
+            "version"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.08,
+            "end": 5.78
+          },
+          {
+            "start": 7.09,
+            "end": 9.64
+          },
+          {
+            "start": 10.29,
+            "end": 13.91
+          }
+        ]
+      },
+      {
+        "points": [
+          "2.3: build, prevalidation, deploy, post — validation"
+        ],
+        "keyWords": [
+          [
+            "Two",
+            "point",
+            "three",
+            "construct"
+          ],
+          [
+            "post-validation"
+          ],
+          [
+            "stages",
+            "dot"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.91,
+            "end": 18.719999
+          },
+          {
+            "start": 19.870001,
+            "end": 23.1
+          },
+          {
+            "start": 24.559999,
+            "end": 27
+          }
+        ]
+      },
+      {
+        "points": [
+          "Match snippet to missing stage or error"
+        ],
+        "keyWords": [
+          [
+            "Exam",
+            "items",
+            "show",
+            "pipeline"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 27,
+            "end": 37.830002
+          }
+        ]
+      }
+    ]
+  },
+  "cicd-ready-for-containers": {
+    "splitAt": [
+      11.34,
+      22.67
+    ],
+    "segments": [
+      {
+        "points": [
+          "Four — stage pipeline with failure drills"
+        ],
+        "keyWords": [
+          [
+            "started",
+            "module",
+            "running"
+          ],
+          [
+            "finish",
+            "four-stage"
+          ],
+          [
+            "GitLab",
+            "pipeline",
+            "Git",
+            "pinned"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.12,
+            "end": 2.2
+          },
+          {
+            "start": 2.86,
+            "end": 5.52
+          },
+          {
+            "start": 6.11,
+            "end": 11.38
+          }
+        ]
+      },
+      {
+        "points": [
+          "Versioned files to automated delivery"
+        ],
+        "keyWords": [
+          [
+            "infrastructure",
+            "code",
+            "moving",
+            "versioned"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 11.46,
+            "end": 22.75
+          }
+        ]
+      },
+      {
+        "points": [
+          "Module three: Docker Compose and CML"
+        ],
+        "keyWords": [
+          [
+            "Docker",
+            "Compose",
+            "Cisco",
+            "Modeling"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 22.75,
+            "end": 33.779999
+          }
+        ]
+      }
+    ]
+  },
+  "deploy-without-lab-breaks": {
+    "splitAt": [
+      12.31,
+      24.63
+    ],
+    "segments": [
+      {
+        "points": [
+          "Green pipeline does not prove VLAN works"
+        ],
+        "keyWords": [
+          [
+            "green",
+            "pipeline",
+            "main",
+            "prove"
+          ],
+          [
+            "VLAN",
+            "intent",
+            "works",
+            "your"
+          ],
+          [
+            "Without",
+            "lab",
+            "production",
+            "run"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 2.88
+          },
+          {
+            "start": 3.59,
+            "end": 5.67
+          },
+          {
+            "start": 6.36,
+            "end": 10.77
+          }
+        ]
+      },
+      {
+        "points": [
+          "First production run becomes the test"
+        ],
+        "keyWords": [
+          [
+            "Containers",
+            "give",
+            "cheap",
+            "repeatable"
+          ],
+          [
+            "CML",
+            "gives",
+            "Cisco-like"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 12.53,
+            "end": 19.6
+          },
+          {
+            "start": 20.549999,
+            "end": 24.389999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Compose and CML de — risk before change window"
+        ],
+        "keyWords": [
+          [
+            "Module",
+            "two"
+          ],
+          [
+            "post-validation",
+            "checked",
+            "file",
+            "module"
+          ],
+          [
+            "belong",
+            "mature",
+            "workflow",
+            "change"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 24.690001,
+            "end": 27.66
+          },
+          {
+            "start": 28.15,
+            "end": 32.52
+          },
+          {
+            "start": 32.990002,
+            "end": 36.860001
+          }
+        ]
+      }
+    ]
+  },
+  "containers-plain-language": {
+    "splitAt": [
+      11.1,
+      22.19
+    ],
+    "segments": [
+      {
+        "points": [
+          "Isolated process with own filesystem"
+        ],
+        "keyWords": [
+          [
+            "container",
+            "lightweight",
+            "isolated",
+            "process"
+          ],
+          [
+            "filesystem",
+            "slice",
+            "full"
+          ],
+          [
+            "image",
+            "read-only"
+          ],
+          [
+            "template",
+            "running",
+            "container"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 3.48
+          },
+          {
+            "start": 4.23,
+            "end": 6.29
+          },
+          {
+            "start": 6.95,
+            "end": 8.9
+          },
+          {
+            "start": 9.64,
+            "end": 11.51
+          }
+        ]
+      },
+      {
+        "points": [
+          "Image is template; container is instance"
+        ],
+        "keyWords": [
+          [
+            "containers",
+            "Docker",
+            "pulls",
+            "images"
+          ],
+          [
+            "containers",
+            "automation",
+            "solve",
+            "works"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 11.51,
+            "end": 19.200001
+          },
+          {
+            "start": 19.75,
+            "end": 22.23
+          }
+        ]
+      },
+      {
+        "points": [
+          "Compose starts linked containers together"
+        ],
+        "keyWords": [
+          [
+            "Ansible",
+            "version"
+          ],
+          [
+            "Python",
+            "packages",
+            "match",
+            "CI"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 22.57,
+            "end": 25.610001
+          },
+          {
+            "start": 26.309999,
+            "end": 33.040001
+          }
+        ]
+      }
+    ]
+  },
+  "compose-four-concepts-exam": {
+    "splitAt": [
+      9.32,
+      18.65,
+      27.97
+    ],
+    "segments": [
+      {
+        "points": [
+          "Services: containers you define"
+        ],
+        "keyWords": [
+          [
+            "Exam",
+            "Compose",
+            "objective",
+            "two"
+          ],
+          [
+            "Services",
+            "containers"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.09,
+            "end": 5.47
+          },
+          {
+            "start": 5.94,
+            "end": 8.14
+          }
+        ]
+      },
+      {
+        "points": [
+          "Networks: virtual L2 between services"
+        ],
+        "keyWords": [
+          [
+            "Networks",
+            "connect"
+          ],
+          [
+            "L2",
+            "segments",
+            "lab",
+            "underscore"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 10.01,
+            "end": 13.44
+          },
+          {
+            "start": 14.15,
+            "end": 18.77
+          }
+        ]
+      },
+      {
+        "points": [
+          "Volumes: mount host dirs; links via depends_on"
+        ],
+        "keyWords": [
+          [
+            "Volumes",
+            "persist",
+            "mount"
+          ],
+          [
+            "host",
+            "directories",
+            "containers",
+            "mount"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 18.77,
+            "end": 23.57
+          },
+          {
+            "start": 24.209999,
+            "end": 28.030001
+          }
+        ]
+      },
+      {
+        "points": [],
+        "keyWords": [
+          [
+            "Compose",
+            "Links",
+            "connected",
+            "containers"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 28.08,
+            "end": 37.209999
+          }
+        ]
+      }
+    ]
+  },
+  "reading-docker-compose": {
+    "splitAt": [
+      12.8,
+      25.6
+    ],
+    "segments": [
+      {
+        "points": [
+          "Top — level services key per container"
+        ],
+        "keyWords": [
+          [
+            "compose",
+            "file",
+            "YAML",
+            "top-level"
+          ],
+          [
+            "service",
+            "names",
+            "image",
+            "command"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.11,
+            "end": 5.8
+          },
+          {
+            "start": 6.27,
+            "end": 12.73
+          }
+        ]
+      },
+      {
+        "points": [
+          "Trace volume mounts and networks"
+        ],
+        "keyWords": [
+          [
+            "networks",
+            "section",
+            "declares",
+            "named"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 12.87,
+            "end": 25.459999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Repo mounted at /workspace in lab"
+        ],
+        "keyWords": [
+          [
+            "snippet",
+            "trace",
+            "service",
+            "mounts"
+          ],
+          [
+            "ansible",
+            "service",
+            "slash",
+            "workspace"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 25.77,
+            "end": 33.040001
+          },
+          {
+            "start": 33.549999,
+            "end": 36.509998
+          }
+        ]
+      }
+    ]
+  },
+  "cml-plain-language": {
+    "splitAt": [
+      13.18,
+      26.36
+    ],
+    "segments": [
+      {
+        "points": [
+          "Virtual Cisco routers on lab server"
+        ],
+        "keyWords": [
+          [
+            "CML",
+            "Cisco",
+            "Modeling",
+            "Labs"
+          ],
+          [
+            "web",
+            "UI"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.07,
+            "end": 9.28
+          },
+          {
+            "start": 10.34,
+            "end": 13.2
+          }
+        ]
+      },
+      {
+        "points": [
+          "Topology in web UI with management IPs"
+        ],
+        "keyWords": [
+          [
+            "IOSv",
+            "CSR",
+            "nodes",
+            "connect"
+          ],
+          [
+            "node",
+            "gets",
+            "management",
+            "IP"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.33,
+            "end": 17.190001
+          },
+          {
+            "start": 17.700001,
+            "end": 26.634999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Exam 2.4: construct simulation for automation"
+        ],
+        "keyWords": [
+          [
+            "simulation",
+            "test",
+            "network",
+            "automation"
+          ],
+          [
+            "automation"
+          ],
+          [
+            "CML",
+            "licensed",
+            "software",
+            "if"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 26.634999,
+            "end": 29.4
+          },
+          {
+            "start": 30.42,
+            "end": 32.759998
+          },
+          {
+            "start": 33.580002,
+            "end": 39.389999
+          }
+        ]
+      }
+    ]
+  },
+  "story-beat-recap-containers": {
+    "splitAt": [
+      12.86,
+      25.72
+    ],
+    "segments": [
+      {
+        "points": [
+          "Containers, Compose, four exam concepts"
+        ],
+        "keyWords": [
+          [
+            "simulation",
+            "Pause",
+            "seen",
+            "follows"
+          ],
+          [
+            "CICD",
+            "containers",
+            "Compose"
+          ],
+          [
+            "Compose",
+            "concepts",
+            "services",
+            "networks"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.09,
+            "end": 3.29
+          },
+          {
+            "start": 4.5,
+            "end": 7.67
+          },
+          {
+            "start": 8.17,
+            "end": 13.44
+          }
+        ]
+      },
+      {
+        "points": [
+          "CML for Cisco lab simulation"
+        ],
+        "keyWords": [
+          [
+            "links",
+            "read",
+            "compose",
+            "file"
+          ],
+          [
+            "lab",
+            "CML",
+            "provides",
+            "Cisco"
+          ],
+          [
+            "Next",
+            "CML",
+            "add",
+            "docker"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.47,
+            "end": 16.799999
+          },
+          {
+            "start": 17.389999,
+            "end": 21.26
+          },
+          {
+            "start": 21.91,
+            "end": 24.73
+          }
+        ]
+      },
+      {
+        "points": [
+          "Lab: docker — compose.yml and CML inventory"
+        ],
+        "keyWords": [
+          [
+            "Ansible",
+            "plus"
+          ],
+          [
+            "target",
+            "stack",
+            "then",
+            "wire"
+          ],
+          [
+            "CML",
+            "topology",
+            "Install",
+            "Docker"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 26.49,
+            "end": 30.950001
+          },
+          {
+            "start": 31.49,
+            "end": 32.959999
+          },
+          {
+            "start": 33.48,
+            "end": 38.380001
+          }
+        ]
+      }
+    ]
+  },
+  "lab-setup-containers-simulation": {
+    "splitAt": [
+      12.21,
+      24.41
+    ],
+    "segments": [
+      {
+        "points": [
+          "Create docker/ for compose files"
+        ],
+        "keyWords": [
+          [
+            "lab",
+            "Inside",
+            "netops_iac_lab",
+            "create"
+          ],
+          [
+            "yml",
+            "there",
+            "keeps",
+            "container"
+          ],
+          [
+            "separate",
+            "playbooks",
+            "intent",
+            "Confirm"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.1,
+            "end": 5.64
+          },
+          {
+            "start": 6.31,
+            "end": 8.54
+          },
+          {
+            "start": 9.29,
+            "end": 12.17
+          }
+        ]
+      },
+      {
+        "points": [
+          "Confirm docker and compose versions"
+        ],
+        "keyWords": [
+          [
+            "Docker",
+            "works",
+            "minus",
+            "version"
+          ],
+          [
+            "slash",
+            "compose",
+            "dot",
+            "yml"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 12.29,
+            "end": 18.790001
+          },
+          {
+            "start": 19.450001,
+            "end": 23.299999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Add inventory/compose.yml and inventory/cml.yml"
+        ],
+        "keyWords": [
+          [
+            "inventory",
+            "slash",
+            "cml",
+            "dot"
+          ],
+          [
+            "CML",
+            "section",
+            "playbooks",
+            "different"
+          ],
+          [
+            "CML",
+            "admin",
+            "passwords",
+            "use"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 24.870001,
+            "end": 26.65
+          },
+          {
+            "start": 27.549999,
+            "end": 31.49
+          },
+          {
+            "start": 32.220001,
+            "end": 36.470001
+          }
+        ]
+      }
+    ]
+  },
+  "certification-alignment-containers": {
+    "splitAt": [
+      12.96,
+      25.93
+    ],
+    "segments": [
+      {
+        "points": [
+          "2.5: interpret Compose services and networks"
+        ],
+        "keyWords": [
+          [
+            "exam",
+            "objectives",
+            "Module",
+            "three"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 13.28
+          }
+        ]
+      },
+      {
+        "points": [
+          "2.4: construct CML simulation and validate"
+        ],
+        "keyWords": [
+          [
+            "Two",
+            "point",
+            "construct"
+          ],
+          [
+            "CML",
+            "simulation",
+            "built"
+          ],
+          [
+            "Exam",
+            "items",
+            "show",
+            "compose"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.58,
+            "end": 15.86
+          },
+          {
+            "start": 16.66,
+            "end": 18.139999
+          },
+          {
+            "start": 18.620001,
+            "end": 25.959999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Trace network use and reachability steps"
+        ],
+        "keyWords": [
+          [
+            "snippet",
+            "ask",
+            "network",
+            "service"
+          ],
+          [
+            "Module",
+            "adds",
+            "source",
+            "truth"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 26.040001,
+            "end": 32.040001
+          },
+          {
+            "start": 32.970001,
+            "end": 38.84
+          }
+        ]
+      }
+    ]
+  },
+  "simulation-ready-for-sot": {
+    "splitAt": [
+      10.7,
+      21.4
+    ],
+    "segments": [
+      {
+        "points": [
+          "Compose smoke tests plus CML workflow"
+        ],
+        "keyWords": [
+          [
+            "started",
+            "module",
+            "deploying",
+            "faith"
+          ],
+          [
+            "Ansible",
+            "test",
+            "targets"
+          ],
+          [
+            "CML",
+            "workflow"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 6.35
+          },
+          {
+            "start": 7.17,
+            "end": 8.48
+          },
+          {
+            "start": 8.98,
+            "end": 11
+          }
+        ]
+      },
+      {
+        "points": [
+          "De — risk automation before production touch"
+        ],
+        "keyWords": [
+          [
+            "simulation",
+            "Cisco",
+            "plus",
+            "CI"
+          ],
+          [
+            "Compose",
+            "infrastructure",
+            "code",
+            "de-risks"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 11.09,
+            "end": 13.99
+          },
+          {
+            "start": 14.46,
+            "end": 21.6
+          }
+        ]
+      },
+      {
+        "points": [
+          "Module four: YANG and structured intent"
+        ],
+        "keyWords": [
+          [
+            "YANG",
+            "intent",
+            "files",
+            "structured"
+          ],
+          [
+            "YAML",
+            "Keep",
+            "compose",
+            "dot"
+          ],
+          [
+            "CML",
+            "inventory",
+            "Git",
+            "alongside"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 21.6,
+            "end": 25.530001
+          },
+          {
+            "start": 26.459999,
+            "end": 27.530001
+          },
+          {
+            "start": 28.379999,
+            "end": 31.18
+          }
+        ]
+      }
+    ]
+  },
+  "running-config-not-sot": {
+    "splitAt": [
+      13.97,
+      27.95
+    ],
+    "segments": [
+      {
+        "points": [
+          "Scraped config includes mistakes and drift"
+        ],
+        "keyWords": [
+          [
+            "running",
+            "config",
+            "Scraping",
+            "show"
+          ],
+          [
+            "Source",
+            "truth",
+            "starts",
+            "intent"
+          ],
+          [
+            "VLAN",
+            "one",
+            "hundred"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.12,
+            "end": 8.59
+          },
+          {
+            "start": 9.17,
+            "end": 12.16
+          },
+          {
+            "start": 13.12,
+            "end": 14.32
+          }
+        ]
+      },
+      {
+        "points": [
+          "SoT starts with designed intent in Git"
+        ],
+        "keyWords": [
+          [
+            "DATA",
+            "underscore",
+            "VLAN",
+            "because"
+          ],
+          [
+            "config",
+            "intent",
+            "renders",
+            "pushes"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.32,
+            "end": 20.77
+          },
+          {
+            "start": 21.66,
+            "end": 27.620001
+          }
+        ]
+      },
+      {
+        "points": [
+          "Hotfix without intent update brings drift"
+        ],
+        "keyWords": [
+          [
+            "If",
+            "someone",
+            "SSHs",
+            "hotfix"
+          ],
+          [
+            "SoT",
+            "solution",
+            "Git",
+            "plus"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 28.76,
+            "end": 34.98
+          },
+          {
+            "start": 35.59,
+            "end": 41.84
+          }
+        ]
+      }
+    ]
+  },
+  "source-of-truth-plain-language": {
+    "splitAt": [
+      11.66,
+      23.31
+    ],
+    "segments": [
+      {
+        "points": [
+          "Single trusted description of network"
+        ],
+        "keyWords": [
+          [
+            "Source",
+            "truth",
+            "single",
+            "place"
+          ],
+          [
+            "NetBox",
+            "Nautobot"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.23,
+            "end": 8.57
+          },
+          {
+            "start": 10.74,
+            "end": 11.85
+          }
+        ]
+      },
+      {
+        "points": [
+          "Git, NetBox, or database as SoT"
+        ],
+        "keyWords": [
+          [
+            "Git",
+            "works",
+            "well",
+            "course"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 11.85,
+            "end": 23.620001
+          }
+        ]
+      },
+      {
+        "points": [
+          "Update intent first, then pipeline deploys"
+        ],
+        "keyWords": [
+          [
+            "key",
+            "behavior",
+            "one",
+            "direction"
+          ],
+          [
+            "Never",
+            "treat",
+            "switch",
+            "authoritative"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 23.83,
+            "end": 28.219999
+          },
+          {
+            "start": 28.99,
+            "end": 34.740002
+          }
+        ]
+      }
+    ]
+  },
+  "intent-vs-implementation": {
+    "splitAt": [
+      12.69,
+      25.37
+    ],
+    "segments": [
+      {
+        "points": [
+          "Intent: VLAN name on building A switches"
+        ],
+        "keyWords": [
+          [
+            "intent",
+            "implementation",
+            "Data",
+            "abstraction"
+          ],
+          [
+            "VLAN",
+            "two",
+            "hundred",
+            "name"
+          ],
+          [
+            "VLAN",
+            "access",
+            "switches",
+            "building"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.07,
+            "end": 4.94
+          },
+          {
+            "start": 5.85,
+            "end": 8.68
+          },
+          {
+            "start": 9.53,
+            "end": 12.72
+          }
+        ]
+      },
+      {
+        "points": [
+          "Implementation: IOS syntax or gNMI paths"
+        ],
+        "keyWords": [
+          [
+            "Implementation",
+            "exact",
+            "IOS",
+            "NX-OS"
+          ],
+          [
+            "OpenConfig"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 12.72,
+            "end": 16.9
+          },
+          {
+            "start": 17.700001,
+            "end": 25.42
+          }
+        ]
+      },
+      {
+        "points": [
+          "Same intent JSON, different vendor templates"
+        ],
+        "keyWords": [
+          [
+            "paths",
+            "pushed",
+            "via",
+            "gNMI"
+          ],
+          [
+            "JSON",
+            "render",
+            "Cisco",
+            "IOS"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 25.48,
+            "end": 27.99
+          },
+          {
+            "start": 28.5,
+            "end": 37.84
+          }
+        ]
+      }
+    ]
+  },
+  "yang-plain-language": {
+    "splitAt": [
+      10.87,
+      21.73
+    ],
+    "segments": [
+      {
+        "points": [
+          "RFC 8028 data modeling language"
+        ],
+        "keyWords": [
+          [
+            "YANG",
+            "language",
+            "data",
+            "modeling"
+          ],
+          [
+            "YANG",
+            "RFC",
+            "eight",
+            "zero"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 4.86
+          },
+          {
+            "start": 5.82,
+            "end": 10.3
+          }
+        ]
+      },
+      {
+        "points": [
+          "Containers, lists with keys, typed leaves"
+        ],
+        "keyWords": [
+          [
+            "containers",
+            "like",
+            "vlans",
+            "lists"
+          ],
+          [
+            "Tools",
+            "validate",
+            "instance"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 11.09,
+            "end": 16.68
+          },
+          {
+            "start": 17.379999,
+            "end": 21.73
+          }
+        ]
+      },
+      {
+        "points": [
+          "Validate instance data before push"
+        ],
+        "keyWords": [
+          [
+            "memorize"
+          ],
+          [
+            "Cisco",
+            "native",
+            "module",
+            "AUTOCOR"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 21.73,
+            "end": 26.865001
+          },
+          {
+            "start": 26.865001,
+            "end": 32.459999
+          }
+        ]
+      }
+    ]
+  },
+  "yaml-json-from-yang-exam": {
+    "splitAt": [
+      12.64,
+      25.29
+    ],
+    "segments": [
+      {
+        "points": [
+          "Read list names, keys, leaf identifiers"
+        ],
+        "keyWords": [
+          [
+            "YAML",
+            "JSON",
+            "YANG",
+            "Exam"
+          ],
+          [
+            "Read",
+            "module",
+            "find",
+            "list"
+          ],
+          [
+            "JSON",
+            "identifiers",
+            "uses"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 6.01
+          },
+          {
+            "start": 6.67,
+            "end": 11.02
+          },
+          {
+            "start": 11.52,
+            "end": 13.29
+          }
+        ]
+      },
+      {
+        "points": [
+          "JSON arrays; YAML uses indentation"
+        ],
+        "keyWords": [
+          [
+            "nested",
+            "objects",
+            "arrays",
+            "vlan"
+          ],
+          [
+            "YAML",
+            "name",
+            "keys",
+            "uses"
+          ],
+          [
+            "indentation"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.33,
+            "end": 20.809999
+          },
+          {
+            "start": 21.35,
+            "end": 23.870001
+          },
+          {
+            "start": 24.34,
+            "end": 25.41
+          }
+        ]
+      },
+      {
+        "points": [
+          "Wrong key or type fails validation"
+        ],
+        "keyWords": [
+          [
+            "JSON",
+            "YAML",
+            "build",
+            "Wrong"
+          ],
+          [
+            "yang",
+            "Python",
+            "script",
+            "standing"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 25.440001,
+            "end": 33.779999
+          },
+          {
+            "start": 34.41,
+            "end": 36.549999
+          }
+        ]
+      }
+    ]
+  },
+  "story-beat-recap-sot": {
+    "splitAt": [
+      11.21,
+      22.41
+    ],
+    "segments": [
+      {
+        "points": [
+          "SoT, intent vs implementation, YANG"
+        ],
+        "keyWords": [
+          [
+            "Pause",
+            "seen",
+            "running"
+          ],
+          [
+            "SoT",
+            "golden",
+            "intent",
+            "means"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.11,
+            "end": 2.19
+          },
+          {
+            "start": 2.72,
+            "end": 11.37
+          }
+        ]
+      },
+      {
+        "points": [
+          "Model families and JSON/YAML mapping"
+        ],
+        "keyWords": [
+          [
+            "model",
+            "families",
+            "exam",
+            "two"
+          ],
+          [
+            "Next",
+            "JSON",
+            "YAML",
+            "add"
+          ],
+          [
+            "lab",
+            "netops_iac_lab"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 11.77,
+            "end": 14.98
+          },
+          {
+            "start": 15.75,
+            "end": 19.780001
+          },
+          {
+            "start": 20.6,
+            "end": 23
+          }
+        ]
+      },
+      {
+        "points": [
+          "Lab: models/intent and validation in CI"
+        ],
+        "keyWords": [
+          [
+            "JSON",
+            "YAML",
+            "instances",
+            "validate"
+          ],
+          [
+            "CI",
+            "render",
+            "IOS",
+            "VLAN"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 24.67,
+            "end": 27.129999
+          },
+          {
+            "start": 28.219999,
+            "end": 33.490002
+          }
+        ]
+      }
+    ]
+  },
+  "lab-setup-sot-yang": {
+    "splitAt": [
+      13.87,
+      27.75
+    ],
+    "segments": [
+      {
+        "points": [
+          "Models/yang for VLAN YANG file"
+        ],
+        "keyWords": [
+          [
+            "lab",
+            "Inside",
+            "netops_iac_lab",
+            "create"
+          ],
+          [
+            "SoT",
+            "JSON",
+            "YAML",
+            "instances"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.11,
+            "end": 5.75
+          },
+          {
+            "start": 6.35,
+            "end": 14.06
+          }
+        ]
+      },
+      {
+        "points": [
+          "Models/intent for JSON or YAML instances"
+        ],
+        "keyWords": [
+          [
+            "Create",
+            "templates",
+            "slash",
+            "vlans"
+          ],
+          [
+            "IOS",
+            "syntax",
+            "Keep",
+            "legacy"
+          ],
+          [
+            "lab",
+            "migrates",
+            "structured"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.06,
+            "end": 19.889999
+          },
+          {
+            "start": 21.030001,
+            "end": 26.41
+          },
+          {
+            "start": 26.860001,
+            "end": 28.219999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Templates/vlans.j2 renders IOS syntax"
+        ],
+        "keyWords": [
+          [
+            "Add",
+            "scripts",
+            "slash"
+          ],
+          [
+            "Commit",
+            "model"
+          ],
+          [
+            "intent",
+            "together",
+            "history",
+            "shows"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 29.639999,
+            "end": 30.860001
+          },
+          {
+            "start": 31.540001,
+            "end": 33.990002
+          },
+          {
+            "start": 34.650002,
+            "end": 37.220001
+          }
+        ]
+      }
+    ]
+  },
+  "certification-alignment-sot": {
+    "splitAt": [
+      11.52,
+      23.03
+    ],
+    "segments": [
+      {
+        "points": [
+          "2.6: integrate SoT into full solution"
+        ],
+        "keyWords": [
+          [
+            "exam",
+            "objectives",
+            "Module",
+            "maps"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.17,
+            "end": 10.46
+          }
+        ]
+      },
+      {
+        "points": [
+          "2.7: construct JSON/YAML from YANG"
+        ],
+        "keyWords": [
+          [
+            "CI",
+            "Ansible",
+            "renders",
+            "SoT"
+          ],
+          [
+            "Two",
+            "point",
+            "seven",
+            "construct"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 11.55,
+            "end": 15.99
+          },
+          {
+            "start": 16.66,
+            "end": 23.08
+          }
+        ]
+      },
+      {
+        "points": [
+          "Trace leaf names and types carefully"
+        ],
+        "keyWords": [
+          [
+            "Exam",
+            "items",
+            "show"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 23.08,
+            "end": 34.290001
+          }
+        ]
+      }
+    ]
+  },
+  "sot-ready-for-capstone": {
+    "splitAt": [
+      11.47,
+      22.95
+    ],
+    "segments": [
+      {
+        "points": [
+          "Git, CI/CD, simulation, structured SoT"
+        ],
+        "keyWords": [
+          [
+            "started",
+            "course",
+            "two",
+            "saving"
+          ],
+          [
+            "Module",
+            "one",
+            "added",
+            "Git"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.09,
+            "end": 1.74
+          },
+          {
+            "start": 2.2,
+            "end": 11.87
+          }
+        ]
+      },
+      {
+        "points": [
+          "JSON, YAML, validation, rendered configs"
+        ],
+        "keyWords": [
+          [
+            "YANG-shaped",
+            "intent",
+            "JSON"
+          ],
+          [
+            "capstone",
+            "YAML",
+            "validation",
+            "rendered"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 11.87,
+            "end": 15.34
+          },
+          {
+            "start": 16.280001,
+            "end": 21.610001
+          }
+        ]
+      },
+      {
+        "points": [
+          "Capstone ties all four modules together"
+        ],
+        "keyWords": [
+          [
+            "Git",
+            "CICD",
+            "simulate",
+            "deploy"
+          ],
+          [
+            "Keep",
+            "intent",
+            "models",
+            "slash"
+          ],
+          [
+            "intent",
+            "never",
+            "edit",
+            "running"
+          ],
+          [
+            "SoT",
+            "without",
+            "updating"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 23.32,
+            "end": 25.48
+          },
+          {
+            "start": 27.139999,
+            "end": 30.200001
+          },
+          {
+            "start": 30.67,
+            "end": 31.76
+          },
+          {
+            "start": 32.360001,
+            "end": 34.34
+          }
+        ]
+      }
+    ]
+  },
+  "capstone-integrates-four-modules": {
+    "splitAt": [
+      13.91,
+      27.81
+    ],
+    "segments": [
+      {
+        "points": [
+          "Add VLAN 300 LAB_CAPSTONE to intent"
+        ],
+        "keyWords": [
+          [
+            "Module",
+            "ended",
+            "models",
+            "slash"
+          ],
+          [
+            "vlans",
+            "dot",
+            "json"
+          ],
+          [
+            "capstone",
+            "adds",
+            "one",
+            "VLAN"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.17,
+            "end": 4.03
+          },
+          {
+            "start": 4.65,
+            "end": 6.82
+          },
+          {
+            "start": 8,
+            "end": 14.07
+          }
+        ]
+      },
+      {
+        "points": [
+          "Full chain: Git, pipeline, simulate"
+        ],
+        "keyWords": [
+          [
+            "CAPSTONE",
+            "runs",
+            "full",
+            "chain"
+          ],
+          [
+            "module",
+            "modules",
+            "one"
+          ],
+          [
+            "Git",
+            "tracks",
+            "intent",
+            "change"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.07,
+            "end": 17.08
+          },
+          {
+            "start": 17.74,
+            "end": 19.58
+          },
+          {
+            "start": 20.51,
+            "end": 27.969999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Same repo; fixed step order"
+        ],
+        "keyWords": [
+          [
+            "Compose",
+            "smoke-tests",
+            "connectivity",
+            "CML"
+          ],
+          [
+            "steps",
+            "fixed",
+            "order",
+            "repo"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 29.200001,
+            "end": 38.41
+          },
+          {
+            "start": 38.41,
+            "end": 41.349998
+          }
+        ]
+      }
+    ]
+  },
+  "capstone-repo-layout": {
+    "splitAt": [
+      17.97,
+      35.93
+    ],
+    "segments": [
+      {
+        "points": [
+          "Models/intent: golden VLAN data"
+        ],
+        "keyWords": [
+          [
+            "lab",
+            "know",
+            "files",
+            "live"
+          ],
+          [
+            "models",
+            "slash",
+            "intent",
+            "holds"
+          ],
+          [
+            "data",
+            "models",
+            "slash",
+            "yang"
+          ],
+          [
+            "file",
+            "dot",
+            "gitlab-ci",
+            "yml"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 2.47
+          },
+          {
+            "start": 3.3,
+            "end": 7.64
+          },
+          {
+            "start": 8.21,
+            "end": 12.52
+          },
+          {
+            "start": 12.99,
+            "end": 18.120001
+          }
+        ]
+      },
+      {
+        "points": [
+          "Models/yang and .gitlab — ci.yml pipeline"
+        ],
+        "keyWords": [
+          [
+            "SoT",
+            "Compose",
+            "jobs",
+            "modules"
+          ],
+          [
+            "three",
+            "docker",
+            "slash"
+          ],
+          [
+            "Compose",
+            "lab",
+            "inventory",
+            "slash"
+          ],
+          [
+            "Ansible",
+            "your",
+            "CML",
+            "routers"
+          ],
+          [
+            "render",
+            "sot"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 18.120001,
+            "end": 23.049999
+          },
+          {
+            "start": 23.57,
+            "end": 25.469999
+          },
+          {
+            "start": 26.16,
+            "end": 29.450001
+          },
+          {
+            "start": 30.200001,
+            "end": 34.27
+          },
+          {
+            "start": 35.310001,
+            "end": 35.59
+          }
+        ]
+      },
+      {
+        "points": [
+          "Docker folder, cml inventory, templates"
+        ],
+        "keyWords": [
+          [
+            "sot",
+            "dot",
+            "yml",
+            "templates"
+          ],
+          [
+            "vlans",
+            "dot",
+            "two",
+            "turn"
+          ],
+          [
+            "IOS",
+            "syntax",
+            "edit",
+            "intent"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 36.419998,
+            "end": 38.799999
+          },
+          {
+            "start": 39.509998,
+            "end": 41.360001
+          },
+          {
+            "start": 43.5,
+            "end": 47.950001
+          }
+        ]
+      }
+    ]
+  },
+  "six-steps-capstone-runbook": {
+    "splitAt": [
+      15.38,
+      30.75
+    ],
+    "segments": [
+      {
+        "points": [
+          "Edit intent; branch, commit, push"
+        ],
+        "keyWords": [
+          [
+            "order",
+            "Run",
+            "capstone",
+            "time"
+          ],
+          [
+            "VLAN",
+            "three",
+            "hundred",
+            "Two"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.1,
+            "end": 6.36
+          },
+          {
+            "start": 7.32,
+            "end": 14.59
+          }
+        ]
+      },
+      {
+        "points": [
+          "Validate, render, CML check mode"
+        ],
+        "keyWords": [
+          [
+            "Three",
+            "run",
+            "local",
+            "validate"
+          ],
+          [
+            "render",
+            "watch",
+            "prevalidation",
+            "jobs"
+          ],
+          [
+            "ansible-playbook",
+            "check",
+            "mode",
+            "against"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 15.43,
+            "end": 17.84
+          },
+          {
+            "start": 18.639999,
+            "end": 22.559999
+          },
+          {
+            "start": 24.389999,
+            "end": 31.25
+          }
+        ]
+      },
+      {
+        "points": [
+          "Merge main; verify render and logs"
+        ],
+        "keyWords": [
+          [
+            "Six",
+            "open",
+            "rendered",
+            "slash"
+          ],
+          [
+            "VLAN",
+            "three",
+            "hundred",
+            "appears"
+          ],
+          [
+            "if",
+            "any",
+            "stage",
+            "fails"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 31.610001,
+            "end": 39.18
+          },
+          {
+            "start": 39.939999,
+            "end": 43.279999
+          },
+          {
+            "start": 43.880001,
+            "end": 45.990002
+          }
+        ]
+      }
+    ]
+  },
+  "four-files-capstone-chain": {
+    "splitAt": [
+      15.17,
+      30.35
+    ],
+    "segments": [
+      {
+        "points": [
+          "Vlans.json intent; gitlab — ci.yml gates"
+        ],
+        "keyWords": [
+          [
+            "artifacts",
+            "capstone",
+            "carry",
+            "story"
+          ],
+          [
+            "models",
+            "slash",
+            "intent",
+            "vlans"
+          ],
+          [
+            "seven",
+            "shape",
+            "dot"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.05,
+            "end": 2.33
+          },
+          {
+            "start": 2.99,
+            "end": 12.23
+          },
+          {
+            "start": 12.92,
+            "end": 15
+          }
+        ]
+      },
+      {
+        "points": [
+          "Inventory/cml.yml holds simulation targets"
+        ],
+        "keyWords": [
+          [
+            "CICD",
+            "gates",
+            "run"
+          ],
+          [
+            "exam",
+            "two",
+            "point",
+            "three"
+          ],
+          [
+            "dot",
+            "yml",
+            "simulation",
+            "targets"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 15.44,
+            "end": 19.280001
+          },
+          {
+            "start": 19.85,
+            "end": 24.84
+          },
+          {
+            "start": 25.33,
+            "end": 27.49
+          }
+        ]
+      },
+      {
+        "points": [
+          "Rendered/vlans.cfg generated config proof"
+        ],
+        "keyWords": [
+          [
+            "exam",
+            "two",
+            "point",
+            "rendered"
+          ],
+          [
+            "cfg",
+            "generated",
+            "output",
+            "templates"
+          ],
+          [
+            "SoT",
+            "became",
+            "config",
+            "text"
+          ],
+          [
+            "next",
+            "already",
+            "know"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 30.35,
+            "end": 32.880001
+          },
+          {
+            "start": 33.959999,
+            "end": 34.619999
+          },
+          {
+            "start": 35.57,
+            "end": 40.16
+          },
+          {
+            "start": 41.029999,
+            "end": 42.540001
+          }
+        ]
+      }
+    ]
+  },
+  "verify-pipeline-before-close": {
+    "splitAt": [
+      12.5,
+      24.99
+    ],
+    "segments": [
+      {
+        "points": [
+          "Post — validation job must exit zero"
+        ],
+        "keyWords": [
+          [
+            "render",
+            "stop",
+            "git",
+            "merge"
+          ],
+          [
+            "vlans",
+            "dot",
+            "cfg"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 8.81
+          },
+          {
+            "start": 10.13,
+            "end": 11.93
+          }
+        ]
+      },
+      {
+        "points": [
+          "Rendered/vlans.cfg shows VLAN 300"
+        ],
+        "keyWords": [
+          [
+            "LAB",
+            "underscore",
+            "CAPSTONE",
+            "appear"
+          ],
+          [
+            "If",
+            "use",
+            "CML",
+            "SSH"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 12.93,
+            "end": 17.76
+          },
+          {
+            "start": 18.469999,
+            "end": 25.16
+          }
+        ]
+      },
+      {
+        "points": [
+          "Fix intent in Git, not device only"
+        ],
+        "keyWords": [
+          [
+            "VLAN",
+            "three",
+            "hundred",
+            "approved"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 25.16,
+            "end": 37.259998
+          }
+        ]
+      }
+    ]
+  },
+  "capstone-nothing-new": {
+    "splitAt": [
+      13.94,
+      27.87
+    ],
+    "segments": [
+      {
+        "points": [
+          "Git, GitLab, Docker, Python already installed"
+        ],
+        "keyWords": [
+          [
+            "install",
+            "already",
+            "installed",
+            "everything"
+          ],
+          [
+            "GitLab",
+            "runner",
+            "dot",
+            "com"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.11,
+            "end": 4.99
+          },
+          {
+            "start": 5.84,
+            "end": 12.41
+          }
+        ]
+      },
+      {
+        "points": [
+          "Push fails: fix module one remote"
+        ],
+        "keyWords": [
+          [
+            "Python",
+            "Ansible",
+            "jinja2",
+            "modules"
+          ],
+          [
+            "If",
+            "pipeline",
+            "fails",
+            "missing"
+          ],
+          [
+            "requirements"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.7,
+            "end": 19.889999
+          },
+          {
+            "start": 20.440001,
+            "end": 25.82
+          },
+          {
+            "start": 26.940001,
+            "end": 27.98
+          }
+        ]
+      },
+      {
+        "points": [
+          "Pipeline, compose, or validate fails: fix that module"
+        ],
+        "keyWords": [
+          [
+            "If",
+            "compose",
+            "ping",
+            "fails"
+          ],
+          [
+            "If",
+            "validate_yang_intent",
+            "fails",
+            "fix"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 27.98,
+            "end": 31.280001
+          },
+          {
+            "start": 32.330002,
+            "end": 39.290001
+          }
+        ]
+      }
+    ]
+  },
+  "story-beat-recap-capstone": {
+    "splitAt": [
+      10.9,
+      21.79
+    ],
+    "segments": [
+      {
+        "points": [
+          "Module four plus one VLAN change"
+        ],
+        "keyWords": [
+          [
+            "capstone",
+            "Pause",
+            "module",
+            "plus"
+          ],
+          [
+            "Lab",
+            "VLAN",
+            "change",
+            "run"
+          ],
+          [
+            "Compose",
+            "CML",
+            "check",
+            "mode"
+          ],
+          [
+            "know",
+            "repo"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.1,
+            "end": 3.06
+          },
+          {
+            "start": 3.82,
+            "end": 6.39
+          },
+          {
+            "start": 7.04,
+            "end": 7.83
+          },
+          {
+            "start": 8.74,
+            "end": 10.77
+          }
+        ]
+      },
+      {
+        "points": [
+          "Six steps and four artifacts to inspect"
+        ],
+        "keyWords": [
+          [
+            "Next",
+            "slides",
+            "walk",
+            "commands"
+          ],
+          [
+            "line",
+            "branch"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 11.4,
+            "end": 16.790001
+          },
+          {
+            "start": 17.799999,
+            "end": 21.639999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Commands line by line in netops_iac_lab"
+        ],
+        "keyWords": [
+          [
+            "CML",
+            "check",
+            "merge",
+            "pipeline"
+          ],
+          [
+            "Lab",
+            "Git",
+            "commands",
+            "Open"
+          ],
+          [
+            "simulation",
+            "targets"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 21.799999,
+            "end": 26.02
+          },
+          {
+            "start": 26.76,
+            "end": 29.139999
+          },
+          {
+            "start": 30.01,
+            "end": 31.16
+          }
+        ]
+      }
+    ]
+  },
+  "lab-setup-capstone-lab": {
+    "splitAt": [
+      14.22,
+      28.44
+    ],
+    "segments": [
+      {
+        "points": [
+          "Cd netops_iac_lab; clean main branch"
+        ],
+        "keyWords": [
+          [
+            "capstone",
+            "lab",
+            "Welcome",
+            "cd"
+          ],
+          [
+            "working",
+            "tree",
+            "clean",
+            "main"
+          ],
+          [
+            "lab",
+            "Confirm",
+            "dot",
+            "gitlab-ci"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 6.39
+          },
+          {
+            "start": 7.44,
+            "end": 8.93
+          },
+          {
+            "start": 9.41,
+            "end": 14.47
+          }
+        ]
+      },
+      {
+        "points": [
+          "Confirm .gitlab — ci.yml has all jobs"
+        ],
+        "keyWords": [
+          [
+            "build",
+            "prevalidation",
+            "deploy",
+            "post-validation"
+          ],
+          [
+            "SoT",
+            "Compose",
+            "jobs",
+            "later"
+          ],
+          [
+            "Confirm",
+            "models",
+            "slash",
+            "intent"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.47,
+            "end": 16.940001
+          },
+          {
+            "start": 17.48,
+            "end": 21.09
+          },
+          {
+            "start": 22.48,
+            "end": 28.799999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Confirm vlans.json has VLANs 100, 200"
+        ],
+        "keyWords": [
+          [
+            "VLANs",
+            "one",
+            "hundred"
+          ],
+          [
+            "Lab",
+            "Docker",
+            "GitLab",
+            "access"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 28.799999,
+            "end": 30.360001
+          },
+          {
+            "start": 31.34,
+            "end": 41.91
+          }
+        ]
+      }
+    ]
+  },
+  "resume-capstone-prerequisites": {
+    "splitAt": [
+      13.17,
+      26.33
+    ],
+    "segments": [
+      {
+        "points": [
+          "Modules 1 — 2: git remote and CI lint"
+        ],
+        "keyWords": [
+          [
+            "editing",
+            "intent",
+            "run",
+            "sixty-second"
+          ],
+          [
+            "Module",
+            "two",
+            "requirements"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.08,
+            "end": 4.66
+          },
+          {
+            "start": 5.14,
+            "end": 10.21
+          }
+        ]
+      },
+      {
+        "points": [
+          "Module 3: compose up and cml IPs"
+        ],
+        "keyWords": [
+          [
+            "installs",
+            "dot",
+            "gitlab-ci",
+            "yml"
+          ],
+          [
+            "Module",
+            "three",
+            "docker",
+            "compose"
+          ],
+          [
+            "docker",
+            "folder",
+            "inventory"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.21,
+            "end": 21.110001
+          },
+          {
+            "start": 21.93,
+            "end": 24.620001
+          },
+          {
+            "start": 25.129999,
+            "end": 26.57
+          }
+        ]
+      },
+      {
+        "points": [
+          "Module 4: validate_yang_intent passes"
+        ],
+        "keyWords": [
+          [
+            "slash",
+            "cml",
+            "dot",
+            "yml"
+          ],
+          [
+            "IPs",
+            "Module",
+            "validate_yang_intent",
+            "dot"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 27.389999,
+            "end": 29.08
+          },
+          {
+            "start": 29.889999,
+            "end": 39.299999
+          }
+        ]
+      }
+    ]
+  },
+  "course-two-complete": {
+    "splitAt": [
+      12.16,
+      24.32
+    ],
+    "segments": [
+      {
+        "points": [
+          "AUTOCOR 2.1–2.7 in one repo"
+        ],
+        "keyWords": [
+          [
+            "Course",
+            "two",
+            "infrastructure-as-code",
+            "objectives"
+          ],
+          [
+            "CICD",
+            "stages"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.12,
+            "end": 8.78
+          },
+          {
+            "start": 10.34,
+            "end": 12.19
+          }
+        ]
+      },
+      {
+        "points": [
+          "Git, CI/CD, simulation, YANG SoT"
+        ],
+        "keyWords": [
+          [
+            "Docker",
+            "Compose",
+            "CML"
+          ],
+          [
+            "YANG-modeled",
+            "source",
+            "truth",
+            "JSON"
+          ],
+          [
+            "YAML",
+            "instances",
+            "ran",
+            "them"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 12.19,
+            "end": 16.32
+          },
+          {
+            "start": 16.99,
+            "end": 21.02
+          },
+          {
+            "start": 21.52,
+            "end": 23.709999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Netops_iac_lab as reference repo"
+        ],
+        "keyWords": [
+          [
+            "Course",
+            "one",
+            "repo",
+            "netops_iac_lab"
+          ],
+          [
+            "CCNP",
+            "path",
+            "picks",
+            "up"
+          ],
+          [
+            "two",
+            "AUTOCOR",
+            "section"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 24.370001,
+            "end": 28.190001
+          },
+          {
+            "start": 29.09,
+            "end": 31.690001
+          },
+          {
+            "start": 33,
+            "end": 33.57
+          }
+        ]
+      }
+    ]
+  },
+  "iac-capstone-complete": {
+    "splitAt": [
+      11.47,
+      22.95
+    ],
+    "segments": [
+      {
+        "points": [
+          "Golden intent in Git with pipeline gates"
+        ],
+        "keyWords": [
+          [
+            "started",
+            "course",
+            "two",
+            "copying"
+          ],
+          [
+            "finish",
+            "golden",
+            "intent",
+            "Git"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.1,
+            "end": 1.81
+          },
+          {
+            "start": 2.7,
+            "end": 11.42
+          }
+        ]
+      },
+      {
+        "points": [
+          "Compose, CML, rendered YANG — shaped configs"
+        ],
+        "keyWords": [
+          [
+            "infrastructure",
+            "code"
+          ],
+          [
+            "AUTOCOR",
+            "section",
+            "two",
+            "story"
+          ],
+          [
+            "Keep",
+            "netops_iac_lab"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 11.51,
+            "end": 18.280001
+          },
+          {
+            "start": 18.889999,
+            "end": 21.17
+          },
+          {
+            "start": 21.780001,
+            "end": 23.110001
+          }
+        ]
+      },
+      {
+        "points": [
+          "Update intent first, always"
+        ],
+        "keyWords": [
+          [
+            "Update",
+            "intent",
+            "always"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 23.110001,
+            "end": 26.92
+          }
+        ]
+      }
+    ]
+  }
+}

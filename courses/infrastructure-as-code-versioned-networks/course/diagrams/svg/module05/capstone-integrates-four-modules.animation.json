@@ -1,0 +1,14 @@
+{
+  "diagram": "capstone-integrates-four-modules.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 10,
+      "show": [
+        "main"
+      ],
+      "dim": [],
+      "highlight": []
+    }
+  ]
+}

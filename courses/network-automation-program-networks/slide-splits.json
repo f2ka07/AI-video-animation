@@ -1,0 +1,796 @@
+{
+  "_comment": "Auto-bootstrapped from content + audio durations. Run derive-boundaries-from-script after timings.",
+  "built-for-ccna-ready-engineers": {
+    "splitAt": [
+      6.15,
+      12.31
+    ],
+    "segments": [
+      {
+        "points": [
+          "Built for students preparing for certification and engineers shipping",
+          "You already know VLANs, OSPF, and ACL basics.",
+          "You are not expected to be a senior developer.",
+          "You are expected to verify every change, use check"
+        ],
+        "keyWords": [
+          [
+            "Built",
+            "students",
+            "preparing",
+            "certification"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 6.06
+          }
+        ]
+      },
+      {
+        "points": [
+          "VLANs OSPF and ACL basics You are not expected",
+          "Built for students preparing for certification and engineers shipping",
+          "You already know VLANs, OSPF, and ACL basics.",
+          "You are not expected to be a senior developer."
+        ],
+        "keyWords": [
+          [
+            "VLANs",
+            "OSPF",
+            "ACL",
+            "basics"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 7.76,
+            "end": 12.88
+          }
+        ]
+      },
+      {
+        "points": [
+          "You are expected to verify every change use check",
+          "Built for students preparing for certification and engineers shipping",
+          "You already know VLANs, OSPF, and ACL basics.",
+          "You are not expected to be a senior developer."
+        ],
+        "keyWords": [
+          [
+            "expected",
+            "verify",
+            "change",
+            "use"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 12.88,
+            "end": 18.290001
+          }
+        ]
+      }
+    ]
+  },
+  "pillar-program-and-automate": {
+    "splitAt": [
+      7.02,
+      14.05
+    ],
+    "segments": [
+      {
+        "points": [
+          "Course one connects programming to live networks Manual",
+          "CLI fails when the same change"
+        ],
+        "keyWords": [
+          [
+            "one",
+            "program",
+            "Course",
+            "connects"
+          ],
+          [
+            "CLI",
+            "fails",
+            "change"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.12,
+            "end": 4.46
+          },
+          {
+            "start": 5.16,
+            "end": 7.1
+          }
+        ]
+      },
+      {
+        "points": [
+          "Labs walk Python",
+          "RESTCONF — style"
+        ],
+        "keyWords": [
+          [
+            "Labs",
+            "walk",
+            "Python"
+          ],
+          [
+            "RESTCONF-style"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 7.1,
+            "end": 11.9
+          },
+          {
+            "start": 12.77,
+            "end": 14.13
+          }
+        ]
+      },
+      {
+        "points": [
+          "APIs and Ansible playbooks that apply intent consistently",
+          "AUTOCOR assumes you can execute"
+        ],
+        "keyWords": [
+          [
+            "build-and-program",
+            "build",
+            "program",
+            "APIs"
+          ],
+          [
+            "AUTOCOR",
+            "assumes",
+            "execute"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 15.24,
+            "end": 18.91
+          },
+          {
+            "start": 19.5,
+            "end": 20.75
+          }
+        ]
+      }
+    ]
+  },
+  "pillar-version-network-intent": {
+    "splitAt": [
+      7.23,
+      14.47
+    ],
+    "segments": [
+      {
+        "points": [
+          "Course two versions network intent",
+          "A saved running — config on a file share"
+        ],
+        "keyWords": [
+          [
+            "two",
+            "intent",
+            "version",
+            "Course"
+          ],
+          [
+            "saved",
+            "running-config",
+            "file",
+            "share"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.09,
+            "end": 2.13
+          },
+          {
+            "start": 2.67,
+            "end": 7.07
+          }
+        ]
+      },
+      {
+        "points": [
+          "Labs store VLAN and OSPF YAML in Git branch",
+          "Course two versions network intent.",
+          "A saved running — config on a file share"
+        ],
+        "keyWords": [
+          [
+            "Labs",
+            "store",
+            "VLAN",
+            "OSPF"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 7.42,
+            "end": 14.84
+          }
+        ]
+      },
+      {
+        "points": [
+          "Review and revert bad commits safely preparing",
+          "Course two versions network intent.",
+          "A saved running — config on a file share",
+          "Labs store VLAN and OSPF YAML in Git, branch"
+        ],
+        "keyWords": [
+          [
+            "review",
+            "revert",
+            "bad",
+            "commits"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.88,
+            "end": 21.440001
+          }
+        ]
+      }
+    ]
+  },
+  "pillar-operate-and-validate": {
+    "splitAt": [
+      6.21,
+      12.43
+    ],
+    "segments": [
+      {
+        "points": [
+          "Course three proves the network stays healthy after deploy",
+          "Snapshot polling misses fast failures.",
+          "Labs stream model — driven telemetry, tie events"
+        ],
+        "keyWords": [
+          [
+            "three",
+            "Course",
+            "proves",
+            "network"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.08,
+            "end": 6.21
+          }
+        ]
+      },
+      {
+        "points": [
+          "Labs stream model — driven telemetry tie events",
+          "Validation and harden"
+        ],
+        "keyWords": [
+          [
+            "Labs",
+            "stream",
+            "model-driven",
+            "telemetry"
+          ],
+          [
+            "validation",
+            "harden"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 6.46,
+            "end": 10.39
+          },
+          {
+            "start": 11.16,
+            "end": 12.48
+          }
+        ]
+      },
+      {
+        "points": [
+          "TLS and secret handling the operate — and —",
+          "Course three proves the network stays healthy after deploy.",
+          "Snapshot polling misses fast failures.",
+          "Labs stream model — driven telemetry, tie events"
+        ],
+        "keyWords": [
+          [
+            "operate-and-secure",
+            "operate",
+            "secure",
+            "TLS"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 12.48,
+            "end": 17.17
+          }
+        ]
+      }
+    ]
+  },
+  "pillar-ai-with-guardrails": {
+    "splitAt": [
+      8.24,
+      16.49
+    ],
+    "segments": [
+      {
+        "points": [
+          "Course four governs AI — assisted automation Labs",
+          "Ansible from a prompt",
+          "Require human review"
+        ],
+        "keyWords": [
+          [
+            "AI",
+            "Course",
+            "governs",
+            "AI-assisted"
+          ],
+          [
+            "Ansible",
+            "prompt"
+          ],
+          [
+            "require",
+            "human",
+            "review"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.13,
+            "end": 3.48
+          },
+          {
+            "start": 4.03,
+            "end": 6.76
+          },
+          {
+            "start": 7.21,
+            "end": 8.61
+          }
+        ]
+      },
+      {
+        "points": [
+          "Exam focus benefits risks privacy",
+          "Course four governs AI — assisted automation.",
+          "Labs generate Ansible from a prompt, require human review,",
+          "Exam focus: benefits, risks, privacy, IP ownership, and validation,"
+        ],
+        "keyWords": [
+          [
+            "Exam",
+            "focus",
+            "benefits",
+            "risks"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 8.81,
+            "end": 16.24
+          }
+        ]
+      },
+      {
+        "points": [
+          "IP ownership and validation not novelty for its own",
+          "Your networking judgment stays in charge"
+        ],
+        "keyWords": [
+          [
+            "IP",
+            "ownership",
+            "validation",
+            "novelty"
+          ],
+          [
+            "Your",
+            "networking",
+            "judgment",
+            "stays"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.639999,
+            "end": 21.35
+          },
+          {
+            "start": 22.01,
+            "end": 24.459999
+          }
+        ]
+      }
+    ]
+  },
+  "evolution-of-network-operations": {
+    "splitAt": [
+      14.88,
+      29.75
+    ]
+  },
+  "what-automation-means": {
+    "splitAt": [
+      13.59,
+      27.19
+    ]
+  },
+  "importance-of-idempotency": {
+    "splitAt": [
+      13.86,
+      27.72
+    ]
+  },
+  "architecture-patterns-overview": {
+    "splitAt": [
+      10.61,
+      21.23,
+      31.84
+    ]
+  },
+  "story-beat-recap": {
+    "splitAt": [
+      12.12,
+      24.24
+    ]
+  },
+  "lab-setup-introduction": {
+    "splitAt": [
+      12.92,
+      25.85
+    ]
+  },
+  "choose-your-lab-environment": {
+    "splitAt": [
+      12.75,
+      25.51
+    ]
+  },
+  "open-your-terminal": {
+    "splitAt": [
+      12.31,
+      24.63
+    ]
+  },
+  "story-beat-common-mistake": {
+    "splitAt": [
+      12.17,
+      24.34
+    ]
+  },
+  "certification-alignment": {
+    "splitAt": [
+      13.69,
+      27.39
+    ]
+  },
+  "automation-as-infrastructure": {
+    "splitAt": [
+      13.37,
+      26.74
+    ]
+  },
+  "python-essentials-for-networkers": {
+    "splitAt": [
+      11.44,
+      22.89,
+      34.33
+    ]
+  },
+  "reading-python-without-fear": {
+    "splitAt": [
+      13.54,
+      27.07
+    ]
+  },
+  "data-structures-for-device-data": {
+    "splitAt": [
+      13.64,
+      27.27
+    ]
+  },
+  "config-data-from-files": {
+    "splitAt": [
+      13.82,
+      27.63
+    ]
+  },
+  "error-handling-that-saves-outages": {
+    "splitAt": [
+      14.09,
+      28.19
+    ]
+  },
+  "netmiko-connection-pattern": {
+    "splitAt": [
+      13.6,
+      27.21
+    ]
+  },
+  "story-beat-recap-python": {
+    "splitAt": [
+      12.2,
+      24.4
+    ]
+  },
+  "lab-setup-python-automation": {
+    "splitAt": [
+      13.88,
+      27.75
+    ]
+  },
+  "resume-your-lab-environment": {
+    "splitAt": [
+      14.45,
+      28.89
+    ]
+  },
+  "story-beat-common-mistake-python": {
+    "splitAt": [
+      12.33,
+      24.66
+    ]
+  },
+  "certification-alignment-python": {
+    "splitAt": [
+      13.85,
+      27.71
+    ]
+  },
+  "python-automation-ready": {
+    "splitAt": [
+      13.21,
+      26.42
+    ]
+  },
+  "what-is-rest": {
+    "splitAt": [
+      17.54,
+      35.07
+    ]
+  },
+  "rest-for-network-engineers": {
+    "splitAt": [
+      15.67,
+      31.34
+    ]
+  },
+  "yang-explained-plain-language": {
+    "splitAt": [
+      13.4,
+      26.81
+    ]
+  },
+  "yang-structure-basics": {
+    "splitAt": [
+      13.48,
+      26.95
+    ]
+  },
+  "restconf-urls-and-methods": {
+    "splitAt": [
+      15.34,
+      30.67
+    ]
+  },
+  "api-auth-and-rate-limits": {
+    "splitAt": [
+      15.42,
+      30.85
+    ]
+  },
+  "http-errors-and-pagination": {
+    "splitAt": [
+      16.08,
+      32.17
+    ]
+  },
+  "story-beat-recap-apis": {
+    "splitAt": [
+      13.65,
+      27.31
+    ]
+  },
+  "lab-setup-restconf": {
+    "splitAt": [
+      14.57,
+      29.13
+    ]
+  },
+  "resume-lab-install-restconf-tools": {
+    "splitAt": [
+      15.13,
+      30.26
+    ]
+  },
+  "story-beat-common-mistake-restconf": {
+    "splitAt": [
+      14.11,
+      28.21
+    ]
+  },
+  "certification-alignment-apis": {
+    "splitAt": [
+      13.71,
+      27.41
+    ]
+  },
+  "apis-programmability-ready": {
+    "splitAt": [
+      12.94,
+      25.87
+    ]
+  },
+  "why-ansible-for-networks": {
+    "splitAt": [
+      13.95,
+      27.91,
+      41.86
+    ]
+  },
+  "ansible-playbook-anatomy": {
+    "splitAt": [
+      13.43,
+      26.87
+    ]
+  },
+  "ansible-modules-and-idempotency": {
+    "splitAt": [
+      13.72,
+      27.45
+    ]
+  },
+  "terraform-selection-basics": {
+    "splitAt": [
+      17.53,
+      35.06
+    ]
+  },
+  "low-code-vs-custom-automation": {
+    "splitAt": [
+      15.8,
+      31.59
+    ]
+  },
+  "choosing-your-automation-approach": {
+    "splitAt": [
+      15.38,
+      30.75
+    ]
+  },
+  "story-beat-recap-toolchains": {
+    "splitAt": [
+      13.57,
+      27.13
+    ]
+  },
+  "lab-setup-full-workflow": {
+    "splitAt": [
+      13.89,
+      27.78
+    ]
+  },
+  "resume-lab-ansible-ready": {
+    "splitAt": [
+      13.92,
+      27.85
+    ]
+  },
+  "story-beat-common-mistake-toolchains": {
+    "splitAt": [
+      14.06,
+      28.13
+    ]
+  },
+  "certification-alignment-toolchains": {
+    "splitAt": [
+      13.82,
+      27.64
+    ]
+  },
+  "toolchains-ready-capstone-next": {
+    "splitAt": [
+      13.36,
+      26.71
+    ]
+  },
+  "capstone-integrates-four-modules": {
+    "splitAt": [
+      18.75,
+      37.51
+    ]
+  },
+  "branch-network-reference-design": {
+    "splitAt": [
+      16.59,
+      33.18
+    ]
+  },
+  "git-as-source-of-truth": {
+    "splitAt": [
+      15.54,
+      31.07
+    ]
+  },
+  "architecture-pillars-in-practice": {
+    "splitAt": [
+      15.67,
+      31.34
+    ]
+  },
+  "capstone-change-runbook": {
+    "splitAt": [
+      16.74,
+      33.47
+    ]
+  },
+  "verify-before-you-close": {
+    "splitAt": [
+      15.1,
+      30.21
+    ]
+  },
+  "capstone-tool-matrix": {
+    "splitAt": [
+      15.81,
+      31.61
+    ]
+  },
+  "story-beat-recap-capstone": {
+    "splitAt": [
+      15.43,
+      30.85
+    ]
+  },
+  "lab-setup-enterprise-branch": {
+    "splitAt": [
+      15.72,
+      31.43
+    ]
+  },
+  "resume-all-modules-lab": {
+    "splitAt": [
+      15.34,
+      30.69
+    ]
+  },
+  "story-beat-common-mistake-capstone": {
+    "splitAt": [
+      14.09,
+      28.18
+    ]
+  },
+  "certification-alignment-full-course": {
+    "splitAt": [
+      16.77,
+      33.54
+    ]
+  },
+  "course-complete-enterprise-automation": {
+    "splitAt": [
+      14.17,
+      28.35
+    ]
+  }
+}

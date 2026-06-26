@@ -1,0 +1,49 @@
+{
+  "diagram": "network-operator-agent-design.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-scope"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-scope"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-scope",
+        "viz-context"
+      ],
+      "dim": [
+        "viz-scope"
+      ],
+      "highlight": [
+        "viz-context"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-scope",
+        "viz-context",
+        "viz-guard"
+      ],
+      "dim": [
+        "viz-scope",
+        "viz-context"
+      ],
+      "highlight": [
+        "viz-guard"
+      ]
+    }
+  ]
+}

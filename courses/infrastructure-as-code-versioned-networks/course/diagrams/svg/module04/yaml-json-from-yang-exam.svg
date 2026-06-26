@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="YAML JSON from YANG exam">
+  <rect width="800" height="900" fill="#071525"/>
+  <text x="40" y="52" fill="#049FD9" font-family="Inter,sans-serif" font-size="13" font-weight="800" letter-spacing=".16em">EXAM 2.7</text>
+  <text x="40" y="96" fill="#fff" font-family="Inter,sans-serif" font-size="28" font-weight="800">Model to instance</text>
+  <g transform="translate(220 360)"><rect x="-100" y="-50" width="200" height="100" rx="12" fill="#422006" stroke="#f59e0b"/><text y="8" text-anchor="middle" fill="#fcd34d" font-family="Inter,sans-serif" font-size="14" font-weight="700">YANG</text></g>
+  <path d="M320 360 H380" stroke="#6CC04A" stroke-width="3"/>
+  <g transform="translate(440 360)"><rect x="-80" y="-50" width="160" height="100" rx="12" fill="#1e3a5f" stroke="#049FD9"/><text y="8" text-anchor="middle" fill="#bae6fd" font-family="Inter,sans-serif" font-size="14" font-weight="700">JSON</text></g>
+  <path d="M520 360 H580" stroke="#6CC04A" stroke-width="3"/>
+  <g transform="translate(640 360)"><rect x="-80" y="-50" width="160" height="100" rx="12" fill="#14532d" stroke="#6CC04A"/><text y="8" text-anchor="middle" fill="#bbf7d0" font-family="Inter,sans-serif" font-size="14" font-weight="700">YAML</text></g>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Idempotent runs converge">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    <g id="viz-run-once">
+    <rect x="100" y="100" width="130" height="60" rx="14" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+    <text x="165" y="135" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="700" text-anchor="middle">Run #1</text>
+  </g>
+    <g id="viz-run-again">
+    <rect x="442" y="100" width="130" height="60" rx="14" fill="#081827" stroke="#f59e0b" stroke-width="2"/>
+    <text x="507" y="135" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="700" text-anchor="middle">Run #5</text>
+  </g>
+    <line x1="230" y1="130" x2="300" y2="200" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <line x1="442" y1="130" x2="372" y2="200" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <g id="viz-same-state">
+      <rect x="236" y="200" width="200" height="90" rx="16" fill="#112115" stroke="#6CC04A" stroke-width="2"/>
+      <circle cx="336" cy="235" r="22" fill="#163119" stroke="#6CC04A" stroke-width="2"/>
+      <text x="336" y="241" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="900" text-anchor="middle">OK</text>
+      <text x="336" y="272" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" text-anchor="middle">Same VLAN state — no duplicates</text>
+    </g>
+  </g>
+</svg>

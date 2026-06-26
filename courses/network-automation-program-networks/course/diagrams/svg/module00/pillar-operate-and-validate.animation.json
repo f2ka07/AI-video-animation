@@ -1,0 +1,9 @@
+{
+  "diagram": "pillar-operate-and-validate.svg",
+  "phases": [
+    {"start": 0, "end": 16, "show": ["viz-main", "viz-poll"], "dim": [], "highlight": ["viz-poll"]},
+    {"start": 5, "end": 16, "show": ["viz-main", "viz-poll", "viz-stream"], "dim": ["viz-poll"], "highlight": ["viz-stream"]},
+    {"start": 9, "end": 16, "show": ["viz-main", "viz-poll", "viz-stream", "viz-validate"], "dim": ["viz-poll"], "highlight": ["viz-validate"]},
+    {"start": 13, "end": 16, "show": ["viz-main", "viz-poll", "viz-stream", "viz-validate", "viz-objective"], "dim": ["viz-poll", "viz-stream"], "highlight": ["viz-objective"]}
+  ]
+}

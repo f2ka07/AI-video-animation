@@ -1,0 +1,17 @@
+{
+  "diagram": "root-cause-analysis-plain-language.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-timeline"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-timeline"
+      ]
+    }
+  ]
+}

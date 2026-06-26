@@ -1,0 +1,49 @@
+{
+  "diagram": "evaluation-ready-for-capstone.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-done"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-done"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-done",
+        "viz-arrow"
+      ],
+      "dim": [
+        "viz-done"
+      ],
+      "highlight": [
+        "viz-arrow"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-done",
+        "viz-arrow",
+        "viz-next"
+      ],
+      "dim": [
+        "viz-done",
+        "viz-arrow"
+      ],
+      "highlight": [
+        "viz-next"
+      ]
+    }
+  ]
+}

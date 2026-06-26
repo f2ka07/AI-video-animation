@@ -1,0 +1,89 @@
+{
+  "diagram": "capstone-integrates-four-modules.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-code"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-code"
+      ]
+    },
+    {
+      "start": 2.4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-code",
+        "viz-mcp"
+      ],
+      "dim": [
+        "viz-code"
+      ],
+      "highlight": [
+        "viz-mcp"
+      ]
+    },
+    {
+      "start": 4.8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-code",
+        "viz-mcp",
+        "viz-agent"
+      ],
+      "dim": [
+        "viz-code",
+        "viz-mcp"
+      ],
+      "highlight": [
+        "viz-agent"
+      ]
+    },
+    {
+      "start": 7.199999999999999,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-code",
+        "viz-mcp",
+        "viz-agent",
+        "viz-eval"
+      ],
+      "dim": [
+        "viz-code",
+        "viz-mcp",
+        "viz-agent"
+      ],
+      "highlight": [
+        "viz-eval"
+      ]
+    },
+    {
+      "start": 9.6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-code",
+        "viz-mcp",
+        "viz-agent",
+        "viz-eval",
+        "viz-cap"
+      ],
+      "dim": [
+        "viz-code",
+        "viz-mcp",
+        "viz-agent",
+        "viz-eval"
+      ],
+      "highlight": [
+        "viz-cap"
+      ]
+    }
+  ]
+}

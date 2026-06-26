@@ -1,0 +1,49 @@
+{
+  "diagram": "what-change-validation-means.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-intent"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-intent"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-intent",
+        "viz-compare"
+      ],
+      "dim": [
+        "viz-intent"
+      ],
+      "highlight": [
+        "viz-compare"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-intent",
+        "viz-compare",
+        "viz-state"
+      ],
+      "dim": [
+        "viz-intent",
+        "viz-compare"
+      ],
+      "highlight": [
+        "viz-state"
+      ]
+    }
+  ]
+}

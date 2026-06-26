@@ -1,0 +1,137 @@
+{
+  "diagram": "choosing-your-automation-approach.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-q1"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-q1"
+      ]
+    },
+    {
+      "start": 1.7142857142857142,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-q1",
+        "viz-q2"
+      ],
+      "dim": [
+        "viz-q1"
+      ],
+      "highlight": [
+        "viz-q2"
+      ]
+    },
+    {
+      "start": 3.4285714285714284,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-q1",
+        "viz-q2",
+        "viz-q3"
+      ],
+      "dim": [
+        "viz-q1",
+        "viz-q2"
+      ],
+      "highlight": [
+        "viz-q3"
+      ]
+    },
+    {
+      "start": 5.142857142857142,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-q1",
+        "viz-q2",
+        "viz-q3",
+        "viz-q4"
+      ],
+      "dim": [
+        "viz-q1",
+        "viz-q2",
+        "viz-q3"
+      ],
+      "highlight": [
+        "viz-q4"
+      ]
+    },
+    {
+      "start": 6.857142857142857,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-q1",
+        "viz-q2",
+        "viz-q3",
+        "viz-q4",
+        "viz-q5"
+      ],
+      "dim": [
+        "viz-q1",
+        "viz-q2",
+        "viz-q3",
+        "viz-q4"
+      ],
+      "highlight": [
+        "viz-q5"
+      ]
+    },
+    {
+      "start": 8.571428571428571,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-q1",
+        "viz-q2",
+        "viz-q3",
+        "viz-q4",
+        "viz-q5",
+        "viz-q6"
+      ],
+      "dim": [
+        "viz-q1",
+        "viz-q2",
+        "viz-q3",
+        "viz-q4",
+        "viz-q5"
+      ],
+      "highlight": [
+        "viz-q6"
+      ]
+    },
+    {
+      "start": 10.285714285714285,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-q1",
+        "viz-q2",
+        "viz-q3",
+        "viz-q4",
+        "viz-q5",
+        "viz-q6",
+        "viz-answer"
+      ],
+      "dim": [
+        "viz-q1",
+        "viz-q2",
+        "viz-q3",
+        "viz-q4",
+        "viz-q5",
+        "viz-q6"
+      ],
+      "highlight": [
+        "viz-answer"
+      ]
+    }
+  ]
+}

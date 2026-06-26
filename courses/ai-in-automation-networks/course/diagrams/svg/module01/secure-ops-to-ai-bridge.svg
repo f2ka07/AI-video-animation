@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="From Secure Ops to AI Assistance">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    
+    <text x="48" y="52" fill="#049FD9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" letter-spacing="0.14em">CHANGE WINDOW</text>
+    <text x="48" y="74" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="800">VLAN request → model drafts a playbook</text>
+    <g id="viz-scenario">
+    <rect x="48" y="92" width="296" height="168" rx="16" fill="#1a1215" stroke="#f59e0b" stroke-width="2"/>
+    <text x="196" y="120" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Tuesday night scenario</text>
+    <text x="196" y="132" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">VLAN standardization in queue</text>
+      <text x="196" y="154" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">Paste ask into chat model</text>
+      <text x="196" y="176" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">Playbook looks almost right</text>
+      <text x="196" y="244" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">Speed is not approval</text>
+  </g>
+    <g id="viz-workflow">
+    <rect x="376" y="92" width="296" height="168" rx="16" fill="#081827" stroke="#a78bfa" stroke-width="2"/>
+    <text x="524" y="120" fill="#a78bfa" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Defensible workflow</text>
+    <text x="524" y="132" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">Prompt with constraints</text>
+      <text x="524" y="154" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">Human review + diff</text>
+      <text x="524" y="176" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">Lint and check mode</text>
+      <text x="524" y="244" fill="#a78bfa" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">Audit trail before device touch</text>
+  </g>
+    <g id="viz-guardrail">
+    <rect x="48" y="388" width="624" height="44" rx="12" fill="#0b2237" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="360" y="408" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">Automate · version · observe · secure</text>
+    <text x="360" y="424" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">LLM drafts — you own the change ticket</text>
+  </g>
+  </g>
+</svg>

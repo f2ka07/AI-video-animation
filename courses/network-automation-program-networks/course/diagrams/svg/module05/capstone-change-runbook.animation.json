@@ -1,0 +1,137 @@
+{
+  "diagram": "capstone-change-runbook.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-s1"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-s1"
+      ]
+    },
+    {
+      "start": 1.7142857142857142,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-s1",
+        "viz-s2"
+      ],
+      "dim": [
+        "viz-s1"
+      ],
+      "highlight": [
+        "viz-s2"
+      ]
+    },
+    {
+      "start": 3.4285714285714284,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-s1",
+        "viz-s2",
+        "viz-s3"
+      ],
+      "dim": [
+        "viz-s1",
+        "viz-s2"
+      ],
+      "highlight": [
+        "viz-s3"
+      ]
+    },
+    {
+      "start": 5.142857142857142,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-s1",
+        "viz-s2",
+        "viz-s3",
+        "viz-s4"
+      ],
+      "dim": [
+        "viz-s1",
+        "viz-s2",
+        "viz-s3"
+      ],
+      "highlight": [
+        "viz-s4"
+      ]
+    },
+    {
+      "start": 6.857142857142857,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-s1",
+        "viz-s2",
+        "viz-s3",
+        "viz-s4",
+        "viz-s5"
+      ],
+      "dim": [
+        "viz-s1",
+        "viz-s2",
+        "viz-s3",
+        "viz-s4"
+      ],
+      "highlight": [
+        "viz-s5"
+      ]
+    },
+    {
+      "start": 8.571428571428571,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-s1",
+        "viz-s2",
+        "viz-s3",
+        "viz-s4",
+        "viz-s5",
+        "viz-s6"
+      ],
+      "dim": [
+        "viz-s1",
+        "viz-s2",
+        "viz-s3",
+        "viz-s4",
+        "viz-s5"
+      ],
+      "highlight": [
+        "viz-s6"
+      ]
+    },
+    {
+      "start": 10.285714285714285,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-s1",
+        "viz-s2",
+        "viz-s3",
+        "viz-s4",
+        "viz-s5",
+        "viz-s6",
+        "viz-limit"
+      ],
+      "dim": [
+        "viz-s1",
+        "viz-s2",
+        "viz-s3",
+        "viz-s4",
+        "viz-s5",
+        "viz-s6"
+      ],
+      "highlight": [
+        "viz-limit"
+      ]
+    }
+  ]
+}

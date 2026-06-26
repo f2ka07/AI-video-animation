@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="Pipeline to simulation">
+  <rect width="800" height="900" fill="#071525"/>
+  <text x="40" y="48" fill="#049FD9" font-family="Inter,sans-serif" font-size="13" font-weight="800" letter-spacing=".18em">MODULE 3</text>
+  <text x="40" y="96" fill="#fff" font-family="Inter,sans-serif" font-size="32" font-weight="800">Test before deploy</text>
+  <g transform="translate(160 340)"><rect x="-100" y="-40" width="200" height="80" rx="12" fill="#1e3a5f" stroke="#049FD9"/><text y="8" text-anchor="middle" fill="#bae6fd" font-family="Inter,sans-serif" font-size="13" font-weight="700">CI/CD</text></g>
+  <path d="M260 340 H340" stroke="#6CC04A" stroke-width="3"/>
+  <g transform="translate(400 340)"><rect x="-100" y="-40" width="200" height="80" rx="12" fill="#14532d" stroke="#6CC04A"/><text y="8" text-anchor="middle" fill="#bbf7d0" font-family="Inter,sans-serif" font-size="13" font-weight="700">Compose</text></g>
+  <path d="M500 340 H580" stroke="#6CC04A" stroke-width="3"/>
+  <g transform="translate(640 340)"><rect x="-100" y="-40" width="200" height="80" rx="12" fill="#422006" stroke="#f59e0b"/><text y="8" text-anchor="middle" fill="#fcd34d" font-family="Inter,sans-serif" font-size="13" font-weight="700">CML</text></g>
+  <text x="400" y="520" text-anchor="middle" fill="#94a3b8" font-family="Inter,sans-serif" font-size="14">Exam 2.4 simulation | 2.5 Compose</text>
+</svg>

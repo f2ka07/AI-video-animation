@@ -1,0 +1,49 @@
+{
+  "diagram": "pki-plain-language.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-ca"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-ca"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-ca",
+        "viz-inter"
+      ],
+      "dim": [
+        "viz-ca"
+      ],
+      "highlight": [
+        "viz-inter"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-ca",
+        "viz-inter",
+        "viz-cert"
+      ],
+      "dim": [
+        "viz-ca",
+        "viz-inter"
+      ],
+      "highlight": [
+        "viz-cert"
+      ]
+    }
+  ]
+}

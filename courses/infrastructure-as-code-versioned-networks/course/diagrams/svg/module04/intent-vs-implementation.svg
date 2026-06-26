@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="Intent vs implementation">
+  <rect width="800" height="900" fill="#071525"/>
+  <text x="40" y="52" fill="#049FD9" font-family="Inter,sans-serif" font-size="13" font-weight="800" letter-spacing=".16em">LAYERS</text>
+  <text x="40" y="96" fill="#fff" font-family="Inter,sans-serif" font-size="28" font-weight="800">Intent to CLI</text>
+  <g transform="translate(400 320)"><rect x="-220" y="-40" width="440" height="80" rx="12" fill="#1e3a5f" stroke="#049FD9"/><text y="8" text-anchor="middle" fill="#bae6fd" font-family="Inter,sans-serif" font-size="14" font-weight="700">Intent JSON (VLAN 100 DATA_VLAN)</text></g>
+  <path d="M400 360 V400" stroke="#6CC04A" stroke-width="3"/>
+  <g transform="translate(400 440)"><rect x="-220" y="-40" width="440" height="80" rx="12" fill="#14532d" stroke="#6CC04A"/><text y="8" text-anchor="middle" fill="#bbf7d0" font-family="Inter,sans-serif" font-size="14" font-weight="700">Template renders IOS syntax</text></g>
+</svg>

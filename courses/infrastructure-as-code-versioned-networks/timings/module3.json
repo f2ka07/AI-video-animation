@@ -1,0 +1,9064 @@
+{
+  "moduleNumber": 3,
+  "title": "Containers and Simulation",
+  "slides": {
+    "pipeline-to-simulation-bridge": {
+      "words": [
+        {
+          "text": "Module",
+          "start": 0.15,
+          "end": 0.49
+        },
+        {
+          "text": "two",
+          "start": 0.56,
+          "end": 0.83
+        },
+        {
+          "text": "added",
+          "start": 1.12,
+          "end": 1.41
+        },
+        {
+          "text": "a",
+          "start": 1.41,
+          "end": 1.46
+        },
+        {
+          "text": "GitLab",
+          "start": 1.95,
+          "end": 2.54
+        },
+        {
+          "text": "pipeline",
+          "start": 2.7,
+          "end": 2.85
+        },
+        {
+          "text": "that",
+          "start": 3.9,
+          "end": 4.04
+        },
+        {
+          "text": "lints",
+          "start": 4.04,
+          "end": 4.44
+        },
+        {
+          "text": "YAML",
+          "start": 5.18,
+          "end": 5.34
+        },
+        {
+          "text": "and",
+          "start": 5.34,
+          "end": 5.62
+        },
+        {
+          "text": "runs",
+          "start": 5.62,
+          "end": 5.92
+        },
+        {
+          "text": "Ansible",
+          "start": 6.49,
+          "end": 6.79
+        },
+        {
+          "text": "in",
+          "start": 6.79,
+          "end": 7.25
+        },
+        {
+          "text": "check",
+          "start": 7.45,
+          "end": 7.96
+        },
+        {
+          "text": "mode",
+          "start": 8.24,
+          "end": 8.44
+        },
+        {
+          "text": "Module",
+          "start": 8.44,
+          "end": 8.56
+        },
+        {
+          "text": "three",
+          "start": 8.56,
+          "end": 8.69
+        },
+        {
+          "text": "asks",
+          "start": 8.69,
+          "end": 8.91
+        },
+        {
+          "text": "where",
+          "start": 8.91,
+          "end": 9.15
+        },
+        {
+          "text": "do",
+          "start": 9.71,
+          "end": 10.11
+        },
+        {
+          "text": "you",
+          "start": 10.11,
+          "end": 10.37
+        },
+        {
+          "text": "run",
+          "start": 10.37,
+          "end": 10.72
+        },
+        {
+          "text": "those",
+          "start": 10.72,
+          "end": 11.26
+        },
+        {
+          "text": "playbooks",
+          "start": 11.47,
+          "end": 11.81
+        },
+        {
+          "text": "against",
+          "start": 11.81,
+          "end": 12.48
+        },
+        {
+          "text": "real",
+          "start": 12.95,
+          "end": 13.46
+        },
+        {
+          "text": "device",
+          "start": 13.5,
+          "end": 13.55
+        },
+        {
+          "text": "behavior",
+          "start": 13.55,
+          "end": 14.08
+        },
+        {
+          "text": "before",
+          "start": 14.24,
+          "end": 14.37
+        },
+        {
+          "text": "production",
+          "start": 14.37,
+          "end": 14.88
+        },
+        {
+          "text": "Pushing",
+          "start": 14.92,
+          "end": 15.14
+        },
+        {
+          "text": "to",
+          "start": 15.14,
+          "end": 15.39
+        },
+        {
+          "text": "main",
+          "start": 15.45,
+          "end": 16.33
+        },
+        {
+          "text": "and",
+          "start": 16.49,
+          "end": 16.74
+        },
+        {
+          "text": "hoping",
+          "start": 16.77,
+          "end": 17.17
+        },
+        {
+          "text": "is",
+          "start": 17.52,
+          "end": 18.15
+        },
+        {
+          "text": "not",
+          "start": 18.15,
+          "end": 18.549999
+        },
+        {
+          "text": "infrastructure",
+          "start": 18.549999,
+          "end": 18.68
+        },
+        {
+          "text": "as",
+          "start": 18.68,
+          "end": 19.17
+        },
+        {
+          "text": "code",
+          "start": 19.17,
+          "end": 19.59
+        },
+        {
+          "text": "Containers",
+          "start": 19.67,
+          "end": 19.790001
+        },
+        {
+          "text": "package",
+          "start": 19.790001,
+          "end": 20.08
+        },
+        {
+          "text": "your",
+          "start": 20.08,
+          "end": 20.370001
+        },
+        {
+          "text": "automation",
+          "start": 20.370001,
+          "end": 20.610001
+        },
+        {
+          "text": "tools",
+          "start": 20.610001,
+          "end": 20.889999
+        },
+        {
+          "text": "the",
+          "start": 20.889999,
+          "end": 21.379999
+        },
+        {
+          "text": "same",
+          "start": 21.43,
+          "end": 21.6
+        },
+        {
+          "text": "way",
+          "start": 21.959999,
+          "end": 22.299999
+        },
+        {
+          "text": "on",
+          "start": 22.49,
+          "end": 22.75
+        },
+        {
+          "text": "every",
+          "start": 22.75,
+          "end": 23.309999
+        },
+        {
+          "text": "laptop",
+          "start": 23.309999,
+          "end": 23.889999
+        },
+        {
+          "text": "and",
+          "start": 23.950001,
+          "end": 24.09
+        },
+        {
+          "text": "CI",
+          "start": 24.57,
+          "end": 25.120001
+        },
+        {
+          "text": "runner",
+          "start": 25.309999,
+          "end": 25.52
+        },
+        {
+          "text": "Docker",
+          "start": 25.52,
+          "end": 25.85
+        },
+        {
+          "text": "Compose",
+          "start": 25.85,
+          "end": 26.280001
+        },
+        {
+          "text": "wires",
+          "start": 26.280001,
+          "end": 26.440001
+        },
+        {
+          "text": "an",
+          "start": 26.440001,
+          "end": 26.5
+        },
+        {
+          "text": "Ansible",
+          "start": 26.5,
+          "end": 26.93
+        },
+        {
+          "text": "controller",
+          "start": 26.93,
+          "end": 27.469999
+        },
+        {
+          "text": "and",
+          "start": 27.690001,
+          "end": 27.98
+        },
+        {
+          "text": "test",
+          "start": 27.98,
+          "end": 28.4
+        },
+        {
+          "text": "targets",
+          "start": 28.4,
+          "end": 28.83
+        },
+        {
+          "text": "on",
+          "start": 30.700001,
+          "end": 30.91
+        },
+        {
+          "text": "a",
+          "start": 30.91,
+          "end": 31.379999
+        },
+        {
+          "text": "private",
+          "start": 31.379999,
+          "end": 31.76
+        },
+        {
+          "text": "network",
+          "start": 31.76,
+          "end": 32.045001
+        },
+        {
+          "text": "Cisco",
+          "start": 32.045001,
+          "end": 32.330002
+        },
+        {
+          "text": "Modeling",
+          "start": 32.360001,
+          "end": 32.470001
+        },
+        {
+          "text": "Labs",
+          "start": 32.470001,
+          "end": 32.5600015
+        },
+        {
+          "text": "-",
+          "start": 32.5600015,
+          "end": 32.650002
+        },
+        {
+          "text": "CML",
+          "start": 33.27,
+          "end": 33.5
+        },
+        {
+          "text": "-",
+          "start": 33.540001,
+          "end": 33.6499995
+        },
+        {
+          "text": "simulates",
+          "start": 33.6499995,
+          "end": 33.759998
+        },
+        {
+          "text": "IOS",
+          "start": 33.759998,
+          "end": 34.220001
+        },
+        {
+          "text": "and",
+          "start": 34.52,
+          "end": 34.790000500000005
+        },
+        {
+          "text": "NX-OS",
+          "start": 34.790000500000005,
+          "end": 35.060001
+        },
+        {
+          "text": "routers",
+          "start": 35.099998,
+          "end": 35.869999
+        },
+        {
+          "text": "you",
+          "start": 35.919998,
+          "end": 36
+        },
+        {
+          "text": "can",
+          "start": 36,
+          "end": 36.080002
+        },
+        {
+          "text": "automate",
+          "start": 36.080002,
+          "end": 36.330002
+        },
+        {
+          "text": "like",
+          "start": 36.330002,
+          "end": 36.495001
+        },
+        {
+          "text": "real",
+          "start": 36.495001,
+          "end": 36.66
+        },
+        {
+          "text": "hardware",
+          "start": 36.66,
+          "end": 36.779999
+        },
+        {
+          "text": "Exam",
+          "start": 36.779999,
+          "end": 36.8549995
+        },
+        {
+          "text": "objectives",
+          "start": 36.8549995,
+          "end": 36.93
+        },
+        {
+          "text": "two",
+          "start": 36.93,
+          "end": 37.150002
+        },
+        {
+          "text": "point",
+          "start": 37.150002,
+          "end": 37.3400005
+        },
+        {
+          "text": "four",
+          "start": 37.3400005,
+          "end": 37.529999
+        },
+        {
+          "text": "and",
+          "start": 37.830002,
+          "end": 38.119999
+        },
+        {
+          "text": "two",
+          "start": 38.119999,
+          "end": 38.260000500000004
+        },
+        {
+          "text": "point",
+          "start": 38.260000500000004,
+          "end": 38.400002
+        },
+        {
+          "text": "five",
+          "start": 38.84,
+          "end": 38.970001
+        },
+        {
+          "text": "live",
+          "start": 38.970001,
+          "end": 39.1000005
+        },
+        {
+          "text": "here",
+          "start": 39.1000005,
+          "end": 39.23
+        },
+        {
+          "text": "You",
+          "start": 40.07,
+          "end": 40.150002
+        },
+        {
+          "text": "keep",
+          "start": 40.150002,
+          "end": 40.2550015
+        },
+        {
+          "text": "netops_iac_lab",
+          "start": 40.2550015,
+          "end": 40.360001
+        },
+        {
+          "text": "we",
+          "start": 40.419998,
+          "end": 40.459999
+        },
+        {
+          "text": "add",
+          "start": 40.459999,
+          "end": 40.5699995
+        },
+        {
+          "text": "a",
+          "start": 40.5699995,
+          "end": 40.68
+        },
+        {
+          "text": "docker",
+          "start": 41.32,
+          "end": 41.470001
+        },
+        {
+          "text": "folder",
+          "start": 41.509998,
+          "end": 41.664999
+        },
+        {
+          "text": "and",
+          "start": 41.664999,
+          "end": 41.82
+        },
+        {
+          "text": "a",
+          "start": 41.970001,
+          "end": 42.060001
+        },
+        {
+          "text": "CML",
+          "start": 43.259998,
+          "end": 43.664999
+        },
+        {
+          "text": "inventory",
+          "start": 43.664999,
+          "end": 44.07
+        },
+        {
+          "text": "pattern",
+          "start": 44.07,
+          "end": 45.099998
+        }
+      ]
+    },
+    "deploy-without-lab-breaks": {
+      "words": [
+        {
+          "text": "A",
+          "start": 0.15,
+          "end": 0.3
+        },
+        {
+          "text": "green",
+          "start": 0.3,
+          "end": 0.67
+        },
+        {
+          "text": "pipeline",
+          "start": 0.67,
+          "end": 1.22
+        },
+        {
+          "text": "on",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "text": "main",
+          "start": 1.42,
+          "end": 1.78
+        },
+        {
+          "text": "does",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "text": "not",
+          "start": 2.2,
+          "end": 2.43
+        },
+        {
+          "text": "prove",
+          "start": 2.5,
+          "end": 2.88
+        },
+        {
+          "text": "VLAN",
+          "start": 3.59,
+          "end": 4.02
+        },
+        {
+          "text": "intent",
+          "start": 4.02,
+          "end": 4.41
+        },
+        {
+          "text": "works",
+          "start": 4.47,
+          "end": 4.66
+        },
+        {
+          "text": "on",
+          "start": 4.66,
+          "end": 4.77
+        },
+        {
+          "text": "your",
+          "start": 4.77,
+          "end": 5.13
+        },
+        {
+          "text": "switch",
+          "start": 5.13,
+          "end": 5.67
+        },
+        {
+          "text": "platform",
+          "start": 6.36,
+          "end": 6.77
+        },
+        {
+          "text": "Without",
+          "start": 6.77,
+          "end": 6.83
+        },
+        {
+          "text": "a",
+          "start": 6.83,
+          "end": 7.2
+        },
+        {
+          "text": "lab",
+          "start": 7.49,
+          "end": 7.6
+        },
+        {
+          "text": "the",
+          "start": 7.6,
+          "end": 8.02
+        },
+        {
+          "text": "first",
+          "start": 8.02,
+          "end": 8.61
+        },
+        {
+          "text": "production",
+          "start": 8.61,
+          "end": 8.95
+        },
+        {
+          "text": "run",
+          "start": 9.36,
+          "end": 9.56
+        },
+        {
+          "text": "is",
+          "start": 9.56,
+          "end": 9.72
+        },
+        {
+          "text": "the",
+          "start": 9.75,
+          "end": 10.24
+        },
+        {
+          "text": "test",
+          "start": 10.51,
+          "end": 10.66
+        },
+        {
+          "text": "-",
+          "start": 10.66,
+          "end": 10.77
+        },
+        {
+          "text": "and",
+          "start": 11.7,
+          "end": 12.28
+        },
+        {
+          "text": "the",
+          "start": 12.28,
+          "end": 12.53
+        },
+        {
+          "text": "rollback",
+          "start": 12.53,
+          "end": 12.65
+        },
+        {
+          "text": "Containers",
+          "start": 12.68,
+          "end": 12.77
+        },
+        {
+          "text": "give",
+          "start": 12.77,
+          "end": 13.13
+        },
+        {
+          "text": "you",
+          "start": 13.78,
+          "end": 14.57
+        },
+        {
+          "text": "a",
+          "start": 15.08,
+          "end": 15.41
+        },
+        {
+          "text": "cheap",
+          "start": 15.41,
+          "end": 16.059999
+        },
+        {
+          "text": "repeatable",
+          "start": 16.190001,
+          "end": 16.530001
+        },
+        {
+          "text": "environment",
+          "start": 17.57,
+          "end": 17.950001
+        },
+        {
+          "text": "same",
+          "start": 17.950001,
+          "end": 18.389999
+        },
+        {
+          "text": "Python",
+          "start": 18.389999,
+          "end": 18.82
+        },
+        {
+          "text": "same",
+          "start": 18.92,
+          "end": 19.219999
+        },
+        {
+          "text": "Ansible",
+          "start": 19.219999,
+          "end": 19.6
+        },
+        {
+          "text": "same",
+          "start": 20.549999,
+          "end": 20.860001
+        },
+        {
+          "text": "network",
+          "start": 20.860001,
+          "end": 20.969999
+        },
+        {
+          "text": "layout",
+          "start": 20.969999,
+          "end": 21.379999
+        },
+        {
+          "text": "every",
+          "start": 21.379999,
+          "end": 21.709999
+        },
+        {
+          "text": "time",
+          "start": 21.799999,
+          "end": 22.24
+        },
+        {
+          "text": "CML",
+          "start": 22.24,
+          "end": 22.790001
+        },
+        {
+          "text": "gives",
+          "start": 22.91,
+          "end": 23.41
+        },
+        {
+          "text": "you",
+          "start": 23.540001,
+          "end": 23.91
+        },
+        {
+          "text": "Cisco-like",
+          "start": 23.91,
+          "end": 24.389999
+        },
+        {
+          "text": "control",
+          "start": 24.690001,
+          "end": 25.09
+        },
+        {
+          "text": "planes",
+          "start": 25.09,
+          "end": 25.469999
+        },
+        {
+          "text": "without",
+          "start": 25.469999,
+          "end": 25.85
+        },
+        {
+          "text": "rack",
+          "start": 25.879999,
+          "end": 26.66
+        },
+        {
+          "text": "hardware",
+          "start": 26.809999,
+          "end": 27.15
+        },
+        {
+          "text": "Module",
+          "start": 27.15,
+          "end": 27.190001
+        },
+        {
+          "text": "two",
+          "start": 27.190001,
+          "end": 27.66
+        },
+        {
+          "text": "post-validation",
+          "start": 28.15,
+          "end": 28.540001
+        },
+        {
+          "text": "checked",
+          "start": 28.540001,
+          "end": 29
+        },
+        {
+          "text": "a",
+          "start": 29.16,
+          "end": 29.440001
+        },
+        {
+          "text": "file",
+          "start": 29.440001,
+          "end": 30.059999
+        },
+        {
+          "text": "module",
+          "start": 30.120001,
+          "end": 30.59
+        },
+        {
+          "text": "three",
+          "start": 30.59,
+          "end": 31.059999
+        },
+        {
+          "text": "checks",
+          "start": 31.09,
+          "end": 31.35
+        },
+        {
+          "text": "behavior",
+          "start": 31.780001,
+          "end": 32
+        },
+        {
+          "text": "against",
+          "start": 32,
+          "end": 32.080002
+        },
+        {
+          "text": "something",
+          "start": 32.080002,
+          "end": 32.300001
+        },
+        {
+          "text": "that",
+          "start": 32.300001,
+          "end": 32.52
+        },
+        {
+          "text": "quacks",
+          "start": 32.990002,
+          "end": 33.290001
+        },
+        {
+          "text": "like",
+          "start": 33.380001,
+          "end": 33.67
+        },
+        {
+          "text": "a",
+          "start": 33.67,
+          "end": 33.959999
+        },
+        {
+          "text": "router",
+          "start": 33.959999,
+          "end": 34.080002
+        },
+        {
+          "text": "Both",
+          "start": 34.080002,
+          "end": 34.1100005
+        },
+        {
+          "text": "belong",
+          "start": 34.1100005,
+          "end": 34.139999
+        },
+        {
+          "text": "in",
+          "start": 34.139999,
+          "end": 34.52
+        },
+        {
+          "text": "a",
+          "start": 34.52,
+          "end": 34.875
+        },
+        {
+          "text": "mature",
+          "start": 34.875,
+          "end": 35.23
+        },
+        {
+          "text": "workflow",
+          "start": 35.330002,
+          "end": 35.959999
+        },
+        {
+          "text": "before",
+          "start": 36.02,
+          "end": 36.184999000000005
+        },
+        {
+          "text": "change",
+          "start": 36.184999000000005,
+          "end": 36.349998
+        },
+        {
+          "text": "windows",
+          "start": 36.349998,
+          "end": 36.860001
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 0.3,
+          "end": 2.88
+        },
+        {
+          "start": 8.02,
+          "end": 12.28
+        },
+        null
+      ]
+    },
+    "containers-plain-language": {
+      "words": [
+        {
+          "text": "A",
+          "start": 0.14,
+          "end": 0.24
+        },
+        {
+          "text": "container",
+          "start": 0.24,
+          "end": 0.74
+        },
+        {
+          "text": "is",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "text": "a",
+          "start": 0.9,
+          "end": 0.99
+        },
+        {
+          "text": "lightweight",
+          "start": 0.99,
+          "end": 1.43
+        },
+        {
+          "text": "isolated",
+          "start": 1.43,
+          "end": 2.14
+        },
+        {
+          "text": "process",
+          "start": 2.14,
+          "end": 2.73
+        },
+        {
+          "text": "with",
+          "start": 2.8,
+          "end": 3.02
+        },
+        {
+          "text": "its",
+          "start": 3.02,
+          "end": 3.23
+        },
+        {
+          "text": "own",
+          "start": 3.27,
+          "end": 3.48
+        },
+        {
+          "text": "filesystem",
+          "start": 4.23,
+          "end": 4.74
+        },
+        {
+          "text": "slice",
+          "start": 4.79,
+          "end": 5.07
+        },
+        {
+          "text": "-",
+          "start": 5.07,
+          "end": 5.12
+        },
+        {
+          "text": "not",
+          "start": 5.12,
+          "end": 5.44
+        },
+        {
+          "text": "a",
+          "start": 5.44,
+          "end": 5.78
+        },
+        {
+          "text": "full",
+          "start": 5.78,
+          "end": 6.29
+        },
+        {
+          "text": "virtual",
+          "start": 6.95,
+          "end": 7.11
+        },
+        {
+          "text": "machine",
+          "start": 7.11,
+          "end": 7.43
+        },
+        {
+          "text": "An",
+          "start": 7.43,
+          "end": 7.56
+        },
+        {
+          "text": "image",
+          "start": 7.56,
+          "end": 7.68
+        },
+        {
+          "text": "is",
+          "start": 7.68,
+          "end": 7.93
+        },
+        {
+          "text": "the",
+          "start": 7.96,
+          "end": 8.26
+        },
+        {
+          "text": "read-only",
+          "start": 8.26,
+          "end": 8.9
+        },
+        {
+          "text": "template",
+          "start": 9.64,
+          "end": 9.73
+        },
+        {
+          "text": "a",
+          "start": 9.73,
+          "end": 10.09
+        },
+        {
+          "text": "running",
+          "start": 10.09,
+          "end": 10.62
+        },
+        {
+          "text": "container",
+          "start": 10.62,
+          "end": 10.8
+        },
+        {
+          "text": "is",
+          "start": 10.8,
+          "end": 11.01
+        },
+        {
+          "text": "an",
+          "start": 11.01,
+          "end": 11.51
+        },
+        {
+          "text": "instance",
+          "start": 11.51,
+          "end": 11.68
+        },
+        {
+          "text": "of",
+          "start": 11.68,
+          "end": 11.86
+        },
+        {
+          "text": "that",
+          "start": 11.91,
+          "end": 12.43
+        },
+        {
+          "text": "image",
+          "start": 12.87,
+          "end": 13.19
+        },
+        {
+          "text": "Docker",
+          "start": 13.19,
+          "end": 13.52
+        },
+        {
+          "text": "pulls",
+          "start": 13.52,
+          "end": 14.14
+        },
+        {
+          "text": "images",
+          "start": 14.14,
+          "end": 14.36
+        },
+        {
+          "text": "from",
+          "start": 14.36,
+          "end": 14.42
+        },
+        {
+          "text": "a",
+          "start": 14.42,
+          "end": 15.07
+        },
+        {
+          "text": "registry",
+          "start": 15.36,
+          "end": 15.53
+        },
+        {
+          "text": "and",
+          "start": 15.53,
+          "end": 15.96
+        },
+        {
+          "text": "starts",
+          "start": 15.96,
+          "end": 16.629999
+        },
+        {
+          "text": "containers",
+          "start": 16.629999,
+          "end": 16.82
+        },
+        {
+          "text": "with",
+          "start": 16.82,
+          "end": 17.059999
+        },
+        {
+          "text": "one",
+          "start": 17.059999,
+          "end": 17.559999
+        },
+        {
+          "text": "command",
+          "start": 17.879999,
+          "end": 18
+        },
+        {
+          "text": "For",
+          "start": 18,
+          "end": 18.450001
+        },
+        {
+          "text": "network",
+          "start": 18.450001,
+          "end": 19.200001
+        },
+        {
+          "text": "automation",
+          "start": 19.75,
+          "end": 20.33
+        },
+        {
+          "text": "containers",
+          "start": 20.33,
+          "end": 20.77
+        },
+        {
+          "text": "solve",
+          "start": 21.02,
+          "end": 21.200001
+        },
+        {
+          "text": "it",
+          "start": 21.200001,
+          "end": 21.49
+        },
+        {
+          "text": "works",
+          "start": 21.49,
+          "end": 21.610001
+        },
+        {
+          "text": "on",
+          "start": 21.610001,
+          "end": 21.74
+        },
+        {
+          "text": "my",
+          "start": 21.74,
+          "end": 22.23
+        },
+        {
+          "text": "laptop",
+          "start": 22.57,
+          "end": 22.700001
+        },
+        {
+          "text": "-",
+          "start": 23.200001,
+          "end": 23.77
+        },
+        {
+          "text": "your",
+          "start": 23.860001,
+          "end": 24.030001
+        },
+        {
+          "text": "Ansible",
+          "start": 24.030001,
+          "end": 24.42
+        },
+        {
+          "text": "version",
+          "start": 24.42,
+          "end": 25.120001
+        },
+        {
+          "text": "and",
+          "start": 25.23,
+          "end": 25.610001
+        },
+        {
+          "text": "Python",
+          "start": 26.309999,
+          "end": 26.459999
+        },
+        {
+          "text": "packages",
+          "start": 26.459999,
+          "end": 26.6
+        },
+        {
+          "text": "match",
+          "start": 26.65,
+          "end": 27
+        },
+        {
+          "text": "CI",
+          "start": 27.57,
+          "end": 27.68
+        },
+        {
+          "text": "and",
+          "start": 27.68,
+          "end": 28.01
+        },
+        {
+          "text": "your",
+          "start": 28.01,
+          "end": 28.27
+        },
+        {
+          "text": "teammate",
+          "start": 28.299999,
+          "end": 28.940001
+        },
+        {
+          "text": "You",
+          "start": 29.33,
+          "end": 29.559999
+        },
+        {
+          "text": "still",
+          "start": 29.559999,
+          "end": 29.675
+        },
+        {
+          "text": "need",
+          "start": 29.675,
+          "end": 29.790001
+        },
+        {
+          "text": "Compose",
+          "start": 29.790001,
+          "end": 30.26
+        },
+        {
+          "text": "when",
+          "start": 30.26,
+          "end": 30.3599995
+        },
+        {
+          "text": "one",
+          "start": 30.3599995,
+          "end": 30.459999
+        },
+        {
+          "text": "command",
+          "start": 30.459999,
+          "end": 30.77
+        },
+        {
+          "text": "must",
+          "start": 30.77,
+          "end": 31.060000000000002
+        },
+        {
+          "text": "start",
+          "start": 31.060000000000002,
+          "end": 31.35
+        },
+        {
+          "text": "several",
+          "start": 31.35,
+          "end": 31.82
+        },
+        {
+          "text": "linked",
+          "start": 31.85,
+          "end": 32.185
+        },
+        {
+          "text": "containers",
+          "start": 32.185,
+          "end": 32.52
+        },
+        {
+          "text": "together",
+          "start": 32.52,
+          "end": 33.040001
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 1.43,
+          "end": 5.12
+        },
+        {
+          "start": 7.56,
+          "end": 10.62
+        },
+        {
+          "start": 29.790001,
+          "end": 31.35
+        }
+      ]
+    },
+    "vm-vs-container": {
+      "words": [
+        {
+          "text": "A",
+          "start": 0.16,
+          "end": 0.25
+        },
+        {
+          "text": "virtual",
+          "start": 0.25,
+          "end": 0.65
+        },
+        {
+          "text": "machine",
+          "start": 0.65,
+          "end": 1.16
+        },
+        {
+          "text": "emulates",
+          "start": 1.76,
+          "end": 2.28
+        },
+        {
+          "text": "hardware",
+          "start": 2.48,
+          "end": 2.75
+        },
+        {
+          "text": "and",
+          "start": 2.75,
+          "end": 3.11
+        },
+        {
+          "text": "boots",
+          "start": 3.17,
+          "end": 3.28
+        },
+        {
+          "text": "a",
+          "start": 3.32,
+          "end": 3.64
+        },
+        {
+          "text": "full",
+          "start": 3.64,
+          "end": 4.14
+        },
+        {
+          "text": "guest",
+          "start": 4.2,
+          "end": 4.57
+        },
+        {
+          "text": "OS",
+          "start": 4.57,
+          "end": 5.16
+        },
+        {
+          "text": "-",
+          "start": 5.33,
+          "end": 5.41
+        },
+        {
+          "text": "minutes",
+          "start": 5.41,
+          "end": 5.93
+        },
+        {
+          "text": "to",
+          "start": 6.16,
+          "end": 6.85
+        },
+        {
+          "text": "start",
+          "start": 6.85,
+          "end": 7.06
+        },
+        {
+          "text": "gigabytes",
+          "start": 7.06,
+          "end": 7.53
+        },
+        {
+          "text": "of",
+          "start": 7.75,
+          "end": 7.85
+        },
+        {
+          "text": "disk",
+          "start": 7.85,
+          "end": 8.39
+        },
+        {
+          "text": "A",
+          "start": 8.39,
+          "end": 8.8
+        },
+        {
+          "text": "container",
+          "start": 8.8,
+          "end": 8.91
+        },
+        {
+          "text": "shares",
+          "start": 8.91,
+          "end": 9.3
+        },
+        {
+          "text": "the",
+          "start": 9.3,
+          "end": 9.77
+        },
+        {
+          "text": "host",
+          "start": 9.96,
+          "end": 10.13
+        },
+        {
+          "text": "kernel",
+          "start": 10.13,
+          "end": 10.64
+        },
+        {
+          "text": "and",
+          "start": 10.69,
+          "end": 10.86
+        },
+        {
+          "text": "starts",
+          "start": 10.86,
+          "end": 11.4
+        },
+        {
+          "text": "in",
+          "start": 12.23,
+          "end": 12.38
+        },
+        {
+          "text": "seconds",
+          "start": 12.38,
+          "end": 12.43
+        },
+        {
+          "text": "-",
+          "start": 12.43,
+          "end": 12.84
+        },
+        {
+          "text": "megabytes",
+          "start": 12.84,
+          "end": 13.36
+        },
+        {
+          "text": "for",
+          "start": 13.4,
+          "end": 13.92
+        },
+        {
+          "text": "a",
+          "start": 14.17,
+          "end": 14.58
+        },
+        {
+          "text": "slim",
+          "start": 14.58,
+          "end": 14.9
+        },
+        {
+          "text": "Python",
+          "start": 14.9,
+          "end": 15.22
+        },
+        {
+          "text": "image",
+          "start": 15.63,
+          "end": 15.79
+        },
+        {
+          "text": "Network",
+          "start": 15.79,
+          "end": 16.209999
+        },
+        {
+          "text": "teams",
+          "start": 16.27,
+          "end": 16.370001
+        },
+        {
+          "text": "used",
+          "start": 16.370001,
+          "end": 16.85
+        },
+        {
+          "text": "VMs",
+          "start": 17.41,
+          "end": 18.24
+        },
+        {
+          "text": "for",
+          "start": 18.389999,
+          "end": 18.950001
+        },
+        {
+          "text": "years",
+          "start": 18.950001,
+          "end": 19.040001
+        },
+        {
+          "text": "to",
+          "start": 19.040001,
+          "end": 19.139999
+        },
+        {
+          "text": "isolate",
+          "start": 19.139999,
+          "end": 19.559999
+        },
+        {
+          "text": "Ansible",
+          "start": 19.559999,
+          "end": 20.07
+        },
+        {
+          "text": "controllers",
+          "start": 20.07,
+          "end": 20.18
+        },
+        {
+          "text": "containers",
+          "start": 20.700001,
+          "end": 21.200001
+        },
+        {
+          "text": "are",
+          "start": 21.23,
+          "end": 21.41
+        },
+        {
+          "text": "the",
+          "start": 21.41,
+          "end": 21.6449995
+        },
+        {
+          "text": "modern",
+          "start": 21.6449995,
+          "end": 21.879999
+        },
+        {
+          "text": "default",
+          "start": 21.879999,
+          "end": 22.309999
+        },
+        {
+          "text": "in",
+          "start": 22.98,
+          "end": 23.23
+        },
+        {
+          "text": "CI",
+          "start": 23.23,
+          "end": 23.48
+        },
+        {
+          "text": "runners",
+          "start": 23.48,
+          "end": 23.77
+        },
+        {
+          "text": "and",
+          "start": 23.77,
+          "end": 23.88
+        },
+        {
+          "text": "laptop",
+          "start": 23.88,
+          "end": 23.99
+        },
+        {
+          "text": "labs",
+          "start": 24.48,
+          "end": 24.610001
+        },
+        {
+          "text": "CML",
+          "start": 24.610001,
+          "end": 24.745
+        },
+        {
+          "text": "itself",
+          "start": 24.745,
+          "end": 24.879999
+        },
+        {
+          "text": "runs",
+          "start": 24.879999,
+          "end": 25.27
+        },
+        {
+          "text": "as",
+          "start": 25.27,
+          "end": 25.345
+        },
+        {
+          "text": "VMs",
+          "start": 25.345,
+          "end": 25.42
+        },
+        {
+          "text": "or",
+          "start": 25.42,
+          "end": 25.549999
+        },
+        {
+          "text": "bare",
+          "start": 25.549999,
+          "end": 25.679999000000002
+        },
+        {
+          "text": "metal",
+          "start": 25.679999000000002,
+          "end": 25.809999
+        },
+        {
+          "text": "in",
+          "start": 25.809999,
+          "end": 26.219999
+        },
+        {
+          "text": "your",
+          "start": 26.219999,
+          "end": 26.4949995
+        },
+        {
+          "text": "lab",
+          "start": 26.4949995,
+          "end": 26.77
+        },
+        {
+          "text": "server",
+          "start": 26.77,
+          "end": 27.1
+        },
+        {
+          "text": "-",
+          "start": 27.4,
+          "end": 27.615
+        },
+        {
+          "text": "different",
+          "start": 27.615,
+          "end": 27.83
+        },
+        {
+          "text": "layer",
+          "start": 27.83,
+          "end": 28.02
+        },
+        {
+          "text": "Exam",
+          "start": 28.02,
+          "end": 28.1550005
+        },
+        {
+          "text": "two",
+          "start": 28.1550005,
+          "end": 28.290001
+        },
+        {
+          "text": "point",
+          "start": 28.290001,
+          "end": 28.75
+        },
+        {
+          "text": "five",
+          "start": 28.99,
+          "end": 29.335
+        },
+        {
+          "text": "focuses",
+          "start": 29.335,
+          "end": 29.68
+        },
+        {
+          "text": "on",
+          "start": 29.75,
+          "end": 29.99
+        },
+        {
+          "text": "Docker",
+          "start": 29.99,
+          "end": 30.13
+        },
+        {
+          "text": "Compose",
+          "start": 30.13,
+          "end": 30.27
+        },
+        {
+          "text": "files",
+          "start": 30.27,
+          "end": 30.940001
+        },
+        {
+          "text": "not",
+          "start": 31.139999,
+          "end": 31.469999
+        },
+        {
+          "text": "hypervisor",
+          "start": 31.469999,
+          "end": 31.799999
+        },
+        {
+          "text": "sizing",
+          "start": 32.029999,
+          "end": 32.310001
+        }
+      ],
+      "leftPhraseTimes": [
+        {
+          "start": 3.64,
+          "end": 7.53
+        },
+        {
+          "start": 5.41,
+          "end": 8.91
+        },
+        {
+          "start": 17.41,
+          "end": 21.200001
+        }
+      ],
+      "rightPhraseTimes": [
+        {
+          "start": 8.91,
+          "end": 12.84
+        },
+        {
+          "start": 10.86,
+          "end": 14.9
+        },
+        {
+          "start": 23.23,
+          "end": 25.345
+        }
+      ]
+    },
+    "compose-four-concepts-exam": {
+      "words": [
+        {
+          "text": "Exam",
+          "start": 0.09,
+          "end": 0.48
+        },
+        {
+          "text": "objective",
+          "start": 0.48,
+          "end": 1.05
+        },
+        {
+          "text": "two",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "text": "point",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "text": "five",
+          "start": 1.45,
+          "end": 1.81
+        },
+        {
+          "text": "asks",
+          "start": 1.89,
+          "end": 2.34
+        },
+        {
+          "text": "you",
+          "start": 2.34,
+          "end": 2.47
+        },
+        {
+          "text": "to",
+          "start": 2.52,
+          "end": 2.59
+        },
+        {
+          "text": "interpret",
+          "start": 2.59,
+          "end": 3.13
+        },
+        {
+          "text": "a",
+          "start": 3.13,
+          "end": 3.19
+        },
+        {
+          "text": "Docker",
+          "start": 3.19,
+          "end": 3.53
+        },
+        {
+          "text": "Compose",
+          "start": 3.53,
+          "end": 4.04
+        },
+        {
+          "text": "file",
+          "start": 4.04,
+          "end": 4.4
+        },
+        {
+          "text": "-",
+          "start": 4.4,
+          "end": 4.7
+        },
+        {
+          "text": "four",
+          "start": 4.7,
+          "end": 5.47
+        },
+        {
+          "text": "keywords",
+          "start": 5.94,
+          "end": 6.66
+        },
+        {
+          "text": "Services",
+          "start": 6.66,
+          "end": 6.87
+        },
+        {
+          "text": "are",
+          "start": 6.87,
+          "end": 6.99
+        },
+        {
+          "text": "the",
+          "start": 6.99,
+          "end": 7.57
+        },
+        {
+          "text": "containers",
+          "start": 7.57,
+          "end": 7.67
+        },
+        {
+          "text": "you",
+          "start": 7.67,
+          "end": 8.14
+        },
+        {
+          "text": "define",
+          "start": 8.99,
+          "end": 9.59
+        },
+        {
+          "text": "-",
+          "start": 10.01,
+          "end": 10.81
+        },
+        {
+          "text": "ansible",
+          "start": 11.21,
+          "end": 11.74
+        },
+        {
+          "text": "target",
+          "start": 11.74,
+          "end": 12.13
+        },
+        {
+          "text": "database",
+          "start": 12.13,
+          "end": 12.8
+        },
+        {
+          "text": "Networks",
+          "start": 12.8,
+          "end": 12.99
+        },
+        {
+          "text": "connect",
+          "start": 12.99,
+          "end": 13.44
+        },
+        {
+          "text": "services",
+          "start": 14.15,
+          "end": 14.76
+        },
+        {
+          "text": "on",
+          "start": 14.76,
+          "end": 15.03
+        },
+        {
+          "text": "virtual",
+          "start": 15.06,
+          "end": 15.56
+        },
+        {
+          "text": "L2",
+          "start": 15.56,
+          "end": 15.91
+        },
+        {
+          "text": "segments",
+          "start": 16.58,
+          "end": 16.719999
+        },
+        {
+          "text": "-",
+          "start": 16.75,
+          "end": 17.09
+        },
+        {
+          "text": "lab",
+          "start": 17.09,
+          "end": 17.35
+        },
+        {
+          "text": "underscore",
+          "start": 17.35,
+          "end": 17.43
+        },
+        {
+          "text": "net",
+          "start": 17.43,
+          "end": 17.91
+        },
+        {
+          "text": "isolates",
+          "start": 18.26,
+          "end": 18.77
+        },
+        {
+          "text": "your",
+          "start": 18.77,
+          "end": 19.450001
+        },
+        {
+          "text": "test",
+          "start": 19.68,
+          "end": 19.84
+        },
+        {
+          "text": "from",
+          "start": 19.84,
+          "end": 20.200001
+        },
+        {
+          "text": "the",
+          "start": 20.200001,
+          "end": 20.559999
+        },
+        {
+          "text": "host",
+          "start": 20.559999,
+          "end": 21.25
+        },
+        {
+          "text": "Volumes",
+          "start": 21.639999,
+          "end": 21.9
+        },
+        {
+          "text": "persist",
+          "start": 21.9,
+          "end": 22.57
+        },
+        {
+          "text": "or",
+          "start": 22.950001,
+          "end": 23.389999
+        },
+        {
+          "text": "mount",
+          "start": 23.43,
+          "end": 23.57
+        },
+        {
+          "text": "host",
+          "start": 24.209999,
+          "end": 24.48
+        },
+        {
+          "text": "directories",
+          "start": 24.48,
+          "end": 25
+        },
+        {
+          "text": "into",
+          "start": 25.120001,
+          "end": 25.809999
+        },
+        {
+          "text": "containers",
+          "start": 25.98,
+          "end": 26.25
+        },
+        {
+          "text": "-",
+          "start": 26.25,
+          "end": 26.73
+        },
+        {
+          "text": "mount",
+          "start": 26.73,
+          "end": 27.24
+        },
+        {
+          "text": "the",
+          "start": 27.24,
+          "end": 27.34
+        },
+        {
+          "text": "repo",
+          "start": 27.34,
+          "end": 28.030001
+        },
+        {
+          "text": "into",
+          "start": 28.08,
+          "end": 28.469999
+        },
+        {
+          "text": "slash",
+          "start": 28.469999,
+          "end": 28.77
+        },
+        {
+          "text": "workspace",
+          "start": 29.07,
+          "end": 29.209999
+        },
+        {
+          "text": "Links",
+          "start": 29.209999,
+          "end": 29.389999500000002
+        },
+        {
+          "text": "connected",
+          "start": 29.389999500000002,
+          "end": 29.57
+        },
+        {
+          "text": "containers",
+          "start": 29.57,
+          "end": 30.08
+        },
+        {
+          "text": "in",
+          "start": 30.08,
+          "end": 30.1899995
+        },
+        {
+          "text": "Compose",
+          "start": 30.1899995,
+          "end": 30.299999
+        },
+        {
+          "text": "version",
+          "start": 30.299999,
+          "end": 30.790001
+        },
+        {
+          "text": "two",
+          "start": 30.790001,
+          "end": 30.910001
+        },
+        {
+          "text": "in",
+          "start": 30.910001,
+          "end": 31.030001
+        },
+        {
+          "text": "modern",
+          "start": 31.030001,
+          "end": 31.32
+        },
+        {
+          "text": "Compose",
+          "start": 31.32,
+          "end": 31.470000499999998
+        },
+        {
+          "text": "use",
+          "start": 31.470000499999998,
+          "end": 31.620001
+        },
+        {
+          "text": "depends",
+          "start": 31.620001,
+          "end": 32.25
+        },
+        {
+          "text": "on",
+          "start": 32.349998,
+          "end": 32.6099985
+        },
+        {
+          "text": "plus",
+          "start": 32.6099985,
+          "end": 32.869999
+        },
+        {
+          "text": "shared",
+          "start": 32.869999,
+          "end": 32.950001
+        },
+        {
+          "text": "networks",
+          "start": 32.950001,
+          "end": 33.1849995
+        },
+        {
+          "text": "instead",
+          "start": 33.1849995,
+          "end": 33.419998
+        },
+        {
+          "text": "-",
+          "start": 33.419998,
+          "end": 33.52
+        },
+        {
+          "text": "the",
+          "start": 33.52,
+          "end": 33.684999000000005
+        },
+        {
+          "text": "exam",
+          "start": 33.684999000000005,
+          "end": 33.849998
+        },
+        {
+          "text": "may",
+          "start": 33.880001,
+          "end": 34.25
+        },
+        {
+          "text": "show",
+          "start": 34.52,
+          "end": 34.604999500000005
+        },
+        {
+          "text": "either",
+          "start": 34.604999500000005,
+          "end": 34.689999
+        },
+        {
+          "text": "know",
+          "start": 34.689999,
+          "end": 34.990002
+        },
+        {
+          "text": "both",
+          "start": 34.990002,
+          "end": 35.1400015
+        },
+        {
+          "text": "map",
+          "start": 35.1400015,
+          "end": 35.290001
+        },
+        {
+          "text": "to",
+          "start": 35.349998,
+          "end": 35.419998
+        },
+        {
+          "text": "reachability",
+          "start": 35.709999,
+          "end": 36.0149995
+        },
+        {
+          "text": "between",
+          "start": 36.0149995,
+          "end": 36.32
+        },
+        {
+          "text": "services",
+          "start": 36.580002,
+          "end": 37.209999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 14.15,
+          "end": 17.35
+        },
+        null,
+        {
+          "start": 21.639999,
+          "end": 25
+        }
+      ]
+    },
+    "reading-docker-compose": {
+      "words": [
+        {
+          "text": "A",
+          "start": 0.11,
+          "end": 0.21
+        },
+        {
+          "text": "compose",
+          "start": 0.21,
+          "end": 0.64
+        },
+        {
+          "text": "file",
+          "start": 0.64,
+          "end": 1.06
+        },
+        {
+          "text": "is",
+          "start": 1.15,
+          "end": 1.54
+        },
+        {
+          "text": "YAML",
+          "start": 2.77,
+          "end": 3.17
+        },
+        {
+          "text": "with",
+          "start": 3.17,
+          "end": 3.36
+        },
+        {
+          "text": "a",
+          "start": 3.42,
+          "end": 3.66
+        },
+        {
+          "text": "top-level",
+          "start": 3.66,
+          "end": 4.18
+        },
+        {
+          "text": "services",
+          "start": 4.44,
+          "end": 5.17
+        },
+        {
+          "text": "key",
+          "start": 5.51,
+          "end": 5.8
+        },
+        {
+          "text": "Each",
+          "start": 6.27,
+          "end": 6.52
+        },
+        {
+          "text": "service",
+          "start": 6.52,
+          "end": 7.12
+        },
+        {
+          "text": "names",
+          "start": 7.26,
+          "end": 7.68
+        },
+        {
+          "text": "an",
+          "start": 7.68,
+          "end": 7.89
+        },
+        {
+          "text": "image",
+          "start": 7.93,
+          "end": 8.48
+        },
+        {
+          "text": "command",
+          "start": 8.66,
+          "end": 9.28
+        },
+        {
+          "text": "environment",
+          "start": 9.56,
+          "end": 10.32
+        },
+        {
+          "text": "variables",
+          "start": 10.32,
+          "end": 11.03
+        },
+        {
+          "text": "volume",
+          "start": 11.24,
+          "end": 11.78
+        },
+        {
+          "text": "mounts",
+          "start": 11.78,
+          "end": 12.28
+        },
+        {
+          "text": "and",
+          "start": 12.47,
+          "end": 12.73
+        },
+        {
+          "text": "network",
+          "start": 12.87,
+          "end": 13.39
+        },
+        {
+          "text": "memberships",
+          "start": 13.42,
+          "end": 14.14
+        },
+        {
+          "text": "The",
+          "start": 14.41,
+          "end": 14.52
+        },
+        {
+          "text": "networks",
+          "start": 14.52,
+          "end": 14.93
+        },
+        {
+          "text": "section",
+          "start": 14.93,
+          "end": 15.36
+        },
+        {
+          "text": "declares",
+          "start": 15.36,
+          "end": 15.97
+        },
+        {
+          "text": "named",
+          "start": 16.23,
+          "end": 16.620001
+        },
+        {
+          "text": "networks",
+          "start": 16.709999,
+          "end": 17.25
+        },
+        {
+          "text": "-",
+          "start": 17.25,
+          "end": 17.82
+        },
+        {
+          "text": "bridge",
+          "start": 18.040001,
+          "end": 18.23
+        },
+        {
+          "text": "is",
+          "start": 18.23,
+          "end": 18.719999
+        },
+        {
+          "text": "default",
+          "start": 18.82,
+          "end": 19.07
+        },
+        {
+          "text": "on",
+          "start": 19.07,
+          "end": 19.559999
+        },
+        {
+          "text": "Linux",
+          "start": 19.790001,
+          "end": 19.91
+        },
+        {
+          "text": "The",
+          "start": 19.91,
+          "end": 20.33
+        },
+        {
+          "text": "volumes",
+          "start": 20.33,
+          "end": 20.780001
+        },
+        {
+          "text": "section",
+          "start": 20.780001,
+          "end": 21.4
+        },
+        {
+          "text": "declares",
+          "start": 21.51,
+          "end": 21.91
+        },
+        {
+          "text": "named",
+          "start": 21.91,
+          "end": 22.43
+        },
+        {
+          "text": "volumes",
+          "start": 22.43,
+          "end": 22.73
+        },
+        {
+          "text": "Docker",
+          "start": 22.73,
+          "end": 23.379999
+        },
+        {
+          "text": "manages",
+          "start": 23.6,
+          "end": 23.780001
+        },
+        {
+          "text": "When",
+          "start": 23.780001,
+          "end": 23.860001
+        },
+        {
+          "text": "the",
+          "start": 23.860001,
+          "end": 24.27
+        },
+        {
+          "text": "exam",
+          "start": 24.27,
+          "end": 24.700001
+        },
+        {
+          "text": "shows",
+          "start": 24.74,
+          "end": 24.84
+        },
+        {
+          "text": "a",
+          "start": 24.84,
+          "end": 25.459999
+        },
+        {
+          "text": "snippet",
+          "start": 25.77,
+          "end": 26.129999
+        },
+        {
+          "text": "trace",
+          "start": 26.129999,
+          "end": 26.35
+        },
+        {
+          "text": "which",
+          "start": 26.35,
+          "end": 26.969999
+        },
+        {
+          "text": "service",
+          "start": 27.120001,
+          "end": 27.620001
+        },
+        {
+          "text": "mounts",
+          "start": 27.620001,
+          "end": 27.85
+        },
+        {
+          "text": "which",
+          "start": 27.85,
+          "end": 28.32
+        },
+        {
+          "text": "volume",
+          "start": 28.35,
+          "end": 28.530001
+        },
+        {
+          "text": "and",
+          "start": 28.530001,
+          "end": 28.85
+        },
+        {
+          "text": "which",
+          "start": 28.85,
+          "end": 29.35
+        },
+        {
+          "text": "network",
+          "start": 29.469999,
+          "end": 29.66
+        },
+        {
+          "text": "-",
+          "start": 29.66,
+          "end": 30.059999
+        },
+        {
+          "text": "that",
+          "start": 30.059999,
+          "end": 30.24
+        },
+        {
+          "text": "tells",
+          "start": 30.24,
+          "end": 30.4
+        },
+        {
+          "text": "you",
+          "start": 30.4,
+          "end": 30.66
+        },
+        {
+          "text": "who",
+          "start": 30.66,
+          "end": 30.969999
+        },
+        {
+          "text": "can",
+          "start": 30.969999,
+          "end": 31.33
+        },
+        {
+          "text": "ping",
+          "start": 31.629999,
+          "end": 31.77
+        },
+        {
+          "text": "whom",
+          "start": 31.77,
+          "end": 31.88
+        },
+        {
+          "text": "Our",
+          "start": 31.88,
+          "end": 31.99
+        },
+        {
+          "text": "lab",
+          "start": 31.99,
+          "end": 32.52
+        },
+        {
+          "text": "mounts",
+          "start": 32.720001,
+          "end": 32.880001
+        },
+        {
+          "text": "netops_iac_lab",
+          "start": 32.880001,
+          "end": 33.040001
+        },
+        {
+          "text": "into",
+          "start": 33.549999,
+          "end": 33.75
+        },
+        {
+          "text": "the",
+          "start": 34.549999,
+          "end": 34.955
+        },
+        {
+          "text": "ansible",
+          "start": 34.955,
+          "end": 35.360001
+        },
+        {
+          "text": "service",
+          "start": 35.549999,
+          "end": 35.709999
+        },
+        {
+          "text": "at",
+          "start": 35.709999,
+          "end": 35.885000000000005
+        },
+        {
+          "text": "slash",
+          "start": 35.885000000000005,
+          "end": 36.060001
+        },
+        {
+          "text": "workspace",
+          "start": 36.060001,
+          "end": 36.509998
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 3.66,
+          "end": 7.68
+        },
+        null,
+        null
+      ]
+    },
+    "cml-plain-language": {
+      "words": [
+        {
+          "text": "Cisco",
+          "start": 0.07,
+          "end": 0.48
+        },
+        {
+          "text": "Modeling",
+          "start": 0.48,
+          "end": 0.94
+        },
+        {
+          "text": "Labs",
+          "start": 0.94,
+          "end": 1.42
+        },
+        {
+          "text": "-",
+          "start": 2.14,
+          "end": 2.59
+        },
+        {
+          "text": "CML",
+          "start": 2.59,
+          "end": 3
+        },
+        {
+          "text": "-",
+          "start": 3,
+          "end": 3.72
+        },
+        {
+          "text": "runs",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "text": "virtual",
+          "start": 3.98,
+          "end": 4.63
+        },
+        {
+          "text": "routers",
+          "start": 4.67,
+          "end": 4.83
+        },
+        {
+          "text": "and",
+          "start": 4.83,
+          "end": 4.89
+        },
+        {
+          "text": "switches",
+          "start": 4.89,
+          "end": 5.2
+        },
+        {
+          "text": "on",
+          "start": 5.2,
+          "end": 5.54
+        },
+        {
+          "text": "a",
+          "start": 5.54,
+          "end": 5.73
+        },
+        {
+          "text": "lab",
+          "start": 5.76,
+          "end": 6.28
+        },
+        {
+          "text": "server",
+          "start": 6.67,
+          "end": 6.79
+        },
+        {
+          "text": "you",
+          "start": 6.79,
+          "end": 7.07
+        },
+        {
+          "text": "control",
+          "start": 7.07,
+          "end": 7.11
+        },
+        {
+          "text": "You",
+          "start": 7.11,
+          "end": 7.84
+        },
+        {
+          "text": "build",
+          "start": 7.84,
+          "end": 8.03
+        },
+        {
+          "text": "a",
+          "start": 8.03,
+          "end": 8.13
+        },
+        {
+          "text": "topology",
+          "start": 8.13,
+          "end": 8.39
+        },
+        {
+          "text": "in",
+          "start": 8.79,
+          "end": 9.28
+        },
+        {
+          "text": "the",
+          "start": 10.34,
+          "end": 10.5
+        },
+        {
+          "text": "web",
+          "start": 11.06,
+          "end": 11.64
+        },
+        {
+          "text": "UI",
+          "start": 11.82,
+          "end": 12.25
+        },
+        {
+          "text": "-",
+          "start": 12.28,
+          "end": 13.2
+        },
+        {
+          "text": "drag",
+          "start": 13.33,
+          "end": 13.68
+        },
+        {
+          "text": "IOSv",
+          "start": 13.75,
+          "end": 13.83
+        },
+        {
+          "text": "or",
+          "start": 13.83,
+          "end": 14.27
+        },
+        {
+          "text": "CSR",
+          "start": 14.62,
+          "end": 14.9
+        },
+        {
+          "text": "nodes",
+          "start": 14.9,
+          "end": 15.28
+        },
+        {
+          "text": "connect",
+          "start": 15.61,
+          "end": 15.87
+        },
+        {
+          "text": "interfaces",
+          "start": 15.87,
+          "end": 15.91
+        },
+        {
+          "text": "start",
+          "start": 15.91,
+          "end": 16.58
+        },
+        {
+          "text": "the",
+          "start": 16.58,
+          "end": 17.190001
+        },
+        {
+          "text": "lab",
+          "start": 17.700001,
+          "end": 17.870001
+        },
+        {
+          "text": "Each",
+          "start": 18.190001,
+          "end": 18.969999
+        },
+        {
+          "text": "node",
+          "start": 18.969999,
+          "end": 19.34
+        },
+        {
+          "text": "gets",
+          "start": 19.34,
+          "end": 19.66
+        },
+        {
+          "text": "a",
+          "start": 20.379999,
+          "end": 21.450001
+        },
+        {
+          "text": "management",
+          "start": 21.450001,
+          "end": 21.639999
+        },
+        {
+          "text": "IP",
+          "start": 21.639999,
+          "end": 21.93
+        },
+        {
+          "text": "your",
+          "start": 21.93,
+          "end": 22.26
+        },
+        {
+          "text": "Ansible",
+          "start": 22.290001,
+          "end": 22.85
+        },
+        {
+          "text": "inventory",
+          "start": 22.85,
+          "end": 22.91
+        },
+        {
+          "text": "targets",
+          "start": 22.91,
+          "end": 22.940001
+        },
+        {
+          "text": "Exam",
+          "start": 22.940001,
+          "end": 23.6
+        },
+        {
+          "text": "objective",
+          "start": 23.6,
+          "end": 23.67
+        },
+        {
+          "text": "two",
+          "start": 23.67,
+          "end": 24.34
+        },
+        {
+          "text": "point",
+          "start": 24.379999,
+          "end": 24.450001
+        },
+        {
+          "text": "four",
+          "start": 24.450001,
+          "end": 24.790001
+        },
+        {
+          "text": "expects",
+          "start": 24.790001,
+          "end": 24.83
+        },
+        {
+          "text": "you",
+          "start": 24.83,
+          "end": 25.459999
+        },
+        {
+          "text": "to",
+          "start": 25.66,
+          "end": 26.299999
+        },
+        {
+          "text": "construct",
+          "start": 26.299999,
+          "end": 26.634999
+        },
+        {
+          "text": "a",
+          "start": 26.634999,
+          "end": 26.969999
+        },
+        {
+          "text": "simulation",
+          "start": 27.15,
+          "end": 27.370001
+        },
+        {
+          "text": "to",
+          "start": 27.370001,
+          "end": 27.535001
+        },
+        {
+          "text": "test",
+          "start": 27.535001,
+          "end": 27.700001
+        },
+        {
+          "text": "a",
+          "start": 27.700001,
+          "end": 28.360001
+        },
+        {
+          "text": "network",
+          "start": 28.360001,
+          "end": 28.5500005
+        },
+        {
+          "text": "automation",
+          "start": 28.5500005,
+          "end": 28.74
+        },
+        {
+          "text": "solution",
+          "start": 28.77,
+          "end": 29.4
+        },
+        {
+          "text": "-",
+          "start": 30.42,
+          "end": 30.614999500000003
+        },
+        {
+          "text": "that",
+          "start": 30.614999500000003,
+          "end": 30.809999
+        },
+        {
+          "text": "means",
+          "start": 30.809999,
+          "end": 31.120001
+        },
+        {
+          "text": "topology",
+          "start": 31.68,
+          "end": 31.860000499999998
+        },
+        {
+          "text": "plus",
+          "start": 31.860000499999998,
+          "end": 32.040001
+        },
+        {
+          "text": "automation",
+          "start": 32.040001,
+          "end": 32.759998
+        },
+        {
+          "text": "reachability",
+          "start": 33.580002,
+          "end": 33.655001
+        },
+        {
+          "text": "plus",
+          "start": 33.655001,
+          "end": 33.73
+        },
+        {
+          "text": "running",
+          "start": 33.73,
+          "end": 34.169998
+        },
+        {
+          "text": "playbooks",
+          "start": 34.169998,
+          "end": 34.3949985
+        },
+        {
+          "text": "before",
+          "start": 34.3949985,
+          "end": 34.619999
+        },
+        {
+          "text": "production",
+          "start": 34.889999,
+          "end": 35.049999
+        },
+        {
+          "text": "CML",
+          "start": 35.049999,
+          "end": 35.08
+        },
+        {
+          "text": "is",
+          "start": 35.08,
+          "end": 35.110001
+        },
+        {
+          "text": "licensed",
+          "start": 35.110001,
+          "end": 35.360001
+        },
+        {
+          "text": "software",
+          "start": 35.400002,
+          "end": 35.6450005
+        },
+        {
+          "text": "if",
+          "start": 35.6450005,
+          "end": 35.889999
+        },
+        {
+          "text": "you",
+          "start": 36.02,
+          "end": 36.349998
+        },
+        {
+          "text": "lack",
+          "start": 36.349998,
+          "end": 36.3999995
+        },
+        {
+          "text": "access",
+          "start": 36.3999995,
+          "end": 36.450001
+        },
+        {
+          "text": "follow",
+          "start": 36.450001,
+          "end": 37.049999
+        },
+        {
+          "text": "the",
+          "start": 37.09,
+          "end": 37.17
+        },
+        {
+          "text": "inventory",
+          "start": 37.17,
+          "end": 37.25
+        },
+        {
+          "text": "and",
+          "start": 37.630001,
+          "end": 38.029999
+        },
+        {
+          "text": "playbook",
+          "start": 38.029999,
+          "end": 38.3499985
+        },
+        {
+          "text": "slides",
+          "start": 38.3499985,
+          "end": 38.669998
+        },
+        {
+          "text": "conceptually",
+          "start": 38.669998,
+          "end": 38.84
+        },
+        {
+          "text": "for",
+          "start": 38.84,
+          "end": 38.885000000000005
+        },
+        {
+          "text": "the",
+          "start": 38.885000000000005,
+          "end": 38.93
+        },
+        {
+          "text": "exam",
+          "start": 38.93,
+          "end": 39.389999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 3.98,
+          "end": 5.73
+        },
+        {
+          "start": 8.13,
+          "end": 13.68
+        },
+        null
+      ]
+    },
+    "compose-vs-cml": {
+      "words": [
+        {
+          "text": "Docker",
+          "start": 0.09,
+          "end": 0.41999999999999993
+        },
+        {
+          "text": "Compose",
+          "start": 0.42,
+          "end": 1
+        },
+        {
+          "text": "excels",
+          "start": 1.06,
+          "end": 1.73
+        },
+        {
+          "text": "at",
+          "start": 1.82,
+          "end": 2.02
+        },
+        {
+          "text": "packaging",
+          "start": 2.06,
+          "end": 2.57
+        },
+        {
+          "text": "your",
+          "start": 2.57,
+          "end": 2.79
+        },
+        {
+          "text": "automation",
+          "start": 2.79,
+          "end": 3.39
+        },
+        {
+          "text": "toolchain",
+          "start": 4.22,
+          "end": 4.38
+        },
+        {
+          "text": "and",
+          "start": 4.38,
+          "end": 4.84
+        },
+        {
+          "text": "lightweight",
+          "start": 4.84,
+          "end": 5.21
+        },
+        {
+          "text": "stand-ins",
+          "start": 5.21,
+          "end": 5.49
+        },
+        {
+          "text": "-",
+          "start": 5.54,
+          "end": 6.11
+        },
+        {
+          "text": "Alpine",
+          "start": 6.25,
+          "end": 6.46
+        },
+        {
+          "text": "as",
+          "start": 6.46,
+          "end": 6.54
+        },
+        {
+          "text": "a",
+          "start": 6.54,
+          "end": 6.8
+        },
+        {
+          "text": "ping",
+          "start": 6.8,
+          "end": 7.38
+        },
+        {
+          "text": "target",
+          "start": 7.56,
+          "end": 8.02
+        },
+        {
+          "text": "Python",
+          "start": 8.02,
+          "end": 8.47
+        },
+        {
+          "text": "image",
+          "start": 8.52,
+          "end": 8.7
+        },
+        {
+          "text": "as",
+          "start": 8.7,
+          "end": 9.35
+        },
+        {
+          "text": "controller",
+          "start": 10.65,
+          "end": 11.35
+        },
+        {
+          "text": "CML",
+          "start": 11.49,
+          "end": 11.86
+        },
+        {
+          "text": "excels",
+          "start": 12.13,
+          "end": 12.85
+        },
+        {
+          "text": "at",
+          "start": 12.85,
+          "end": 12.98
+        },
+        {
+          "text": "Cisco",
+          "start": 12.98,
+          "end": 13.39
+        },
+        {
+          "text": "OS",
+          "start": 14.69,
+          "end": 15.09
+        },
+        {
+          "text": "behavior",
+          "start": 15.09,
+          "end": 15.97
+        },
+        {
+          "text": "-",
+          "start": 16.43,
+          "end": 16.709999
+        },
+        {
+          "text": "VLANs",
+          "start": 17.110001,
+          "end": 17.799999
+        },
+        {
+          "text": "routing",
+          "start": 18.02,
+          "end": 18.24
+        },
+        {
+          "text": "protocols",
+          "start": 18.24,
+          "end": 18.74
+        },
+        {
+          "text": "real",
+          "start": 18.74,
+          "end": 18.860001
+        },
+        {
+          "text": "config",
+          "start": 19.719999,
+          "end": 19.9
+        },
+        {
+          "text": "syntax",
+          "start": 19.9,
+          "end": 20.450001
+        },
+        {
+          "text": "Use",
+          "start": 20.450001,
+          "end": 20.82
+        },
+        {
+          "text": "Compose",
+          "start": 20.860001,
+          "end": 21.059999
+        },
+        {
+          "text": "in",
+          "start": 21.059999,
+          "end": 21.73
+        },
+        {
+          "text": "CI",
+          "start": 21.73,
+          "end": 22.08
+        },
+        {
+          "text": "for",
+          "start": 22.08,
+          "end": 22.549999
+        },
+        {
+          "text": "fast",
+          "start": 23.360001,
+          "end": 23.65
+        },
+        {
+          "text": "lint",
+          "start": 24.32,
+          "end": 24.73
+        },
+        {
+          "text": "and",
+          "start": 24.76,
+          "end": 24.83
+        },
+        {
+          "text": "connectivity",
+          "start": 24.83,
+          "end": 25.16
+        },
+        {
+          "text": "smoke",
+          "start": 25.16,
+          "end": 25.345000499999998
+        },
+        {
+          "text": "tests",
+          "start": 25.345000499999998,
+          "end": 25.530001
+        },
+        {
+          "text": "Use",
+          "start": 25.530001,
+          "end": 25.950001
+        },
+        {
+          "text": "CML",
+          "start": 26.51,
+          "end": 26.5600005
+        },
+        {
+          "text": "before",
+          "start": 26.5600005,
+          "end": 26.610001
+        },
+        {
+          "text": "a",
+          "start": 27.799999,
+          "end": 28.200001
+        },
+        {
+          "text": "major",
+          "start": 28.709999,
+          "end": 28.8649995
+        },
+        {
+          "text": "change",
+          "start": 28.8649995,
+          "end": 29.02
+        },
+        {
+          "text": "window",
+          "start": 29.02,
+          "end": 29.440001
+        },
+        {
+          "text": "to",
+          "start": 29.98,
+          "end": 30.1350005
+        },
+        {
+          "text": "validate",
+          "start": 30.1350005,
+          "end": 30.290001
+        },
+        {
+          "text": "playbooks",
+          "start": 30.290001,
+          "end": 30.68
+        },
+        {
+          "text": "against",
+          "start": 30.68,
+          "end": 30.779999500000002
+        },
+        {
+          "text": "IOS-like",
+          "start": 30.779999500000002,
+          "end": 30.879999
+        },
+        {
+          "text": "nodes",
+          "start": 30.879999,
+          "end": 31.139999
+        },
+        {
+          "text": "Mature",
+          "start": 31.709999,
+          "end": 31.9300005
+        },
+        {
+          "text": "teams",
+          "start": 31.9300005,
+          "end": 32.150002
+        },
+        {
+          "text": "use",
+          "start": 32.150002,
+          "end": 32.299999
+        },
+        {
+          "text": "both",
+          "start": 32.380001,
+          "end": 32.5300005
+        },
+        {
+          "text": "Compose",
+          "start": 32.5300005,
+          "end": 32.68
+        },
+        {
+          "text": "in",
+          "start": 32.68,
+          "end": 33.25
+        },
+        {
+          "text": "every",
+          "start": 34.259998,
+          "end": 34.3949985
+        },
+        {
+          "text": "pipeline",
+          "start": 34.3949985,
+          "end": 34.529999
+        },
+        {
+          "text": "CML",
+          "start": 34.529999,
+          "end": 34.939999
+        },
+        {
+          "text": "on",
+          "start": 35.119999,
+          "end": 35.1399995
+        },
+        {
+          "text": "merge",
+          "start": 35.1399995,
+          "end": 35.16
+        },
+        {
+          "text": "to",
+          "start": 35.16,
+          "end": 35.630001
+        },
+        {
+          "text": "main",
+          "start": 35.689999,
+          "end": 35.760000500000004
+        },
+        {
+          "text": "or",
+          "start": 35.760000500000004,
+          "end": 35.830002
+        },
+        {
+          "text": "nightly",
+          "start": 35.830002,
+          "end": 36.369999
+        }
+      ],
+      "leftPhraseTimes": [
+        {
+          "start": 20.860001,
+          "end": 25.16
+        },
+        {
+          "start": 2.79,
+          "end": 6.46
+        },
+        {
+          "start": 4.84,
+          "end": 7.38
+        }
+      ],
+      "rightPhraseTimes": [
+        {
+          "start": 11.49,
+          "end": 18.24
+        },
+        {
+          "start": 18.02,
+          "end": 21.059999
+        },
+        {
+          "start": 30.1350005,
+          "end": 32.299999
+        }
+      ]
+    },
+    "story-beat-recap-containers": {
+      "words": [
+        {
+          "text": "Pause",
+          "start": 0.09,
+          "end": 0.51
+        },
+        {
+          "text": "You",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "text": "have",
+          "start": 1.16,
+          "end": 1.55
+        },
+        {
+          "text": "seen",
+          "start": 1.55,
+          "end": 1.87
+        },
+        {
+          "text": "why",
+          "start": 1.87,
+          "end": 2.08
+        },
+        {
+          "text": "simulation",
+          "start": 2.08,
+          "end": 2.72
+        },
+        {
+          "text": "follows",
+          "start": 2.72,
+          "end": 3.29
+        },
+        {
+          "text": "CICD",
+          "start": 4.5,
+          "end": 5.25
+        },
+        {
+          "text": "what",
+          "start": 5.74,
+          "end": 6.02
+        },
+        {
+          "text": "containers",
+          "start": 6.02,
+          "end": 6.68
+        },
+        {
+          "text": "and",
+          "start": 6.68,
+          "end": 6.84
+        },
+        {
+          "text": "Compose",
+          "start": 6.9,
+          "end": 7.37
+        },
+        {
+          "text": "are",
+          "start": 7.37,
+          "end": 7.67
+        },
+        {
+          "text": "the",
+          "start": 8.17,
+          "end": 8.27
+        },
+        {
+          "text": "four",
+          "start": 8.27,
+          "end": 8.57
+        },
+        {
+          "text": "exam",
+          "start": 8.57,
+          "end": 9.24
+        },
+        {
+          "text": "Compose",
+          "start": 9.28,
+          "end": 9.97
+        },
+        {
+          "text": "concepts",
+          "start": 10.03,
+          "end": 10.79
+        },
+        {
+          "text": "services",
+          "start": 10.9,
+          "end": 11.74
+        },
+        {
+          "text": "networks",
+          "start": 11.74,
+          "end": 12.53
+        },
+        {
+          "text": "volumes",
+          "start": 12.57,
+          "end": 13.44
+        },
+        {
+          "text": "links",
+          "start": 13.47,
+          "end": 14.14
+        },
+        {
+          "text": "how",
+          "start": 14.49,
+          "end": 14.79
+        },
+        {
+          "text": "to",
+          "start": 14.86,
+          "end": 14.94
+        },
+        {
+          "text": "read",
+          "start": 14.94,
+          "end": 15.16
+        },
+        {
+          "text": "a",
+          "start": 15.16,
+          "end": 15.25
+        },
+        {
+          "text": "compose",
+          "start": 15.25,
+          "end": 15.75
+        },
+        {
+          "text": "file",
+          "start": 15.75,
+          "end": 16.25
+        },
+        {
+          "text": "what",
+          "start": 16.549999,
+          "end": 16.799999
+        },
+        {
+          "text": "CML",
+          "start": 17.389999,
+          "end": 17.9
+        },
+        {
+          "text": "provides",
+          "start": 17.9,
+          "end": 18.07
+        },
+        {
+          "text": "for",
+          "start": 18.07,
+          "end": 18.469999
+        },
+        {
+          "text": "Cisco",
+          "start": 18.469999,
+          "end": 19.07
+        },
+        {
+          "text": "labs",
+          "start": 19.440001,
+          "end": 19.629999
+        },
+        {
+          "text": "and",
+          "start": 19.629999,
+          "end": 19.85
+        },
+        {
+          "text": "when",
+          "start": 19.889999,
+          "end": 19.940001
+        },
+        {
+          "text": "to",
+          "start": 19.940001,
+          "end": 20.190001
+        },
+        {
+          "text": "use",
+          "start": 20.190001,
+          "end": 20.76
+        },
+        {
+          "text": "Compose",
+          "start": 20.76,
+          "end": 21.26
+        },
+        {
+          "text": "versus",
+          "start": 21.91,
+          "end": 22.25
+        },
+        {
+          "text": "CML",
+          "start": 22.25,
+          "end": 22.4
+        },
+        {
+          "text": "Next",
+          "start": 22.4,
+          "end": 22.67
+        },
+        {
+          "text": "we",
+          "start": 22.74,
+          "end": 23.110001
+        },
+        {
+          "text": "add",
+          "start": 23.110001,
+          "end": 23.469999
+        },
+        {
+          "text": "docker",
+          "start": 23.469999,
+          "end": 23.73
+        },
+        {
+          "text": "slash",
+          "start": 23.73,
+          "end": 24.389999
+        },
+        {
+          "text": "docker-compose",
+          "start": 24.549999,
+          "end": 24.73
+        },
+        {
+          "text": "dot",
+          "start": 25.58,
+          "end": 25.639999
+        },
+        {
+          "text": "yml",
+          "start": 26.49,
+          "end": 26.690001
+        },
+        {
+          "text": "to",
+          "start": 26.690001,
+          "end": 26.82
+        },
+        {
+          "text": "netops_iac_lab",
+          "start": 27.26,
+          "end": 27.58
+        },
+        {
+          "text": "bring",
+          "start": 28.969999,
+          "end": 29.200001
+        },
+        {
+          "text": "up",
+          "start": 29.200001,
+          "end": 29.549999
+        },
+        {
+          "text": "an",
+          "start": 29.549999,
+          "end": 30.059999
+        },
+        {
+          "text": "Ansible",
+          "start": 30.459999,
+          "end": 30.690001
+        },
+        {
+          "text": "plus",
+          "start": 30.690001,
+          "end": 30.950001
+        },
+        {
+          "text": "target",
+          "start": 31.49,
+          "end": 32.18
+        },
+        {
+          "text": "stack",
+          "start": 32.259998,
+          "end": 32.509998
+        },
+        {
+          "text": "then",
+          "start": 32.509998,
+          "end": 32.560001
+        },
+        {
+          "text": "wire",
+          "start": 32.599998,
+          "end": 32.740002
+        },
+        {
+          "text": "Ansible",
+          "start": 32.740002,
+          "end": 32.959999
+        },
+        {
+          "text": "inventory",
+          "start": 33.48,
+          "end": 34.150002
+        },
+        {
+          "text": "for",
+          "start": 34.450001,
+          "end": 34.950001
+        },
+        {
+          "text": "a",
+          "start": 34.950001,
+          "end": 35.1000005
+        },
+        {
+          "text": "two-node",
+          "start": 35.1000005,
+          "end": 35.25
+        },
+        {
+          "text": "CML",
+          "start": 35.25,
+          "end": 35.779999
+        },
+        {
+          "text": "topology",
+          "start": 35.810001,
+          "end": 35.864999499999996
+        },
+        {
+          "text": "Install",
+          "start": 35.864999499999996,
+          "end": 35.919998
+        },
+        {
+          "text": "Docker",
+          "start": 35.919998,
+          "end": 36.220001
+        },
+        {
+          "text": "Desktop",
+          "start": 36.220001,
+          "end": 36.505001
+        },
+        {
+          "text": "or",
+          "start": 36.505001,
+          "end": 36.790001
+        },
+        {
+          "text": "Docker",
+          "start": 36.860001,
+          "end": 37.200001
+        },
+        {
+          "text": "Engine",
+          "start": 37.200001,
+          "end": 37.255001
+        },
+        {
+          "text": "before",
+          "start": 37.255001,
+          "end": 37.310001
+        },
+        {
+          "text": "the",
+          "start": 37.310001,
+          "end": 37.759998
+        },
+        {
+          "text": "compose",
+          "start": 37.759998,
+          "end": 37.839998
+        },
+        {
+          "text": "up",
+          "start": 37.839998,
+          "end": 37.919998
+        },
+        {
+          "text": "slide",
+          "start": 37.919998,
+          "end": 38.380001
+        }
+      ]
+    },
+    "lab-setup-containers-simulation": {
+      "words": [
+        {
+          "text": "Inside",
+          "start": 0.1,
+          "end": 0.53
+        },
+        {
+          "text": "netops_iac_lab",
+          "start": 1.34,
+          "end": 1.8
+        },
+        {
+          "text": "create",
+          "start": 1.8,
+          "end": 2.03
+        },
+        {
+          "text": "a",
+          "start": 2.29,
+          "end": 2.42
+        },
+        {
+          "text": "docker",
+          "start": 3.18,
+          "end": 3.61
+        },
+        {
+          "text": "folder",
+          "start": 3.84,
+          "end": 4.01
+        },
+        {
+          "text": "You",
+          "start": 4.01,
+          "end": 4.18
+        },
+        {
+          "text": "will",
+          "start": 4.18,
+          "end": 4.55
+        },
+        {
+          "text": "place",
+          "start": 4.55,
+          "end": 4.82
+        },
+        {
+          "text": "docker-compose",
+          "start": 4.82,
+          "end": 5.32
+        },
+        {
+          "text": "dot",
+          "start": 5.32,
+          "end": 5.64
+        },
+        {
+          "text": "yml",
+          "start": 6.31,
+          "end": 6.61
+        },
+        {
+          "text": "there",
+          "start": 6.64,
+          "end": 7.02
+        },
+        {
+          "text": "-",
+          "start": 7.05,
+          "end": 7.49
+        },
+        {
+          "text": "keeps",
+          "start": 7.49,
+          "end": 7.86
+        },
+        {
+          "text": "container",
+          "start": 7.86,
+          "end": 8.26
+        },
+        {
+          "text": "files",
+          "start": 8.26,
+          "end": 8.54
+        },
+        {
+          "text": "separate",
+          "start": 9.29,
+          "end": 9.53
+        },
+        {
+          "text": "from",
+          "start": 9.6,
+          "end": 10.28
+        },
+        {
+          "text": "playbooks",
+          "start": 10.51,
+          "end": 11.19
+        },
+        {
+          "text": "and",
+          "start": 11.19,
+          "end": 11.56
+        },
+        {
+          "text": "intent",
+          "start": 11.56,
+          "end": 11.96
+        },
+        {
+          "text": "Confirm",
+          "start": 11.96,
+          "end": 12.17
+        },
+        {
+          "text": "Docker",
+          "start": 12.29,
+          "end": 12.75
+        },
+        {
+          "text": "works",
+          "start": 12.75,
+          "end": 13.23
+        },
+        {
+          "text": "with",
+          "start": 13.23,
+          "end": 13.71
+        },
+        {
+          "text": "docker",
+          "start": 13.71,
+          "end": 14.28
+        },
+        {
+          "text": "minus",
+          "start": 14.36,
+          "end": 14.63
+        },
+        {
+          "text": "minus",
+          "start": 14.75,
+          "end": 15.13
+        },
+        {
+          "text": "version",
+          "start": 15.19,
+          "end": 15.75
+        },
+        {
+          "text": "and",
+          "start": 15.75,
+          "end": 16.209999
+        },
+        {
+          "text": "docker",
+          "start": 16.42,
+          "end": 16.790001
+        },
+        {
+          "text": "compose",
+          "start": 16.790001,
+          "end": 17.32
+        },
+        {
+          "text": "version",
+          "start": 17.32,
+          "end": 18.030001
+        },
+        {
+          "text": "Create",
+          "start": 18.08,
+          "end": 18.58
+        },
+        {
+          "text": "inventory",
+          "start": 18.58,
+          "end": 18.790001
+        },
+        {
+          "text": "slash",
+          "start": 19.450001,
+          "end": 19.860001
+        },
+        {
+          "text": "compose",
+          "start": 20.120001,
+          "end": 20.26
+        },
+        {
+          "text": "dot",
+          "start": 20.290001,
+          "end": 20.790001
+        },
+        {
+          "text": "yml",
+          "start": 20.790001,
+          "end": 21.200001
+        },
+        {
+          "text": "for",
+          "start": 21.4,
+          "end": 21.75
+        },
+        {
+          "text": "the",
+          "start": 21.99,
+          "end": 22.6
+        },
+        {
+          "text": "Compose",
+          "start": 22.6,
+          "end": 23.299999
+        },
+        {
+          "text": "lab",
+          "start": 24.1,
+          "end": 24.290001
+        },
+        {
+          "text": "and",
+          "start": 24.870001,
+          "end": 24.96
+        },
+        {
+          "text": "inventory",
+          "start": 24.96,
+          "end": 25.049999
+        },
+        {
+          "text": "slash",
+          "start": 25.049999,
+          "end": 25.16
+        },
+        {
+          "text": "cml",
+          "start": 25.690001,
+          "end": 26
+        },
+        {
+          "text": "dot",
+          "start": 26,
+          "end": 26.309999
+        },
+        {
+          "text": "yml",
+          "start": 26.360001,
+          "end": 26.65
+        },
+        {
+          "text": "for",
+          "start": 27.549999,
+          "end": 27.75
+        },
+        {
+          "text": "the",
+          "start": 27.75,
+          "end": 27.950001
+        },
+        {
+          "text": "CML",
+          "start": 27.950001,
+          "end": 28.440001
+        },
+        {
+          "text": "section",
+          "start": 28.73,
+          "end": 28.8099995
+        },
+        {
+          "text": "-",
+          "start": 28.8099995,
+          "end": 28.889999
+        },
+        {
+          "text": "same",
+          "start": 28.889999,
+          "end": 29.17
+        },
+        {
+          "text": "playbooks",
+          "start": 29.219999,
+          "end": 29.4449995
+        },
+        {
+          "text": "different",
+          "start": 29.4449995,
+          "end": 29.67
+        },
+        {
+          "text": "targets",
+          "start": 29.700001,
+          "end": 30.07
+        },
+        {
+          "text": "Do",
+          "start": 30.07,
+          "end": 30.285
+        },
+        {
+          "text": "not",
+          "start": 30.285,
+          "end": 30.5
+        },
+        {
+          "text": "commit",
+          "start": 30.57,
+          "end": 31.049999
+        },
+        {
+          "text": "Docker",
+          "start": 31.110001,
+          "end": 31.3000005
+        },
+        {
+          "text": "socket",
+          "start": 31.3000005,
+          "end": 31.49
+        },
+        {
+          "text": "paths",
+          "start": 32.220001,
+          "end": 32.68
+        },
+        {
+          "text": "or",
+          "start": 32.68,
+          "end": 33
+        },
+        {
+          "text": "CML",
+          "start": 33,
+          "end": 33.32
+        },
+        {
+          "text": "admin",
+          "start": 33.73,
+          "end": 34.040001
+        },
+        {
+          "text": "passwords",
+          "start": 34.119999,
+          "end": 34.459998999999996
+        },
+        {
+          "text": "use",
+          "start": 34.459998999999996,
+          "end": 34.799999
+        },
+        {
+          "text": "environment",
+          "start": 34.799999,
+          "end": 35.580002
+        },
+        {
+          "text": "variables",
+          "start": 35.68,
+          "end": 35.75
+        },
+        {
+          "text": "for",
+          "start": 35.75,
+          "end": 35.82
+        },
+        {
+          "text": "secrets",
+          "start": 35.82,
+          "end": 36.470001
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 2.29,
+          "end": 5.32
+        },
+        {
+          "start": 11.96,
+          "end": 15.13
+        },
+        null,
+        null
+      ]
+    },
+    "compose-services-and-volumes": {
+      "words": [
+        {
+          "text": "Line",
+          "start": 0.08,
+          "end": 0.35
+        },
+        {
+          "text": "one",
+          "start": 0.35,
+          "end": 0.54
+        },
+        {
+          "text": "sets",
+          "start": 0.54,
+          "end": 1.05
+        },
+        {
+          "text": "Compose",
+          "start": 1.12,
+          "end": 1.69
+        },
+        {
+          "text": "file",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "text": "format",
+          "start": 2.08,
+          "end": 2.48
+        },
+        {
+          "text": "version",
+          "start": 2.52,
+          "end": 2.98
+        },
+        {
+          "text": "Lines",
+          "start": 3.51,
+          "end": 3.83
+        },
+        {
+          "text": "two",
+          "start": 3.83,
+          "end": 3.98
+        },
+        {
+          "text": "through",
+          "start": 3.98,
+          "end": 4.25
+        },
+        {
+          "text": "eleven",
+          "start": 4.25,
+          "end": 4.85
+        },
+        {
+          "text": "define",
+          "start": 4.9,
+          "end": 5.36
+        },
+        {
+          "text": "two",
+          "start": 5.36,
+          "end": 5.52
+        },
+        {
+          "text": "services",
+          "start": 5.52,
+          "end": 6.27
+        },
+        {
+          "text": "-",
+          "start": 6.36,
+          "end": 6.81
+        },
+        {
+          "text": "exam",
+          "start": 6.81,
+          "end": 7.03
+        },
+        {
+          "text": "two",
+          "start": 7.03,
+          "end": 7.32
+        },
+        {
+          "text": "point",
+          "start": 7.32,
+          "end": 7.61
+        },
+        {
+          "text": "five",
+          "start": 7.61,
+          "end": 8.27
+        },
+        {
+          "text": "services",
+          "start": 8.44,
+          "end": 8.81
+        },
+        {
+          "text": "The",
+          "start": 9.29,
+          "end": 9.83
+        },
+        {
+          "text": "ansible",
+          "start": 9.83,
+          "end": 10.41
+        },
+        {
+          "text": "service",
+          "start": 10.44,
+          "end": 10.58
+        },
+        {
+          "text": "mounts",
+          "start": 11.21,
+          "end": 11.49
+        },
+        {
+          "text": "the",
+          "start": 12.09,
+          "end": 12.33
+        },
+        {
+          "text": "repo",
+          "start": 12.33,
+          "end": 12.85
+        },
+        {
+          "text": "with",
+          "start": 12.94,
+          "end": 13.42
+        },
+        {
+          "text": "dot",
+          "start": 13.42,
+          "end": 14.29
+        },
+        {
+          "text": "colon",
+          "start": 14.38,
+          "end": 15.01
+        },
+        {
+          "text": "slash",
+          "start": 15.05,
+          "end": 15.22
+        },
+        {
+          "text": "workspace",
+          "start": 15.22,
+          "end": 15.53
+        },
+        {
+          "text": "-",
+          "start": 15.53,
+          "end": 15.8
+        },
+        {
+          "text": "exam",
+          "start": 15.8,
+          "end": 16.49
+        },
+        {
+          "text": "two",
+          "start": 16.74,
+          "end": 17.200001
+        },
+        {
+          "text": "point",
+          "start": 17.200001,
+          "end": 17.719999
+        },
+        {
+          "text": "five",
+          "start": 17.719999,
+          "end": 17.99
+        },
+        {
+          "text": "volumes",
+          "start": 17.99,
+          "end": 18.43
+        },
+        {
+          "text": "Lines",
+          "start": 18.43,
+          "end": 18.799999
+        },
+        {
+          "text": "twelve",
+          "start": 18.799999,
+          "end": 18.959999
+        },
+        {
+          "text": "through",
+          "start": 18.959999,
+          "end": 19.33
+        },
+        {
+          "text": "fourteen",
+          "start": 19.33,
+          "end": 19.82
+        },
+        {
+          "text": "declare",
+          "start": 20.66,
+          "end": 20.85
+        },
+        {
+          "text": "a",
+          "start": 21.25,
+          "end": 22.059999
+        },
+        {
+          "text": "named",
+          "start": 22.200001,
+          "end": 22.290001
+        },
+        {
+          "text": "volume",
+          "start": 22.290001,
+          "end": 22.67
+        },
+        {
+          "text": "ansible_cache",
+          "start": 22.67,
+          "end": 23.17
+        },
+        {
+          "text": "Docker",
+          "start": 23.17,
+          "end": 23.559999
+        },
+        {
+          "text": "manages",
+          "start": 23.559999,
+          "end": 24.129999
+        },
+        {
+          "text": "The",
+          "start": 24.129999,
+          "end": 24.309999
+        },
+        {
+          "text": "target",
+          "start": 24.309999,
+          "end": 24.360001
+        },
+        {
+          "text": "service",
+          "start": 24.360001,
+          "end": 24.709999
+        },
+        {
+          "text": "runs",
+          "start": 24.709999,
+          "end": 24.83
+        },
+        {
+          "text": "Alpine",
+          "start": 24.83,
+          "end": 25.34
+        },
+        {
+          "text": "as",
+          "start": 25.52,
+          "end": 25.959999
+        },
+        {
+          "text": "a",
+          "start": 25.959999,
+          "end": 26.280001
+        },
+        {
+          "text": "stand-in",
+          "start": 26.309999,
+          "end": 26.709999
+        },
+        {
+          "text": "device",
+          "start": 26.709999,
+          "end": 27.129999
+        },
+        {
+          "text": "Save",
+          "start": 27.129999,
+          "end": 27.6
+        },
+        {
+          "text": "as",
+          "start": 27.639999,
+          "end": 28.309999
+        },
+        {
+          "text": "docker",
+          "start": 28.309999,
+          "end": 28.610001
+        },
+        {
+          "text": "slash",
+          "start": 30.110001,
+          "end": 30.879999
+        },
+        {
+          "text": "docker-compose",
+          "start": 31.120001,
+          "end": 31.205001
+        },
+        {
+          "text": "dot",
+          "start": 31.205001,
+          "end": 31.290001
+        },
+        {
+          "text": "yml",
+          "start": 31.290001,
+          "end": 31.75
+        },
+        {
+          "text": "Networks",
+          "start": 31.75,
+          "end": 31.8500005
+        },
+        {
+          "text": "and",
+          "start": 31.8500005,
+          "end": 31.950001
+        },
+        {
+          "text": "depends",
+          "start": 31.950001,
+          "end": 32.23
+        },
+        {
+          "text": "on",
+          "start": 32.23,
+          "end": 32.280001
+        },
+        {
+          "text": "come",
+          "start": 32.280001,
+          "end": 32.330002
+        },
+        {
+          "text": "on",
+          "start": 32.330002,
+          "end": 32.41
+        },
+        {
+          "text": "the",
+          "start": 32.41,
+          "end": 32.584998999999996
+        },
+        {
+          "text": "next",
+          "start": 32.584998999999996,
+          "end": 32.759998
+        },
+        {
+          "text": "slide",
+          "start": 32.759998,
+          "end": 33.189999
+        }
+      ]
+    },
+    "compose-networks-and-links": {
+      "words": [
+        {
+          "text": "Lines",
+          "start": 0.1,
+          "end": 0.57
+        },
+        {
+          "text": "one",
+          "start": 0.57,
+          "end": 1.04
+        },
+        {
+          "text": "through",
+          "start": 1.25,
+          "end": 1.54
+        },
+        {
+          "text": "three",
+          "start": 1.68,
+          "end": 2.04
+        },
+        {
+          "text": "declare",
+          "start": 2.13,
+          "end": 2.53
+        },
+        {
+          "text": "lab",
+          "start": 2.53,
+          "end": 2.85
+        },
+        {
+          "text": "underscore",
+          "start": 2.88,
+          "end": 3.48
+        },
+        {
+          "text": "net",
+          "start": 3.76,
+          "end": 4.23
+        },
+        {
+          "text": "-",
+          "start": 4.38,
+          "end": 4.94
+        },
+        {
+          "text": "exam",
+          "start": 5.1,
+          "end": 5.25
+        },
+        {
+          "text": "two",
+          "start": 5.25,
+          "end": 5.51
+        },
+        {
+          "text": "point",
+          "start": 5.51,
+          "end": 5.79
+        },
+        {
+          "text": "five",
+          "start": 5.79,
+          "end": 6.33
+        },
+        {
+          "text": "networks",
+          "start": 6.52,
+          "end": 6.78
+        },
+        {
+          "text": "Lines",
+          "start": 6.78,
+          "end": 7.03
+        },
+        {
+          "text": "five",
+          "start": 7.03,
+          "end": 7.16
+        },
+        {
+          "text": "and",
+          "start": 7.16,
+          "end": 7.47
+        },
+        {
+          "text": "six",
+          "start": 7.47,
+          "end": 7.84
+        },
+        {
+          "text": "attach",
+          "start": 7.84,
+          "end": 8.06
+        },
+        {
+          "text": "both",
+          "start": 8.06,
+          "end": 8.7
+        },
+        {
+          "text": "services",
+          "start": 8.85,
+          "end": 8.98
+        },
+        {
+          "text": "to",
+          "start": 8.98,
+          "end": 9.13
+        },
+        {
+          "text": "that",
+          "start": 9.13,
+          "end": 9.57
+        },
+        {
+          "text": "network",
+          "start": 9.57,
+          "end": 9.76
+        },
+        {
+          "text": "so",
+          "start": 9.76,
+          "end": 9.9
+        },
+        {
+          "text": "they",
+          "start": 9.9,
+          "end": 10.27
+        },
+        {
+          "text": "share",
+          "start": 10.35,
+          "end": 10.54
+        },
+        {
+          "text": "a",
+          "start": 11.17,
+          "end": 11.62
+        },
+        {
+          "text": "L2",
+          "start": 11.92,
+          "end": 12.35
+        },
+        {
+          "text": "domain",
+          "start": 12.41,
+          "end": 12.67
+        },
+        {
+          "text": "Lines",
+          "start": 12.67,
+          "end": 12.93
+        },
+        {
+          "text": "eight",
+          "start": 12.98,
+          "end": 13.28
+        },
+        {
+          "text": "through",
+          "start": 13.37,
+          "end": 13.73
+        },
+        {
+          "text": "ten",
+          "start": 14.02,
+          "end": 14.53
+        },
+        {
+          "text": "add",
+          "start": 14.53,
+          "end": 14.71
+        },
+        {
+          "text": "depends",
+          "start": 14.71,
+          "end": 15.09
+        },
+        {
+          "text": "on",
+          "start": 15.09,
+          "end": 15.76
+        },
+        {
+          "text": "-",
+          "start": 15.76,
+          "end": 15.92
+        },
+        {
+          "text": "modern",
+          "start": 15.92,
+          "end": 16.389999
+        },
+        {
+          "text": "replacement",
+          "start": 16.389999,
+          "end": 16.75
+        },
+        {
+          "text": "for",
+          "start": 16.75,
+          "end": 17.280001
+        },
+        {
+          "text": "legacy",
+          "start": 18.360001,
+          "end": 18.719999
+        },
+        {
+          "text": "links",
+          "start": 18.719999,
+          "end": 19.030001
+        },
+        {
+          "text": "keyword",
+          "start": 19.030001,
+          "end": 19.6
+        },
+        {
+          "text": "ansible",
+          "start": 20.02,
+          "end": 20.110001
+        },
+        {
+          "text": "starts",
+          "start": 20.110001,
+          "end": 20.559999
+        },
+        {
+          "text": "after",
+          "start": 20.559999,
+          "end": 20.700001
+        },
+        {
+          "text": "target",
+          "start": 20.700001,
+          "end": 20.99
+        },
+        {
+          "text": "The",
+          "start": 20.99,
+          "end": 21.4
+        },
+        {
+          "text": "exam",
+          "start": 21.43,
+          "end": 21.799999
+        },
+        {
+          "text": "may",
+          "start": 21.799999,
+          "end": 22.440001
+        },
+        {
+          "text": "show",
+          "start": 22.51,
+          "end": 22.870001
+        },
+        {
+          "text": "links",
+          "start": 22.870001,
+          "end": 23.43
+        },
+        {
+          "text": "colon",
+          "start": 23.870001,
+          "end": 24.5
+        },
+        {
+          "text": "target",
+          "start": 24.5,
+          "end": 24.719999
+        },
+        {
+          "text": "colon",
+          "start": 24.75,
+          "end": 25.02
+        },
+        {
+          "text": "target",
+          "start": 25.139999,
+          "end": 25.549999
+        },
+        {
+          "text": "interpret",
+          "start": 25.549999,
+          "end": 26.17
+        },
+        {
+          "text": "it",
+          "start": 26.4,
+          "end": 26.709999
+        },
+        {
+          "text": "as",
+          "start": 26.709999,
+          "end": 27.6
+        },
+        {
+          "text": "ordered",
+          "start": 28.290001,
+          "end": 28.4300005
+        },
+        {
+          "text": "startup",
+          "start": 28.4300005,
+          "end": 28.57
+        },
+        {
+          "text": "plus",
+          "start": 28.57,
+          "end": 28.959999
+        },
+        {
+          "text": "connectivity",
+          "start": 29.049999,
+          "end": 29.089999
+        },
+        {
+          "text": "Append",
+          "start": 29.089999,
+          "end": 29.129999
+        },
+        {
+          "text": "these",
+          "start": 29.129999,
+          "end": 29.26
+        },
+        {
+          "text": "keys",
+          "start": 29.26,
+          "end": 29.58
+        },
+        {
+          "text": "to",
+          "start": 29.58,
+          "end": 29.9
+        },
+        {
+          "text": "the",
+          "start": 29.9,
+          "end": 30.34
+        },
+        {
+          "text": "services",
+          "start": 30.34,
+          "end": 30.4499995
+        },
+        {
+          "text": "block",
+          "start": 30.4499995,
+          "end": 30.559999
+        },
+        {
+          "text": "from",
+          "start": 30.559999,
+          "end": 30.67
+        },
+        {
+          "text": "the",
+          "start": 30.73,
+          "end": 30.945
+        },
+        {
+          "text": "previous",
+          "start": 30.945,
+          "end": 31.16
+        },
+        {
+          "text": "slide",
+          "start": 31.16,
+          "end": 31.65
+        }
+      ]
+    },
+    "docker-compose-up": {
+      "words": [
+        {
+          "text": "Line",
+          "start": 0.2,
+          "end": 0.53
+        },
+        {
+          "text": "one",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "text": "moves",
+          "start": 0.81,
+          "end": 1.17
+        },
+        {
+          "text": "into",
+          "start": 1.35,
+          "end": 1.68
+        },
+        {
+          "text": "the",
+          "start": 1.68,
+          "end": 1.83
+        },
+        {
+          "text": "docker",
+          "start": 1.83,
+          "end": 2.13
+        },
+        {
+          "text": "folder",
+          "start": 2.13,
+          "end": 2.64
+        },
+        {
+          "text": "where",
+          "start": 2.82,
+          "end": 2.98
+        },
+        {
+          "text": "compose",
+          "start": 2.98,
+          "end": 3.45
+        },
+        {
+          "text": "file",
+          "start": 3.45,
+          "end": 3.76
+        },
+        {
+          "text": "lives",
+          "start": 3.76,
+          "end": 4.23
+        },
+        {
+          "text": "Line",
+          "start": 4.43,
+          "end": 4.71
+        },
+        {
+          "text": "two",
+          "start": 4.71,
+          "end": 5.15
+        },
+        {
+          "text": "builds",
+          "start": 5.35,
+          "end": 5.82
+        },
+        {
+          "text": "and",
+          "start": 5.87,
+          "end": 6.02
+        },
+        {
+          "text": "starts",
+          "start": 6.02,
+          "end": 6.42
+        },
+        {
+          "text": "containers",
+          "start": 6.42,
+          "end": 7.02
+        },
+        {
+          "text": "detached",
+          "start": 7.02,
+          "end": 7.68
+        },
+        {
+          "text": "Line",
+          "start": 7.85,
+          "end": 8.1
+        },
+        {
+          "text": "three",
+          "start": 8.1,
+          "end": 8.32
+        },
+        {
+          "text": "lists",
+          "start": 8.32,
+          "end": 8.68
+        },
+        {
+          "text": "running",
+          "start": 8.68,
+          "end": 8.98
+        },
+        {
+          "text": "containers",
+          "start": 8.98,
+          "end": 9.56
+        },
+        {
+          "text": "-",
+          "start": 9.56,
+          "end": 10.05
+        },
+        {
+          "text": "both",
+          "start": 11.17,
+          "end": 11.35
+        },
+        {
+          "text": "ansible",
+          "start": 11.35,
+          "end": 11.72
+        },
+        {
+          "text": "and",
+          "start": 11.72,
+          "end": 12
+        },
+        {
+          "text": "target",
+          "start": 12,
+          "end": 12.36
+        },
+        {
+          "text": "should",
+          "start": 12.45,
+          "end": 12.65
+        },
+        {
+          "text": "show",
+          "start": 13.16,
+          "end": 13.48
+        },
+        {
+          "text": "Up",
+          "start": 13.48,
+          "end": 13.89
+        },
+        {
+          "text": "Line",
+          "start": 13.95,
+          "end": 14.38
+        },
+        {
+          "text": "four",
+          "start": 14.38,
+          "end": 14.47
+        },
+        {
+          "text": "opens",
+          "start": 14.47,
+          "end": 14.86
+        },
+        {
+          "text": "a",
+          "start": 14.86,
+          "end": 15.38
+        },
+        {
+          "text": "shell",
+          "start": 15.38,
+          "end": 15.73
+        },
+        {
+          "text": "inside",
+          "start": 16.32,
+          "end": 16.780001
+        },
+        {
+          "text": "the",
+          "start": 16.780001,
+          "end": 16.959999
+        },
+        {
+          "text": "ansible",
+          "start": 16.959999,
+          "end": 17.1
+        },
+        {
+          "text": "container",
+          "start": 17.1,
+          "end": 17.4
+        },
+        {
+          "text": "for",
+          "start": 17.4,
+          "end": 17.84
+        },
+        {
+          "text": "the",
+          "start": 18.110001,
+          "end": 18.360001
+        },
+        {
+          "text": "next",
+          "start": 18.41,
+          "end": 18.6
+        },
+        {
+          "text": "slide",
+          "start": 18.6,
+          "end": 19.26
+        },
+        {
+          "text": "If",
+          "start": 19.620001,
+          "end": 19.93
+        },
+        {
+          "text": "pull",
+          "start": 19.93,
+          "end": 20.42
+        },
+        {
+          "text": "fails",
+          "start": 20.58,
+          "end": 20.719999
+        },
+        {
+          "text": "check",
+          "start": 20.719999,
+          "end": 21.24
+        },
+        {
+          "text": "internet",
+          "start": 21.24,
+          "end": 21.65
+        },
+        {
+          "text": "or",
+          "start": 22.040001,
+          "end": 22.27
+        },
+        {
+          "text": "registry",
+          "start": 22.27,
+          "end": 22.620001
+        },
+        {
+          "text": "mirror",
+          "start": 22.620001,
+          "end": 23.040001
+        },
+        {
+          "text": "Tear",
+          "start": 23.139999,
+          "end": 23.379999
+        },
+        {
+          "text": "down",
+          "start": 23.379999,
+          "end": 23.73
+        },
+        {
+          "text": "later",
+          "start": 23.73,
+          "end": 24
+        },
+        {
+          "text": "with",
+          "start": 24,
+          "end": 24.27
+        },
+        {
+          "text": "docker",
+          "start": 24.27,
+          "end": 24.559999
+        },
+        {
+          "text": "compose",
+          "start": 24.559999,
+          "end": 24.675
+        },
+        {
+          "text": "down",
+          "start": 24.675,
+          "end": 24.790001
+        },
+        {
+          "text": "from",
+          "start": 24.790001,
+          "end": 24.92
+        },
+        {
+          "text": "the",
+          "start": 24.92,
+          "end": 25.085
+        },
+        {
+          "text": "same",
+          "start": 25.085,
+          "end": 25.25
+        },
+        {
+          "text": "directory",
+          "start": 25.25,
+          "end": 25.959999
+        }
+      ]
+    },
+    "ansible-over-compose-network": {
+      "words": [
+        {
+          "text": "Inside",
+          "start": 0.06,
+          "end": 0.51
+        },
+        {
+          "text": "the",
+          "start": 0.51,
+          "end": 0.59
+        },
+        {
+          "text": "ansible",
+          "start": 1.06,
+          "end": 1.71
+        },
+        {
+          "text": "container",
+          "start": 1.9,
+          "end": 2.24
+        },
+        {
+          "text": "line",
+          "start": 2.24,
+          "end": 2.47
+        },
+        {
+          "text": "one",
+          "start": 3.68,
+          "end": 4.15
+        },
+        {
+          "text": "installs",
+          "start": 4.32,
+          "end": 4.53
+        },
+        {
+          "text": "Ansible",
+          "start": 4.53,
+          "end": 5.34
+        },
+        {
+          "text": "from",
+          "start": 5.42,
+          "end": 5.7
+        },
+        {
+          "text": "your",
+          "start": 6.55,
+          "end": 6.85
+        },
+        {
+          "text": "requirements",
+          "start": 6.85,
+          "end": 7.08
+        },
+        {
+          "text": "dot",
+          "start": 7.08,
+          "end": 7.49
+        },
+        {
+          "text": "txt",
+          "start": 7.55,
+          "end": 7.64
+        },
+        {
+          "text": "Line",
+          "start": 7.64,
+          "end": 8.13
+        },
+        {
+          "text": "two",
+          "start": 8.13,
+          "end": 8.75
+        },
+        {
+          "text": "writes",
+          "start": 8.75,
+          "end": 9.21
+        },
+        {
+          "text": "a",
+          "start": 9.21,
+          "end": 9.79
+        },
+        {
+          "text": "minimal",
+          "start": 9.95,
+          "end": 10.33
+        },
+        {
+          "text": "inventory",
+          "start": 10.36,
+          "end": 10.89
+        },
+        {
+          "text": "-",
+          "start": 11.58,
+          "end": 11.8
+        },
+        {
+          "text": "target",
+          "start": 11.8,
+          "end": 12.1
+        },
+        {
+          "text": "resolves",
+          "start": 12.16,
+          "end": 12.63
+        },
+        {
+          "text": "via",
+          "start": 12.63,
+          "end": 12.99
+        },
+        {
+          "text": "Compose",
+          "start": 13.38,
+          "end": 13.68
+        },
+        {
+          "text": "DNS",
+          "start": 13.68,
+          "end": 13.96
+        },
+        {
+          "text": "on",
+          "start": 14.41,
+          "end": 14.55
+        },
+        {
+          "text": "lab",
+          "start": 14.55,
+          "end": 14.95
+        },
+        {
+          "text": "underscore",
+          "start": 14.99,
+          "end": 15.37
+        },
+        {
+          "text": "net",
+          "start": 15.4,
+          "end": 16.08
+        },
+        {
+          "text": "Line",
+          "start": 16.16,
+          "end": 16.309999
+        },
+        {
+          "text": "three",
+          "start": 16.309999,
+          "end": 16.84
+        },
+        {
+          "text": "pings",
+          "start": 16.84,
+          "end": 17.32
+        },
+        {
+          "text": "the",
+          "start": 17.32,
+          "end": 17.620001
+        },
+        {
+          "text": "target",
+          "start": 17.620001,
+          "end": 17.719999
+        },
+        {
+          "text": "-",
+          "start": 17.76,
+          "end": 18.219999
+        },
+        {
+          "text": "proves",
+          "start": 18.219999,
+          "end": 18.540001
+        },
+        {
+          "text": "services",
+          "start": 18.540001,
+          "end": 18.969999
+        },
+        {
+          "text": "and",
+          "start": 19.200001,
+          "end": 19.49
+        },
+        {
+          "text": "networks",
+          "start": 19.49,
+          "end": 19.665
+        },
+        {
+          "text": "wiring",
+          "start": 19.665,
+          "end": 19.84
+        },
+        {
+          "text": "from",
+          "start": 19.84,
+          "end": 20.17
+        },
+        {
+          "text": "the",
+          "start": 20.17,
+          "end": 20.25
+        },
+        {
+          "text": "compose",
+          "start": 20.25,
+          "end": 20.33
+        },
+        {
+          "text": "file",
+          "start": 21.129999,
+          "end": 21.24
+        },
+        {
+          "text": "works",
+          "start": 21.24,
+          "end": 21.3499995
+        },
+        {
+          "text": "Line",
+          "start": 21.3499995,
+          "end": 21.459999
+        },
+        {
+          "text": "four",
+          "start": 21.51,
+          "end": 21.76
+        },
+        {
+          "text": "runs",
+          "start": 21.76,
+          "end": 22.01
+        },
+        {
+          "text": "your",
+          "start": 22.01,
+          "end": 22.26
+        },
+        {
+          "text": "VLAN",
+          "start": 22.26,
+          "end": 22.879999
+        },
+        {
+          "text": "playbook",
+          "start": 22.879999,
+          "end": 23.08
+        },
+        {
+          "text": "in",
+          "start": 23.08,
+          "end": 23.280001
+        },
+        {
+          "text": "check",
+          "start": 23.280001,
+          "end": 23.6
+        },
+        {
+          "text": "mode",
+          "start": 23.6,
+          "end": 23.7849995
+        },
+        {
+          "text": "against",
+          "start": 23.7849995,
+          "end": 23.969999
+        },
+        {
+          "text": "localhost",
+          "start": 23.969999,
+          "end": 24.32
+        },
+        {
+          "text": "intent",
+          "start": 24.35,
+          "end": 24.505000000000003
+        },
+        {
+          "text": "file",
+          "start": 24.505000000000003,
+          "end": 24.66
+        },
+        {
+          "text": "-",
+          "start": 25.639999,
+          "end": 25.860001
+        },
+        {
+          "text": "smoke",
+          "start": 25.860001,
+          "end": 25.9200005
+        },
+        {
+          "text": "test",
+          "start": 25.9200005,
+          "end": 25.98
+        },
+        {
+          "text": "before",
+          "start": 25.98,
+          "end": 26.09
+        },
+        {
+          "text": "CML",
+          "start": 26.09,
+          "end": 26.3100005
+        },
+        {
+          "text": "This",
+          "start": 26.3100005,
+          "end": 26.530001
+        },
+        {
+          "text": "is",
+          "start": 26.530001,
+          "end": 26.809999
+        },
+        {
+          "text": "the",
+          "start": 26.809999,
+          "end": 26.864999500000003
+        },
+        {
+          "text": "Compose",
+          "start": 26.864999500000003,
+          "end": 26.92
+        },
+        {
+          "text": "half",
+          "start": 26.92,
+          "end": 27.290001
+        },
+        {
+          "text": "of",
+          "start": 27.290001,
+          "end": 27.480000500000003
+        },
+        {
+          "text": "module",
+          "start": 27.480000500000003,
+          "end": 27.67
+        },
+        {
+          "text": "three",
+          "start": 28.440001,
+          "end": 28.92
+        },
+        {
+          "text": "CML",
+          "start": 28.92,
+          "end": 29.045
+        },
+        {
+          "text": "uses",
+          "start": 29.045,
+          "end": 29.17
+        },
+        {
+          "text": "real",
+          "start": 29.17,
+          "end": 29.57
+        },
+        {
+          "text": "Cisco",
+          "start": 29.57,
+          "end": 29.83
+        },
+        {
+          "text": "images",
+          "start": 29.83,
+          "end": 30.09
+        },
+        {
+          "text": "next",
+          "start": 30.09,
+          "end": 30.639999
+        }
+      ]
+    },
+    "docker-compose-down": {
+      "words": [
+        {
+          "text": "After",
+          "start": 0.15,
+          "end": 0.51
+        },
+        {
+          "text": "Compose",
+          "start": 0.56,
+          "end": 1.24
+        },
+        {
+          "text": "smoke",
+          "start": 1.36,
+          "end": 1.83
+        },
+        {
+          "text": "tests",
+          "start": 1.83,
+          "end": 2.28
+        },
+        {
+          "text": "pass",
+          "start": 2.36,
+          "end": 2.84
+        },
+        {
+          "text": "line",
+          "start": 3.31,
+          "end": 3.74
+        },
+        {
+          "text": "one",
+          "start": 3.74,
+          "end": 3.99
+        },
+        {
+          "text": "moves",
+          "start": 3.99,
+          "end": 4.37
+        },
+        {
+          "text": "to",
+          "start": 4.42,
+          "end": 4.48
+        },
+        {
+          "text": "the",
+          "start": 4.48,
+          "end": 4.63
+        },
+        {
+          "text": "docker",
+          "start": 4.63,
+          "end": 4.98
+        },
+        {
+          "text": "folder",
+          "start": 5.02,
+          "end": 5.52
+        },
+        {
+          "text": "Line",
+          "start": 6.07,
+          "end": 6.52
+        },
+        {
+          "text": "two",
+          "start": 6.52,
+          "end": 6.76
+        },
+        {
+          "text": "stops",
+          "start": 6.76,
+          "end": 7.38
+        },
+        {
+          "text": "and",
+          "start": 7.48,
+          "end": 7.65
+        },
+        {
+          "text": "removes",
+          "start": 7.65,
+          "end": 8.14
+        },
+        {
+          "text": "containers",
+          "start": 8.14,
+          "end": 8.92
+        },
+        {
+          "text": "and",
+          "start": 8.96,
+          "end": 9.16
+        },
+        {
+          "text": "the",
+          "start": 9.16,
+          "end": 9.26
+        },
+        {
+          "text": "default",
+          "start": 9.26,
+          "end": 9.83
+        },
+        {
+          "text": "network",
+          "start": 9.83,
+          "end": 10.43
+        },
+        {
+          "text": "Line",
+          "start": 10.9,
+          "end": 11.16
+        },
+        {
+          "text": "three",
+          "start": 11.16,
+          "end": 11.51
+        },
+        {
+          "text": "removes",
+          "start": 11.51,
+          "end": 12.03
+        },
+        {
+          "text": "named",
+          "start": 12.03,
+          "end": 12.36
+        },
+        {
+          "text": "volumes",
+          "start": 12.36,
+          "end": 12.93
+        },
+        {
+          "text": "including",
+          "start": 12.93,
+          "end": 13.43
+        },
+        {
+          "text": "ansible_cache",
+          "start": 13.85,
+          "end": 13.91
+        },
+        {
+          "text": "if",
+          "start": 13.91,
+          "end": 14.13
+        },
+        {
+          "text": "you",
+          "start": 14.61,
+          "end": 15.05
+        },
+        {
+          "text": "pass",
+          "start": 15.33,
+          "end": 16.309999
+        },
+        {
+          "text": "minus",
+          "start": 16.309999,
+          "end": 16.68
+        },
+        {
+          "text": "v",
+          "start": 16.860001,
+          "end": 17.16
+        },
+        {
+          "text": "-",
+          "start": 17.16,
+          "end": 17.33
+        },
+        {
+          "text": "use",
+          "start": 17.33,
+          "end": 17.41
+        },
+        {
+          "text": "when",
+          "start": 17.41,
+          "end": 17.690001
+        },
+        {
+          "text": "you",
+          "start": 17.690001,
+          "end": 17.75
+        },
+        {
+          "text": "want",
+          "start": 17.75,
+          "end": 18.040001
+        },
+        {
+          "text": "a",
+          "start": 18.040001,
+          "end": 18.58
+        },
+        {
+          "text": "clean",
+          "start": 18.870001,
+          "end": 19.190001
+        },
+        {
+          "text": "rebuild",
+          "start": 19.190001,
+          "end": 19.530001
+        },
+        {
+          "text": "Line",
+          "start": 19.719999,
+          "end": 20.43
+        },
+        {
+          "text": "four",
+          "start": 20.6,
+          "end": 21
+        },
+        {
+          "text": "confirms",
+          "start": 21,
+          "end": 21.17
+        },
+        {
+          "text": "nothing",
+          "start": 21.17,
+          "end": 21.610001
+        },
+        {
+          "text": "is",
+          "start": 21.870001,
+          "end": 22.190001
+        },
+        {
+          "text": "running",
+          "start": 22.190001,
+          "end": 22.530001
+        },
+        {
+          "text": "Run",
+          "start": 22.67,
+          "end": 23.26
+        },
+        {
+          "text": "this",
+          "start": 23.5,
+          "end": 23.92
+        },
+        {
+          "text": "before",
+          "start": 23.92,
+          "end": 23.950001
+        },
+        {
+          "text": "switching",
+          "start": 24.76,
+          "end": 25.17
+        },
+        {
+          "text": "to",
+          "start": 25.370001,
+          "end": 25.49
+        },
+        {
+          "text": "CML",
+          "start": 25.49,
+          "end": 25.58
+        },
+        {
+          "text": "work",
+          "start": 25.58,
+          "end": 25.889999
+        },
+        {
+          "text": "on",
+          "start": 25.889999,
+          "end": 26.159999499999998
+        },
+        {
+          "text": "the",
+          "start": 26.159999499999998,
+          "end": 26.43
+        },
+        {
+          "text": "same",
+          "start": 26.43,
+          "end": 26.469999
+        },
+        {
+          "text": "laptop",
+          "start": 26.469999,
+          "end": 26.6099995
+        },
+        {
+          "text": "to",
+          "start": 26.6099995,
+          "end": 26.75
+        },
+        {
+          "text": "free",
+          "start": 26.75,
+          "end": 27.18
+        },
+        {
+          "text": "ports",
+          "start": 27.27,
+          "end": 27.3550005
+        },
+        {
+          "text": "and",
+          "start": 27.3550005,
+          "end": 27.440001
+        },
+        {
+          "text": "memory",
+          "start": 27.440001,
+          "end": 28.02
+        }
+      ]
+    },
+    "cml-lab-topology-setup": {
+      "words": [
+        {
+          "text": "CML",
+          "start": 0.58,
+          "end": 0.99
+        },
+        {
+          "text": "steps",
+          "start": 0.99,
+          "end": 1.2
+        },
+        {
+          "text": "for",
+          "start": 1.2,
+          "end": 1.61
+        },
+        {
+          "text": "exam",
+          "start": 1.61,
+          "end": 1.8
+        },
+        {
+          "text": "two",
+          "start": 1.8,
+          "end": 2.06
+        },
+        {
+          "text": "point",
+          "start": 2.06,
+          "end": 2.41
+        },
+        {
+          "text": "four",
+          "start": 2.47,
+          "end": 3.03
+        },
+        {
+          "text": "-",
+          "start": 3.03,
+          "end": 3.11
+        },
+        {
+          "text": "construct",
+          "start": 3.11,
+          "end": 3.86
+        },
+        {
+          "text": "a",
+          "start": 4.13,
+          "end": 4.46
+        },
+        {
+          "text": "simulation",
+          "start": 4.46,
+          "end": 4.72
+        },
+        {
+          "text": "Lines",
+          "start": 4.72,
+          "end": 4.91
+        },
+        {
+          "text": "one",
+          "start": 4.91,
+          "end": 5.22
+        },
+        {
+          "text": "and",
+          "start": 5.25,
+          "end": 5.88
+        },
+        {
+          "text": "two",
+          "start": 5.88,
+          "end": 5.98
+        },
+        {
+          "text": "document",
+          "start": 6.01,
+          "end": 6.7
+        },
+        {
+          "text": "the",
+          "start": 6.93,
+          "end": 7.14
+        },
+        {
+          "text": "topology",
+          "start": 7.94,
+          "end": 8.53
+        },
+        {
+          "text": "two",
+          "start": 9.27,
+          "end": 9.44
+        },
+        {
+          "text": "IOSv",
+          "start": 10.19,
+          "end": 10.36
+        },
+        {
+          "text": "routers",
+          "start": 10.36,
+          "end": 10.63
+        },
+        {
+          "text": "R1",
+          "start": 10.63,
+          "end": 10.94
+        },
+        {
+          "text": "and",
+          "start": 10.98,
+          "end": 11.49
+        },
+        {
+          "text": "R2",
+          "start": 11.63,
+          "end": 11.75
+        },
+        {
+          "text": "with",
+          "start": 11.75,
+          "end": 12.07
+        },
+        {
+          "text": "one",
+          "start": 12.07,
+          "end": 12.18
+        },
+        {
+          "text": "link",
+          "start": 12.18,
+          "end": 12.49
+        },
+        {
+          "text": "-",
+          "start": 12.52,
+          "end": 12.65
+        },
+        {
+          "text": "create",
+          "start": 12.65,
+          "end": 12.73
+        },
+        {
+          "text": "and",
+          "start": 13.24,
+          "end": 13.52
+        },
+        {
+          "text": "start",
+          "start": 14.28,
+          "end": 14.67
+        },
+        {
+          "text": "the",
+          "start": 14.67,
+          "end": 15.03
+        },
+        {
+          "text": "lab",
+          "start": 15.03,
+          "end": 15.37
+        },
+        {
+          "text": "in",
+          "start": 15.46,
+          "end": 15.87
+        },
+        {
+          "text": "the",
+          "start": 16.15,
+          "end": 16.57
+        },
+        {
+          "text": "CML",
+          "start": 16.629999,
+          "end": 17.34
+        },
+        {
+          "text": "web",
+          "start": 17.34,
+          "end": 17.879999
+        },
+        {
+          "text": "UI",
+          "start": 18.58,
+          "end": 18.940001
+        },
+        {
+          "text": "Lines",
+          "start": 19.709999,
+          "end": 20.01
+        },
+        {
+          "text": "four",
+          "start": 20.01,
+          "end": 20.66
+        },
+        {
+          "text": "through",
+          "start": 20.799999,
+          "end": 21.41
+        },
+        {
+          "text": "ten",
+          "start": 21.82,
+          "end": 21.98
+        },
+        {
+          "text": "write",
+          "start": 22.02,
+          "end": 22.23
+        },
+        {
+          "text": "inventory",
+          "start": 22.23,
+          "end": 22.780001
+        },
+        {
+          "text": "slash",
+          "start": 23.01,
+          "end": 23.290001
+        },
+        {
+          "text": "cml",
+          "start": 23.290001,
+          "end": 23.75
+        },
+        {
+          "text": "dot",
+          "start": 23.75,
+          "end": 24.15
+        },
+        {
+          "text": "yml",
+          "start": 24.15,
+          "end": 24.360001
+        },
+        {
+          "text": "with",
+          "start": 24.360001,
+          "end": 24.450001
+        },
+        {
+          "text": "management",
+          "start": 24.450001,
+          "end": 24.6
+        },
+        {
+          "text": "IPs",
+          "start": 24.76,
+          "end": 24.835
+        },
+        {
+          "text": "-",
+          "start": 24.835,
+          "end": 24.91
+        },
+        {
+          "text": "replace",
+          "start": 24.91,
+          "end": 25.290001
+        },
+        {
+          "text": "ten",
+          "start": 25.33,
+          "end": 25.424999999999997
+        },
+        {
+          "text": "dot",
+          "start": 25.424999999999997,
+          "end": 25.52
+        },
+        {
+          "text": "zero",
+          "start": 25.67,
+          "end": 25.879999
+        },
+        {
+          "text": "dot",
+          "start": 28.35,
+          "end": 28.614999500000003
+        },
+        {
+          "text": "zero",
+          "start": 28.614999500000003,
+          "end": 28.879999
+        },
+        {
+          "text": "dot",
+          "start": 29.370001,
+          "end": 29.709999
+        },
+        {
+          "text": "eleven",
+          "start": 29.709999,
+          "end": 29.9749995
+        },
+        {
+          "text": "and",
+          "start": 29.9749995,
+          "end": 30.24
+        },
+        {
+          "text": "twelve",
+          "start": 30.32,
+          "end": 30.879999
+        },
+        {
+          "text": "with",
+          "start": 30.879999,
+          "end": 30.9299995
+        },
+        {
+          "text": "addresses",
+          "start": 30.9299995,
+          "end": 30.98
+        },
+        {
+          "text": "from",
+          "start": 30.98,
+          "end": 31.719999
+        },
+        {
+          "text": "your",
+          "start": 31.719999,
+          "end": 31.929999000000002
+        },
+        {
+          "text": "CML",
+          "start": 31.929999000000002,
+          "end": 32.139999
+        },
+        {
+          "text": "dashboard",
+          "start": 32.27,
+          "end": 32.32
+        },
+        {
+          "text": "Line",
+          "start": 32.32,
+          "end": 32.5499995
+        },
+        {
+          "text": "eleven",
+          "start": 32.5499995,
+          "end": 32.779999
+        },
+        {
+          "text": "stages",
+          "start": 32.880001,
+          "end": 33.380001
+        },
+        {
+          "text": "the",
+          "start": 33.419998,
+          "end": 33.7299995
+        },
+        {
+          "text": "inventory",
+          "start": 33.7299995,
+          "end": 34.040001
+        },
+        {
+          "text": "file",
+          "start": 34.27,
+          "end": 34.700001
+        },
+        {
+          "text": "to",
+          "start": 34.700001,
+          "end": 34.8150005
+        },
+        {
+          "text": "Git",
+          "start": 34.8150005,
+          "end": 34.93
+        },
+        {
+          "text": "without",
+          "start": 35.490002,
+          "end": 35.709999
+        },
+        {
+          "text": "passwords",
+          "start": 35.709999,
+          "end": 35.7399995
+        },
+        {
+          "text": "Skip",
+          "start": 35.7399995,
+          "end": 35.77
+        },
+        {
+          "text": "live",
+          "start": 35.77,
+          "end": 36.09
+        },
+        {
+          "text": "CML",
+          "start": 36.09,
+          "end": 36.465
+        },
+        {
+          "text": "if",
+          "start": 36.465,
+          "end": 36.84
+        },
+        {
+          "text": "you",
+          "start": 37.200001,
+          "end": 37.66
+        },
+        {
+          "text": "lack",
+          "start": 37.66,
+          "end": 37.715
+        },
+        {
+          "text": "license",
+          "start": 37.715,
+          "end": 37.77
+        },
+        {
+          "text": "study",
+          "start": 37.77,
+          "end": 38.490002
+        },
+        {
+          "text": "the",
+          "start": 38.540001,
+          "end": 38.755001
+        },
+        {
+          "text": "inventory",
+          "start": 38.755001,
+          "end": 38.970001
+        },
+        {
+          "text": "pattern",
+          "start": 38.970001,
+          "end": 39.150002
+        },
+        {
+          "text": "for",
+          "start": 39.150002,
+          "end": 39.205
+        },
+        {
+          "text": "the",
+          "start": 39.205,
+          "end": 39.259998
+        },
+        {
+          "text": "exam",
+          "start": 39.259998,
+          "end": 39.779999
+        }
+      ]
+    },
+    "cml-connectivity-check": {
+      "words": [
+        {
+          "text": "Line",
+          "start": 0.14,
+          "end": 0.55
+        },
+        {
+          "text": "one",
+          "start": 0.55,
+          "end": 0.84
+        },
+        {
+          "text": "exports",
+          "start": 0.92,
+          "end": 1.49
+        },
+        {
+          "text": "credentials",
+          "start": 1.49,
+          "end": 2.14
+        },
+        {
+          "text": "from",
+          "start": 2.14,
+          "end": 2.39
+        },
+        {
+          "text": "environment",
+          "start": 2.39,
+          "end": 3.16
+        },
+        {
+          "text": "-",
+          "start": 3.16,
+          "end": 3.45
+        },
+        {
+          "text": "never",
+          "start": 3.45,
+          "end": 3.77
+        },
+        {
+          "text": "hard-code",
+          "start": 3.77,
+          "end": 4.07
+        },
+        {
+          "text": "in",
+          "start": 4.1,
+          "end": 4.35
+        },
+        {
+          "text": "Git",
+          "start": 4.35,
+          "end": 4.52
+        },
+        {
+          "text": "Line",
+          "start": 5.23,
+          "end": 5.63
+        },
+        {
+          "text": "two",
+          "start": 5.63,
+          "end": 6.03
+        },
+        {
+          "text": "runs",
+          "start": 6.23,
+          "end": 6.83
+        },
+        {
+          "text": "ansible",
+          "start": 7.87,
+          "end": 8.36
+        },
+        {
+          "text": "minus",
+          "start": 8.39,
+          "end": 8.74
+        },
+        {
+          "text": "m",
+          "start": 9.54,
+          "end": 9.89
+        },
+        {
+          "text": "ansible",
+          "start": 10.56,
+          "end": 10.81
+        },
+        {
+          "text": "dot",
+          "start": 10.9,
+          "end": 11.28
+        },
+        {
+          "text": "builtin",
+          "start": 11.43,
+          "end": 11.89
+        },
+        {
+          "text": "dot",
+          "start": 12.76,
+          "end": 13.45
+        },
+        {
+          "text": "ping",
+          "start": 13.54,
+          "end": 13.88
+        },
+        {
+          "text": "against",
+          "start": 13.88,
+          "end": 14
+        },
+        {
+          "text": "CML",
+          "start": 14,
+          "end": 14.8
+        },
+        {
+          "text": "inventory",
+          "start": 14.8,
+          "end": 15.04
+        },
+        {
+          "text": "-",
+          "start": 15.04,
+          "end": 15.6
+        },
+        {
+          "text": "proves",
+          "start": 15.69,
+          "end": 15.96
+        },
+        {
+          "text": "your",
+          "start": 15.96,
+          "end": 16.07
+        },
+        {
+          "text": "simulation",
+          "start": 16.07,
+          "end": 16.639999
+        },
+        {
+          "text": "is",
+          "start": 16.639999,
+          "end": 17.110001
+        },
+        {
+          "text": "reachable",
+          "start": 17.370001,
+          "end": 17.73
+        },
+        {
+          "text": "from",
+          "start": 17.73,
+          "end": 17.849999500000003
+        },
+        {
+          "text": "the",
+          "start": 17.849999500000003,
+          "end": 17.969999
+        },
+        {
+          "text": "automation",
+          "start": 17.969999,
+          "end": 18.459999
+        },
+        {
+          "text": "host",
+          "start": 18.540001,
+          "end": 18.6900005
+        },
+        {
+          "text": "Line",
+          "start": 18.6900005,
+          "end": 18.84
+        },
+        {
+          "text": "three",
+          "start": 18.84,
+          "end": 19.42
+        },
+        {
+          "text": "runs",
+          "start": 19.51,
+          "end": 19.805
+        },
+        {
+          "text": "show",
+          "start": 19.805,
+          "end": 20.1
+        },
+        {
+          "text": "ip",
+          "start": 20.1,
+          "end": 20.49
+        },
+        {
+          "text": "interface",
+          "start": 20.559999,
+          "end": 20.6499995
+        },
+        {
+          "text": "brief",
+          "start": 20.6499995,
+          "end": 20.74
+        },
+        {
+          "text": "on",
+          "start": 21.4,
+          "end": 22
+        },
+        {
+          "text": "R1",
+          "start": 22,
+          "end": 22.2250005
+        },
+        {
+          "text": "-",
+          "start": 22.2250005,
+          "end": 22.450001
+        },
+        {
+          "text": "confirms",
+          "start": 23.120001,
+          "end": 23.360001
+        },
+        {
+          "text": "Cisco",
+          "start": 24.219999,
+          "end": 24.3149995
+        },
+        {
+          "text": "CLI",
+          "start": 24.3149995,
+          "end": 24.41
+        },
+        {
+          "text": "over",
+          "start": 24.870001,
+          "end": 25
+        },
+        {
+          "text": "network_cli",
+          "start": 25.209999,
+          "end": 25.384999
+        },
+        {
+          "text": "If",
+          "start": 25.384999,
+          "end": 25.559999
+        },
+        {
+          "text": "ping",
+          "start": 25.559999,
+          "end": 25.66
+        },
+        {
+          "text": "fails",
+          "start": 27,
+          "end": 27.1850005
+        },
+        {
+          "text": "check",
+          "start": 27.1850005,
+          "end": 27.370001
+        },
+        {
+          "text": "CML",
+          "start": 27.4,
+          "end": 27.620001
+        },
+        {
+          "text": "lab",
+          "start": 27.620001,
+          "end": 27.9250005
+        },
+        {
+          "text": "is",
+          "start": 27.9250005,
+          "end": 28.23
+        },
+        {
+          "text": "started",
+          "start": 29.059999,
+          "end": 29.57
+        },
+        {
+          "text": "firewall",
+          "start": 29.610001,
+          "end": 29.990001
+        },
+        {
+          "text": "allows",
+          "start": 29.990001,
+          "end": 30.370001
+        },
+        {
+          "text": "SSH",
+          "start": 30.559999,
+          "end": 30.709999
+        },
+        {
+          "text": "and",
+          "start": 32.82,
+          "end": 33.010000500000004
+        },
+        {
+          "text": "ansible_host",
+          "start": 33.010000500000004,
+          "end": 33.200001
+        },
+        {
+          "text": "IPs",
+          "start": 33.200001,
+          "end": 33.310001
+        },
+        {
+          "text": "match",
+          "start": 34.580002,
+          "end": 34.700001
+        },
+        {
+          "text": "the",
+          "start": 34.700001,
+          "end": 34.82
+        },
+        {
+          "text": "CML",
+          "start": 35.73,
+          "end": 36.310001
+        },
+        {
+          "text": "UI",
+          "start": 36.360001,
+          "end": 36.4349995
+        },
+        {
+          "text": "This",
+          "start": 36.4349995,
+          "end": 36.509998
+        },
+        {
+          "text": "validates",
+          "start": 36.509998,
+          "end": 36.779999
+        },
+        {
+          "text": "exam",
+          "start": 36.779999,
+          "end": 36.9650005
+        },
+        {
+          "text": "two",
+          "start": 36.9650005,
+          "end": 37.150002
+        },
+        {
+          "text": "point",
+          "start": 37.23,
+          "end": 37.77
+        },
+        {
+          "text": "four",
+          "start": 37.77,
+          "end": 38.165000500000005
+        },
+        {
+          "text": "construct",
+          "start": 38.165000500000005,
+          "end": 38.560001
+        },
+        {
+          "text": "simulation",
+          "start": 38.790001,
+          "end": 39.200001
+        },
+        {
+          "text": "before",
+          "start": 39.23,
+          "end": 39.58
+        },
+        {
+          "text": "automation",
+          "start": 39.58,
+          "end": 39.93
+        },
+        {
+          "text": "deploy",
+          "start": 39.93,
+          "end": 40.509998
+        }
+      ]
+    },
+    "ansible-playbook-against-cml": {
+      "words": [
+        {
+          "text": "Line",
+          "start": 0.08,
+          "end": 0.44
+        },
+        {
+          "text": "one",
+          "start": 0.44,
+          "end": 0.79
+        },
+        {
+          "text": "runs",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "text": "deploy_vlans",
+          "start": 2.29,
+          "end": 2.38
+        },
+        {
+          "text": "dot",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "text": "yml",
+          "start": 3.65,
+          "end": 3.96
+        },
+        {
+          "text": "in",
+          "start": 3.96,
+          "end": 4.3
+        },
+        {
+          "text": "check",
+          "start": 4.79,
+          "end": 5.07
+        },
+        {
+          "text": "mode",
+          "start": 6.3,
+          "end": 6.82
+        },
+        {
+          "text": "against",
+          "start": 7.21,
+          "end": 7.53
+        },
+        {
+          "text": "CML",
+          "start": 8,
+          "end": 8.57
+        },
+        {
+          "text": "routers",
+          "start": 8.57,
+          "end": 8.86
+        },
+        {
+          "text": "using",
+          "start": 8.86,
+          "end": 9.19
+        },
+        {
+          "text": "cml",
+          "start": 9.47,
+          "end": 9.62
+        },
+        {
+          "text": "inventory",
+          "start": 9.62,
+          "end": 10.26
+        },
+        {
+          "text": "-",
+          "start": 11.29,
+          "end": 11.53
+        },
+        {
+          "text": "dry",
+          "start": 11.53,
+          "end": 11.78
+        },
+        {
+          "text": "run",
+          "start": 12.07,
+          "end": 12.46
+        },
+        {
+          "text": "on",
+          "start": 12.5,
+          "end": 12.56
+        },
+        {
+          "text": "simulated",
+          "start": 13.38,
+          "end": 13.64
+        },
+        {
+          "text": "IOS",
+          "start": 13.64,
+          "end": 13.82
+        },
+        {
+          "text": "Line",
+          "start": 13.82,
+          "end": 14.21
+        },
+        {
+          "text": "two",
+          "start": 14.21,
+          "end": 14.59
+        },
+        {
+          "text": "limits",
+          "start": 14.59,
+          "end": 15
+        },
+        {
+          "text": "to",
+          "start": 15.11,
+          "end": 15.29
+        },
+        {
+          "text": "R1",
+          "start": 15.29,
+          "end": 15.69
+        },
+        {
+          "text": "only",
+          "start": 15.69,
+          "end": 16.120001
+        },
+        {
+          "text": "with",
+          "start": 16.48,
+          "end": 16.74
+        },
+        {
+          "text": "minus",
+          "start": 16.74,
+          "end": 17.030001
+        },
+        {
+          "text": "minus",
+          "start": 17.030001,
+          "end": 17.33
+        },
+        {
+          "text": "limit",
+          "start": 17.33,
+          "end": 17.4
+        },
+        {
+          "text": "for",
+          "start": 17.780001,
+          "end": 18.190001
+        },
+        {
+          "text": "staged",
+          "start": 18.27,
+          "end": 18.34
+        },
+        {
+          "text": "testing",
+          "start": 18.34,
+          "end": 18.559999
+        },
+        {
+          "text": "Line",
+          "start": 18.610001,
+          "end": 18.98
+        },
+        {
+          "text": "three",
+          "start": 18.98,
+          "end": 19.469999
+        },
+        {
+          "text": "adds",
+          "start": 19.469999,
+          "end": 19.5
+        },
+        {
+          "text": "a",
+          "start": 19.5,
+          "end": 19.639999
+        },
+        {
+          "text": "verbose",
+          "start": 19.639999,
+          "end": 20.24
+        },
+        {
+          "text": "flag",
+          "start": 20.49,
+          "end": 20.65
+        },
+        {
+          "text": "to",
+          "start": 20.65,
+          "end": 21.25
+        },
+        {
+          "text": "see",
+          "start": 21.25,
+          "end": 21.360001
+        },
+        {
+          "text": "tasks",
+          "start": 21.360001,
+          "end": 21.5600005
+        },
+        {
+          "text": "sent",
+          "start": 21.5600005,
+          "end": 21.76
+        },
+        {
+          "text": "to",
+          "start": 21.76,
+          "end": 22.040001
+        },
+        {
+          "text": "the",
+          "start": 22.040001,
+          "end": 22.235000499999998
+        },
+        {
+          "text": "device",
+          "start": 22.235000499999998,
+          "end": 22.43
+        },
+        {
+          "text": "In",
+          "start": 22.43,
+          "end": 22.75
+        },
+        {
+          "text": "production",
+          "start": 22.75,
+          "end": 22.95
+        },
+        {
+          "text": "you",
+          "start": 22.95,
+          "end": 23.15
+        },
+        {
+          "text": "promote",
+          "start": 23.209999,
+          "end": 23.26
+        },
+        {
+          "text": "from",
+          "start": 23.76,
+          "end": 23.904999500000002
+        },
+        {
+          "text": "Compose",
+          "start": 23.904999500000002,
+          "end": 24.049999
+        },
+        {
+          "text": "smoke",
+          "start": 24.049999,
+          "end": 24.360001
+        },
+        {
+          "text": "test",
+          "start": 24.68,
+          "end": 24.755
+        },
+        {
+          "text": "to",
+          "start": 24.755,
+          "end": 24.83
+        },
+        {
+          "text": "CML",
+          "start": 24.83,
+          "end": 25.25
+        },
+        {
+          "text": "check",
+          "start": 25.25,
+          "end": 25.4350005
+        },
+        {
+          "text": "mode",
+          "start": 25.4350005,
+          "end": 25.620001
+        },
+        {
+          "text": "to",
+          "start": 25.620001,
+          "end": 26.040001
+        },
+        {
+          "text": "approved",
+          "start": 26.15,
+          "end": 26.269999499999997
+        },
+        {
+          "text": "deploy",
+          "start": 26.269999499999997,
+          "end": 26.389999
+        },
+        {
+          "text": "-",
+          "start": 26.450001,
+          "end": 26.950001
+        },
+        {
+          "text": "module",
+          "start": 26.950001,
+          "end": 27.17
+        },
+        {
+          "text": "two",
+          "start": 27.17,
+          "end": 27.389999
+        },
+        {
+          "text": "pipeline",
+          "start": 27.620001,
+          "end": 27.93
+        },
+        {
+          "text": "gates",
+          "start": 27.93,
+          "end": 28.045
+        },
+        {
+          "text": "wrap",
+          "start": 28.045,
+          "end": 28.16
+        },
+        {
+          "text": "these",
+          "start": 28.16,
+          "end": 28.68
+        },
+        {
+          "text": "steps",
+          "start": 28.889999,
+          "end": 29.099999
+        },
+        {
+          "text": "Commit",
+          "start": 29.099999,
+          "end": 29.309999
+        },
+        {
+          "text": "playbook",
+          "start": 29.719999,
+          "end": 30.299999
+        },
+        {
+          "text": "changes",
+          "start": 30.299999,
+          "end": 30.509999
+        },
+        {
+          "text": "only",
+          "start": 30.509999,
+          "end": 30.719999
+        },
+        {
+          "text": "after",
+          "start": 30.719999,
+          "end": 31
+        },
+        {
+          "text": "CML",
+          "start": 31.52,
+          "end": 31.68
+        },
+        {
+          "text": "check",
+          "start": 31.68,
+          "end": 31.84
+        },
+        {
+          "text": "passes",
+          "start": 31.84,
+          "end": 32.32
+        }
+      ]
+    },
+    "compose-in-pipeline-prevalidation": {
+      "words": [
+        {
+          "text": "Lines",
+          "start": 0.08,
+          "end": 0.38
+        },
+        {
+          "text": "one",
+          "start": 0.38,
+          "end": 0.57
+        },
+        {
+          "text": "through",
+          "start": 0.57,
+          "end": 0.77
+        },
+        {
+          "text": "four",
+          "start": 0.77,
+          "end": 1.02
+        },
+        {
+          "text": "add",
+          "start": 1.05,
+          "end": 1.28
+        },
+        {
+          "text": "a",
+          "start": 1.28,
+          "end": 1.32
+        },
+        {
+          "text": "GitLab",
+          "start": 1.8,
+          "end": 2.09
+        },
+        {
+          "text": "job",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "text": "that",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "text": "runs",
+          "start": 2.53,
+          "end": 3.18
+        },
+        {
+          "text": "Compose",
+          "start": 3.25,
+          "end": 3.66
+        },
+        {
+          "text": "during",
+          "start": 4.73,
+          "end": 5.22
+        },
+        {
+          "text": "prevalidation",
+          "start": 5.22,
+          "end": 5.63
+        },
+        {
+          "text": "-",
+          "start": 5.63,
+          "end": 5.84
+        },
+        {
+          "text": "extends",
+          "start": 5.84,
+          "end": 6.33
+        },
+        {
+          "text": "module",
+          "start": 6.52,
+          "end": 6.62
+        },
+        {
+          "text": "two",
+          "start": 6.62,
+          "end": 6.94
+        },
+        {
+          "text": "pipeline",
+          "start": 6.94,
+          "end": 7.32
+        },
+        {
+          "text": "The",
+          "start": 7.32,
+          "end": 7.61
+        },
+        {
+          "text": "docker",
+          "start": 7.61,
+          "end": 7.84
+        },
+        {
+          "text": "colon",
+          "start": 7.87,
+          "end": 8.25
+        },
+        {
+          "text": "twenty-four",
+          "start": 8.25,
+          "end": 8.88
+        },
+        {
+          "text": "image",
+          "start": 8.94,
+          "end": 9.62
+        },
+        {
+          "text": "includes",
+          "start": 9.86,
+          "end": 10.24
+        },
+        {
+          "text": "compose",
+          "start": 10.24,
+          "end": 10.6
+        },
+        {
+          "text": "Lines",
+          "start": 10.6,
+          "end": 10.83
+        },
+        {
+          "text": "five",
+          "start": 10.83,
+          "end": 11.37
+        },
+        {
+          "text": "through",
+          "start": 11.4,
+          "end": 11.95
+        },
+        {
+          "text": "seven",
+          "start": 12.97,
+          "end": 13.44
+        },
+        {
+          "text": "install",
+          "start": 13.44,
+          "end": 14.12
+        },
+        {
+          "text": "Ansible",
+          "start": 14.51,
+          "end": 14.76
+        },
+        {
+          "text": "start",
+          "start": 14.92,
+          "end": 15.2
+        },
+        {
+          "text": "compose",
+          "start": 15.2,
+          "end": 15.31
+        },
+        {
+          "text": "and",
+          "start": 15.31,
+          "end": 15.81
+        },
+        {
+          "text": "ping",
+          "start": 15.84,
+          "end": 16.35
+        },
+        {
+          "text": "the",
+          "start": 16.35,
+          "end": 16.459999
+        },
+        {
+          "text": "target",
+          "start": 16.459999,
+          "end": 16.85
+        },
+        {
+          "text": "inside",
+          "start": 17.16,
+          "end": 17.42
+        },
+        {
+          "text": "the",
+          "start": 17.42,
+          "end": 17.85
+        },
+        {
+          "text": "job",
+          "start": 17.85,
+          "end": 18.24
+        },
+        {
+          "text": "This",
+          "start": 18.24,
+          "end": 18.41
+        },
+        {
+          "text": "ties",
+          "start": 18.41,
+          "end": 18.690001
+        },
+        {
+          "text": "exam",
+          "start": 18.690001,
+          "end": 18.99
+        },
+        {
+          "text": "two",
+          "start": 18.99,
+          "end": 19.870001
+        },
+        {
+          "text": "point",
+          "start": 19.969999,
+          "end": 20.040001
+        },
+        {
+          "text": "five",
+          "start": 20.040001,
+          "end": 20.58
+        },
+        {
+          "text": "interpretation",
+          "start": 22.459999,
+          "end": 22.84
+        },
+        {
+          "text": "to",
+          "start": 22.84,
+          "end": 23.200001
+        },
+        {
+          "text": "real",
+          "start": 23.200001,
+          "end": 23.629999
+        },
+        {
+          "text": "CI",
+          "start": 23.629999,
+          "end": 23.780001
+        },
+        {
+          "text": "CML",
+          "start": 23.780001,
+          "end": 23.820000999999998
+        },
+        {
+          "text": "jobs",
+          "start": 23.820000999999998,
+          "end": 23.860001
+        },
+        {
+          "text": "often",
+          "start": 23.860001,
+          "end": 24.629999
+        },
+        {
+          "text": "run",
+          "start": 24.629999,
+          "end": 24.785
+        },
+        {
+          "text": "on",
+          "start": 24.785,
+          "end": 24.940001
+        },
+        {
+          "text": "a",
+          "start": 24.940001,
+          "end": 25.15
+        },
+        {
+          "text": "dedicated",
+          "start": 25.809999,
+          "end": 26.0399995
+        },
+        {
+          "text": "runner",
+          "start": 26.0399995,
+          "end": 26.27
+        },
+        {
+          "text": "with",
+          "start": 26.27,
+          "end": 26.91
+        },
+        {
+          "text": "CML",
+          "start": 27.49,
+          "end": 27.769999499999997
+        },
+        {
+          "text": "API",
+          "start": 27.769999499999997,
+          "end": 28.049999
+        },
+        {
+          "text": "access",
+          "start": 28.049999,
+          "end": 28.41
+        },
+        {
+          "text": "Compose",
+          "start": 28.450001,
+          "end": 28.67
+        },
+        {
+          "text": "runs",
+          "start": 28.67,
+          "end": 28.889999
+        },
+        {
+          "text": "anywhere",
+          "start": 28.889999,
+          "end": 29.26
+        },
+        {
+          "text": "Docker",
+          "start": 29.26,
+          "end": 29.3599995
+        },
+        {
+          "text": "is",
+          "start": 29.3599995,
+          "end": 29.459999
+        },
+        {
+          "text": "available",
+          "start": 29.459999,
+          "end": 30.09
+        }
+      ]
+    },
+    "certification-alignment-containers": {
+      "words": [
+        {
+          "text": "Module",
+          "start": 0.15,
+          "end": 0.48
+        },
+        {
+          "text": "three",
+          "start": 0.48,
+          "end": 0.69
+        },
+        {
+          "text": "maps",
+          "start": 0.69,
+          "end": 1.21
+        },
+        {
+          "text": "to",
+          "start": 1.4,
+          "end": 1.46
+        },
+        {
+          "text": "exam",
+          "start": 1.46,
+          "end": 1.91
+        },
+        {
+          "text": "objectives",
+          "start": 1.91,
+          "end": 2.7
+        },
+        {
+          "text": "two",
+          "start": 2.79,
+          "end": 2.94
+        },
+        {
+          "text": "point",
+          "start": 2.94,
+          "end": 3.21
+        },
+        {
+          "text": "four",
+          "start": 3.21,
+          "end": 3.57
+        },
+        {
+          "text": "and",
+          "start": 3.73,
+          "end": 3.88
+        },
+        {
+          "text": "two",
+          "start": 3.88,
+          "end": 4
+        },
+        {
+          "text": "point",
+          "start": 4,
+          "end": 4.25
+        },
+        {
+          "text": "five",
+          "start": 4.25,
+          "end": 4.58
+        },
+        {
+          "text": "Two",
+          "start": 4.91,
+          "end": 5.04
+        },
+        {
+          "text": "point",
+          "start": 5.04,
+          "end": 5.26
+        },
+        {
+          "text": "five",
+          "start": 5.26,
+          "end": 5.73
+        },
+        {
+          "text": "-",
+          "start": 5.91,
+          "end": 6.58
+        },
+        {
+          "text": "interpret",
+          "start": 6.66,
+          "end": 6.91
+        },
+        {
+          "text": "Docker",
+          "start": 6.91,
+          "end": 7.57
+        },
+        {
+          "text": "Compose",
+          "start": 7.81,
+          "end": 7.94
+        },
+        {
+          "text": "you",
+          "start": 7.94,
+          "end": 8.28
+        },
+        {
+          "text": "traced",
+          "start": 8.28,
+          "end": 9.07
+        },
+        {
+          "text": "services",
+          "start": 9.26,
+          "end": 10
+        },
+        {
+          "text": "networks",
+          "start": 10.2,
+          "end": 10.97
+        },
+        {
+          "text": "volumes",
+          "start": 11.2,
+          "end": 11.31
+        },
+        {
+          "text": "and",
+          "start": 11.31,
+          "end": 11.39
+        },
+        {
+          "text": "the",
+          "start": 11.39,
+          "end": 11.86
+        },
+        {
+          "text": "links",
+          "start": 11.91,
+          "end": 12.21
+        },
+        {
+          "text": "versus",
+          "start": 12.21,
+          "end": 12.63
+        },
+        {
+          "text": "depends",
+          "start": 12.63,
+          "end": 12.77
+        },
+        {
+          "text": "on",
+          "start": 12.77,
+          "end": 13.28
+        },
+        {
+          "text": "pattern",
+          "start": 13.58,
+          "end": 13.79
+        },
+        {
+          "text": "Two",
+          "start": 13.79,
+          "end": 14.08
+        },
+        {
+          "text": "point",
+          "start": 14.08,
+          "end": 14.38
+        },
+        {
+          "text": "four",
+          "start": 14.38,
+          "end": 14.94
+        },
+        {
+          "text": "-",
+          "start": 14.94,
+          "end": 14.97
+        },
+        {
+          "text": "construct",
+          "start": 15,
+          "end": 15.86
+        },
+        {
+          "text": "a",
+          "start": 16.66,
+          "end": 16.799999
+        },
+        {
+          "text": "CML",
+          "start": 16.799999,
+          "end": 17.16
+        },
+        {
+          "text": "simulation",
+          "start": 17.16,
+          "end": 17.219999
+        },
+        {
+          "text": "you",
+          "start": 17.219999,
+          "end": 17.42
+        },
+        {
+          "text": "built",
+          "start": 17.42,
+          "end": 17.75
+        },
+        {
+          "text": "a",
+          "start": 17.75,
+          "end": 18.139999
+        },
+        {
+          "text": "two-router",
+          "start": 18.620001,
+          "end": 19.280001
+        },
+        {
+          "text": "lab",
+          "start": 19.639999,
+          "end": 20.299999
+        },
+        {
+          "text": "inventory",
+          "start": 20.299999,
+          "end": 20.700001
+        },
+        {
+          "text": "connectivity",
+          "start": 21.16,
+          "end": 21.33
+        },
+        {
+          "text": "check",
+          "start": 21.33,
+          "end": 21.639999
+        },
+        {
+          "text": "and",
+          "start": 21.639999,
+          "end": 21.93
+        },
+        {
+          "text": "check-mode",
+          "start": 22.84,
+          "end": 23.17
+        },
+        {
+          "text": "playbook",
+          "start": 23.200001,
+          "end": 23.82
+        },
+        {
+          "text": "Exam",
+          "start": 23.85,
+          "end": 24.030001
+        },
+        {
+          "text": "items",
+          "start": 24.030001,
+          "end": 24.290001
+        },
+        {
+          "text": "may",
+          "start": 24.290001,
+          "end": 24.43
+        },
+        {
+          "text": "show",
+          "start": 24.43,
+          "end": 24.92
+        },
+        {
+          "text": "a",
+          "start": 24.92,
+          "end": 25.559999
+        },
+        {
+          "text": "compose",
+          "start": 25.809999,
+          "end": 25.959999
+        },
+        {
+          "text": "snippet",
+          "start": 26.040001,
+          "end": 26.299999
+        },
+        {
+          "text": "and",
+          "start": 26.43,
+          "end": 26.68
+        },
+        {
+          "text": "ask",
+          "start": 26.68,
+          "end": 27.25
+        },
+        {
+          "text": "which",
+          "start": 27.35,
+          "end": 27.43
+        },
+        {
+          "text": "network",
+          "start": 27.43,
+          "end": 27.9
+        },
+        {
+          "text": "a",
+          "start": 27.9,
+          "end": 28.42
+        },
+        {
+          "text": "service",
+          "start": 28.75,
+          "end": 28.879999
+        },
+        {
+          "text": "uses",
+          "start": 28.879999,
+          "end": 29.48
+        },
+        {
+          "text": "or",
+          "start": 29.52,
+          "end": 29.59
+        },
+        {
+          "text": "describe",
+          "start": 30.030001,
+          "end": 30.4
+        },
+        {
+          "text": "a",
+          "start": 30.639999,
+          "end": 30.809999
+        },
+        {
+          "text": "CML",
+          "start": 30.860001,
+          "end": 31.18
+        },
+        {
+          "text": "lab",
+          "start": 31.360001,
+          "end": 31.620001
+        },
+        {
+          "text": "and",
+          "start": 31.620001,
+          "end": 32.040001
+        },
+        {
+          "text": "ask",
+          "start": 32.970001,
+          "end": 33.599998
+        },
+        {
+          "text": "what",
+          "start": 34.720001,
+          "end": 34.9500005
+        },
+        {
+          "text": "step",
+          "start": 34.9500005,
+          "end": 35.18
+        },
+        {
+          "text": "validates",
+          "start": 35.18,
+          "end": 35.619999
+        },
+        {
+          "text": "automation",
+          "start": 35.849998,
+          "end": 36
+        },
+        {
+          "text": "reachability",
+          "start": 36,
+          "end": 36.150002
+        },
+        {
+          "text": "Module",
+          "start": 36.150002,
+          "end": 36.540001
+        },
+        {
+          "text": "four",
+          "start": 36.540001,
+          "end": 36.630001
+        },
+        {
+          "text": "adds",
+          "start": 36.630001,
+          "end": 36.720001
+        },
+        {
+          "text": "source",
+          "start": 36.720001,
+          "end": 37.07
+        },
+        {
+          "text": "of",
+          "start": 37.389999,
+          "end": 37.475
+        },
+        {
+          "text": "truth",
+          "start": 37.475,
+          "end": 37.560001
+        },
+        {
+          "text": "and",
+          "start": 37.560001,
+          "end": 37.970001
+        },
+        {
+          "text": "YANG",
+          "start": 37.970001,
+          "end": 38.125
+        },
+        {
+          "text": "data",
+          "start": 38.125,
+          "end": 38.279999
+        },
+        {
+          "text": "models",
+          "start": 38.279999,
+          "end": 38.84
+        }
+      ],
+      "phraseTimes": [
+        null,
+        null,
+        {
+          "start": 8.28,
+          "end": 11.86
+        }
+      ]
+    },
+    "simulation-ready-for-sot": {
+      "words": [
+        {
+          "text": "You",
+          "start": 0.14,
+          "end": 0.28
+        },
+        {
+          "text": "started",
+          "start": 0.28,
+          "end": 0.71
+        },
+        {
+          "text": "this",
+          "start": 0.71,
+          "end": 0.94
+        },
+        {
+          "text": "module",
+          "start": 0.94,
+          "end": 1.37
+        },
+        {
+          "text": "deploying",
+          "start": 1.37,
+          "end": 1.94
+        },
+        {
+          "text": "on",
+          "start": 1.94,
+          "end": 2.09
+        },
+        {
+          "text": "faith",
+          "start": 2.09,
+          "end": 2.56
+        },
+        {
+          "text": "after",
+          "start": 2.77,
+          "end": 3.12
+        },
+        {
+          "text": "a",
+          "start": 3.12,
+          "end": 3.16
+        },
+        {
+          "text": "green",
+          "start": 3.16,
+          "end": 3.51
+        },
+        {
+          "text": "pipeline",
+          "start": 3.51,
+          "end": 4.12
+        },
+        {
+          "text": "You",
+          "start": 4.37,
+          "end": 4.49
+        },
+        {
+          "text": "finish",
+          "start": 4.49,
+          "end": 4.98
+        },
+        {
+          "text": "with",
+          "start": 4.98,
+          "end": 5.17
+        },
+        {
+          "text": "Docker",
+          "start": 5.23,
+          "end": 5.53
+        },
+        {
+          "text": "Compose",
+          "start": 5.53,
+          "end": 5.97
+        },
+        {
+          "text": "wiring",
+          "start": 5.97,
+          "end": 6.35
+        },
+        {
+          "text": "Ansible",
+          "start": 7.17,
+          "end": 7.25
+        },
+        {
+          "text": "to",
+          "start": 7.25,
+          "end": 7.57
+        },
+        {
+          "text": "test",
+          "start": 7.57,
+          "end": 8.1
+        },
+        {
+          "text": "targets",
+          "start": 8.26,
+          "end": 8.43
+        },
+        {
+          "text": "and",
+          "start": 8.43,
+          "end": 8.48
+        },
+        {
+          "text": "a",
+          "start": 8.98,
+          "end": 9.64
+        },
+        {
+          "text": "CML",
+          "start": 9.72,
+          "end": 9.87
+        },
+        {
+          "text": "workflow",
+          "start": 9.87,
+          "end": 10.26
+        },
+        {
+          "text": "for",
+          "start": 10.26,
+          "end": 11
+        },
+        {
+          "text": "Cisco",
+          "start": 11.09,
+          "end": 11.4
+        },
+        {
+          "text": "simulation",
+          "start": 11.4,
+          "end": 11.46
+        },
+        {
+          "text": "-",
+          "start": 11.85,
+          "end": 12.13
+        },
+        {
+          "text": "plus",
+          "start": 12.16,
+          "end": 12.35
+        },
+        {
+          "text": "a",
+          "start": 12.35,
+          "end": 12.74
+        },
+        {
+          "text": "CI",
+          "start": 12.74,
+          "end": 13.13
+        },
+        {
+          "text": "job",
+          "start": 13.17,
+          "end": 13.41
+        },
+        {
+          "text": "that",
+          "start": 13.41,
+          "end": 13.99
+        },
+        {
+          "text": "smoke-tests",
+          "start": 14.46,
+          "end": 14.67
+        },
+        {
+          "text": "over",
+          "start": 14.67,
+          "end": 14.76
+        },
+        {
+          "text": "Compose",
+          "start": 14.76,
+          "end": 15
+        },
+        {
+          "text": "That",
+          "start": 15.03,
+          "end": 15.74
+        },
+        {
+          "text": "is",
+          "start": 15.74,
+          "end": 16.02
+        },
+        {
+          "text": "how",
+          "start": 16.07,
+          "end": 16.42
+        },
+        {
+          "text": "infrastructure",
+          "start": 16.42,
+          "end": 16.6
+        },
+        {
+          "text": "as",
+          "start": 16.6,
+          "end": 17
+        },
+        {
+          "text": "code",
+          "start": 17.040001,
+          "end": 17.709999
+        },
+        {
+          "text": "de-risks",
+          "start": 17.709999,
+          "end": 18.059999
+        },
+        {
+          "text": "automation",
+          "start": 18.059999,
+          "end": 18.700001
+        },
+        {
+          "text": "before",
+          "start": 18.73,
+          "end": 19.190001
+        },
+        {
+          "text": "production",
+          "start": 19.459999,
+          "end": 19.809999
+        },
+        {
+          "text": "touch",
+          "start": 19.809999,
+          "end": 20.16
+        },
+        {
+          "text": "Module",
+          "start": 20.200001,
+          "end": 20.48
+        },
+        {
+          "text": "four",
+          "start": 20.48,
+          "end": 20.73
+        },
+        {
+          "text": "adds",
+          "start": 20.73,
+          "end": 20.879999
+        },
+        {
+          "text": "source",
+          "start": 20.92,
+          "end": 21.32
+        },
+        {
+          "text": "of",
+          "start": 21.379999,
+          "end": 21.6
+        },
+        {
+          "text": "truth",
+          "start": 21.6,
+          "end": 22.02
+        },
+        {
+          "text": "and",
+          "start": 22.15,
+          "end": 22.459999
+        },
+        {
+          "text": "YANG",
+          "start": 22.49,
+          "end": 22.92
+        },
+        {
+          "text": "so",
+          "start": 22.92,
+          "end": 23.309999
+        },
+        {
+          "text": "intent",
+          "start": 23.309999,
+          "end": 23.389999
+        },
+        {
+          "text": "files",
+          "start": 23.389999,
+          "end": 23.99
+        },
+        {
+          "text": "are",
+          "start": 23.99,
+          "end": 24.1899995
+        },
+        {
+          "text": "structured",
+          "start": 24.1899995,
+          "end": 24.389999
+        },
+        {
+          "text": "data",
+          "start": 24.629999,
+          "end": 24.950001
+        },
+        {
+          "text": "not",
+          "start": 25,
+          "end": 25.104999499999998
+        },
+        {
+          "text": "ad",
+          "start": 25.104999499999998,
+          "end": 25.209999
+        },
+        {
+          "text": "hoc",
+          "start": 25.209999,
+          "end": 25.530001
+        },
+        {
+          "text": "YAML",
+          "start": 26.459999,
+          "end": 26.58
+        },
+        {
+          "text": "Keep",
+          "start": 26.58,
+          "end": 26.700001
+        },
+        {
+          "text": "compose",
+          "start": 26.700001,
+          "end": 27.15
+        },
+        {
+          "text": "dot",
+          "start": 27.15,
+          "end": 27.3400005
+        },
+        {
+          "text": "yml",
+          "start": 27.3400005,
+          "end": 27.530001
+        },
+        {
+          "text": "and",
+          "start": 28.379999,
+          "end": 28.709999
+        },
+        {
+          "text": "CML",
+          "start": 29.4,
+          "end": 29.720000499999998
+        },
+        {
+          "text": "inventory",
+          "start": 29.720000499999998,
+          "end": 30.040001
+        },
+        {
+          "text": "in",
+          "start": 30.040001,
+          "end": 30.32
+        },
+        {
+          "text": "Git",
+          "start": 30.32,
+          "end": 30.46
+        },
+        {
+          "text": "alongside",
+          "start": 30.46,
+          "end": 30.6
+        },
+        {
+          "text": "playbooks",
+          "start": 30.639999,
+          "end": 31.18
+        }
+      ]
+    }
+  },
+  "lineMappings": {
+    "compose-services-and-volumes": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          0,
+          6
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          7,
+          36
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          7,
+          36
+        ]
+      },
+      {
+        "id": "line-4",
+        "line": 4,
+        "wordRange": [
+          7,
+          36
+        ]
+      },
+      {
+        "id": "line-5",
+        "line": 5,
+        "wordRange": [
+          7,
+          36
+        ]
+      },
+      {
+        "id": "line-6",
+        "line": 6,
+        "wordRange": [
+          7,
+          36
+        ]
+      },
+      {
+        "id": "line-7",
+        "line": 7,
+        "wordRange": [
+          7,
+          36
+        ]
+      },
+      {
+        "id": "line-8",
+        "line": 8,
+        "wordRange": [
+          7,
+          36
+        ]
+      },
+      {
+        "id": "line-9",
+        "line": 9,
+        "wordRange": [
+          7,
+          36
+        ]
+      },
+      {
+        "id": "line-10",
+        "line": 10,
+        "wordRange": [
+          7,
+          36
+        ]
+      },
+      {
+        "id": "line-11",
+        "line": 11,
+        "wordRange": [
+          7,
+          36
+        ]
+      },
+      {
+        "id": "line-12",
+        "line": 12,
+        "wordRange": [
+          37,
+          72
+        ]
+      },
+      {
+        "id": "line-13",
+        "line": 13,
+        "wordRange": [
+          37,
+          72
+        ]
+      },
+      {
+        "id": "line-14",
+        "line": 14,
+        "wordRange": [
+          37,
+          72
+        ]
+      }
+    ],
+    "compose-networks-and-links": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          0,
+          13
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          0,
+          13
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          0,
+          13
+        ]
+      },
+      {
+        "id": "line-5",
+        "line": 5,
+        "wordRange": [
+          14,
+          29
+        ]
+      },
+      {
+        "id": "line-8",
+        "line": 8,
+        "wordRange": [
+          30,
+          74
+        ]
+      },
+      {
+        "id": "line-9",
+        "line": 9,
+        "wordRange": [
+          30,
+          74
+        ]
+      },
+      {
+        "id": "line-10",
+        "line": 10,
+        "wordRange": [
+          30,
+          74
+        ]
+      },
+      {
+        "id": "ansible",
+        "line": 6,
+        "wordRange": [
+          44,
+          44
+        ]
+      },
+      {
+        "id": "networks",
+        "line": 7,
+        "wordRange": [
+          13,
+          13
+        ]
+      }
+    ],
+    "docker-compose-up": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          0,
+          10
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          11,
+          17
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          18,
+          30
+        ]
+      },
+      {
+        "id": "line-4",
+        "line": 4,
+        "wordRange": [
+          31,
+          62
+        ]
+      }
+    ],
+    "ansible-over-compose-network": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          4,
+          12
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          13,
+          28
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          29,
+          44
+        ]
+      },
+      {
+        "id": "line-4",
+        "line": 4,
+        "wordRange": [
+          45,
+          76
+        ]
+      },
+      {
+        "id": "ansible",
+        "line": 6,
+        "wordRange": [
+          2,
+          2
+        ]
+      },
+      {
+        "id": "ansible",
+        "line": 7,
+        "wordRange": [
+          2,
+          2
+        ]
+      }
+    ],
+    "cml-lab-topology-setup": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          11,
+          37
+        ]
+      },
+      {
+        "id": "line-4",
+        "line": 4,
+        "wordRange": [
+          38,
+          67
+        ]
+      },
+      {
+        "id": "line-5",
+        "line": 5,
+        "wordRange": [
+          38,
+          67
+        ]
+      },
+      {
+        "id": "line-6",
+        "line": 6,
+        "wordRange": [
+          38,
+          67
+        ]
+      },
+      {
+        "id": "line-7",
+        "line": 7,
+        "wordRange": [
+          38,
+          67
+        ]
+      },
+      {
+        "id": "line-8",
+        "line": 8,
+        "wordRange": [
+          38,
+          67
+        ]
+      },
+      {
+        "id": "line-9",
+        "line": 9,
+        "wordRange": [
+          38,
+          67
+        ]
+      },
+      {
+        "id": "line-10",
+        "line": 10,
+        "wordRange": [
+          38,
+          67
+        ]
+      },
+      {
+        "id": "line-11",
+        "line": 11,
+        "wordRange": [
+          68,
+          91
+        ]
+      },
+      {
+        "id": "cml-dot-yml",
+        "line": 3,
+        "wordRange": [
+          45,
+          47
+        ]
+      }
+    ],
+    "cml-connectivity-check": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          0,
+          10
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          11,
+          34
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          35,
+          78
+        ]
+      },
+      {
+        "id": "ansible",
+        "line": 4,
+        "wordRange": [
+          14,
+          14
+        ]
+      }
+    ],
+    "compose-in-pipeline-prevalidation": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          0,
+          24
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          0,
+          24
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          0,
+          24
+        ]
+      },
+      {
+        "id": "line-4",
+        "line": 4,
+        "wordRange": [
+          0,
+          24
+        ]
+      },
+      {
+        "id": "line-5",
+        "line": 5,
+        "wordRange": [
+          25,
+          67
+        ]
+      },
+      {
+        "id": "line-6",
+        "line": 6,
+        "wordRange": [
+          25,
+          67
+        ]
+      },
+      {
+        "id": "line-7",
+        "line": 7,
+        "wordRange": [
+          25,
+          67
+        ]
+      }
+    ],
+    "docker-compose-down": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          5,
+          11
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          12,
+          21
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          22,
+          41
+        ]
+      },
+      {
+        "id": "line-4",
+        "line": 4,
+        "wordRange": [
+          42,
+          63
+        ]
+      }
+    ],
+    "ansible-playbook-against-cml": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          0,
+          20
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          21,
+          33
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          34,
+          77
+        ]
+      }
+    ]
+  }
+}

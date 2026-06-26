@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Git command toolkit">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    <g id="viz-cmd-1"><rect x="100" y="140" width="140" height="80" rx="14" fill="#081827" stroke="#6CC04A" stroke-width="2"/><text x="170" y="188" fill="#6CC04A" font-family="monospace" font-size="12" font-weight="700" text-anchor="middle">cherry-pick</text></g>
+    <g id="viz-cmd-2"><rect x="300" y="140" width="140" height="80" rx="14" fill="#081827" stroke="#12b5e5" stroke-width="2"/><text x="370" y="188" fill="#12b5e5" font-family="monospace" font-size="12" font-weight="700" text-anchor="middle">revert</text></g>
+    <g id="viz-cmd-3"><rect x="100" y="280" width="140" height="80" rx="14" fill="#081827" stroke="#a78bfa" stroke-width="2"/><text x="170" y="328" fill="#a78bfa" font-family="monospace" font-size="12" font-weight="700" text-anchor="middle">reset</text></g>
+    <g id="viz-cmd-4"><rect x="300" y="280" width="140" height="80" rx="14" fill="#081827" stroke="#f59e0b" stroke-width="2"/><text x="370" y="328" fill="#f59e0b" font-family="monospace" font-size="12" font-weight="700" text-anchor="middle">checkout</text></g>
+    <text id="viz-cap" x="360" y="420" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" text-anchor="middle">Four recovery and selection tools</text>
+  
+  </g>
+</svg>

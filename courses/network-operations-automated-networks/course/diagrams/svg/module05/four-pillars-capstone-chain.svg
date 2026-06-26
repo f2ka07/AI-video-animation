@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Four pillars capstone chain">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    
+    <text x="48" y="58" fill="#049FD9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" letter-spacing="0.14em">CHAIN</text>
+    <text x="48" y="84" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="800">Intent → apply → observe → prove</text>
+    
+    <g id="viz-intent"><rect x="60" y="170" width="120" height="60" rx="10" fill="#081827" stroke="#6CC04A" stroke-width="2"/>
+      <text x="120" y="205" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">Git intent</text></g>
+    <line x1="180" y1="200" x2="210" y2="200" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <g id="viz-apply"><rect x="210" y="170" width="120" height="60" rx="10" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+      <text x="270" y="205" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">CI apply</text></g>
+    <line x1="330" y1="200" x2="360" y2="200" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <g id="viz-observe"><rect x="360" y="170" width="120" height="60" rx="10" fill="#081827" stroke="#f59e0b" stroke-width="2"/>
+      <text x="420" y="205" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">Telemetry</text></g>
+    <line x1="480" y1="200" x2="510" y2="200" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <g id="viz-prove"><rect x="510" y="170" width="120" height="60" rx="10" fill="#081827" stroke="#a78bfa" stroke-width="2"/>
+      <text x="570" y="205" fill="#a78bfa" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">pyATS</text></g>
+  </g>
+</svg>

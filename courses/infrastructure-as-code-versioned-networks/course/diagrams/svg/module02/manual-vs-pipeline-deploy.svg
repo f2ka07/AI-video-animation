@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="Manual vs pipeline deploy">
+  <rect width="800" height="900" fill="#071525"/>
+  <text x="40" y="52" fill="#6CC04A" font-family="Inter,sans-serif" font-size="13" font-weight="800" letter-spacing=".16em">COMPARE</text>
+  <text x="40" y="96" fill="#fff" font-family="Inter,sans-serif" font-size="28" font-weight="800">Manual vs pipeline</text>
+  <g transform="translate(200 360)">
+    <rect x="-150" y="-120" width="300" height="240" rx="14" fill="#450a0a" stroke="#ef4444" stroke-width="2"/>
+    <text y="-70" text-anchor="middle" fill="#fca5a5" font-family="Inter,sans-serif" font-size="15" font-weight="700">Manual</text>
+    <text y="-30" text-anchor="middle" fill="#94a3b8" font-family="Inter,sans-serif" font-size="13">Engineer memory</text>
+    <text y="0" text-anchor="middle" fill="#94a3b8" font-family="Inter,sans-serif" font-size="13">Laptop logs</text>
+    <text y="30" text-anchor="middle" fill="#94a3b8" font-family="Inter,sans-serif" font-size="13">Skip lint</text>
+  </g>
+  <g transform="translate(600 360)">
+    <rect x="-150" y="-120" width="300" height="240" rx="14" fill="#14532d" stroke="#6CC04A" stroke-width="2"/>
+    <text y="-70" text-anchor="middle" fill="#bbf7d0" font-family="Inter,sans-serif" font-size="15" font-weight="700">Pipeline</text>
+    <text y="-30" text-anchor="middle" fill="#94a3b8" font-family="Inter,sans-serif" font-size="13">YAML in Git</text>
+    <text y="0" text-anchor="middle" fill="#94a3b8" font-family="Inter,sans-serif" font-size="13">GitLab job logs</text>
+    <text y="30" text-anchor="middle" fill="#94a3b8" font-family="Inter,sans-serif" font-size="13">Fail before deploy</text>
+  </g>
+</svg>

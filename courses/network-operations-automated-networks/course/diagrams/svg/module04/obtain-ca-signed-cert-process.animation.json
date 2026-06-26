@@ -1,0 +1,68 @@
+{
+  "diagram": "obtain-ca-signed-cert-process.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-csr"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-csr"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-csr",
+        "viz-sign"
+      ],
+      "dim": [
+        "viz-csr"
+      ],
+      "highlight": [
+        "viz-sign"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-csr",
+        "viz-sign",
+        "viz-install"
+      ],
+      "dim": [
+        "viz-csr",
+        "viz-sign"
+      ],
+      "highlight": [
+        "viz-install"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-csr",
+        "viz-sign",
+        "viz-install",
+        "viz-verify"
+      ],
+      "dim": [
+        "viz-csr",
+        "viz-sign",
+        "viz-install"
+      ],
+      "highlight": [
+        "viz-verify"
+      ]
+    }
+  ]
+}

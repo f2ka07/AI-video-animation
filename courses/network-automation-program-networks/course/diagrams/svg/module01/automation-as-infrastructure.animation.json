@@ -1,0 +1,49 @@
+{
+  "diagram": "automation-as-infrastructure.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-git"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-git"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-git",
+        "viz-pipe"
+      ],
+      "dim": [
+        "viz-git"
+      ],
+      "highlight": [
+        "viz-pipe"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-git",
+        "viz-pipe",
+        "viz-net"
+      ],
+      "dim": [
+        "viz-git",
+        "viz-pipe"
+      ],
+      "highlight": [
+        "viz-net"
+      ]
+    }
+  ]
+}

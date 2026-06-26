@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="What TLS protects">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    
+    <text x="48" y="58" fill="#049FD9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" letter-spacing="0.14em">TLS</text>
+    <text x="48" y="84" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="800">Confidentiality + integrity in flight</text>
+    
+    <g id="viz-client"><rect x="80" y="180" width="120" height="80" rx="12" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+      <text x="140" y="225" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">Runner</text></g>
+    <g id="viz-tunnel">
+      <rect x="240" y="195" width="240" height="50" rx="10" fill="#112115" stroke="#6CC04A" stroke-width="2"/>
+      <text x="360" y="225" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" text-anchor="middle">TLS 1.2+ encrypted channel</text>
+    </g>
+    <g id="viz-server"><rect x="520" y="180" width="120" height="80" rx="12" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+      <text x="580" y="225" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">Device API</text></g>
+    <text x="360" y="310" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">RESTCONF, gNMI, Ansible — all need TLS in production</text>
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="Local vs pipeline">
+  <rect width="800" height="900" fill="#071525"/>
+  <text x="40" y="52" fill="#6CC04A" font-family="Inter,sans-serif" font-size="13" font-weight="800" letter-spacing=".16em">COMPARE</text>
+  <text x="40" y="96" fill="#fff" font-family="Inter,sans-serif" font-size="28" font-weight="800">Local vs GitLab</text>
+  <g transform="translate(200 380)">
+    <rect x="-150" y="-80" width="300" height="160" rx="14" fill="#1e3a5f" stroke="#049FD9" stroke-width="2"/>
+    <text y="-20" text-anchor="middle" fill="#bae6fd" font-family="Inter,sans-serif" font-size="14" font-weight="700">Laptop scripts</text>
+  </g>
+  <g transform="translate(600 380)">
+    <rect x="-150" y="-80" width="300" height="160" rx="14" fill="#14532d" stroke="#6CC04A" stroke-width="2"/>
+    <text y="-20" text-anchor="middle" fill="#bbf7d0" font-family="Inter,sans-serif" font-size="14" font-weight="700">Pipeline job logs</text>
+  </g>
+</svg>

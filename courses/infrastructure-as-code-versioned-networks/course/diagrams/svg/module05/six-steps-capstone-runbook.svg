@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="Six steps runbook">
+  <rect width="800" height="900" fill="#071525"/>
+  <text x="40" y="52" fill="#6CC04A" font-family="Inter,sans-serif" font-size="13" font-weight="800" letter-spacing=".16em">RUNBOOK</text>
+  <text x="40" y="96" fill="#fff" font-family="Inter,sans-serif" font-size="28" font-weight="800">Six steps in order</text>
+  <text x="80" y="200" fill="#94a3b8" font-family="Inter,sans-serif" font-size="14">1. Edit intent JSON</text>
+  <text x="80" y="240" fill="#94a3b8" font-family="Inter,sans-serif" font-size="14">2. Branch, commit, push</text>
+  <text x="80" y="280" fill="#94a3b8" font-family="Inter,sans-serif" font-size="14">3. Prevalidation green</text>
+  <text x="80" y="320" fill="#94a3b8" font-family="Inter,sans-serif" font-size="14">4. CML check mode</text>
+  <text x="80" y="360" fill="#94a3b8" font-family="Inter,sans-serif" font-size="14">5. Merge to main</text>
+  <text x="80" y="400" fill="#6CC04A" font-family="Inter,sans-serif" font-size="14" font-weight="700">6. Read logs and rendered cfg</text>
+</svg>

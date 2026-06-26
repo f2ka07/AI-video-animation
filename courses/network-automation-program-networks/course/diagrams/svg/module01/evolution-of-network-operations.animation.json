@@ -1,0 +1,68 @@
+{
+  "diagram": "evolution-of-network-operations.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-step-cli"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-step-cli"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-step-cli",
+        "viz-step-script"
+      ],
+      "dim": [
+        "viz-step-cli"
+      ],
+      "highlight": [
+        "viz-step-script"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-step-cli",
+        "viz-step-script",
+        "viz-step-api"
+      ],
+      "dim": [
+        "viz-step-cli",
+        "viz-step-script"
+      ],
+      "highlight": [
+        "viz-step-api"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-step-cli",
+        "viz-step-script",
+        "viz-step-api",
+        "viz-step-git"
+      ],
+      "dim": [
+        "viz-step-cli",
+        "viz-step-script",
+        "viz-step-api"
+      ],
+      "highlight": [
+        "viz-step-git"
+      ]
+    }
+  ]
+}

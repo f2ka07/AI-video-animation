@@ -1,0 +1,1374 @@
+{
+  "courseName": "Network Automation: Build and Program Modern Networks",
+  "courseId": "network-automation-program-networks",
+  "modules": [
+    {
+      "moduleNumber": 0,
+      "title": "Course Preview",
+      "subtitle": "Four-Course AUTOCOR Path for CCNA-Ready Engineers",
+      "slides": [
+        {
+          "name": "autocor-execution-not-memorization",
+          "type": "title",
+          "script": "CCNP Automation, formerly CCNP DevNet: AUTOCOR tests execution under pressure, not memorized definitions. If you hold CCNA-level switching and routing skills and have touched basic automation tools, this path is for you. Here is how four courses map to exam workflows and the labs that prove each skill.",
+          "title": "AUTOCOR Tests Execution",
+          "imageSrc": "assets/network-automation-program-networks/module00/autocor-execution-not-memorization.svg"
+        },
+        {
+          "name": "built-for-ccna-ready-engineers",
+          "type": "content-two-card",
+          "script": "Built for students preparing for certification and engineers shipping nightly changes. You already know VLANs, OSPF, and ACL basics. You are not expected to be a senior developer. You are expected to verify every change, use check mode, and treat scripts like production code.",
+          "title": "Who This Path Serves",
+          "points": [
+            "Built for students preparing for certification and engineers shipping",
+            "VLANs OSPF and ACL basics You are not expected",
+            "You are expected to verify every change use check"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module00/built-for-ccna-ready-engineers.svg"
+        },
+        {
+          "name": "pillar-program-and-automate",
+          "type": "content-single",
+          "script": "Course one connects programming to live networks. Manual CLI fails when the same change must hit dozens of devices after hours. Labs walk Python connections, RESTCONF-style APIs, and Ansible playbooks that apply intent consistently, the build-and-program foundation AUTOCOR assumes you can execute.",
+          "title": "Pillar One: Program and Automate",
+          "points": [
+            "Course one connects programming to live networks Manual",
+            "CLI fails when the same change",
+            "Labs walk Python"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module00/pillar-program-and-automate.svg"
+        },
+        {
+          "name": "pillar-version-network-intent",
+          "type": "content-single",
+          "script": "Course two versions network intent. A saved running-config on a file share is not infrastructure as code. Labs store VLAN and OSPF YAML in Git, branch for features, merge with review, and revert bad commits safely, preparing you for pipelines, containers, and source of truth in later courses.",
+          "title": "Pillar Two: Version Intent",
+          "points": [
+            "Course two versions network intent",
+            "A saved running — config on a file share",
+            "Labs store VLAN and OSPF YAML in Git branch"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module00/pillar-version-network-intent.svg"
+        },
+        {
+          "name": "pillar-operate-and-validate",
+          "type": "content-single",
+          "script": "Course three proves the network stays healthy after deploy. Snapshot polling misses fast failures. Labs stream model-driven telemetry, tie events to logs, run pyATS-style validation, and harden automation with TLS and secret handling, the operate-and-secure slice of the AUTOCOR blueprint.",
+          "title": "Pillar Three: Operate and Validate",
+          "points": [
+            "Course three proves the network stays healthy after deploy",
+            "Labs stream model — driven telemetry tie events",
+            "Validation and harden"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module00/pillar-operate-and-validate.svg"
+        },
+        {
+          "name": "pillar-ai-with-guardrails",
+          "type": "content-single",
+          "script": "Course four governs AI-assisted automation. Labs generate Ansible from a prompt, require human review, then lint and check mode before any push. Exam focus: benefits, risks, privacy, IP ownership, and validation, not novelty for its own sake. Your networking judgment stays in charge.",
+          "title": "Pillar Four: AI With Guardrails",
+          "points": [
+            "Course four governs AI — assisted automation Labs",
+            "Ansible from a prompt",
+            "Require human review"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module00/pillar-ai-with-guardrails.svg"
+        },
+        {
+          "name": "four-course-path-starts-here",
+          "type": "title",
+          "script": "Every module follows the same rhythm: describe intent, apply with automation, verify state. Labs reinforce exam tasks; they do not re-teach CCNA from scratch. Begin with course one, complete the labs in order, and build the four-part AUTOCOR skill set employers expect.",
+          "title": "Start With Course One",
+          "imageSrc": "assets/network-automation-program-networks/module00/four-course-path-starts-here.svg"
+        }
+      ]
+    },
+    {
+      "moduleNumber": 1,
+      "title": "Automation Foundations",
+      "subtitle": "From Manual CLI to Programmable Networks",
+      "slides": [
+        {
+          "name": "manual-cli-challenges",
+          "type": "title",
+          "script": "If you have basic CCNA-level experience, you already know the routine: connect to a switch, enter configuration commands, save, and move to the next device. That approach works when the change is small and the team is in the room. It breaks down when the same change must land on dozens of switches at midnight, or when two engineers paste slightly different commands and nobody notices until users complain. Network automation means letting trusted software repeat vetted steps for you, consistently, across many devices. Before we install anything, let's understand the problem automation is meant to solve.",
+          "title": "Why Manual CLI Stops Scaling",
+          "imageSrc": "assets/network-automation-program-networks/module01/manual-cli-challenges.svg"
+        },
+        {
+          "name": "evolution-of-network-operations",
+          "type": "content-two-card",
+          "script": "You did not start with automation. You started at the command line. Engineers first saved the same show and configure commands into text files, then into scripts that logged in to devices one after another. Vendors later exposed structured APIs so programs could request changes without imitating a person typing in a terminal. Today many teams store intended configs in Git and apply them through pipelines. That practice is often called Infrastructure as Code, or IaC for short. Each step removes copy-paste and scales the networking skills you already have from CCNA study and lab work.",
+          "title": "How Network Operations Evolved",
+          "points": [
+            "CLI and show commands you already know",
+            "Scripts, then APIs, then stored intent",
+            "IaC means versioned configs in Git"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module01/evolution-of-network-operations.svg"
+        },
+        {
+          "name": "what-automation-means",
+          "type": "content-single",
+          "script": "So what is network automation in everyday language? It is not magic, and it does not replace your need to understand VLANs, routing, and security. It is a repeatable workflow: describe what the network should look like, let software push or verify that state, and keep a record of what ran. You will hear new terms in this module — playbook, inventory, runner, idempotent. We will define each one before we use it. You do not need prior Python or Linux administrator experience to follow this course. If you can study CCNA topics, you can follow this path with patience and practice.",
+          "title": "What Automation Means for You",
+          "points": [
+            "Software repeats vetted network tasks",
+            "You keep the networking judgment",
+            "New terms defined before use"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module01/what-automation-means.svg"
+        },
+        {
+          "name": "declarative-vs-imperative",
+          "type": "comparison",
+          "script": "When you configure a switch in a CCNA lab, you think in steps: enter configuration mode, create VLAN 100, assign the access port. That step-by-step style is called imperative automation — you list the commands explicitly. Declarative automation states the outcome instead: VLAN 100 must exist on this port. The tool decides which commands to run or skip. Imperative feels familiar because it mirrors the CLI you already use. Declarative is often safer for jobs that run every night, because correct settings can be left alone instead of re-entered from scratch.",
+          "title": "Two Ways to Tell the Network What to Do",
+          "leftTitle": "Declarative",
+          "leftItems": [
+            "States the desired outcome",
+            "Safer for repeated runs",
+            "Tool computes the delta"
+          ],
+          "rightTitle": "Imperative",
+          "rightItems": [
+            "Lists commands step by step",
+            "Familiar from CLI labs",
+            "Can stop halfway if wrong"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module01/declarative-vs-imperative.svg"
+        },
+        {
+          "name": "importance-of-idempotency",
+          "type": "content-single",
+          "script": "Here is a term you will hear often: idempotency. In plain language first — a task is idempotent if running it once or running it five times leaves the network in the same correct state, without piling on duplicate changes. Flip a light switch off twice; the light stays off. Now imagine a script that creates VLAN 100 every time it runs — run it twice and you may hit errors or unintended objects. Before you trust any playbook or API job in production, ask one question: if this runs again at two in the morning by mistake, will it hurt anything? That habit protects real networks.",
+          "title": "Safe to Run Twice: Idempotency",
+          "points": [
+            "Same correct result every run",
+            "Duplicate creates cause outages",
+            "Ask before every production job"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module01/importance-of-idempotency.svg"
+        },
+        {
+          "name": "agentless-vs-controller",
+          "type": "comparison",
+          "script": "Automation tools also differ in how they reach your devices. An agent is extra software installed on a device to receive orders. Agentless tools — Ansible is a common example — connect over SSH or APIs from a central runner without installing anything new on the switch. A controller is a dedicated server that schedules jobs, stores history, and enforces who may change what. Neither design wins every time. Learning labs often start agentless because setup is quick. Large enterprises may require a controller for audit and access control. Choose based on your environment and policy, not marketing slogans.",
+          "title": "Agentless vs Controller-Based Tools",
+          "leftTitle": "Agentless",
+          "leftItems": [
+            "SSH or API from a runner",
+            "Nothing installed on switches",
+            "Fast to start in a lab"
+          ],
+          "rightTitle": "Controller-based",
+          "rightItems": [
+            "Central server orchestrates jobs",
+            "Strong audit and RBAC",
+            "Heavier to deploy"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module01/agentless-vs-controller.svg"
+        },
+        {
+          "name": "architecture-patterns-overview",
+          "type": "content-two-card",
+          "script": "A single script on a laptop is where many of us begin, but production automation usually grows four supporting pieces. A source of truth holds what the network is supposed to look like — often files in Git. An inventory lists which devices exist today — names, addresses, and groups. A runner or controller executes the job. A validation step confirms reality matches intent before you close the change ticket. You do not need all four perfect on day one. You do need to know why each exists, because missing one is how teams push changes to retired switches or lose track of drift.",
+          "title": "Four Pieces of Reliable Automation",
+          "points": [
+            "Source of truth — intended config",
+            "Inventory — devices that exist now",
+            "Runner — executes the change",
+            "Validation — confirms success"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module01/architecture-patterns-overview.svg"
+        },
+        {
+          "name": "story-beat-recap",
+          "type": "story-beat",
+          "script": "Pause and breathe. You have seen why typing the same CLI on every switch does not scale, how teams moved from scripts to stored intent, what automation means in plain language, the difference between declarative and imperative jobs, why idempotent tasks matter, how agentless and controller tools differ, and the four parts of a reliable setup. We have not installed anything yet. Next we prepare your practice machine — including where to run commands on Windows, Mac, or Linux — before a single package install.",
+          "beat": "recap",
+          "title": "Theory Complete — Lab Next",
+          "points": [
+            "Problems and concepts without code",
+            "Terms introduced before tools",
+            "Environment setup comes first"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module01/story-beat-recap.svg"
+        },
+        {
+          "name": "lab-setup-introduction",
+          "type": "content-single",
+          "script": "Welcome to the lab portion. Today you will not touch production switches. You will prepare a practice workspace on your own computer: confirm you can open a shell, verify Python is available, create an isolated project folder, install automation libraries, and run one safe test against localhost. Every command appears on screen and is explained line by line. Pause the video whenever you need to catch up. If a step fails, fix it before moving on — this foundation is what later modules build on when we automate real device configurations.",
+          "title": "What We Will Build Today",
+          "points": [
+            "Shell and Python readiness",
+            "Project folder and inventory file",
+            "Safe localhost connectivity test"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module01/lab-setup-introduction.svg"
+        },
+        {
+          "name": "choose-your-lab-environment",
+          "type": "content-two-card",
+          "script": "You need a place to type commands. All of the following work for this course: a Linux virtual machine on your PC, a small cloud lab instance, the built-in Terminal on macOS, or Windows Subsystem for Linux — abbreviated WSL — on Windows. On Windows we strongly recommend WSL2 with Ubuntu because it matches the commands shown here with the fewest surprises. On Mac, use Terminal from Applications, Utilities. Pick one option now and stay with it for the course. Switching environments mid-module only adds friction. You do not need physical routers or switches for this module.",
+          "title": "Choose Your Lab Environment",
+          "points": [
+            "VM, cloud, Mac Terminal, or WSL",
+            "Windows: WSL2 + Ubuntu recommended",
+            "Mac: built-in Terminal works well"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module01/choose-your-lab-environment.svg"
+        },
+        {
+          "name": "open-your-terminal",
+          "type": "content-two-card",
+          "script": "Let's open your command-line interface — the shell where you will type the rest of today's commands. On Windows with WSL, open Ubuntu from the Start menu. You should see a text prompt ending with a dollar sign. On Mac, open Terminal; the prompt looks similar. Type pwd and press Enter — it prints your current folder. Type ls and press Enter — it lists files in that folder. If both commands respond, your shell is working. Take a screenshot or note your prompt if it helps you confirm you are in the right place when you return later.",
+          "title": "Open Your Terminal First",
+          "points": [
+            "Windows: Start → Ubuntu (WSL)",
+            "Mac: Terminal in Utilities",
+            "Run pwd and ls to confirm"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module01/open-your-terminal.svg"
+        },
+        {
+          "name": "verify-python-ready",
+          "type": "code",
+          "script": "Before we create a virtual environment, confirm Python 3 is installed. At your prompt, run the command on screen: python3 --version. You should see a version line such as Python 3.10 or newer. On some systems the command is python --version instead — try that if the first fails. If you see a not found error, install Python 3 from python.org or your system package manager, close the terminal, open a fresh one, and test again. We need Python 3 because the libraries in this course target modern Python, not the older Python 2 still mentioned in legacy networking scripts.",
+          "title": "Confirm Python 3 Is Available",
+          "code": "python3 --version\n# If needed: python --version",
+          "language": "bash",
+          "codeContext": "terminal"
+        },
+        {
+          "name": "python-virtualenv-setup",
+          "type": "code",
+          "script": "Python is ready, so we isolate this course's packages from the rest of your system. Line one runs python3 -m venv env, which creates a folder named env containing a dedicated Python environment for our project. Line two activates it: on Linux or Mac use source env/bin/activate. On Windows WSL use the same line. On native Windows CMD you would use env\\Scripts\\activate instead. After activation your prompt often shows env in parentheses, and pip installs will land only inside this folder — not across your entire computer.",
+          "title": "Create and Activate a Virtual Environment",
+          "code": "python3 -m venv env\nsource env/bin/activate  # Windows WSL: same; native CMD: env\\Scripts\\activate",
+          "language": "bash",
+          "codeContext": "terminal"
+        },
+        {
+          "name": "install-packages",
+          "type": "code",
+          "script": "With the virtual environment active, install the two libraries we use first in this course. Line one runs pip install ansible. Ansible is an agentless automation tool — remember that term from theory — that can drive network tasks from playbooks. Line two runs pip install netmiko, a Python library that opens SSH sessions to routers and switches when we need finer control than a playbook alone. Wait for each install to finish before running the next. Errors here usually mean the virtual environment is not activated or your internet connection blocked the download.",
+          "title": "Install Ansible and Netmiko",
+          "code": "pip install ansible\npip install netmiko",
+          "language": "bash",
+          "codeContext": "terminal"
+        },
+        {
+          "name": "pin-dependencies",
+          "type": "code",
+          "script": "Successful installs are worth preserving. Line one runs pip freeze and sends the output to a file named requirements.txt. That file records the exact package versions that worked on your machine today. Share it with teammates or reuse it in a CI pipeline so a future install gets the same stack instead of silently pulling newer versions that might break a playbook. After this lab, commit requirements.txt alongside your project folder. When you deliberately upgrade a package later, regenerate this file and test again before relying on it in production.",
+          "title": "Save Your Package Versions",
+          "code": "pip freeze > requirements.txt",
+          "language": "bash",
+          "codeContext": "automation_project/requirements.txt"
+        },
+        {
+          "name": "project-structure",
+          "type": "bullets-code",
+          "script": "Now organize files the way practitioners do — one project root instead of scattered scripts. Line one creates a folder named automation_project. Line two moves your shell into that folder so every following command runs in the right place. Inside this folder you will keep an inventory file listing devices, playbooks later in the course, and helper scripts. Treat it like a small repo from day one. If pwd shows you inside automation_project before the next slide, you are aligned with the rest of the module.",
+          "title": "Create Your Project Folder",
+          "points": [
+            "One folder for this course",
+            "cd into it before continuing",
+            "Inventory and playbooks live here"
+          ],
+          "code": "mkdir automation_project\ncd automation_project",
+          "language": "bash",
+          "codeContext": "terminal",
+          "visibleLineRange": [
+            1,
+            2
+          ]
+        },
+        {
+          "name": "inventory-hosts-file",
+          "type": "code",
+          "script": "Ansible needs an inventory — a list of devices to target. We start with the simplest safe example on your own computer. Line one is a comment explaining the file purpose. Line two defines a group named local in brackets — that is Ansible's INI inventory format. Line three lists localhost with ansible_connection=local so modules run on this machine without SSH to a switch. That lets us test the toolchain before we point automation at real hardware in a later module. Production inventories add IP addresses, groups like core_switches, and connection settings you will learn gradually.",
+          "title": "Write a Minimal Inventory File",
+          "code": "# hosts — device inventory\n[local]\nlocalhost ansible_connection=local",
+          "language": "ini",
+          "codeContext": "automation_project/hosts"
+        },
+        {
+          "name": "verify-connectivity",
+          "type": "code",
+          "script": "Everything is in place for a thirty-second sanity check. The command on screen runs ansible with -i hosts to read the inventory file we just created, targets all hosts in that file, and uses the ping module — Ansible's basic reachability test. Against localhost with ansible_connection=local, a successful run prints a green pong message. That confirms Python, Ansible, the inventory path, and your project folder line up. If this fails, do not continue — retrace the virtual environment, the folder, and the hosts file until pong succeeds.",
+          "title": "Run Your First Ansible Test",
+          "code": "ansible -i hosts all -m ping",
+          "language": "bash",
+          "codeContext": "terminal"
+        },
+        {
+          "name": "story-beat-common-mistake",
+          "type": "story-beat",
+          "script": "One mistake ends more beginner labs than hard technical problems: treating the inventory file as write-once homework. A switch gets replaced, a lab IP changes, and an old inventory sends automation to the wrong device. Automation amplifies human error because it works fast at scale. Update inventory when the network changes, review it like any other config, and never run against a list you have not checked recently. The same discipline you apply to VLAN and IP planning applies here — the file is part of the source of truth.",
+          "beat": "pattern-interrupt",
+          "title": "Keep Inventory Current",
+          "points": [
+            "Inventory is not set-and-forget",
+            "Update when devices change",
+            "Wrong host targets hurt fast"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module01/story-beat-common-mistake.svg"
+        },
+        {
+          "name": "certification-alignment",
+          "type": "content-single",
+          "script": "If you are studying toward network automation certification objectives, this module maps directly to the foundations: choosing an automation approach, explaining why idempotent design matters, comparing agentless and controller models, and building a working lab environment. The exam will not ask you to memorize marketing language — it will present scenarios. Practice explaining each concept in your own words, as we did here, and walk through this lab until the commands feel familiar. That combination of plain-language theory and hands-on setup is what lets a CCNA-trained engineer grow into automation without hunting for side tutorials.",
+          "title": "How This Module Fits Certification Study",
+          "points": [
+            "Approach, idempotency, architecture",
+            "Scenario-based exam thinking",
+            "Lab skills match real objectives"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module01/certification-alignment.svg"
+        },
+        {
+          "name": "automation-as-infrastructure",
+          "type": "story-beat",
+          "script": "Manual CLI was the starting point, not the destination. You still need the routing, switching, and troubleshooting mindset CCNA builds. Automation adds a repeatable layer on top: stored intent, tested jobs, and inventory discipline. Today you proved your workstation can run that layer locally. Everything ahead — Python for device configs, APIs, and full toolchains — extends what you prepared here. Stay curious, move slowly when a step fails, and treat each command as something you could explain to a colleague. That is how beginners become reliable automation engineers.",
+          "beat": "resolution",
+          "title": "Foundation Laid — Onward",
+          "points": [
+            "CCNA skills still matter",
+            "Your lab workspace is ready",
+            "Next modules add device automation"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module01/automation-as-infrastructure.svg"
+        }
+      ]
+    },
+    {
+      "moduleNumber": 2,
+      "title": "Python for Network Automation",
+      "subtitle": "From Scripts to Device Configuration",
+      "slides": [
+        {
+          "name": "python-powers-network-automation",
+          "type": "title",
+          "script": "Module one proved your lab can run automation tools locally. Now we use Python — the language behind Netmiko, many Ansible modules, and most network API examples you will see in certification study. You do not need to become a software developer overnight. You need enough Python to read a script, change a VLAN number safely, and understand why a job failed before it touches production. If you can follow CCNA configuration logic, you can follow the scripts in this module. We start with concepts, then configure real lab tasks: VLANs, interfaces, OSPF, and ACLs — the same objects you already know from the command line.",
+          "title": "Why Python Drives Network Automation",
+          "imageSrc": "assets/network-automation-program-networks/module02/python-powers-network-automation.svg"
+        },
+        {
+          "name": "python-essentials-for-networkers",
+          "type": "content-two-card",
+          "script": "Network Python scripts use a small subset of the language repeatedly. Variables store values such as a switch IP address or VLAN ID — think of them as named notes on your lab bench. Functions are reusable steps, like a mini procedure you call by name instead of retyping the same block. Indentation matters in Python: the lines grouped under an if statement or a loop run together, similar to how configuration sub-modes nest under configure terminal in IOS. You will see import at the top of nearly every script — that line loads a library such as Netmiko so your code can open SSH sessions. Master these four ideas first; the rest of the module builds on them.",
+          "title": "Python Building Blocks You Actually Need",
+          "points": [
+            "Variables hold IPs, VLAN IDs, credentials",
+            "Functions group steps you reuse",
+            "Indentation groups code like IOS sub-modes",
+            "import loads libraries such as Netmiko"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module02/python-essentials-for-networkers.svg"
+        },
+        {
+          "name": "reading-python-without-fear",
+          "type": "content-single",
+          "script": "Before we write device configuration code, change how you read a Python file. Start at the bottom: many network scripts call a main block that runs only when you execute the file directly. Move upward to see which functions connect, configure, and disconnect. Treat each function like a CCNA lab task broken into steps. When you see a word you do not know, pause and look it up once — do not let jargon block the networking logic underneath. Playbook, inventory, and idempotency from module one still apply: Python is how we express the steps when we need finer control than a playbook alone.",
+          "title": "How to Read a Network Script",
+          "points": [
+            "Start at main, then trace upward",
+            "Each function is one lab task",
+            "Networking logic matters more than syntax trivia"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module02/reading-python-without-fear.svg"
+        },
+        {
+          "name": "data-structures-for-device-data",
+          "type": "content-two-card",
+          "script": "Data structures are how Python remembers groups of information. A list is an ordered collection — perfect for a sequence of configuration commands you send line by line, like entering vlan 100 then name DATA. A dictionary maps keys to values — ideal for a device profile with host, username, device_type, and password keys that Netmiko expects. In CCNA terms, think of a list as a numbered stack of commands and a dictionary as a structured show run snippet broken into labeled fields. Most network automation bugs come from putting the wrong shape of data in the wrong place, not from exotic Python tricks.",
+          "title": "Lists and Dictionaries for Network Data",
+          "points": [
+            "Lists: ordered command sequences",
+            "Dicts: device connection profiles",
+            "Wrong shape causes silent failures"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module02/data-structures-for-device-data.svg"
+        },
+        {
+          "name": "yaml-json-xml-formats",
+          "type": "comparison",
+          "script": "Network automation rarely keeps every value hard-coded inside Python. YAML is the most common format for human-readable config data — Ansible inventory and group variables use it daily. JSON is the format most REST APIs return; strict syntax, no comments, but every automation platform speaks it. XML still appears in NETCONF payloads and older vendor exports. You do not need to memorize every syntax rule today. You need to recognize which format a tool expects and store device data in files instead of scattering IPs through copy-pasted scripts.",
+          "title": "YAML, JSON, and XML in Automation",
+          "leftTitle": "YAML / JSON",
+          "leftItems": [
+            "YAML: Ansible inventory and vars",
+            "JSON: REST API responses",
+            "Both map cleanly to Python dicts"
+          ],
+          "rightTitle": "XML",
+          "rightItems": [
+            "Common in NETCONF payloads",
+            "Still seen in legacy exports",
+            "Parsed when APIs require it"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module02/yaml-json-xml-formats.svg"
+        },
+        {
+          "name": "config-data-from-files",
+          "type": "content-single",
+          "script": "Here is a practical pattern you will reuse throughout your career: keep device facts in a YAML or JSON file, load that file into a Python dictionary at runtime, and loop over the entries to configure many switches consistently. Change VLAN 100 to VLAN 200 in one file instead of hunting through five scripts. This is the Python side of the source-of-truth idea from module one — version the data file in Git, review it in pull requests, and treat it with the same care as a router configuration. Hard-coded lab IPs are acceptable while learning; hard-coded production IPs scattered across scripts are how outages scale.",
+          "title": "Store Config Data in Files",
+          "points": [
+            "Load YAML or JSON into Python dicts",
+            "One file change updates many devices",
+            "Version data files like router configs"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module02/config-data-from-files.svg"
+        },
+        {
+          "name": "error-handling-that-saves-outages",
+          "type": "content-single",
+          "script": "Production scripts fail — links bounce, credentials expire, someone saves the wrong ACL. Python handles this with try and except blocks: try the risky operation inside try, and handle known failures in except instead of crashing silently or looping forever. Log the error, print a clear message, and disconnect cleanly from the device. Never wrap a production change in bare retry logic without understanding the failure. The CCNA instinct to read the error message still applies; automation just delivers that message faster across fifty devices. Build this habit in the lab now.",
+          "title": "Fail Safely with Error Handling",
+          "points": [
+            "try runs risky steps; except handles failure",
+            "Log errors and disconnect cleanly",
+            "Do not blind-retry production changes"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module02/error-handling-that-saves-outages.svg"
+        },
+        {
+          "name": "netmiko-connection-pattern",
+          "type": "content-two-card",
+          "script": "Netmiko follows a simple rhythm you will repeat in every lab script. Build a dictionary with device_type, host, username, and password. Call ConnectHandler with that dictionary to open an SSH session — the same session you would open manually in PuTTY or Terminal. Use send_command for show commands and send_config_set for configuration lines. Always disconnect when finished so you do not leave hanging sessions on lab switches. This four-step pattern — connect, show or configure, verify output, disconnect — mirrors good CCNA lab discipline applied through Python.",
+          "title": "The Netmiko Workflow",
+          "points": [
+            "ConnectHandler opens SSH from a device dict",
+            "send_command for show; send_config_set for config",
+            "disconnect() when the job finishes"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module02/netmiko-connection-pattern.svg"
+        },
+        {
+          "name": "story-beat-recap-python",
+          "type": "story-beat",
+          "script": "Pause here. You have covered the Python subset network engineers actually use: variables, functions, lists, dictionaries, config file formats, safe error handling, and the Netmiko connect-configure-disconnect rhythm. None of this replaces understanding VLANs, routing, or ACLs — it automates the typing you already learned in CCNA. Next we return to your module one lab folder, point Python at a lab switch, and push the same configurations you would enter by hand — one object type at a time.",
+          "beat": "recap",
+          "title": "Python Theory Complete — Lab Next",
+          "points": [
+            "Small Python subset, big network impact",
+            "Data files beat scattered magic numbers",
+            "Netmiko pattern ready to run"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module02/story-beat-recap-python.svg"
+        },
+        {
+          "name": "lab-setup-python-automation",
+          "type": "content-single",
+          "script": "Welcome to the Python lab. You will extend the automation_project folder from module one with a devices data file and a Python script that configures lab hardware — or a simulator if that is what you have. We configure VLANs, an access port, a basic OSPF statement, and an extended ACL using Netmiko. Every line appears on screen with a plain-language explanation. Use lab credentials and lab IP addresses only. If you do not have physical gear, run the connect step against a virtual IOS instance or read through the logic and execute when your lab is ready — the networking concepts still apply.",
+          "title": "What We Will Automate Today",
+          "points": [
+            "VLAN, interface, OSPF, and ACL tasks",
+            "Netmiko over SSH to a lab switch",
+            "Same CCNA objects, automated delivery"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module02/lab-setup-python-automation.svg"
+        },
+        {
+          "name": "resume-your-lab-environment",
+          "type": "content-two-card",
+          "script": "Open the same environment you prepared in module one. Start your shell — WSL Ubuntu on Windows or Terminal on Mac. Change directory into automation_project and activate the virtual environment with source env/bin/activate. Your prompt should show env in parentheses. Confirm Netmiko is still installed with pip show netmiko. If the command returns package details, you are ready. If not, run pip install netmiko again with the virtual environment active. We assume module one is complete; if anything here fails, fix it before writing Python that touches a switch.",
+          "title": "Resume Module One Lab Setup",
+          "points": [
+            "cd automation_project; activate venv",
+            "pip show netmiko to confirm install",
+            "Fix module one setup before continuing"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module02/resume-your-lab-environment.svg"
+        },
+        {
+          "name": "lab-inventory-for-devices",
+          "type": "code",
+          "script": "First, store lab device facts in a YAML file instead of hard-coding them inside Python. Line one is a comment marking the file purpose. Lines two through six define a dictionary-style structure under lab_switches with host, device_type, username, and password for your lab switch. Replace the host address with your switch management IP and use lab-only credentials. Keeping this data in devices.yaml means you can share the script without sharing passwords in the Python file itself — a small security habit that scales to vaults and CI pipelines later.",
+          "title": "Create a Lab Device Data File",
+          "code": "# devices.yaml - lab switch facts\nlab_switches:\n  - host: 192.168.1.10\n    device_type: cisco_ios\n    username: admin\n    password: lab-password",
+          "language": "yaml",
+          "codeContext": "automation_project/devices.yaml"
+        },
+        {
+          "name": "netmiko-connect-and-verify",
+          "type": "code",
+          "script": "Now the connect script. Line one imports ConnectHandler from Netmiko. Lines three through eight define a device dictionary — the same keys Netmiko expects. Line ten opens the SSH session. Line eleven runs show ip interface brief, a command you know from CCNA, and prints the output so you can confirm reachability before changing configuration. Line twelve disconnects cleanly. Run this script alone first. If you cannot connect, fix IP, credentials, or routing before any configure commands — the same troubleshooting order you use at the CLI.",
+          "title": "Connect and Run a Show Command",
+          "code": "from netmiko import ConnectHandler\n\ndevice = {\n    \"device_type\": \"cisco_ios\",\n    \"host\": \"192.168.1.10\",\n    \"username\": \"admin\",\n    \"password\": \"lab-password\",\n}\n\nconn = ConnectHandler(**device)\nprint(conn.send_command(\"show ip interface brief\"))\nconn.disconnect()",
+          "language": "python",
+          "codeContext": "automation_project/connect_lab.py"
+        },
+        {
+          "name": "automate-vlans",
+          "type": "code",
+          "script": "With connectivity confirmed, automate VLAN creation. After connecting, lines five and six define a list of configuration commands — vlan 100 and name DATA_VLAN — the same lines you would type under configure terminal. Line seven calls send_config_set, which enters configuration mode, applies each command, and returns the switch output. Line eight prints that output so you can spot errors immediately. Run show vlan brief manually or via send_command afterward to verify VLAN 100 exists. This is imperative automation: explicit steps, familiar from CCNA labs, delivered by Python instead of your fingers.",
+          "title": "Create a VLAN with Python",
+          "code": "from netmiko import ConnectHandler\n\ndevice = {\"device_type\": \"cisco_ios\", \"host\": \"192.168.1.10\", \"username\": \"admin\", \"password\": \"lab-password\"}\nconn = ConnectHandler(**device)\ncommands = [\"vlan 100\",\n            \"name DATA_VLAN\"]\noutput = conn.send_config_set(commands)\nprint(output)\nconn.disconnect()",
+          "language": "python",
+          "codeContext": "automation_project/configure_vlan.py"
+        },
+        {
+          "name": "interface-configuration",
+          "type": "code",
+          "script": "Next, assign an access port to the VLAN you created. Lines five through nine list interface configuration commands: enter the interface, set switchport mode access, and assign VLAN 100. send_config_set applies the batch. Change the interface name to match your lab — GigabitEthernet1/0/1 on one platform may differ on another. Always verify with show running-config interface or show interfaces switchport before moving on. Automation does not remove the need to confirm the right port — it removes typing the same three lines on twenty access switches at midnight.",
+          "title": "Configure an Access Port",
+          "code": "from netmiko import ConnectHandler\n\ndevice = {\"device_type\": \"cisco_ios\", \"host\": \"192.168.1.10\", \"username\": \"admin\", \"password\": \"lab-password\"}\nconn = ConnectHandler(**device)\nif_cmds = [\n    \"interface GigabitEthernet1/0/1\",\n    \"switchport mode access\",\n    \"switchport access vlan 100\",\n]\nconn.send_config_set(if_cmds)\nconn.disconnect()",
+          "language": "python",
+          "codeContext": "automation_project/configure_interface.py"
+        },
+        {
+          "name": "ospf-deployment",
+          "type": "code",
+          "script": "Routing automation follows the same list-and-send pattern. Lines five through eight define OSPF process 1 and a network statement for area zero — adjust the network and wildcard to match your lab topology exactly as you would in a CCNA OSPF lab. send_config_set pushes the change. Follow with show ip ospf neighbor or show ip route ospf to confirm the process is active. OSPF mistakes propagate quickly; run this on lab gear only until you have verified the prefix and area values twice.",
+          "title": "Push a Basic OSPF Configuration",
+          "code": "from netmiko import ConnectHandler\n\ndevice = {\"device_type\": \"cisco_ios\", \"host\": \"192.168.1.10\", \"username\": \"admin\", \"password\": \"lab-password\"}\nconn = ConnectHandler(**device)\nospf_cmds = [\n    \"router ospf 1\",\n    \"network 10.1.1.0 0.0.0.255 area 0\",\n]\nconn.send_config_set(ospf_cmds)\nconn.disconnect()",
+          "language": "python",
+          "codeContext": "automation_project/configure_ospf.py"
+        },
+        {
+          "name": "acl-management",
+          "type": "code",
+          "script": "Access lists are a common certification and production task — and a common outage source when applied wrong. Lines five through nine define an extended ACL named BLOCK_TELNET with a deny statement for TCP port twenty-three and a final permit for other IP traffic. send_config_set creates the list. Remember to apply the ACL to an interface in a separate step when your lab requires it; creating the list alone does not filter traffic until it is attached. Read the generated configuration before applying to production — automation speed does not reduce accountability.",
+          "title": "Create an Extended ACL",
+          "code": "from netmiko import ConnectHandler\n\ndevice = {\"device_type\": \"cisco_ios\", \"host\": \"192.168.1.10\", \"username\": \"admin\", \"password\": \"lab-password\"}\nconn = ConnectHandler(**device)\nacl_cmds = [\n    \"ip access-list extended BLOCK_TELNET\",\n    \"deny tcp any any eq 23\",\n    \"permit ip any any\",\n]\nconn.send_config_set(acl_cmds)\nconn.disconnect()",
+          "language": "python",
+          "codeContext": "automation_project/configure_acl.py"
+        },
+        {
+          "name": "run-your-python-script",
+          "type": "bullets-code",
+          "script": "Run each script from inside automation_project with the virtual environment active. Line one executes the VLAN script with python3 — use python instead if that is what your system maps to Python three. Check the printed output for percent signs or invalid input messages before running the next script. When all four configuration scripts succeed, you have automated the same CCNA task categories the certification objectives list: VLANs, interfaces, OSPF, and ACLs — using Python objective one point four as your guide.",
+          "title": "Execute and Verify Each Script",
+          "points": [
+            "Run one script at a time; read output",
+            "Verify with show commands after each change",
+            "Lab only until outputs are clean"
+          ],
+          "code": "python3 configure_vlan.py\npython3 configure_interface.py\npython3 configure_ospf.py\npython3 configure_acl.py",
+          "language": "bash",
+          "codeContext": "automation_project/",
+          "visibleLineRange": [
+            1,
+            4
+          ]
+        },
+        {
+          "name": "story-beat-common-mistake-python",
+          "type": "story-beat",
+          "script": "The mistake that catches new Python network engineers is copying a working lab script into production without removing hard-coded passwords and without adding error handling. The script connects, pushes the wrong VLAN to the wrong host, and disconnects before anyone reads the output. Treat credentials as secrets — environment variables or a vault, never committed to Git. Wrap connect and send_config_set in try and except. Print which host failed and why. Speed without visibility is how automation earns a bad reputation on your team.",
+          "beat": "pattern-interrupt",
+          "title": "Never Ship Hard-Coded Secrets",
+          "points": [
+            "Passwords belong in vaults or env vars",
+            "Add try/except before production runs",
+            "Log which device failed and why"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module02/story-beat-common-mistake-python.svg"
+        },
+        {
+          "name": "certification-alignment-python",
+          "type": "content-single",
+          "script": "Certification objective one point four asks you to construct Python solutions for VLANs, OSPF, interface settings, and ACLs — exactly what you practiced here. Examiners may show a script fragment and ask what it does, or present a scenario and ask which data structure fits. Practice explaining lists versus dictionaries out loud, and walk through a Netmiko script from connect to disconnect without reading jargon you cannot define. Combined with module one's environment setup, you now have the hands-on half of the Python automation story — not theory alone.",
+          "title": "How This Module Maps to Exam Objectives",
+          "points": [
+            "Objective 1.4: Python for network config",
+            "VLAN, interface, OSPF, ACL coverage",
+            "Explain scripts; do not memorize blindly"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module02/certification-alignment-python.svg"
+        },
+        {
+          "name": "python-automation-ready",
+          "type": "story-beat",
+          "script": "You entered this module as someone who could configure a switch manually. You leave it knowing how Python repeats those steps with data files, structured commands, and safe disconnects. Module three introduces REST, RESTCONF, and YANG — programmatic interfaces that reduce SSH scraping altogether. Keep your lab scripts, refine error handling, and version your YAML in Git. Reliable automation engineers are not the fastest coders; they are the ones who verify output, respect inventory, and never push a script they cannot explain to a CCNA study partner.",
+          "beat": "resolution",
+          "title": "Python Layer Complete — APIs Next",
+          "points": [
+            "CCNA tasks now runnable via Netmiko",
+            "Data files and error handling matter",
+            "Module three adds REST and RESTCONF"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module02/python-automation-ready.svg"
+        }
+      ]
+    },
+    {
+      "moduleNumber": 3,
+      "title": "APIs and Network Programmability",
+      "subtitle": "REST, RESTCONF, and YANG in Practice",
+      "slides": [
+        {
+          "name": "apis-beyond-ssh-scraping",
+          "type": "title",
+          "script": "Module two showed you how to automate IOS commands over SSH with Python and Netmiko. That works, and you will still use it in real networks — but scraping command output is fragile. A vendor changes a show command format and your script breaks silently. Modern platforms expose structured APIs: you request a VLAN object, not a paragraph of text to parse. This module introduces REST, RESTCONF, NETCONF, and YANG in plain language first, then you will push and query configuration through RESTCONF from your lab. If you understand CCNA configuration objects, you already understand what these APIs manipulate — only the delivery mechanism changes.",
+          "title": "Why APIs Beat Screen Scraping",
+          "imageSrc": "assets/network-automation-program-networks/module03/apis-beyond-ssh-scraping.svg"
+        },
+        {
+          "name": "what-is-rest",
+          "type": "content-two-card",
+          "script": "REST stands for Representational State Transfer — a style of API built on HTTP, the same protocol your browser uses. Resources have URLs: a VLAN might live at a path like slash restconf slash data slash native slash vlan. HTTP verbs tell the server what you want: GET reads state, POST creates, PATCH changes part of a resource, DELETE removes. The server responds with status codes you already recognize from web troubleshooting — two hundred means success, four oh four means not found, four oh one means authentication failed. REST APIs return structured JSON or XML instead of unstructured CLI text, which makes automation predictable and testable.",
+          "title": "REST in Plain Language",
+          "points": [
+            "URLs identify resources on the device",
+            "GET read, PATCH change, POST create",
+            "Status codes signal success or failure"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module03/what-is-rest.svg"
+        },
+        {
+          "name": "rest-for-network-engineers",
+          "type": "content-single",
+          "script": "Think of REST on a switch the same way you think of show and configure commands, but with contracts. A GET request is like show vlan brief — you receive structured data back. A PATCH request is like entering configuration mode and changing one object — the device applies the delta you send. You still need to know whether VLAN one hundred should exist; the API does not replace that judgment. What changes is reliability: no regular expressions parsing screen output, no surprise when a software upgrade reformats a show command. We will define RESTCONF and YANG next — they are how Cisco and other vendors implement REST for network devices.",
+          "title": "REST Mapped to What You Know",
+          "points": [
+            "GET is structured show",
+            "PATCH is targeted configure",
+            "Your CCNA judgment still required"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module03/rest-for-network-engineers.svg"
+        },
+        {
+          "name": "restconf-vs-netconf",
+          "type": "comparison",
+          "script": "Two standards dominate programmable networks. NETCONF uses XML over SSH — mature, powerful, common in service provider environments and older automation stacks. RESTCONF, defined in RFC eight zero four zero, wraps similar data models in REST and HTTP — easier for Python requests, Postman, and web-style tooling. Many modern IOS-XE platforms support both. Neither replaces your need to read YANG models; they are different transports to similar structured configuration. Certification scenarios may ask when RESTCONF fits versus NETCONF — think HTTP-friendly lab scripts versus XML pipeline integrations.",
+          "title": "RESTCONF vs NETCONF",
+          "leftTitle": "RESTCONF",
+          "leftItems": [
+            "HTTP and JSON or XML",
+            "Familiar to web developers",
+            "Great for Python requests"
+          ],
+          "rightTitle": "NETCONF",
+          "rightItems": [
+            "XML over SSH session",
+            "Long history in SP networks",
+            "Often paired with orchestrators"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module03/restconf-vs-netconf.svg"
+        },
+        {
+          "name": "yang-explained-plain-language",
+          "type": "content-single",
+          "script": "YANG is a language that describes what configuration and state look like on a device — not vendor marketing, but a formal schema. It defines which fields exist, which are mandatory, and how they nest. When RESTCONF returns JSON, the field names and structure come from YANG. You do not memorize entire YANG trees for the exam or for daily work. You locate the model for your platform — Cisco-IOS-XE-native is common on IOS-XE labs — and find the container for the object you already configure by hand, such as vlan-list or interface. YANG is the map; RESTCONF is the vehicle.",
+          "title": "What YANG Actually Is",
+          "points": [
+            "Schema for config and state",
+            "Field names come from the model",
+            "Find the container you already know"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module03/yang-explained-plain-language.svg"
+        },
+        {
+          "name": "yang-structure-basics",
+          "type": "content-two-card",
+          "script": "YANG uses three shapes you will see constantly. A leaf is a single value — a VLAN ID, an interface name, an IP address. A container groups related leaves — like an interface block holding description, mode, and VLAN assignment. A list holds repeating items — multiple VLAN entries, multiple OSPF networks. In CCNA terms, a list is the set of VLANs in show vlan brief, and a container is one interface section in show running-config. When your RESTCONF PATCH fails with a validation error, the YANG model is telling you a required leaf is missing or a value is out of range — read the message instead of guessing.",
+          "title": "Leaf, Container, and List",
+          "points": [
+            "Leaf: one value such as VLAN ID",
+            "Container: grouped settings",
+            "List: repeating objects like VLANs"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module03/yang-structure-basics.svg"
+        },
+        {
+          "name": "restconf-urls-and-methods",
+          "type": "content-two-card",
+          "script": "RESTCONF URLs follow a predictable pattern on IOS-XE lab devices. The base path is slash restconf slash data, followed by the YANG module and container path. Reading VLAN one hundred might be a GET to native slash vlan slash vlan-list equals one hundred. Creating or changing objects uses PATCH or PUT on the parent container with a JSON body keyed by the model name. Always send Accept application slash yang-data plus json so the device returns JSON. Send Content-Type with the same value when you push configuration. We practice exact URLs in the lab — adjust only the management IP and model prefix for your platform.",
+          "title": "RESTCONF Paths and Verbs",
+          "points": [
+            "Base: /restconf/data plus YANG path",
+            "GET to read; PATCH to change",
+            "Correct Accept and Content-Type headers"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module03/restconf-urls-and-methods.svg"
+        },
+        {
+          "name": "api-auth-and-rate-limits",
+          "type": "content-two-card",
+          "script": "APIs authenticate callers before allowing changes — objective one point six on certification tracks. Lab devices often use HTTP basic authentication: username and password on each request. Production systems add token exchange, OAuth flows, or certificate-based access that outlive a single script run — called persistent authentication. Controllers and cloud APIs may rate-limit requests: too many calls in a minute returns four twenty nine Too Many Requests. Handle that with backoff and logging, not tight loops hammering the API. Store tokens and passwords outside source code — environment variables or a vault — the same rule module two emphasized for SSH.",
+          "title": "Authentication and Rate Limits",
+          "points": [
+            "Basic auth common in labs",
+            "Production uses tokens or certificates",
+            "Respect rate limits; use backoff"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module03/api-auth-and-rate-limits.svg"
+        },
+        {
+          "name": "http-errors-and-pagination",
+          "type": "content-single",
+          "script": "Structured APIs still fail — and they tell you how. A four hundred response means your JSON did not match the YANG model. A four oh three means the user lacks permission for that object. A five hundred series means server-side trouble — retry only after checking platform status, not blindly in a loop. Large inventories paginate results: the first response includes a subset and a link to the next page. Your script must follow next links or use query parameters the API documents. Treat HTTP status codes like syslog severity: read them, log them, and decide whether retry is safe — idempotency from module one still applies to PATCH and DELETE.",
+          "title": "Read Status Codes and Pagination",
+          "points": [
+            "4xx often means your request is wrong",
+            "5xx needs investigation before retry",
+            "Follow pagination links for large results"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module03/http-errors-and-pagination.svg"
+        },
+        {
+          "name": "story-beat-recap-apis",
+          "type": "story-beat",
+          "script": "Breathe. You have covered REST verbs and status codes, RESTCONF versus NETCONF, YANG leaves containers and lists, RESTCONF URL structure, authentication and rate limits, and how to read errors and pagination. None of this replaces CCNA knowledge of VLANs, interfaces, and routing — it gives you a structured path to the same objects. Next we return to automation_project, install the requests library, and talk to a lab device over RESTCONF: query configuration, push a change, read operational state, and handle failures explicitly.",
+          "beat": "recap",
+          "title": "API Theory Complete — Lab Next",
+          "points": [
+            "REST and YANG concepts without live code",
+            "RESTCONF paths and headers explained",
+            "Lab uses Python requests over HTTPS"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module03/story-beat-recap-apis.svg"
+        },
+        {
+          "name": "lab-setup-restconf",
+          "type": "content-single",
+          "script": "Welcome to the RESTCONF lab. You need a device or simulator with RESTCONF enabled — IOS-XE in a lab or CML works when HTTPS management is reachable. We use Python and the requests library, building on module two skills. You will test reachability with a GET, read a VLAN or interface object, push a small configuration change with PATCH, query state again to verify, and wrap calls with explicit HTTP error handling. Replace the lab IP and credentials with your values. Disable SSL verification only in isolated labs with self-signed certificates — never in production.",
+          "title": "What We Will Build Today",
+          "points": [
+            "GET to query structured config",
+            "PATCH to push a small change",
+            "Verify state and handle HTTP errors"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module03/lab-setup-restconf.svg"
+        },
+        {
+          "name": "resume-lab-install-restconf-tools",
+          "type": "content-two-card",
+          "script": "Start from module one's environment. Open your shell, cd into automation_project, and activate the virtual environment. Install requests with pip install requests — it sends HTTP calls from Python. Lab HTTPS devices often use self-signed certificates; the script on screen disables urllib3 warnings for readability only in the lab. Confirm you can ping the device management IP before running RESTCONF. RESTCONF must be enabled on the platform — on IOS-XE lab images this is typically available when HTTPS is configured. If GET returns connection refused, fix reachability and platform settings before pushing configuration.",
+          "title": "Prepare Your Lab for RESTCONF",
+          "points": [
+            "Activate venv; pip install requests",
+            "Lab only: suppress SSL warning if needed",
+            "Confirm HTTPS reachability first"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module03/resume-lab-install-restconf-tools.svg"
+        },
+        {
+          "name": "test-restconf-reachability",
+          "type": "code",
+          "script": "Line one imports requests and HTTPBasicAuth. Lines three through five set the device base URL, JSON Accept header, and lab credentials — replace host, username, and password with your values. Line seven sends GET to slash restconf slash data, the RESTCONF root for readable datastores. verify equals False is lab-only for self-signed HTTPS certificates. Line eight prints status code and the first part of the response. A status two hundred or two oh four means RESTCONF is reachable. Four oh one means fix credentials. Connection errors mean fix IP, routing, or enable HTTPS on the device.",
+          "title": "Test RESTCONF with a GET",
+          "code": "import requests; from requests.auth import HTTPBasicAuth\n\nBASE = \"https://192.168.1.10/restconf/data\"\nHEADERS = {\"Accept\": \"application/yang-data+json\"}\nAUTH = HTTPBasicAuth(\"admin\", \"lab-password\")\n\nr = requests.get(BASE, headers=HEADERS, auth=AUTH, verify=False)\nprint(r.status_code, r.text[:300])",
+          "language": "python",
+          "codeContext": "automation_project/restconf_ping.py"
+        },
+        {
+          "name": "query-config-with-get",
+          "type": "code",
+          "script": "Now query a specific object — VLAN one hundred if it exists. Line five builds the RESTCONF URL using the Cisco-IOS-XE-native YANG path for vlan-list keyed by ID. Adjust the model prefix if your platform documentation differs. Line six sends GET with the same headers and authentication. Lines seven and eight parse JSON when status is two hundred and print the result. This is structured show vlan — no screen scraping. If you receive four oh four, the VLAN may not exist yet; that is valid information before you push a create.",
+          "title": "Query Configuration State",
+          "code": "import requests; from requests.auth import HTTPBasicAuth\nBASE = \"https://192.168.1.10/restconf/data\"\nHEADERS = {\"Accept\": \"application/yang-data+json\"}\nAUTH = HTTPBasicAuth(\"admin\", \"lab-password\")\nurl = f\"{BASE}/Cisco-IOS-XE-native:native/vlan/vlan-list=100\"\nr = requests.get(url, headers=HEADERS, auth=AUTH, verify=False)\nif r.status_code == 200:\n    print(r.json())\nelse:\n    print(r.status_code, r.text)",
+          "language": "python",
+          "codeContext": "automation_project/restconf_get_vlan.py"
+        },
+        {
+          "name": "push-config-with-patch",
+          "type": "code",
+          "script": "Push configuration with PATCH — declarative-style change on the vlan container. Lines five through nine define headers including Content-Type for JSON bodies. Lines eleven through fifteen build a payload creating vlan-list entry one hundred named DATA_VLAN. Line sixteen PATCHes the native vlan container. A successful two hundred or two oh four response means the device accepted the change. Always GET again afterward to confirm. PATCH is powerful: test on lab hardware first, and verify idempotency — running the same PATCH twice should leave VLAN one hundred correctly configured, not duplicated or broken.",
+          "title": "Push a VLAN with PATCH",
+          "code": "import requests\nfrom requests.auth import HTTPBasicAuth\n\nBASE = \"https://192.168.1.10/restconf/data\"\nHEADERS = {\n    \"Accept\": \"application/yang-data+json\",\n    \"Content-Type\": \"application/yang-data+json\",\n}\nAUTH = HTTPBasicAuth(\"admin\", \"lab-password\")\n\npayload = {\n    \"Cisco-IOS-XE-native:vlan-list\": [\n        {\"id\": 100, \"name\": \"DATA_VLAN\"}\n    ]\n}\nr = requests.patch(\n    f\"{BASE}/Cisco-IOS-XE-native:native/vlan\",\n    json=payload,\n    headers=HEADERS,\n    auth=AUTH,\n    verify=False,\n)\nprint(r.status_code, r.text[:400])",
+          "language": "python",
+          "codeContext": "automation_project/restconf_patch_vlan.py"
+        },
+        {
+          "name": "query-operational-state",
+          "type": "code",
+          "script": "Configuration GET shows intended objects; operational data confirms what is actually running. Line five targets an interface container — GigabitEthernet one slash zero slash one in the native model. Line six adds a depth query parameter requesting child nodes without walking the entire tree — useful on large configs. Line seven prints JSON when successful. Compare this output to show interfaces switchport at the CLI — they should agree. Disagreement between RESTCONF operational data and CLI means drift, an incomplete commit, or a model path that does not match the object you think you are querying.",
+          "title": "Query Operational State",
+          "code": "import requests; from requests.auth import HTTPBasicAuth\nBASE = \"https://192.168.1.10/restconf/data\"\nHEADERS = {\"Accept\": \"application/yang-data+json\"}\nAUTH = HTTPBasicAuth(\"admin\", \"lab-password\")\nurl = f\"{BASE}/Cisco-IOS-XE-native:native/interface/GigabitEthernet=1/0/1\"\nr = requests.get(url, headers=HEADERS, auth=AUTH, verify=False, params={\"depth\": 2})\nif r.ok: print(r.json())",
+          "language": "python",
+          "codeContext": "automation_project/restconf_get_interface.py"
+        },
+        {
+          "name": "handle-http-errors",
+          "type": "code",
+          "script": "Wrap RESTCONF calls so failures are visible instead of silent. Lines five through seven define a helper that calls raise_for_status, turning four hundred and five hundred responses into exceptions. Lines nine through fourteen PATCH inside try and except, printing status code and response body on failure. This satisfies the spirit of objective one point six — explicit error handling on API workflows. Log enough detail to open a ticket: URL, status, response snippet, timestamp. Do not retry PATCH in a tight loop on four hundred responses — fix the payload first.",
+          "title": "Handle HTTP Errors Explicitly",
+          "code": "import requests; from requests.auth import HTTPBasicAuth\nHEADERS = {\"Accept\": \"application/yang-data+json\", \"Content-Type\": \"application/yang-data+json\"}\nAUTH = HTTPBasicAuth(\"admin\", \"lab-password\")\nVLAN_URL = \"https://192.168.1.10/restconf/data/Cisco-IOS-XE-native:native/vlan\"\ndef patch_config(url, payload, auth):\n    r = requests.patch(url, json=payload, headers=HEADERS, auth=auth, verify=False)\n    r.raise_for_status()\n    return r\nPAYLOAD = {\"Cisco-IOS-XE-native:vlan-list\": [{\"id\": 100, \"name\": \"DATA_VLAN\"}]}\ntry:\n    patch_config(VLAN_URL, PAYLOAD, AUTH)\nexcept requests.HTTPError as e:\n    print(f\"HTTP error: {e.response.status_code}\")\n    print(e.response.text[:500])",
+          "language": "python",
+          "codeContext": "automation_project/restconf_safe_patch.py"
+        },
+        {
+          "name": "run-restconf-lab-scripts",
+          "type": "bullets-code",
+          "script": "Run the lab scripts in order from automation_project with your virtual environment active. Line one tests RESTCONF reachability. Line two queries VLAN one hundred. Line three pushes the VLAN if needed. Line four reads interface operational data. After each step, read status codes before continuing. When all succeed, you have met the module lab goals: build RESTCONF automation, push configuration, and query state — mapping to objectives one point three and one point six. Archive your working URLs and payloads in Git as lab references, redacting credentials.",
+          "title": "Run the RESTCONF Lab Sequence",
+          "points": [
+            "Reachability first, then query, then push",
+            "Read status codes at every step",
+            "Version scripts; redact credentials"
+          ],
+          "code": "python3 restconf_ping.py\npython3 restconf_get_vlan.py\npython3 restconf_patch_vlan.py\npython3 restconf_get_interface.py",
+          "language": "bash",
+          "codeContext": "automation_project/",
+          "visibleLineRange": [
+            1,
+            4
+          ]
+        },
+        {
+          "name": "story-beat-common-mistake-restconf",
+          "type": "story-beat",
+          "script": "The RESTCONF mistake that burns teams is wrong headers or wrong YANG paths copied from an old blog post. A PATCH without Content-Type application slash yang-data plus json may silently fail or return HTML error pages you misread as success. Patching the wrong container creates objects in unexpected parts of the tree. Always copy model paths from current platform documentation, confirm with GET before and after, and treat four hundred responses as stop signals, not retry signals. Screen scraping was fragile; bad YANG paths are fragile too — the difference is failures are structured if you read them.",
+          "beat": "pattern-interrupt",
+          "title": "Wrong Headers Break RESTCONF",
+          "points": [
+            "Content-Type and Accept must match",
+            "Verify YANG path on your platform",
+            "GET before and after every PATCH"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module03/story-beat-common-mistake-restconf.svg"
+        },
+        {
+          "name": "certification-alignment-apis",
+          "type": "content-single",
+          "script": "Module three maps to objectives one point three and one point six. You must construct RESTCONF automation given a YANG model, and consume REST APIs with authentication, error handling, and awareness of pagination and rate limits. Exam scenarios may show a URL, a JSON payload, or an HTTP status and ask what happened. Practice explaining RESTCONF versus NETCONF, naming YANG list versus leaf, and describing why four oh one and four twenty nine differ. Hands-on lab plus plain-language theory is the combination this course uses — do not rely on memorizing URLs without understanding the objects behind them.",
+          "title": "How This Module Maps to Exam Objectives",
+          "points": [
+            "Objective 1.3: RESTCONF with YANG models",
+            "Objective 1.6: auth, errors, pagination",
+            "Explain HTTP codes and model shapes"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module03/certification-alignment-apis.svg"
+        },
+        {
+          "name": "apis-programmability-ready",
+          "type": "story-beat",
+          "script": "SSH and Netmiko remain in your toolkit, but you now speak the structured language modern platforms prefer. REST gives you verbs and status codes. YANG gives you the schema. RESTCONF connects them over HTTP. Module four adds Ansible and Terraform selection — toolchain choices for the same VLANs and routes you have automated three different ways already. Keep lab scripts, document which YANG models you used, and never push to production without a GET verification step. That discipline is what separates certification trivia from hireable automation practice.",
+          "beat": "resolution",
+          "title": "API Layer Complete — Toolchains Next",
+          "points": [
+            "RESTCONF query and push in your lab",
+            "YANG paths documented and verified",
+            "Module four covers Ansible and Terraform"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module03/apis-programmability-ready.svg"
+        }
+      ]
+    },
+    {
+      "moduleNumber": 4,
+      "title": "Automation Toolchains",
+      "subtitle": "Ansible, Terraform, and Choosing Your Approach",
+      "slides": [
+        {
+          "name": "toolchains-beyond-single-scripts",
+          "type": "title",
+          "script": "Modules two and three showed you Python over SSH and RESTCONF over HTTP — both valid, both skills you will use. Module four zooms out to toolchains teams actually run in production: Ansible playbooks that repeat jobs across inventories, Terraform plans that manage infrastructure intent, and the decision framework for when low-code GUIs beat custom code. Certification objectives one point one, one point two, and one point five live here. You already built automation_project and configured lab devices three ways. Now we assemble a small workflow a branch engineer could hand to a teammate — with check mode, inventory discipline, and a clear answer to why Ansible versus Terraform versus a Python script.",
+          "title": "From Scripts to Toolchains",
+          "imageSrc": "assets/network-automation-program-networks/module04/toolchains-beyond-single-scripts.svg"
+        },
+        {
+          "name": "why-ansible-for-networks",
+          "type": "content-two-card",
+          "script": "Ansible is agentless — remember module one — and playbook-driven. You describe hosts in an inventory file, list tasks in YAML, and Ansible connects over SSH or network APIs to apply them. Each task calls a module: ios_vlans for VLAN objects, ios_config for CLI snippets, ios_facts for structured show data. Modules are designed to be idempotent where possible — running the playbook twice should not create duplicate VLANs. Ansible fits when many devices need the same logical change and you want readable, reviewable YAML in Git instead of a long Python script only one person understands. It is objective one point one in certification language: construct Ansible solutions for VLANs, interfaces, OSPF, and ACLs.",
+          "title": "Why Ansible Fits Network Teams",
+          "points": [
+            "Agentless playbooks over SSH or APIs",
+            "Modules map to network objects",
+            "Idempotent tasks where modules allow",
+            "YAML in Git for team review"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module04/why-ansible-for-networks.svg"
+        },
+        {
+          "name": "ansible-playbook-anatomy",
+          "type": "content-single",
+          "script": "A playbook has a simple skeleton you can read like a lab checklist. The play name describes the job. hosts selects which inventory group runs it. gather_facts no skips slow fact collection on network devices. tasks is an ordered list — each task has a name you see in output and a module with parameters. Indentation matters in YAML just as it does in Python. You do not need every Ansible keyword on day one. Read play name, hosts, and task names first; that tells you what the job intends to do before you study module parameters.",
+          "title": "Anatomy of a Playbook",
+          "points": [
+            "Play name and hosts target a group",
+            "Tasks list steps with human-readable names",
+            "YAML indentation groups parameters"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module04/ansible-playbook-anatomy.svg"
+        },
+        {
+          "name": "ansible-modules-and-idempotency",
+          "type": "content-two-card",
+          "script": "Modules are Ansible's building blocks. Resource modules such as ios_vlans express desired state — VLAN one hundred should exist with a name — and compute the difference from running config. Command-style modules push lines when no resource module exists yet. Roles bundle tasks and defaults for reuse across playbooks. Handlers restart services only when a task notifies them, avoiding unnecessary churn. Before production, run check mode: Ansible reports what would change without applying it. Combine check mode with a small lab inventory limit so a typo hits one switch, not the entire core.",
+          "title": "Modules, Roles, and Check Mode",
+          "points": [
+            "Resource modules express desired state",
+            "Roles reuse task bundles",
+            "ansible-playbook --check dry-run first"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module04/ansible-modules-and-idempotency.svg"
+        },
+        {
+          "name": "ansible-vs-python-scripts",
+          "type": "comparison",
+          "script": "When do you reach for Ansible versus the Python and Netmiko scripts from module two? Python wins for one-off troubleshooting, parsing odd show output, or glue code between systems Ansible does not integrate yet. Ansible wins when the same VLAN or interface change must run on many switches with reviewable YAML and built-in idempotency modules. RESTCONF from module three wins when the platform exposes strong HTTP APIs and you want structured JSON without SSH. Real teams use all three — the certification skill is matching the tool to the scenario, not declaring one winner forever.",
+          "title": "Ansible vs Python Scripts",
+          "leftTitle": "Ansible playbooks",
+          "leftItems": [
+            "Many devices, same change",
+            "YAML reviewed in Git",
+            "Idempotent resource modules"
+          ],
+          "rightTitle": "Python scripts",
+          "rightItems": [
+            "One-off or custom logic",
+            "Fine-grained control",
+            "Glue between unique systems"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module04/ansible-vs-python-scripts.svg"
+        },
+        {
+          "name": "terraform-selection-basics",
+          "type": "content-single",
+          "script": "Terraform is infrastructure as code with a plan-and-apply workflow — objective one point two focuses on selection and construction, not memorizing every provider argument. You declare desired resources in HCL files, run terraform plan to preview changes, then terraform apply to execute. State tracks what Terraform believes exists; drift detection compares intent to reality. For networks, providers exist for controllers, cloud attachments, and some IOS-XE models — availability varies by platform. Choose Terraform when your organization standardizes on it for multi-cloud or when stateful lifecycle management matters. You may run Terraform alongside Ansible: Terraform provisions; Ansible configures day-two details.",
+          "title": "Terraform in One Module",
+          "points": [
+            "Declare intent in HCL files",
+            "plan previews; apply executes",
+            "State tracks managed resources"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module04/terraform-selection-basics.svg"
+        },
+        {
+          "name": "terraform-vs-ansible-selection",
+          "type": "comparison",
+          "script": "Certification scenarios ask you to select an approach — objective one point five. Ansible excels at day-two network configuration pushes: VLANs, ACLs, routing policies across heterogeneous gear. Terraform excels when resources have a clear provider model and lifecycle in code: cloud VPC attachments, controller objects, or standardized branch templates stored as modules. Neither replaces CCNA troubleshooting. If the exam presents a team with existing Terraform state for cloud networking and occasional IOS changes, combining Terraform for cloud and Ansible for devices is a reasonable answer. If the team needs quick YAML playbooks only, skip Terraform until state management is required.",
+          "title": "When Terraform vs Ansible",
+          "leftTitle": "Prefer Ansible",
+          "leftItems": [
+            "IOS day-two config at scale",
+            "Playbooks already in Git",
+            "Heterogeneous CLI and API mix"
+          ],
+          "rightTitle": "Prefer Terraform",
+          "rightItems": [
+            "Provider model exists",
+            "Lifecycle and drift matter",
+            "Org standard is TF state"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module04/terraform-vs-ansible-selection.svg"
+        },
+        {
+          "name": "low-code-vs-custom-automation",
+          "type": "content-two-card",
+          "script": "Low-code and no-code options — vendor GUIs, drag-and-drop workflow builders, and controller marketplaces — trade flexibility for speed. They help teams without Python staff ship guarded templates quickly. Custom applications — your scripts, playbooks, and pipelines — trade initial effort for exact fit and testability in Git. Neither is morally superior. A startup may start low-code; an enterprise with audit requirements often lands on Git-reviewed YAML and Python with CI gates. Objective one point five expects you to justify a choice using business requirements: time to market, skill mix, audit, and existing toolchain — not buzzwords.",
+          "title": "Low-Code vs Custom Code",
+          "points": [
+            "Low-code: fast, guarded templates",
+            "Custom: exact fit, Git and CI tests",
+            "Decide from business requirements"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module04/low-code-vs-custom-automation.svg"
+        },
+        {
+          "name": "choosing-your-automation-approach",
+          "type": "content-single",
+          "script": "Use a simple decision checklist before any production project. How many devices and how often does the job repeat? Does the platform expose RESTCONF or strong Ansible modules? Does the organization already mandate Terraform state? Is the team skilled in Python or YAML? Must auditors see pull requests? Answer those questions out loud in lab scenarios. The exam rewards pragmatic tradeoffs — a Python script for a one-time migration, Ansible for nightly VLAN standardization, Terraform for cloud-attached branch templates, a controller GUI for a small team with no automation staff yet. Module four lab implements the Ansible path end to end and previews Terraform plan.",
+          "title": "A Practical Selection Checklist",
+          "points": [
+            "Scale and repeat frequency",
+            "Platform APIs and module support",
+            "Team skills and audit needs"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module04/choosing-your-automation-approach.svg"
+        },
+        {
+          "name": "story-beat-recap-toolchains",
+          "type": "story-beat",
+          "script": "Pause. You have covered Ansible playbooks and modules, check mode, Ansible versus Python, Terraform plan-and-apply basics, Terraform versus Ansible selection, low-code versus custom automation, and a decision checklist tied to objective one point five. You are not choosing one tool to worship — you are building a toolkit. Next we run a branch-style workflow in automation_project: inventory in YAML, playbook for VLAN and access port, check mode then apply, and a Terraform plan example for comparison. Same CCNA objects, toolchain delivery.",
+          "beat": "recap",
+          "title": "Toolchain Theory Complete — Lab Next",
+          "points": [
+            "Ansible for repeatable YAML jobs",
+            "Terraform when state lifecycle fits",
+            "Match tool to scenario, not hype"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module04/story-beat-recap-toolchains.svg"
+        },
+        {
+          "name": "lab-setup-full-workflow",
+          "type": "content-single",
+          "script": "Welcome to the toolchain lab. You will deploy a small network workflow the way a branch team might: define lab switches in Ansible inventory, write a playbook that ensures VLAN one hundred and an access port configuration, run check mode, then apply. We add a minimal Terraform example to practice plan without requiring full cloud credentials — adjust or skip Terraform if your lab lacks a provider. Use lab devices only. The goal is workflow discipline: inventory accuracy, dry run, apply, verify — the same sequence module one architecture described as source of truth, inventory, runner, and validation.",
+          "title": "Deploy a Full Network Workflow",
+          "points": [
+            "Ansible inventory plus playbook",
+            "Check mode before apply",
+            "Optional Terraform plan preview"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module04/lab-setup-full-workflow.svg"
+        },
+        {
+          "name": "resume-lab-ansible-ready",
+          "type": "content-two-card",
+          "script": "Open automation_project from module one with your virtual environment active. Confirm Ansible still runs with ansible --version. Install the Cisco IOS collection with ansible-galaxy collection install cisco.ios — it provides ios_vlans and ios_config modules used in this lab. Replace inventory addresses and credentials with your lab values. If collection install fails offline, download on a connected machine and install from a tarball; do not skip modules and fall back to raw CLI command modules unless you understand you lose idempotency guarantees.",
+          "title": "Prepare Ansible for the Lab",
+          "points": [
+            "Activate venv; ansible --version",
+            "ansible-galaxy collection install cisco.ios",
+            "Lab credentials in inventory only"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module04/resume-lab-ansible-ready.svg"
+        },
+        {
+          "name": "ansible-inventory-lab-hosts",
+          "type": "code",
+          "script": "Line one starts the inventory structure. Under all dot children dot lab_switches, host switch1 sets ansible_host to your switch management IP, ansible_user and ansible_password for lab auth, and ansible_network_os ios so Ansible selects IOS modules. ansible_connection network_cli uses SSH for CLI-based modules. This file is your inventory source of truth for the playbook — update it when lab IPs change, exactly as module one warned. Never commit production passwords; use vault or environment variables in real deployments.",
+          "title": "Write Ansible Inventory YAML",
+          "code": "all:\n  children:\n    lab_switches:\n      hosts:\n        switch1:\n          ansible_host: 192.168.1.10\n          ansible_user: admin\n          ansible_password: lab-password\n          ansible_network_os: ios\n          ansible_connection: network_cli",
+          "language": "yaml",
+          "codeContext": "automation_project/inventory/lab.yml"
+        },
+        {
+          "name": "ansible-playbook-network-workflow",
+          "type": "code",
+          "script": "The playbook defines one play targeting lab_switches. Task one uses cisco dot ios dot ios_vlans to ensure VLAN one hundred named DATA_VLAN exists — declarative intent from module one theory. Task two uses ios_config with lines and parents to configure GigabitEthernet one slash zero slash one as an access port in VLAN one hundred. Adjust interface name for your lab. Task names appear in Ansible output — write them so a reviewer understands intent without reading every parameter. Save this as site.yml in a playbooks folder under automation_project.",
+          "title": "Playbook: VLAN and Access Port",
+          "code": "---\n- name: Branch access workflow\n  hosts: lab_switches\n  gather_facts: no\n  tasks:\n    - name: Ensure VLAN 100 exists\n      cisco.ios.ios_vlans:\n        config:\n          - vlan_id: 100\n            name: DATA_VLAN\n    - name: Configure access port\n      cisco.ios.ios_config:\n        lines:\n          - switchport mode access\n          - switchport access vlan 100\n        parents: interface GigabitEthernet1/0/1",
+          "language": "yaml",
+          "codeContext": "automation_project/playbooks/site.yml"
+        },
+        {
+          "name": "ansible-run-check-mode",
+          "type": "code",
+          "script": "Before changing the network, run check mode. The command on screen calls ansible-playbook with minus i inventory slash lab dot yml, the site playbook, and minus minus check. Ansible connects and reports what would change without applying it. Read changed versus ok versus skipped lines carefully. If check mode shows unexpected changes on interfaces you did not intend to touch, fix the playbook or limit scope before apply. Add minus minus limit switch1 during lab if your inventory will grow later.",
+          "title": "Dry Run with Check Mode",
+          "code": "ansible-playbook -i inventory/lab.yml playbooks/site.yml --check",
+          "language": "bash",
+          "codeContext": "automation_project/"
+        },
+        {
+          "name": "ansible-run-playbook",
+          "type": "code",
+          "script": "When check mode output matches your intent, apply the playbook without minus minus check. The same inventory and playbook paths ensure you run exactly what you reviewed. Watch for unreachable hosts or authentication failures first — fix connectivity before interpreting module errors. After success, verify with show vlan brief and show interfaces switchport at the CLI or with an ios_command show task added to the playbook. Document the run in your change ticket: inventory version, playbook git commit, and check mode output archived.",
+          "title": "Apply the Playbook",
+          "code": "ansible-playbook -i inventory/lab.yml playbooks/site.yml",
+          "language": "bash",
+          "codeContext": "automation_project/"
+        },
+        {
+          "name": "terraform-plan-network-example",
+          "type": "code",
+          "script": "Terraform preview for objective one point two — selection and plan workflow. Lines one through six declare a terraform block requiring a provider — substitute the provider your organization uses; Cisco DevNet publishes IOS-XE examples. Lines eight through twelve declare a vlan resource representing intent. Run terraform init once in this folder, then terraform plan to preview changes without apply. If your lab lacks Terraform provider credentials, read the plan output as theory practice only. The certification question is often which tool fits — plan-and-apply with state — not writing every attribute from memory.",
+          "title": "Terraform Plan Example",
+          "code": "terraform {\n  required_providers {\n    iosxe = { source = \"CiscoDevNet/iosxe\" }\n  }\n}\n# lab: configure provider credentials separately\n\nresource \"iosxe_vlan\" \"data_vlan\" {\n  vlan_id = 100\n  name    = \"DATA_VLAN\"\n}\n# intent: VLAN 100 named DATA_VLAN",
+          "language": "hcl",
+          "codeContext": "automation_project/terraform/main.tf"
+        },
+        {
+          "name": "run-full-workflow-sequence",
+          "type": "bullets-code",
+          "script": "Run the full toolchain sequence with your virtual environment active. Line one installs or confirms the IOS collection. Line two runs check mode. Line three applies the playbook. Lines four and five initialize Terraform and show plan — skip apply unless your provider is configured. This ordering mirrors production change discipline: validate tooling, dry run configuration management, apply, then preview infrastructure-as-code changes separately. Archive inventory and playbook versions together in Git so a teammate can reproduce the branch workflow.",
+          "title": "Run the Complete Workflow",
+          "points": [
+            "Collection install, then check, then apply",
+            "Verify on device after Ansible apply",
+            "terraform plan without blind apply"
+          ],
+          "code": "ansible-galaxy collection install cisco.ios\nansible-playbook -i inventory/lab.yml playbooks/site.yml --check\nansible-playbook -i inventory/lab.yml playbooks/site.yml\ncd terraform && terraform init\nterraform plan",
+          "language": "bash",
+          "codeContext": "automation_project/",
+          "visibleLineRange": [
+            1,
+            5
+          ]
+        },
+        {
+          "name": "story-beat-common-mistake-toolchains",
+          "type": "story-beat",
+          "script": "The toolchain mistake that causes branch outages is skipping check mode because the playbook worked once in a lab month ago. Inventory still lists the old switch IP; Ansible pushes VLAN one hundred to the replacement device while the intended core switch sits unchanged — or worse, the opposite. Another failure is mixing production and lab hosts in one inventory group without limits. Treat inventory diffs like routing table changes: review them. Run with minus minus check and minus minus limit until you trust a new playbook. Speed without inventory discipline scales mistakes across the toolchain.",
+          "beat": "pattern-interrupt",
+          "title": "Never Skip Check Mode",
+          "points": [
+            "Inventory drift breaks playbooks silently",
+            "Use --check and --limit in lab first",
+            "Review inventory diffs like config changes"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module04/story-beat-common-mistake-toolchains.svg"
+        },
+        {
+          "name": "certification-alignment-toolchains",
+          "type": "content-single",
+          "script": "Module four maps to objectives one point one, one point two, and one point five. You must construct Ansible automation for network configurations, understand Terraform selection and plan workflow, and justify low-code versus custom approaches for business requirements. Exam scenarios may ask which toolchain fits a described team, not merely to define Ansible. Practice explaining check mode, inventory purpose, and when Terraform state adds value. With modules one through four complete, you have environment setup, Python, RESTCONF, and playbooks — the capstone ties them into one enterprise branch story.",
+          "title": "How This Module Maps to Exam Objectives",
+          "points": [
+            "1.1 Ansible for network config",
+            "1.2 Terraform selection and plan",
+            "1.5 Choose the right approach"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module04/certification-alignment-toolchains.svg"
+        },
+        {
+          "name": "toolchains-ready-capstone-next",
+          "type": "story-beat",
+          "script": "You started this course typing CLI on one switch. You now maintain inventory in Git, dry-run Ansible playbooks, push structured changes with RESTCONF, and preview Terraform plans. That is the modern network automation toolkit — not one hero script. The capstone ahead automates an enterprise branch deployment end to end, combining the patterns you practiced. Keep check mode, GET-before-PATCH, and inventory updates as non-negotiable habits. Toolchains amplify your CCNA foundation; they do not replace careful verification before any production change window closes.",
+          "beat": "resolution",
+          "title": "Toolchains Complete — Capstone Next",
+          "points": [
+            "Four modules form one toolkit",
+            "Ansible workflow ready in your lab",
+            "Capstone: enterprise branch deployment"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module04/toolchains-ready-capstone-next.svg"
+        }
+      ]
+    },
+    {
+      "moduleNumber": 5,
+      "title": "Enterprise Branch Capstone",
+      "subtitle": "Automated Branch Deployment End to End",
+      "slides": [
+        {
+          "name": "enterprise-branch-capstone",
+          "type": "title",
+          "script": "Welcome to the capstone lab. In module four you wrote an Ansible inventory, a playbook for VLAN one hundred and an access port, and you ran check mode before apply. The capstone is the same workflow with two changes: a second switch in inventory, and four CCNA tasks in one playbook instead of two — VLAN, access port, OSPF, and an ACL from module two. After apply you run a Python show command script and an optional RESTCONF GET from module three. No new tools to install. If module four made sense, you can follow this section.",
+          "title": "Capstone: Two Switches, Same Workflow",
+          "imageSrc": "assets/network-automation-program-networks/module05/enterprise-branch-capstone.svg"
+        },
+        {
+          "name": "capstone-integrates-four-modules",
+          "type": "content-two-card",
+          "script": "Module four ended with one switch in inventory and a site dot yml playbook. The capstone adds branch-sw2 to the same inventory file and extends the playbook with OSPF and ACL tasks you already typed by hand in module two. Ansible still pushes the config — that is module four. After apply, a short Python script runs show vlan brief on both switches — that is module two. An optional RESTCONF GET confirms VLAN one hundred in JSON — that is module three. You are not learning a new stack. You are running the same steps in a fixed order on two lab switches.",
+          "title": "What Changes From Module Four",
+          "points": [
+            "Two switches in inventory instead of one",
+            "Playbook adds OSPF and ACL from module two",
+            "Same check mode, then apply, then verify"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module05/capstone-integrates-four-modules.svg"
+        },
+        {
+          "name": "branch-network-reference-design",
+          "type": "content-single",
+          "script": "Picture a small branch office with two access switches. branch-sw1 at 192.168.1.10 and branch-sw2 at 192.168.1.11 — replace those with your lab addresses. On each switch the playbook will create VLAN one hundred named DATA_VLAN, put GigabitEthernet one slash zero slash one in that VLAN as an access port, enable OSPF process one in area zero for network ten dot one dot one dot zero, and create an extended ACL named BLOCK_TELNET that denies TCP port twenty-three. That is standard CCNA work. The capstone runs those same jobs on both switches from one playbook instead of logging in twice.",
+          "title": "What the Branch Playbook Configures",
+          "points": [
+            "Two switches: branch-sw1 and branch-sw2",
+            "Same four tasks on each switch",
+            "Change IPs and interface names for your lab"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module05/branch-network-reference-design.svg"
+        },
+        {
+          "name": "git-as-source-of-truth",
+          "type": "content-two-card",
+          "script": "All capstone files live under automation_project slash capstone — the same project folder you have used since module one. You will create three subfolders: inventory for branch dot yml, playbooks for branch_site dot yml, and scripts for the Python verify files. That is the only new layout. You do not need Git commands in this lab unless you already use Git for your own notes. The important part is knowing which file does which job before you paste code from the next slides.",
+          "title": "Capstone Folder Layout",
+          "points": [
+            "automation_project/capstone/inventory/",
+            "automation_project/capstone/playbooks/",
+            "automation_project/capstone/scripts/"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module05/git-as-source-of-truth.svg"
+        },
+        {
+          "name": "orchestration-layer-choices",
+          "type": "comparison",
+          "script": "Ansible pushes configuration — you did that in module four with ansible-playbook. Python reads show output after the change — you did that in module two with Netmiko. RESTCONF sends an HTTP GET to read VLAN one hundred as JSON — you did that in module three. Left side of the screen is apply. Right side is check after apply. Skip RESTCONF if your lab switch has no HTTPS. Never skip check mode and never skip reading the Python script output.",
+          "title": "Apply on the Left, Verify on the Right",
+          "leftTitle": "Ansible (module 4)",
+          "leftItems": [
+            "inventory/branch.yml lists both switches",
+            "playbooks/branch_site.yml pushes config",
+            "Run --check before apply"
+          ],
+          "rightTitle": "Verify (modules 2 and 3)",
+          "rightItems": [
+            "verify_branch.py runs show vlan brief",
+            "restconf_validate.py GETs VLAN 100",
+            "Read output before you stop"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module05/orchestration-layer-choices.svg"
+        },
+        {
+          "name": "architecture-pillars-in-practice",
+          "type": "content-single",
+          "script": "Four files carry the capstone. branch dot yml tells Ansible which two switches to connect to — same format as module four inventory slash lab dot yml, just two hosts. branch_site dot yml lists the tasks — same format as module four playbooks slash site dot yml, with extra tasks for OSPF and ACL. verify_branch dot py loops both switch IPs and prints show vlan brief. restconf_validate dot py is optional and hits one switch with a GET. When a slide shows code next, you already know which of these four files you are editing.",
+          "title": "Four Files in the Capstone",
+          "points": [
+            "inventory/branch.yml — who to connect to",
+            "playbooks/branch_site.yml — what to configure",
+            "scripts/verify_branch.py — CLI check after apply"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module05/architecture-pillars-in-practice.svg"
+        },
+        {
+          "name": "capstone-change-runbook",
+          "type": "content-two-card",
+          "script": "Run the capstone in this order every time. One: activate your virtual environment and cd into automation_project. Two: confirm both switch IPs in branch dot yml match your lab. Three: ansible-playbook with minus minus check — same command style as module four. Four: if output looks right, run the same command without minus minus check. Five: run python3 capstone slash scripts slash verify_branch dot py and read show vlan brief on both switches. Six: optionally run restconf_validate dot py. First time through, add minus minus limit branch-sw1 to test one switch only.",
+          "title": "Six Steps in Order",
+          "points": [
+            "Activate venv; check inventory IPs",
+            "ansible-playbook --check, then apply",
+            "Run verify script; read the output"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module05/capstone-change-runbook.svg"
+        },
+        {
+          "name": "verify-before-you-close",
+          "type": "content-single",
+          "script": "Do not stop when ansible-playbook prints ok. The verify script runs show vlan brief on each switch — you should see VLAN one hundred in the output. If you want to double-check the other tasks manually, SSH in and run show interfaces switchport on the access port, show ip ospf neighbor or show ip route ospf for routing, and show access-lists for BLOCK_TELNET. The capstone script only automates the VLAN check to keep the lab short. If VLAN one hundred is missing on either switch, fix the playbook or inventory before you call the lab done.",
+          "title": "Read the Verify Output",
+          "points": [
+            "verify_branch.py prints show vlan brief",
+            "VLAN 100 must appear on both switches",
+            "Optional: manual show commands for OSPF and ACL"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module05/verify-before-you-close.svg"
+        },
+        {
+          "name": "capstone-tool-matrix",
+          "type": "content-two-card",
+          "script": "You already installed everything this lab needs. Ansible and the cisco dot ios collection from module four. Netmiko from module two. Requests from module three. The same virtual environment from module one. If ansible minus minus version fails, go back to module four. If Netmiko cannot SSH to your switch, go back to module two. If RESTCONF GET fails, skip step six or fix module three — the capstone still passes if Ansible apply and show vlan brief succeed on both switches.",
+          "title": "Nothing New to Install",
+          "points": [
+            "Reuse venv, Ansible, Netmiko, requests",
+            "Fix earlier modules if a tool fails",
+            "RESTCONF step is optional in lab"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module05/capstone-tool-matrix.svg"
+        },
+        {
+          "name": "story-beat-recap-capstone",
+          "type": "story-beat",
+          "script": "Pause. The capstone is module four on two switches plus a verify script. You know the folder layout under capstone slash. You know the six steps: check inventory, check mode, apply, Python verify, optional RESTCONF. Next slides show the actual files line by line — inventory, playbook, scripts, and commands — the same way module one walked through every command. Open automation_project, create the capstone folders, and follow each slide. Lab switches only.",
+          "beat": "recap",
+          "title": "Ready for the Capstone Lab",
+          "points": [
+            "Two switches, same playbook pattern",
+            "Check mode before apply",
+            "Code slides explain every line next"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module05/story-beat-recap-capstone.svg"
+        },
+        {
+          "name": "lab-setup-enterprise-branch",
+          "type": "content-single",
+          "script": "Welcome to the capstone lab. Create a capstone folder inside automation_project with inventory, playbooks, and scripts subfolders. You will reuse the virtual environment, Ansible collection, and requests library from earlier modules. Confirm both lab switches are reachable on management IP — ping and SSH from your runner. This lab applies configuration to real lab hardware if you point inventory at it; never aim these playbooks at production without a separate review process. Pause and complete folder creation before copying files from the next slides. Every command in the lab is explained line by line as in module one.",
+          "title": "Capstone Lab Setup",
+          "points": [
+            "capstone/ with inventory, playbooks, scripts",
+            "Reuse venv and cisco.ios collection",
+            "Lab switches only"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module05/lab-setup-enterprise-branch.svg"
+        },
+        {
+          "name": "resume-all-modules-lab",
+          "type": "content-two-card",
+          "script": "Before the capstone apply, run a sixty-second readiness check. Change directory to automation_project and activate the virtual environment — source env/bin/activate on Linux or Mac. Run ansible --version and pip show netmiko and pip show requests. Install cisco.ios collection if missing. Confirm module two Python scripts still connect to switch one. Confirm module three RESTCONF GET still returns two hundred on your platform if you use API validation. If any step fails, stop and repair earlier modules; the capstone assumes those skills are stable.",
+          "title": "Resume Modules One Through Four",
+          "points": [
+            "Activate venv; confirm Ansible",
+            "Test SSH and RESTCONF reachability",
+            "Fix prior modules before capstone apply"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module05/resume-all-modules-lab.svg"
+        },
+        {
+          "name": "branch-inventory-switches",
+          "type": "code",
+          "script": "Line one is a comment marking branch inventory purpose. Line two starts the all group. Lines three and four define children and the branch_switches group. Lines six through eleven declare branch-sw1 with ansible_host, credentials, ansible_network_os ios, and ansible_connection network_cli. Lines twelve through seventeen declare branch-sw2 the same way. Replace both management IPs with your lab switches. This file is the capstone inventory source of truth — when a switch is swapped, update here first, commit to Git, then run playbooks.",
+          "title": "Branch Inventory for Two Switches",
+          "code": "# branch inventory - two lab switches\nall:\n  children:\n    branch_switches:\n      hosts:\n        branch-sw1:\n          ansible_host: 192.168.1.10\n          ansible_user: admin\n          ansible_password: lab-password\n          ansible_network_os: ios\n          ansible_connection: network_cli\n        branch-sw2:\n          ansible_host: 192.168.1.11\n          ansible_user: admin\n          ansible_password: lab-password\n          ansible_network_os: ios\n          ansible_connection: network_cli",
+          "language": "yaml",
+          "codeContext": "automation_project/capstone/inventory/branch.yml"
+        },
+        {
+          "name": "capstone-branch-playbook",
+          "type": "code",
+          "script": "Line one is the YAML document start. Line two names the play Branch standard deployment. Line three targets branch_switches from inventory. Line five begins tasks. Lines six through ten ensure VLAN one hundred named DATA_VLAN with ios_vlans. Lines eleven through sixteen configure GigabitEthernet one slash zero slash one as access VLAN one hundred. Lines seventeen through twenty-one push OSPF process one and a network statement — adjust prefix for your lab. Lines twenty-two through twenty-seven create extended ACL BLOCK_TELNET with deny TCP port twenty-three and permit any. Review task names; they appear in audit logs.",
+          "title": "Full Branch Playbook",
+          "code": "---\n- name: Branch standard deployment\n  hosts: branch_switches\n  gather_facts: no\n  tasks:\n    - name: Ensure VLAN 100 DATA_VLAN\n      cisco.ios.ios_vlans:\n        config:\n          - vlan_id: 100\n            name: DATA_VLAN\n    - name: Access port Gi1/0/1 in VLAN 100\n      cisco.ios.ios_config:\n        lines:\n          - switchport mode access\n          - switchport access vlan 100\n        parents: interface GigabitEthernet1/0/1\n    - name: OSPF process 1 area 0\n      cisco.ios.ios_config:\n        lines:\n          - router ospf 1\n          - network 10.1.1.0 0.0.0.255 area 0\n    - name: Extended ACL block Telnet\n      cisco.ios.ios_config:\n        lines:\n          - ip access-list extended BLOCK_TELNET\n          - deny tcp any any eq 23\n          - permit ip any any",
+          "language": "yaml",
+          "codeContext": "automation_project/capstone/playbooks/branch_site.yml"
+        },
+        {
+          "name": "python-verify-branch-state",
+          "type": "code",
+          "script": "Line one imports ConnectHandler from Netmiko. Lines three and four define BRANCH_HOSTS and the shared DEVICE dictionary. Lines six through nine define a helper that connects, runs one show command, prints output, and disconnects. Lines eleven through thirteen loop hosts and run show vlan brief to confirm VLAN one hundred exists on each switch after Ansible apply. Run this only after the playbook succeeds. If VLAN one hundred is missing on one switch, stop and investigate before declaring the capstone complete.",
+          "title": "Python Verification Script",
+          "code": "from netmiko import ConnectHandler\n\nBRANCH_HOSTS = [\"192.168.1.10\", \"192.168.1.11\"]\nDEVICE = {\"device_type\": \"cisco_ios\", \"username\": \"admin\", \"password\": \"lab-password\"}\n\ndef run_show(host, command):\n    conn = ConnectHandler(host=host, **DEVICE)\n    print(conn.send_command(command))\n    conn.disconnect()\n\nfor host in BRANCH_HOSTS:\n    print(f\"--- {host} show vlan brief ---\")\n    run_show(host, \"show vlan brief\")",
+          "language": "python",
+          "codeContext": "automation_project/capstone/scripts/verify_branch.py"
+        },
+        {
+          "name": "restconf-capstone-validation",
+          "type": "code",
+          "script": "Line one imports requests and HTTPBasicAuth. Lines two through four set BASE URL, JSON Accept header, and lab credentials. Line five builds the RESTCONF URL for vlan-list entry one hundred. Line six sends GET with verify False for lab self-signed certificates. Line seven prints status code and JSON when the response is successful. Run this after Ansible apply to cross-check structured state against CLI verification. A four oh four may mean VLAN one hundred was not created on that platform path — investigate before closing the lab.",
+          "title": "RESTCONF VLAN Validation",
+          "code": "import requests; from requests.auth import HTTPBasicAuth\nBASE = \"https://192.168.1.10/restconf/data\"\nHEADERS = {\"Accept\": \"application/yang-data+json\"}\nAUTH = HTTPBasicAuth(\"admin\", \"lab-password\")\nurl = f\"{BASE}/Cisco-IOS-XE-native:native/vlan/vlan-list=100\"\nr = requests.get(url, headers=HEADERS, auth=AUTH, verify=False)\nif r.ok: print(r.status_code, r.json())",
+          "language": "python",
+          "codeContext": "automation_project/capstone/scripts/restconf_validate.py"
+        },
+        {
+          "name": "ansible-capstone-check-mode",
+          "type": "code",
+          "script": "Line one runs ansible-playbook against capstone inventory and the branch_site playbook with minus minus check. Ansible reports changed, ok, and skipped per task without applying configuration. Read output on both branch-sw1 and branch-sw2 before removing check mode. Add minus minus limit branch-sw1 when testing one switch first. If check mode shows unexpected interface changes, fix the playbook YAML before apply — the same discipline module four emphasized.",
+          "title": "Dry Run the Branch Playbook",
+          "code": "ansible-playbook -i capstone/inventory/branch.yml capstone/playbooks/branch_site.yml --check",
+          "language": "bash",
+          "codeContext": "automation_project/"
+        },
+        {
+          "name": "run-capstone-pipeline",
+          "type": "bullets-code",
+          "script": "Run the capstone pipeline in order with your virtual environment active. Line one dry-runs the branch playbook with check mode. Line two applies the playbook without check. Line three runs Python verification against both switches. Line four runs RESTCONF validation on switch one — skip if HTTPS is unavailable in your lab. Archive the terminal output with the Git commit hash you applied. That record is your capstone evidence: dry run, apply, CLI verify, API verify.",
+          "title": "Execute the Capstone Pipeline",
+          "points": [
+            "Check mode, then apply",
+            "Python verify on both switches",
+            "RESTCONF GET when HTTPS works"
+          ],
+          "code": "ansible-playbook -i capstone/inventory/branch.yml capstone/playbooks/branch_site.yml --check\nansible-playbook -i capstone/inventory/branch.yml capstone/playbooks/branch_site.yml\npython3 capstone/scripts/verify_branch.py\npython3 capstone/scripts/restconf_validate.py",
+          "language": "bash",
+          "codeContext": "automation_project/",
+          "visibleLineRange": [
+            1,
+            4
+          ]
+        },
+        {
+          "name": "story-beat-common-mistake-capstone",
+          "type": "story-beat",
+          "script": "The capstone mistake that ends careers early is running apply on the full inventory before check mode on one switch. A typo in the OSPF network statement propagates to every branch device in minutes. Another failure is verifying only switch one while switch two never received the playbook because of a stale IP in inventory. Capstone discipline means limit during test, check mode always, verify every host you changed, and RESTCONF or show commands before you tell your manager the job is done. Automation scales your mistakes as fast as your successes.",
+          "beat": "pattern-interrupt",
+          "title": "Never Skip Limit and Check",
+          "points": [
+            "Test one switch with --limit first",
+            "Verify every host in inventory",
+            "Archive logs with commit hash"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module05/story-beat-common-mistake-capstone.svg"
+        },
+        {
+          "name": "certification-alignment-full-course",
+          "type": "content-single",
+          "script": "The full course maps to certification objectives one point one through one point six. Module four and this capstone cover Ansible construction for VLANs, interfaces, OSPF, and ACLs — objective one point one. Module four introduced Terraform plan selection — one point two. Module three and RESTCONF validation here address RESTCONF with YANG and REST API error handling — one point three and one point six. Module two and Python verification cover Python automation — one point four. Tool matrix slides across modules four and five address approach selection — one point five. Practice explaining each objective with a file from automation_project, not abstract definitions alone.",
+          "title": "Full Course Exam Alignment",
+          "points": [
+            "1.1 Ansible  1.2 Terraform selection",
+            "1.3 RESTCONF  1.4 Python",
+            "1.5 Tool choice  1.6 REST API errors"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module05/certification-alignment-full-course.svg"
+        },
+        {
+          "name": "course-complete-enterprise-automation",
+          "type": "story-beat",
+          "script": "You began this course typing show and configure commands on one device. You finish it with Git-versioned inventory, Ansible branch playbooks, Python verification, RESTCONF reads, check mode habit, and a capstone pipeline that ties CCNA configuration tasks to modern automation delivery. That is the skill employers and certification scenarios test — not memorizing a single vendor GUI. Keep automation_project, refine it on lab gear, document what you run, and never apply unchecked playbooks to production. You are ready to practice exam scenarios and extend this branch workflow to your own designs.",
+          "beat": "resolution",
+          "title": "Course Complete — Automate with Discipline",
+          "points": [
+            "Five modules, one integrated toolkit",
+            "Capstone branch pipeline in your lab",
+            "Verify always; production comes later"
+          ],
+          "imageSrc": "assets/network-automation-program-networks/module05/course-complete-enterprise-automation.svg"
+        }
+      ]
+    }
+  ],
+  "savedAt": "2026-06-21T04:00:00.000Z"
+}

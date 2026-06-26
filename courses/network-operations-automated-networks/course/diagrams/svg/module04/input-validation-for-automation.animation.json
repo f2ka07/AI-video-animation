@@ -1,0 +1,32 @@
+{
+  "diagram": "input-validation-for-automation.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-input"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-input"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-input",
+        "viz-guard"
+      ],
+      "dim": [
+        "viz-input"
+      ],
+      "highlight": [
+        "viz-guard"
+      ]
+    }
+  ]
+}

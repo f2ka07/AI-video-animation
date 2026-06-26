@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="Four pipeline stages exam">
+  <rect width="800" height="900" fill="#071525"/>
+  <text x="40" y="52" fill="#049FD9" font-family="Inter,sans-serif" font-size="13" font-weight="800" letter-spacing=".16em">EXAM 2.3</text>
+  <text x="40" y="96" fill="#fff" font-family="Inter,sans-serif" font-size="28" font-weight="800">Four stages</text>
+  <g transform="translate(120 280)"><rect width="140" height="64" rx="10" fill="#1e3a5f" stroke="#049FD9"/><text x="70" y="40" text-anchor="middle" fill="#bae6fd" font-family="Inter,sans-serif" font-size="13" font-weight="700">build</text></g>
+  <path d="M260 312 H300" stroke="#6CC04A" stroke-width="3"/>
+  <g transform="translate(300 280)"><rect width="140" height="64" rx="10" fill="#1e3a5f" stroke="#049FD9"/><text x="70" y="40" text-anchor="middle" fill="#bae6fd" font-family="Inter,sans-serif" font-size="12" font-weight="700">prevalidation</text></g>
+  <path d="M440 312 H480" stroke="#6CC04A" stroke-width="3"/>
+  <g transform="translate(480 280)"><rect width="120" height="64" rx="10" fill="#14532d" stroke="#6CC04A"/><text x="60" y="40" text-anchor="middle" fill="#bbf7d0" font-family="Inter,sans-serif" font-size="13" font-weight="700">deploy</text></g>
+  <path d="M600 312 H640" stroke="#6CC04A" stroke-width="3"/>
+  <g transform="translate(640 280)"><rect width="120" height="64" rx="10" fill="#14532d" stroke="#6CC04A"/><text x="60" y="40" text-anchor="middle" fill="#bbf7d0" font-family="Inter,sans-serif" font-size="11" font-weight="700">post-valid</text></g>
+  <text x="400" y="420" text-anchor="middle" fill="#94a3b8" font-family="Inter,sans-serif" font-size="14">2.3.a install | 2.3.b lint | 2.3.c apply | 2.3.d verify</text>
+</svg>

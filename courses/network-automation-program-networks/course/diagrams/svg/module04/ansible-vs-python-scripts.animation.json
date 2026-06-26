@@ -1,0 +1,68 @@
+{
+  "diagram": "ansible-vs-python-scripts.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-fork"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-fork"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-fork",
+        "viz-ansible-path"
+      ],
+      "dim": [
+        "viz-fork"
+      ],
+      "highlight": [
+        "viz-ansible-path"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-fork",
+        "viz-ansible-path",
+        "viz-python-path"
+      ],
+      "dim": [
+        "viz-fork",
+        "viz-ansible-path"
+      ],
+      "highlight": [
+        "viz-python-path"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-fork",
+        "viz-ansible-path",
+        "viz-python-path",
+        "viz-rest-hint"
+      ],
+      "dim": [
+        "viz-fork",
+        "viz-ansible-path",
+        "viz-python-path"
+      ],
+      "highlight": [
+        "viz-rest-hint"
+      ]
+    }
+  ]
+}

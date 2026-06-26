@@ -1,0 +1,49 @@
+{
+  "diagram": "git-ready-for-cicd.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-from"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-from"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-from",
+        "viz-arrow"
+      ],
+      "dim": [
+        "viz-from"
+      ],
+      "highlight": [
+        "viz-arrow"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-from",
+        "viz-arrow",
+        "viz-to"
+      ],
+      "dim": [
+        "viz-from",
+        "viz-arrow"
+      ],
+      "highlight": [
+        "viz-to"
+      ]
+    }
+  ]
+}

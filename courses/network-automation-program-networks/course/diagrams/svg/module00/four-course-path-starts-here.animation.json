@@ -1,0 +1,11 @@
+{
+  "diagram": "four-course-path-starts-here.svg",
+  "phases": [
+    {"start": 0, "end": 16, "show": ["viz-main", "viz-p1"], "dim": [], "highlight": ["viz-p1"]},
+    {"start": 2, "end": 16, "show": ["viz-main", "viz-p1", "viz-p2"], "dim": [], "highlight": ["viz-p2"]},
+    {"start": 4, "end": 16, "show": ["viz-main", "viz-p1", "viz-p2", "viz-p3"], "dim": ["viz-p1"], "highlight": ["viz-p3"]},
+    {"start": 6, "end": 16, "show": ["viz-main", "viz-p1", "viz-p2", "viz-p3", "viz-p4"], "dim": ["viz-p1", "viz-p2"], "highlight": ["viz-p4"]},
+    {"start": 9, "end": 16, "show": ["viz-main", "viz-p1", "viz-p2", "viz-p3", "viz-p4", "viz-rhythm"], "dim": ["viz-p1", "viz-p2", "viz-p3"], "highlight": ["viz-rhythm"]},
+    {"start": 12, "end": 16, "show": ["viz-main", "viz-p1", "viz-p2", "viz-p3", "viz-p4", "viz-rhythm", "viz-start"], "dim": ["viz-p1", "viz-p2", "viz-p3", "viz-p4"], "highlight": ["viz-start"]}
+  ]
+}

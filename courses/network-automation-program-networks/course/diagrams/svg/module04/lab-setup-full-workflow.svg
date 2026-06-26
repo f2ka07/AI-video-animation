@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Full toolchain lab workflow">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    <g id="viz-inv">
+    <rect x="60" y="130" width="160" height="76" rx="10" fill="#081827" stroke="#6CC04A" stroke-width="2"/>
+    <text x="74" y="150" fill="#6CC04A" font-family="monospace" font-size="12" font-weight="700">inventory/lab.yml</text>
+    <text x="74" y="166" fill="#9fb3c8" font-family="monospace" font-size="11">lab_switches:</text><text x="74" y="184" fill="#9fb3c8" font-family="monospace" font-size="11">  switch1: .10</text>
+  </g>
+    <line x1="230" y1="180" x2="280" y2="180" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <g id="viz-playbook">
+      <rect x="280" y="130" width="150" height="100" rx="12" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+      <text x="355" y="160" fill="#12b5e5" font-family="monospace" font-size="10" font-weight="700" text-anchor="middle">site.yml</text>
+      <text x="300" y="184" fill="#9fb3c8" font-family="monospace" font-size="9">ios_vlans + ios_config</text>
+      <text x="300" y="202" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="9">VLAN + access port</text>
+    </g>
+    <line x1="430" y1="180" x2="480" y2="180" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <g id="viz-flow">
+      <rect x="480" y="120" width="120" height="50" rx="8" fill="#081827" stroke="#f59e0b" stroke-width="2"/>
+      <text x="540" y="150" fill="#f59e0b" font-family="monospace" font-size="10" text-anchor="middle">--check</text>
+      <rect x="480" y="180" width="120" height="50" rx="8" fill="#112115" stroke="#6CC04A" stroke-width="2"/>
+      <text x="540" y="210" fill="#6CC04A" font-family="monospace" font-size="10" text-anchor="middle">apply</text>
+    </g>
+    <g id="viz-tf">
+      <rect x="200" y="280" width="272" height="60" rx="12" fill="#1f1b2e" stroke="#a78bfa" stroke-width="2"/>
+      <text x="336" y="306" fill="#a78bfa" font-family="monospace" font-size="11" text-anchor="middle">terraform plan (optional)</text>
+      <text x="336" y="326" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">Same CCNA objects — toolchain delivery</text>
+    </g>
+    <g id="viz-switch">
+    <rect x="296" y="352" width="80" height="56" rx="10" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+    <path d="M316 392h40M336 372v40" stroke="#12b5e5" stroke-width="2" stroke-linecap="round"/>
+    <text x="336" y="424" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">Lab SW</text>
+  </g>
+  </g>
+</svg>

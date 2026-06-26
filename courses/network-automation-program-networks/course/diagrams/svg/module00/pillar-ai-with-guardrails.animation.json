@@ -1,0 +1,10 @@
+{
+  "diagram": "pillar-ai-with-guardrails.svg",
+  "phases": [
+    {"start": 0, "end": 16, "show": ["viz-main", "viz-prompt"], "dim": [], "highlight": ["viz-prompt"]},
+    {"start": 4, "end": 16, "show": ["viz-main", "viz-prompt", "viz-review"], "dim": ["viz-prompt"], "highlight": ["viz-review"]},
+    {"start": 7, "end": 16, "show": ["viz-main", "viz-prompt", "viz-review", "viz-check"], "dim": ["viz-prompt"], "highlight": ["viz-check"]},
+    {"start": 10, "end": 16, "show": ["viz-main", "viz-prompt", "viz-review", "viz-check", "viz-push"], "dim": ["viz-review"], "highlight": ["viz-push"]},
+    {"start": 13, "end": 16, "show": ["viz-main", "viz-prompt", "viz-review", "viz-check", "viz-push", "viz-governance"], "dim": ["viz-prompt", "viz-check"], "highlight": ["viz-governance"]}
+  ]
+}

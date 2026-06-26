@@ -1,0 +1,49 @@
+{
+  "diagram": "apis-beyond-ssh-scraping.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-scrape"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-scrape"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-scrape",
+        "viz-vs"
+      ],
+      "dim": [
+        "viz-scrape"
+      ],
+      "highlight": [
+        "viz-vs"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-scrape",
+        "viz-vs",
+        "viz-api"
+      ],
+      "dim": [
+        "viz-scrape",
+        "viz-vs"
+      ],
+      "highlight": [
+        "viz-api"
+      ]
+    }
+  ]
+}

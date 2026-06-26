@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Toolchains complete — capstone next">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    <g id="viz-git">
+    <rect x="60" y="200" width="100" height="64" rx="14" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+    <text x="110" y="237" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700" text-anchor="middle">Git</text>
+  </g>
+    <line x1="160" y1="232" x2="200" y2="232" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <g id="viz-ansible">
+    <rect x="200" y="200" width="100" height="64" rx="14" fill="#081827" stroke="#6CC04A" stroke-width="2"/>
+    <text x="250" y="237" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">Ansible</text>
+  </g>
+    <line x1="300" y1="232" x2="340" y2="232" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <g id="viz-api">
+    <rect x="340" y="200" width="100" height="64" rx="14" fill="#081827" stroke="#f59e0b" stroke-width="2"/>
+    <text x="390" y="237" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">RESTCONF</text>
+  </g>
+    <line x1="440" y1="232" x2="480" y2="232" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <g id="viz-cap">
+    <rect x="480" y="200" width="120" height="64" rx="14" fill="#081827" stroke="#a78bfa" stroke-width="2"/>
+    <text x="540" y="237" fill="#a78bfa" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">Capstone</text>
+  </g>
+    <text x="336" y="320" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" text-anchor="middle">Enterprise branch deployment end to end</text>
+    <g id="viz-habits">
+      <rect x="140" y="350" width="392" height="44" rx="10" fill="#112115" stroke="#6CC04A" stroke-width="1.5"/>
+      <text x="336" y="378" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">Check mode · GET-before-PATCH · inventory in Git</text>
+    </g>
+  </g>
+</svg>

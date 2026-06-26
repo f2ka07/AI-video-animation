@@ -1,0 +1,68 @@
+{
+  "diagram": "mdt-architecture-components.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-producer"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-producer"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-producer",
+        "viz-transport"
+      ],
+      "dim": [
+        "viz-producer"
+      ],
+      "highlight": [
+        "viz-transport"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-producer",
+        "viz-transport",
+        "viz-subscription"
+      ],
+      "dim": [
+        "viz-producer",
+        "viz-transport"
+      ],
+      "highlight": [
+        "viz-subscription"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-producer",
+        "viz-transport",
+        "viz-subscription",
+        "viz-consumer"
+      ],
+      "dim": [
+        "viz-producer",
+        "viz-transport",
+        "viz-subscription"
+      ],
+      "highlight": [
+        "viz-consumer"
+      ]
+    }
+  ]
+}

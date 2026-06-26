@@ -1,0 +1,68 @@
+{
+  "diagram": "reset-revert-cherry-pick-checkout.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-cmd-1"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-cmd-1"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-cmd-1",
+        "viz-cmd-2"
+      ],
+      "dim": [
+        "viz-cmd-1"
+      ],
+      "highlight": [
+        "viz-cmd-2"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-cmd-1",
+        "viz-cmd-2",
+        "viz-cmd-3"
+      ],
+      "dim": [
+        "viz-cmd-1",
+        "viz-cmd-2"
+      ],
+      "highlight": [
+        "viz-cmd-3"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-cmd-1",
+        "viz-cmd-2",
+        "viz-cmd-3",
+        "viz-cmd-4"
+      ],
+      "dim": [
+        "viz-cmd-1",
+        "viz-cmd-2",
+        "viz-cmd-3"
+      ],
+      "highlight": [
+        "viz-cmd-4"
+      ]
+    }
+  ]
+}

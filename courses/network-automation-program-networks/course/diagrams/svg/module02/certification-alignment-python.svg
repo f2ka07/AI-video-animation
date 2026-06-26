@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Exam objective 1.4 alignment">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    <g id="viz-badge">
+      <rect x="218" y="70" width="236" height="72" rx="14" fill="#0b2237" stroke="#12b5e5" stroke-width="2"/>
+      <text x="336" y="100" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="900" text-anchor="middle">CCNP 1.4</text>
+      <text x="336" y="122" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">Python for network configuration</text>
+    </g>
+    <line x1="336" y1="142" x2="336" y2="170" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <g id="viz-topics">
+      <g id="viz-vlan">
+    <rect x="60" y="180" width="120" height="56" rx="14" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+    <text x="120" y="213" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700" text-anchor="middle">VLAN</text>
+  </g>
+      <g id="viz-intf">
+    <rect x="210" y="180" width="120" height="56" rx="14" fill="#081827" stroke="#6CC04A" stroke-width="2"/>
+    <text x="270" y="213" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">Interface</text>
+  </g>
+      <g id="viz-ospf">
+    <rect x="360" y="180" width="120" height="56" rx="14" fill="#081827" stroke="#f59e0b" stroke-width="2"/>
+    <text x="420" y="213" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700" text-anchor="middle">OSPF</text>
+  </g>
+      <g id="viz-acl">
+    <rect x="510" y="180" width="120" height="56" rx="14" fill="#081827" stroke="#ef4444" stroke-width="2"/>
+    <text x="570" y="213" fill="#ef4444" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700" text-anchor="middle">ACL</text>
+  </g>
+    </g>
+    <g id="viz-skill">
+      <rect x="160" y="280" width="352" height="60" rx="12" fill="#081827" stroke="#a78bfa" stroke-width="2"/>
+      <text x="336" y="308" fill="#a78bfa" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700" text-anchor="middle">Explain scripts — don't memorize blindly</text>
+      <text x="336" y="328" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">List vs dict · connect to disconnect</text>
+    </g>
+  </g>
+</svg>

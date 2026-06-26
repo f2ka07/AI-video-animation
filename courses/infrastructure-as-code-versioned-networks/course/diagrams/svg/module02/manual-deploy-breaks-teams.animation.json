@@ -1,0 +1,14 @@
+{
+  "diagram": "manual-deploy-breaks-teams.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 10,
+      "show": [
+        "main"
+      ],
+      "dim": [],
+      "highlight": []
+    }
+  ]
+}

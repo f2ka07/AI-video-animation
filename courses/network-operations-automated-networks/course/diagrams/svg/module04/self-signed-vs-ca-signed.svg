@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Self-signed vs CA-signed">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    <text x="48" y="58" fill="#049FD9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" letter-spacing="0.14em">COMPARE</text>
+    <text x="48" y="84" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="800">Self-signed vs CA-signed</text>
+    <g id="viz-self">
+    <rect x="48" y="108" width="296" height="248" rx="16" fill="#081827" stroke="#f59e0b" stroke-width="2"/>
+    <text x="196" y="136" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Self-signed</text>
+    <text x="72" y="148" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700">Quick lab setup</text><text x="72" y="170" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10">Browser/trust warnings</text><text x="72" y="192" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10">No enterprise chain</text><text x="72" y="214" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10">Rotate manually</text>
+  </g><g id="viz-ca">
+    <rect x="376" y="108" width="296" height="248" rx="16" fill="#081827" stroke="#6CC04A" stroke-width="2"/>
+    <text x="524" y="136" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">CA-signed</text>
+    <text x="400" y="148" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700">Enterprise trust chain</text><text x="400" y="170" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10">Automated renewal</text><text x="400" y="192" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10">Audit-friendly</text><text x="400" y="214" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10">Production standard</text>
+  </g>
+  </g>
+</svg>

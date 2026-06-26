@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Provision layer vs configure layer">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    <g id="viz-tf-layer">
+      <rect x="56" y="80" width="608" height="150" rx="16" fill="#1f1b2e" stroke="#a78bfa" stroke-width="2"/>
+      <text x="360" y="108" fill="#a78bfa" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Day 0 — provision lifecycle</text>
+      <rect x="88" y="124" width="90" height="50" rx="8" fill="#081827" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="133" y="148" fill="#a78bfa" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">main.tf</text>
+      <text x="133" y="162" fill="#64748b" font-family="monospace" font-size="8" text-anchor="middle">module</text>
+      <line x1="178" y1="149" x2="220" y2="149" stroke="#a78bfa" stroke-width="3" stroke-linecap="round"/>
+      <rect x="220" y="124" width="72" height="50" rx="8" fill="#081827" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="256" y="154" fill="#f59e0b" font-family="monospace" font-size="10" font-weight="700" text-anchor="middle">plan</text>
+      <line x1="292" y1="149" x2="334" y2="149" stroke="#a78bfa" stroke-width="3" stroke-linecap="round"/>
+      <rect x="334" y="118" width="100" height="62" rx="8" fill="#081827" stroke="#12b5e5" stroke-width="1.5"/>
+      <text x="384" y="142" fill="#12b5e5" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">terraform</text>
+      <text x="384" y="158" fill="#12b5e5" font-family="monospace" font-size="9" text-anchor="middle">.tfstate</text>
+      <text x="384" y="172" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="8" text-anchor="middle">tracks reality</text>
+      <line x1="434" y1="149" x2="476" y2="149" stroke="#a78bfa" stroke-width="3" stroke-linecap="round"/>
+      <g id="viz-cloud">
+        <rect x="476" y="118" width="160" height="62" rx="10" fill="#081827" stroke="#a78bfa" stroke-width="1.5"/>
+        <text x="556" y="144" fill="#a78bfa" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">Cloud / controller</text>
+        <text x="556" y="162" fill="#9fb3c8" font-family="monospace" font-size="8" text-anchor="middle">VPC attach · branch template</text>
+      </g>
+    </g>
+    <g id="viz-divider">
+      <line x1="120" y1="248" x2="600" y2="248" stroke="#35536f" stroke-width="1" stroke-dasharray="8 6"/>
+      <text x="360" y="268" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">then day-2 operations</text>
+    </g>
+    <g id="viz-ansible-layer">
+      <rect x="56" y="280" width="608" height="150" rx="16" fill="#112115" stroke="#6CC04A" stroke-width="2"/>
+      <text x="360" y="308" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Day 2 — IOS config at scale</text>
+      <rect x="88" y="324" width="100" height="50" rx="8" fill="#081827" stroke="#6CC04A" stroke-width="1.5"/>
+      <text x="138" y="348" fill="#6CC04A" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">inventory</text>
+      <text x="138" y="362" fill="#64748b" font-family="monospace" font-size="8" text-anchor="middle">.yml</text>
+      <line x1="188" y1="349" x2="230" y2="349" stroke="#6CC04A" stroke-width="3" stroke-linecap="round"/>
+      <rect x="230" y="324" width="100" height="50" rx="8" fill="#081827" stroke="#12b5e5" stroke-width="1.5"/>
+      <text x="280" y="354" fill="#12b5e5" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">playbook</text>
+      <line x1="330" y1="349" x2="372" y2="349" stroke="#6CC04A" stroke-width="3" stroke-linecap="round"/>
+      <g>
+    <rect x="372" y="321" width="80" height="56" rx="10" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+    <path d="M392 361h40M412 341v40" stroke="#12b5e5" stroke-width="2" stroke-linecap="round"/>
+    <text x="412" y="393" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">IOS</text>
+  </g>
+      <g>
+    <rect x="452" y="321" width="80" height="56" rx="10" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+    <path d="M472 361h40M492 341v40" stroke="#12b5e5" stroke-width="2" stroke-linecap="round"/>
+    <text x="492" y="393" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">IOS</text>
+  </g>
+      <g>
+    <rect x="532" y="321" width="80" height="56" rx="10" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+    <path d="M552 361h40M572 341v40" stroke="#12b5e5" stroke-width="2" stroke-linecap="round"/>
+    <text x="572" y="393" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">IOS</text>
+  </g>
+      <text x="360" y="410" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">VLAN · ACL · routing on heterogeneous gear</text>
+    </g>
+    <g id="viz-combo">
+      <rect x="160" y="450" width="400" height="40" rx="10" fill="#0b2237" stroke="#f59e0b" stroke-width="2"/>
+      <text x="360" y="476" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">Exam answer: TF for cloud, Ansible for devices</text>
+    </g>
+  </g>
+</svg>

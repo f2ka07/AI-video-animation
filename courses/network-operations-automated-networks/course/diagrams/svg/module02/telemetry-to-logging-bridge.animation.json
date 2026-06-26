@@ -1,0 +1,49 @@
+{
+  "diagram": "telemetry-to-logging-bridge.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-from"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-from"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-from",
+        "viz-bridge"
+      ],
+      "dim": [
+        "viz-from"
+      ],
+      "highlight": [
+        "viz-bridge"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-from",
+        "viz-bridge",
+        "viz-to"
+      ],
+      "dim": [
+        "viz-from",
+        "viz-bridge"
+      ],
+      "highlight": [
+        "viz-to"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8798 @@
+{
+  "moduleNumber": 5,
+  "title": "Infrastructure as Code Capstone",
+  "slides": {
+    "iac-capstone-intro": {
+      "words": [
+        {
+          "text": "Welcome",
+          "start": 0.08,
+          "end": 0.45
+        },
+        {
+          "text": "to",
+          "start": 0.49,
+          "end": 0.55
+        },
+        {
+          "text": "the",
+          "start": 0.55,
+          "end": 0.66
+        },
+        {
+          "text": "course",
+          "start": 0.66,
+          "end": 1
+        },
+        {
+          "text": "two",
+          "start": 1,
+          "end": 1.28
+        },
+        {
+          "text": "capstone",
+          "start": 1.28,
+          "end": 1.99
+        },
+        {
+          "text": "You",
+          "start": 2.18,
+          "end": 2.28
+        },
+        {
+          "text": "have",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "text": "one",
+          "start": 2.52,
+          "end": 2.75
+        },
+        {
+          "text": "repo",
+          "start": 4.87,
+          "end": 5.01
+        },
+        {
+          "text": "-",
+          "start": 5.01,
+          "end": 5.37
+        },
+        {
+          "text": "netops_iac_lab",
+          "start": 5.37,
+          "end": 5.62
+        },
+        {
+          "text": "-",
+          "start": 5.62,
+          "end": 5.92
+        },
+        {
+          "text": "with",
+          "start": 5.92,
+          "end": 6.32
+        },
+        {
+          "text": "Git",
+          "start": 6.51,
+          "end": 6.59
+        },
+        {
+          "text": "from",
+          "start": 7.14,
+          "end": 7.57
+        },
+        {
+          "text": "module",
+          "start": 7.57,
+          "end": 7.8
+        },
+        {
+          "text": "one",
+          "start": 7.8,
+          "end": 8.14
+        },
+        {
+          "text": "a",
+          "start": 8.21,
+          "end": 8.49
+        },
+        {
+          "text": "GitLab",
+          "start": 8.64,
+          "end": 8.9
+        },
+        {
+          "text": "pipeline",
+          "start": 8.9,
+          "end": 9.43
+        },
+        {
+          "text": "from",
+          "start": 9.43,
+          "end": 9.6
+        },
+        {
+          "text": "module",
+          "start": 10.14,
+          "end": 10.72
+        },
+        {
+          "text": "two",
+          "start": 10.72,
+          "end": 11.02
+        },
+        {
+          "text": "Docker",
+          "start": 11.02,
+          "end": 11.34
+        },
+        {
+          "text": "Compose",
+          "start": 11.34,
+          "end": 11.74
+        },
+        {
+          "text": "and",
+          "start": 11.99,
+          "end": 12.16
+        },
+        {
+          "text": "CML",
+          "start": 12.16,
+          "end": 12.5
+        },
+        {
+          "text": "inventory",
+          "start": 12.5,
+          "end": 12.87
+        },
+        {
+          "text": "from",
+          "start": 12.9,
+          "end": 13.42
+        },
+        {
+          "text": "module",
+          "start": 13.45,
+          "end": 13.64
+        },
+        {
+          "text": "three",
+          "start": 13.64,
+          "end": 14.14
+        },
+        {
+          "text": "and",
+          "start": 14.25,
+          "end": 14.68
+        },
+        {
+          "text": "YANG-shaped",
+          "start": 14.68,
+          "end": 15.25
+        },
+        {
+          "text": "intent",
+          "start": 15.25,
+          "end": 15.63
+        },
+        {
+          "text": "in",
+          "start": 15.63,
+          "end": 15.94
+        },
+        {
+          "text": "models",
+          "start": 16,
+          "end": 16.33
+        },
+        {
+          "text": "slash",
+          "start": 16.610001,
+          "end": 16.719999
+        },
+        {
+          "text": "intent",
+          "start": 16.719999,
+          "end": 17.4
+        },
+        {
+          "text": "from",
+          "start": 17.450001,
+          "end": 17.67
+        },
+        {
+          "text": "module",
+          "start": 17.67,
+          "end": 18.01
+        },
+        {
+          "text": "four",
+          "start": 18.040001,
+          "end": 18.15
+        },
+        {
+          "text": "The",
+          "start": 18.15,
+          "end": 18.41
+        },
+        {
+          "text": "capstone",
+          "start": 19.610001,
+          "end": 19.780001
+        },
+        {
+          "text": "is",
+          "start": 19.780001,
+          "end": 20.200001
+        },
+        {
+          "text": "not",
+          "start": 20.59,
+          "end": 21.030001
+        },
+        {
+          "text": "a",
+          "start": 21.07,
+          "end": 21.23
+        },
+        {
+          "text": "new",
+          "start": 21.23,
+          "end": 21.299999
+        },
+        {
+          "text": "toolchain",
+          "start": 21.299999,
+          "end": 21.65
+        },
+        {
+          "text": "You",
+          "start": 21.65,
+          "end": 22.08
+        },
+        {
+          "text": "change",
+          "start": 22.66,
+          "end": 22.940001
+        },
+        {
+          "text": "VLAN",
+          "start": 22.98,
+          "end": 23.08
+        },
+        {
+          "text": "intent",
+          "start": 23.08,
+          "end": 23.59
+        },
+        {
+          "text": "on",
+          "start": 24.42,
+          "end": 24.620001
+        },
+        {
+          "text": "a",
+          "start": 24.690001,
+          "end": 25.120001
+        },
+        {
+          "text": "feature",
+          "start": 25.68,
+          "end": 26.01
+        },
+        {
+          "text": "branch",
+          "start": 26.040001,
+          "end": 26.16
+        },
+        {
+          "text": "let",
+          "start": 26.82,
+          "end": 27.01
+        },
+        {
+          "text": "the",
+          "start": 27.01,
+          "end": 27.32
+        },
+        {
+          "text": "pipeline",
+          "start": 27.32,
+          "end": 27.67
+        },
+        {
+          "text": "validate",
+          "start": 28.15,
+          "end": 28.540001
+        },
+        {
+          "text": "and",
+          "start": 28.620001,
+          "end": 28.67
+        },
+        {
+          "text": "render",
+          "start": 28.67,
+          "end": 29.1
+        },
+        {
+          "text": "test",
+          "start": 29.52,
+          "end": 29.73
+        },
+        {
+          "text": "on",
+          "start": 29.76,
+          "end": 30.02
+        },
+        {
+          "text": "CML",
+          "start": 30.08,
+          "end": 30.360001
+        },
+        {
+          "text": "in",
+          "start": 30.360001,
+          "end": 31.09
+        },
+        {
+          "text": "check",
+          "start": 31.09,
+          "end": 31.3
+        },
+        {
+          "text": "mode",
+          "start": 31.3,
+          "end": 31.51
+        },
+        {
+          "text": "merge",
+          "start": 31.76,
+          "end": 32.099998
+        },
+        {
+          "text": "to",
+          "start": 32.099998,
+          "end": 32.364999499999996
+        },
+        {
+          "text": "main",
+          "start": 32.364999499999996,
+          "end": 32.630001
+        },
+        {
+          "text": "and",
+          "start": 33,
+          "end": 33.130001
+        },
+        {
+          "text": "read",
+          "start": 33.130001,
+          "end": 33.295
+        },
+        {
+          "text": "post-validation",
+          "start": 33.295,
+          "end": 33.459999
+        },
+        {
+          "text": "logs",
+          "start": 33.459999,
+          "end": 33.889999
+        },
+        {
+          "text": "Same",
+          "start": 34.18,
+          "end": 34.2849995
+        },
+        {
+          "text": "files",
+          "start": 34.2849995,
+          "end": 34.389999
+        },
+        {
+          "text": "you",
+          "start": 34.389999,
+          "end": 34.810001
+        },
+        {
+          "text": "already",
+          "start": 34.849998,
+          "end": 35.059999000000005
+        },
+        {
+          "text": "built",
+          "start": 35.059999000000005,
+          "end": 35.27
+        },
+        {
+          "text": "If",
+          "start": 35.439999,
+          "end": 35.740002
+        },
+        {
+          "text": "module",
+          "start": 35.740002,
+          "end": 36.0100005
+        },
+        {
+          "text": "four",
+          "start": 36.0100005,
+          "end": 36.279999
+        },
+        {
+          "text": "made",
+          "start": 36.529999,
+          "end": 36.650002
+        },
+        {
+          "text": "sense",
+          "start": 36.650002,
+          "end": 36.745001
+        },
+        {
+          "text": "you",
+          "start": 36.745001,
+          "end": 36.84
+        },
+        {
+          "text": "can",
+          "start": 36.84,
+          "end": 37.220001
+        },
+        {
+          "text": "follow",
+          "start": 37.220001,
+          "end": 37.3550015
+        },
+        {
+          "text": "this",
+          "start": 37.3550015,
+          "end": 37.490002
+        },
+        {
+          "text": "section",
+          "start": 37.490002,
+          "end": 38.130001
+        }
+      ]
+    },
+    "capstone-integrates-four-modules": {
+      "words": [
+        {
+          "text": "Module",
+          "start": 0.17,
+          "end": 0.57
+        },
+        {
+          "text": "four",
+          "start": 0.57,
+          "end": 0.91
+        },
+        {
+          "text": "ended",
+          "start": 0.94,
+          "end": 1.37
+        },
+        {
+          "text": "with",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "models",
+          "start": 1.69,
+          "end": 2.33
+        },
+        {
+          "text": "slash",
+          "start": 2.38,
+          "end": 2.86
+        },
+        {
+          "text": "intent",
+          "start": 2.86,
+          "end": 3.53
+        },
+        {
+          "text": "slash",
+          "start": 3.63,
+          "end": 4.03
+        },
+        {
+          "text": "vlans",
+          "start": 4.65,
+          "end": 4.87
+        },
+        {
+          "text": "dot",
+          "start": 4.87,
+          "end": 5.4
+        },
+        {
+          "text": "json",
+          "start": 5.77,
+          "end": 6.08
+        },
+        {
+          "text": "and",
+          "start": 6.25,
+          "end": 6.39
+        },
+        {
+          "text": "a",
+          "start": 6.39,
+          "end": 6.82
+        },
+        {
+          "text": "render",
+          "start": 8,
+          "end": 8.09
+        },
+        {
+          "text": "playbook",
+          "start": 8.09,
+          "end": 8.78
+        },
+        {
+          "text": "The",
+          "start": 8.9,
+          "end": 9.22
+        },
+        {
+          "text": "capstone",
+          "start": 9.22,
+          "end": 9.5
+        },
+        {
+          "text": "adds",
+          "start": 9.96,
+          "end": 10.18
+        },
+        {
+          "text": "one",
+          "start": 10.18,
+          "end": 10.7
+        },
+        {
+          "text": "VLAN",
+          "start": 10.9,
+          "end": 11.27
+        },
+        {
+          "text": "-",
+          "start": 11.34,
+          "end": 11.93
+        },
+        {
+          "text": "three",
+          "start": 11.93,
+          "end": 12.49
+        },
+        {
+          "text": "hundred",
+          "start": 12.55,
+          "end": 13.11
+        },
+        {
+          "text": "named",
+          "start": 13.53,
+          "end": 13.7
+        },
+        {
+          "text": "LAB",
+          "start": 13.7,
+          "end": 14.07
+        },
+        {
+          "text": "underscore",
+          "start": 14.07,
+          "end": 14.18
+        },
+        {
+          "text": "CAPSTONE",
+          "start": 14.18,
+          "end": 14.45
+        },
+        {
+          "text": "-",
+          "start": 14.45,
+          "end": 14.88
+        },
+        {
+          "text": "and",
+          "start": 14.91,
+          "end": 15.07
+        },
+        {
+          "text": "runs",
+          "start": 15.07,
+          "end": 15.45
+        },
+        {
+          "text": "the",
+          "start": 15.48,
+          "end": 15.65
+        },
+        {
+          "text": "full",
+          "start": 15.65,
+          "end": 16.23
+        },
+        {
+          "text": "chain",
+          "start": 16.23,
+          "end": 16.530001
+        },
+        {
+          "text": "you",
+          "start": 16.530001,
+          "end": 16.77
+        },
+        {
+          "text": "built",
+          "start": 16.77,
+          "end": 17.08
+        },
+        {
+          "text": "in",
+          "start": 17.74,
+          "end": 18.030001
+        },
+        {
+          "text": "modules",
+          "start": 18.059999,
+          "end": 18.41
+        },
+        {
+          "text": "one",
+          "start": 18.41,
+          "end": 18.51
+        },
+        {
+          "text": "through",
+          "start": 18.51,
+          "end": 19.030001
+        },
+        {
+          "text": "four",
+          "start": 19.059999,
+          "end": 19.58
+        },
+        {
+          "text": "Git",
+          "start": 20.51,
+          "end": 21.01
+        },
+        {
+          "text": "tracks",
+          "start": 21.040001,
+          "end": 21.66
+        },
+        {
+          "text": "the",
+          "start": 23.030001,
+          "end": 23.93
+        },
+        {
+          "text": "intent",
+          "start": 24.030001,
+          "end": 24.190001
+        },
+        {
+          "text": "change",
+          "start": 24.24,
+          "end": 24.549999
+        },
+        {
+          "text": "GitLab",
+          "start": 24.58,
+          "end": 25.32
+        },
+        {
+          "text": "runs",
+          "start": 25.58,
+          "end": 26.200001
+        },
+        {
+          "text": "build",
+          "start": 26.200001,
+          "end": 26.610001
+        },
+        {
+          "text": "prevalidation",
+          "start": 26.610001,
+          "end": 27
+        },
+        {
+          "text": "deploy",
+          "start": 27,
+          "end": 27.969999
+        },
+        {
+          "text": "and",
+          "start": 29.200001,
+          "end": 29.790001
+        },
+        {
+          "text": "post-validation",
+          "start": 29.790001,
+          "end": 30.120001
+        },
+        {
+          "text": "Compose",
+          "start": 30.120001,
+          "end": 30.51
+        },
+        {
+          "text": "smoke-tests",
+          "start": 30.690001,
+          "end": 31.280001
+        },
+        {
+          "text": "connectivity",
+          "start": 31.280001,
+          "end": 31.450001
+        },
+        {
+          "text": "CML",
+          "start": 31.49,
+          "end": 31.879999
+        },
+        {
+          "text": "runs",
+          "start": 31.879999,
+          "end": 32.330002
+        },
+        {
+          "text": "check",
+          "start": 32.43,
+          "end": 32.470001
+        },
+        {
+          "text": "mode",
+          "start": 32.470001,
+          "end": 32.91
+        },
+        {
+          "text": "before",
+          "start": 33.150002,
+          "end": 33.34
+        },
+        {
+          "text": "you",
+          "start": 33.34,
+          "end": 33.380001
+        },
+        {
+          "text": "trust",
+          "start": 33.380001,
+          "end": 33.700001
+        },
+        {
+          "text": "merge",
+          "start": 33.700001,
+          "end": 34.099998
+        },
+        {
+          "text": "to",
+          "start": 34.099998,
+          "end": 34.380001
+        },
+        {
+          "text": "main",
+          "start": 34.41,
+          "end": 34.880001
+        },
+        {
+          "text": "You",
+          "start": 34.880001,
+          "end": 35.650002
+        },
+        {
+          "text": "are",
+          "start": 36.049999,
+          "end": 36.220001
+        },
+        {
+          "text": "not",
+          "start": 36.220001,
+          "end": 36.2399995
+        },
+        {
+          "text": "learning",
+          "start": 36.2399995,
+          "end": 36.259998
+        },
+        {
+          "text": "new",
+          "start": 36.259998,
+          "end": 36.669998
+        },
+        {
+          "text": "exam",
+          "start": 36.669998,
+          "end": 36.714998
+        },
+        {
+          "text": "objectives",
+          "start": 36.714998,
+          "end": 36.759998
+        },
+        {
+          "text": "You",
+          "start": 36.759998,
+          "end": 37.049999
+        },
+        {
+          "text": "are",
+          "start": 37.049999,
+          "end": 37.385000000000005
+        },
+        {
+          "text": "running",
+          "start": 37.385000000000005,
+          "end": 37.720001
+        },
+        {
+          "text": "the",
+          "start": 38.23,
+          "end": 38.41
+        },
+        {
+          "text": "same",
+          "start": 38.41,
+          "end": 38.450001
+        },
+        {
+          "text": "steps",
+          "start": 38.450001,
+          "end": 38.490002
+        },
+        {
+          "text": "in",
+          "start": 38.490002,
+          "end": 39.080002
+        },
+        {
+          "text": "a",
+          "start": 39.209999,
+          "end": 39.414999
+        },
+        {
+          "text": "fixed",
+          "start": 39.414999,
+          "end": 39.619999
+        },
+        {
+          "text": "order",
+          "start": 39.950001,
+          "end": 40.099998
+        },
+        {
+          "text": "on",
+          "start": 40.099998,
+          "end": 40.1599995
+        },
+        {
+          "text": "the",
+          "start": 40.1599995,
+          "end": 40.220001
+        },
+        {
+          "text": "repo",
+          "start": 40.549999,
+          "end": 40.669998
+        },
+        {
+          "text": "you",
+          "start": 40.669998,
+          "end": 40.869999
+        },
+        {
+          "text": "already",
+          "start": 40.869999,
+          "end": 41.07
+        },
+        {
+          "text": "have",
+          "start": 41.099998,
+          "end": 41.349998
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 6.39,
+          "end": 10.18
+        },
+        {
+          "start": 15.65,
+          "end": 18.51
+        },
+        null
+      ]
+    },
+    "capstone-repo-layout": {
+      "words": [
+        {
+          "text": "Before",
+          "start": 0.14,
+          "end": 0.51
+        },
+        {
+          "text": "the",
+          "start": 0.51,
+          "end": 0.64
+        },
+        {
+          "text": "lab",
+          "start": 0.64,
+          "end": 0.97
+        },
+        {
+          "text": "know",
+          "start": 1.18,
+          "end": 1.43
+        },
+        {
+          "text": "where",
+          "start": 1.43,
+          "end": 1.68
+        },
+        {
+          "text": "files",
+          "start": 1.68,
+          "end": 2.18
+        },
+        {
+          "text": "live",
+          "start": 2.18,
+          "end": 2.47
+        },
+        {
+          "text": "models",
+          "start": 3.3,
+          "end": 3.8
+        },
+        {
+          "text": "slash",
+          "start": 3.8,
+          "end": 4.36
+        },
+        {
+          "text": "intent",
+          "start": 4.45,
+          "end": 5.13
+        },
+        {
+          "text": "holds",
+          "start": 5.45,
+          "end": 6.05
+        },
+        {
+          "text": "golden",
+          "start": 6.37,
+          "end": 6.81
+        },
+        {
+          "text": "VLAN",
+          "start": 7.22,
+          "end": 7.64
+        },
+        {
+          "text": "data",
+          "start": 8.21,
+          "end": 8.68
+        },
+        {
+          "text": "models",
+          "start": 8.68,
+          "end": 9.27
+        },
+        {
+          "text": "slash",
+          "start": 9.43,
+          "end": 9.9
+        },
+        {
+          "text": "yang",
+          "start": 10.22,
+          "end": 10.7
+        },
+        {
+          "text": "holds",
+          "start": 10.83,
+          "end": 10.92
+        },
+        {
+          "text": "the",
+          "start": 10.92,
+          "end": 11.52
+        },
+        {
+          "text": "teaching",
+          "start": 11.71,
+          "end": 12.06
+        },
+        {
+          "text": "YANG",
+          "start": 12.06,
+          "end": 12.52
+        },
+        {
+          "text": "file",
+          "start": 12.99,
+          "end": 13.46
+        },
+        {
+          "text": "dot",
+          "start": 14.03,
+          "end": 14.34
+        },
+        {
+          "text": "gitlab-ci",
+          "start": 15.38,
+          "end": 15.75
+        },
+        {
+          "text": "dot",
+          "start": 15.83,
+          "end": 16.48
+        },
+        {
+          "text": "yml",
+          "start": 17.030001,
+          "end": 17.530001
+        },
+        {
+          "text": "defines",
+          "start": 17.65,
+          "end": 17.83
+        },
+        {
+          "text": "pipeline",
+          "start": 17.889999,
+          "end": 18.120001
+        },
+        {
+          "text": "stages",
+          "start": 18.120001,
+          "end": 18.4
+        },
+        {
+          "text": "from",
+          "start": 18.4,
+          "end": 18.76
+        },
+        {
+          "text": "module",
+          "start": 19.120001,
+          "end": 19.26
+        },
+        {
+          "text": "two",
+          "start": 19.26,
+          "end": 19.75
+        },
+        {
+          "text": "plus",
+          "start": 19.959999,
+          "end": 20.34
+        },
+        {
+          "text": "SoT",
+          "start": 20.690001,
+          "end": 20.9
+        },
+        {
+          "text": "and",
+          "start": 21,
+          "end": 21.209999
+        },
+        {
+          "text": "Compose",
+          "start": 21.48,
+          "end": 21.57
+        },
+        {
+          "text": "jobs",
+          "start": 21.57,
+          "end": 21.719999
+        },
+        {
+          "text": "from",
+          "start": 22.08,
+          "end": 22.309999
+        },
+        {
+          "text": "modules",
+          "start": 22.74,
+          "end": 23.049999
+        },
+        {
+          "text": "three",
+          "start": 23.57,
+          "end": 23.889999
+        },
+        {
+          "text": "and",
+          "start": 24.18,
+          "end": 24.370001
+        },
+        {
+          "text": "four",
+          "start": 24.370001,
+          "end": 24.75
+        },
+        {
+          "text": "docker",
+          "start": 24.75,
+          "end": 24.889999
+        },
+        {
+          "text": "slash",
+          "start": 25.309999,
+          "end": 25.469999
+        },
+        {
+          "text": "docker-compose",
+          "start": 26.16,
+          "end": 26.370001
+        },
+        {
+          "text": "dot",
+          "start": 26.370001,
+          "end": 26.719999
+        },
+        {
+          "text": "yml",
+          "start": 26.92,
+          "end": 27.045
+        },
+        {
+          "text": "is",
+          "start": 27.045,
+          "end": 27.17
+        },
+        {
+          "text": "the",
+          "start": 27.879999,
+          "end": 28.16
+        },
+        {
+          "text": "Compose",
+          "start": 28.200001,
+          "end": 28.280001
+        },
+        {
+          "text": "lab",
+          "start": 28.280001,
+          "end": 28.360001
+        },
+        {
+          "text": "inventory",
+          "start": 28.639999,
+          "end": 28.77
+        },
+        {
+          "text": "slash",
+          "start": 28.799999,
+          "end": 29.125
+        },
+        {
+          "text": "cml",
+          "start": 29.125,
+          "end": 29.450001
+        },
+        {
+          "text": "dot",
+          "start": 30.200001,
+          "end": 30.299999
+        },
+        {
+          "text": "yml",
+          "start": 30.34,
+          "end": 30.3999995
+        },
+        {
+          "text": "points",
+          "start": 30.3999995,
+          "end": 30.459999
+        },
+        {
+          "text": "Ansible",
+          "start": 30.83,
+          "end": 31.129999
+        },
+        {
+          "text": "at",
+          "start": 32.400002,
+          "end": 32.6450005
+        },
+        {
+          "text": "your",
+          "start": 32.6450005,
+          "end": 32.889999
+        },
+        {
+          "text": "CML",
+          "start": 33.32,
+          "end": 33.599998
+        },
+        {
+          "text": "routers",
+          "start": 33.599998,
+          "end": 33.679998
+        },
+        {
+          "text": "playbooks",
+          "start": 33.679998,
+          "end": 33.759998
+        },
+        {
+          "text": "slash",
+          "start": 34.110001,
+          "end": 34.27
+        },
+        {
+          "text": "render",
+          "start": 35.310001,
+          "end": 35.4500005
+        },
+        {
+          "text": "from",
+          "start": 35.4500005,
+          "end": 35.59
+        },
+        {
+          "text": "sot",
+          "start": 36.419998,
+          "end": 36.880001
+        },
+        {
+          "text": "dot",
+          "start": 37.189999,
+          "end": 37.25
+        },
+        {
+          "text": "yml",
+          "start": 37.25,
+          "end": 37.310001
+        },
+        {
+          "text": "and",
+          "start": 38.48,
+          "end": 38.669998
+        },
+        {
+          "text": "templates",
+          "start": 38.669998,
+          "end": 38.7349985
+        },
+        {
+          "text": "slash",
+          "start": 38.7349985,
+          "end": 38.799999
+        },
+        {
+          "text": "vlans",
+          "start": 39.509998,
+          "end": 39.900002
+        },
+        {
+          "text": "dot",
+          "start": 40.5,
+          "end": 40.6550005
+        },
+        {
+          "text": "j",
+          "start": 40.6550005,
+          "end": 40.810001
+        },
+        {
+          "text": "two",
+          "start": 40.93,
+          "end": 41.220001
+        },
+        {
+          "text": "turn",
+          "start": 41.220001,
+          "end": 41.290001000000004
+        },
+        {
+          "text": "intent",
+          "start": 41.290001000000004,
+          "end": 41.360001
+        },
+        {
+          "text": "into",
+          "start": 43.5,
+          "end": 44.419998
+        },
+        {
+          "text": "IOS",
+          "start": 44.790001,
+          "end": 44.8549995
+        },
+        {
+          "text": "syntax",
+          "start": 44.8549995,
+          "end": 44.919998
+        },
+        {
+          "text": "You",
+          "start": 44.919998,
+          "end": 45.23
+        },
+        {
+          "text": "edit",
+          "start": 45.470001,
+          "end": 45.8500005
+        },
+        {
+          "text": "intent",
+          "start": 45.8500005,
+          "end": 46.23
+        },
+        {
+          "text": "first",
+          "start": 46.439999,
+          "end": 46.799999
+        },
+        {
+          "text": "-",
+          "start": 47.049999,
+          "end": 47.135000000000005
+        },
+        {
+          "text": "never",
+          "start": 47.135000000000005,
+          "end": 47.220001
+        },
+        {
+          "text": "the",
+          "start": 47.220001,
+          "end": 47.349998
+        },
+        {
+          "text": "switch",
+          "start": 47.389999,
+          "end": 47.514999
+        },
+        {
+          "text": "running",
+          "start": 47.514999,
+          "end": 47.639999
+        },
+        {
+          "text": "config",
+          "start": 47.639999,
+          "end": 47.950001
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 3.3,
+          "end": 7.64
+        },
+        null,
+        {
+          "start": 24.75,
+          "end": 27.17
+        }
+      ]
+    },
+    "local-vs-pipeline-capstone": {
+      "words": [
+        {
+          "text": "You",
+          "start": 0.07,
+          "end": 0.2
+        },
+        {
+          "text": "can",
+          "start": 0.2,
+          "end": 0.4
+        },
+        {
+          "text": "run",
+          "start": 0.4,
+          "end": 0.61
+        },
+        {
+          "text": "validation",
+          "start": 0.61,
+          "end": 1.24
+        },
+        {
+          "text": "commands",
+          "start": 1.24,
+          "end": 1.75
+        },
+        {
+          "text": "on",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "text": "your",
+          "start": 1.89,
+          "end": 2
+        },
+        {
+          "text": "laptop",
+          "start": 2,
+          "end": 2.44
+        },
+        {
+          "text": "before",
+          "start": 2.52,
+          "end": 2.88
+        },
+        {
+          "text": "push",
+          "start": 2.88,
+          "end": 3.27
+        },
+        {
+          "text": "-",
+          "start": 3.3,
+          "end": 3.63
+        },
+        {
+          "text": "same",
+          "start": 3.63,
+          "end": 4.17
+        },
+        {
+          "text": "scripts",
+          "start": 4.28,
+          "end": 4.39
+        },
+        {
+          "text": "the",
+          "start": 4.39,
+          "end": 4.91
+        },
+        {
+          "text": "pipeline",
+          "start": 4.91,
+          "end": 5.35
+        },
+        {
+          "text": "runs",
+          "start": 5.62,
+          "end": 5.93
+        },
+        {
+          "text": "After",
+          "start": 5.93,
+          "end": 6.39
+        },
+        {
+          "text": "push",
+          "start": 7,
+          "end": 7.24
+        },
+        {
+          "text": "GitLab",
+          "start": 7.24,
+          "end": 7.64
+        },
+        {
+          "text": "job",
+          "start": 7.69,
+          "end": 7.78
+        },
+        {
+          "text": "logs",
+          "start": 7.78,
+          "end": 7.93
+        },
+        {
+          "text": "are",
+          "start": 7.96,
+          "end": 8.33
+        },
+        {
+          "text": "the",
+          "start": 8.36,
+          "end": 8.74
+        },
+        {
+          "text": "audit",
+          "start": 8.84,
+          "end": 8.95
+        },
+        {
+          "text": "trail",
+          "start": 8.95,
+          "end": 9.45
+        },
+        {
+          "text": "the",
+          "start": 9.45,
+          "end": 9.77
+        },
+        {
+          "text": "exam",
+          "start": 9.77,
+          "end": 10.14
+        },
+        {
+          "text": "cares",
+          "start": 10.14,
+          "end": 10.36
+        },
+        {
+          "text": "about",
+          "start": 10.41,
+          "end": 10.56
+        },
+        {
+          "text": "for",
+          "start": 10.56,
+          "end": 10.91
+        },
+        {
+          "text": "two",
+          "start": 10.91,
+          "end": 11.17
+        },
+        {
+          "text": "point",
+          "start": 11.2,
+          "end": 11.35
+        },
+        {
+          "text": "two",
+          "start": 11.35,
+          "end": 11.51
+        },
+        {
+          "text": "and",
+          "start": 11.51,
+          "end": 11.83
+        },
+        {
+          "text": "two",
+          "start": 11.83,
+          "end": 12.13
+        },
+        {
+          "text": "point",
+          "start": 12.37,
+          "end": 12.77
+        },
+        {
+          "text": "three",
+          "start": 12.77,
+          "end": 13.14
+        },
+        {
+          "text": "Local",
+          "start": 13.2,
+          "end": 13.87
+        },
+        {
+          "text": "run",
+          "start": 14.11,
+          "end": 14.53
+        },
+        {
+          "text": "catches",
+          "start": 14.53,
+          "end": 15.04
+        },
+        {
+          "text": "typos",
+          "start": 15.31,
+          "end": 15.74
+        },
+        {
+          "text": "fast",
+          "start": 15.74,
+          "end": 16.059999
+        },
+        {
+          "text": "Pipeline",
+          "start": 16.1,
+          "end": 16.450001
+        },
+        {
+          "text": "run",
+          "start": 16.450001,
+          "end": 16.540001
+        },
+        {
+          "text": "proves",
+          "start": 16.540001,
+          "end": 17.1
+        },
+        {
+          "text": "the",
+          "start": 17.1,
+          "end": 17.379999
+        },
+        {
+          "text": "solution",
+          "start": 17.379999,
+          "end": 17.73
+        },
+        {
+          "text": "works",
+          "start": 17.73,
+          "end": 17.82
+        },
+        {
+          "text": "without",
+          "start": 17.82,
+          "end": 18.309999
+        },
+        {
+          "text": "your",
+          "start": 18.34,
+          "end": 18.85
+        },
+        {
+          "text": "laptop",
+          "start": 19.5,
+          "end": 19.610001
+        },
+        {
+          "text": "online",
+          "start": 19.610001,
+          "end": 19.889999
+        },
+        {
+          "text": "Do",
+          "start": 19.889999,
+          "end": 20.02
+        },
+        {
+          "text": "both",
+          "start": 20.02,
+          "end": 20.34
+        },
+        {
+          "text": "on",
+          "start": 20.34,
+          "end": 20.860001
+        },
+        {
+          "text": "first",
+          "start": 20.860001,
+          "end": 21.23
+        },
+        {
+          "text": "capstone",
+          "start": 21.459999,
+          "end": 21.639999500000002
+        },
+        {
+          "text": "pass",
+          "start": 21.639999500000002,
+          "end": 21.82
+        },
+        {
+          "text": "local",
+          "start": 22.799999,
+          "end": 23.02
+        },
+        {
+          "text": "validate",
+          "start": 23.059999,
+          "end": 23.179999000000002
+        },
+        {
+          "text": "then",
+          "start": 23.179999000000002,
+          "end": 23.299999
+        },
+        {
+          "text": "push",
+          "start": 23.299999,
+          "end": 23.440001
+        },
+        {
+          "text": "and",
+          "start": 23.440001,
+          "end": 23.690001
+        },
+        {
+          "text": "confirm",
+          "start": 23.690001,
+          "end": 23.940001
+        },
+        {
+          "text": "each",
+          "start": 23.98,
+          "end": 24.15
+        },
+        {
+          "text": "stage",
+          "start": 24.15,
+          "end": 24.345000499999998
+        },
+        {
+          "text": "green",
+          "start": 24.345000499999998,
+          "end": 24.540001
+        },
+        {
+          "text": "in",
+          "start": 24.540001,
+          "end": 24.870001
+        },
+        {
+          "text": "the",
+          "start": 25.01,
+          "end": 25.095
+        },
+        {
+          "text": "GitLab",
+          "start": 25.095,
+          "end": 25.18
+        },
+        {
+          "text": "UI",
+          "start": 25.18,
+          "end": 25.280001
+        }
+      ],
+      "leftPhraseTimes": [
+        {
+          "start": 1.75,
+          "end": 4.39
+        },
+        {
+          "start": 3.63,
+          "end": 7.78
+        },
+        {
+          "start": 14.53,
+          "end": 17.73
+        }
+      ],
+      "rightPhraseTimes": [
+        {
+          "start": 7.69,
+          "end": 10.56
+        },
+        {
+          "start": 17.82,
+          "end": 21.639999500000002
+        },
+        {
+          "start": 23.98,
+          "end": 25.280001
+        }
+      ]
+    },
+    "six-steps-capstone-runbook": {
+      "words": [
+        {
+          "text": "Run",
+          "start": 0.1,
+          "end": 0.35
+        },
+        {
+          "text": "the",
+          "start": 0.35,
+          "end": 0.44
+        },
+        {
+          "text": "capstone",
+          "start": 0.44,
+          "end": 1.01
+        },
+        {
+          "text": "in",
+          "start": 1.07,
+          "end": 1.27
+        },
+        {
+          "text": "this",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "text": "order",
+          "start": 1.62,
+          "end": 2.06
+        },
+        {
+          "text": "every",
+          "start": 2.2,
+          "end": 2.58
+        },
+        {
+          "text": "time",
+          "start": 2.58,
+          "end": 3
+        },
+        {
+          "text": "One",
+          "start": 3.15,
+          "end": 3.58
+        },
+        {
+          "text": "edit",
+          "start": 3.76,
+          "end": 4.12
+        },
+        {
+          "text": "models",
+          "start": 4.12,
+          "end": 4.73
+        },
+        {
+          "text": "slash",
+          "start": 4.83,
+          "end": 5.24
+        },
+        {
+          "text": "intent",
+          "start": 5.24,
+          "end": 5.81
+        },
+        {
+          "text": "slash",
+          "start": 5.96,
+          "end": 6.36
+        },
+        {
+          "text": "vlans",
+          "start": 7.32,
+          "end": 7.56
+        },
+        {
+          "text": "dot",
+          "start": 7.56,
+          "end": 8.12
+        },
+        {
+          "text": "json",
+          "start": 8.18,
+          "end": 8.51
+        },
+        {
+          "text": "-",
+          "start": 9.69,
+          "end": 9.86
+        },
+        {
+          "text": "add",
+          "start": 9.86,
+          "end": 10.36
+        },
+        {
+          "text": "VLAN",
+          "start": 10.58,
+          "end": 10.88
+        },
+        {
+          "text": "three",
+          "start": 11.12,
+          "end": 11.53
+        },
+        {
+          "text": "hundred",
+          "start": 11.53,
+          "end": 11.88
+        },
+        {
+          "text": "Two",
+          "start": 11.88,
+          "end": 12.44
+        },
+        {
+          "text": "create",
+          "start": 12.6,
+          "end": 13.2
+        },
+        {
+          "text": "feature",
+          "start": 13.4,
+          "end": 13.87
+        },
+        {
+          "text": "branch",
+          "start": 14.28,
+          "end": 14.59
+        },
+        {
+          "text": "commit",
+          "start": 15.11,
+          "end": 15.43
+        },
+        {
+          "text": "push",
+          "start": 15.43,
+          "end": 15.82
+        },
+        {
+          "text": "Three",
+          "start": 16.780001,
+          "end": 16.93
+        },
+        {
+          "text": "run",
+          "start": 16.93,
+          "end": 17.299999
+        },
+        {
+          "text": "local",
+          "start": 17.34,
+          "end": 17.440001
+        },
+        {
+          "text": "validate",
+          "start": 17.440001,
+          "end": 17.84
+        },
+        {
+          "text": "and",
+          "start": 18.639999,
+          "end": 19.040001
+        },
+        {
+          "text": "render",
+          "start": 19.040001,
+          "end": 19.23
+        },
+        {
+          "text": "-",
+          "start": 19.23,
+          "end": 19.32
+        },
+        {
+          "text": "or",
+          "start": 19.32,
+          "end": 19.67
+        },
+        {
+          "text": "watch",
+          "start": 19.67,
+          "end": 20.219999
+        },
+        {
+          "text": "prevalidation",
+          "start": 20.530001,
+          "end": 20.91
+        },
+        {
+          "text": "jobs",
+          "start": 21.35,
+          "end": 21.440001
+        },
+        {
+          "text": "on",
+          "start": 21.440001,
+          "end": 21.709999
+        },
+        {
+          "text": "the",
+          "start": 21.91,
+          "end": 22.559999
+        },
+        {
+          "text": "merge",
+          "start": 24.389999,
+          "end": 25.15
+        },
+        {
+          "text": "request",
+          "start": 25.32,
+          "end": 25.719999
+        },
+        {
+          "text": "Four",
+          "start": 25.9,
+          "end": 26.34
+        },
+        {
+          "text": "ansible-playbook",
+          "start": 26.459999,
+          "end": 26.5
+        },
+        {
+          "text": "check",
+          "start": 26.5,
+          "end": 26.76
+        },
+        {
+          "text": "mode",
+          "start": 26.76,
+          "end": 27.370001
+        },
+        {
+          "text": "against",
+          "start": 27.51,
+          "end": 27.709999
+        },
+        {
+          "text": "CML",
+          "start": 27.82,
+          "end": 28.299999
+        },
+        {
+          "text": "inventory",
+          "start": 28.379999,
+          "end": 29.15
+        },
+        {
+          "text": "Five",
+          "start": 29.15,
+          "end": 29.83
+        },
+        {
+          "text": "merge",
+          "start": 29.879999,
+          "end": 30.280001
+        },
+        {
+          "text": "to",
+          "start": 30.32,
+          "end": 30.49
+        },
+        {
+          "text": "main",
+          "start": 30.49,
+          "end": 30.59
+        },
+        {
+          "text": "-",
+          "start": 30.59,
+          "end": 31.25
+        },
+        {
+          "text": "deploy",
+          "start": 31.610001,
+          "end": 32.240002
+        },
+        {
+          "text": "and",
+          "start": 32.450001,
+          "end": 32.830002
+        },
+        {
+          "text": "post-validation",
+          "start": 32.830002,
+          "end": 33.259998
+        },
+        {
+          "text": "stages",
+          "start": 33.259998,
+          "end": 33.700001
+        },
+        {
+          "text": "run",
+          "start": 34.77,
+          "end": 35.040001
+        },
+        {
+          "text": "on",
+          "start": 36.369999,
+          "end": 36.52
+        },
+        {
+          "text": "the",
+          "start": 36.52,
+          "end": 36.66
+        },
+        {
+          "text": "pipeline",
+          "start": 36.73,
+          "end": 36.869999
+        },
+        {
+          "text": "Six",
+          "start": 36.869999,
+          "end": 37.009998
+        },
+        {
+          "text": "open",
+          "start": 37.009998,
+          "end": 37.77
+        },
+        {
+          "text": "rendered",
+          "start": 37.77,
+          "end": 37.925001
+        },
+        {
+          "text": "slash",
+          "start": 37.925001,
+          "end": 38.080002
+        },
+        {
+          "text": "vlans",
+          "start": 38.080002,
+          "end": 38.48
+        },
+        {
+          "text": "dot",
+          "start": 38.509998,
+          "end": 38.844999
+        },
+        {
+          "text": "cfg",
+          "start": 38.844999,
+          "end": 39.18
+        },
+        {
+          "text": "and",
+          "start": 39.939999,
+          "end": 40.130001
+        },
+        {
+          "text": "the",
+          "start": 40.130001,
+          "end": 40.375
+        },
+        {
+          "text": "post-validation",
+          "start": 40.375,
+          "end": 40.619999
+        },
+        {
+          "text": "job",
+          "start": 40.650002,
+          "end": 41.34
+        },
+        {
+          "text": "log",
+          "start": 41.599998,
+          "end": 41.779998500000005
+        },
+        {
+          "text": "-",
+          "start": 41.779998500000005,
+          "end": 41.959999
+        },
+        {
+          "text": "confirm",
+          "start": 41.990002,
+          "end": 42.150002
+        },
+        {
+          "text": "VLAN",
+          "start": 42.200001,
+          "end": 42.290001000000004
+        },
+        {
+          "text": "three",
+          "start": 42.290001000000004,
+          "end": 42.380001
+        },
+        {
+          "text": "hundred",
+          "start": 42.380001,
+          "end": 42.759998
+        },
+        {
+          "text": "appears",
+          "start": 42.759998,
+          "end": 43.0199985
+        },
+        {
+          "text": "Stop",
+          "start": 43.0199985,
+          "end": 43.279999
+        },
+        {
+          "text": "if",
+          "start": 43.880001,
+          "end": 44.060001
+        },
+        {
+          "text": "any",
+          "start": 44.060001,
+          "end": 44.1200005
+        },
+        {
+          "text": "stage",
+          "start": 44.1200005,
+          "end": 44.18
+        },
+        {
+          "text": "fails",
+          "start": 44.18,
+          "end": 44.560001
+        },
+        {
+          "text": "read",
+          "start": 44.560001,
+          "end": 44.67
+        },
+        {
+          "text": "the",
+          "start": 44.67,
+          "end": 44.779999
+        },
+        {
+          "text": "first",
+          "start": 44.779999,
+          "end": 45.09
+        },
+        {
+          "text": "error",
+          "start": 45.09,
+          "end": 45.17
+        },
+        {
+          "text": "line",
+          "start": 45.17,
+          "end": 45.25
+        },
+        {
+          "text": "in",
+          "start": 45.25,
+          "end": 45.330002
+        },
+        {
+          "text": "the",
+          "start": 45.330002,
+          "end": 45.4800015
+        },
+        {
+          "text": "job",
+          "start": 45.4800015,
+          "end": 45.630001
+        },
+        {
+          "text": "log",
+          "start": 45.630001,
+          "end": 45.990002
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 3.76,
+          "end": 7.56
+        },
+        {
+          "start": 17.440001,
+          "end": 20.219999
+        },
+        {
+          "start": 24.389999,
+          "end": 27.370001
+        }
+      ]
+    },
+    "four-files-capstone-chain": {
+      "words": [
+        {
+          "text": "Four",
+          "start": 0.05,
+          "end": 0.38
+        },
+        {
+          "text": "artifacts",
+          "start": 0.38,
+          "end": 0.9
+        },
+        {
+          "text": "carry",
+          "start": 0.9,
+          "end": 1.2
+        },
+        {
+          "text": "the",
+          "start": 1.2,
+          "end": 1.33
+        },
+        {
+          "text": "capstone",
+          "start": 1.33,
+          "end": 1.87
+        },
+        {
+          "text": "story",
+          "start": 1.87,
+          "end": 2.33
+        },
+        {
+          "text": "models",
+          "start": 2.99,
+          "end": 3.63
+        },
+        {
+          "text": "slash",
+          "start": 4,
+          "end": 4.5
+        },
+        {
+          "text": "intent",
+          "start": 4.5,
+          "end": 5.13
+        },
+        {
+          "text": "slash",
+          "start": 5.41,
+          "end": 5.89
+        },
+        {
+          "text": "vlans",
+          "start": 7.17,
+          "end": 7.49
+        },
+        {
+          "text": "dot",
+          "start": 7.49,
+          "end": 8.09
+        },
+        {
+          "text": "json",
+          "start": 8.42,
+          "end": 8.58
+        },
+        {
+          "text": "is",
+          "start": 8.58,
+          "end": 8.86
+        },
+        {
+          "text": "what",
+          "start": 8.86,
+          "end": 8.92
+        },
+        {
+          "text": "you",
+          "start": 8.92,
+          "end": 9.45
+        },
+        {
+          "text": "change",
+          "start": 9.85,
+          "end": 10.5
+        },
+        {
+          "text": "-",
+          "start": 10.7,
+          "end": 10.88
+        },
+        {
+          "text": "exam",
+          "start": 10.88,
+          "end": 11.16
+        },
+        {
+          "text": "two",
+          "start": 11.16,
+          "end": 11.69
+        },
+        {
+          "text": "point",
+          "start": 11.78,
+          "end": 12.23
+        },
+        {
+          "text": "seven",
+          "start": 12.92,
+          "end": 13.37
+        },
+        {
+          "text": "shape",
+          "start": 13.77,
+          "end": 14.11
+        },
+        {
+          "text": "dot",
+          "start": 14.94,
+          "end": 15
+        },
+        {
+          "text": "gitlab-ci",
+          "start": 15.44,
+          "end": 15.54
+        },
+        {
+          "text": "dot",
+          "start": 16.82,
+          "end": 16.950001
+        },
+        {
+          "text": "yml",
+          "start": 16.950001,
+          "end": 17.1
+        },
+        {
+          "text": "is",
+          "start": 17.1,
+          "end": 17.459999
+        },
+        {
+          "text": "how",
+          "start": 17.67,
+          "end": 18.33
+        },
+        {
+          "text": "CICD",
+          "start": 18.540001,
+          "end": 18.83
+        },
+        {
+          "text": "gates",
+          "start": 18.83,
+          "end": 19.08
+        },
+        {
+          "text": "run",
+          "start": 19.08,
+          "end": 19.280001
+        },
+        {
+          "text": "-",
+          "start": 19.85,
+          "end": 20.33
+        },
+        {
+          "text": "exam",
+          "start": 20.33,
+          "end": 20.58
+        },
+        {
+          "text": "two",
+          "start": 22.059999,
+          "end": 22.17
+        },
+        {
+          "text": "point",
+          "start": 22.540001,
+          "end": 22.74
+        },
+        {
+          "text": "three",
+          "start": 22.74,
+          "end": 22.91
+        },
+        {
+          "text": "inventory",
+          "start": 22.91,
+          "end": 23.66
+        },
+        {
+          "text": "slash",
+          "start": 23.66,
+          "end": 24.02
+        },
+        {
+          "text": "cml",
+          "start": 24.32,
+          "end": 24.84
+        },
+        {
+          "text": "dot",
+          "start": 25.33,
+          "end": 25.950001
+        },
+        {
+          "text": "yml",
+          "start": 26.08,
+          "end": 26.35
+        },
+        {
+          "text": "is",
+          "start": 26.440001,
+          "end": 26.65
+        },
+        {
+          "text": "where",
+          "start": 26.65,
+          "end": 26.700001
+        },
+        {
+          "text": "simulation",
+          "start": 26.700001,
+          "end": 27
+        },
+        {
+          "text": "targets",
+          "start": 27,
+          "end": 27.49
+        },
+        {
+          "text": "live",
+          "start": 29.17,
+          "end": 29.290001
+        },
+        {
+          "text": "-",
+          "start": 30.35,
+          "end": 30.4400005
+        },
+        {
+          "text": "exam",
+          "start": 30.4400005,
+          "end": 30.530001
+        },
+        {
+          "text": "two",
+          "start": 30.700001,
+          "end": 31.01
+        },
+        {
+          "text": "point",
+          "start": 31.370001,
+          "end": 31.595000499999998
+        },
+        {
+          "text": "four",
+          "start": 31.595000499999998,
+          "end": 31.82
+        },
+        {
+          "text": "rendered",
+          "start": 32.150002,
+          "end": 32.27
+        },
+        {
+          "text": "slash",
+          "start": 32.27,
+          "end": 32.514999
+        },
+        {
+          "text": "vlans",
+          "start": 32.514999,
+          "end": 32.759998
+        },
+        {
+          "text": "dot",
+          "start": 32.759998,
+          "end": 32.880001
+        },
+        {
+          "text": "cfg",
+          "start": 33.959999,
+          "end": 34.004999
+        },
+        {
+          "text": "is",
+          "start": 34.004999,
+          "end": 34.049999
+        },
+        {
+          "text": "generated",
+          "start": 34.049999,
+          "end": 34.110001
+        },
+        {
+          "text": "output",
+          "start": 34.110001,
+          "end": 34.1800005
+        },
+        {
+          "text": "from",
+          "start": 34.1800005,
+          "end": 34.25
+        },
+        {
+          "text": "templates",
+          "start": 34.25,
+          "end": 34.41
+        },
+        {
+          "text": "slash",
+          "start": 34.41,
+          "end": 34.5149995
+        },
+        {
+          "text": "vlans",
+          "start": 34.5149995,
+          "end": 34.619999
+        },
+        {
+          "text": "dot",
+          "start": 35.57,
+          "end": 35.919998
+        },
+        {
+          "text": "j",
+          "start": 36.439999,
+          "end": 36.6749995
+        },
+        {
+          "text": "two",
+          "start": 36.6749995,
+          "end": 36.91
+        },
+        {
+          "text": "-",
+          "start": 36.91,
+          "end": 37.049999
+        },
+        {
+          "text": "proof",
+          "start": 37.119999,
+          "end": 37.154999000000004
+        },
+        {
+          "text": "that",
+          "start": 37.154999000000004,
+          "end": 37.189999
+        },
+        {
+          "text": "SoT",
+          "start": 37.240002,
+          "end": 37.490002
+        },
+        {
+          "text": "became",
+          "start": 37.82,
+          "end": 37.9699995
+        },
+        {
+          "text": "config",
+          "start": 37.9699995,
+          "end": 38.119999
+        },
+        {
+          "text": "text",
+          "start": 38.459999,
+          "end": 38.939999
+        },
+        {
+          "text": "When",
+          "start": 39.119999,
+          "end": 39.254999
+        },
+        {
+          "text": "a",
+          "start": 39.254999,
+          "end": 39.389999
+        },
+        {
+          "text": "code",
+          "start": 39.389999,
+          "end": 39.630001
+        },
+        {
+          "text": "slide",
+          "start": 39.779999,
+          "end": 39.9699995
+        },
+        {
+          "text": "appears",
+          "start": 39.9699995,
+          "end": 40.16
+        },
+        {
+          "text": "next",
+          "start": 41.029999,
+          "end": 41.279999
+        },
+        {
+          "text": "you",
+          "start": 41.34,
+          "end": 41.4899995
+        },
+        {
+          "text": "already",
+          "start": 41.4899995,
+          "end": 41.639999
+        },
+        {
+          "text": "know",
+          "start": 41.639999,
+          "end": 41.970001
+        },
+        {
+          "text": "which",
+          "start": 41.970001,
+          "end": 42.135000000000005
+        },
+        {
+          "text": "of",
+          "start": 42.135000000000005,
+          "end": 42.299999
+        },
+        {
+          "text": "these",
+          "start": 42.299999,
+          "end": 42.450001
+        },
+        {
+          "text": "you",
+          "start": 42.450001,
+          "end": 42.495001
+        },
+        {
+          "text": "are",
+          "start": 42.495001,
+          "end": 42.540001
+        },
+        {
+          "text": "touching",
+          "start": 43.389999,
+          "end": 44.529999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 7.17,
+          "end": 9.45
+        },
+        {
+          "start": 16.950001,
+          "end": 19.280001
+        },
+        null
+      ]
+    },
+    "verify-pipeline-before-close": {
+      "words": [
+        {
+          "text": "Do",
+          "start": 0.14,
+          "end": 0.31
+        },
+        {
+          "text": "not",
+          "start": 0.31,
+          "end": 0.56
+        },
+        {
+          "text": "stop",
+          "start": 0.56,
+          "end": 0.94
+        },
+        {
+          "text": "when",
+          "start": 1,
+          "end": 1.37
+        },
+        {
+          "text": "git",
+          "start": 1.4,
+          "end": 1.66
+        },
+        {
+          "text": "merge",
+          "start": 1.69,
+          "end": 2.18
+        },
+        {
+          "text": "succeeds",
+          "start": 2.32,
+          "end": 3.09
+        },
+        {
+          "text": "Open",
+          "start": 3.44,
+          "end": 3.8
+        },
+        {
+          "text": "the",
+          "start": 3.8,
+          "end": 3.89
+        },
+        {
+          "text": "post-validation",
+          "start": 3.89,
+          "end": 4.27
+        },
+        {
+          "text": "job",
+          "start": 4.27,
+          "end": 4.93
+        },
+        {
+          "text": "-",
+          "start": 4.93,
+          "end": 5.29
+        },
+        {
+          "text": "it",
+          "start": 5.5,
+          "end": 5.69
+        },
+        {
+          "text": "must",
+          "start": 5.69,
+          "end": 5.98
+        },
+        {
+          "text": "exit",
+          "start": 6.02,
+          "end": 6.52
+        },
+        {
+          "text": "zero",
+          "start": 6.62,
+          "end": 7.06
+        },
+        {
+          "text": "Open",
+          "start": 7.33,
+          "end": 7.66
+        },
+        {
+          "text": "rendered",
+          "start": 7.66,
+          "end": 8.15
+        },
+        {
+          "text": "slash",
+          "start": 8.32,
+          "end": 8.81
+        },
+        {
+          "text": "vlans",
+          "start": 10.13,
+          "end": 10.29
+        },
+        {
+          "text": "dot",
+          "start": 11.15,
+          "end": 11.31
+        },
+        {
+          "text": "cfg",
+          "start": 11.35,
+          "end": 11.93
+        },
+        {
+          "text": "and",
+          "start": 12.93,
+          "end": 13.09
+        },
+        {
+          "text": "confirm",
+          "start": 13.09,
+          "end": 13.56
+        },
+        {
+          "text": "vlan",
+          "start": 13.59,
+          "end": 13.82
+        },
+        {
+          "text": "three",
+          "start": 13.82,
+          "end": 14.15
+        },
+        {
+          "text": "hundred",
+          "start": 14.31,
+          "end": 14.73
+        },
+        {
+          "text": "and",
+          "start": 14.79,
+          "end": 15.42
+        },
+        {
+          "text": "name",
+          "start": 15.56,
+          "end": 16.219999
+        },
+        {
+          "text": "LAB",
+          "start": 16.4,
+          "end": 16.870001
+        },
+        {
+          "text": "underscore",
+          "start": 17.200001,
+          "end": 17.379999
+        },
+        {
+          "text": "CAPSTONE",
+          "start": 17.379999,
+          "end": 17.440001
+        },
+        {
+          "text": "appear",
+          "start": 17.440001,
+          "end": 17.76
+        },
+        {
+          "text": "If",
+          "start": 18.469999,
+          "end": 19.34
+        },
+        {
+          "text": "you",
+          "start": 19.52,
+          "end": 19.620001
+        },
+        {
+          "text": "use",
+          "start": 20.26,
+          "end": 20.540001
+        },
+        {
+          "text": "CML",
+          "start": 20.98,
+          "end": 21.42
+        },
+        {
+          "text": "SSH",
+          "start": 21.559999,
+          "end": 21.709999
+        },
+        {
+          "text": "or",
+          "start": 21.709999,
+          "end": 21.780001
+        },
+        {
+          "text": "ansible",
+          "start": 21.780001,
+          "end": 22.059999
+        },
+        {
+          "text": "show",
+          "start": 22.059999,
+          "end": 22.52
+        },
+        {
+          "text": "vlan",
+          "start": 22.639999,
+          "end": 22.790001
+        },
+        {
+          "text": "brief",
+          "start": 22.790001,
+          "end": 23.379999
+        },
+        {
+          "text": "on",
+          "start": 23.809999,
+          "end": 24.02
+        },
+        {
+          "text": "a",
+          "start": 24.02,
+          "end": 24.65
+        },
+        {
+          "text": "lab",
+          "start": 24.870001,
+          "end": 25.16
+        },
+        {
+          "text": "router",
+          "start": 25.16,
+          "end": 25.290001
+        },
+        {
+          "text": "and",
+          "start": 25.290001,
+          "end": 25.82
+        },
+        {
+          "text": "confirm",
+          "start": 25.85,
+          "end": 26.42
+        },
+        {
+          "text": "VLAN",
+          "start": 26.59,
+          "end": 26.690001
+        },
+        {
+          "text": "three",
+          "start": 26.690001,
+          "end": 27.25
+        },
+        {
+          "text": "hundred",
+          "start": 27.25,
+          "end": 27.559999
+        },
+        {
+          "text": "after",
+          "start": 27.559999,
+          "end": 27.879999
+        },
+        {
+          "text": "an",
+          "start": 27.940001,
+          "end": 28.219999
+        },
+        {
+          "text": "approved",
+          "start": 28.5,
+          "end": 28.780001
+        },
+        {
+          "text": "apply",
+          "start": 28.780001,
+          "end": 28.9
+        },
+        {
+          "text": "The",
+          "start": 28.9,
+          "end": 29.26
+        },
+        {
+          "text": "capstone",
+          "start": 29.26,
+          "end": 29.83
+        },
+        {
+          "text": "check",
+          "start": 29.91,
+          "end": 30.280001
+        },
+        {
+          "text": "mode",
+          "start": 30.32,
+          "end": 30.950001
+        },
+        {
+          "text": "path",
+          "start": 30.950001,
+          "end": 31.450001
+        },
+        {
+          "text": "keeps",
+          "start": 31.77,
+          "end": 32.009998
+        },
+        {
+          "text": "the",
+          "start": 32.009998,
+          "end": 32.310001
+        },
+        {
+          "text": "lab",
+          "start": 32.310001,
+          "end": 32.869999
+        },
+        {
+          "text": "safe",
+          "start": 32.869999,
+          "end": 33.330002
+        },
+        {
+          "text": "without",
+          "start": 33.380001,
+          "end": 33.550001
+        },
+        {
+          "text": "production",
+          "start": 33.550001,
+          "end": 33.720001
+        },
+        {
+          "text": "touch",
+          "start": 33.720001,
+          "end": 34.189999
+        },
+        {
+          "text": "If",
+          "start": 34.27,
+          "end": 34.335001000000005
+        },
+        {
+          "text": "post-validation",
+          "start": 34.335001000000005,
+          "end": 34.400002
+        },
+        {
+          "text": "fails",
+          "start": 34.400002,
+          "end": 34.5
+        },
+        {
+          "text": "fix",
+          "start": 34.5,
+          "end": 34.8050005
+        },
+        {
+          "text": "intent",
+          "start": 34.8050005,
+          "end": 35.110001
+        },
+        {
+          "text": "or",
+          "start": 35.110001,
+          "end": 35.509998
+        },
+        {
+          "text": "the",
+          "start": 35.509998,
+          "end": 35.6899985
+        },
+        {
+          "text": "validation",
+          "start": 35.6899985,
+          "end": 35.869999
+        },
+        {
+          "text": "script",
+          "start": 35.869999,
+          "end": 36
+        },
+        {
+          "text": "before",
+          "start": 36.060001,
+          "end": 36.18
+        },
+        {
+          "text": "you",
+          "start": 36.18,
+          "end": 36.299999
+        },
+        {
+          "text": "call",
+          "start": 36.299999,
+          "end": 36.389999
+        },
+        {
+          "text": "the",
+          "start": 36.389999,
+          "end": 36.6450005
+        },
+        {
+          "text": "capstone",
+          "start": 36.6450005,
+          "end": 36.900002
+        },
+        {
+          "text": "done",
+          "start": 36.900002,
+          "end": 37.259998
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 3.89,
+          "end": 6.52
+        },
+        {
+          "start": 7.66,
+          "end": 13.09
+        },
+        {
+          "start": 34.5,
+          "end": 36.18
+        }
+      ]
+    },
+    "capstone-nothing-new": {
+      "words": [
+        {
+          "text": "You",
+          "start": 0.11,
+          "end": 0.27
+        },
+        {
+          "text": "already",
+          "start": 0.27,
+          "end": 0.74
+        },
+        {
+          "text": "installed",
+          "start": 0.74,
+          "end": 1.26
+        },
+        {
+          "text": "everything",
+          "start": 1.26,
+          "end": 1.77
+        },
+        {
+          "text": "this",
+          "start": 1.77,
+          "end": 1.96
+        },
+        {
+          "text": "capstone",
+          "start": 1.96,
+          "end": 2.5
+        },
+        {
+          "text": "needs",
+          "start": 2.5,
+          "end": 2.92
+        },
+        {
+          "text": "Git",
+          "start": 3.11,
+          "end": 3.74
+        },
+        {
+          "text": "from",
+          "start": 3.86,
+          "end": 4.13
+        },
+        {
+          "text": "module",
+          "start": 4.13,
+          "end": 4.51
+        },
+        {
+          "text": "one",
+          "start": 4.51,
+          "end": 4.99
+        },
+        {
+          "text": "GitLab",
+          "start": 5.84,
+          "end": 6.26
+        },
+        {
+          "text": "runner",
+          "start": 6.33,
+          "end": 6.5
+        },
+        {
+          "text": "or",
+          "start": 7.02,
+          "end": 7.29
+        },
+        {
+          "text": "GitLab",
+          "start": 7.29,
+          "end": 7.7
+        },
+        {
+          "text": "dot",
+          "start": 7.87,
+          "end": 8.15
+        },
+        {
+          "text": "com",
+          "start": 8.15,
+          "end": 8.52
+        },
+        {
+          "text": "from",
+          "start": 8.6,
+          "end": 8.86
+        },
+        {
+          "text": "module",
+          "start": 9.1,
+          "end": 9.41
+        },
+        {
+          "text": "two",
+          "start": 9.41,
+          "end": 9.62
+        },
+        {
+          "text": "Docker",
+          "start": 9.65,
+          "end": 10.34
+        },
+        {
+          "text": "for",
+          "start": 10.46,
+          "end": 10.77
+        },
+        {
+          "text": "Compose",
+          "start": 10.77,
+          "end": 11.11
+        },
+        {
+          "text": "from",
+          "start": 11.11,
+          "end": 11.55
+        },
+        {
+          "text": "module",
+          "start": 11.82,
+          "end": 12.41
+        },
+        {
+          "text": "three",
+          "start": 13.56,
+          "end": 13.76
+        },
+        {
+          "text": "Python",
+          "start": 14.7,
+          "end": 14.96
+        },
+        {
+          "text": "Ansible",
+          "start": 14.96,
+          "end": 15.42
+        },
+        {
+          "text": "and",
+          "start": 15.42,
+          "end": 15.73
+        },
+        {
+          "text": "jinja2",
+          "start": 15.73,
+          "end": 15.9
+        },
+        {
+          "text": "from",
+          "start": 15.9,
+          "end": 16.24
+        },
+        {
+          "text": "modules",
+          "start": 16.42,
+          "end": 16.639999
+        },
+        {
+          "text": "two",
+          "start": 16.639999,
+          "end": 17.01
+        },
+        {
+          "text": "and",
+          "start": 17.01,
+          "end": 17.290001
+        },
+        {
+          "text": "four",
+          "start": 17.290001,
+          "end": 17.870001
+        },
+        {
+          "text": "If",
+          "start": 18.18,
+          "end": 18.48
+        },
+        {
+          "text": "git",
+          "start": 18.48,
+          "end": 18.790001
+        },
+        {
+          "text": "push",
+          "start": 18.790001,
+          "end": 19.16
+        },
+        {
+          "text": "fails",
+          "start": 19.16,
+          "end": 19.49
+        },
+        {
+          "text": "fix",
+          "start": 19.49,
+          "end": 19.889999
+        },
+        {
+          "text": "module",
+          "start": 20.440001,
+          "end": 20.65
+        },
+        {
+          "text": "one",
+          "start": 20.690001,
+          "end": 21.18
+        },
+        {
+          "text": "remote",
+          "start": 21.18,
+          "end": 21.83
+        },
+        {
+          "text": "setup",
+          "start": 21.99,
+          "end": 22.219999
+        },
+        {
+          "text": "If",
+          "start": 22.219999,
+          "end": 22.59
+        },
+        {
+          "text": "pipeline",
+          "start": 23.200001,
+          "end": 23.559999
+        },
+        {
+          "text": "fails",
+          "start": 23.700001,
+          "end": 24.040001
+        },
+        {
+          "text": "on",
+          "start": 24.040001,
+          "end": 24.370001
+        },
+        {
+          "text": "missing",
+          "start": 24.370001,
+          "end": 24.610001
+        },
+        {
+          "text": "ansible-core",
+          "start": 24.610001,
+          "end": 25.379999
+        },
+        {
+          "text": "fix",
+          "start": 25.440001,
+          "end": 25.82
+        },
+        {
+          "text": "module",
+          "start": 26.940001,
+          "end": 27.16
+        },
+        {
+          "text": "two",
+          "start": 27.16,
+          "end": 27.67
+        },
+        {
+          "text": "requirements",
+          "start": 27.67,
+          "end": 27.98
+        },
+        {
+          "text": "dot",
+          "start": 27.98,
+          "end": 28.58
+        },
+        {
+          "text": "txt",
+          "start": 28.799999,
+          "end": 29.139999
+        },
+        {
+          "text": "If",
+          "start": 29.139999,
+          "end": 29.459999
+        },
+        {
+          "text": "compose",
+          "start": 29.459999,
+          "end": 29.780001
+        },
+        {
+          "text": "ping",
+          "start": 29.780001,
+          "end": 30.129999
+        },
+        {
+          "text": "fails",
+          "start": 30.129999,
+          "end": 30.67
+        },
+        {
+          "text": "fix",
+          "start": 31.02,
+          "end": 31.280001
+        },
+        {
+          "text": "module",
+          "start": 32.330002,
+          "end": 32.639999
+        },
+        {
+          "text": "three",
+          "start": 33,
+          "end": 33.23
+        },
+        {
+          "text": "docker",
+          "start": 33.23,
+          "end": 33.860001
+        },
+        {
+          "text": "folder",
+          "start": 34.139999,
+          "end": 34.34
+        },
+        {
+          "text": "If",
+          "start": 34.34,
+          "end": 34.759998
+        },
+        {
+          "text": "validate_yang_intent",
+          "start": 34.759998,
+          "end": 34.869999
+        },
+        {
+          "text": "fails",
+          "start": 34.869999,
+          "end": 34.8999995
+        },
+        {
+          "text": "fix",
+          "start": 34.8999995,
+          "end": 34.93
+        },
+        {
+          "text": "module",
+          "start": 34.93,
+          "end": 35.310001
+        },
+        {
+          "text": "four",
+          "start": 35.310001,
+          "end": 35.4500005
+        },
+        {
+          "text": "JSON",
+          "start": 35.4500005,
+          "end": 35.59
+        },
+        {
+          "text": "shape",
+          "start": 35.59,
+          "end": 35.720001
+        },
+        {
+          "text": "The",
+          "start": 35.720001,
+          "end": 35.9000015
+        },
+        {
+          "text": "capstone",
+          "start": 35.9000015,
+          "end": 36.080002
+        },
+        {
+          "text": "passes",
+          "start": 36.369999,
+          "end": 36.540001
+        },
+        {
+          "text": "when",
+          "start": 36.540001,
+          "end": 36.6800005
+        },
+        {
+          "text": "intent",
+          "start": 36.6800005,
+          "end": 36.82
+        },
+        {
+          "text": "change",
+          "start": 36.82,
+          "end": 37.119999
+        },
+        {
+          "text": "flows",
+          "start": 37.259998,
+          "end": 37.3099995
+        },
+        {
+          "text": "through",
+          "start": 37.3099995,
+          "end": 37.360001
+        },
+        {
+          "text": "all",
+          "start": 37.48,
+          "end": 37.91
+        },
+        {
+          "text": "gates",
+          "start": 38.110001,
+          "end": 38.280001
+        },
+        {
+          "text": "you",
+          "start": 38.280001,
+          "end": 38.450001
+        },
+        {
+          "text": "built",
+          "start": 38.810001,
+          "end": 39.290001
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 3.11,
+          "end": 6.5
+        },
+        {
+          "start": 18.790001,
+          "end": 24.040001
+        },
+        {
+          "start": 23.200001,
+          "end": 25.82
+        }
+      ]
+    },
+    "story-beat-recap-capstone": {
+      "words": [
+        {
+          "text": "Pause",
+          "start": 0.1,
+          "end": 0.48
+        },
+        {
+          "text": "The",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "text": "capstone",
+          "start": 0.99,
+          "end": 1.58
+        },
+        {
+          "text": "is",
+          "start": 1.58,
+          "end": 1.73
+        },
+        {
+          "text": "module",
+          "start": 1.73,
+          "end": 2.14
+        },
+        {
+          "text": "four",
+          "start": 2.14,
+          "end": 2.43
+        },
+        {
+          "text": "plus",
+          "start": 2.43,
+          "end": 2.74
+        },
+        {
+          "text": "one",
+          "start": 2.74,
+          "end": 3.06
+        },
+        {
+          "text": "VLAN",
+          "start": 3.82,
+          "end": 4.22
+        },
+        {
+          "text": "change",
+          "start": 4.22,
+          "end": 4.46
+        },
+        {
+          "text": "run",
+          "start": 4.46,
+          "end": 4.8
+        },
+        {
+          "text": "through",
+          "start": 4.8,
+          "end": 5.22
+        },
+        {
+          "text": "Git",
+          "start": 5.66,
+          "end": 6.04
+        },
+        {
+          "text": "GitLab",
+          "start": 6.24,
+          "end": 6.39
+        },
+        {
+          "text": "Compose",
+          "start": 7.04,
+          "end": 7.13
+        },
+        {
+          "text": "and",
+          "start": 7.13,
+          "end": 7.24
+        },
+        {
+          "text": "CML",
+          "start": 7.24,
+          "end": 7.51
+        },
+        {
+          "text": "check",
+          "start": 7.51,
+          "end": 7.72
+        },
+        {
+          "text": "mode",
+          "start": 7.72,
+          "end": 7.83
+        },
+        {
+          "text": "You",
+          "start": 8.74,
+          "end": 9.06
+        },
+        {
+          "text": "know",
+          "start": 9.06,
+          "end": 9.87
+        },
+        {
+          "text": "the",
+          "start": 10.25,
+          "end": 10.42
+        },
+        {
+          "text": "repo",
+          "start": 10.42,
+          "end": 10.77
+        },
+        {
+          "text": "layout",
+          "start": 11.4,
+          "end": 11.56
+        },
+        {
+          "text": "the",
+          "start": 11.56,
+          "end": 11.65
+        },
+        {
+          "text": "six",
+          "start": 11.65,
+          "end": 11.98
+        },
+        {
+          "text": "steps",
+          "start": 11.98,
+          "end": 12.54
+        },
+        {
+          "text": "and",
+          "start": 12.59,
+          "end": 12.65
+        },
+        {
+          "text": "the",
+          "start": 12.65,
+          "end": 13.21
+        },
+        {
+          "text": "four",
+          "start": 13.26,
+          "end": 13.42
+        },
+        {
+          "text": "artifacts",
+          "start": 13.42,
+          "end": 13.52
+        },
+        {
+          "text": "to",
+          "start": 13.52,
+          "end": 13.93
+        },
+        {
+          "text": "inspect",
+          "start": 14.19,
+          "end": 14.46
+        },
+        {
+          "text": "at",
+          "start": 14.46,
+          "end": 14.89
+        },
+        {
+          "text": "the",
+          "start": 14.95,
+          "end": 15.19
+        },
+        {
+          "text": "end",
+          "start": 15.19,
+          "end": 15.59
+        },
+        {
+          "text": "Next",
+          "start": 15.59,
+          "end": 15.83
+        },
+        {
+          "text": "slides",
+          "start": 15.83,
+          "end": 15.96
+        },
+        {
+          "text": "walk",
+          "start": 15.96,
+          "end": 16.309999
+        },
+        {
+          "text": "commands",
+          "start": 16.309999,
+          "end": 16.790001
+        },
+        {
+          "text": "line",
+          "start": 17.799999,
+          "end": 18.32
+        },
+        {
+          "text": "by",
+          "start": 18.59,
+          "end": 19.24
+        },
+        {
+          "text": "line",
+          "start": 19.34,
+          "end": 19.92
+        },
+        {
+          "text": "-",
+          "start": 20.68,
+          "end": 21.040001
+        },
+        {
+          "text": "branch",
+          "start": 21.16,
+          "end": 21.639999
+        },
+        {
+          "text": "validate",
+          "start": 21.799999,
+          "end": 22.26
+        },
+        {
+          "text": "render",
+          "start": 22.26,
+          "end": 22.700001
+        },
+        {
+          "text": "compose",
+          "start": 22.74,
+          "end": 22.79
+        },
+        {
+          "text": "smoke",
+          "start": 22.79,
+          "end": 22.84
+        },
+        {
+          "text": "CML",
+          "start": 22.84,
+          "end": 23.18
+        },
+        {
+          "text": "check",
+          "start": 23.18,
+          "end": 23.2449995
+        },
+        {
+          "text": "merge",
+          "start": 23.2449995,
+          "end": 23.309999
+        },
+        {
+          "text": "pipeline",
+          "start": 23.309999,
+          "end": 23.719999
+        },
+        {
+          "text": "logs",
+          "start": 23.719999,
+          "end": 23.884999
+        },
+        {
+          "text": "-",
+          "start": 23.884999,
+          "end": 24.049999
+        },
+        {
+          "text": "the",
+          "start": 24.049999,
+          "end": 24.42
+        },
+        {
+          "text": "same",
+          "start": 24.49,
+          "end": 24.635000499999997
+        },
+        {
+          "text": "way",
+          "start": 24.635000499999997,
+          "end": 24.780001
+        },
+        {
+          "text": "module",
+          "start": 24.780001,
+          "end": 25.309999
+        },
+        {
+          "text": "one",
+          "start": 25.57,
+          "end": 25.795
+        },
+        {
+          "text": "walked",
+          "start": 25.795,
+          "end": 26.02
+        },
+        {
+          "text": "Git",
+          "start": 26.76,
+          "end": 27.01
+        },
+        {
+          "text": "commands",
+          "start": 27.01,
+          "end": 27.14
+        },
+        {
+          "text": "Open",
+          "start": 27.14,
+          "end": 27.27
+        },
+        {
+          "text": "netops_iac_lab",
+          "start": 27.27,
+          "end": 27.41
+        },
+        {
+          "text": "and",
+          "start": 27.700001,
+          "end": 27.8050005
+        },
+        {
+          "text": "follow",
+          "start": 27.8050005,
+          "end": 27.91
+        },
+        {
+          "text": "each",
+          "start": 27.91,
+          "end": 28.1
+        },
+        {
+          "text": "slide",
+          "start": 28.35,
+          "end": 28.43
+        },
+        {
+          "text": "Lab",
+          "start": 28.43,
+          "end": 28.51
+        },
+        {
+          "text": "and",
+          "start": 28.639999,
+          "end": 29.139999
+        },
+        {
+          "text": "simulation",
+          "start": 30.01,
+          "end": 30.270000500000002
+        },
+        {
+          "text": "targets",
+          "start": 30.270000500000002,
+          "end": 30.530001
+        },
+        {
+          "text": "only",
+          "start": 30.85,
+          "end": 31.16
+        }
+      ]
+    },
+    "lab-setup-capstone-lab": {
+      "words": [
+        {
+          "text": "Welcome",
+          "start": 0.15,
+          "end": 0.64
+        },
+        {
+          "text": "to",
+          "start": 0.69,
+          "end": 0.76
+        },
+        {
+          "text": "the",
+          "start": 0.76,
+          "end": 0.89
+        },
+        {
+          "text": "capstone",
+          "start": 0.89,
+          "end": 1.47
+        },
+        {
+          "text": "lab",
+          "start": 1.47,
+          "end": 1.84
+        },
+        {
+          "text": "cd",
+          "start": 2.17,
+          "end": 2.89
+        },
+        {
+          "text": "into",
+          "start": 3.08,
+          "end": 3.38
+        },
+        {
+          "text": "netops_iac_lab",
+          "start": 4.37,
+          "end": 4.61
+        },
+        {
+          "text": "and",
+          "start": 4.61,
+          "end": 4.71
+        },
+        {
+          "text": "run",
+          "start": 4.88,
+          "end": 5.14
+        },
+        {
+          "text": "git",
+          "start": 5.36,
+          "end": 5.71
+        },
+        {
+          "text": "status",
+          "start": 6.04,
+          "end": 6.22
+        },
+        {
+          "text": "-",
+          "start": 6.22,
+          "end": 6.39
+        },
+        {
+          "text": "working",
+          "start": 7.44,
+          "end": 7.61
+        },
+        {
+          "text": "tree",
+          "start": 7.74,
+          "end": 7.86
+        },
+        {
+          "text": "should",
+          "start": 7.86,
+          "end": 8.03
+        },
+        {
+          "text": "be",
+          "start": 8.15,
+          "end": 8.34
+        },
+        {
+          "text": "clean",
+          "start": 8.42,
+          "end": 8.57
+        },
+        {
+          "text": "on",
+          "start": 8.57,
+          "end": 8.78
+        },
+        {
+          "text": "main",
+          "start": 8.78,
+          "end": 8.93
+        },
+        {
+          "text": "before",
+          "start": 9.41,
+          "end": 9.78
+        },
+        {
+          "text": "you",
+          "start": 9.78,
+          "end": 10.09
+        },
+        {
+          "text": "branch",
+          "start": 10.09,
+          "end": 10.18
+        },
+        {
+          "text": "Confirm",
+          "start": 11.01,
+          "end": 11.17
+        },
+        {
+          "text": "dot",
+          "start": 11.52,
+          "end": 12.22
+        },
+        {
+          "text": "gitlab-ci",
+          "start": 12.65,
+          "end": 12.81
+        },
+        {
+          "text": "dot",
+          "start": 13.26,
+          "end": 13.73
+        },
+        {
+          "text": "yml",
+          "start": 13.73,
+          "end": 13.79
+        },
+        {
+          "text": "includes",
+          "start": 13.79,
+          "end": 14.47
+        },
+        {
+          "text": "build",
+          "start": 14.47,
+          "end": 14.94
+        },
+        {
+          "text": "prevalidation",
+          "start": 15.1,
+          "end": 15.33
+        },
+        {
+          "text": "deploy",
+          "start": 15.33,
+          "end": 15.69
+        },
+        {
+          "text": "and",
+          "start": 15.69,
+          "end": 15.99
+        },
+        {
+          "text": "post-validation",
+          "start": 16.190001,
+          "end": 16.34
+        },
+        {
+          "text": "jobs",
+          "start": 16.34,
+          "end": 16.940001
+        },
+        {
+          "text": "from",
+          "start": 17.48,
+          "end": 17.57
+        },
+        {
+          "text": "module",
+          "start": 17.85,
+          "end": 18.33
+        },
+        {
+          "text": "two",
+          "start": 18.33,
+          "end": 18.52
+        },
+        {
+          "text": "plus",
+          "start": 18.52,
+          "end": 18.860001
+        },
+        {
+          "text": "SoT",
+          "start": 19.1,
+          "end": 19.360001
+        },
+        {
+          "text": "and",
+          "start": 19.360001,
+          "end": 19.700001
+        },
+        {
+          "text": "Compose",
+          "start": 19.93,
+          "end": 20.129999
+        },
+        {
+          "text": "jobs",
+          "start": 20.219999,
+          "end": 20.41
+        },
+        {
+          "text": "from",
+          "start": 20.41,
+          "end": 20.67
+        },
+        {
+          "text": "later",
+          "start": 20.67,
+          "end": 20.92
+        },
+        {
+          "text": "modules",
+          "start": 20.92,
+          "end": 21.09
+        },
+        {
+          "text": "Confirm",
+          "start": 22.48,
+          "end": 22.809999
+        },
+        {
+          "text": "models",
+          "start": 23.049999,
+          "end": 23.620001
+        },
+        {
+          "text": "slash",
+          "start": 23.709999,
+          "end": 23.969999
+        },
+        {
+          "text": "intent",
+          "start": 26.860001,
+          "end": 27.049999
+        },
+        {
+          "text": "slash",
+          "start": 27.1,
+          "end": 27.559999
+        },
+        {
+          "text": "vlans",
+          "start": 27.559999,
+          "end": 27.77
+        },
+        {
+          "text": "dot",
+          "start": 27.889999,
+          "end": 27.98
+        },
+        {
+          "text": "json",
+          "start": 28.23,
+          "end": 28.799999
+        },
+        {
+          "text": "lists",
+          "start": 28.799999,
+          "end": 29.120001
+        },
+        {
+          "text": "VLANs",
+          "start": 29.23,
+          "end": 29.49
+        },
+        {
+          "text": "one",
+          "start": 29.49,
+          "end": 29.709999
+        },
+        {
+          "text": "hundred",
+          "start": 29.93,
+          "end": 30.08
+        },
+        {
+          "text": "and",
+          "start": 30.290001,
+          "end": 30.360001
+        },
+        {
+          "text": "two",
+          "start": 31.34,
+          "end": 31.6149995
+        },
+        {
+          "text": "hundred",
+          "start": 31.6149995,
+          "end": 31.889999
+        },
+        {
+          "text": "from",
+          "start": 31.889999,
+          "end": 32.34
+        },
+        {
+          "text": "module",
+          "start": 32.34,
+          "end": 32.4400005
+        },
+        {
+          "text": "four",
+          "start": 32.4400005,
+          "end": 32.540001
+        },
+        {
+          "text": "Docker",
+          "start": 32.540001,
+          "end": 32.970001
+        },
+        {
+          "text": "and",
+          "start": 33.119999,
+          "end": 33.2349985
+        },
+        {
+          "text": "GitLab",
+          "start": 33.2349985,
+          "end": 33.349998
+        },
+        {
+          "text": "access",
+          "start": 33.439999,
+          "end": 33.939999
+        },
+        {
+          "text": "must",
+          "start": 34.060001,
+          "end": 34.09
+        },
+        {
+          "text": "work",
+          "start": 34.09,
+          "end": 34.119999
+        },
+        {
+          "text": "as",
+          "start": 34.119999,
+          "end": 34.389999
+        },
+        {
+          "text": "in",
+          "start": 34.389999,
+          "end": 34.4899995
+        },
+        {
+          "text": "modules",
+          "start": 34.4899995,
+          "end": 34.59
+        },
+        {
+          "text": "two",
+          "start": 34.66,
+          "end": 34.919998
+        },
+        {
+          "text": "and",
+          "start": 35.279999,
+          "end": 35.33
+        },
+        {
+          "text": "three",
+          "start": 35.33,
+          "end": 35.380001
+        },
+        {
+          "text": "Pause",
+          "start": 35.380001,
+          "end": 35.599998
+        },
+        {
+          "text": "here",
+          "start": 35.599998,
+          "end": 35.629999
+        },
+        {
+          "text": "before",
+          "start": 35.629999,
+          "end": 35.66
+        },
+        {
+          "text": "the",
+          "start": 35.66,
+          "end": 36.049999
+        },
+        {
+          "text": "intent",
+          "start": 36.049999,
+          "end": 36.260000000000005
+        },
+        {
+          "text": "edit",
+          "start": 36.260000000000005,
+          "end": 36.470001
+        },
+        {
+          "text": "slide",
+          "start": 36.470001,
+          "end": 41.91
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 2.17,
+          "end": 5.71
+        },
+        {
+          "start": 8.57,
+          "end": 11.17
+        },
+        null,
+        {
+          "start": 32.540001,
+          "end": 34.59
+        }
+      ]
+    },
+    "resume-capstone-prerequisites": {
+      "words": [
+        {
+          "text": "Before",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "editing",
+          "start": 0.61,
+          "end": 1.12
+        },
+        {
+          "text": "intent",
+          "start": 1.12,
+          "end": 1.77
+        },
+        {
+          "text": "run",
+          "start": 2.28,
+          "end": 2.74
+        },
+        {
+          "text": "a",
+          "start": 2.78,
+          "end": 2.88
+        },
+        {
+          "text": "sixty-second",
+          "start": 2.88,
+          "end": 3.33
+        },
+        {
+          "text": "readiness",
+          "start": 3.33,
+          "end": 3.84
+        },
+        {
+          "text": "check",
+          "start": 3.84,
+          "end": 4.3
+        },
+        {
+          "text": "Line",
+          "start": 4.3,
+          "end": 4.66
+        },
+        {
+          "text": "up",
+          "start": 5.14,
+          "end": 5.41
+        },
+        {
+          "text": "module",
+          "start": 5.41,
+          "end": 5.57
+        },
+        {
+          "text": "one",
+          "start": 5.57,
+          "end": 5.93
+        },
+        {
+          "text": "git",
+          "start": 5.93,
+          "end": 6.32
+        },
+        {
+          "text": "remote",
+          "start": 6.83,
+          "end": 7.18
+        },
+        {
+          "text": "and",
+          "start": 7.18,
+          "end": 7.71
+        },
+        {
+          "text": "branch",
+          "start": 7.8,
+          "end": 8.04
+        },
+        {
+          "text": "list",
+          "start": 8.04,
+          "end": 8.4
+        },
+        {
+          "text": "work",
+          "start": 8.4,
+          "end": 8.71
+        },
+        {
+          "text": "Module",
+          "start": 8.71,
+          "end": 9.12
+        },
+        {
+          "text": "two",
+          "start": 9.53,
+          "end": 9.92
+        },
+        {
+          "text": "requirements",
+          "start": 9.92,
+          "end": 10.21
+        },
+        {
+          "text": "dot",
+          "start": 10.69,
+          "end": 11.25
+        },
+        {
+          "text": "txt",
+          "start": 11.25,
+          "end": 11.58
+        },
+        {
+          "text": "installs",
+          "start": 13.21,
+          "end": 13.48
+        },
+        {
+          "text": "and",
+          "start": 13.48,
+          "end": 13.73
+        },
+        {
+          "text": "dot",
+          "start": 14.35,
+          "end": 14.66
+        },
+        {
+          "text": "gitlab-ci",
+          "start": 16.43,
+          "end": 16.540001
+        },
+        {
+          "text": "dot",
+          "start": 18.17,
+          "end": 18.540001
+        },
+        {
+          "text": "yml",
+          "start": 18.84,
+          "end": 19.190001
+        },
+        {
+          "text": "validates",
+          "start": 19.190001,
+          "end": 19.6
+        },
+        {
+          "text": "in",
+          "start": 20.190001,
+          "end": 20.530001
+        },
+        {
+          "text": "CI",
+          "start": 20.530001,
+          "end": 21.110001
+        },
+        {
+          "text": "lint",
+          "start": 21.93,
+          "end": 22.459999
+        },
+        {
+          "text": "Module",
+          "start": 22.459999,
+          "end": 22.629999
+        },
+        {
+          "text": "three",
+          "start": 22.629999,
+          "end": 22.92
+        },
+        {
+          "text": "docker",
+          "start": 22.92,
+          "end": 23.41
+        },
+        {
+          "text": "compose",
+          "start": 23.629999,
+          "end": 23.799999
+        },
+        {
+          "text": "ps",
+          "start": 23.799999,
+          "end": 24.299999
+        },
+        {
+          "text": "succeeds",
+          "start": 24.299999,
+          "end": 24.620001
+        },
+        {
+          "text": "in",
+          "start": 25.129999,
+          "end": 25.299999
+        },
+        {
+          "text": "docker",
+          "start": 25.719999,
+          "end": 26.15
+        },
+        {
+          "text": "folder",
+          "start": 26.15,
+          "end": 26.2150005
+        },
+        {
+          "text": "and",
+          "start": 26.2150005,
+          "end": 26.280001
+        },
+        {
+          "text": "inventory",
+          "start": 26.280001,
+          "end": 26.57
+        },
+        {
+          "text": "slash",
+          "start": 27.389999,
+          "end": 27.5699995
+        },
+        {
+          "text": "cml",
+          "start": 27.5699995,
+          "end": 27.75
+        },
+        {
+          "text": "dot",
+          "start": 27.75,
+          "end": 28.07
+        },
+        {
+          "text": "yml",
+          "start": 28.889999,
+          "end": 28.9849995
+        },
+        {
+          "text": "has",
+          "start": 28.9849995,
+          "end": 29.08
+        },
+        {
+          "text": "your",
+          "start": 29.889999,
+          "end": 30.040001
+        },
+        {
+          "text": "lab",
+          "start": 30.040001,
+          "end": 30.0600005
+        },
+        {
+          "text": "IPs",
+          "start": 30.0600005,
+          "end": 30.08
+        },
+        {
+          "text": "Module",
+          "start": 30.08,
+          "end": 30.389999
+        },
+        {
+          "text": "four",
+          "start": 30.469999,
+          "end": 30.599999500000003
+        },
+        {
+          "text": "validate_yang_intent",
+          "start": 30.599999500000003,
+          "end": 30.73
+        },
+        {
+          "text": "dot",
+          "start": 30.790001,
+          "end": 31.08
+        },
+        {
+          "text": "py",
+          "start": 31.08,
+          "end": 31.1800005
+        },
+        {
+          "text": "passes",
+          "start": 31.1800005,
+          "end": 31.280001
+        },
+        {
+          "text": "on",
+          "start": 31.360001,
+          "end": 31.469999
+        },
+        {
+          "text": "current",
+          "start": 31.469999,
+          "end": 31.554999000000002
+        },
+        {
+          "text": "vlans",
+          "start": 31.554999000000002,
+          "end": 31.639999
+        },
+        {
+          "text": "dot",
+          "start": 31.639999,
+          "end": 31.809999
+        },
+        {
+          "text": "json",
+          "start": 31.809999,
+          "end": 31.8699995
+        },
+        {
+          "text": "If",
+          "start": 31.8699995,
+          "end": 31.93
+        },
+        {
+          "text": "any",
+          "start": 31.93,
+          "end": 32.139999
+        },
+        {
+          "text": "step",
+          "start": 32.139999,
+          "end": 32.2700005
+        },
+        {
+          "text": "fails",
+          "start": 32.2700005,
+          "end": 32.400002
+        },
+        {
+          "text": "stop",
+          "start": 32.400002,
+          "end": 32.459999
+        },
+        {
+          "text": "and",
+          "start": 32.459999,
+          "end": 32.549999
+        },
+        {
+          "text": "repair",
+          "start": 32.549999,
+          "end": 32.639999
+        },
+        {
+          "text": "that",
+          "start": 32.77,
+          "end": 32.880001
+        },
+        {
+          "text": "module",
+          "start": 33.009998,
+          "end": 33.264999
+        },
+        {
+          "text": "-",
+          "start": 33.264999,
+          "end": 33.52
+        },
+        {
+          "text": "the",
+          "start": 33.759998,
+          "end": 34.290001
+        },
+        {
+          "text": "capstone",
+          "start": 34.290001,
+          "end": 34.395000499999995
+        },
+        {
+          "text": "assumes",
+          "start": 34.395000499999995,
+          "end": 34.5
+        },
+        {
+          "text": "those",
+          "start": 34.5,
+          "end": 35.009998
+        },
+        {
+          "text": "skills",
+          "start": 35.009998,
+          "end": 35.0249995
+        },
+        {
+          "text": "are",
+          "start": 35.0249995,
+          "end": 35.040001
+        },
+        {
+          "text": "stable",
+          "start": 35.259998,
+          "end": 39.299999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 5.41,
+          "end": 8.04
+        },
+        null,
+        null
+      ]
+    },
+    "capstone-add-vlan-intent": {
+      "words": [
+        {
+          "text": "Line",
+          "start": 0.1,
+          "end": 0.41999999999999993
+        },
+        {
+          "text": "one",
+          "start": 0.42,
+          "end": 0.73
+        },
+        {
+          "text": "creates",
+          "start": 0.78,
+          "end": 1.25
+        },
+        {
+          "text": "feature",
+          "start": 1.25,
+          "end": 1.61
+        },
+        {
+          "text": "branch",
+          "start": 1.61,
+          "end": 2.04
+        },
+        {
+          "text": "feature-vlan-300",
+          "start": 2.04,
+          "end": 2.55
+        },
+        {
+          "text": "-",
+          "start": 4.68,
+          "end": 5.19
+        },
+        {
+          "text": "module",
+          "start": 5.19,
+          "end": 5.47
+        },
+        {
+          "text": "one",
+          "start": 5.47,
+          "end": 5.97
+        },
+        {
+          "text": "pattern",
+          "start": 6.29,
+          "end": 6.81
+        },
+        {
+          "text": "Lines",
+          "start": 6.81,
+          "end": 7.06
+        },
+        {
+          "text": "two",
+          "start": 7.06,
+          "end": 7.34
+        },
+        {
+          "text": "through",
+          "start": 7.39,
+          "end": 7.68
+        },
+        {
+          "text": "eight",
+          "start": 7.68,
+          "end": 8.09
+        },
+        {
+          "text": "load",
+          "start": 8.9,
+          "end": 9.24
+        },
+        {
+          "text": "vlans",
+          "start": 9.37,
+          "end": 9.91
+        },
+        {
+          "text": "dot",
+          "start": 11.09,
+          "end": 11.27
+        },
+        {
+          "text": "json",
+          "start": 11.27,
+          "end": 11.8
+        },
+        {
+          "text": "append",
+          "start": 11.99,
+          "end": 12.32
+        },
+        {
+          "text": "VLAN",
+          "start": 12.57,
+          "end": 12.96
+        },
+        {
+          "text": "three",
+          "start": 12.96,
+          "end": 13.32
+        },
+        {
+          "text": "hundred",
+          "start": 13.36,
+          "end": 13.82
+        },
+        {
+          "text": "with",
+          "start": 13.82,
+          "end": 14.42
+        },
+        {
+          "text": "name",
+          "start": 14.63,
+          "end": 14.8
+        },
+        {
+          "text": "LAB",
+          "start": 14.8,
+          "end": 15.32
+        },
+        {
+          "text": "underscore",
+          "start": 15.47,
+          "end": 15.76
+        },
+        {
+          "text": "CAPSTONE",
+          "start": 15.76,
+          "end": 16.370001
+        },
+        {
+          "text": "and",
+          "start": 16.540001,
+          "end": 17.110001
+        },
+        {
+          "text": "write",
+          "start": 17.16,
+          "end": 17.35
+        },
+        {
+          "text": "pretty",
+          "start": 17.35,
+          "end": 17.67
+        },
+        {
+          "text": "JSON",
+          "start": 17.67,
+          "end": 18.190001
+        },
+        {
+          "text": "-",
+          "start": 18.379999,
+          "end": 18.92
+        },
+        {
+          "text": "exam",
+          "start": 18.950001,
+          "end": 19.440001
+        },
+        {
+          "text": "two",
+          "start": 19.66,
+          "end": 20.049999
+        },
+        {
+          "text": "point",
+          "start": 20.049999,
+          "end": 20.42
+        },
+        {
+          "text": "seven",
+          "start": 20.469999,
+          "end": 21
+        },
+        {
+          "text": "instance",
+          "start": 21,
+          "end": 21.1
+        },
+        {
+          "text": "edit",
+          "start": 21.1,
+          "end": 21.51
+        },
+        {
+          "text": "Line",
+          "start": 22,
+          "end": 22.290001
+        },
+        {
+          "text": "nine",
+          "start": 22.290001,
+          "end": 22.59
+        },
+        {
+          "text": "stages",
+          "start": 22.59,
+          "end": 23.190001
+        },
+        {
+          "text": "the",
+          "start": 23.58,
+          "end": 23.879999
+        },
+        {
+          "text": "file",
+          "start": 23.879999,
+          "end": 24.299999
+        },
+        {
+          "text": "Line",
+          "start": 24.299999,
+          "end": 24.68
+        },
+        {
+          "text": "ten",
+          "start": 24.68,
+          "end": 24.780001
+        },
+        {
+          "text": "commits",
+          "start": 24.780001,
+          "end": 25.139999
+        },
+        {
+          "text": "Line",
+          "start": 25.17,
+          "end": 25.25
+        },
+        {
+          "text": "eleven",
+          "start": 25.25,
+          "end": 25.76
+        },
+        {
+          "text": "pushes",
+          "start": 26.200001,
+          "end": 26.42
+        },
+        {
+          "text": "the",
+          "start": 26.42,
+          "end": 26.549999
+        },
+        {
+          "text": "branch",
+          "start": 26.549999,
+          "end": 26.639999
+        },
+        {
+          "text": "to",
+          "start": 26.639999,
+          "end": 26.92
+        },
+        {
+          "text": "origin",
+          "start": 26.92,
+          "end": 27.32
+        },
+        {
+          "text": "This",
+          "start": 27.32,
+          "end": 27.459999
+        },
+        {
+          "text": "is",
+          "start": 27.459999,
+          "end": 27.709999
+        },
+        {
+          "text": "the",
+          "start": 27.74,
+          "end": 27.969999
+        },
+        {
+          "text": "Git",
+          "start": 28.870001,
+          "end": 29.26
+        },
+        {
+          "text": "step",
+          "start": 29.26,
+          "end": 29.59
+        },
+        {
+          "text": "of",
+          "start": 29.59,
+          "end": 30.120001
+        },
+        {
+          "text": "Git",
+          "start": 30.16,
+          "end": 30.379999
+        },
+        {
+          "text": "arrow",
+          "start": 30.379999,
+          "end": 30.950001
+        },
+        {
+          "text": "CICD",
+          "start": 31.18,
+          "end": 31.3649995
+        },
+        {
+          "text": "arrow",
+          "start": 31.3649995,
+          "end": 31.549999
+        },
+        {
+          "text": "simulate",
+          "start": 31.549999,
+          "end": 31.620001
+        },
+        {
+          "text": "arrow",
+          "start": 31.620001,
+          "end": 31.775000499999997
+        },
+        {
+          "text": "deploy",
+          "start": 31.775000499999997,
+          "end": 31.93
+        },
+        {
+          "text": "Open",
+          "start": 31.93,
+          "end": 32.360001
+        },
+        {
+          "text": "a",
+          "start": 32.389999,
+          "end": 32.4949985
+        },
+        {
+          "text": "merge",
+          "start": 32.4949985,
+          "end": 32.599998
+        },
+        {
+          "text": "request",
+          "start": 33.32,
+          "end": 33.490002
+        },
+        {
+          "text": "in",
+          "start": 33.490002,
+          "end": 33.545
+        },
+        {
+          "text": "GitLab",
+          "start": 33.545,
+          "end": 33.599998
+        },
+        {
+          "text": "if",
+          "start": 33.599998,
+          "end": 33.98
+        },
+        {
+          "text": "your",
+          "start": 33.98,
+          "end": 34.1800005
+        },
+        {
+          "text": "workflow",
+          "start": 34.1800005,
+          "end": 34.380001
+        },
+        {
+          "text": "uses",
+          "start": 34.380001,
+          "end": 34.790001
+        },
+        {
+          "text": "review",
+          "start": 34.790001,
+          "end": 34.944999499999994
+        },
+        {
+          "text": "before",
+          "start": 34.944999499999994,
+          "end": 35.099998
+        },
+        {
+          "text": "merge",
+          "start": 35.099998,
+          "end": 35.48
+        }
+      ]
+    },
+    "capstone-local-prevalidation": {
+      "words": [
+        {
+          "text": "Lines",
+          "start": 0.1,
+          "end": 0.43999999999999995
+        },
+        {
+          "text": "one",
+          "start": 0.44,
+          "end": 0.7
+        },
+        {
+          "text": "through",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "text": "three",
+          "start": 0.96,
+          "end": 1.33
+        },
+        {
+          "text": "run",
+          "start": 1.42,
+          "end": 1.67
+        },
+        {
+          "text": "the",
+          "start": 1.67,
+          "end": 1.76
+        },
+        {
+          "text": "same",
+          "start": 1.76,
+          "end": 2.02
+        },
+        {
+          "text": "checks",
+          "start": 2.02,
+          "end": 2.54
+        },
+        {
+          "text": "GitLab",
+          "start": 4.14,
+          "end": 4.34
+        },
+        {
+          "text": "prevalidation",
+          "start": 4.34,
+          "end": 4.6
+        },
+        {
+          "text": "will",
+          "start": 4.6,
+          "end": 4.95
+        },
+        {
+          "text": "run",
+          "start": 4.99,
+          "end": 5.35
+        },
+        {
+          "text": "-",
+          "start": 5.35,
+          "end": 5.75
+        },
+        {
+          "text": "catch",
+          "start": 6.12,
+          "end": 6.49
+        },
+        {
+          "text": "errors",
+          "start": 6.49,
+          "end": 6.88
+        },
+        {
+          "text": "before",
+          "start": 7.31,
+          "end": 7.63
+        },
+        {
+          "text": "CI",
+          "start": 7.63,
+          "end": 7.95
+        },
+        {
+          "text": "minutes",
+          "start": 8.65,
+          "end": 9.23
+        },
+        {
+          "text": "burn",
+          "start": 9.27,
+          "end": 9.69
+        },
+        {
+          "text": "Line",
+          "start": 9.69,
+          "end": 9.77
+        },
+        {
+          "text": "one",
+          "start": 9.77,
+          "end": 10.04
+        },
+        {
+          "text": "validates",
+          "start": 10.04,
+          "end": 10.5
+        },
+        {
+          "text": "JSON",
+          "start": 10.5,
+          "end": 10.73
+        },
+        {
+          "text": "against",
+          "start": 10.73,
+          "end": 11.3
+        },
+        {
+          "text": "the",
+          "start": 11.68,
+          "end": 11.96
+        },
+        {
+          "text": "YANG-shaped",
+          "start": 11.96,
+          "end": 12.33
+        },
+        {
+          "text": "rules",
+          "start": 13.37,
+          "end": 13.63
+        },
+        {
+          "text": "script",
+          "start": 13.63,
+          "end": 14.23
+        },
+        {
+          "text": "Line",
+          "start": 14.46,
+          "end": 14.77
+        },
+        {
+          "text": "two",
+          "start": 14.77,
+          "end": 14.98
+        },
+        {
+          "text": "lints",
+          "start": 14.98,
+          "end": 15.19
+        },
+        {
+          "text": "YAML",
+          "start": 15.24,
+          "end": 15.7
+        },
+        {
+          "text": "under",
+          "start": 16.18,
+          "end": 16.415
+        },
+        {
+          "text": "models",
+          "start": 16.415,
+          "end": 16.65
+        },
+        {
+          "text": "Line",
+          "start": 17.889999,
+          "end": 18.200001
+        },
+        {
+          "text": "three",
+          "start": 18.200001,
+          "end": 18.410001
+        },
+        {
+          "text": "renders",
+          "start": 18.410001,
+          "end": 18.620001
+        },
+        {
+          "text": "config",
+          "start": 18.690001,
+          "end": 19.059999
+        },
+        {
+          "text": "via",
+          "start": 19.059999,
+          "end": 19.279999500000002
+        },
+        {
+          "text": "Ansible",
+          "start": 19.279999500000002,
+          "end": 19.5
+        },
+        {
+          "text": "playbook",
+          "start": 19.610001,
+          "end": 20.16
+        },
+        {
+          "text": "Line",
+          "start": 21.049999,
+          "end": 21.159999499999998
+        },
+        {
+          "text": "four",
+          "start": 21.159999499999998,
+          "end": 21.27
+        },
+        {
+          "text": "prints",
+          "start": 22.07,
+          "end": 22.190001
+        },
+        {
+          "text": "rendered",
+          "start": 22.190001,
+          "end": 22.33
+        },
+        {
+          "text": "slash",
+          "start": 22.33,
+          "end": 22.469999
+        },
+        {
+          "text": "vlans",
+          "start": 22.469999,
+          "end": 22.99
+        },
+        {
+          "text": "dot",
+          "start": 23.34,
+          "end": 23.42
+        },
+        {
+          "text": "cfg",
+          "start": 23.42,
+          "end": 23.5
+        },
+        {
+          "text": "-",
+          "start": 23.5,
+          "end": 24.030001
+        },
+        {
+          "text": "you",
+          "start": 24.030001,
+          "end": 24.205
+        },
+        {
+          "text": "should",
+          "start": 24.205,
+          "end": 24.379999
+        },
+        {
+          "text": "see",
+          "start": 24.379999,
+          "end": 24.82
+        },
+        {
+          "text": "vlan",
+          "start": 25.379999,
+          "end": 25.479999499999998
+        },
+        {
+          "text": "three",
+          "start": 25.479999499999998,
+          "end": 25.58
+        },
+        {
+          "text": "hundred",
+          "start": 25.620001,
+          "end": 25.83
+        },
+        {
+          "text": "before",
+          "start": 25.83,
+          "end": 26.03
+        },
+        {
+          "text": "push",
+          "start": 26.03,
+          "end": 26.23
+        },
+        {
+          "text": "If",
+          "start": 26.23,
+          "end": 26.790001
+        },
+        {
+          "text": "any",
+          "start": 27.120001,
+          "end": 27.270000500000002
+        },
+        {
+          "text": "command",
+          "start": 27.270000500000002,
+          "end": 27.42
+        },
+        {
+          "text": "fails",
+          "start": 27.42,
+          "end": 27.98
+        },
+        {
+          "text": "fix",
+          "start": 28.030001,
+          "end": 28.1050005
+        },
+        {
+          "text": "intent",
+          "start": 28.1050005,
+          "end": 28.18
+        },
+        {
+          "text": "and",
+          "start": 28.73,
+          "end": 29.110001
+        },
+        {
+          "text": "retry",
+          "start": 29.139999,
+          "end": 29.3699995
+        },
+        {
+          "text": "before",
+          "start": 29.3699995,
+          "end": 29.6
+        },
+        {
+          "text": "opening",
+          "start": 29.6,
+          "end": 29.690001
+        },
+        {
+          "text": "the",
+          "start": 29.690001,
+          "end": 29.865001
+        },
+        {
+          "text": "merge",
+          "start": 29.865001,
+          "end": 30.040001
+        },
+        {
+          "text": "request",
+          "start": 30.040001,
+          "end": 30.58
+        }
+      ]
+    },
+    "capstone-compose-smoke": {
+      "words": [
+        {
+          "text": "Lines",
+          "start": 0.16,
+          "end": 0.52
+        },
+        {
+          "text": "one",
+          "start": 0.52,
+          "end": 0.75
+        },
+        {
+          "text": "and",
+          "start": 0.75,
+          "end": 0.96
+        },
+        {
+          "text": "two",
+          "start": 0.96,
+          "end": 1.24
+        },
+        {
+          "text": "start",
+          "start": 1.36,
+          "end": 1.83
+        },
+        {
+          "text": "the",
+          "start": 1.86,
+          "end": 1.95
+        },
+        {
+          "text": "Compose",
+          "start": 1.95,
+          "end": 2.43
+        },
+        {
+          "text": "stack",
+          "start": 2.43,
+          "end": 2.79
+        },
+        {
+          "text": "from",
+          "start": 2.88,
+          "end": 3.2
+        },
+        {
+          "text": "module",
+          "start": 3.2,
+          "end": 3.52
+        },
+        {
+          "text": "three",
+          "start": 3.52,
+          "end": 3.81
+        },
+        {
+          "text": "-",
+          "start": 3.81,
+          "end": 4.48
+        },
+        {
+          "text": "simulation",
+          "start": 4.48,
+          "end": 4.86
+        },
+        {
+          "text": "smoke",
+          "start": 4.9,
+          "end": 5.24
+        },
+        {
+          "text": "before",
+          "start": 6.04,
+          "end": 6.35
+        },
+        {
+          "text": "CML",
+          "start": 6.35,
+          "end": 6.69
+        },
+        {
+          "text": "Line",
+          "start": 7.77,
+          "end": 8.18
+        },
+        {
+          "text": "three",
+          "start": 8.18,
+          "end": 8.26
+        },
+        {
+          "text": "installs",
+          "start": 8.72,
+          "end": 9.27
+        },
+        {
+          "text": "Ansible",
+          "start": 9.41,
+          "end": 9.7
+        },
+        {
+          "text": "inside",
+          "start": 9.7,
+          "end": 9.99
+        },
+        {
+          "text": "the",
+          "start": 10.39,
+          "end": 10.74
+        },
+        {
+          "text": "ansible",
+          "start": 10.74,
+          "end": 10.87
+        },
+        {
+          "text": "container",
+          "start": 10.87,
+          "end": 11.21
+        },
+        {
+          "text": "Line",
+          "start": 11.33,
+          "end": 12.03
+        },
+        {
+          "text": "four",
+          "start": 12.03,
+          "end": 12.38
+        },
+        {
+          "text": "pings",
+          "start": 13.12,
+          "end": 13.48
+        },
+        {
+          "text": "target",
+          "start": 13.48,
+          "end": 13.94
+        },
+        {
+          "text": "on",
+          "start": 14.15,
+          "end": 14.56
+        },
+        {
+          "text": "lab",
+          "start": 14.56,
+          "end": 15
+        },
+        {
+          "text": "underscore",
+          "start": 15.58,
+          "end": 15.81
+        },
+        {
+          "text": "net",
+          "start": 15.81,
+          "end": 16.33
+        },
+        {
+          "text": "Line",
+          "start": 16.43,
+          "end": 17.030001
+        },
+        {
+          "text": "five",
+          "start": 17.389999,
+          "end": 17.74
+        },
+        {
+          "text": "tears",
+          "start": 17.74,
+          "end": 18.190001
+        },
+        {
+          "text": "down",
+          "start": 18.190001,
+          "end": 18.549999
+        },
+        {
+          "text": "when",
+          "start": 19.67,
+          "end": 20.219999
+        },
+        {
+          "text": "smoke",
+          "start": 20.440001,
+          "end": 20.6750005
+        },
+        {
+          "text": "passes",
+          "start": 20.6750005,
+          "end": 20.91
+        },
+        {
+          "text": "This",
+          "start": 20.91,
+          "end": 21.23
+        },
+        {
+          "text": "mirrors",
+          "start": 21.26,
+          "end": 21.4499995
+        },
+        {
+          "text": "the",
+          "start": 21.4499995,
+          "end": 21.639999
+        },
+        {
+          "text": "prevalidate",
+          "start": 21.870001,
+          "end": 22.040001
+        },
+        {
+          "text": "colon",
+          "start": 22.040001,
+          "end": 22.220000499999998
+        },
+        {
+          "text": "compose-smoke",
+          "start": 22.220000499999998,
+          "end": 22.4
+        },
+        {
+          "text": "job",
+          "start": 23.719999,
+          "end": 23.93
+        },
+        {
+          "text": "in",
+          "start": 25.02,
+          "end": 25.2300005
+        },
+        {
+          "text": "dot",
+          "start": 25.2300005,
+          "end": 25.440001
+        },
+        {
+          "text": "gitlab-ci",
+          "start": 25.440001,
+          "end": 25.58
+        },
+        {
+          "text": "dot",
+          "start": 25.58,
+          "end": 25.79
+        },
+        {
+          "text": "yml",
+          "start": 25.79,
+          "end": 26
+        },
+        {
+          "text": "Skip",
+          "start": 26.030001,
+          "end": 26.23
+        },
+        {
+          "text": "if",
+          "start": 26.23,
+          "end": 26.439999999999998
+        },
+        {
+          "text": "Docker",
+          "start": 26.439999999999998,
+          "end": 26.65
+        },
+        {
+          "text": "is",
+          "start": 26.77,
+          "end": 27.190001
+        },
+        {
+          "text": "not",
+          "start": 27.190001,
+          "end": 27.470000499999998
+        },
+        {
+          "text": "running",
+          "start": 27.470000499999998,
+          "end": 27.75
+        },
+        {
+          "text": "locally",
+          "start": 27.92,
+          "end": 28.459999
+        },
+        {
+          "text": "rely",
+          "start": 28.51,
+          "end": 28.590000000000003
+        },
+        {
+          "text": "on",
+          "start": 28.590000000000003,
+          "end": 28.67
+        },
+        {
+          "text": "the",
+          "start": 28.67,
+          "end": 28.76
+        },
+        {
+          "text": "GitLab",
+          "start": 29.23,
+          "end": 29.37
+        },
+        {
+          "text": "job",
+          "start": 29.37,
+          "end": 29.51
+        },
+        {
+          "text": "instead",
+          "start": 29.51,
+          "end": 30.030001
+        }
+      ]
+    },
+    "capstone-cml-check-mode": {
+      "words": [
+        {
+          "text": "Lines",
+          "start": 0.22,
+          "end": 0.63
+        },
+        {
+          "text": "one",
+          "start": 0.63,
+          "end": 0.84
+        },
+        {
+          "text": "and",
+          "start": 0.84,
+          "end": 0.99
+        },
+        {
+          "text": "two",
+          "start": 1.02,
+          "end": 1.31
+        },
+        {
+          "text": "export",
+          "start": 1.35,
+          "end": 1.83
+        },
+        {
+          "text": "CML",
+          "start": 2.37,
+          "end": 3.12
+        },
+        {
+          "text": "credentials",
+          "start": 3.12,
+          "end": 3.37
+        },
+        {
+          "text": "from",
+          "start": 3.37,
+          "end": 4
+        },
+        {
+          "text": "environment",
+          "start": 4,
+          "end": 4.32
+        },
+        {
+          "text": "-",
+          "start": 4.32,
+          "end": 4.48
+        },
+        {
+          "text": "same",
+          "start": 4.48,
+          "end": 4.8
+        },
+        {
+          "text": "as",
+          "start": 4.8,
+          "end": 5.16
+        },
+        {
+          "text": "module",
+          "start": 5.63,
+          "end": 5.94
+        },
+        {
+          "text": "three",
+          "start": 5.94,
+          "end": 6.38
+        },
+        {
+          "text": "Line",
+          "start": 6.38,
+          "end": 6.79
+        },
+        {
+          "text": "three",
+          "start": 6.79,
+          "end": 7.18
+        },
+        {
+          "text": "renders",
+          "start": 7.62,
+          "end": 7.89
+        },
+        {
+          "text": "fresh",
+          "start": 8.82,
+          "end": 9.03
+        },
+        {
+          "text": "config",
+          "start": 9.03,
+          "end": 9.25
+        },
+        {
+          "text": "from",
+          "start": 9.25,
+          "end": 9.66
+        },
+        {
+          "text": "SoT",
+          "start": 9.74,
+          "end": 10.18
+        },
+        {
+          "text": "Line",
+          "start": 10.84,
+          "end": 10.98
+        },
+        {
+          "text": "four",
+          "start": 10.98,
+          "end": 11.22
+        },
+        {
+          "text": "runs",
+          "start": 11.22,
+          "end": 11.44
+        },
+        {
+          "text": "deploy",
+          "start": 11.44,
+          "end": 11.84
+        },
+        {
+          "text": "playbook",
+          "start": 12.14,
+          "end": 12.83
+        },
+        {
+          "text": "in",
+          "start": 12.89,
+          "end": 13.41
+        },
+        {
+          "text": "check",
+          "start": 13.41,
+          "end": 13.76
+        },
+        {
+          "text": "mode",
+          "start": 13.93,
+          "end": 14.06
+        },
+        {
+          "text": "against",
+          "start": 14.06,
+          "end": 14.16
+        },
+        {
+          "text": "CML",
+          "start": 14.16,
+          "end": 14.8
+        },
+        {
+          "text": "inventory",
+          "start": 15.04,
+          "end": 15.37
+        },
+        {
+          "text": "-",
+          "start": 15.37,
+          "end": 15.92
+        },
+        {
+          "text": "simulate",
+          "start": 15.99,
+          "end": 16.27
+        },
+        {
+          "text": "step",
+          "start": 16.889999,
+          "end": 17.129999
+        },
+        {
+          "text": "of",
+          "start": 17.129999,
+          "end": 17.43
+        },
+        {
+          "text": "the",
+          "start": 17.43,
+          "end": 17.860001
+        },
+        {
+          "text": "capstone",
+          "start": 17.92,
+          "end": 17.98
+        },
+        {
+          "text": "without",
+          "start": 18.559999,
+          "end": 18.76
+        },
+        {
+          "text": "applying",
+          "start": 18.76,
+          "end": 18.790001
+        },
+        {
+          "text": "live",
+          "start": 18.790001,
+          "end": 19.32
+        },
+        {
+          "text": "config",
+          "start": 19.32,
+          "end": 19.57
+        },
+        {
+          "text": "Line",
+          "start": 19.57,
+          "end": 19.82
+        },
+        {
+          "text": "five",
+          "start": 20.209999,
+          "end": 20.549999
+        },
+        {
+          "text": "limits",
+          "start": 20.620001,
+          "end": 20.775000499999997
+        },
+        {
+          "text": "to",
+          "start": 20.775000499999997,
+          "end": 20.93
+        },
+        {
+          "text": "r1",
+          "start": 20.969999,
+          "end": 21.52
+        },
+        {
+          "text": "for",
+          "start": 21.549999,
+          "end": 21.6999995
+        },
+        {
+          "text": "a",
+          "start": 21.6999995,
+          "end": 21.85
+        },
+        {
+          "text": "staged",
+          "start": 22.52,
+          "end": 22.73
+        },
+        {
+          "text": "test",
+          "start": 22.73,
+          "end": 23.025
+        },
+        {
+          "text": "Read",
+          "start": 23.025,
+          "end": 23.32
+        },
+        {
+          "text": "task",
+          "start": 23.83,
+          "end": 23.969999
+        },
+        {
+          "text": "output",
+          "start": 24.459999,
+          "end": 24.5649995
+        },
+        {
+          "text": "for",
+          "start": 24.5649995,
+          "end": 24.67
+        },
+        {
+          "text": "vlan",
+          "start": 24.67,
+          "end": 25.540001
+        },
+        {
+          "text": "three",
+          "start": 25.76,
+          "end": 25.96
+        },
+        {
+          "text": "hundred",
+          "start": 25.96,
+          "end": 26.16
+        },
+        {
+          "text": "If",
+          "start": 26.16,
+          "end": 26.299999
+        },
+        {
+          "text": "CML",
+          "start": 26.33,
+          "end": 26.545
+        },
+        {
+          "text": "is",
+          "start": 26.545,
+          "end": 26.76
+        },
+        {
+          "text": "unavailable",
+          "start": 26.809999,
+          "end": 27.190001
+        },
+        {
+          "text": "study",
+          "start": 27.190001,
+          "end": 27.275001
+        },
+        {
+          "text": "the",
+          "start": 27.275001,
+          "end": 27.360001
+        },
+        {
+          "text": "command",
+          "start": 27.360001,
+          "end": 27.450001
+        },
+        {
+          "text": "pattern",
+          "start": 27.450001,
+          "end": 27.735000499999998
+        },
+        {
+          "text": "for",
+          "start": 27.735000499999998,
+          "end": 28.02
+        },
+        {
+          "text": "the",
+          "start": 28.58,
+          "end": 28.92
+        },
+        {
+          "text": "exam",
+          "start": 28.92,
+          "end": 29.1099995
+        },
+        {
+          "text": "local",
+          "start": 29.1099995,
+          "end": 29.299999
+        },
+        {
+          "text": "render",
+          "start": 29.299999,
+          "end": 29.65
+        },
+        {
+          "text": "plus",
+          "start": 29.65,
+          "end": 30
+        },
+        {
+          "text": "pipeline",
+          "start": 30,
+          "end": 30.35
+        },
+        {
+          "text": "still",
+          "start": 30.35,
+          "end": 30.67
+        },
+        {
+          "text": "demonstrate",
+          "start": 30.67,
+          "end": 31.005000000000003
+        },
+        {
+          "text": "SoT",
+          "start": 31.005000000000003,
+          "end": 31.34
+        },
+        {
+          "text": "integration",
+          "start": 31.85,
+          "end": 32.700001
+        }
+      ]
+    },
+    "capstone-merge-to-main": {
+      "words": [
+        {
+          "text": "Lines",
+          "start": 0.11,
+          "end": 0.45
+        },
+        {
+          "text": "one",
+          "start": 0.45,
+          "end": 0.65
+        },
+        {
+          "text": "and",
+          "start": 0.65,
+          "end": 0.8
+        },
+        {
+          "text": "two",
+          "start": 0.83,
+          "end": 1.07
+        },
+        {
+          "text": "switch",
+          "start": 1.07,
+          "end": 1.42
+        },
+        {
+          "text": "to",
+          "start": 1.5,
+          "end": 1.55
+        },
+        {
+          "text": "main",
+          "start": 1.55,
+          "end": 1.87
+        },
+        {
+          "text": "and",
+          "start": 1.87,
+          "end": 2.06
+        },
+        {
+          "text": "pull",
+          "start": 2.12,
+          "end": 2.3
+        },
+        {
+          "text": "latest",
+          "start": 2.3,
+          "end": 2.96
+        },
+        {
+          "text": "Line",
+          "start": 3.22,
+          "end": 3.46
+        },
+        {
+          "text": "three",
+          "start": 3.46,
+          "end": 3.71
+        },
+        {
+          "text": "merges",
+          "start": 3.71,
+          "end": 4.12
+        },
+        {
+          "text": "feature-vlan-300",
+          "start": 4.12,
+          "end": 4.59
+        },
+        {
+          "text": "-",
+          "start": 6.35,
+          "end": 6.54
+        },
+        {
+          "text": "use",
+          "start": 6.54,
+          "end": 6.92
+        },
+        {
+          "text": "squash",
+          "start": 6.92,
+          "end": 7.4
+        },
+        {
+          "text": "merge",
+          "start": 7.56,
+          "end": 7.74
+        },
+        {
+          "text": "if",
+          "start": 7.74,
+          "end": 7.84
+        },
+        {
+          "text": "your",
+          "start": 7.87,
+          "end": 8.09
+        },
+        {
+          "text": "team",
+          "start": 8.09,
+          "end": 8.51
+        },
+        {
+          "text": "policy",
+          "start": 8.51,
+          "end": 8.95
+        },
+        {
+          "text": "matches",
+          "start": 8.95,
+          "end": 9.32
+        },
+        {
+          "text": "module",
+          "start": 9.32,
+          "end": 9.6
+        },
+        {
+          "text": "one",
+          "start": 9.6,
+          "end": 9.88
+        },
+        {
+          "text": "lab",
+          "start": 10.07,
+          "end": 10.34
+        },
+        {
+          "text": "Line",
+          "start": 10.34,
+          "end": 10.7
+        },
+        {
+          "text": "four",
+          "start": 10.76,
+          "end": 11.16
+        },
+        {
+          "text": "pushes",
+          "start": 11.16,
+          "end": 11.55
+        },
+        {
+          "text": "main",
+          "start": 12.29,
+          "end": 12.74
+        },
+        {
+          "text": "GitLab",
+          "start": 12.74,
+          "end": 13.26
+        },
+        {
+          "text": "pipeline",
+          "start": 13.33,
+          "end": 13.79
+        },
+        {
+          "text": "runs",
+          "start": 15.12,
+          "end": 15.79
+        },
+        {
+          "text": "build",
+          "start": 15.98,
+          "end": 16.17
+        },
+        {
+          "text": "prevalidation",
+          "start": 16.25,
+          "end": 16.58
+        },
+        {
+          "text": "deploy",
+          "start": 16.58,
+          "end": 17.200001
+        },
+        {
+          "text": "and",
+          "start": 17.200001,
+          "end": 17.41
+        },
+        {
+          "text": "post-validation",
+          "start": 17.41,
+          "end": 17.74
+        },
+        {
+          "text": "on",
+          "start": 17.889999,
+          "end": 17.99
+        },
+        {
+          "text": "main",
+          "start": 17.99,
+          "end": 18.389999
+        },
+        {
+          "text": "per",
+          "start": 18.389999,
+          "end": 18.629999
+        },
+        {
+          "text": "module",
+          "start": 18.629999,
+          "end": 19.08
+        },
+        {
+          "text": "two",
+          "start": 19.6,
+          "end": 19.91
+        },
+        {
+          "text": "rules",
+          "start": 19.91,
+          "end": 20.02
+        },
+        {
+          "text": "Watch",
+          "start": 20.02,
+          "end": 20.52
+        },
+        {
+          "text": "the",
+          "start": 21.07,
+          "end": 21.459999
+        },
+        {
+          "text": "pipeline",
+          "start": 21.51,
+          "end": 21.709999
+        },
+        {
+          "text": "UI",
+          "start": 21.709999,
+          "end": 22.17
+        },
+        {
+          "text": "until",
+          "start": 22.17,
+          "end": 22.610001
+        },
+        {
+          "text": "all",
+          "start": 23.049999,
+          "end": 23.459999
+        },
+        {
+          "text": "stages",
+          "start": 23.620001,
+          "end": 24.01
+        },
+        {
+          "text": "complete",
+          "start": 24.01,
+          "end": 24.34
+        },
+        {
+          "text": "If",
+          "start": 24.34,
+          "end": 24.5
+        },
+        {
+          "text": "deploy",
+          "start": 24.5,
+          "end": 24.76
+        },
+        {
+          "text": "stage",
+          "start": 24.76,
+          "end": 24.98
+        },
+        {
+          "text": "is",
+          "start": 24.98,
+          "end": 25.370001
+        },
+        {
+          "text": "check",
+          "start": 25.84,
+          "end": 26.15
+        },
+        {
+          "text": "mode",
+          "start": 26.15,
+          "end": 26.540001
+        },
+        {
+          "text": "only",
+          "start": 26.540001,
+          "end": 26.9
+        },
+        {
+          "text": "no",
+          "start": 26.9,
+          "end": 27.209999
+        },
+        {
+          "text": "live",
+          "start": 27.209999,
+          "end": 27.514999500000002
+        },
+        {
+          "text": "change",
+          "start": 27.514999500000002,
+          "end": 27.82
+        },
+        {
+          "text": "hits",
+          "start": 27.85,
+          "end": 28.049999
+        },
+        {
+          "text": "devices",
+          "start": 28.049999,
+          "end": 28.1149995
+        },
+        {
+          "text": "-",
+          "start": 28.1149995,
+          "end": 28.18
+        },
+        {
+          "text": "that",
+          "start": 28.18,
+          "end": 28.84
+        },
+        {
+          "text": "is",
+          "start": 28.84,
+          "end": 28.904999500000002
+        },
+        {
+          "text": "expected",
+          "start": 28.904999500000002,
+          "end": 28.969999
+        },
+        {
+          "text": "in",
+          "start": 28.969999,
+          "end": 29.15
+        },
+        {
+          "text": "this",
+          "start": 29.15,
+          "end": 29.3049995
+        },
+        {
+          "text": "course",
+          "start": 29.3049995,
+          "end": 29.459999
+        },
+        {
+          "text": "lab",
+          "start": 29.459999,
+          "end": 29.690001
+        }
+      ]
+    },
+    "capstone-read-pipeline-logs": {
+      "words": [
+        {
+          "text": "Use",
+          "start": 0.08,
+          "end": 0.51
+        },
+        {
+          "text": "GitLab",
+          "start": 1.7,
+          "end": 1.91
+        },
+        {
+          "text": "UI",
+          "start": 2.97,
+          "end": 3.05
+        },
+        {
+          "text": "or",
+          "start": 3.08,
+          "end": 3.74
+        },
+        {
+          "text": "CLI",
+          "start": 3.83,
+          "end": 4
+        },
+        {
+          "text": "to",
+          "start": 4,
+          "end": 4.57
+        },
+        {
+          "text": "confirm",
+          "start": 4.97,
+          "end": 5.32
+        },
+        {
+          "text": "each",
+          "start": 5.32,
+          "end": 5.63
+        },
+        {
+          "text": "stage",
+          "start": 5.92,
+          "end": 6.37
+        },
+        {
+          "text": "Line",
+          "start": 6.37,
+          "end": 6.85
+        },
+        {
+          "text": "one",
+          "start": 6.89,
+          "end": 7.57
+        },
+        {
+          "text": "lists",
+          "start": 8.08,
+          "end": 8.37
+        },
+        {
+          "text": "recent",
+          "start": 8.4,
+          "end": 8.69
+        },
+        {
+          "text": "pipelines",
+          "start": 8.93,
+          "end": 9.37
+        },
+        {
+          "text": "Line",
+          "start": 9.37,
+          "end": 9.49
+        },
+        {
+          "text": "two",
+          "start": 9.49,
+          "end": 9.96
+        },
+        {
+          "text": "opens",
+          "start": 9.96,
+          "end": 10.47
+        },
+        {
+          "text": "the",
+          "start": 10.47,
+          "end": 10.91
+        },
+        {
+          "text": "latest",
+          "start": 11.29,
+          "end": 11.8
+        },
+        {
+          "text": "pipeline",
+          "start": 11.8,
+          "end": 12.36
+        },
+        {
+          "text": "detail",
+          "start": 12.36,
+          "end": 12.86
+        },
+        {
+          "text": "-",
+          "start": 13,
+          "end": 13.19
+        },
+        {
+          "text": "replace",
+          "start": 13.19,
+          "end": 13.66
+        },
+        {
+          "text": "pipeline",
+          "start": 13.81,
+          "end": 14.29
+        },
+        {
+          "text": "id",
+          "start": 14.29,
+          "end": 14.53
+        },
+        {
+          "text": "with",
+          "start": 14.53,
+          "end": 14.74
+        },
+        {
+          "text": "yours",
+          "start": 14.74,
+          "end": 15.1
+        },
+        {
+          "text": "Lines",
+          "start": 15.15,
+          "end": 15.27
+        },
+        {
+          "text": "three",
+          "start": 15.27,
+          "end": 15.39
+        },
+        {
+          "text": "through",
+          "start": 15.39,
+          "end": 15.71
+        },
+        {
+          "text": "six",
+          "start": 15.71,
+          "end": 16.290001
+        },
+        {
+          "text": "are",
+          "start": 16.49,
+          "end": 16.559999
+        },
+        {
+          "text": "the",
+          "start": 16.559999,
+          "end": 17.09
+        },
+        {
+          "text": "job",
+          "start": 17.09,
+          "end": 17.200001
+        },
+        {
+          "text": "names",
+          "start": 17.200001,
+          "end": 17.51
+        },
+        {
+          "text": "to",
+          "start": 17.77,
+          "end": 18.1
+        },
+        {
+          "text": "inspect",
+          "start": 18.1,
+          "end": 19.059999
+        },
+        {
+          "text": "in",
+          "start": 21.290001,
+          "end": 21.780001
+        },
+        {
+          "text": "order",
+          "start": 21.9,
+          "end": 22.379999
+        },
+        {
+          "text": "build",
+          "start": 22.379999,
+          "end": 22.780001
+        },
+        {
+          "text": "dependencies",
+          "start": 22.780001,
+          "end": 23.18
+        },
+        {
+          "text": "prevalidate",
+          "start": 23.860001,
+          "end": 24.18
+        },
+        {
+          "text": "sot",
+          "start": 24.23,
+          "end": 24.290001
+        },
+        {
+          "text": "prevalidate",
+          "start": 24.290001,
+          "end": 24.67
+        },
+        {
+          "text": "lint",
+          "start": 24.67,
+          "end": 24.76
+        },
+        {
+          "text": "deploy",
+          "start": 25.190001,
+          "end": 25.450001
+        },
+        {
+          "text": "dry",
+          "start": 25.450001,
+          "end": 25.57
+        },
+        {
+          "text": "run",
+          "start": 25.57,
+          "end": 25.98
+        },
+        {
+          "text": "postvalidate",
+          "start": 25.98,
+          "end": 26.105
+        },
+        {
+          "text": "intent",
+          "start": 26.105,
+          "end": 26.23
+        },
+        {
+          "text": "For",
+          "start": 26.440001,
+          "end": 26.549999
+        },
+        {
+          "text": "exam",
+          "start": 26.639999,
+          "end": 26.719999
+        },
+        {
+          "text": "two",
+          "start": 26.719999,
+          "end": 26.799999
+        },
+        {
+          "text": "point",
+          "start": 27.35,
+          "end": 27.530001
+        },
+        {
+          "text": "two",
+          "start": 27.530001,
+          "end": 27.575001
+        },
+        {
+          "text": "practice",
+          "start": 27.575001,
+          "end": 27.620001
+        },
+        {
+          "text": "open",
+          "start": 27.620001,
+          "end": 27.709999
+        },
+        {
+          "text": "a",
+          "start": 27.709999,
+          "end": 28.1799995
+        },
+        {
+          "text": "failed",
+          "start": 28.1799995,
+          "end": 28.65
+        },
+        {
+          "text": "job",
+          "start": 29,
+          "end": 29.129999
+        },
+        {
+          "text": "log",
+          "start": 29.129999,
+          "end": 29.364999500000003
+        },
+        {
+          "text": "and",
+          "start": 29.364999500000003,
+          "end": 29.6
+        },
+        {
+          "text": "find",
+          "start": 29.77,
+          "end": 29.879999
+        },
+        {
+          "text": "the",
+          "start": 30.110001,
+          "end": 30.375
+        },
+        {
+          "text": "first",
+          "start": 30.375,
+          "end": 30.639999
+        },
+        {
+          "text": "error",
+          "start": 30.639999,
+          "end": 30.98
+        },
+        {
+          "text": "line",
+          "start": 30.98,
+          "end": 31.355
+        },
+        {
+          "text": "-",
+          "start": 31.355,
+          "end": 31.73
+        },
+        {
+          "text": "missing",
+          "start": 32.169998,
+          "end": 32.66
+        },
+        {
+          "text": "dependency",
+          "start": 32.66,
+          "end": 33.0100005
+        },
+        {
+          "text": "version",
+          "start": 33.0100005,
+          "end": 33.360001
+        },
+        {
+          "text": "conflict",
+          "start": 33.57,
+          "end": 33.720001
+        },
+        {
+          "text": "or",
+          "start": 33.720001,
+          "end": 33.9400005
+        },
+        {
+          "text": "failed",
+          "start": 33.9400005,
+          "end": 34.16
+        },
+        {
+          "text": "test",
+          "start": 34.25,
+          "end": 34.689999
+        }
+      ]
+    },
+    "capstone-fix-pipeline-failure": {
+      "words": [
+        {
+          "text": "If",
+          "start": 0.1,
+          "end": 0.33
+        },
+        {
+          "text": "post-validation",
+          "start": 0.33,
+          "end": 0.56
+        },
+        {
+          "text": "fails",
+          "start": 0.56,
+          "end": 1.29
+        },
+        {
+          "text": "after",
+          "start": 1.29,
+          "end": 1.93
+        },
+        {
+          "text": "merge",
+          "start": 2.24,
+          "end": 2.57
+        },
+        {
+          "text": "treat",
+          "start": 2.57,
+          "end": 3.09
+        },
+        {
+          "text": "it",
+          "start": 3.25,
+          "end": 3.49
+        },
+        {
+          "text": "as",
+          "start": 3.49,
+          "end": 3.63
+        },
+        {
+          "text": "exam",
+          "start": 3.68,
+          "end": 3.85
+        },
+        {
+          "text": "two",
+          "start": 3.85,
+          "end": 4.32
+        },
+        {
+          "text": "point",
+          "start": 4.36,
+          "end": 4.53
+        },
+        {
+          "text": "two",
+          "start": 4.53,
+          "end": 4.91
+        },
+        {
+          "text": "drill",
+          "start": 4.98,
+          "end": 5.15
+        },
+        {
+          "text": "Line",
+          "start": 5.15,
+          "end": 5.53
+        },
+        {
+          "text": "one",
+          "start": 5.78,
+          "end": 6.13
+        },
+        {
+          "text": "shows",
+          "start": 6.13,
+          "end": 6.35
+        },
+        {
+          "text": "the",
+          "start": 6.35,
+          "end": 6.67
+        },
+        {
+          "text": "job",
+          "start": 6.67,
+          "end": 6.78
+        },
+        {
+          "text": "log",
+          "start": 6.78,
+          "end": 7.1
+        },
+        {
+          "text": "pattern",
+          "start": 7.1,
+          "end": 7.36
+        },
+        {
+          "text": "-",
+          "start": 7.36,
+          "end": 7.73
+        },
+        {
+          "text": "exit",
+          "start": 7.76,
+          "end": 8.19
+        },
+        {
+          "text": "code",
+          "start": 8.22,
+          "end": 8.44
+        },
+        {
+          "text": "one",
+          "start": 8.44,
+          "end": 8.86
+        },
+        {
+          "text": "on",
+          "start": 9.04,
+          "end": 9.22
+        },
+        {
+          "text": "postvalidate",
+          "start": 10.17,
+          "end": 10.81
+        },
+        {
+          "text": "intent",
+          "start": 11.26,
+          "end": 11.58
+        },
+        {
+          "text": "Line",
+          "start": 11.58,
+          "end": 11.92
+        },
+        {
+          "text": "two",
+          "start": 12.06,
+          "end": 12.64
+        },
+        {
+          "text": "removes",
+          "start": 12.71,
+          "end": 12.82
+        },
+        {
+          "text": "a",
+          "start": 12.82,
+          "end": 13.37
+        },
+        {
+          "text": "deliberate",
+          "start": 13.37,
+          "end": 13.71
+        },
+        {
+          "text": "bad",
+          "start": 14.15,
+          "end": 14.71
+        },
+        {
+          "text": "VLAN",
+          "start": 14.9,
+          "end": 15.09
+        },
+        {
+          "text": "id",
+          "start": 15.09,
+          "end": 15.17
+        },
+        {
+          "text": "if",
+          "start": 15.23,
+          "end": 15.53
+        },
+        {
+          "text": "you",
+          "start": 15.53,
+          "end": 15.78
+        },
+        {
+          "text": "added",
+          "start": 15.78,
+          "end": 16.08
+        },
+        {
+          "text": "nine",
+          "start": 16.08,
+          "end": 16.299999
+        },
+        {
+          "text": "ninety-nine",
+          "start": 16.299999,
+          "end": 16.469999
+        },
+        {
+          "text": "for",
+          "start": 16.52,
+          "end": 16.969999
+        },
+        {
+          "text": "testing",
+          "start": 17.290001,
+          "end": 17.85
+        },
+        {
+          "text": "Lines",
+          "start": 17.85,
+          "end": 18.200001
+        },
+        {
+          "text": "three",
+          "start": 18.23,
+          "end": 18.450001
+        },
+        {
+          "text": "and",
+          "start": 18.450001,
+          "end": 18.780001
+        },
+        {
+          "text": "four",
+          "start": 18.9,
+          "end": 19.299999
+        },
+        {
+          "text": "commit",
+          "start": 19.299999,
+          "end": 19.700001
+        },
+        {
+          "text": "fix",
+          "start": 19.77,
+          "end": 19.82
+        },
+        {
+          "text": "to",
+          "start": 19.82,
+          "end": 20.190001
+        },
+        {
+          "text": "main",
+          "start": 20.24,
+          "end": 20.469999
+        },
+        {
+          "text": "and",
+          "start": 20.469999,
+          "end": 20.99
+        },
+        {
+          "text": "push",
+          "start": 21.15,
+          "end": 21.68
+        },
+        {
+          "text": "Pipeline",
+          "start": 21.68,
+          "end": 21.870001
+        },
+        {
+          "text": "re-runs",
+          "start": 21.870001,
+          "end": 22.290001
+        },
+        {
+          "text": "automatically",
+          "start": 22.34,
+          "end": 23.25
+        },
+        {
+          "text": "Always",
+          "start": 23.65,
+          "end": 24.08
+        },
+        {
+          "text": "fix",
+          "start": 24.08,
+          "end": 24.469999
+        },
+        {
+          "text": "SoT",
+          "start": 24.940001,
+          "end": 25.18
+        },
+        {
+          "text": "in",
+          "start": 25.18,
+          "end": 25.549999
+        },
+        {
+          "text": "Git",
+          "start": 25.610001,
+          "end": 25.940001
+        },
+        {
+          "text": "-",
+          "start": 25.940001,
+          "end": 26.299999
+        },
+        {
+          "text": "never",
+          "start": 26.360001,
+          "end": 26.709999
+        },
+        {
+          "text": "patch",
+          "start": 26.709999,
+          "end": 26.84
+        },
+        {
+          "text": "only",
+          "start": 26.84,
+          "end": 27.440001
+        },
+        {
+          "text": "the",
+          "start": 27.870001,
+          "end": 28.129999
+        },
+        {
+          "text": "device",
+          "start": 28.129999,
+          "end": 28.32
+        },
+        {
+          "text": "That",
+          "start": 28.32,
+          "end": 28.629999
+        },
+        {
+          "text": "is",
+          "start": 28.629999,
+          "end": 28.790001
+        },
+        {
+          "text": "source",
+          "start": 28.84,
+          "end": 29.110001
+        },
+        {
+          "text": "of",
+          "start": 29.309999,
+          "end": 29.959999
+        },
+        {
+          "text": "truth",
+          "start": 29.959999,
+          "end": 30.309999
+        },
+        {
+          "text": "discipline",
+          "start": 30.309999,
+          "end": 30.68
+        },
+        {
+          "text": "from",
+          "start": 30.73,
+          "end": 31.09
+        },
+        {
+          "text": "module",
+          "start": 30.73,
+          "end": 31.09
+        },
+        {
+          "text": "four",
+          "start": 30.73,
+          "end": 31.09
+        }
+      ]
+    },
+    "capstone-final-verification": {
+      "words": [
+        {
+          "text": "Line",
+          "start": 0.13,
+          "end": 0.43
+        },
+        {
+          "text": "one",
+          "start": 0.43,
+          "end": 0.76
+        },
+        {
+          "text": "re-runs",
+          "start": 0.8,
+          "end": 1.05
+        },
+        {
+          "text": "validation",
+          "start": 1.05,
+          "end": 1.48
+        },
+        {
+          "text": "locally",
+          "start": 1.48,
+          "end": 2.33
+        },
+        {
+          "text": "to",
+          "start": 2.41,
+          "end": 3.06
+        },
+        {
+          "text": "match",
+          "start": 3.23,
+          "end": 3.28
+        },
+        {
+          "text": "green",
+          "start": 3.28,
+          "end": 3.68
+        },
+        {
+          "text": "pipeline",
+          "start": 3.68,
+          "end": 4.06
+        },
+        {
+          "text": "Line",
+          "start": 4.06,
+          "end": 4.68
+        },
+        {
+          "text": "two",
+          "start": 4.94,
+          "end": 5.29
+        },
+        {
+          "text": "confirms",
+          "start": 5.32,
+          "end": 5.64
+        },
+        {
+          "text": "rendered",
+          "start": 5.7,
+          "end": 6.43
+        },
+        {
+          "text": "config",
+          "start": 6.48,
+          "end": 6.98
+        },
+        {
+          "text": "contains",
+          "start": 7.67,
+          "end": 8.34
+        },
+        {
+          "text": "VLAN",
+          "start": 8.92,
+          "end": 9.13
+        },
+        {
+          "text": "three",
+          "start": 9.13,
+          "end": 9.69
+        },
+        {
+          "text": "hundred",
+          "start": 9.84,
+          "end": 10.14
+        },
+        {
+          "text": "Line",
+          "start": 10.14,
+          "end": 10.41
+        },
+        {
+          "text": "three",
+          "start": 10.41,
+          "end": 10.83
+        },
+        {
+          "text": "runs",
+          "start": 11.47,
+          "end": 11.74
+        },
+        {
+          "text": "ansible-playbook",
+          "start": 11.74,
+          "end": 11.83
+        },
+        {
+          "text": "render",
+          "start": 11.97,
+          "end": 12.03
+        },
+        {
+          "text": "one",
+          "start": 12.03,
+          "end": 12.19
+        },
+        {
+          "text": "more",
+          "start": 12.45,
+          "end": 12.78
+        },
+        {
+          "text": "time",
+          "start": 12.78,
+          "end": 12.96
+        },
+        {
+          "text": "idempotently",
+          "start": 12.99,
+          "end": 13.27
+        },
+        {
+          "text": "Line",
+          "start": 13.27,
+          "end": 13.33
+        },
+        {
+          "text": "four",
+          "start": 14.77,
+          "end": 15.44
+        },
+        {
+          "text": "tags",
+          "start": 15.5,
+          "end": 16.25
+        },
+        {
+          "text": "the",
+          "start": 17.209999,
+          "end": 17.389999
+        },
+        {
+          "text": "repo",
+          "start": 17.76,
+          "end": 17.870001
+        },
+        {
+          "text": "capstone-complete",
+          "start": 17.940001,
+          "end": 18.27
+        },
+        {
+          "text": "if",
+          "start": 18.27,
+          "end": 18.58
+        },
+        {
+          "text": "you",
+          "start": 18.58,
+          "end": 18.99
+        },
+        {
+          "text": "use",
+          "start": 19.040001,
+          "end": 19.65
+        },
+        {
+          "text": "release",
+          "start": 19.98,
+          "end": 20.08
+        },
+        {
+          "text": "tags",
+          "start": 20.08,
+          "end": 20.299999
+        },
+        {
+          "text": "-",
+          "start": 20.299999,
+          "end": 20.76
+        },
+        {
+          "text": "optional",
+          "start": 20.83,
+          "end": 21.07
+        },
+        {
+          "text": "You",
+          "start": 21.1,
+          "end": 21.35
+        },
+        {
+          "text": "have",
+          "start": 22.120001,
+          "end": 22.540001
+        },
+        {
+          "text": "walked",
+          "start": 22.540001,
+          "end": 22.809999
+        },
+        {
+          "text": "Git",
+          "start": 22.809999,
+          "end": 23.530001
+        },
+        {
+          "text": "arrow",
+          "start": 23.719999,
+          "end": 23.950001
+        },
+        {
+          "text": "CICD",
+          "start": 23.950001,
+          "end": 24.51
+        },
+        {
+          "text": "arrow",
+          "start": 24.51,
+          "end": 25.15
+        },
+        {
+          "text": "simulate",
+          "start": 25.200001,
+          "end": 25.34
+        },
+        {
+          "text": "arrow",
+          "start": 25.59,
+          "end": 25.8199995
+        },
+        {
+          "text": "deploy",
+          "start": 25.8199995,
+          "end": 26.049999
+        },
+        {
+          "text": "on",
+          "start": 26.049999,
+          "end": 26.42
+        },
+        {
+          "text": "one",
+          "start": 26.42,
+          "end": 26.83
+        },
+        {
+          "text": "repo",
+          "start": 26.83,
+          "end": 27.24
+        },
+        {
+          "text": "covering",
+          "start": 27.309999,
+          "end": 27.48
+        },
+        {
+          "text": "exam",
+          "start": 27.48,
+          "end": 27.66
+        },
+        {
+          "text": "objectives",
+          "start": 27.66,
+          "end": 27.84
+        },
+        {
+          "text": "two",
+          "start": 27.84,
+          "end": 28.129999
+        },
+        {
+          "text": "point",
+          "start": 28.129999,
+          "end": 28.264999500000002
+        },
+        {
+          "text": "one",
+          "start": 28.264999500000002,
+          "end": 28.4
+        },
+        {
+          "text": "through",
+          "start": 28.4,
+          "end": 28.559999
+        },
+        {
+          "text": "two",
+          "start": 28.559999,
+          "end": 28.724999
+        },
+        {
+          "text": "point",
+          "start": 28.724999,
+          "end": 28.889999
+        },
+        {
+          "text": "seven",
+          "start": 28.889999,
+          "end": 29.34
+        }
+      ]
+    },
+    "course-two-complete": {
+      "words": [
+        {
+          "text": "Course",
+          "start": 0.12,
+          "end": 0.42
+        },
+        {
+          "text": "two",
+          "start": 0.42,
+          "end": 0.7
+        },
+        {
+          "text": "capstone",
+          "start": 0.75,
+          "end": 1.28
+        },
+        {
+          "text": "maps",
+          "start": 1.28,
+          "end": 1.65
+        },
+        {
+          "text": "the",
+          "start": 1.65,
+          "end": 1.8
+        },
+        {
+          "text": "full",
+          "start": 1.8,
+          "end": 2.1
+        },
+        {
+          "text": "AUTOCOR",
+          "start": 2.55,
+          "end": 3.22
+        },
+        {
+          "text": "infrastructure-as-code",
+          "start": 3.22,
+          "end": 3.35
+        },
+        {
+          "text": "track",
+          "start": 3.35,
+          "end": 3.59
+        },
+        {
+          "text": "for",
+          "start": 3.63,
+          "end": 3.96
+        },
+        {
+          "text": "objectives",
+          "start": 3.96,
+          "end": 4.17
+        },
+        {
+          "text": "two",
+          "start": 4.17,
+          "end": 4.84
+        },
+        {
+          "text": "point",
+          "start": 4.87,
+          "end": 5
+        },
+        {
+          "text": "one",
+          "start": 5,
+          "end": 5.31
+        },
+        {
+          "text": "through",
+          "start": 5.31,
+          "end": 5.52
+        },
+        {
+          "text": "two",
+          "start": 5.52,
+          "end": 5.75
+        },
+        {
+          "text": "point",
+          "start": 5.75,
+          "end": 5.89
+        },
+        {
+          "text": "seven",
+          "start": 5.89,
+          "end": 6.17
+        },
+        {
+          "text": "Git",
+          "start": 6.17,
+          "end": 6.61
+        },
+        {
+          "text": "version",
+          "start": 6.8,
+          "end": 7.06
+        },
+        {
+          "text": "control",
+          "start": 7.06,
+          "end": 7.43
+        },
+        {
+          "text": "on",
+          "start": 7.43,
+          "end": 7.89
+        },
+        {
+          "text": "intent",
+          "start": 7.92,
+          "end": 8.1
+        },
+        {
+          "text": "GitLab",
+          "start": 8.15,
+          "end": 8.78
+        },
+        {
+          "text": "CICD",
+          "start": 10.34,
+          "end": 10.94
+        },
+        {
+          "text": "with",
+          "start": 10.99,
+          "end": 11.19
+        },
+        {
+          "text": "four",
+          "start": 11.19,
+          "end": 11.46
+        },
+        {
+          "text": "stages",
+          "start": 11.46,
+          "end": 11.98
+        },
+        {
+          "text": "and",
+          "start": 11.98,
+          "end": 12.19
+        },
+        {
+          "text": "failure",
+          "start": 12.19,
+          "end": 12.6
+        },
+        {
+          "text": "diagnosis",
+          "start": 12.6,
+          "end": 13.43
+        },
+        {
+          "text": "Docker",
+          "start": 13.73,
+          "end": 14.06
+        },
+        {
+          "text": "Compose",
+          "start": 14.06,
+          "end": 14.82
+        },
+        {
+          "text": "and",
+          "start": 15.02,
+          "end": 15.26
+        },
+        {
+          "text": "CML",
+          "start": 15.29,
+          "end": 16.32
+        },
+        {
+          "text": "simulation",
+          "start": 16.99,
+          "end": 17.389999
+        },
+        {
+          "text": "YANG-modeled",
+          "start": 17.389999,
+          "end": 17.9
+        },
+        {
+          "text": "source",
+          "start": 17.93,
+          "end": 18.290001
+        },
+        {
+          "text": "of",
+          "start": 18.290001,
+          "end": 18.450001
+        },
+        {
+          "text": "truth",
+          "start": 18.49,
+          "end": 18.93
+        },
+        {
+          "text": "with",
+          "start": 19.190001,
+          "end": 19.68
+        },
+        {
+          "text": "JSON",
+          "start": 20.02,
+          "end": 20.719999
+        },
+        {
+          "text": "and",
+          "start": 20.83,
+          "end": 21.02
+        },
+        {
+          "text": "YAML",
+          "start": 21.52,
+          "end": 22.35
+        },
+        {
+          "text": "instances",
+          "start": 22.52,
+          "end": 22.709999
+        },
+        {
+          "text": "You",
+          "start": 22.709999,
+          "end": 22.959999
+        },
+        {
+          "text": "ran",
+          "start": 22.959999,
+          "end": 23.26
+        },
+        {
+          "text": "them",
+          "start": 23.26,
+          "end": 23.459999
+        },
+        {
+          "text": "in",
+          "start": 23.459999,
+          "end": 23.709999
+        },
+        {
+          "text": "one",
+          "start": 24.370001,
+          "end": 24.48
+        },
+        {
+          "text": "repo",
+          "start": 24.969999,
+          "end": 25.26
+        },
+        {
+          "text": "-",
+          "start": 26,
+          "end": 26.379999
+        },
+        {
+          "text": "netops_iac_lab",
+          "start": 26.77,
+          "end": 27.08
+        },
+        {
+          "text": "-",
+          "start": 27.27,
+          "end": 27.46
+        },
+        {
+          "text": "not",
+          "start": 27.46,
+          "end": 27.65
+        },
+        {
+          "text": "as",
+          "start": 27.76,
+          "end": 27.9
+        },
+        {
+          "text": "separate",
+          "start": 27.9,
+          "end": 27.9349995
+        },
+        {
+          "text": "demos",
+          "start": 27.9349995,
+          "end": 27.969999
+        },
+        {
+          "text": "Course",
+          "start": 28.09,
+          "end": 28.190001
+        },
+        {
+          "text": "three",
+          "start": 29.09,
+          "end": 29.2349995
+        },
+        {
+          "text": "in",
+          "start": 29.2349995,
+          "end": 29.379999
+        },
+        {
+          "text": "the",
+          "start": 29.379999,
+          "end": 29.700001
+        },
+        {
+          "text": "CCNP",
+          "start": 29.700001,
+          "end": 29.735000499999998
+        },
+        {
+          "text": "path",
+          "start": 29.735000499999998,
+          "end": 29.77
+        },
+        {
+          "text": "picks",
+          "start": 29.77,
+          "end": 29.84
+        },
+        {
+          "text": "up",
+          "start": 29.84,
+          "end": 29.955
+        },
+        {
+          "text": "the",
+          "start": 29.955,
+          "end": 30.07
+        },
+        {
+          "text": "next",
+          "start": 30.07,
+          "end": 30.75
+        },
+        {
+          "text": "certification",
+          "start": 30.83,
+          "end": 30.99
+        },
+        {
+          "text": "topics",
+          "start": 30.99,
+          "end": 31.15
+        },
+        {
+          "text": "beyond",
+          "start": 31.51,
+          "end": 31.690001
+        },
+        {
+          "text": "AUTOCOR",
+          "start": 33,
+          "end": 33.16
+        },
+        {
+          "text": "section",
+          "start": 33.16,
+          "end": 33.32
+        },
+        {
+          "text": "two",
+          "start": 33.32,
+          "end": 33.57
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 2.55,
+          "end": 4.84
+        },
+        {
+          "start": 6.17,
+          "end": 8.78
+        },
+        {
+          "start": 26.77,
+          "end": 27.969999
+        }
+      ]
+    },
+    "iac-capstone-complete": {
+      "words": [
+        {
+          "text": "You",
+          "start": 0.1,
+          "end": 0.23
+        },
+        {
+          "text": "started",
+          "start": 0.23,
+          "end": 0.72
+        },
+        {
+          "text": "course",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "text": "two",
+          "start": 1.08,
+          "end": 1.36
+        },
+        {
+          "text": "copying",
+          "start": 1.36,
+          "end": 1.81
+        },
+        {
+          "text": "configs",
+          "start": 2.7,
+          "end": 3.08
+        },
+        {
+          "text": "without",
+          "start": 3.08,
+          "end": 3.61
+        },
+        {
+          "text": "history",
+          "start": 3.85,
+          "end": 3.95
+        },
+        {
+          "text": "You",
+          "start": 3.95,
+          "end": 4.43
+        },
+        {
+          "text": "finish",
+          "start": 4.43,
+          "end": 4.61
+        },
+        {
+          "text": "with",
+          "start": 4.61,
+          "end": 5.06
+        },
+        {
+          "text": "golden",
+          "start": 5.06,
+          "end": 5.55
+        },
+        {
+          "text": "intent",
+          "start": 5.59,
+          "end": 5.82
+        },
+        {
+          "text": "in",
+          "start": 5.82,
+          "end": 6.22
+        },
+        {
+          "text": "Git",
+          "start": 6.44,
+          "end": 7.14
+        },
+        {
+          "text": "automated",
+          "start": 7.14,
+          "end": 7.68
+        },
+        {
+          "text": "pipeline",
+          "start": 7.68,
+          "end": 8.19
+        },
+        {
+          "text": "gates",
+          "start": 8.38,
+          "end": 8.93
+        },
+        {
+          "text": "Compose",
+          "start": 8.93,
+          "end": 9.1
+        },
+        {
+          "text": "and",
+          "start": 9.14,
+          "end": 9.88
+        },
+        {
+          "text": "CML",
+          "start": 9.88,
+          "end": 10.06
+        },
+        {
+          "text": "simulation",
+          "start": 10.25,
+          "end": 10.49
+        },
+        {
+          "text": "rendered",
+          "start": 10.75,
+          "end": 10.97
+        },
+        {
+          "text": "configs",
+          "start": 10.97,
+          "end": 11.19
+        },
+        {
+          "text": "from",
+          "start": 11.19,
+          "end": 11.31
+        },
+        {
+          "text": "YANG-shaped",
+          "start": 11.31,
+          "end": 11.42
+        },
+        {
+          "text": "data",
+          "start": 11.51,
+          "end": 11.6
+        },
+        {
+          "text": "and",
+          "start": 11.6,
+          "end": 12.02
+        },
+        {
+          "text": "a",
+          "start": 12.02,
+          "end": 12.38
+        },
+        {
+          "text": "capstone",
+          "start": 12.41,
+          "end": 12.53
+        },
+        {
+          "text": "change",
+          "start": 12.61,
+          "end": 12.72
+        },
+        {
+          "text": "that",
+          "start": 12.72,
+          "end": 12.97
+        },
+        {
+          "text": "flowed",
+          "start": 12.97,
+          "end": 13.03
+        },
+        {
+          "text": "branch",
+          "start": 13.03,
+          "end": 13.13
+        },
+        {
+          "text": "to",
+          "start": 13.4,
+          "end": 13.47
+        },
+        {
+          "text": "merge",
+          "start": 13.47,
+          "end": 13.73
+        },
+        {
+          "text": "to",
+          "start": 13.96,
+          "end": 14.24
+        },
+        {
+          "text": "green",
+          "start": 14.24,
+          "end": 14.82
+        },
+        {
+          "text": "post-validation",
+          "start": 14.82,
+          "end": 14.98
+        },
+        {
+          "text": "That",
+          "start": 15.1,
+          "end": 15.18
+        },
+        {
+          "text": "is",
+          "start": 15.18,
+          "end": 16.15
+        },
+        {
+          "text": "infrastructure",
+          "start": 16.15,
+          "end": 16.290001
+        },
+        {
+          "text": "as",
+          "start": 16.290001,
+          "end": 16.49
+        },
+        {
+          "text": "code",
+          "start": 16.49,
+          "end": 16.549999
+        },
+        {
+          "text": "for",
+          "start": 16.549999,
+          "end": 16.969999
+        },
+        {
+          "text": "network",
+          "start": 17.1,
+          "end": 17.82
+        },
+        {
+          "text": "automation",
+          "start": 18.120001,
+          "end": 18.280001
+        },
+        {
+          "text": "-",
+          "start": 18.889999,
+          "end": 19.24
+        },
+        {
+          "text": "the",
+          "start": 19.379999,
+          "end": 19.52
+        },
+        {
+          "text": "AUTOCOR",
+          "start": 19.629999,
+          "end": 19.84
+        },
+        {
+          "text": "section",
+          "start": 19.889999,
+          "end": 19.969999
+        },
+        {
+          "text": "two",
+          "start": 20.129999,
+          "end": 20.469999
+        },
+        {
+          "text": "story",
+          "start": 20.709999,
+          "end": 20.98
+        },
+        {
+          "text": "in",
+          "start": 20.98,
+          "end": 21.17
+        },
+        {
+          "text": "one",
+          "start": 21.780001,
+          "end": 21.83
+        },
+        {
+          "text": "lab",
+          "start": 21.83,
+          "end": 21.879999
+        },
+        {
+          "text": "Keep",
+          "start": 22.34,
+          "end": 22.450001
+        },
+        {
+          "text": "netops_iac_lab",
+          "start": 22.5,
+          "end": 22.8050005
+        },
+        {
+          "text": "as",
+          "start": 22.8050005,
+          "end": 23.110001
+        },
+        {
+          "text": "your",
+          "start": 23.110001,
+          "end": 24.42
+        },
+        {
+          "text": "reference",
+          "start": 24.42,
+          "end": 24.5649995
+        },
+        {
+          "text": "implementation",
+          "start": 24.5649995,
+          "end": 24.709999
+        },
+        {
+          "text": "Update",
+          "start": 24.870001,
+          "end": 25.620001
+        },
+        {
+          "text": "intent",
+          "start": 26.24,
+          "end": 26.3999995
+        },
+        {
+          "text": "first",
+          "start": 26.3999995,
+          "end": 26.559999
+        },
+        {
+          "text": "always",
+          "start": 26.559999,
+          "end": 26.92
+        }
+      ]
+    }
+  },
+  "lineMappings": {
+    "capstone-add-vlan-intent": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          0,
+          9
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          10,
+          37
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          10,
+          37
+        ]
+      },
+      {
+        "id": "line-4",
+        "line": 4,
+        "wordRange": [
+          10,
+          37
+        ]
+      },
+      {
+        "id": "line-5",
+        "line": 5,
+        "wordRange": [
+          10,
+          37
+        ]
+      },
+      {
+        "id": "line-6",
+        "line": 6,
+        "wordRange": [
+          10,
+          37
+        ]
+      },
+      {
+        "id": "line-7",
+        "line": 7,
+        "wordRange": [
+          10,
+          37
+        ]
+      },
+      {
+        "id": "line-8",
+        "line": 8,
+        "wordRange": [
+          10,
+          37
+        ]
+      },
+      {
+        "id": "line-9",
+        "line": 9,
+        "wordRange": [
+          38,
+          42
+        ]
+      },
+      {
+        "id": "line-10",
+        "line": 10,
+        "wordRange": [
+          43,
+          45
+        ]
+      },
+      {
+        "id": "line-11",
+        "line": 11,
+        "wordRange": [
+          46,
+          78
+        ]
+      }
+    ],
+    "capstone-local-prevalidation": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          0,
+          18
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          0,
+          18
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          0,
+          18
+        ]
+      },
+      {
+        "id": "line-4",
+        "line": 4,
+        "wordRange": [
+          41,
+          70
+        ]
+      }
+    ],
+    "capstone-read-pipeline-logs": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          9,
+          13
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          14,
+          26
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          27,
+          65
+        ]
+      },
+      {
+        "id": "line-4",
+        "line": 4,
+        "wordRange": [
+          27,
+          65
+        ]
+      },
+      {
+        "id": "line-5",
+        "line": 5,
+        "wordRange": [
+          27,
+          65
+        ]
+      },
+      {
+        "id": "line-6",
+        "line": 6,
+        "wordRange": [
+          27,
+          65
+        ]
+      }
+    ],
+    "capstone-fix-pipeline-failure": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          13,
+          26
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          27,
+          41
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          42,
+          74
+        ]
+      },
+      {
+        "id": "intent",
+        "line": 4,
+        "wordRange": [
+          26,
+          26
+        ]
+      }
+    ],
+    "capstone-compose-smoke": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          0,
+          15
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          16,
+          23
+        ]
+      },
+      {
+        "id": "line-4",
+        "line": 4,
+        "wordRange": [
+          24,
+          31
+        ]
+      },
+      {
+        "id": "line-5",
+        "line": 5,
+        "wordRange": [
+          32,
+          63
+        ]
+      }
+    ],
+    "capstone-cml-check-mode": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          0,
+          13
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          14,
+          20
+        ]
+      },
+      {
+        "id": "line-4",
+        "line": 4,
+        "wordRange": [
+          21,
+          41
+        ]
+      },
+      {
+        "id": "line-5",
+        "line": 5,
+        "wordRange": [
+          42,
+          76
+        ]
+      }
+    ],
+    "capstone-merge-to-main": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          0,
+          9
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          10,
+          25
+        ]
+      },
+      {
+        "id": "line-4",
+        "line": 4,
+        "wordRange": [
+          26,
+          71
+        ]
+      }
+    ],
+    "capstone-final-verification": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          0,
+          8
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          9,
+          17
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          18,
+          26
+        ]
+      },
+      {
+        "id": "line-4",
+        "line": 4,
+        "wordRange": [
+          27,
+          62
+        ]
+      }
+    ]
+  }
+}

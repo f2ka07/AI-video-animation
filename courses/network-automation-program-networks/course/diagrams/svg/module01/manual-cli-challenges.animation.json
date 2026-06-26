@@ -1,0 +1,49 @@
+{
+  "diagram": "manual-cli-challenges.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-devices"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-devices"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-devices",
+        "viz-engineer"
+      ],
+      "dim": [
+        "viz-devices"
+      ],
+      "highlight": [
+        "viz-engineer"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-devices",
+        "viz-engineer",
+        "viz-stress"
+      ],
+      "dim": [
+        "viz-devices",
+        "viz-engineer"
+      ],
+      "highlight": [
+        "viz-stress"
+      ]
+    }
+  ]
+}

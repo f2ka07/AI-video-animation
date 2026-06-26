@@ -1,0 +1,68 @@
+{
+  "diagram": "logging-architecture-components.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-source"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-source"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-source",
+        "viz-agent"
+      ],
+      "dim": [
+        "viz-source"
+      ],
+      "highlight": [
+        "viz-agent"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-source",
+        "viz-agent",
+        "viz-store"
+      ],
+      "dim": [
+        "viz-source",
+        "viz-agent"
+      ],
+      "highlight": [
+        "viz-store"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-source",
+        "viz-agent",
+        "viz-store",
+        "viz-query"
+      ],
+      "dim": [
+        "viz-source",
+        "viz-agent",
+        "viz-store"
+      ],
+      "highlight": [
+        "viz-query"
+      ]
+    }
+  ]
+}

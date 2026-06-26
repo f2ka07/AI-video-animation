@@ -1,0 +1,137 @@
+{
+  "diagram": "certification-alignment-full-course.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-badge"
+      ]
+    },
+    {
+      "start": 1.7142857142857142,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge",
+        "viz-m1"
+      ],
+      "dim": [
+        "viz-badge"
+      ],
+      "highlight": [
+        "viz-m1"
+      ]
+    },
+    {
+      "start": 3.4285714285714284,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge",
+        "viz-m1",
+        "viz-m2"
+      ],
+      "dim": [
+        "viz-badge",
+        "viz-m1"
+      ],
+      "highlight": [
+        "viz-m2"
+      ]
+    },
+    {
+      "start": 5.142857142857142,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge",
+        "viz-m1",
+        "viz-m2",
+        "viz-m3"
+      ],
+      "dim": [
+        "viz-badge",
+        "viz-m1",
+        "viz-m2"
+      ],
+      "highlight": [
+        "viz-m3"
+      ]
+    },
+    {
+      "start": 6.857142857142857,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge",
+        "viz-m1",
+        "viz-m2",
+        "viz-m3",
+        "viz-m4"
+      ],
+      "dim": [
+        "viz-badge",
+        "viz-m1",
+        "viz-m2",
+        "viz-m3"
+      ],
+      "highlight": [
+        "viz-m4"
+      ]
+    },
+    {
+      "start": 8.571428571428571,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge",
+        "viz-m1",
+        "viz-m2",
+        "viz-m3",
+        "viz-m4",
+        "viz-m5"
+      ],
+      "dim": [
+        "viz-badge",
+        "viz-m1",
+        "viz-m2",
+        "viz-m3",
+        "viz-m4"
+      ],
+      "highlight": [
+        "viz-m5"
+      ]
+    },
+    {
+      "start": 10.285714285714285,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge",
+        "viz-m1",
+        "viz-m2",
+        "viz-m3",
+        "viz-m4",
+        "viz-m5",
+        "viz-skill"
+      ],
+      "dim": [
+        "viz-badge",
+        "viz-m1",
+        "viz-m2",
+        "viz-m3",
+        "viz-m4",
+        "viz-m5"
+      ],
+      "highlight": [
+        "viz-skill"
+      ]
+    }
+  ]
+}

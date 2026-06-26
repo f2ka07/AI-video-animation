@@ -1,0 +1,112 @@
+{
+  "diagram": "course-complete-enterprise-automation.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-cli"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-cli"
+      ]
+    },
+    {
+      "start": 2,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-cli",
+        "viz-py"
+      ],
+      "dim": [
+        "viz-cli"
+      ],
+      "highlight": [
+        "viz-py"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-cli",
+        "viz-py",
+        "viz-api"
+      ],
+      "dim": [
+        "viz-cli",
+        "viz-py"
+      ],
+      "highlight": [
+        "viz-api"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-cli",
+        "viz-py",
+        "viz-api",
+        "viz-ans"
+      ],
+      "dim": [
+        "viz-cli",
+        "viz-py",
+        "viz-api"
+      ],
+      "highlight": [
+        "viz-ans"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-cli",
+        "viz-py",
+        "viz-api",
+        "viz-ans",
+        "viz-cap"
+      ],
+      "dim": [
+        "viz-cli",
+        "viz-py",
+        "viz-api",
+        "viz-ans"
+      ],
+      "highlight": [
+        "viz-cap"
+      ]
+    },
+    {
+      "start": 10,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-cli",
+        "viz-py",
+        "viz-api",
+        "viz-ans",
+        "viz-cap",
+        "viz-habits"
+      ],
+      "dim": [
+        "viz-cli",
+        "viz-py",
+        "viz-api",
+        "viz-ans",
+        "viz-cap"
+      ],
+      "highlight": [
+        "viz-habits"
+      ]
+    }
+  ]
+}

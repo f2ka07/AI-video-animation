@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Think, Act, Observe">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    <text x="48" y="52" fill="#049FD9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" letter-spacing="0.14em">LOOP</text>
+    <text x="48" y="74" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="800">Decide · call tool · feed result back</text>
+    
+    <g id="viz-think"><circle cx="200" cy="210" r="40" fill="#082f49" stroke="#12b5e5" stroke-width="3"/>
+      <text x="200" y="216" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" text-anchor="middle">Think</text></g>
+    <line x1="240" y1="210" x2="310" y2="210" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <g id="viz-act"><circle cx="360" cy="210" r="40" fill="#163119" stroke="#6CC04A" stroke-width="3"/>
+      <text x="360" y="216" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" text-anchor="middle">Act</text></g>
+    <line x1="400" y1="210" x2="470" y2="210" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <g id="viz-observe"><circle cx="520" cy="210" r="40" fill="#3a2508" stroke="#f59e0b" stroke-width="3"/>
+      <text x="520" y="216" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" text-anchor="middle">Observe</text></g>
+    <path d="M520 250 Q360 320 200 250" fill="none" stroke="#a78bfa" stroke-width="2" stroke-dasharray="6 5"/>
+  </g>
+</svg>

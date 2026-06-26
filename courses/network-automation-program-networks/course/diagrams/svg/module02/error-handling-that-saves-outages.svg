@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="try / except protects production">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    <g id="viz-try">
+      <rect x="100" y="100" width="200" height="180" rx="16" fill="#112115" stroke="#6CC04A" stroke-width="2"/>
+      <text x="200" y="130" fill="#6CC04A" font-family="monospace" font-size="13" font-weight="700" text-anchor="middle">try:</text>
+      <text x="120" y="158" fill="#9fb3c8" font-family="monospace" font-size="11">conn = ConnectHandler(...)</text>
+      <text x="120" y="178" fill="#9fb3c8" font-family="monospace" font-size="11">conn.send_config_set(...)</text>
+      <text x="120" y="198" fill="#9fb3c8" font-family="monospace" font-size="11">print(output)</text>
+    </g>
+    <line x1="300" y1="190" x2="360" y2="190" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <g id="viz-except">
+      <rect x="360" y="100" width="200" height="180" rx="16" fill="#1a1215" stroke="#ef4444" stroke-width="2"/>
+      <text x="460" y="130" fill="#ef4444" font-family="monospace" font-size="13" font-weight="700" text-anchor="middle">except:</text>
+      <text x="380" y="165" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11">Log which host failed</text>
+      <text x="380" y="188" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11">Print clear error message</text>
+      <text x="380" y="211" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11">conn.disconnect()</text>
+    </g>
+    <g id="viz-finally">
+      <rect x="200" y="310" width="272" height="50" rx="12" fill="#081827" stroke="#f59e0b" stroke-width="2"/>
+      <text x="336" y="342" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700" text-anchor="middle">Never blind-retry without reading the error</text>
+    </g>
+  </g>
+</svg>

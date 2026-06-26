@@ -1,0 +1,49 @@
+{
+  "diagram": "conversational-agent-plain-language.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-user"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-user"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-user",
+        "viz-chat"
+      ],
+      "dim": [
+        "viz-user"
+      ],
+      "highlight": [
+        "viz-chat"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-user",
+        "viz-chat",
+        "viz-tools"
+      ],
+      "dim": [
+        "viz-user",
+        "viz-chat"
+      ],
+      "highlight": [
+        "viz-tools"
+      ]
+    }
+  ]
+}

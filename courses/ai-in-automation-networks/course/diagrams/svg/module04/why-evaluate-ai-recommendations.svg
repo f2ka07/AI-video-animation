@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Why Evaluate AI Output">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    
+    <text x="48" y="52" fill="#049FD9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" letter-spacing="0.14em">WHY MEASURE</text>
+    <text x="48" y="74" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="800">Accuracy is not a vibe check</text>
+    <g id="viz-trust">
+    <rect x="48" y="100" width="296" height="160" rx="16" fill="#081827" stroke="#f59e0b" stroke-width="2"/>
+    <text x="196" y="128" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Sounds smart</text>
+    <text x="196" y="140" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">Confident natural language</text>
+      <text x="196" y="162" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">Operators may trust tone</text>
+      <text x="196" y="244" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">May still be wrong</text>
+  </g>
+    <g id="viz-prove">
+    <rect x="376" y="100" width="296" height="160" rx="16" fill="#112115" stroke="#6CC04A" stroke-width="2"/>
+    <text x="524" y="128" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Measured score</text>
+    <text x="524" y="140" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">golden_qa.jsonl</text>
+      <text x="524" y="162" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">Re-run on model change</text>
+      <text x="524" y="244" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">Regression before prod</text>
+  </g>
+  </g>
+</svg>

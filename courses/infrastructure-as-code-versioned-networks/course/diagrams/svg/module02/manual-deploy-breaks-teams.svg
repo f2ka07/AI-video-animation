@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="Manual deploy problems">
+  <rect width="800" height="900" fill="#071525"/>
+  <text x="40" y="52" fill="#ef4444" font-family="Inter,sans-serif" font-size="13" font-weight="800" letter-spacing=".16em">RISK</text>
+  <text x="40" y="96" fill="#fff" font-family="Inter,sans-serif" font-size="28" font-weight="800">Manual ansible-playbook</text>
+  <g transform="translate(400 380)">
+    <rect x="-260" y="-90" width="520" height="180" rx="16" fill="#450a0a" stroke="#ef4444" stroke-width="2"/>
+    <text y="-30" text-anchor="middle" fill="#fca5a5" font-family="Inter,sans-serif" font-size="15">Forgot git pull on jump host</text>
+    <text y="0" text-anchor="middle" fill="#fca5a5" font-family="Inter,sans-serif" font-size="15">Skipped yamllint before prod</text>
+    <text y="30" text-anchor="middle" fill="#fca5a5" font-family="Inter,sans-serif" font-size="15">No shared job log</text>
+  </g>
+  <text x="400" y="580" text-anchor="middle" fill="#94a3b8" font-family="Inter,sans-serif" font-size="14">Pipeline replaces guesswork with defined stages</text>
+</svg>

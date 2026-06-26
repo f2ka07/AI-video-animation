@@ -1,0 +1,68 @@
+{
+  "diagram": "what-automation-means.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-step-1"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-step-1"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-step-1",
+        "viz-step-2"
+      ],
+      "dim": [
+        "viz-step-1"
+      ],
+      "highlight": [
+        "viz-step-2"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-step-1",
+        "viz-step-2",
+        "viz-step-3"
+      ],
+      "dim": [
+        "viz-step-1",
+        "viz-step-2"
+      ],
+      "highlight": [
+        "viz-step-3"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-step-1",
+        "viz-step-2",
+        "viz-step-3",
+        "viz-step-4"
+      ],
+      "dim": [
+        "viz-step-1",
+        "viz-step-2",
+        "viz-step-3"
+      ],
+      "highlight": [
+        "viz-step-4"
+      ]
+    }
+  ]
+}

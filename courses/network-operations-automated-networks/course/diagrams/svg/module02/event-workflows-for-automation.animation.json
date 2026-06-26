@@ -1,0 +1,49 @@
+{
+  "diagram": "event-workflows-for-automation.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-trigger"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-trigger"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-trigger",
+        "viz-enrich"
+      ],
+      "dim": [
+        "viz-trigger"
+      ],
+      "highlight": [
+        "viz-enrich"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-trigger",
+        "viz-enrich",
+        "viz-action"
+      ],
+      "dim": [
+        "viz-trigger",
+        "viz-enrich"
+      ],
+      "highlight": [
+        "viz-action"
+      ]
+    }
+  ]
+}

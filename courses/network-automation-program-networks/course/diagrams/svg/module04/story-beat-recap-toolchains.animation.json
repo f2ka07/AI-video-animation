@@ -1,0 +1,89 @@
+{
+  "diagram": "story-beat-recap-toolchains.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-check-1"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-check-1"
+      ]
+    },
+    {
+      "start": 2.4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-check-1",
+        "viz-check-2"
+      ],
+      "dim": [
+        "viz-check-1"
+      ],
+      "highlight": [
+        "viz-check-2"
+      ]
+    },
+    {
+      "start": 4.8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-check-1",
+        "viz-check-2",
+        "viz-check-3"
+      ],
+      "dim": [
+        "viz-check-1",
+        "viz-check-2"
+      ],
+      "highlight": [
+        "viz-check-3"
+      ]
+    },
+    {
+      "start": 7.199999999999999,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-check-1",
+        "viz-check-2",
+        "viz-check-3",
+        "viz-check-4"
+      ],
+      "dim": [
+        "viz-check-1",
+        "viz-check-2",
+        "viz-check-3"
+      ],
+      "highlight": [
+        "viz-check-4"
+      ]
+    },
+    {
+      "start": 9.6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-check-1",
+        "viz-check-2",
+        "viz-check-3",
+        "viz-check-4",
+        "viz-check-5"
+      ],
+      "dim": [
+        "viz-check-1",
+        "viz-check-2",
+        "viz-check-3",
+        "viz-check-4"
+      ],
+      "highlight": [
+        "viz-check-5"
+      ]
+    }
+  ]
+}

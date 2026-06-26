@@ -1,0 +1,68 @@
+{
+  "diagram": "apis-programmability-ready.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-ssh"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-ssh"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-ssh",
+        "viz-rest"
+      ],
+      "dim": [
+        "viz-ssh"
+      ],
+      "highlight": [
+        "viz-rest"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-ssh",
+        "viz-rest",
+        "viz-tools"
+      ],
+      "dim": [
+        "viz-ssh",
+        "viz-rest"
+      ],
+      "highlight": [
+        "viz-tools"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-ssh",
+        "viz-rest",
+        "viz-tools",
+        "viz-habit"
+      ],
+      "dim": [
+        "viz-ssh",
+        "viz-rest",
+        "viz-tools"
+      ],
+      "highlight": [
+        "viz-habit"
+      ]
+    }
+  ]
+}

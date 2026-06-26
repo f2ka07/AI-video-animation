@@ -1,0 +1,49 @@
+{
+  "diagram": "http-errors-and-pagination.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-4xx"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-4xx"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-4xx",
+        "viz-5xx"
+      ],
+      "dim": [
+        "viz-4xx"
+      ],
+      "highlight": [
+        "viz-5xx"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-4xx",
+        "viz-5xx",
+        "viz-pages"
+      ],
+      "dim": [
+        "viz-4xx",
+        "viz-5xx"
+      ],
+      "highlight": [
+        "viz-pages"
+      ]
+    }
+  ]
+}

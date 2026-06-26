@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Resume Modules 1–4">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    
+    <text x="48" y="52" fill="#049FD9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" letter-spacing="0.14em">PREREQS</text>
+    <text x="48" y="74" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="800">Green before you start</text>
+    <g id="viz-pre1"><rect x="60" y="150" width="180" height="64" rx="12" fill="#081827" stroke="#a78bfa" stroke-width="2"/>
+      <text x="150" y="182" fill="#a78bfa" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">Governed playbook</text>
+      <text x="150" y="200" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="9" text-anchor="middle">lint + check mode</text></g>
+    <g id="viz-pre2"><rect x="270" y="150" width="180" height="64" rx="12" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+      <text x="360" y="182" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">MCP + agent</text>
+      <text x="360" y="200" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="9" text-anchor="middle">list_vlans · run_turn</text></g>
+    <g id="viz-pre3"><rect x="480" y="150" width="180" height="64" rx="12" fill="#081827" stroke="#f59e0b" stroke-width="2"/>
+      <text x="570" y="182" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">run_eval.py score</text>
+      <text x="570" y="200" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="9" text-anchor="middle">venv-mcp active</text></g>
+  </g>
+</svg>

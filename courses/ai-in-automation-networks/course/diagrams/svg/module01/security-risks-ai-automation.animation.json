@@ -1,0 +1,49 @@
+{
+  "diagram": "security-risks-ai-automation.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-inject"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-inject"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-inject",
+        "viz-priv"
+      ],
+      "dim": [
+        "viz-inject"
+      ],
+      "highlight": [
+        "viz-priv"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-inject",
+        "viz-priv",
+        "viz-exfil"
+      ],
+      "dim": [
+        "viz-inject",
+        "viz-priv"
+      ],
+      "highlight": [
+        "viz-exfil"
+      ]
+    }
+  ]
+}

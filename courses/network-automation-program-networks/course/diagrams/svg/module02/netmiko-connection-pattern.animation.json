@@ -1,0 +1,89 @@
+{
+  "diagram": "netmiko-connection-pattern.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-step-1"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-step-1"
+      ]
+    },
+    {
+      "start": 2.4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-step-1",
+        "viz-step-2"
+      ],
+      "dim": [
+        "viz-step-1"
+      ],
+      "highlight": [
+        "viz-step-2"
+      ]
+    },
+    {
+      "start": 4.8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-step-1",
+        "viz-step-2",
+        "viz-step-3"
+      ],
+      "dim": [
+        "viz-step-1",
+        "viz-step-2"
+      ],
+      "highlight": [
+        "viz-step-3"
+      ]
+    },
+    {
+      "start": 7.199999999999999,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-step-1",
+        "viz-step-2",
+        "viz-step-3",
+        "viz-step-4"
+      ],
+      "dim": [
+        "viz-step-1",
+        "viz-step-2",
+        "viz-step-3"
+      ],
+      "highlight": [
+        "viz-step-4"
+      ]
+    },
+    {
+      "start": 9.6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-step-1",
+        "viz-step-2",
+        "viz-step-3",
+        "viz-step-4",
+        "viz-switch"
+      ],
+      "dim": [
+        "viz-step-1",
+        "viz-step-2",
+        "viz-step-3",
+        "viz-step-4"
+      ],
+      "highlight": [
+        "viz-switch"
+      ]
+    }
+  ]
+}

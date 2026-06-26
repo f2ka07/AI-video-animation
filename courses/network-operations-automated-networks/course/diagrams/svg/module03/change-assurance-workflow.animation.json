@@ -1,0 +1,68 @@
+{
+  "diagram": "change-assurance-workflow.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-step1"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-step1"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-step1",
+        "viz-step2"
+      ],
+      "dim": [
+        "viz-step1"
+      ],
+      "highlight": [
+        "viz-step2"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-step1",
+        "viz-step2",
+        "viz-step3"
+      ],
+      "dim": [
+        "viz-step1",
+        "viz-step2"
+      ],
+      "highlight": [
+        "viz-step3"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-step1",
+        "viz-step2",
+        "viz-step3",
+        "viz-step4"
+      ],
+      "dim": [
+        "viz-step1",
+        "viz-step2",
+        "viz-step3"
+      ],
+      "highlight": [
+        "viz-step4"
+      ]
+    }
+  ]
+}

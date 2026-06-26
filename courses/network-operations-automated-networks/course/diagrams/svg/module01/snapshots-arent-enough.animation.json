@@ -1,0 +1,49 @@
+{
+  "diagram": "snapshots-arent-enough.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-snapshot"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-snapshot"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-snapshot",
+        "viz-stream"
+      ],
+      "dim": [
+        "viz-snapshot"
+      ],
+      "highlight": [
+        "viz-stream"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-snapshot",
+        "viz-stream",
+        "viz-objective"
+      ],
+      "dim": [
+        "viz-snapshot",
+        "viz-stream"
+      ],
+      "highlight": [
+        "viz-objective"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "diagram": "declarative-vs-imperative.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-switch"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-switch"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-switch",
+        "viz-declarative"
+      ],
+      "dim": [
+        "viz-switch"
+      ],
+      "highlight": [
+        "viz-declarative"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-switch",
+        "viz-declarative",
+        "viz-imperative"
+      ],
+      "dim": [
+        "viz-switch",
+        "viz-declarative"
+      ],
+      "highlight": [
+        "viz-imperative"
+      ]
+    }
+  ]
+}

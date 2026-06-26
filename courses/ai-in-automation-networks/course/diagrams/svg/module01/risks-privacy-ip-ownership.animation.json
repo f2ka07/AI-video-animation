@@ -1,0 +1,32 @@
+{
+  "diagram": "risks-privacy-ip-ownership.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-privacy"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-privacy"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-privacy",
+        "viz-ip"
+      ],
+      "dim": [
+        "viz-privacy"
+      ],
+      "highlight": [
+        "viz-ip"
+      ]
+    }
+  ]
+}

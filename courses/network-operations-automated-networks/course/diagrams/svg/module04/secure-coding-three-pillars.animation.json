@@ -1,0 +1,49 @@
+{
+  "diagram": "secure-coding-three-pillars.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-p1"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-p1"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-p1",
+        "viz-p2"
+      ],
+      "dim": [
+        "viz-p1"
+      ],
+      "highlight": [
+        "viz-p2"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-p1",
+        "viz-p2",
+        "viz-p3"
+      ],
+      "dim": [
+        "viz-p1",
+        "viz-p2"
+      ],
+      "highlight": [
+        "viz-p3"
+      ]
+    }
+  ]
+}

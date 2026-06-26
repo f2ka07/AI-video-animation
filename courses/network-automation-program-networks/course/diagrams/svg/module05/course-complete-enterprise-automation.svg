@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Course complete">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    <g id="viz-journey">
+      <g id="viz-cli">
+    <rect x="40" y="200" width="90" height="64" rx="14" fill="#081827" stroke="#ef4444" stroke-width="2"/>
+    <text x="85" y="237" fill="#ef4444" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700" text-anchor="middle">CLI</text>
+  </g>
+      <line x1="130" y1="232" x2="160" y2="232" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+      <g id="viz-py">
+    <rect x="160" y="200" width="90" height="64" rx="14" fill="#081827" stroke="#f59e0b" stroke-width="2"/>
+    <text x="205" y="237" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">Python</text>
+  </g>
+      <line x1="250" y1="232" x2="280" y2="232" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+      <g id="viz-api">
+    <rect x="280" y="200" width="90" height="64" rx="14" fill="#081827" stroke="#6CC04A" stroke-width="2"/>
+    <text x="325" y="237" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700" text-anchor="middle">APIs</text>
+  </g>
+      <line x1="370" y1="232" x2="400" y2="232" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+      <g id="viz-ans">
+    <rect x="400" y="200" width="90" height="64" rx="14" fill="#081827" stroke="#a78bfa" stroke-width="2"/>
+    <text x="445" y="237" fill="#a78bfa" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">Ansible</text>
+  </g>
+      <line x1="490" y1="232" x2="520" y2="232" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+      <g id="viz-cap">
+    <rect x="520" y="200" width="120" height="64" rx="14" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+    <text x="580" y="237" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">Branch lab</text>
+  </g>
+    </g>
+    <g id="viz-habits">
+      <rect x="100" y="310" width="472" height="70" rx="14" fill="#081827" stroke="#6CC04A" stroke-width="2"/>
+      <text x="336" y="338" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Hireable habits</text>
+      <text x="336" y="360" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">Version in Git · check mode · GET before PATCH · verify output</text>
+    </g>
+  </g>
+</svg>

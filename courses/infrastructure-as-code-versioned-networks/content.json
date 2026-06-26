@@ -1,0 +1,1627 @@
+{
+  "courseName": "Infrastructure as Code: Build Reproducible and Versioned Networks",
+  "courseId": "infrastructure-as-code-versioned-networks",
+  "modules": [
+    {
+      "moduleNumber": 1,
+      "title": "Git for Infrastructure",
+      "subtitle": "Version Control for Network Intent",
+      "slides": [
+        {
+          "name": "saving-configs-is-not-enough",
+          "type": "title",
+          "script": "Course one showed you how to automate VLANs, APIs, and Ansible playbooks. Course two asks a different question: where do those files live, and how do you know which version ran on the network last Tuesday? Saving running-config dot txt on a share drive is not infrastructure as code. Two engineers editing the same YAML without history is how outages start. Git tracks every change, who made it, and lets you roll back safely. This module teaches Git the way network teams use it — branches for features, merges for production, revert when a change was wrong. Exam objective two point one lives here. No prior Git experience required if you can follow a CCNA lab step by step.",
+          "title": "Saved Configs Are Not IaC",
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module01/saving-configs-is-not-enough.svg"
+        },
+        {
+          "name": "when-copy-paste-breaks-teams",
+          "type": "content-two-card",
+          "script": "Without version control, teams email config snippets, rename files switch-final-v3 dot yaml, and lose track of what deployed where. You cannot see who changed the OSPF network statement. You cannot undo one bad commit without hand-editing. Git gives you a timeline of changes — each commit is a labeled snapshot you can compare, merge, or revert. That is the foundation for CI/CD in module two and source of truth in module four. If this sounds abstract, the lab stores a simple VLAN YAML file in Git and walks every command on screen.",
+          "title": "What Breaks Without Version Control",
+          "points": [
+            "Copy-paste and email lose deploy tracking",
+            "No history of who changed each line",
+            "Git commits are labeled revertible snapshots"
+          ],
+          "keyPhrases": [
+            "email config snippets",
+            "who changed the OSPF",
+            "labeled snapshot"
+          ],
+          "useManualPoints": true,
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module01/when-copy-paste-breaks-teams.svg"
+        },
+        {
+          "name": "what-git-does-plain-language",
+          "type": "content-single",
+          "script": "Git is a version control tool that watches a folder on your computer. You mark snapshots with git commit and a short message — like save points in a game. You can create branches to try a VLAN change without touching main. You can merge a branch when the change is ready. You can revert a bad commit or reset your working copy if you made a mistake locally. You do not need to memorize fifty commands on day one. This module focuses on the handful the CCNP Automation exam tests: merge, cherry-pick, reset, checkout, and revert.",
+          "title": "Git in Plain Language",
+          "points": [
+            "Git watches a folder on disk",
+            "git commit marks labeled save points",
+            "Exam: merge, cherry-pick, reset, revert"
+          ],
+          "keyPhrases": [
+            "version control tool watches a folder",
+            "git commit and a short message",
+            "merge cherry-pick reset checkout revert"
+          ],
+          "useManualPoints": true,
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module01/what-git-does-plain-language.svg"
+        },
+        {
+          "name": "folder-vs-repository",
+          "type": "comparison",
+          "script": "A normal folder is just files on disk — delete a line and the old text is gone unless you made a copy. A Git repository is that same folder plus a hidden dot git directory that stores every commit you ever made. You still edit files in your editor. Git records what changed when you commit. git status shows files Git is tracking. git log shows past commits. For network automation, the repository holds intended YAML or JSON — VLAN lists, interface data, playbook inventory — not live running config scraped without review.",
+          "title": "Folder vs Git Repository",
+          "leftTitle": "Plain folder",
+          "leftItems": [
+            "Files on disk only",
+            "No history built into folder",
+            "Manual copies for backups"
+          ],
+          "rightTitle": "Git repository",
+          "rightItems": [
+            "Same files plus .git history",
+            "Every commit stored forever",
+            "Compare, merge, and roll back"
+          ],
+          "comparisonCues": {
+            "left": [
+              "files on disk",
+              "delete a line",
+              "made a copy"
+            ],
+            "right": [
+              "dot git directory",
+              "every commit",
+              "git log shows"
+            ]
+          },
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module01/folder-vs-repository.svg",
+          "keyPhrases": [
+            "delete a line",
+            "dot git directory",
+            "intended YAML not running config"
+          ]
+        },
+        {
+          "name": "commits-as-save-points",
+          "type": "content-single",
+          "script": "A commit captures three things: the file changes, a message describing why, and metadata like author and timestamp. Good commit messages read like change tickets — add VLAN one hundred to intended vlans dot yaml, not fixed stuff. Before each commit you stage files with git add so Git knows what to include. git commit minus m stores the snapshot. Small commits are easier to revert and cherry-pick than one giant commit mixing VLAN, routing, and ACL changes. Network teams treat commits like code review units — one logical change per commit.",
+          "title": "Commits Are Save Points",
+          "points": [
+            "Changes, message, author, timestamp",
+            "Stage files with git add first",
+            "One logical change per commit"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module01/commits-as-save-points.svg",
+          "keyPhrases": [
+            "change tickets",
+            "git add staging",
+            "one logical change"
+          ]
+        },
+        {
+          "name": "main-branch-vs-feature-branch",
+          "type": "comparison",
+          "script": "The main branch — sometimes called master — holds the approved intended state your team trusts. A feature branch is a copy of that history where you experiment: add VLAN two hundred, test in lab, open a merge request. While you work on the branch, main stays unchanged. When lab validation passes, you merge the feature branch into main. That pattern keeps production intent stable while engineers iterate. Module two CI/CD pipelines often trigger only on merges to main — another reason to understand branching now.",
+          "title": "Main Branch vs Feature Branch",
+          "leftTitle": "main",
+          "leftItems": [
+            "Approved team intended state",
+            "CI/CD deploys from main branch",
+            "Protected production branch always"
+          ],
+          "rightTitle": "feature branch",
+          "rightItems": [
+            "Isolated experiment branch copy",
+            "Safe to break temporarily",
+            "Merged after lab validation passes"
+          ],
+          "comparisonCues": {
+            "left": [
+              "approved intended state",
+              "merges to main",
+              "pattern keeps production"
+            ],
+            "right": [
+              "feature branch is a copy",
+              "main stays unchanged",
+              "lab validation passes"
+            ]
+          },
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module01/main-branch-vs-feature-branch.svg",
+          "keyPhrases": [
+            "approved intended state",
+            "main stays unchanged",
+            "merge when validated"
+          ]
+        },
+        {
+          "name": "merge-and-conflicts-explained",
+          "type": "content-two-card",
+          "script": "git merge combines two branches. If only one branch edited a file, Git merges automatically — often called a fast-forward when main simply moves forward. If both branches edited the same line, Git stops and marks a conflict inside the file with angle bracket markers. You edit the file to keep the correct lines, remove the markers, git add the fixed file, and git commit to finish the merge. Exam objective two point one includes squash merge and conflict resolution — you will practice both in the lab. Never commit conflict markers left in YAML; Ansible and pipelines will fail parsing.",
+          "title": "Merge and Conflict Resolution",
+          "points": [
+            "One branch edited: auto-merge",
+            "Same line edited: conflict markers",
+            "Fix file, git add, commit merge"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module01/merge-and-conflicts-explained.svg",
+          "keyPhrases": [
+            "fast-forward merge",
+            "angle bracket markers",
+            "squash merge exam 2.1a"
+          ]
+        },
+        {
+          "name": "reset-revert-cherry-pick-checkout",
+          "type": "content-single",
+          "script": "Four commands the exam expects you to know beyond merge. git cherry-pick copies one specific commit from another branch onto your current branch — useful when you need a hotfix without merging everything. git revert creates a new commit that undoes a past commit — safe on shared main because history stays intact. git reset moves your branch pointer backward — soft reset keeps file changes staged; hard reset discards them — use carefully. git checkout switches branches or restores a file from a commit — exam two point one dot d. The lab runs each command on the same sample VLAN file so you see the effect.",
+          "title": "Four Commands for the Exam",
+          "points": [
+            "cherry-pick: one commit onto branch",
+            "revert: safe undo on shared main",
+            "reset and checkout restore branch or file"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module01/reset-revert-cherry-pick-checkout.svg",
+          "keyPhrases": [
+            "hotfix without merging everything",
+            "history stays intact",
+            "exam 2.1d checkout"
+          ]
+        },
+        {
+          "name": "story-beat-recap-git",
+          "type": "story-beat",
+          "script": "Pause. You have seen why copy-paste configs fail teams, what Git stores, how commits and branches work, how merge conflicts are resolved, and the four exam commands cherry-pick, revert, reset, and checkout. Next we create a lab folder called netops_iac_lab, initialize Git, commit a VLAN YAML file, branch, merge, resolve a conflict, and run each command line by line. Open a terminal — WSL, Mac, or Linux — the same way you did in course one. Pause the video when you need to catch up.",
+          "beat": "recap",
+          "title": "Theory Complete — Git Lab Next",
+          "points": [
+            "Commits, branches, merge, conflicts",
+            "Cherry-pick, revert, reset, checkout",
+            "Lab: netops_iac_lab step by step"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module01/story-beat-recap-git.svg",
+          "keyPhrases": [
+            "netops_iac_lab",
+            "feature branch merge",
+            "open a terminal"
+          ]
+        },
+        {
+          "name": "lab-setup-git-for-networks",
+          "type": "content-single",
+          "script": "Welcome to the Git lab. Create a folder named netops_iac_lab on your machine — this is your infrastructure-as-code project for course two. Inside it add an intended subfolder; vlans dot yaml will hold VLAN IDs and names — the same kind of intent file Ansible or a source of truth uses later. Confirm Git is installed with git minus minus version. If the command is not found, install Git from git-scm dot com on Windows or use your package manager on Linux or Mac. This lab never touches production switches; it only exercises Git on files. Complete folder creation before the next slide.",
+          "title": "Start the Git Lab",
+          "points": [
+            "Create netops_iac_lab project folder",
+            "Add intended/vlans.yaml VLAN intent file",
+            "Confirm Git installed: git --version",
+            "Lab files only; no production switches"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module01/lab-setup-git-for-networks.svg",
+          "keyPhrases": [
+            "netops_iac_lab",
+            "intended subfolder",
+            "git --version"
+          ]
+        },
+        {
+          "name": "git-init-first-commit",
+          "type": "code",
+          "script": "Line one creates the project folder. Line two moves into it. Line three initializes an empty Git repository — Git creates the hidden dot git directory. Lines five through seven create intended slash vlans dot yaml with VLAN one hundred. Line nine adds all tracked files to the staging area. Line ten commits with a message. Line eleven shows the commit log with one entry. After this slide you have a repository with one commit on branch main — your baseline intended state.",
+          "title": "Initialize Git and First Commit",
+          "code": "mkdir netops_iac_lab && cd netops_iac_lab\ngit init\nmkdir intended\ncat > intended/vlans.yaml << 'EOF'\nvlans:\n  - id: 100\n    name: DATA_VLAN\nEOF\ngit add .\ngit commit -m \"Initial VLAN 100 intent\"\ngit log --oneline",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "create-feature-branch",
+          "type": "code",
+          "script": "Line one creates and switches to a feature branch named feature-vlan-200 — git checkout minus b is shorthand for create plus switch. Lines two through five append VLAN two hundred to the YAML file using a heredoc. Line six stages the change. Line seven commits on the feature branch only — main still has just VLAN one hundred. Line eight prints a one-line log showing both commits on this branch. Feature branches let you propose changes before merging to main.",
+          "title": "Create a Feature Branch",
+          "code": "git checkout -b feature-vlan-200\ncat >> intended/vlans.yaml << 'EOF'\n  - id: 200\n    name: VOICE_VLAN\nEOF\ngit add intended/vlans.yaml\ngit commit -m \"Add VLAN 200 intent\"\ngit log --oneline",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "merge-feature-branch",
+          "type": "code",
+          "script": "Line one switches back to main. Line two merges feature-vlan-200 into main. If Git reports already up to date, you are on the wrong branch — confirm with git branch. After a successful merge, main contains both VLAN entries. Line four shows the log — you may see a merge commit or a fast-forward depending on Git version and history. This is the workflow module two pipelines automate after code review.",
+          "title": "Merge Feature Into Main",
+          "code": "git checkout main\ngit merge feature-vlan-200\ngit log --oneline\ncat intended/vlans.yaml",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "resolve-merge-conflict",
+          "type": "code",
+          "script": "Conflicts happen when two branches edit the same lines. Line one creates branch experiment. Line two changes VLAN one hundred name to DATA_VLAN_LAB on that branch and commits. Line four returns to main. Line five edits the same line to DATA_VLAN_PROD and commits. Line seven merges experiment into main — Git stops with a conflict in vlans dot yaml. Open the file, remove conflict markers, keep the correct name, then lines nine and ten stage and commit the merge. This satisfies exam conflict resolution in two point one dot a.",
+          "title": "Resolve a Merge Conflict",
+          "code": "git checkout -b experiment\nsed -i 's/DATA_VLAN/DATA_VLAN_LAB/' intended/vlans.yaml\ngit add intended/vlans.yaml && git commit -m \"Lab name on experiment\"\ngit checkout main\nsed -i 's/DATA_VLAN/DATA_VLAN_PROD/' intended/vlans.yaml\ngit add intended/vlans.yaml && git commit -m \"Prod name on main\"\ngit merge experiment\n# edit file: remove <<<< ==== >>>> markers, pick one name\ngit add intended/vlans.yaml\ngit commit -m \"Merge experiment: resolve VLAN name conflict\"",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "git-cherry-pick-commit",
+          "type": "code",
+          "script": "Line one creates a hotfix branch from main. Line two adds a comment line to the YAML. Line three commits that change. Line four shows the commit hash from git log — copy that hash. Line five returns to main without merging the whole branch. Line six cherry-picks that single commit onto main — replace abc1234 with your actual hash from line four. Only the hotfix commit applies. Exam objective two point one dot b. Cherry-pick when you need one fix, not the entire branch history.",
+          "title": "Cherry-Pick One Commit",
+          "code": "git checkout -b hotfix-note\necho \"# lab intent only\" >> intended/vlans.yaml\ngit add intended/vlans.yaml && git commit -m \"Add lab comment\"\ngit log --oneline -1\ngit checkout main\ngit cherry-pick abc1234",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "git-revert-commit",
+          "type": "code",
+          "script": "Line one shows recent commits. Line two reverts the most recent commit — Git creates a new commit that undoes it without erasing history. That is safer on shared main than reset. Line three confirms log shows both the original and the revert commit. Use revert when a change reached main but must be undone for production — exam two point one dot e. Revert does not delete history; auditors can still see what happened.",
+          "title": "Revert a Bad Commit",
+          "code": "git log --oneline -3\ngit revert HEAD --no-edit\ngit log --oneline -4",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "git-reset-soft",
+          "type": "code",
+          "script": "Line one makes a small edit and commits so you have something to reset. Line two runs git reset minus minus soft HEAD tilde one — moves main back one commit but keeps your file changes staged. Line three shows status — changes ready to recommit with a better message. Soft reset is for fixing the last commit message or combining staged work. Exam two point one dot c. Avoid git reset minus minus hard on shared branches — it discards work and confuses teammates.",
+          "title": "Soft Reset the Last Commit",
+          "code": "echo \"  - id: 300\" >> intended/vlans.yaml\ngit add intended/vlans.yaml && git commit -m \"WIP vlan 300\"\ngit reset --soft HEAD~1\ngit status",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "git-checkout-branch",
+          "type": "code",
+          "script": "Line one lists local branches. Line two checks out feature-vlan-200 again — exam two point one dot d. Line three prints the file so you see that branch snapshot. Line four returns to main. git checkout also restores a single file from history — git checkout main minus minus intended slash vlans dot yaml — useful when you edited a file by mistake. Know the difference between switching branches and restoring files; the exam may describe either scenario.",
+          "title": "Checkout Branches and Files",
+          "code": "git branch\ngit checkout feature-vlan-200\ncat intended/vlans.yaml\ngit checkout main",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "squash-merge-workflow",
+          "type": "bullets-code",
+          "script": "Squash merge combines many feature commits into one commit on main — exam two point one dot a. Line one merges with minus minus squash so Git collapses feature history. Line two commits the squashed result with one message. Teams use this for clean main history before CI/CD deploy. Line three shows a linear log on main. In GitLab you enable squash merge in the merge request UI; locally these two commands show the idea.",
+          "title": "Squash Merge for Clean History",
+          "points": [
+            "Squash collapses feature commits",
+            "One commit per merge on main",
+            "GitLab MR can squash automatically"
+          ],
+          "code": "git checkout main\ngit merge --squash feature-vlan-200\ngit commit -m \"Add VLAN 200 intent (squashed)\"\ngit log --oneline",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/",
+          "visibleLineRange": [
+            1,
+            4
+          ],
+          "keyPhrases": [
+            "squash merge",
+            "clean main history",
+            "exam 2.1a"
+          ]
+        },
+        {
+          "name": "certification-alignment-git",
+          "type": "content-single",
+          "script": "Module one maps to exam objective two point one — version control operations with Git. You practiced merge including squash and conflict resolution — two point one dot a. Cherry-pick — dot b. Reset — dot c. Checkout — dot d. Revert — dot e. Exam scenarios may describe a Git history diagram and ask what command fixes a situation; practice explaining each command out loud using your lab repo. Module two adds GitLab CI/CD pipelines that run when you merge to main.",
+          "title": "Exam 2.1: Git Version Control",
+          "points": [
+            "2.1a: merge, squash, conflict resolution",
+            "2.1b-e: cherry-pick, reset, checkout, revert",
+            "Explain each command from lab history"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module01/certification-alignment-git.svg",
+          "keyPhrases": [
+            "merge squash conflict",
+            "cherry-pick revert reset checkout",
+            "Git history diagram"
+          ]
+        },
+        {
+          "name": "git-ready-for-cicd",
+          "type": "story-beat",
+          "script": "You started this module saving configs without history. You finish it with a Git repository, feature branches, merges, conflict resolution, cherry-pick, revert, reset, and checkout on real files. That is the foundation infrastructure as code builds on — versioned intent before any pipeline deploys it. Module two connects this repo to GitLab CI/CD with build, prevalidation, deploy, and post-validation stages. Keep netops_iac_lab, commit often with clear messages, and never reset hard on a branch your team shares.",
+          "beat": "resolution",
+          "title": "Git Complete — CI/CD Next",
+          "points": [
+            "Repo with branches and exam commands",
+            "Versioned intent before any pipeline",
+            "Module two: GitLab CI/CD stages next"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module01/git-ready-for-cicd.svg",
+          "keyPhrases": [
+            "versioned intent",
+            "feature branches merges",
+            "never reset hard shared"
+          ]
+        }
+      ]
+    },
+    {
+      "moduleNumber": 2,
+      "title": "CI/CD for Networks",
+      "subtitle": "GitLab Pipelines for Network Automation",
+      "slides": [
+        {
+          "name": "git-to-pipeline-bridge",
+          "type": "title",
+          "script": "Module one put your VLAN intent file under Git control in netops_iac_lab. Module two answers the next question: who runs Ansible, when, and how do you prove the right version deployed? Running playbooks by hand from an engineer laptop works once — then someone runs the wrong branch at two AM. GitLab CI/CD runs the same steps every time a merge lands on main. Build installs tools. Prevalidation catches bad YAML before touch production. Deploy applies intent. Post-validation confirms the result. Exam objectives two point two and two point three live here. You do not need a production GitLab cluster for this module — GitLab dot com free tier or a local runner is enough.",
+          "title": "From Git Commits to Pipelines",
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module02/git-to-pipeline-bridge.svg"
+        },
+        {
+          "name": "manual-deploy-breaks-teams",
+          "type": "content-two-card",
+          "script": "Without a pipeline, the senior engineer SSHs to a jump host, runs ansible-playbook, and hopes they pulled main first. Nobody sees the log unless they paste it in chat. A typo in vlans dot yaml reaches switches because nobody ran a linter. Rollback means guessing which playbook ran last Tuesday. CI/CD does not replace your judgment — it automates the boring gates so humans focus on intent and approvals. The lab adds a dot gitlab-ci dot yml file to the same netops_iac_lab repo from module one.",
+          "title": "What Breaks Without CI/CD",
+          "points": [
+            "Manual ansible-playbook from jump host",
+            "Bad YAML reaches switches unchecked",
+            "Rollback means guessing last deploy"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module02/manual-deploy-breaks-teams.svg",
+          "keyPhrases": [
+            "ansible-playbook jump host",
+            "typo in vlans.yaml",
+            "gitlab-ci.yml in repo"
+          ]
+        },
+        {
+          "name": "what-cicd-does-plain-language",
+          "type": "content-single",
+          "script": "CI means continuous integration — every push or merge request triggers automated checks so broken YAML never merges quietly. CD means continuous delivery or deployment — after checks pass, the pipeline runs deploy steps on approved branches. GitLab CE stores pipeline definitions in a file called dot gitlab-ci dot yml at the repository root. GitLab reads that file and spawns jobs on runners — lightweight agents that execute your scripts. For network automation, runners often live in a DMZ or cloud VPC with reachability to device APIs or Ansible inventory.",
+          "title": "CI/CD in Plain Language",
+          "points": [
+            "CI: automated checks on every push",
+            "CD: deploy after checks pass",
+            "gitlab-ci.yml defines jobs on runners"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module02/what-cicd-does-plain-language.svg",
+          "keyPhrases": [
+            "continuous integration",
+            "gitlab-ci.yml",
+            "runners execute scripts"
+          ]
+        },
+        {
+          "name": "manual-vs-pipeline-deploy",
+          "type": "comparison",
+          "script": "Manual deploy depends on who is on call and whether they remembered git pull. A pipeline deploy depends on the dot gitlab-ci dot yml file in Git — the same file every engineer sees in code review. Manual steps are hard to audit; pipeline job logs timestamp every command. Manual rollback is panic and paste; pipeline rollback is git revert plus re-run. The exam wants you to construct the YAML stages, not memorize every GitLab UI click.",
+          "title": "Manual Deploy vs Pipeline",
+          "leftTitle": "Manual playbook run",
+          "leftItems": [
+            "Depends on engineer memory",
+            "Logs live on one laptop",
+            "Easy to skip lint or dry-run"
+          ],
+          "rightTitle": "GitLab pipeline",
+          "rightItems": [
+            "Stages defined in Git",
+            "Job logs stored in GitLab",
+            "Fails fast before deploy"
+          ],
+          "comparisonCues": {
+            "left": [
+              "remembered git pull",
+              "hard to audit",
+              "panic and paste"
+            ],
+            "right": [
+              "gitlab-ci dot yml",
+              "job logs timestamp",
+              "git revert plus re-run"
+            ]
+          },
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module02/manual-vs-pipeline-deploy.svg",
+          "keyPhrases": [
+            "remembered git pull",
+            "gitlab-ci.yml in Git",
+            "git revert plus re-run"
+          ]
+        },
+        {
+          "name": "four-pipeline-stages-exam",
+          "type": "content-single",
+          "script": "Exam objective two point three lists four stages you must know how to wire in GitLab CE. Build prepares the environment — install Python, Ansible, collections from requirements dot txt. Prevalidation checks intent before any device call — YAML lint, ansible-lint, schema checks. Deploy applies the automation — often ansible-playbook with check mode first, then live on approved branches. Post-validation confirms outcome — pytest, API polling, or a script that asserts VLANs in intent match what you expect. Names can vary; the exam cares that all four gates exist in order.",
+          "title": "Four Stages for the Exam",
+          "points": [
+            "Build: install Python and Ansible",
+            "Prevalidation: YAML lint and schema",
+            "Deploy check mode; post-validation asserts"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module02/four-pipeline-stages-exam.svg",
+          "keyPhrases": [
+            "exam 2.3 four stages",
+            "ansible-lint prevalidation",
+            "post-validation pytest API"
+          ]
+        },
+        {
+          "name": "gitlab-ci-yaml-anatomy",
+          "type": "content-two-card",
+          "script": "A dot gitlab-ci dot yml file starts with stages — an ordered list GitLab runs top to bottom. Each job has a name, a stage keyword, an image or tag for the runner environment, and a script block with shell commands. Jobs in the same stage run in parallel when runners are free. Use rules or only clauses to run deploy on main only. Artifacts pass files between jobs — for example a built virtualenv or rendered configs. Network teams keep playbooks and intent in the same repo the pipeline reads.",
+          "title": "Reading gitlab-ci.yml",
+          "points": [
+            "stages list runs top to bottom",
+            "Jobs: name, stage, image, script",
+            "rules limit deploy to main branch"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module02/gitlab-ci-yaml-anatomy.svg",
+          "keyPhrases": [
+            "ordered stages",
+            "artifacts pass files",
+            "playbooks and intent same repo"
+          ]
+        },
+        {
+          "name": "pipeline-runs-on-merge",
+          "type": "comparison",
+          "script": "Feature branches should run build and prevalidation on every push — catch lint errors before review. Deploy and post-validation often run only when code merges to main — that is your production gate. In GitLab you express this with rules minus if dollar CI_COMMIT_BRANCH equals main. Module one taught squash merge to keep main history clean; module two pipelines assume main is the trusted branch that triggers deploy. Match your team change window — pipeline schedule is code, not calendar folklore.",
+          "title": "When the Pipeline Runs",
+          "leftTitle": "Feature branch push",
+          "leftItems": [
+            "Build plus prevalidation only",
+            "No live deploy on feature",
+            "Fast feedback in merge request"
+          ],
+          "rightTitle": "Merge to main",
+          "rightItems": [
+            "All four stages on main",
+            "Deploy and post-validation run",
+            "Audit log in GitLab UI"
+          ],
+          "comparisonCues": {
+            "left": [
+              "build and prevalidation",
+              "every push",
+              "before review"
+            ],
+            "right": [
+              "merges to main",
+              "production gate",
+              "triggers deploy"
+            ]
+          },
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module02/pipeline-runs-on-merge.svg",
+          "keyPhrases": [
+            "CI_COMMIT_BRANCH equals main",
+            "squash merge clean main",
+            "production gate on merge"
+          ]
+        },
+        {
+          "name": "diagnose-pipeline-failures",
+          "type": "content-two-card",
+          "script": "Exam objective two point two asks you to diagnose GitLab CE pipeline failures. Three patterns repeat in network automation repos. Missing dependency — job log shows command not found because requirements dot txt or a pip install step was skipped. Incompatible versions — Ansible core and collection versions conflict; the log shows ERROR on module load. Failed tests — post-validation script or pytest fails an assertion even when deploy succeeded. Fix the root cause in Git, commit, push — the pipeline re-runs. Reading the failed job log beats guessing from a red X in the UI.",
+          "title": "Diagnose Pipeline Failures",
+          "points": [
+            "Missing dependency: command not found",
+            "Version conflict: pip or Ansible error",
+            "Failed tests: post-validation assertion"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module02/diagnose-pipeline-failures.svg",
+          "keyPhrases": [
+            "exam 2.2 diagnose failures",
+            "requirements.txt skipped",
+            "read first error line"
+          ]
+        },
+        {
+          "name": "story-beat-recap-cicd",
+          "type": "story-beat",
+          "script": "Pause. You have seen why manual Ansible runs fail teams, what CI and CD mean, the four exam stages build prevalidation deploy post-validation, how dot gitlab-ci dot yml is structured, when pipelines run on main, and how to read failure logs for missing deps, version clashes, and failed tests. Next we extend netops_iac_lab with requirements dot txt, a deploy playbook, a validation script, and a full GitLab pipeline file. If you skipped module one, recreate the repo with intended slash vlans dot yaml before continuing.",
+          "beat": "recap",
+          "title": "Theory Complete — CI/CD Lab Next",
+          "points": [
+            "CI/CD meaning and four exam stages",
+            "gitlab-ci.yml structure and main gates",
+            "Lab: extend netops_iac_lab pipeline"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module02/story-beat-recap-cicd.svg",
+          "keyPhrases": [
+            "build prevalidation deploy",
+            "failure logs missing deps",
+            "netops_iac_lab requirements.txt"
+          ]
+        },
+        {
+          "name": "lab-setup-cicd-for-networks",
+          "type": "content-single",
+          "script": "Open your netops_iac_lab folder from module one. Add three new pieces for CI/CD. First, requirements dot txt listing ansible-core, ansible-lint, and yamllint versions. Second, playbooks slash deploy_vlans dot yml — a playbook that reads intended slash vlans dot yaml and would push VLAN intent to devices in a real lab. Third, scripts slash validate_intent dot py — a short Python script the post-validation job runs. Create dot gitlab-ci dot yml at the repo root last, after you understand each stage. Push the repo to GitLab CE or GitLab dot com before the commit-and-push slide.",
+          "title": "Extend the Lab for CI/CD",
+          "points": [
+            "Add requirements.txt with pinned versions",
+            "Add deploy_vlans.yml VLAN playbook file",
+            "Add validate_intent.py post-validation script",
+            "Add .gitlab-ci.yml after understanding stages"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module02/lab-setup-cicd-for-networks.svg",
+          "keyPhrases": [
+            "requirements.txt ansible-core",
+            "deploy_vlans.yml",
+            "push to GitLab before commit slide"
+          ]
+        },
+        {
+          "name": "build-stage-job",
+          "type": "code",
+          "script": "Lines two through five declare the four exam stages in order. Lines seven and eight set a CI variable for Ansible. Lines ten through sixteen define job build colon dependencies — the build stage from exam two point three dot a. The Python slim image installs packages from requirements dot txt and prints ansible minus minus version in the log. Append the prevalidation, deploy, and post-validation jobs from the next slides to the same dot gitlab-ci dot yml file.",
+          "title": "Stages and Build Job",
+          "code": "---\nstages:\n  - build\n  - prevalidation\n  - deploy\n  - post-validation\n\nvariables:\n  ANSIBLE_HOST_KEY_CHECKING: \"False\"\n\nbuild:dependencies:\n  stage: build\n  image: python:3.11-slim\n  script:\n    - pip install -r requirements.txt\n    - ansible --version",
+          "language": "yaml",
+          "codeContext": "netops_iac_lab/.gitlab-ci.yml"
+        },
+        {
+          "name": "prevalidation-stage-job",
+          "type": "code",
+          "script": "Lines one through three name the prevalidation job. Lines four through seven reinstall deps — simpler lab pattern than artifacts — then run yamllint on intended slash and ansible-lint on the deploy playbook. Exam two point three dot b. If yamllint fails, fix indentation in vlans dot yaml before merge. Prevalidation is your last chance to catch syntax errors before deploy touches inventory.",
+          "title": "Prevalidation — Lint Intent",
+          "code": "prevalidate:lint:\n  stage: prevalidation\n  image: python:3.11-slim\n  script:\n    - pip install -r requirements.txt\n    - yamllint intended/\n    - ansible-lint playbooks/deploy_vlans.yml",
+          "language": "yaml",
+          "codeContext": "netops_iac_lab/.gitlab-ci.yml"
+        },
+        {
+          "name": "deploy-stage-job",
+          "type": "code",
+          "script": "Lines one through three place this job in the deploy stage. Line five uses rules so deploy runs only on main — feature branches still get build and prevalidation from earlier slides. Lines six through eight install Ansible and run ansible-playbook in check mode with diff — exam two point three dot c. Check mode shows what would change without applying. In production you add a manual approval or a second live job; the exam accepts check mode as the deploy stage demonstration.",
+          "title": "Deploy Stage — Check Mode",
+          "code": "deploy:dry-run:\n  stage: deploy\n  image: python:3.11-slim\n  rules:\n    - if: $CI_COMMIT_BRANCH == \"main\"\n  script:\n    - pip install -r requirements.txt\n    - ansible-playbook playbooks/deploy_vlans.yml --check --diff",
+          "language": "yaml",
+          "codeContext": "netops_iac_lab/.gitlab-ci.yml"
+        },
+        {
+          "name": "post-validation-stage-job",
+          "type": "code",
+          "script": "Lines one through three define post-validation. Line five limits the job to main like deploy. Lines six through eight run the Python validator against intended slash vlans dot yaml — exam two point three dot d. The script asserts required VLAN IDs exist in the file. If this job fails, deploy may have run but intent does not match policy — a failed test scenario for two point two.",
+          "title": "Post-Validation — Assert Intent",
+          "code": "postvalidate:intent:\n  stage: post-validation\n  image: python:3.11-slim\n  rules:\n    - if: $CI_COMMIT_BRANCH == \"main\"\n  script:\n    - pip install -r requirements.txt\n    - python scripts/validate_intent.py intended/vlans.yaml",
+          "language": "yaml",
+          "codeContext": "netops_iac_lab/.gitlab-ci.yml"
+        },
+        {
+          "name": "requirements-and-playbook-files",
+          "type": "code",
+          "script": "Line one creates requirements dot txt with pinned ansible-core, ansible-lint, and yamllint. Line six creates playbooks and scripts folders. Lines seven through thirteen add a minimal deploy playbook safe for check mode in CI. Lines fourteen through seventeen add validate_intent dot py — it exits non-zero if VLAN one hundred or two hundred is missing. Create these files before the dot gitlab-ci dot yml jobs from the previous slides.",
+          "title": "Supporting Lab Files",
+          "code": "cat > requirements.txt << 'EOF'\nansible-core==2.16.3\nansible-lint==24.2.0\nyamllint==1.35.1\nEOF\nmkdir -p playbooks scripts\ncat > playbooks/deploy_vlans.yml << 'EOF'\n---\n- hosts: localhost\n  connection: local\n  tasks:\n    - debug: { msg: \"check mode VLAN intent\" }\nEOF\ncat > scripts/validate_intent.py << 'EOF'\nimport sys, yaml\nids = {v[\"id\"] for v in yaml.safe_load(open(sys.argv[1]))[\"vlans\"]}\nsys.exit(0 if {100, 200} <= ids else 1)\nEOF",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "commit-and-push-pipeline",
+          "type": "code",
+          "script": "Line one stages all new CI files. Line two commits with a clear message. Line three adds GitLab as remote origin — replace the URL with your GitLab CE project URL. Line four pushes main and triggers the pipeline. Open GitLab CI/CD pipelines in the browser and watch stages turn green in order. If a job fails, click the job name and scroll the log — exam two point two starts there.",
+          "title": "Commit and Trigger Pipeline",
+          "code": "git add .gitlab-ci.yml requirements.txt playbooks/ scripts/\ngit commit -m \"Add four-stage GitLab pipeline for VLAN intent\"\ngit remote add origin https://gitlab.example.com/netops/netops_iac_lab.git\ngit push -u origin main",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "fix-missing-dependency-failure",
+          "type": "code",
+          "script": "Scenario one for exam two point two — missing dependency. Suppose someone deleted ansible-core from requirements dot txt. The build job log shows ansible colon command not found after pip install. Line one searches requirements dot txt. Line two appends the missing package. Lines three and four commit and push; pipeline re-runs and build passes. Always read the first error in the job log, not the summary banner.",
+          "title": "Diagnose Missing Dependency",
+          "code": "# Job log: /bin/bash: ansible: command not found\ngrep ansible-core requirements.txt || echo \"ansible-core==2.16.3\" >> requirements.txt\ngit add requirements.txt\ngit commit -m \"Fix missing ansible-core in build stage\"\ngit push origin main",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "fix-version-mismatch-failure",
+          "type": "code",
+          "script": "Scenario two — incompatible versions. Pinning ansible-core two dot fourteen with ansible-lint twenty-four dot two can fail because lint requires a newer core. The prevalidation job log shows a pip ResolutionImpossible or Ansible version error. Line two updates requirements dot txt — line one is the error comment from the log. Line three stages the fix. Line four commits. Line five pushes to trigger a new pipeline. Version pins belong in Git so every runner uses the same stack.",
+          "title": "Diagnose Version Mismatch",
+          "code": "# Job log: ERROR: Cannot install ansible-lint; ansible-core version conflict\nsed -i 's/ansible-core==2.14.0/ansible-core==2.16.3/' requirements.txt\ngit add requirements.txt\ngit commit -m \"Align ansible-core with ansible-lint requirements\"\ngit push origin main",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "fix-failed-test-failure",
+          "type": "code",
+          "script": "Scenario three — failed tests. Edit validate_intent dot py to require VLAN nine ninety-nine that does not exist in vlans dot yaml. Post-validation fails with exit code one even though deploy succeeded. Line one is the failure comment from the job log. Line two removes the bad requirement from the script — or add VLAN nine ninety-nine to YAML if policy truly requires it. Line three commits the fix. Line four pushes so the pipeline re-runs post-validation. Failed post-validation is how teams catch drift between policy and intent.",
+          "title": "Diagnose Failed Post-Validation",
+          "code": "# Job log: postvalidate:intent exited with code 1\nsed -i 's/required = {100, 200, 999}/required = {100, 200}/' scripts/validate_intent.py\ngit add scripts/validate_intent.py\ngit commit -m \"Fix post-validation VLAN policy check\"\ngit push origin main",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "certification-alignment-cicd",
+          "type": "content-single",
+          "script": "Module two maps to exam objectives two point two and two point three. Two point two — diagnose GitLab CE pipeline failures: you fixed missing ansible-core, version conflicts, and failed post-validation tests using job logs. Two point three — construct a pipeline with build, prevalidation, deploy, and post-validation stages in dot gitlab-ci dot yml. Exam items may show a pipeline snippet and ask which stage is missing or which log line explains the failure. Practice explaining each stage out loud using your netops_iac_lab file.",
+          "title": "Exam 2.2–2.3: GitLab CI/CD",
+          "points": [
+            "2.2: diagnose pipeline failures from logs",
+            "2.3: build, prevalidation, deploy, post-validation",
+            "Match snippet to missing stage or error"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module02/certification-alignment-cicd.svg",
+          "keyPhrases": [
+            "missing ansible-core",
+            "four stages gitlab-ci.yml",
+            "job log explains failure"
+          ]
+        },
+        {
+          "name": "cicd-ready-for-containers",
+          "type": "story-beat",
+          "script": "You started this module running playbooks by hand. You finish with a four-stage GitLab pipeline in Git, pinned dependencies, lint gates, check-mode deploy, and post-validation tests — plus three failure scenarios from the exam. That is infrastructure as code moving from versioned files to automated delivery. Module three adds Docker Compose and Cisco Modeling Labs so you test automation against a simulated network before production deploy. Keep your pipeline green on main before moving on.",
+          "beat": "resolution",
+          "title": "CI/CD Complete — Simulation Next",
+          "points": [
+            "Four-stage pipeline with failure drills",
+            "Versioned files to automated delivery",
+            "Module three: Docker Compose and CML"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module02/cicd-ready-for-containers.svg",
+          "keyPhrases": [
+            "pinned dependencies lint gates",
+            "check-mode deploy",
+            "pipeline green on main"
+          ]
+        }
+      ]
+    },
+    {
+      "moduleNumber": 3,
+      "title": "Containers and Simulation",
+      "subtitle": "Docker Compose and Cisco Modeling Labs",
+      "slides": [
+        {
+          "name": "pipeline-to-simulation-bridge",
+          "type": "title",
+          "script": "Module two added a GitLab pipeline that lints YAML and runs Ansible in check mode. Module three asks: where do you run those playbooks against real device behavior before production? Pushing to main and hoping is not infrastructure as code. Containers package your automation tools the same way on every laptop and CI runner. Docker Compose wires an Ansible controller and test targets on a private network. Cisco Modeling Labs — CML — simulates IOS and NX-OS routers you can automate like real hardware. Exam objectives two point four and two point five live here. You keep netops_iac_lab; we add a docker folder and a CML inventory pattern.",
+          "title": "Test Before You Deploy",
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module03/pipeline-to-simulation-bridge.svg"
+        },
+        {
+          "name": "deploy-without-lab-breaks",
+          "type": "content-two-card",
+          "script": "A green pipeline on main does not prove VLAN intent works on your switch platform. Without a lab, the first production run is the test — and the rollback. Containers give you a cheap repeatable environment: same Python, same Ansible, same network layout every time. CML gives you Cisco-like control planes without rack hardware. Module two post-validation checked a file; module three checks behavior against something that quacks like a router. Both belong in a mature workflow before change windows.",
+          "title": "Why Simulation Matters",
+          "points": [
+            "Green pipeline does not prove VLAN works",
+            "First production run becomes the test",
+            "Compose and CML de-risk before change window"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module03/deploy-without-lab-breaks.svg",
+          "keyPhrases": [
+            "green pipeline on main",
+            "repeatable environment",
+            "behavior against simulated router"
+          ]
+        },
+        {
+          "name": "containers-plain-language",
+          "type": "content-single",
+          "script": "A container is a lightweight isolated process with its own filesystem slice — not a full virtual machine. An image is the read-only template; a running container is an instance of that image. Docker pulls images from a registry and starts containers with one command. For network automation, containers solve it works on my laptop — your Ansible version and Python packages match CI and your teammate. You still need Compose when one command must start several linked containers together.",
+          "title": "Containers in Plain Language",
+          "points": [
+            "Isolated process with own filesystem",
+            "Image is template; container is instance",
+            "Compose starts linked containers together"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module03/containers-plain-language.svg",
+          "keyPhrases": [
+            "not a full virtual machine",
+            "works on my laptop",
+            "same Ansible version everywhere"
+          ]
+        },
+        {
+          "name": "vm-vs-container",
+          "type": "comparison",
+          "script": "A virtual machine emulates hardware and boots a full guest OS — minutes to start, gigabytes of disk. A container shares the host kernel and starts in seconds — megabytes for a slim Python image. Network teams used VMs for years to isolate Ansible controllers; containers are the modern default in CI runners and laptop labs. CML itself runs as VMs or bare metal in your lab server — different layer. Exam two point five focuses on Docker Compose files, not hypervisor sizing.",
+          "title": "VM vs Container",
+          "leftTitle": "Virtual machine",
+          "leftItems": [
+            "Full guest operating system",
+            "Slow boot, heavy disk usage",
+            "Traditional lab VM isolation"
+          ],
+          "rightTitle": "Container",
+          "rightItems": [
+            "Shares the host kernel directly",
+            "Fast start, small image size",
+            "Default for CI and laptop labs"
+          ],
+          "comparisonCues": {
+            "left": [
+              "full guest OS",
+              "minutes to start",
+              "VMs for years"
+            ],
+            "right": [
+              "shares the host kernel",
+              "starts in seconds",
+              "CI runners and laptop"
+            ]
+          },
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module03/vm-vs-container.svg",
+          "keyPhrases": [
+            "minutes to start gigabytes",
+            "starts in seconds megabytes",
+            "exam 2.5 Compose files"
+          ]
+        },
+        {
+          "name": "compose-four-concepts-exam",
+          "type": "content-single",
+          "script": "Exam objective two point five asks you to interpret a Docker Compose file — four keywords. Services are the containers you define — ansible, target, database. Networks connect services on virtual L2 segments — lab underscore net isolates your test from the host. Volumes persist or mount host directories into containers — mount the repo into slash workspace. Links connected containers in Compose version two; in modern Compose use depends on plus shared networks instead — the exam may show either; know both map to reachability between services.",
+          "title": "Four Compose Concepts for the Exam",
+          "points": [
+            "Services: containers you define",
+            "Networks: virtual L2 between services",
+            "Volumes: mount host dirs; links via depends_on"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module03/compose-four-concepts-exam.svg",
+          "keyPhrases": [
+            "exam 2.5 four keywords",
+            "lab_net isolates test",
+            "depends_on replaces legacy links"
+          ]
+        },
+        {
+          "name": "reading-docker-compose",
+          "type": "content-two-card",
+          "script": "A compose file is YAML with a top-level services key. Each service names an image, command, environment variables, volume mounts, and network memberships. The networks section declares named networks — bridge is default on Linux. The volumes section declares named volumes Docker manages. When the exam shows a snippet, trace which service mounts which volume and which network — that tells you who can ping whom. Our lab mounts netops_iac_lab into the ansible service at slash workspace.",
+          "title": "Reading docker-compose.yml",
+          "points": [
+            "Top-level services key per container",
+            "Trace volume mounts and networks",
+            "Repo mounted at /workspace in lab"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module03/reading-docker-compose.svg",
+          "keyPhrases": [
+            "image command environment",
+            "who can ping whom",
+            "netops_iac_lab workspace mount"
+          ]
+        },
+        {
+          "name": "cml-plain-language",
+          "type": "content-single",
+          "script": "Cisco Modeling Labs — CML — runs virtual routers and switches on a lab server you control. You build a topology in the web UI — drag IOSv or CSR nodes, connect interfaces, start the lab. Each node gets a management IP your Ansible inventory targets. Exam objective two point four expects you to construct a simulation to test a network automation solution — that means topology plus automation reachability plus running playbooks before production. CML is licensed software; if you lack access, follow the inventory and playbook slides conceptually for the exam.",
+          "title": "CML in Plain Language",
+          "points": [
+            "Virtual Cisco routers on lab server",
+            "Topology in web UI with management IPs",
+            "Exam 2.4: construct simulation for automation"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module03/cml-plain-language.svg",
+          "keyPhrases": [
+            "IOSv CSR nodes",
+            "Ansible inventory targets",
+            "topology plus reachability plus playbooks"
+          ]
+        },
+        {
+          "name": "compose-vs-cml",
+          "type": "comparison",
+          "script": "Docker Compose excels at packaging your automation toolchain and lightweight stand-ins — Alpine as a ping target, Python image as controller. CML excels at Cisco OS behavior — VLANs, routing protocols, real config syntax. Use Compose in CI for fast lint and connectivity smoke tests. Use CML before a major change window to validate playbooks against IOS-like nodes. Mature teams use both: Compose in every pipeline, CML on merge to main or nightly.",
+          "title": "Compose vs CML",
+          "leftTitle": "Docker Compose",
+          "leftItems": [
+            "Fast CI smoke tests",
+            "Toolchain plus simple targets",
+            "Exam 2.5 file interpretation"
+          ],
+          "rightTitle": "Cisco CML",
+          "rightItems": [
+            "Cisco OS behavior simulation",
+            "Full routing protocol behavior",
+            "Exam 2.4 construct simulation"
+          ],
+          "comparisonCues": {
+            "left": [
+              "Compose in CI",
+              "automation toolchain",
+              "lightweight stand-ins"
+            ],
+            "right": [
+              "CML excels at Cisco",
+              "routing protocols",
+              "validate playbooks against"
+            ]
+          },
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module03/compose-vs-cml.svg",
+          "keyPhrases": [
+            "Compose in every pipeline",
+            "CML before major change window",
+            "mature teams use both"
+          ]
+        },
+        {
+          "name": "story-beat-recap-containers",
+          "type": "story-beat",
+          "script": "Pause. You have seen why simulation follows CI/CD, what containers and Compose are, the four exam Compose concepts services networks volumes links, how to read a compose file, what CML provides for Cisco labs, and when to use Compose versus CML. Next we add docker slash docker-compose dot yml to netops_iac_lab, bring up an Ansible plus target stack, then wire Ansible inventory for a two-node CML topology. Install Docker Desktop or Docker Engine before the compose up slide.",
+          "beat": "recap",
+          "title": "Theory Complete — Simulation Lab Next",
+          "points": [
+            "Containers, Compose, four exam concepts",
+            "CML for Cisco lab simulation",
+            "Lab: docker-compose.yml and CML inventory"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module03/story-beat-recap-containers.svg",
+          "keyPhrases": [
+            "services networks volumes links",
+            "Compose versus CML",
+            "Docker Desktop or Engine"
+          ]
+        },
+        {
+          "name": "lab-setup-containers-simulation",
+          "type": "content-single",
+          "script": "Inside netops_iac_lab create a docker folder. You will place docker-compose dot yml there — keeps container files separate from playbooks and intent. Confirm Docker works with docker minus minus version and docker compose version. Create inventory slash compose dot yml for the Compose lab and inventory slash cml dot yml for the CML section — same playbooks, different targets. Do not commit Docker socket paths or CML admin passwords; use environment variables for secrets.",
+          "title": "Extend the Lab for Simulation",
+          "points": [
+            "Create docker/ for compose files",
+            "Confirm docker and compose versions",
+            "Add inventory/compose.yml and inventory/cml.yml",
+            "Never commit passwords; use env vars"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module03/lab-setup-containers-simulation.svg",
+          "keyPhrases": [
+            "docker folder separate",
+            "inventory compose and cml",
+            "environment variables for secrets"
+          ]
+        },
+        {
+          "name": "compose-services-and-volumes",
+          "type": "code",
+          "script": "Line one sets Compose file format version. Lines two through eleven define two services — exam two point five services. The ansible service mounts the repo with dot colon slash workspace — exam two point five volumes. Lines twelve through fourteen declare a named volume ansible_cache Docker manages. The target service runs Alpine as a stand-in device. Save as docker slash docker-compose dot yml. Networks and depends on come on the next slide.",
+          "title": "Compose — Services and Volumes",
+          "code": "version: \"3.8\"\nservices:\n  ansible:\n    image: python:3.11-slim\n    command: sleep infinity\n    volumes:\n      - ..:/workspace\n      - ansible_cache:/root/.cache/pip\n    working_dir: /workspace\n  target:\n    image: alpine:3.19\n    command: sleep infinity\nvolumes:\n  ansible_cache:",
+          "language": "yaml",
+          "codeContext": "netops_iac_lab/docker/docker-compose.yml"
+        },
+        {
+          "name": "compose-networks-and-links",
+          "type": "code",
+          "script": "Lines one through three declare lab underscore net — exam two point five networks. Lines five and six attach both services to that network so they share a L2 domain. Lines eight through ten add depends on — modern replacement for legacy links keyword; ansible starts after target. The exam may show links colon target colon target; interpret it as ordered startup plus connectivity. Append these keys to the services block from the previous slide.",
+          "title": "Compose — Networks and Links",
+          "code": "networks:\n  lab_net:\n    driver: bridge\n\nservices:\n  ansible:\n    networks: [lab_net]\n    depends_on: [target]\n  target:\n    networks: [lab_net]",
+          "language": "yaml",
+          "codeContext": "netops_iac_lab/docker/docker-compose.yml"
+        },
+        {
+          "name": "docker-compose-up",
+          "type": "code",
+          "script": "Line one moves into the docker folder where compose file lives. Line two builds and starts containers detached. Line three lists running containers — both ansible and target should show Up. Line four opens a shell inside the ansible container for the next slide. If pull fails, check internet or registry mirror. Tear down later with docker compose down from the same directory.",
+          "title": "Start the Compose Lab",
+          "code": "cd docker\ndocker compose up -d\ndocker compose ps\ndocker compose exec ansible bash",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "ansible-over-compose-network",
+          "type": "code",
+          "script": "Inside the ansible container, line one installs Ansible from your requirements dot txt. Lines two through five write a minimal inventory — target resolves via Compose DNS on lab underscore net. Line six pings the target — proves services and networks wiring from the compose file works. Line seven runs your VLAN playbook in check mode — smoke test before CML. This is the Compose half of module three; CML uses real Cisco images next.",
+          "title": "Ansible Over Compose Network",
+          "code": "pip install -r requirements.txt\ncat > inventory/compose.yml << 'EOF'\n[target]\ntarget ansible_connection=ansible.builtin.ping\nEOF\nansible -i inventory/compose.yml target -m ping\nansible-playbook playbooks/deploy_vlans.yml --check",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/ (inside ansible container)"
+        },
+        {
+          "name": "docker-compose-down",
+          "type": "code",
+          "script": "After Compose smoke tests pass, line one moves to the docker folder. Line two stops and removes containers and the default network. Line three removes named volumes including ansible_cache if you pass minus v — use when you want a clean rebuild. Line four confirms nothing is running. Run this before switching to CML work on the same laptop to free ports and memory.",
+          "title": "Tear Down Compose Lab",
+          "code": "cd docker\ndocker compose down\ndocker compose down -v\ndocker compose ps",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "cml-lab-topology-setup",
+          "type": "code",
+          "script": "CML steps for exam two point four — construct a simulation. Lines one and two document the topology: two IOSv routers R1 and R2 with one link — create and start the lab in the CML web UI. Lines four through ten write inventory slash cml dot yml with management IPs — replace ten dot zero dot zero dot eleven and twelve with addresses from your CML dashboard. Line eleven stages the inventory file to Git without passwords. Skip live CML if you lack license; study the inventory pattern for the exam.",
+          "title": "CML — Build the Simulation",
+          "code": "# CML UI: 2x IOSv, one link, Start Lab\n# Record management IPs from CML dashboard\ncat > inventory/cml.yml << 'EOF'\n[cml_routers]\nr1 ansible_host=10.0.0.11\nr2 ansible_host=10.0.0.12\n[cml_routers:vars]\nansible_network_os=ios\nansible_connection=ansible.netcommon.network_cli\nEOF\ngit add inventory/cml.yml",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "cml-connectivity-check",
+          "type": "code",
+          "script": "Line one exports credentials from environment — never hard-code in Git. Line two runs ansible minus m ansible dot builtin dot ping against CML inventory — proves your simulation is reachable from the automation host. Line three runs show ip interface brief on R1 — confirms Cisco CLI over network_cli. If ping fails, check CML lab is started, firewall allows SSH, and ansible_host IPs match the CML UI. This validates exam two point four construct simulation before automation deploy.",
+          "title": "Validate CML Reachability",
+          "code": "export ANSIBLE_USER=$CML_SSH_USER\nexport ANSIBLE_PASSWORD=$CML_SSH_PASS\nansible -i inventory/cml.yml cml_routers -m ansible.builtin.ping\nansible -i inventory/cml.yml r1 -m ansible.netcommon.cli_command -a \"show ip interface brief\"",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "ansible-playbook-against-cml",
+          "type": "code",
+          "script": "Line one runs deploy_vlans dot yml in check mode against CML routers using cml inventory — dry run on simulated IOS. Line two limits to R1 only with minus minus limit for staged testing. Line three adds a verbose flag to see tasks sent to the device. In production you promote from Compose smoke test to CML check mode to approved deploy — module two pipeline gates wrap these steps. Commit playbook changes only after CML check passes.",
+          "title": "Run Playbook on CML Simulation",
+          "code": "ansible-playbook -i inventory/cml.yml playbooks/deploy_vlans.yml --check\nansible-playbook -i inventory/cml.yml playbooks/deploy_vlans.yml --check --limit r1\nansible-playbook -i inventory/cml.yml playbooks/deploy_vlans.yml --check -v",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "compose-in-pipeline-prevalidation",
+          "type": "code",
+          "script": "Lines one through four define a GitLab job that runs Compose during prevalidation — extends module two pipeline. The docker colon twenty-four image includes compose. Lines five through nine install Ansible, start compose, and ping the target inside the job. This ties exam two point five interpretation to real CI. CML jobs often run on a dedicated runner with CML API access; Compose runs anywhere Docker is available.",
+          "title": "Compose in CI Prevalidation",
+          "code": "prevalidate:compose-smoke:\n  stage: prevalidation\n  image: docker:24\n  services:\n    - docker:24-dind\n  script:\n    - cd docker && docker compose up -d\n    - docker compose exec -T ansible pip install -r requirements.txt\n    - docker compose exec -T ansible ansible -i inventory/compose.yml target -m ping",
+          "language": "yaml",
+          "codeContext": "netops_iac_lab/.gitlab-ci.yml"
+        },
+        {
+          "name": "certification-alignment-containers",
+          "type": "content-single",
+          "script": "Module three maps to exam objectives two point four and two point five. Two point five — interpret Docker Compose: you traced services, networks, volumes, and the links versus depends on pattern. Two point four — construct a CML simulation: you built a two-router lab, inventory, connectivity check, and check-mode playbook. Exam items may show a compose snippet and ask which network a service uses, or describe a CML lab and ask what step validates automation reachability. Module four adds source of truth and YANG data models.",
+          "title": "Exam 2.4–2.5: Simulation",
+          "points": [
+            "2.5: interpret Compose services and networks",
+            "2.4: construct CML simulation and validate",
+            "Trace network use and reachability steps"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module03/certification-alignment-containers.svg",
+          "keyPhrases": [
+            "depends_on versus links",
+            "two-router CML lab",
+            "check-mode playbook on CML"
+          ]
+        },
+        {
+          "name": "simulation-ready-for-sot",
+          "type": "story-beat",
+          "script": "You started this module deploying on faith after a green pipeline. You finish with Docker Compose wiring Ansible to test targets and a CML workflow for Cisco simulation — plus a CI job that smoke-tests over Compose. That is how infrastructure as code de-risks automation before production touch. Module four adds source of truth and YANG so intent files are structured data, not ad hoc YAML. Keep compose dot yml and CML inventory in Git alongside playbooks.",
+          "beat": "resolution",
+          "title": "Simulation Complete — Source of Truth Next",
+          "points": [
+            "Compose smoke tests plus CML workflow",
+            "De-risk automation before production touch",
+            "Module four: YANG and structured intent"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module03/simulation-ready-for-sot.svg",
+          "keyPhrases": [
+            "Docker Compose wiring",
+            "CI compose smoke job",
+            "compose and CML inventory in Git"
+          ]
+        }
+      ]
+    },
+    {
+      "moduleNumber": 4,
+      "title": "Source of Truth and Data Models",
+      "subtitle": "YANG, Intent, and Structured Configuration",
+      "slides": [
+        {
+          "name": "simulation-to-sot-bridge",
+          "type": "title",
+          "script": "Module three tested automation against Compose and CML. Module four asks: what is the authoritative description of the network you automate? A running config on a switch is a snapshot, not a source of truth. Source of truth — SoT — is the system or file set your team agrees is correct before any playbook runs. YANG models describe configuration data in a vendor-neutral tree — leaves, lists, containers — so JSON and YAML instances validate before deploy. Exam objectives two point six and two point seven live here. You keep netops_iac_lab; we restructure intent under models and generate device config from data, not hand-written CLI.",
+          "title": "From Simulation to Source of Truth",
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module04/simulation-to-sot-bridge.svg"
+        },
+        {
+          "name": "running-config-not-sot",
+          "type": "content-two-card",
+          "script": "Scraping show running-config into Git captures what happened to exist on box four — including mistakes and one-off lab fixes. Source of truth starts with intent: VLAN one hundred should exist with name DATA underscore VLAN because the design says so. Automation reads intent, renders config, pushes through your module two pipeline and module three simulation, then applies. If someone SSHs a hotfix without updating intent, drift returns. Exam two point six expects you to integrate SoT into the solution — Git plus structured models plus validation jobs is the pattern this module builds.",
+          "title": "Running Config Is Not SoT",
+          "points": [
+            "Scraped config includes mistakes and drift",
+            "SoT starts with designed intent in Git",
+            "Hotfix without intent update brings drift"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module04/running-config-not-sot.svg",
+          "keyPhrases": [
+            "show running-config",
+            "VLAN should exist by design",
+            "Git plus structured models"
+          ]
+        },
+        {
+          "name": "source-of-truth-plain-language",
+          "type": "content-single",
+          "script": "Source of truth is the single place teams trust for what the network should look like. It can be a Git repository, NetBox, Nautobot, or a dedicated database — the exam cares that automation pulls from it consistently. Git works well for course labs: every change has history, merge requests, and pipeline gates from module two. The key behavior is one direction — update intent first, then pipeline validates and deploys. Never treat the switch as authoritative after SoT is established.",
+          "title": "Source of Truth in Plain Language",
+          "points": [
+            "Single trusted description of network",
+            "Git, NetBox, or database as SoT",
+            "Update intent first, then pipeline deploys"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module04/source-of-truth-plain-language.svg",
+          "keyPhrases": [
+            "what network should look like",
+            "merge requests and pipeline gates",
+            "never treat switch as authoritative"
+          ]
+        },
+        {
+          "name": "golden-source-vs-copies",
+          "type": "comparison",
+          "script": "Without SoT, each engineer keeps a spreadsheet, a local YAML copy, and what they remember from last week. With SoT, Git main holds golden intent; pipelines and Ansible read only from that path. Copies on laptops are clones for editing — merge requests bring changes back to golden. Exam scenarios may ask which component prevents drift — answer: validating deploys against the SoT repository, not re-scraping devices after change.",
+          "title": "Golden Source vs Local Copies",
+          "leftTitle": "No SoT",
+          "leftItems": [
+            "Spreadsheets and local YAML",
+            "Devices become truth by accident",
+            "Drift stays invisible to team"
+          ],
+          "rightTitle": "Git as SoT",
+          "rightItems": [
+            "main holds golden intent",
+            "Pipelines read same SoT path",
+            "Validation catches drift early"
+          ],
+          "comparisonCues": {
+            "left": [
+              "spreadsheet",
+              "local YAML copy",
+              "remember from last week"
+            ],
+            "right": [
+              "golden intent",
+              "pipelines and Ansible",
+              "validating deploys against"
+            ]
+          },
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module04/golden-source-vs-copies.svg",
+          "keyPhrases": [
+            "spreadsheet local YAML copy",
+            "validating deploys against SoT",
+            "merge requests to golden"
+          ]
+        },
+        {
+          "name": "intent-vs-implementation",
+          "type": "content-single",
+          "script": "Data abstraction separates intent from implementation. Intent says VLAN two hundred name VOICE underscore VLAN on access switches in building A. Implementation is the exact IOS or NX-OS syntax your template renders — switchport access vlan, name command, or OpenConfig paths pushed via gNMI. The same intent JSON can render Cisco IOS today and another vendor tomorrow if templates change but data stays stable. YANG models formalize the intent layer the exam tests in two point seven.",
+          "title": "Intent vs Implementation",
+          "points": [
+            "Intent: VLAN name on building A switches",
+            "Implementation: IOS syntax or gNMI paths",
+            "Same intent JSON, different vendor templates"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module04/intent-vs-implementation.svg",
+          "keyPhrases": [
+            "data abstraction",
+            "switchport access vlan",
+            "YANG formalizes intent layer"
+          ]
+        },
+        {
+          "name": "yang-plain-language",
+          "type": "content-two-card",
+          "script": "YANG is a data modeling language for network configuration and state — RFC eight zero two eight. A YANG module defines containers like vlans, lists like vlan with a key field id, and leaves like name with types such as string or uint16. Tools validate instance data against the model before push. You do not memorize every Cisco native module for AUTOCOR — know how to read a small tree and map it to JSON or YAML instances for two point seven.",
+          "title": "YANG in Plain Language",
+          "points": [
+            "RFC 8028 data modeling language",
+            "Containers, lists with keys, typed leaves",
+            "Validate instance data before push"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module04/yang-plain-language.svg",
+          "keyPhrases": [
+            "list vlan key id",
+            "leaf name type string",
+            "map tree to JSON YAML"
+          ]
+        },
+        {
+          "name": "yang-model-families",
+          "type": "comparison",
+          "script": "Three YANG families appear often in automation. IETF models standardize common objects — interfaces, routing. OpenConfig is vendor-neutral and widely used for programmatic push. Cisco native YANG maps closely to IOS-XE CLI knobs. Exam two point seven may show a YANG snippet and ask for a valid JSON instance — match container and list names exactly, use correct key fields, respect types. Production teams pick one family per feature and stick to it.",
+          "title": "IETF, OpenConfig, Cisco Native",
+          "leftTitle": "OpenConfig / IETF",
+          "leftItems": [
+            "Vendor-neutral IETF standard trees",
+            "gNMI and model-driven APIs",
+            "Good for multi-vendor SoT"
+          ],
+          "rightTitle": "Cisco native YANG",
+          "rightItems": [
+            "Maps to IOS-XE CLI knobs",
+            "Fine-grained Cisco feature knobs",
+            "When OpenConfig lacks a leaf"
+          ],
+          "comparisonCues": {
+            "left": [
+              "OpenConfig is vendor-neutral",
+              "programmatic push",
+              "IETF models"
+            ],
+            "right": [
+              "Cisco native YANG maps",
+              "IOS-XE CLI knobs",
+              "pick one family"
+            ]
+          },
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module04/yang-model-families.svg",
+          "keyPhrases": [
+            "OpenConfig vendor-neutral",
+            "IETF interfaces routing",
+            "pick one family per feature"
+          ]
+        },
+        {
+          "name": "yaml-json-from-yang-exam",
+          "type": "content-single",
+          "script": "Exam objective two point seven — construct YAML or JSON given a YANG-based data model. Read the module: find list names, keys, and leaf identifiers. JSON uses nested objects and arrays — vlan list becomes an array of objects with id and name keys. YAML uses indentation for the same structure. Wrong list key name or missing required leaf fails validation. The lab builds JSON and YAML instances for a simplified VLAN model, then validates with a Python script standing in for pyang in CI.",
+          "title": "Build JSON or YAML from YANG",
+          "points": [
+            "Read list names, keys, leaf identifiers",
+            "JSON arrays; YAML uses indentation",
+            "Wrong key or type fails validation"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module04/yaml-json-from-yang-exam.svg",
+          "keyPhrases": [
+            "exam 2.7 construct instance",
+            "vlan list array of objects",
+            "validate with pyang or script"
+          ]
+        },
+        {
+          "name": "story-beat-recap-sot",
+          "type": "story-beat",
+          "script": "Pause. You have seen why running config is not SoT, what golden intent means, intent versus implementation, YANG containers lists and leaves, model families, and how exam two point seven maps YANG to JSON or YAML. Next we add models slash intent and models slash yang to netops_iac_lab, write JSON and YAML instances, validate them in CI, and render IOS VLAN syntax from templates. Pause if you need to finish module three simulation steps first.",
+          "beat": "recap",
+          "title": "Theory Complete — SoT Lab Next",
+          "points": [
+            "SoT, intent vs implementation, YANG",
+            "Model families and JSON/YAML mapping",
+            "Lab: models/intent and validation in CI"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module04/story-beat-recap-sot.svg",
+          "keyPhrases": [
+            "running config not SoT",
+            "containers lists leaves",
+            "exam 2.7 maps YANG"
+          ]
+        },
+        {
+          "name": "lab-setup-sot-yang",
+          "type": "content-single",
+          "script": "Inside netops_iac_lab create models slash yang for the simplified VLAN YANG file and models slash intent for JSON or YAML instances — this becomes your SoT path. Create templates slash vlans dot j two for Jinja rendering to IOS syntax. Keep legacy intended slash vlans dot yaml for comparison; the lab migrates to structured intent. Add scripts slash validate_yang_intent dot py for pipeline prevalidation. Commit model and intent together so history shows data and template changes linked.",
+          "title": "Extend the Lab for SoT",
+          "points": [
+            "models/yang for VLAN YANG file",
+            "models/intent for JSON or YAML instances",
+            "templates/vlans.j2 renders IOS syntax",
+            "scripts/validate_yang_intent.py for CI gate"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module04/lab-setup-sot-yang.svg",
+          "keyPhrases": [
+            "SoT path in Git",
+            "legacy intended/vlans.yaml comparison",
+            "commit model and intent together"
+          ]
+        },
+        {
+          "name": "simplified-vlan-yang-model",
+          "type": "code",
+          "script": "Lines one and two declare module name and namespace. Lines five through nine define container vlans containing list vlan with key id. Lines eight and nine define leaf id as uint16 and leaf name as string — the fields exam two point seven expects in instances. Save as models slash yang slash example-vlan dot yang. Real OpenConfig modules are larger; this subset teaches list and leaf structure without thousands of lines.",
+          "title": "Simplified YANG VLAN Model",
+          "code": "module example-vlan {\n  namespace \"http://netops.lab/vlan\";\n  prefix ex;\n\n  container vlans {\n    list vlan {\n      key \"id\";\n      leaf id { type uint16; }\n      leaf name { type string; }\n    }\n  }\n}",
+          "language": "text",
+          "codeContext": "netops_iac_lab/models/yang/example-vlan.yang"
+        },
+        {
+          "name": "construct-json-from-yang",
+          "type": "code",
+          "script": "Exam two point seven JSON form. Lines two through nine mirror the YANG tree: top-level vlans container, vlan list as an array of objects with id and name fields. Line eleven pretty-prints for review. This file is your SoT instance — playbooks and templates read models slash intent slash vlans dot json instead of ad hoc YAML.",
+          "title": "Construct JSON from the Model",
+          "code": "cat > models/intent/vlans.json << 'EOF'\n{\n  \"vlans\": {\n    \"vlan\": [\n      {\"id\": 100, \"name\": \"DATA_VLAN\"},\n      {\"id\": 200, \"name\": \"VOICE_VLAN\"}\n    ]\n  }\n}\nEOF\npython -m json.tool models/intent/vlans.json",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "construct-yaml-from-yang",
+          "type": "code",
+          "script": "Exam two point seven YAML form — same data, different syntax. Lines one through seven indent list items under vlan with id and name keys matching the YANG list definition. Line nine runs yamllint for syntax. Teams often store YAML in Git for human edits and convert to JSON in CI — either works if validation passes. Update only models slash intent — not running config on devices.",
+          "title": "Construct YAML from the Model",
+          "code": "cat > models/intent/vlans.yaml << 'EOF'\nvlans:\n  vlan:\n    - id: 100\n      name: DATA_VLAN\n    - id: 200\n      name: VOICE_VLAN\nEOF\nyamllint models/intent/vlans.yaml",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "validate-intent-against-model",
+          "type": "code",
+          "script": "Line one creates validate_yang_intent dot py — exam two point six integration: automation refuses bad data before render. Lines two through eight load JSON and check every vlan has integer id and string name. Line nine runs the validator against models slash intent slash vlans dot json — exits non-zero on failure so GitLab prevalidation fails. Production may use pyang or yanglint against real modules; this script teaches the gate behavior. Run manually before commit.",
+          "title": "Validate Intent — SoT Gate",
+          "code": "cat > scripts/validate_yang_intent.py << 'EOF'\nimport json, sys\npath = sys.argv[1]\ndata = json.load(open(path))\nfor v in data[\"vlans\"][\"vlan\"]:\n    assert isinstance(v[\"id\"], int) and v[\"name\"]\nprint(\"intent valid\")\nEOF\npython scripts/validate_yang_intent.py models/intent/vlans.json",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "jinja-template-from-intent",
+          "type": "code",
+          "script": "Lines one through six create vlans dot j two — implementation layer from SoT data. The template loops vlans dot vlan and emits IOS vlan configuration blocks. Line seven installs Jinja if needed. Line eight renders to rendered slash vlans dot cfg using JSON intent as input — exam two point six: generate configs from SoT. Review rendered output before any push to real or CML devices.",
+          "title": "Generate Config from Intent",
+          "code": "cat > templates/vlans.j2 << 'EOF'\n{% for v in vlans.vlan %}\nvlan {{ v.id }}\n name {{ v.name }}\n{% endfor %}\nEOF\npip install jinja2\npython -c \"import json,jinja2; d=json.load(open('models/intent/vlans.json')); open('rendered/vlans.cfg','w').write(jinja2.Template(open('templates/vlans.j2').read()).render(**d))\"",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "ansible-playbook-reads-sot",
+          "type": "code",
+          "script": "Lines one through eleven replace deploy_vlans dot yml to read SoT JSON and render template — integrates source of truth into the automation solution for exam two point six. Line six loads models slash intent slash vlans dot json as a fact. Line eight templates to rendered path. Line five runs validation script before render. Line thirteen runs the playbook in check mode. Pipeline from module two should call validate and render in prevalidation.",
+          "title": "Ansible Playbook Uses SoT",
+          "code": "cat > playbooks/render_from_sot.yml << 'EOF'\n---\n- hosts: localhost\n  connection: local\n  tasks:\n    - ansible.builtin.script: scripts/validate_yang_intent.py models/intent/vlans.json\n    - ansible.builtin.set_fact:\n        sot: \"{{ lookup('file', 'models/intent/vlans.json') | from_json }}\"\n    - ansible.builtin.template:\n        src: templates/vlans.j2\n        dest: rendered/vlans.cfg\nEOF\nansible-playbook playbooks/render_from_sot.yml --check",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "sot-in-gitlab-prevalidation",
+          "type": "code",
+          "script": "Lines one through seven add a GitLab prevalidation job — integrate SoT into the full solution. Line six validates JSON intent against the model rules script. Line seven renders config via the playbook and fails if the template breaks. This connects module two pipelines to module four data. Deploy stage still uses check mode against CML from module three; only golden intent on main triggers render and deploy.",
+          "title": "SoT Validation in CI",
+          "code": "prevalidate:sot:\n  stage: prevalidation\n  image: python:3.11-slim\n  script:\n    - pip install -r requirements.txt jinja2\n    - python scripts/validate_yang_intent.py models/intent/vlans.json\n    - ansible-playbook playbooks/render_from_sot.yml",
+          "language": "yaml",
+          "codeContext": "netops_iac_lab/.gitlab-ci.yml"
+        },
+        {
+          "name": "inventory-from-sot",
+          "type": "code",
+          "script": "SoT can include device inventory — exam two point six integration beyond VLANs alone. Lines one through eight write models slash intent slash inventory dot yaml with hostname, role, and site. Line ten generates Ansible inventory snippet from that file — one source for VLAN intent and device list. NetBox and Nautobot automate this at scale; Git YAML teaches the pattern.",
+          "title": "Device Inventory in SoT",
+          "code": "cat > models/intent/inventory.yaml << 'EOF'\ndevices:\n  - name: r1\n    site: lab\n    role: access\n  - name: r2\n    site: lab\n    role: access\nEOF\npython -c \"import yaml; [print(f'{d[\\\"name\\\"]} ansible_host={d[\\\"name\\\"]}') for d in yaml.safe_load(open('models/intent/inventory.yaml'))['devices']]\" > inventory/generated.ini",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "commit-sot-to-git",
+          "type": "code",
+          "script": "Line one creates a rendered folder for generated configs — your team policy decides whether to commit it for audit. Line two stages models, templates, scripts, and the updated playbook. Line three commits with a message referencing SoT migration. Line four pushes to main; pipeline runs prevalidate colon sot before deploy. This completes exam two point six — source of truth integrated into Git, CI, Ansible, and templates.",
+          "title": "Commit SoT to Golden Branch",
+          "code": "mkdir -p rendered\ngit add models/ templates/ scripts/ playbooks/render_from_sot.yml\ngit commit -m \"Integrate YANG-modeled SoT for VLAN intent\"\ngit push origin main",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "certification-alignment-sot",
+          "type": "content-single",
+          "script": "Module four maps to exam objectives two point six and two point seven. Two point six — integrate source of truth: Git holds models slash intent, validation runs in CI, Ansible renders from SoT before deploy. Two point seven — construct YAML or JSON from YANG: you built instances matching list vlan with id and name leaves from example-vlan dot yang. Exam items may show a YANG leaf and ask which JSON key is valid — trace names and types carefully.",
+          "title": "Exam 2.6–2.7: Source of Truth",
+          "points": [
+            "2.6: integrate SoT into full solution",
+            "2.7: construct JSON/YAML from YANG",
+            "Trace leaf names and types carefully"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module04/certification-alignment-sot.svg",
+          "keyPhrases": [
+            "models/intent validation in CI",
+            "list vlan id and name",
+            "which JSON key is valid"
+          ]
+        },
+        {
+          "name": "sot-ready-for-capstone",
+          "type": "story-beat",
+          "script": "You started course two saving configs without history. Module one added Git. Module two added pipelines. Module three added simulation. Module four added structured source of truth and YANG-shaped intent with JSON, YAML, validation, and rendered configs. The capstone ties all four modules — Git, CI/CD, simulate, deploy — into one netops_iac_lab story. Keep intent in models slash intent, never edit running config without updating SoT first.",
+          "beat": "resolution",
+          "title": "SoT Complete — Capstone Next",
+          "points": [
+            "Git, CI/CD, simulation, structured SoT",
+            "JSON, YAML, validation, rendered configs",
+            "Capstone ties all four modules together"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module04/sot-ready-for-capstone.svg",
+          "keyPhrases": [
+            "models/intent golden branch",
+            "never edit running config alone",
+            "YANG-shaped intent"
+          ]
+        }
+      ]
+    },
+    {
+      "moduleNumber": 5,
+      "title": "Infrastructure as Code Capstone",
+      "subtitle": "Git, CI/CD, Simulate, Deploy",
+      "slides": [
+        {
+          "name": "iac-capstone-intro",
+          "type": "title",
+          "script": "Welcome to the course two capstone. You have one repo — netops_iac_lab — with Git from module one, a GitLab pipeline from module two, Docker Compose and CML inventory from module three, and YANG-shaped intent in models slash intent from module four. The capstone is not a new toolchain. You change VLAN intent on a feature branch, let the pipeline validate and render, test on CML in check mode, merge to main, and read post-validation logs. Same files you already built. If module four made sense, you can follow this section.",
+          "title": "Capstone: One Repo, Six Steps",
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module05/iac-capstone-intro.svg"
+        },
+        {
+          "name": "capstone-integrates-four-modules",
+          "type": "content-two-card",
+          "script": "Module four ended with models slash intent slash vlans dot json and a render playbook. The capstone adds one VLAN — three hundred named LAB underscore CAPSTONE — and runs the full chain you built in modules one through four. Git tracks the intent change. GitLab runs build, prevalidation, deploy, and post-validation. Compose smoke-tests connectivity. CML runs check mode before you trust merge to main. You are not learning new exam objectives. You are running the same steps in a fixed order on the repo you already have.",
+          "title": "What Changes From Module Four",
+          "points": [
+            "Add VLAN 300 LAB_CAPSTONE to intent",
+            "Full chain: Git, pipeline, simulate",
+            "Same repo; fixed step order"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module05/capstone-integrates-four-modules.svg",
+          "keyPhrases": [
+            "models/intent/vlans.json",
+            "check mode before merge",
+            "modules one through four"
+          ]
+        },
+        {
+          "name": "capstone-repo-layout",
+          "type": "content-single",
+          "script": "Before the lab, know where files live. models slash intent holds golden VLAN data. models slash yang holds the teaching YANG file. dot gitlab-ci dot yml defines pipeline stages from module two plus SoT and Compose jobs from modules three and four. docker slash docker-compose dot yml is the Compose lab. inventory slash cml dot yml points Ansible at your CML routers. playbooks slash render from sot dot yml and templates slash vlans dot j two turn intent into IOS syntax. You edit intent first — never the switch running config.",
+          "title": "Capstone Repo Layout",
+          "points": [
+            "models/intent: golden VLAN data",
+            "models/yang and .gitlab-ci.yml pipeline",
+            "docker folder, cml inventory, templates"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module05/capstone-repo-layout.svg",
+          "keyPhrases": [
+            "edit intent first",
+            "render_from_sot.yml",
+            "never the switch running config"
+          ]
+        },
+        {
+          "name": "local-vs-pipeline-capstone",
+          "type": "comparison",
+          "script": "You can run validation commands on your laptop before push — same scripts the pipeline runs. After push, GitLab job logs are the audit trail the exam cares about for two point two and two point three. Local run catches typos fast. Pipeline run proves the solution works without your laptop online. Do both on first capstone pass: local validate, then push and confirm each stage green in the GitLab UI.",
+          "title": "Local Check vs Pipeline",
+          "leftTitle": "Local (before push)",
+          "leftItems": [
+            "Run validate_yang_intent.py on laptop",
+            "Run render_from_sot.yml dry run",
+            "docker compose ping smoke test"
+          ],
+          "rightTitle": "GitLab pipeline (after push)",
+          "rightItems": [
+            "build through post-validation stages",
+            "Job logs as audit trail",
+            "Proves solution without your laptop"
+          ],
+          "comparisonCues": {
+            "left": [
+              "on your laptop",
+              "same scripts the pipeline",
+              "catches typos fast"
+            ],
+            "right": [
+              "job logs are the audit",
+              "without your laptop online",
+              "each stage green"
+            ]
+          },
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module05/local-vs-pipeline-capstone.svg",
+          "keyPhrases": [
+            "same scripts as pipeline",
+            "exam 2.2 and 2.3 logs",
+            "each stage green in UI"
+          ]
+        },
+        {
+          "name": "six-steps-capstone-runbook",
+          "type": "content-two-card",
+          "script": "Run the capstone in this order every time. One: edit models slash intent slash vlans dot json — add VLAN three hundred. Two: create feature branch, commit, push. Three: run local validate and render — or watch prevalidation jobs on the merge request. Four: ansible-playbook check mode against CML inventory. Five: merge to main — deploy and post-validation stages run on the pipeline. Six: open rendered slash vlans dot cfg and the post-validation job log — confirm VLAN three hundred appears. Stop if any stage fails; read the first error line in the job log.",
+          "title": "Six Steps in Order",
+          "points": [
+            "Edit intent; branch, commit, push",
+            "Validate, render, CML check mode",
+            "Merge main; verify render and logs"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module05/six-steps-capstone-runbook.svg",
+          "keyPhrases": [
+            "feature branch commit push",
+            "ansible-playbook check mode CML",
+            "first error line in job log"
+          ]
+        },
+        {
+          "name": "four-files-capstone-chain",
+          "type": "content-single",
+          "script": "Four artifacts carry the capstone story. models slash intent slash vlans dot json is what you change — exam two point seven shape. dot gitlab-ci dot yml is how CI/CD gates run — exam two point three. inventory slash cml dot yml is where simulation targets live — exam two point four. rendered slash vlans dot cfg is generated output from templates slash vlans dot j two — proof that SoT became config text. When a code slide appears next, you already know which of these you are touching.",
+          "title": "Four Artifacts in the Capstone",
+          "points": [
+            "vlans.json intent; gitlab-ci.yml gates",
+            "inventory/cml.yml holds simulation targets",
+            "rendered/vlans.cfg generated config proof"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module05/four-files-capstone-chain.svg",
+          "keyPhrases": [
+            "what you change",
+            "how gates run",
+            "SoT became config text"
+          ]
+        },
+        {
+          "name": "verify-pipeline-before-close",
+          "type": "content-single",
+          "script": "Do not stop when git merge succeeds. Open the post-validation job — it must exit zero. Open rendered slash vlans dot cfg and confirm vlan three hundred and name LAB underscore CAPSTONE appear. If you use CML, SSH or ansible show vlan brief on a lab router and confirm VLAN three hundred after an approved apply. The capstone check mode path keeps the lab safe without production touch. If post-validation fails, fix intent or the validation script before you call the capstone done.",
+          "title": "Read Pipeline and Render Output",
+          "points": [
+            "Post-validation job must exit zero",
+            "rendered/vlans.cfg shows VLAN 300",
+            "Fix intent in Git, not device only"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module05/verify-pipeline-before-close.svg",
+          "keyPhrases": [
+            "do not stop at merge",
+            "LAB_CAPSTONE in rendered cfg",
+            "check mode keeps lab safe"
+          ]
+        },
+        {
+          "name": "capstone-nothing-new",
+          "type": "content-two-card",
+          "script": "You already installed everything this capstone needs. Git from module one. GitLab runner or GitLab dot com from module two. Docker for Compose from module three. Python, Ansible, and jinja2 from modules two and four. If git push fails, fix module one remote setup. If pipeline fails on missing ansible-core, fix module two requirements dot txt. If compose ping fails, fix module three docker folder. If validate_yang_intent fails, fix module four JSON shape. The capstone passes when intent change flows through all gates you built.",
+          "title": "Nothing New to Install",
+          "points": [
+            "Git, GitLab, Docker, Python already installed",
+            "Push fails: fix module one remote",
+            "Pipeline, compose, or validate fails: fix that module"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module05/capstone-nothing-new.svg",
+          "keyPhrases": [
+            "requirements.txt ansible-core",
+            "validate_yang_intent JSON shape",
+            "intent flows through all gates"
+          ]
+        },
+        {
+          "name": "story-beat-recap-capstone",
+          "type": "story-beat",
+          "script": "Pause. The capstone is module four plus one VLAN change run through Git, GitLab, Compose, and CML check mode. You know the repo layout, the six steps, and the four artifacts to inspect at the end. Next slides walk commands line by line — branch, validate, render, compose smoke, CML check, merge, pipeline logs — the same way module one walked Git commands. Open netops_iac_lab and follow each slide. Lab and simulation targets only.",
+          "beat": "recap",
+          "title": "Ready for the Capstone Lab",
+          "points": [
+            "Module four plus one VLAN change",
+            "Six steps and four artifacts to inspect",
+            "Commands line by line in netops_iac_lab"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module05/story-beat-recap-capstone.svg",
+          "keyPhrases": [
+            "Git GitLab Compose CML",
+            "branch validate render merge",
+            "lab and simulation targets only"
+          ]
+        },
+        {
+          "name": "lab-setup-capstone-lab",
+          "type": "content-single",
+          "script": "Welcome to the capstone lab. cd into netops_iac_lab and run git status — working tree should be clean on main before you branch. Confirm dot gitlab-ci dot yml includes build, prevalidation, deploy, and post-validation jobs from module two plus SoT and Compose jobs from later modules. Confirm models slash intent slash vlans dot json lists VLANs one hundred and two hundred from module four. Docker and GitLab access must work as in modules two and three. Pause here before the intent edit slide.",
+          "title": "Capstone Lab Setup",
+          "points": [
+            "cd netops_iac_lab; clean main branch",
+            "Confirm .gitlab-ci.yml has all jobs",
+            "Confirm vlans.json has VLANs 100, 200",
+            "Docker and GitLab access working"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module05/lab-setup-capstone-lab.svg",
+          "keyPhrases": [
+            "git status clean main",
+            "SoT and Compose jobs present",
+            "modules two and three prerequisites"
+          ]
+        },
+        {
+          "name": "resume-capstone-prerequisites",
+          "type": "content-two-card",
+          "script": "Before editing intent, run a sixty-second readiness check. Line up module one: git remote and branch list work. Module two: requirements dot txt installs and dot gitlab-ci dot yml validates in CI lint. Module three: docker compose ps succeeds in docker folder and inventory slash cml dot yml has your lab IPs. Module four: validate_yang_intent dot py passes on current vlans dot json. If any step fails, stop and repair that module — the capstone assumes those skills are stable.",
+          "title": "Resume Modules One Through Four",
+          "points": [
+            "Modules 1-2: git remote and CI lint",
+            "Module 3: compose up and cml IPs",
+            "Module 4: validate_yang_intent passes"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module05/resume-capstone-prerequisites.svg",
+          "keyPhrases": [
+            "sixty-second readiness check",
+            "repair that module first",
+            "skills must be stable"
+          ]
+        },
+        {
+          "name": "capstone-add-vlan-intent",
+          "type": "code",
+          "script": "Line one creates feature branch feature-vlan-300 — module one pattern. Lines two through eight load vlans dot json, append VLAN three hundred with name LAB underscore CAPSTONE, and write pretty JSON — exam two point seven instance edit. Line nine stages the file. Line ten commits. Line eleven pushes the branch to origin. This is the Git step of Git arrow CI/CD arrow simulate arrow deploy. Open a merge request in GitLab if your workflow uses review before merge.",
+          "title": "Step 1–2: Branch and Edit Intent",
+          "code": "git checkout -b feature-vlan-300\npython -c \"\nimport json\np='models/intent/vlans.json'\nd=json.load(open(p))\nd['vlans']['vlan'].append({'id':300,'name':'LAB_CAPSTONE'})\njson.dump(d, open(p,'w'), indent=2)\n\"\ngit add models/intent/vlans.json\ngit commit -m \"Add VLAN 300 to SoT intent\"\ngit push origin feature-vlan-300",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "capstone-local-prevalidation",
+          "type": "code",
+          "script": "Lines one through three run the same checks GitLab prevalidation will run — catch errors before CI minutes burn. Line one validates JSON against the YANG-shaped rules script. Line two lints YAML under models. Line three renders config via Ansible playbook. Line four prints rendered slash vlans dot cfg — you should see vlan three hundred before push. If any command fails, fix intent and retry before opening the merge request.",
+          "title": "Step 3: Local Prevalidation",
+          "code": "python scripts/validate_yang_intent.py models/intent/vlans.json\nyamllint models/\nansible-playbook playbooks/render_from_sot.yml\ncat rendered/vlans.cfg",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "capstone-compose-smoke",
+          "type": "code",
+          "script": "Lines one and two start the Compose stack from module three — simulation smoke before CML. Line three installs Ansible inside the ansible container. Line four pings target on lab underscore net. Line five tears down when smoke passes. This mirrors the prevalidate colon compose-smoke job in dot gitlab-ci dot yml. Skip if Docker is not running locally; rely on the GitLab job instead.",
+          "title": "Step 3b: Compose Smoke Test",
+          "code": "cd docker\ndocker compose up -d\ndocker compose exec ansible pip install -r requirements.txt\ndocker compose exec ansible ansible -i inventory/compose.yml target -m ping\ncd .. && docker compose -f docker/docker-compose.yml down",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "capstone-cml-check-mode",
+          "type": "code",
+          "script": "Lines one and two export CML credentials from environment — same as module three. Line three renders fresh config from SoT. Line four runs deploy playbook in check mode against CML inventory — simulate step of the capstone without applying live config. Line five limits to r1 for a staged test. Read task output for vlan three hundred. If CML is unavailable, study the command pattern for the exam; local render plus pipeline still demonstrate SoT integration.",
+          "title": "Step 4: CML Check Mode",
+          "code": "export ANSIBLE_USER=$CML_SSH_USER\nexport ANSIBLE_PASSWORD=$CML_SSH_PASS\nansible-playbook playbooks/render_from_sot.yml\nansible-playbook -i inventory/cml.yml playbooks/deploy_vlans.yml --check --diff\nansible-playbook -i inventory/cml.yml playbooks/deploy_vlans.yml --check --limit r1",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "capstone-merge-to-main",
+          "type": "code",
+          "script": "Lines one and two switch to main and pull latest. Line three merges feature-vlan-300 — use squash merge if your team policy matches module one lab. Line four pushes main. GitLab pipeline runs build, prevalidation, deploy, and post-validation on main per module two rules. Watch the pipeline UI until all stages complete. If deploy stage is check mode only, no live change hits devices — that is expected in this course lab.",
+          "title": "Step 5: Merge and Run Pipeline",
+          "code": "git checkout main\ngit pull origin main\ngit merge --squash feature-vlan-300\ngit commit -m \"Add VLAN 300 intent (capstone)\"\ngit push origin main",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "capstone-read-pipeline-logs",
+          "type": "code",
+          "script": "Use GitLab UI or CLI to confirm each stage. Line one lists recent pipelines. Line two opens the latest pipeline detail — replace pipeline id with yours. Lines three through six are the job names to inspect in order: build dependencies, prevalidate sot, prevalidate lint, deploy dry run, postvalidate intent. For exam two point two practice, open a failed job log and find the first error line — missing dependency, version conflict, or failed test.",
+          "title": "Step 6: Read Pipeline Logs",
+          "code": "# GitLab UI: CI/CD > Pipelines > latest on main\n# Verify jobs in order:\n#   build:dependencies\n#   prevalidate:sot\n#   prevalidate:lint\n#   deploy:dry-run\n#   postvalidate:intent\ngrep -E \"vlan 300|LAB_CAPSTONE\" rendered/vlans.cfg",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "capstone-fix-pipeline-failure",
+          "type": "code",
+          "script": "If post-validation fails after merge, treat it as exam two point two drill. Line one shows the job log pattern — exit code one on postvalidate intent. Line two removes a deliberate bad VLAN id if you added nine ninety-nine for testing. Lines three and four commit fix to main and push. Pipeline re-runs automatically. Always fix SoT in Git — never patch only the device. That is source of truth discipline from module four.",
+          "title": "Fix a Failed Post-Validation",
+          "code": "# Job log: postvalidate:intent exited with code 1\npython -c \"import json;d=json.load(open('models/intent/vlans.json'));d['vlans']['vlan']=[v for v in d['vlans']['vlan'] if v['id']!=999];json.dump(d,open('models/intent/vlans.json','w'),indent=2)\"\ngit add models/intent/vlans.json\ngit commit -m \"Fix intent: remove invalid VLAN 999\"\ngit push origin main",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "capstone-final-verification",
+          "type": "code",
+          "script": "Line one re-runs validation locally to match green pipeline. Line two confirms rendered config contains VLAN three hundred. Line three runs ansible-playbook render one more time idempotently. Line four tags the repo capstone-complete if you use release tags — optional. You have walked Git arrow CI/CD arrow simulate arrow deploy on one repo covering exam objectives two point one through two point seven.",
+          "title": "Confirm Capstone Complete",
+          "code": "python scripts/validate_yang_intent.py models/intent/vlans.json\ngrep \"300\" rendered/vlans.cfg\nansible-playbook playbooks/render_from_sot.yml\ngit tag -a capstone-v1 -m \"Course 2 capstone complete\"",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "course-two-complete",
+          "type": "content-single",
+          "script": "Course two capstone maps the full AUTOCOR infrastructure-as-code track for objectives two point one through two point seven. Git version control on intent. GitLab CI/CD with four stages and failure diagnosis. Docker Compose and CML simulation. YANG-modeled source of truth with JSON and YAML instances. You ran them in one repo — netops_iac_lab — not as separate demos. Course three in the CCNP path picks up the next certification topics beyond AUTOCOR section two.",
+          "title": "Course Two Objectives Complete",
+          "points": [
+            "AUTOCOR 2.1–2.7 in one repo",
+            "Git, CI/CD, simulation, YANG SoT",
+            "netops_iac_lab as reference repo"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module05/course-two-complete.svg",
+          "keyPhrases": [
+            "objectives two point one through seven",
+            "not separate demos",
+            "course three continues CCNP path"
+          ]
+        },
+        {
+          "name": "iac-capstone-complete",
+          "type": "story-beat",
+          "script": "You started course two copying configs without history. You finish with golden intent in Git, automated pipeline gates, Compose and CML simulation, rendered configs from YANG-shaped data, and a capstone change that flowed branch to merge to green post-validation. That is infrastructure as code for network automation — the AUTOCOR section two story in one lab. Keep netops_iac_lab as your reference implementation. Update intent first, always.",
+          "beat": "resolution",
+          "title": "Infrastructure as Code — Complete",
+          "points": [
+            "Golden intent in Git with pipeline gates",
+            "Compose, CML, rendered YANG-shaped configs",
+            "Update intent first, always"
+          ],
+          "imageSrc": "assets/infrastructure-as-code-versioned-networks/module05/iac-capstone-complete.svg",
+          "keyPhrases": [
+            "branch to green post-validation",
+            "AUTOCOR section two story",
+            "keep netops_iac_lab reference"
+          ]
+        }
+      ]
+    }
+  ],
+  "savedAt": "2026-06-21T12:00:00.000Z"
+}

@@ -1,0 +1,14 @@
+{
+  "diagram": "pipeline-to-simulation-bridge.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 10,
+      "show": [
+        "main"
+      ],
+      "dim": [],
+      "highlight": []
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "diagram": "ai-capstone-intro.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-m1"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-m1"
+      ]
+    },
+    {
+      "start": 2.4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-m1",
+        "viz-m2"
+      ],
+      "dim": [
+        "viz-m1"
+      ],
+      "highlight": [
+        "viz-m2"
+      ]
+    },
+    {
+      "start": 4.8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-m1",
+        "viz-m2",
+        "viz-m3"
+      ],
+      "dim": [
+        "viz-m1",
+        "viz-m2"
+      ],
+      "highlight": [
+        "viz-m3"
+      ]
+    },
+    {
+      "start": 7.199999999999999,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-m1",
+        "viz-m2",
+        "viz-m3",
+        "viz-m4"
+      ],
+      "dim": [
+        "viz-m1",
+        "viz-m2",
+        "viz-m3"
+      ],
+      "highlight": [
+        "viz-m4"
+      ]
+    },
+    {
+      "start": 9.6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-m1",
+        "viz-m2",
+        "viz-m3",
+        "viz-m4",
+        "viz-guardrail"
+      ],
+      "dim": [
+        "viz-m1",
+        "viz-m2",
+        "viz-m3",
+        "viz-m4"
+      ],
+      "highlight": [
+        "viz-guardrail"
+      ]
+    }
+  ]
+}

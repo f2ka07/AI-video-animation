@@ -1,0 +1,10 @@
+{
+  "diagram": "autocor-execution-not-memorization.svg",
+  "phases": [
+    {"start": 0, "end": 16, "show": ["viz-main", "viz-badge"], "dim": [], "highlight": ["viz-badge"]},
+    {"start": 3, "end": 16, "show": ["viz-main", "viz-badge", "viz-domains"], "dim": ["viz-badge"], "highlight": ["viz-domains"]},
+    {"start": 6, "end": 16, "show": ["viz-main", "viz-badge", "viz-domains", "viz-memorize", "viz-execute"], "dim": ["viz-domains"], "highlight": ["viz-memorize"]},
+    {"start": 10, "end": 16, "show": ["viz-main", "viz-badge", "viz-domains", "viz-memorize", "viz-execute"], "dim": ["viz-memorize"], "highlight": ["viz-execute"]},
+    {"start": 13, "end": 16, "show": ["viz-main", "viz-badge", "viz-domains", "viz-memorize", "viz-execute", "viz-labs"], "dim": ["viz-memorize"], "highlight": ["viz-labs"]}
+  ]
+}

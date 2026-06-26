@@ -1,0 +1,49 @@
+{
+  "diagram": "what-git-does-plain-language.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-watch"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-watch"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-watch",
+        "viz-commit"
+      ],
+      "dim": [
+        "viz-watch"
+      ],
+      "highlight": [
+        "viz-commit"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-watch",
+        "viz-commit",
+        "viz-branch"
+      ],
+      "dim": [
+        "viz-watch",
+        "viz-commit"
+      ],
+      "highlight": [
+        "viz-branch"
+      ]
+    }
+  ]
+}

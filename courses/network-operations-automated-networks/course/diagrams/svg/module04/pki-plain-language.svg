@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="PKI plain language">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    
+    <text x="48" y="58" fill="#049FD9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" letter-spacing="0.14em">PKI</text>
+    <text x="48" y="84" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="800">Trust chain from CA to service</text>
+    
+    <g id="viz-ca"><rect x="300" y="110" width="120" height="56" rx="12" fill="#0b2237" stroke="#f59e0b" stroke-width="2"/>
+      <text x="360" y="144" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Root CA</text></g>
+  <line x1="360" y1="166" x2="360" y2="200" stroke="#35536f" stroke-width="2"/>
+    <g id="viz-inter"><rect x="300" y="200" width="120" height="56" rx="12" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+      <text x="360" y="234" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">Intermediate</text></g>
+  <line x1="360" y1="256" x2="360" y2="290" stroke="#35536f" stroke-width="2"/>
+    <g id="viz-cert"><rect x="280" y="290" width="160" height="64" rx="12" fill="#112115" stroke="#6CC04A" stroke-width="2"/>
+      <text x="360" y="328" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">Service cert</text></g>
+  </g>
+</svg>

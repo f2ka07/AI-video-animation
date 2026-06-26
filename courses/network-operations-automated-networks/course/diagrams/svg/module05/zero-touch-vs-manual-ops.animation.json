@@ -1,0 +1,32 @@
+{
+  "diagram": "zero-touch-vs-manual-ops.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-manual"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-manual"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-manual",
+        "viz-zto"
+      ],
+      "dim": [
+        "viz-manual"
+      ],
+      "highlight": [
+        "viz-zto"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "diagram": "lab-setup-ai-capstone.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-folder"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-folder"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-folder",
+        "viz-terminal"
+      ],
+      "dim": [
+        "viz-folder"
+      ],
+      "highlight": [
+        "viz-terminal"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-folder",
+        "viz-terminal",
+        "viz-check"
+      ],
+      "dim": [
+        "viz-folder",
+        "viz-terminal"
+      ],
+      "highlight": [
+        "viz-check"
+      ]
+    }
+  ]
+}

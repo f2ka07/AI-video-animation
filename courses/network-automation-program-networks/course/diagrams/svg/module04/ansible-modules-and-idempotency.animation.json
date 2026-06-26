@@ -1,0 +1,68 @@
+{
+  "diagram": "ansible-modules-and-idempotency.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-desired"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-desired"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-desired",
+        "viz-check"
+      ],
+      "dim": [
+        "viz-desired"
+      ],
+      "highlight": [
+        "viz-check"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-desired",
+        "viz-check",
+        "viz-roles"
+      ],
+      "dim": [
+        "viz-desired",
+        "viz-check"
+      ],
+      "highlight": [
+        "viz-roles"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-desired",
+        "viz-check",
+        "viz-roles",
+        "viz-handlers"
+      ],
+      "dim": [
+        "viz-desired",
+        "viz-check",
+        "viz-roles"
+      ],
+      "highlight": [
+        "viz-handlers"
+      ]
+    }
+  ]
+}

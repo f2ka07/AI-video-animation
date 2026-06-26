@@ -1,0 +1,14 @@
+{
+  "diagram": "manual-vs-pipeline-deploy.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 10,
+      "show": [
+        "main"
+      ],
+      "dim": [],
+      "highlight": []
+    }
+  ]
+}

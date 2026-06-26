@@ -1,0 +1,49 @@
+{
+  "diagram": "restconf-vs-netconf.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-restconf"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-restconf"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-restconf",
+        "viz-netconf"
+      ],
+      "dim": [
+        "viz-restconf"
+      ],
+      "highlight": [
+        "viz-netconf"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-restconf",
+        "viz-netconf",
+        "viz-yang-shared"
+      ],
+      "dim": [
+        "viz-restconf",
+        "viz-netconf"
+      ],
+      "highlight": [
+        "viz-yang-shared"
+      ]
+    }
+  ]
+}

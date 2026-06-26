@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Declarative outcome vs imperative steps">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    <g id="viz-switch">
+    <rect x="296" y="252" width="80" height="56" rx="10" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+    <path d="M316 292h40M336 272v40" stroke="#12b5e5" stroke-width="2" stroke-linecap="round"/>
+    <text x="336" y="324" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">SW1</text>
+  </g>
+    <g id="viz-declarative">
+      <rect x="80" y="80" width="200" height="72" rx="14" fill="#112115" stroke="#6CC04A" stroke-width="2"/>
+      <text x="180" y="110" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="800" text-anchor="middle">Desired state</text>
+      <text x="180" y="132" fill="#9fb3c8" font-family="monospace" font-size="12" text-anchor="middle">vlan 100 on Gi0/1</text>
+      <line x1="180" y1="152" x2="300" y2="250" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g id="viz-imperative">
+      <rect x="392" y="80" width="200" height="110" rx="14" fill="#1a1215" stroke="#ef4444" stroke-width="2"/>
+      <text x="412" y="108" fill="#f8fafc" font-family="monospace" font-size="12">1. conf t</text>
+      <text x="412" y="128" fill="#f8fafc" font-family="monospace" font-size="12">2. vlan 100</text>
+      <text x="412" y="148" fill="#f8fafc" font-family="monospace" font-size="12">3. int Gi0/1</text>
+      <text x="492" y="175" fill="#ef4444" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">step by step</text>
+      <line x1="492" y1="190" x2="370" y2="250" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

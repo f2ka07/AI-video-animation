@@ -1,0 +1,89 @@
+{
+  "diagram": "python-powers-network-automation.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-python"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-python"
+      ]
+    },
+    {
+      "start": 2.4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-python",
+        "viz-ansible"
+      ],
+      "dim": [
+        "viz-python"
+      ],
+      "highlight": [
+        "viz-ansible"
+      ]
+    },
+    {
+      "start": 4.8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-python",
+        "viz-ansible",
+        "viz-netmiko"
+      ],
+      "dim": [
+        "viz-python",
+        "viz-ansible"
+      ],
+      "highlight": [
+        "viz-netmiko"
+      ]
+    },
+    {
+      "start": 7.199999999999999,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-python",
+        "viz-ansible",
+        "viz-netmiko",
+        "viz-api"
+      ],
+      "dim": [
+        "viz-python",
+        "viz-ansible",
+        "viz-netmiko"
+      ],
+      "highlight": [
+        "viz-api"
+      ]
+    },
+    {
+      "start": 9.6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-python",
+        "viz-ansible",
+        "viz-netmiko",
+        "viz-api",
+        "viz-switch"
+      ],
+      "dim": [
+        "viz-python",
+        "viz-ansible",
+        "viz-netmiko",
+        "viz-api"
+      ],
+      "highlight": [
+        "viz-switch"
+      ]
+    }
+  ]
+}

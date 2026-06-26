@@ -1,0 +1,49 @@
+{
+  "diagram": "automated-rollback-when-validation-fails.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-fail"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-fail"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-fail",
+        "viz-rollback"
+      ],
+      "dim": [
+        "viz-fail"
+      ],
+      "highlight": [
+        "viz-rollback"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-fail",
+        "viz-rollback",
+        "viz-verify"
+      ],
+      "dim": [
+        "viz-fail",
+        "viz-rollback"
+      ],
+      "highlight": [
+        "viz-verify"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8273 @@
+{
+  "moduleNumber": 1,
+  "title": "Telemetry and Observability",
+  "slides": {
+    "snapshots-arent-enough": {
+      "words": [
+        {
+          "text": "Courses",
+          "start": 0.12,
+          "end": 0.53
+        },
+        {
+          "text": "one",
+          "start": 0.53,
+          "end": 0.8
+        },
+        {
+          "text": "and",
+          "start": 0.8,
+          "end": 0.95
+        },
+        {
+          "text": "two",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "text": "taught",
+          "start": 1.21,
+          "end": 1.6
+        },
+        {
+          "text": "you",
+          "start": 1.6,
+          "end": 1.68
+        },
+        {
+          "text": "to",
+          "start": 1.68,
+          "end": 1.71
+        },
+        {
+          "text": "automate",
+          "start": 3.3,
+          "end": 3.65
+        },
+        {
+          "text": "VLANs",
+          "start": 3.65,
+          "end": 4.17
+        },
+        {
+          "text": "store",
+          "start": 4.17,
+          "end": 4.33
+        },
+        {
+          "text": "intent",
+          "start": 4.33,
+          "end": 4.72
+        },
+        {
+          "text": "in",
+          "start": 4.96,
+          "end": 5.26
+        },
+        {
+          "text": "Git",
+          "start": 6.01,
+          "end": 6.43
+        },
+        {
+          "text": "run",
+          "start": 6.43,
+          "end": 7.19
+        },
+        {
+          "text": "CICD",
+          "start": 7.5,
+          "end": 8.1
+        },
+        {
+          "text": "pipelines",
+          "start": 8.1,
+          "end": 8.21
+        },
+        {
+          "text": "simulate",
+          "start": 8.21,
+          "end": 9.01
+        },
+        {
+          "text": "in",
+          "start": 9.21,
+          "end": 9.38
+        },
+        {
+          "text": "containers",
+          "start": 9.38,
+          "end": 9.72
+        },
+        {
+          "text": "and",
+          "start": 9.72,
+          "end": 9.77
+        },
+        {
+          "text": "treat",
+          "start": 9.77,
+          "end": 10.13
+        },
+        {
+          "text": "a",
+          "start": 10.13,
+          "end": 10.29
+        },
+        {
+          "text": "source",
+          "start": 10.33,
+          "end": 10.59
+        },
+        {
+          "text": "of",
+          "start": 10.85,
+          "end": 11.07
+        },
+        {
+          "text": "truth",
+          "start": 11.07,
+          "end": 11.6
+        },
+        {
+          "text": "as",
+          "start": 11.93,
+          "end": 12.24
+        },
+        {
+          "text": "golden",
+          "start": 12.24,
+          "end": 12.63
+        },
+        {
+          "text": "Course",
+          "start": 12.68,
+          "end": 13.08
+        },
+        {
+          "text": "three",
+          "start": 13.08,
+          "end": 13.18
+        },
+        {
+          "text": "asks",
+          "start": 13.18,
+          "end": 13.61
+        },
+        {
+          "text": "a",
+          "start": 13.61,
+          "end": 14.09
+        },
+        {
+          "text": "different",
+          "start": 14.64,
+          "end": 14.95
+        },
+        {
+          "text": "question",
+          "start": 14.95,
+          "end": 15.07
+        },
+        {
+          "text": "once",
+          "start": 15.07,
+          "end": 15.21
+        },
+        {
+          "text": "the",
+          "start": 15.77,
+          "end": 15.9
+        },
+        {
+          "text": "right",
+          "start": 15.9,
+          "end": 16.469999
+        },
+        {
+          "text": "config",
+          "start": 16.959999,
+          "end": 17.209999
+        },
+        {
+          "text": "is",
+          "start": 17.209999,
+          "end": 17.360001
+        },
+        {
+          "text": "deployed",
+          "start": 17.360001,
+          "end": 17.42
+        },
+        {
+          "text": "how",
+          "start": 17.42,
+          "end": 17.610001
+        },
+        {
+          "text": "do",
+          "start": 17.610001,
+          "end": 17.74
+        },
+        {
+          "text": "you",
+          "start": 17.74,
+          "end": 18.280001
+        },
+        {
+          "text": "know",
+          "start": 18.280001,
+          "end": 18.41
+        },
+        {
+          "text": "the",
+          "start": 18.41,
+          "end": 18.84
+        },
+        {
+          "text": "network",
+          "start": 18.84,
+          "end": 19.040001
+        },
+        {
+          "text": "is",
+          "start": 19.120001,
+          "end": 19.459999
+        },
+        {
+          "text": "healthy",
+          "start": 19.709999,
+          "end": 19.99
+        },
+        {
+          "text": "right",
+          "start": 19.99,
+          "end": 20.27
+        },
+        {
+          "text": "now",
+          "start": 20.27,
+          "end": 20.620001
+        },
+        {
+          "text": "-",
+          "start": 20.620001,
+          "end": 21.01
+        },
+        {
+          "text": "not",
+          "start": 21.17,
+          "end": 21.35
+        },
+        {
+          "text": "five",
+          "start": 21.35,
+          "end": 21.780001
+        },
+        {
+          "text": "minutes",
+          "start": 21.780001,
+          "end": 22.02
+        },
+        {
+          "text": "ago",
+          "start": 22.02,
+          "end": 22.27
+        },
+        {
+          "text": "when",
+          "start": 22.27,
+          "end": 22.92
+        },
+        {
+          "text": "someone",
+          "start": 23.110001,
+          "end": 23.42
+        },
+        {
+          "text": "ran",
+          "start": 23.42,
+          "end": 23.950001
+        },
+        {
+          "text": "show",
+          "start": 23.950001,
+          "end": 24.049999
+        },
+        {
+          "text": "commands",
+          "start": 24.049999,
+          "end": 24.129999
+        },
+        {
+          "text": "Polling",
+          "start": 24.200001,
+          "end": 24.639999
+        },
+        {
+          "text": "devices",
+          "start": 24.93,
+          "end": 25.27
+        },
+        {
+          "text": "on",
+          "start": 25.27,
+          "end": 25.879999
+        },
+        {
+          "text": "a",
+          "start": 26.959999,
+          "end": 27.08
+        },
+        {
+          "text": "timer",
+          "start": 27.08,
+          "end": 27.639999
+        },
+        {
+          "text": "misses",
+          "start": 27.639999,
+          "end": 28.24
+        },
+        {
+          "text": "spikes",
+          "start": 28.530001,
+          "end": 28.940001
+        },
+        {
+          "text": "brownouts",
+          "start": 28.940001,
+          "end": 29.450001
+        },
+        {
+          "text": "and",
+          "start": 29.450001,
+          "end": 29.969999
+        },
+        {
+          "text": "silent",
+          "start": 29.969999,
+          "end": 30.6
+        },
+        {
+          "text": "drift",
+          "start": 30.74,
+          "end": 31.35
+        },
+        {
+          "text": "Model-driven",
+          "start": 31.35,
+          "end": 31.91
+        },
+        {
+          "text": "telemetry",
+          "start": 31.91,
+          "end": 32.080002
+        },
+        {
+          "text": "streams",
+          "start": 32.080002,
+          "end": 32.419998
+        },
+        {
+          "text": "structured",
+          "start": 32.419998,
+          "end": 33.110001
+        },
+        {
+          "text": "metrics",
+          "start": 33.209999,
+          "end": 34.060001
+        },
+        {
+          "text": "and",
+          "start": 34.060001,
+          "end": 34.299999
+        },
+        {
+          "text": "state",
+          "start": 34.299999,
+          "end": 34.389999
+        },
+        {
+          "text": "changes",
+          "start": 34.389999,
+          "end": 35.040001
+        },
+        {
+          "text": "continuously",
+          "start": 35.349998,
+          "end": 35.41
+        },
+        {
+          "text": "from",
+          "start": 35.439999,
+          "end": 36.080002
+        },
+        {
+          "text": "the",
+          "start": 36.080002,
+          "end": 36.27
+        },
+        {
+          "text": "device",
+          "start": 36.27,
+          "end": 36.84
+        },
+        {
+          "text": "to",
+          "start": 36.84,
+          "end": 37.349998
+        },
+        {
+          "text": "collectors",
+          "start": 37.5,
+          "end": 37.73
+        },
+        {
+          "text": "your",
+          "start": 37.73,
+          "end": 38.110001
+        },
+        {
+          "text": "automation",
+          "start": 38.439999,
+          "end": 38.830002
+        },
+        {
+          "text": "stack",
+          "start": 38.830002,
+          "end": 39.490002
+        },
+        {
+          "text": "can",
+          "start": 39.490002,
+          "end": 39.689999
+        },
+        {
+          "text": "read",
+          "start": 39.689999,
+          "end": 40.029999
+        },
+        {
+          "text": "Exam",
+          "start": 40.029999,
+          "end": 40.290001
+        },
+        {
+          "text": "objective",
+          "start": 40.290001,
+          "end": 40.59
+        },
+        {
+          "text": "three",
+          "start": 40.59,
+          "end": 40.93
+        },
+        {
+          "text": "point",
+          "start": 41.34,
+          "end": 41.490002
+        },
+        {
+          "text": "one",
+          "start": 41.490002,
+          "end": 41.619999
+        },
+        {
+          "text": "lives",
+          "start": 41.619999,
+          "end": 41.900002
+        },
+        {
+          "text": "here",
+          "start": 41.900002,
+          "end": 42.16
+        },
+        {
+          "text": "You",
+          "start": 42.16,
+          "end": 42.200001
+        },
+        {
+          "text": "do",
+          "start": 42.200001,
+          "end": 42.43
+        },
+        {
+          "text": "not",
+          "start": 42.43,
+          "end": 42.560001
+        },
+        {
+          "text": "need",
+          "start": 43.110001,
+          "end": 43.560001
+        },
+        {
+          "text": "to",
+          "start": 43.59,
+          "end": 43.810001
+        },
+        {
+          "text": "be",
+          "start": 43.810001,
+          "end": 43.98
+        },
+        {
+          "text": "a",
+          "start": 43.98,
+          "end": 44.310001
+        },
+        {
+          "text": "Grafana",
+          "start": 44.380001,
+          "end": 44.52
+        },
+        {
+          "text": "expert",
+          "start": 44.52,
+          "end": 44.779999
+        },
+        {
+          "text": "on",
+          "start": 44.779999,
+          "end": 44.7999995
+        },
+        {
+          "text": "day",
+          "start": 44.7999995,
+          "end": 44.82
+        },
+        {
+          "text": "one",
+          "start": 44.82,
+          "end": 45.330002
+        },
+        {
+          "text": "-",
+          "start": 45.330002,
+          "end": 45.365002000000004
+        },
+        {
+          "text": "you",
+          "start": 45.365002000000004,
+          "end": 45.400002
+        },
+        {
+          "text": "need",
+          "start": 45.400002,
+          "end": 46.099998
+        },
+        {
+          "text": "to",
+          "start": 46.16,
+          "end": 46.2600005
+        },
+        {
+          "text": "understand",
+          "start": 46.2600005,
+          "end": 46.360001
+        },
+        {
+          "text": "the",
+          "start": 46.360001,
+          "end": 46.709999
+        },
+        {
+          "text": "architecture",
+          "start": 46.709999,
+          "end": 46.8500005
+        },
+        {
+          "text": "and",
+          "start": 46.8500005,
+          "end": 46.990002
+        },
+        {
+          "text": "run",
+          "start": 46.990002,
+          "end": 47.27
+        },
+        {
+          "text": "one",
+          "start": 47.27,
+          "end": 47.4899995
+        },
+        {
+          "text": "lab",
+          "start": 47.4899995,
+          "end": 47.709999
+        },
+        {
+          "text": "stream",
+          "start": 47.77,
+          "end": 48.080002
+        },
+        {
+          "text": "end",
+          "start": 48.080002,
+          "end": 48.1100005
+        },
+        {
+          "text": "to",
+          "start": 48.1100005,
+          "end": 48.139999
+        },
+        {
+          "text": "end",
+          "start": 48.18,
+          "end": 48.490002
+        }
+      ]
+    },
+    "polling-vs-streaming": {
+      "words": [
+        {
+          "text": "Traditional",
+          "start": 0.15,
+          "end": 0.68
+        },
+        {
+          "text": "monitoring",
+          "start": 0.68,
+          "end": 1.51
+        },
+        {
+          "text": "often",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "text": "polls",
+          "start": 1.93,
+          "end": 2.5
+        },
+        {
+          "text": "every",
+          "start": 2.85,
+          "end": 3.1
+        },
+        {
+          "text": "five",
+          "start": 3.1,
+          "end": 3.37
+        },
+        {
+          "text": "minutes",
+          "start": 3.37,
+          "end": 3.8
+        },
+        {
+          "text": "an",
+          "start": 3.84,
+          "end": 4.21
+        },
+        {
+          "text": "NMS",
+          "start": 4.32,
+          "end": 4.78
+        },
+        {
+          "text": "sends",
+          "start": 5.43,
+          "end": 5.68
+        },
+        {
+          "text": "SNMP",
+          "start": 5.68,
+          "end": 6.13
+        },
+        {
+          "text": "get",
+          "start": 6.13,
+          "end": 6.26
+        },
+        {
+          "text": "requests",
+          "start": 6.26,
+          "end": 6.82
+        },
+        {
+          "text": "and",
+          "start": 7.18,
+          "end": 7.55
+        },
+        {
+          "text": "stores",
+          "start": 7.55,
+          "end": 7.97
+        },
+        {
+          "text": "whatever",
+          "start": 7.97,
+          "end": 8.44
+        },
+        {
+          "text": "counters",
+          "start": 8.47,
+          "end": 8.52
+        },
+        {
+          "text": "happened",
+          "start": 8.52,
+          "end": 8.86
+        },
+        {
+          "text": "to",
+          "start": 8.9,
+          "end": 9.1
+        },
+        {
+          "text": "be",
+          "start": 9.15,
+          "end": 9.4
+        },
+        {
+          "text": "at",
+          "start": 9.47,
+          "end": 10.06
+        },
+        {
+          "text": "that",
+          "start": 10.63,
+          "end": 10.84
+        },
+        {
+          "text": "instant",
+          "start": 10.84,
+          "end": 11.09
+        },
+        {
+          "text": "That",
+          "start": 11.09,
+          "end": 11.25
+        },
+        {
+          "text": "works",
+          "start": 11.25,
+          "end": 11.5
+        },
+        {
+          "text": "for",
+          "start": 11.5,
+          "end": 11.84
+        },
+        {
+          "text": "slow-moving",
+          "start": 11.84,
+          "end": 12.27
+        },
+        {
+          "text": "links",
+          "start": 12.33,
+          "end": 12.52
+        },
+        {
+          "text": "but",
+          "start": 12.52,
+          "end": 12.93
+        },
+        {
+          "text": "misses",
+          "start": 12.96,
+          "end": 13.08
+        },
+        {
+          "text": "a",
+          "start": 13.08,
+          "end": 13.36
+        },
+        {
+          "text": "thirty-second",
+          "start": 13.36,
+          "end": 13.78
+        },
+        {
+          "text": "CPU",
+          "start": 14.18,
+          "end": 14.64
+        },
+        {
+          "text": "spike",
+          "start": 14.99,
+          "end": 15.26
+        },
+        {
+          "text": "or",
+          "start": 15.29,
+          "end": 15.36
+        },
+        {
+          "text": "a",
+          "start": 15.36,
+          "end": 15.78
+        },
+        {
+          "text": "flap",
+          "start": 16.120001,
+          "end": 16.32
+        },
+        {
+          "text": "that",
+          "start": 16.360001,
+          "end": 16.73
+        },
+        {
+          "text": "cleared",
+          "start": 16.73,
+          "end": 17
+        },
+        {
+          "text": "before",
+          "start": 17,
+          "end": 17.110001
+        },
+        {
+          "text": "the",
+          "start": 17.110001,
+          "end": 17.49
+        },
+        {
+          "text": "next",
+          "start": 17.49,
+          "end": 17.780001
+        },
+        {
+          "text": "poll",
+          "start": 18.1,
+          "end": 18.549999
+        },
+        {
+          "text": "Streaming",
+          "start": 18.549999,
+          "end": 19.02
+        },
+        {
+          "text": "telemetry",
+          "start": 19.02,
+          "end": 19.34
+        },
+        {
+          "text": "pushes",
+          "start": 19.34,
+          "end": 19.84
+        },
+        {
+          "text": "updates",
+          "start": 19.879999,
+          "end": 20.02
+        },
+        {
+          "text": "on",
+          "start": 20.02,
+          "end": 20.07
+        },
+        {
+          "text": "a",
+          "start": 20.07,
+          "end": 20.57
+        },
+        {
+          "text": "schedule",
+          "start": 20.57,
+          "end": 20.709999
+        },
+        {
+          "text": "you",
+          "start": 20.709999,
+          "end": 21.27
+        },
+        {
+          "text": "define",
+          "start": 21.27,
+          "end": 21.51
+        },
+        {
+          "text": "-",
+          "start": 21.51,
+          "end": 22.16
+        },
+        {
+          "text": "every",
+          "start": 22.719999,
+          "end": 23.01
+        },
+        {
+          "text": "second",
+          "start": 23.01,
+          "end": 23.15
+        },
+        {
+          "text": "or",
+          "start": 23.15,
+          "end": 23.639999
+        },
+        {
+          "text": "on",
+          "start": 23.68,
+          "end": 24.040001
+        },
+        {
+          "text": "change",
+          "start": 24.08,
+          "end": 24.16
+        },
+        {
+          "text": "-",
+          "start": 24.16,
+          "end": 25.01
+        },
+        {
+          "text": "over",
+          "start": 26.030001,
+          "end": 26.559999
+        },
+        {
+          "text": "a",
+          "start": 26.99,
+          "end": 27.07
+        },
+        {
+          "text": "persistent",
+          "start": 27.07,
+          "end": 27.52
+        },
+        {
+          "text": "gRPC",
+          "start": 27.52,
+          "end": 27.610001
+        },
+        {
+          "text": "session",
+          "start": 27.610001,
+          "end": 27.68
+        },
+        {
+          "text": "The",
+          "start": 27.68,
+          "end": 28.309999
+        },
+        {
+          "text": "device",
+          "start": 28.469999,
+          "end": 28.610001
+        },
+        {
+          "text": "is",
+          "start": 28.610001,
+          "end": 29.040001
+        },
+        {
+          "text": "the",
+          "start": 29.040001,
+          "end": 29.610001
+        },
+        {
+          "text": "publisher",
+          "start": 29.84,
+          "end": 30.17
+        },
+        {
+          "text": "your",
+          "start": 30.17,
+          "end": 30.98
+        },
+        {
+          "text": "collector",
+          "start": 31.1,
+          "end": 31.66
+        },
+        {
+          "text": "listens",
+          "start": 31.66,
+          "end": 31.91
+        },
+        {
+          "text": "For",
+          "start": 31.91,
+          "end": 32.52
+        },
+        {
+          "text": "automation",
+          "start": 32.610001,
+          "end": 33.290001
+        },
+        {
+          "text": "streaming",
+          "start": 33.290001,
+          "end": 33.990002
+        },
+        {
+          "text": "data",
+          "start": 35.119999,
+          "end": 35.299999
+        },
+        {
+          "text": "feeds",
+          "start": 35.299999,
+          "end": 35.5249995
+        },
+        {
+          "text": "validation",
+          "start": 35.5249995,
+          "end": 35.75
+        },
+        {
+          "text": "scripts",
+          "start": 35.75,
+          "end": 36.52
+        },
+        {
+          "text": "dashboards",
+          "start": 36.650002,
+          "end": 36.825001
+        },
+        {
+          "text": "and",
+          "start": 36.825001,
+          "end": 37
+        },
+        {
+          "text": "anomaly",
+          "start": 37.029999,
+          "end": 37.549999
+        },
+        {
+          "text": "detectors",
+          "start": 37.549999,
+          "end": 37.594999
+        },
+        {
+          "text": "without",
+          "start": 37.594999,
+          "end": 37.639999
+        },
+        {
+          "text": "pretending",
+          "start": 37.639999,
+          "end": 38.110001
+        },
+        {
+          "text": "the",
+          "start": 38.110001,
+          "end": 38.33
+        },
+        {
+          "text": "network",
+          "start": 38.33,
+          "end": 38.549999
+        },
+        {
+          "text": "stands",
+          "start": 38.549999,
+          "end": 38.98
+        },
+        {
+          "text": "still",
+          "start": 39.09,
+          "end": 39.3150005
+        },
+        {
+          "text": "between",
+          "start": 39.3150005,
+          "end": 39.540001
+        },
+        {
+          "text": "polls",
+          "start": 39.540001,
+          "end": 40.07
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 5.68,
+          "end": 8.44
+        },
+        {
+          "start": 13.08,
+          "end": 15.78
+        },
+        {
+          "start": 27.07,
+          "end": 30.17
+        }
+      ]
+    },
+    "what-model-driven-telemetry-means": {
+      "words": [
+        {
+          "text": "Model-driven",
+          "start": 0.13,
+          "end": 0.45
+        },
+        {
+          "text": "telemetry",
+          "start": 0.45,
+          "end": 0.82
+        },
+        {
+          "text": "often",
+          "start": 0.82,
+          "end": 1.52
+        },
+        {
+          "text": "shortened",
+          "start": 1.72,
+          "end": 2.05
+        },
+        {
+          "text": "to",
+          "start": 2.05,
+          "end": 2.58
+        },
+        {
+          "text": "MDT",
+          "start": 2.72,
+          "end": 2.79
+        },
+        {
+          "text": "means",
+          "start": 3.86,
+          "end": 4.19
+        },
+        {
+          "text": "the",
+          "start": 4.19,
+          "end": 4.28
+        },
+        {
+          "text": "data",
+          "start": 4.28,
+          "end": 4.6
+        },
+        {
+          "text": "leaving",
+          "start": 4.6,
+          "end": 4.95
+        },
+        {
+          "text": "the",
+          "start": 4.95,
+          "end": 5.06
+        },
+        {
+          "text": "device",
+          "start": 5.06,
+          "end": 5.46
+        },
+        {
+          "text": "follows",
+          "start": 5.46,
+          "end": 5.86
+        },
+        {
+          "text": "YANG",
+          "start": 5.86,
+          "end": 6.08
+        },
+        {
+          "text": "models",
+          "start": 6.08,
+          "end": 6.63
+        },
+        {
+          "text": "the",
+          "start": 6.97,
+          "end": 7.06
+        },
+        {
+          "text": "platform",
+          "start": 7.06,
+          "end": 7.6
+        },
+        {
+          "text": "already",
+          "start": 7.6,
+          "end": 8.02
+        },
+        {
+          "text": "understands",
+          "start": 8.06,
+          "end": 8.76
+        },
+        {
+          "text": "-",
+          "start": 8.79,
+          "end": 9.16
+        },
+        {
+          "text": "not",
+          "start": 9.16,
+          "end": 9.49
+        },
+        {
+          "text": "random",
+          "start": 9.49,
+          "end": 9.87
+        },
+        {
+          "text": "text",
+          "start": 9.87,
+          "end": 9.96
+        },
+        {
+          "text": "you",
+          "start": 9.96,
+          "end": 10.25
+        },
+        {
+          "text": "parse",
+          "start": 10.25,
+          "end": 10.44
+        },
+        {
+          "text": "by",
+          "start": 10.44,
+          "end": 10.87
+        },
+        {
+          "text": "hand",
+          "start": 11.28,
+          "end": 11.38
+        },
+        {
+          "text": "A",
+          "start": 11.38,
+          "end": 11.74
+        },
+        {
+          "text": "path",
+          "start": 11.74,
+          "end": 12.07
+        },
+        {
+          "text": "like",
+          "start": 12.35,
+          "end": 13.18
+        },
+        {
+          "text": "interfaces-state",
+          "start": 13.18,
+          "end": 13.73
+        },
+        {
+          "text": "slash",
+          "start": 13.89,
+          "end": 14.56
+        },
+        {
+          "text": "interface",
+          "start": 14.75,
+          "end": 15.32
+        },
+        {
+          "text": "slash",
+          "start": 15.32,
+          "end": 15.95
+        },
+        {
+          "text": "statistics",
+          "start": 15.99,
+          "end": 16.620001
+        },
+        {
+          "text": "tells",
+          "start": 16.620001,
+          "end": 16.940001
+        },
+        {
+          "text": "you",
+          "start": 16.940001,
+          "end": 17.07
+        },
+        {
+          "text": "exactly",
+          "start": 17.07,
+          "end": 17.68
+        },
+        {
+          "text": "which",
+          "start": 17.68,
+          "end": 17.950001
+        },
+        {
+          "text": "counters",
+          "start": 17.950001,
+          "end": 18.360001
+        },
+        {
+          "text": "exist",
+          "start": 18.360001,
+          "end": 18.889999
+        },
+        {
+          "text": "and",
+          "start": 18.92,
+          "end": 19.110001
+        },
+        {
+          "text": "their",
+          "start": 19.110001,
+          "end": 19.27
+        },
+        {
+          "text": "types",
+          "start": 19.27,
+          "end": 19.709999
+        },
+        {
+          "text": "The",
+          "start": 20.059999,
+          "end": 20.139999
+        },
+        {
+          "text": "model",
+          "start": 20.139999,
+          "end": 20.530001
+        },
+        {
+          "text": "is",
+          "start": 20.530001,
+          "end": 20.65
+        },
+        {
+          "text": "the",
+          "start": 20.65,
+          "end": 20.77
+        },
+        {
+          "text": "contract",
+          "start": 20.77,
+          "end": 21.18
+        },
+        {
+          "text": "between",
+          "start": 21.219999,
+          "end": 21.57
+        },
+        {
+          "text": "producer",
+          "start": 21.57,
+          "end": 22.02
+        },
+        {
+          "text": "and",
+          "start": 22.02,
+          "end": 22.27
+        },
+        {
+          "text": "consumer",
+          "start": 22.309999,
+          "end": 22.92
+        },
+        {
+          "text": "When",
+          "start": 23.360001,
+          "end": 23.66
+        },
+        {
+          "text": "your",
+          "start": 23.66,
+          "end": 23.799999
+        },
+        {
+          "text": "collector",
+          "start": 23.799999,
+          "end": 24.32
+        },
+        {
+          "text": "requests",
+          "start": 24.32,
+          "end": 24.98
+        },
+        {
+          "text": "or",
+          "start": 25.02,
+          "end": 25.139999
+        },
+        {
+          "text": "receives",
+          "start": 25.139999,
+          "end": 25.66
+        },
+        {
+          "text": "that",
+          "start": 25.66,
+          "end": 25.870001
+        },
+        {
+          "text": "path",
+          "start": 25.969999,
+          "end": 26.190001
+        },
+        {
+          "text": "both",
+          "start": 26.610001,
+          "end": 26.99
+        },
+        {
+          "text": "sides",
+          "start": 26.99,
+          "end": 27.370001
+        },
+        {
+          "text": "agree",
+          "start": 27.459999,
+          "end": 28.049999
+        },
+        {
+          "text": "on",
+          "start": 28.08,
+          "end": 28.27
+        },
+        {
+          "text": "field",
+          "start": 28.34,
+          "end": 28.68
+        },
+        {
+          "text": "names",
+          "start": 28.68,
+          "end": 29.190001
+        },
+        {
+          "text": "and",
+          "start": 29.34,
+          "end": 29.549999
+        },
+        {
+          "text": "units",
+          "start": 29.549999,
+          "end": 30.139999
+        },
+        {
+          "text": "That",
+          "start": 30.620001,
+          "end": 30.76
+        },
+        {
+          "text": "is",
+          "start": 30.76,
+          "end": 30.879999
+        },
+        {
+          "text": "why",
+          "start": 30.879999,
+          "end": 31.24
+        },
+        {
+          "text": "exam",
+          "start": 31.280001,
+          "end": 31.66
+        },
+        {
+          "text": "three",
+          "start": 31.66,
+          "end": 31.93
+        },
+        {
+          "text": "point",
+          "start": 31.93,
+          "end": 32.290001
+        },
+        {
+          "text": "one",
+          "start": 32.290001,
+          "end": 32.540001
+        },
+        {
+          "text": "focuses",
+          "start": 32.540001,
+          "end": 33.139999
+        },
+        {
+          "text": "on",
+          "start": 33.200001,
+          "end": 33.389999
+        },
+        {
+          "text": "architectural",
+          "start": 33.450001,
+          "end": 34.07
+        },
+        {
+          "text": "components",
+          "start": 34.07,
+          "end": 34.799999
+        },
+        {
+          "text": "-",
+          "start": 34.849998,
+          "end": 35.1499995
+        },
+        {
+          "text": "producer",
+          "start": 35.1499995,
+          "end": 35.450001
+        },
+        {
+          "text": "transport",
+          "start": 35.830002,
+          "end": 36.470001
+        },
+        {
+          "text": "subscription",
+          "start": 36.740002,
+          "end": 37.17
+        },
+        {
+          "text": "and",
+          "start": 37.17,
+          "end": 37.599998
+        },
+        {
+          "text": "consumer",
+          "start": 37.860001,
+          "end": 38.040001
+        },
+        {
+          "text": "-",
+          "start": 38.040001,
+          "end": 38.4050005
+        },
+        {
+          "text": "rather",
+          "start": 38.4050005,
+          "end": 38.77
+        },
+        {
+          "text": "than",
+          "start": 39.060001,
+          "end": 39.279999
+        },
+        {
+          "text": "memorizing",
+          "start": 39.279999,
+          "end": 39.4749985
+        },
+        {
+          "text": "every",
+          "start": 39.4749985,
+          "end": 39.669998
+        },
+        {
+          "text": "OID",
+          "start": 40.279999,
+          "end": 40.630001
+        },
+        {
+          "text": "from",
+          "start": 41.240002,
+          "end": 41.3900015
+        },
+        {
+          "text": "legacy",
+          "start": 41.3900015,
+          "end": 41.540001
+        },
+        {
+          "text": "SNMP",
+          "start": 41.540001,
+          "end": 42.009998
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 4.28,
+          "end": 6.08
+        },
+        {
+          "start": 11.38,
+          "end": 15.32
+        },
+        {
+          "start": 20.139999,
+          "end": 23.66
+        }
+      ]
+    },
+    "snmp-poll-vs-gnmi-subscribe": {
+      "words": [
+        {
+          "text": "SNMP",
+          "start": 1,
+          "end": 1.45
+        },
+        {
+          "text": "polling",
+          "start": 1.45,
+          "end": 1.85
+        },
+        {
+          "text": "asks",
+          "start": 1.9,
+          "end": 2.01
+        },
+        {
+          "text": "the",
+          "start": 2.01,
+          "end": 2.48
+        },
+        {
+          "text": "device",
+          "start": 2.48,
+          "end": 2.65
+        },
+        {
+          "text": "for",
+          "start": 2.65,
+          "end": 3.22
+        },
+        {
+          "text": "values",
+          "start": 3.22,
+          "end": 3.41
+        },
+        {
+          "text": "on",
+          "start": 3.41,
+          "end": 3.47
+        },
+        {
+          "text": "a",
+          "start": 3.47,
+          "end": 4.1
+        },
+        {
+          "text": "schedule",
+          "start": 4.21,
+          "end": 4.34
+        },
+        {
+          "text": "the",
+          "start": 5.03,
+          "end": 5.83
+        },
+        {
+          "text": "NMS",
+          "start": 6.45,
+          "end": 6.55
+        },
+        {
+          "text": "controls",
+          "start": 6.55,
+          "end": 7.06
+        },
+        {
+          "text": "The",
+          "start": 7.1,
+          "end": 7.63
+        },
+        {
+          "text": "device",
+          "start": 7.63,
+          "end": 7.87
+        },
+        {
+          "text": "answers",
+          "start": 7.87,
+          "end": 8.59
+        },
+        {
+          "text": "and",
+          "start": 8.84,
+          "end": 9.24
+        },
+        {
+          "text": "forgets",
+          "start": 9.24,
+          "end": 9.37
+        },
+        {
+          "text": "until",
+          "start": 9.37,
+          "end": 9.82
+        },
+        {
+          "text": "the",
+          "start": 9.86,
+          "end": 10.22
+        },
+        {
+          "text": "next",
+          "start": 12.25,
+          "end": 12.98
+        },
+        {
+          "text": "poll",
+          "start": 13.22,
+          "end": 13.44
+        },
+        {
+          "text": "gNMI",
+          "start": 13.44,
+          "end": 13.55
+        },
+        {
+          "text": "subscribe",
+          "start": 13.55,
+          "end": 13.68
+        },
+        {
+          "text": "-",
+          "start": 14.43,
+          "end": 14.87
+        },
+        {
+          "text": "part",
+          "start": 14.87,
+          "end": 15.49
+        },
+        {
+          "text": "of",
+          "start": 15.49,
+          "end": 16.24
+        },
+        {
+          "text": "the",
+          "start": 16.870001,
+          "end": 17.209999
+        },
+        {
+          "text": "gRPC",
+          "start": 17.209999,
+          "end": 17.32
+        },
+        {
+          "text": "Network",
+          "start": 17.32,
+          "end": 17.85
+        },
+        {
+          "text": "Management",
+          "start": 17.85,
+          "end": 18.27
+        },
+        {
+          "text": "Interface",
+          "start": 18.299999,
+          "end": 18.379999
+        },
+        {
+          "text": "-",
+          "start": 18.379999,
+          "end": 19.18
+        },
+        {
+          "text": "lets",
+          "start": 19.9,
+          "end": 20.190001
+        },
+        {
+          "text": "a",
+          "start": 20.190001,
+          "end": 20.4
+        },
+        {
+          "text": "collector",
+          "start": 20.4,
+          "end": 20.74
+        },
+        {
+          "text": "open",
+          "start": 20.74,
+          "end": 21.059999
+        },
+        {
+          "text": "a",
+          "start": 21.059999,
+          "end": 21.35
+        },
+        {
+          "text": "subscription",
+          "start": 21.879999,
+          "end": 22.290001
+        },
+        {
+          "text": "give",
+          "start": 22.360001,
+          "end": 22.66
+        },
+        {
+          "text": "me",
+          "start": 24.059999,
+          "end": 24.25
+        },
+        {
+          "text": "this",
+          "start": 24.25,
+          "end": 24.459999
+        },
+        {
+          "text": "YANG",
+          "start": 24.459999,
+          "end": 24.65
+        },
+        {
+          "text": "path",
+          "start": 24.68,
+          "end": 25.33
+        },
+        {
+          "text": "every",
+          "start": 25.870001,
+          "end": 25.99
+        },
+        {
+          "text": "N",
+          "start": 25.99,
+          "end": 26.4
+        },
+        {
+          "text": "milliseconds",
+          "start": 26.4,
+          "end": 26.83
+        },
+        {
+          "text": "or",
+          "start": 26.9,
+          "end": 27.450001
+        },
+        {
+          "text": "when",
+          "start": 28.01,
+          "end": 28.52
+        },
+        {
+          "text": "it",
+          "start": 28.52,
+          "end": 29.02
+        },
+        {
+          "text": "changes",
+          "start": 29.18,
+          "end": 29.4
+        },
+        {
+          "text": "The",
+          "start": 29.43,
+          "end": 30.190001
+        },
+        {
+          "text": "session",
+          "start": 32.009998,
+          "end": 32.560001
+        },
+        {
+          "text": "stays",
+          "start": 32.599998,
+          "end": 32.799999
+        },
+        {
+          "text": "open",
+          "start": 32.799999,
+          "end": 33.040001
+        },
+        {
+          "text": "updates",
+          "start": 33.040001,
+          "end": 33.73
+        },
+        {
+          "text": "flow",
+          "start": 34.200001,
+          "end": 34.41
+        },
+        {
+          "text": "as",
+          "start": 34.41,
+          "end": 34.939999
+        },
+        {
+          "text": "events",
+          "start": 34.939999,
+          "end": 35.41
+        },
+        {
+          "text": "SNMP",
+          "start": 35.709999,
+          "end": 36.060001
+        },
+        {
+          "text": "remains",
+          "start": 36.650002,
+          "end": 36.959999
+        },
+        {
+          "text": "on",
+          "start": 37.009998,
+          "end": 37.039999
+        },
+        {
+          "text": "many",
+          "start": 37.039999,
+          "end": 37.07
+        },
+        {
+          "text": "networks",
+          "start": 37.43,
+          "end": 37.68
+        },
+        {
+          "text": "for",
+          "start": 37.810001,
+          "end": 38.17
+        },
+        {
+          "text": "legacy",
+          "start": 38.17,
+          "end": 38.529999
+        },
+        {
+          "text": "gear",
+          "start": 38.59,
+          "end": 38.75
+        },
+        {
+          "text": "Modern",
+          "start": 38.75,
+          "end": 38.8050005
+        },
+        {
+          "text": "IOS",
+          "start": 38.8050005,
+          "end": 38.860001
+        },
+        {
+          "text": "XE",
+          "start": 38.860001,
+          "end": 38.919998
+        },
+        {
+          "text": "NX-OS",
+          "start": 39.779999,
+          "end": 39.8149985
+        },
+        {
+          "text": "and",
+          "start": 39.8149985,
+          "end": 39.849998
+        },
+        {
+          "text": "automation",
+          "start": 41.27,
+          "end": 41.330002
+        },
+        {
+          "text": "labs",
+          "start": 41.330002,
+          "end": 41.5250015
+        },
+        {
+          "text": "lean",
+          "start": 41.5250015,
+          "end": 41.720001
+        },
+        {
+          "text": "on",
+          "start": 41.720001,
+          "end": 42.150002
+        },
+        {
+          "text": "gRPC",
+          "start": 42.299999,
+          "end": 42.3199995
+        },
+        {
+          "text": "and",
+          "start": 42.3199995,
+          "end": 42.34
+        },
+        {
+          "text": "gNMI",
+          "start": 42.34,
+          "end": 42.610001
+        },
+        {
+          "text": "for",
+          "start": 42.610001,
+          "end": 42.785
+        },
+        {
+          "text": "structured",
+          "start": 42.785,
+          "end": 42.959999
+        },
+        {
+          "text": "streaming",
+          "start": 42.959999,
+          "end": 43.380001
+        },
+        {
+          "text": "The",
+          "start": 43.57,
+          "end": 43.635000500000004
+        },
+        {
+          "text": "exam",
+          "start": 43.635000500000004,
+          "end": 43.700001
+        },
+        {
+          "text": "expects",
+          "start": 43.700001,
+          "end": 44.029999
+        },
+        {
+          "text": "you",
+          "start": 44.029999,
+          "end": 44.154999
+        },
+        {
+          "text": "to",
+          "start": 44.154999,
+          "end": 44.279999
+        },
+        {
+          "text": "describe",
+          "start": 44.279999,
+          "end": 44.869999
+        },
+        {
+          "text": "both",
+          "start": 44.959999,
+          "end": 45.02499950000001
+        },
+        {
+          "text": "patterns",
+          "start": 45.02499950000001,
+          "end": 45.09
+        },
+        {
+          "text": "and",
+          "start": 45.09,
+          "end": 45.18
+        },
+        {
+          "text": "when",
+          "start": 45.18,
+          "end": 45.4850005
+        },
+        {
+          "text": "streaming",
+          "start": 45.4850005,
+          "end": 45.790001
+        },
+        {
+          "text": "wins",
+          "start": 46.119999,
+          "end": 46.470001
+        }
+      ],
+      "leftPhraseTimes": [
+        {
+          "start": 6.45,
+          "end": 9.24
+        },
+        {
+          "start": 25.99,
+          "end": 29.4
+        },
+        {
+          "start": 3.47,
+          "end": 7.63
+        }
+      ],
+      "rightPhraseTimes": [
+        {
+          "start": 20.4,
+          "end": 24.25
+        },
+        {
+          "start": 42.785,
+          "end": 44.154999
+        },
+        {
+          "start": 3.41,
+          "end": 7.06
+        }
+      ]
+    },
+    "mdt-architecture-components": {
+      "words": [
+        {
+          "text": "Exam",
+          "start": 0.14,
+          "end": 0.59
+        },
+        {
+          "text": "three",
+          "start": 0.59,
+          "end": 0.81
+        },
+        {
+          "text": "point",
+          "start": 0.81,
+          "end": 1.2
+        },
+        {
+          "text": "one",
+          "start": 1.2,
+          "end": 1.49
+        },
+        {
+          "text": "names",
+          "start": 1.49,
+          "end": 1.97
+        },
+        {
+          "text": "four",
+          "start": 2.52,
+          "end": 2.87
+        },
+        {
+          "text": "architectural",
+          "start": 2.91,
+          "end": 3.64
+        },
+        {
+          "text": "pieces",
+          "start": 3.64,
+          "end": 4.23
+        },
+        {
+          "text": "you",
+          "start": 4.23,
+          "end": 4.29
+        },
+        {
+          "text": "should",
+          "start": 4.29,
+          "end": 4.58
+        },
+        {
+          "text": "sketch",
+          "start": 4.58,
+          "end": 4.98
+        },
+        {
+          "text": "from",
+          "start": 4.98,
+          "end": 5.26
+        },
+        {
+          "text": "memory",
+          "start": 5.26,
+          "end": 5.75
+        },
+        {
+          "text": "The",
+          "start": 6.26,
+          "end": 6.37
+        },
+        {
+          "text": "data",
+          "start": 6.37,
+          "end": 6.68
+        },
+        {
+          "text": "producer",
+          "start": 6.68,
+          "end": 7.35
+        },
+        {
+          "text": "is",
+          "start": 7.43,
+          "end": 7.61
+        },
+        {
+          "text": "the",
+          "start": 7.61,
+          "end": 7.71
+        },
+        {
+          "text": "network",
+          "start": 7.71,
+          "end": 8.19
+        },
+        {
+          "text": "device",
+          "start": 8.19,
+          "end": 8.65
+        },
+        {
+          "text": "-",
+          "start": 8.65,
+          "end": 9.05
+        },
+        {
+          "text": "router",
+          "start": 9.48,
+          "end": 9.63
+        },
+        {
+          "text": "or",
+          "start": 9.63,
+          "end": 10.11
+        },
+        {
+          "text": "switch",
+          "start": 10.11,
+          "end": 10.39
+        },
+        {
+          "text": "-",
+          "start": 10.39,
+          "end": 10.47
+        },
+        {
+          "text": "running",
+          "start": 10.47,
+          "end": 11.06
+        },
+        {
+          "text": "a",
+          "start": 11.06,
+          "end": 11.64
+        },
+        {
+          "text": "telemetry",
+          "start": 11.75,
+          "end": 12.02
+        },
+        {
+          "text": "agent",
+          "start": 12.02,
+          "end": 12.33
+        },
+        {
+          "text": "that",
+          "start": 12.33,
+          "end": 12.88
+        },
+        {
+          "text": "reads",
+          "start": 12.88,
+          "end": 13.27
+        },
+        {
+          "text": "modeled",
+          "start": 13.76,
+          "end": 13.87
+        },
+        {
+          "text": "data",
+          "start": 13.87,
+          "end": 14.38
+        },
+        {
+          "text": "The",
+          "start": 14.38,
+          "end": 14.54
+        },
+        {
+          "text": "transport",
+          "start": 14.54,
+          "end": 15.01
+        },
+        {
+          "text": "is",
+          "start": 15.84,
+          "end": 16.059999
+        },
+        {
+          "text": "usually",
+          "start": 16.73,
+          "end": 17.299999
+        },
+        {
+          "text": "gRPC",
+          "start": 17.299999,
+          "end": 17.52
+        },
+        {
+          "text": "over",
+          "start": 18.91,
+          "end": 19
+        },
+        {
+          "text": "TCP",
+          "start": 19,
+          "end": 19.870001
+        },
+        {
+          "text": "sometimes",
+          "start": 19.870001,
+          "end": 20.379999
+        },
+        {
+          "text": "with",
+          "start": 20.57,
+          "end": 20.639999
+        },
+        {
+          "text": "TLS",
+          "start": 20.639999,
+          "end": 21.02
+        },
+        {
+          "text": "A",
+          "start": 21.02,
+          "end": 21.32
+        },
+        {
+          "text": "subscription",
+          "start": 21.58,
+          "end": 21.77
+        },
+        {
+          "text": "ties",
+          "start": 21.77,
+          "end": 22.209999
+        },
+        {
+          "text": "a",
+          "start": 22.209999,
+          "end": 22.67
+        },
+        {
+          "text": "YANG",
+          "start": 22.809999,
+          "end": 22.92
+        },
+        {
+          "text": "path",
+          "start": 22.92,
+          "end": 23.08
+        },
+        {
+          "text": "or",
+          "start": 23.15,
+          "end": 23.709999
+        },
+        {
+          "text": "sensor",
+          "start": 23.709999,
+          "end": 24.32
+        },
+        {
+          "text": "group",
+          "start": 24.4,
+          "end": 24.99
+        },
+        {
+          "text": "to",
+          "start": 25.280001,
+          "end": 25.59
+        },
+        {
+          "text": "an",
+          "start": 25.59,
+          "end": 25.76
+        },
+        {
+          "text": "update",
+          "start": 25.76,
+          "end": 26.25
+        },
+        {
+          "text": "policy",
+          "start": 26.379999,
+          "end": 26.540001
+        },
+        {
+          "text": "-",
+          "start": 26.540001,
+          "end": 26.610001
+        },
+        {
+          "text": "periodic",
+          "start": 26.610001,
+          "end": 27.35
+        },
+        {
+          "text": "or",
+          "start": 27.35,
+          "end": 27.860001
+        },
+        {
+          "text": "on",
+          "start": 28.139999,
+          "end": 28.25
+        },
+        {
+          "text": "change",
+          "start": 28.25,
+          "end": 28.719999
+        },
+        {
+          "text": "-",
+          "start": 28.719999,
+          "end": 28.93
+        },
+        {
+          "text": "and",
+          "start": 28.93,
+          "end": 29.459999
+        },
+        {
+          "text": "a",
+          "start": 29.459999,
+          "end": 29.709999
+        },
+        {
+          "text": "destination",
+          "start": 30.98,
+          "end": 31.0500005
+        },
+        {
+          "text": "address",
+          "start": 31.0500005,
+          "end": 31.120001
+        },
+        {
+          "text": "The",
+          "start": 31.120001,
+          "end": 31.629999
+        },
+        {
+          "text": "consumer",
+          "start": 32.139999,
+          "end": 32.42
+        },
+        {
+          "text": "is",
+          "start": 32.42,
+          "end": 32.700001
+        },
+        {
+          "text": "anything",
+          "start": 32.700001,
+          "end": 32.830002
+        },
+        {
+          "text": "that",
+          "start": 32.830002,
+          "end": 32.865002000000004
+        },
+        {
+          "text": "ingests",
+          "start": 32.865002000000004,
+          "end": 32.900002
+        },
+        {
+          "text": "the",
+          "start": 33.41,
+          "end": 34.060001
+        },
+        {
+          "text": "stream",
+          "start": 36.279999,
+          "end": 36.44499999999999
+        },
+        {
+          "text": "Prometheus",
+          "start": 36.44499999999999,
+          "end": 36.610001
+        },
+        {
+          "text": "with",
+          "start": 36.759998,
+          "end": 37.009998
+        },
+        {
+          "text": "a",
+          "start": 37.009998,
+          "end": 37.1149995
+        },
+        {
+          "text": "gNMI",
+          "start": 37.1149995,
+          "end": 37.220001
+        },
+        {
+          "text": "exporter",
+          "start": 37.220001,
+          "end": 37.639999
+        },
+        {
+          "text": "Telegraf",
+          "start": 37.639999,
+          "end": 37.9400005
+        },
+        {
+          "text": "Kafka",
+          "start": 37.9400005,
+          "end": 38.240002
+        },
+        {
+          "text": "or",
+          "start": 38.490002,
+          "end": 38.93
+        },
+        {
+          "text": "your",
+          "start": 38.959999,
+          "end": 39.0649985
+        },
+        {
+          "text": "own",
+          "start": 39.0649985,
+          "end": 39.169998
+        },
+        {
+          "text": "Python",
+          "start": 39.169998,
+          "end": 39.5
+        },
+        {
+          "text": "client",
+          "start": 39.5,
+          "end": 39.6800005
+        },
+        {
+          "text": "Missing",
+          "start": 39.6800005,
+          "end": 39.860001
+        },
+        {
+          "text": "any",
+          "start": 39.889999,
+          "end": 40.48
+        },
+        {
+          "text": "piece",
+          "start": 40.48,
+          "end": 40.5450005
+        },
+        {
+          "text": "means",
+          "start": 40.5450005,
+          "end": 40.610001
+        },
+        {
+          "text": "silence",
+          "start": 40.610001,
+          "end": 40.700001
+        },
+        {
+          "text": "on",
+          "start": 40.740002,
+          "end": 40.915001000000004
+        },
+        {
+          "text": "the",
+          "start": 40.915001000000004,
+          "end": 41.09
+        },
+        {
+          "text": "collector",
+          "start": 41.09,
+          "end": 41.549999
+        },
+        {
+          "text": "side",
+          "start": 41.75,
+          "end": 41.9349995
+        },
+        {
+          "text": "even",
+          "start": 41.9349995,
+          "end": 42.119999
+        },
+        {
+          "text": "when",
+          "start": 42.119999,
+          "end": 42.34
+        },
+        {
+          "text": "config",
+          "start": 42.91,
+          "end": 43.075001
+        },
+        {
+          "text": "looks",
+          "start": 43.075001,
+          "end": 43.240002
+        },
+        {
+          "text": "correct",
+          "start": 43.279999,
+          "end": 43.869999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 6.68,
+          "end": 9.05
+        },
+        {
+          "start": 9.63,
+          "end": 12.02
+        },
+        {
+          "start": 21.58,
+          "end": 23.709999
+        },
+        {
+          "start": 40.740002,
+          "end": 43.075001
+        }
+      ]
+    },
+    "yang-models-in-telemetry": {
+      "words": [
+        {
+          "text": "YANG",
+          "start": 0.09,
+          "end": 0.39
+        },
+        {
+          "text": "models",
+          "start": 0.39,
+          "end": 0.81
+        },
+        {
+          "text": "from",
+          "start": 0.81,
+          "end": 1.06
+        },
+        {
+          "text": "module",
+          "start": 1.06,
+          "end": 1.41
+        },
+        {
+          "text": "four",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "text": "of",
+          "start": 1.69,
+          "end": 1.82
+        },
+        {
+          "text": "course",
+          "start": 1.88,
+          "end": 2.2
+        },
+        {
+          "text": "two",
+          "start": 2.2,
+          "end": 2.45
+        },
+        {
+          "text": "reappear",
+          "start": 2.45,
+          "end": 3.02
+        },
+        {
+          "text": "here",
+          "start": 3.02,
+          "end": 3.55
+        },
+        {
+          "text": "as",
+          "start": 3.67,
+          "end": 4
+        },
+        {
+          "text": "the",
+          "start": 4.05,
+          "end": 4.13
+        },
+        {
+          "text": "vocabulary",
+          "start": 4.13,
+          "end": 4.79
+        },
+        {
+          "text": "of",
+          "start": 4.79,
+          "end": 4.94
+        },
+        {
+          "text": "telemetry",
+          "start": 4.94,
+          "end": 5.64
+        },
+        {
+          "text": "Cisco",
+          "start": 6.03,
+          "end": 6.69
+        },
+        {
+          "text": "publishes",
+          "start": 6.72,
+          "end": 7.51
+        },
+        {
+          "text": "models",
+          "start": 7.51,
+          "end": 8.24
+        },
+        {
+          "text": "such",
+          "start": 8.38,
+          "end": 8.69
+        },
+        {
+          "text": "as",
+          "start": 8.69,
+          "end": 8.85
+        },
+        {
+          "text": "Cisco-IOS-XE-interfaces-oper",
+          "start": 8.85,
+          "end": 9.31
+        },
+        {
+          "text": "for",
+          "start": 10.38,
+          "end": 11.18
+        },
+        {
+          "text": "interface",
+          "start": 11.95,
+          "end": 12.19
+        },
+        {
+          "text": "counters",
+          "start": 12.19,
+          "end": 12.68
+        },
+        {
+          "text": "and",
+          "start": 12.68,
+          "end": 13.33
+        },
+        {
+          "text": "Cisco-IOS-XE-platform-oper",
+          "start": 13.6,
+          "end": 13.78
+        },
+        {
+          "text": "for",
+          "start": 13.78,
+          "end": 14.34
+        },
+        {
+          "text": "CPU",
+          "start": 15.28,
+          "end": 15.84
+        },
+        {
+          "text": "and",
+          "start": 16.639999,
+          "end": 16.799999
+        },
+        {
+          "text": "memory",
+          "start": 17.440001,
+          "end": 17.629999
+        },
+        {
+          "text": "A",
+          "start": 17.629999,
+          "end": 18.1
+        },
+        {
+          "text": "subscription",
+          "start": 18.370001,
+          "end": 18.440001
+        },
+        {
+          "text": "references",
+          "start": 18.440001,
+          "end": 19.16
+        },
+        {
+          "text": "these",
+          "start": 19.16,
+          "end": 19.790001
+        },
+        {
+          "text": "paths",
+          "start": 19.790001,
+          "end": 20.01
+        },
+        {
+          "text": "-",
+          "start": 20.01,
+          "end": 20.65
+        },
+        {
+          "text": "either",
+          "start": 20.75,
+          "end": 21.01
+        },
+        {
+          "text": "native",
+          "start": 21.01,
+          "end": 21.379999
+        },
+        {
+          "text": "XPath",
+          "start": 22.110001,
+          "end": 22.48
+        },
+        {
+          "text": "or",
+          "start": 23.190001,
+          "end": 24.01
+        },
+        {
+          "text": "OpenConfig",
+          "start": 24.129999,
+          "end": 24.66
+        },
+        {
+          "text": "equivalents",
+          "start": 24.66,
+          "end": 24.790001
+        },
+        {
+          "text": "depending",
+          "start": 24.790001,
+          "end": 25.379999
+        },
+        {
+          "text": "on",
+          "start": 25.68,
+          "end": 25.780001
+        },
+        {
+          "text": "platform",
+          "start": 25.780001,
+          "end": 26.280001
+        },
+        {
+          "text": "The",
+          "start": 26.280001,
+          "end": 26.49
+        },
+        {
+          "text": "collector",
+          "start": 26.49,
+          "end": 26.77
+        },
+        {
+          "text": "does",
+          "start": 26.77,
+          "end": 27.139999
+        },
+        {
+          "text": "not",
+          "start": 27.139999,
+          "end": 27.469999
+        },
+        {
+          "text": "invent",
+          "start": 27.469999,
+          "end": 27.959999
+        },
+        {
+          "text": "field",
+          "start": 28.23,
+          "end": 28.41
+        },
+        {
+          "text": "names",
+          "start": 28.99,
+          "end": 29.27
+        },
+        {
+          "text": "it",
+          "start": 29.27,
+          "end": 29.360001
+        },
+        {
+          "text": "decodes",
+          "start": 29.360001,
+          "end": 29.76
+        },
+        {
+          "text": "what",
+          "start": 29.76,
+          "end": 30.469999
+        },
+        {
+          "text": "the",
+          "start": 30.790001,
+          "end": 31.01
+        },
+        {
+          "text": "model",
+          "start": 31.870001,
+          "end": 32.220001
+        },
+        {
+          "text": "defines",
+          "start": 32.220001,
+          "end": 32.900002
+        },
+        {
+          "text": "When",
+          "start": 33.259998,
+          "end": 33.759998
+        },
+        {
+          "text": "troubleshooting",
+          "start": 33.759998,
+          "end": 33.91
+        },
+        {
+          "text": "empty",
+          "start": 33.990002,
+          "end": 34.32
+        },
+        {
+          "text": "streams",
+          "start": 34.43,
+          "end": 34.889999
+        },
+        {
+          "text": "verify",
+          "start": 34.889999,
+          "end": 35.049999
+        },
+        {
+          "text": "the",
+          "start": 35.049999,
+          "end": 35.18
+        },
+        {
+          "text": "path",
+          "start": 35.18,
+          "end": 35.610001
+        },
+        {
+          "text": "exists",
+          "start": 35.610001,
+          "end": 36.080002
+        },
+        {
+          "text": "on",
+          "start": 36.080002,
+          "end": 36.220001
+        },
+        {
+          "text": "your",
+          "start": 36.220001,
+          "end": 36.5
+        },
+        {
+          "text": "software",
+          "start": 36.5,
+          "end": 37.049999
+        },
+        {
+          "text": "version",
+          "start": 37.049999,
+          "end": 37.459999
+        },
+        {
+          "text": "with",
+          "start": 37.459999,
+          "end": 37.740002
+        },
+        {
+          "text": "show",
+          "start": 37.740002,
+          "end": 38.32
+        },
+        {
+          "text": "platform",
+          "start": 38.32,
+          "end": 38.869999
+        },
+        {
+          "text": "software",
+          "start": 39.310001,
+          "end": 39.669998
+        },
+        {
+          "text": "yang-management",
+          "start": 39.669998,
+          "end": 40.080002
+        },
+        {
+          "text": "process",
+          "start": 40.080002,
+          "end": 40.290001
+        },
+        {
+          "text": "Wrong",
+          "start": 40.290001,
+          "end": 40.580002
+        },
+        {
+          "text": "model",
+          "start": 40.580002,
+          "end": 40.900002
+        },
+        {
+          "text": "or",
+          "start": 40.900002,
+          "end": 41.09
+        },
+        {
+          "text": "wrong",
+          "start": 41.09,
+          "end": 41.189999
+        },
+        {
+          "text": "path",
+          "start": 41.189999,
+          "end": 41.540001
+        },
+        {
+          "text": "is",
+          "start": 41.540001,
+          "end": 41.950001
+        },
+        {
+          "text": "the",
+          "start": 41.950001,
+          "end": 42.150002
+        },
+        {
+          "text": "most",
+          "start": 42.150002,
+          "end": 42.610001
+        },
+        {
+          "text": "common",
+          "start": 42.68,
+          "end": 42.970001
+        },
+        {
+          "text": "lab",
+          "start": 42.970001,
+          "end": 43.040001000000004
+        },
+        {
+          "text": "mistake",
+          "start": 43.040001000000004,
+          "end": 43.110001
+        },
+        {
+          "text": "after",
+          "start": 43.110001,
+          "end": 43.57
+        },
+        {
+          "text": "a",
+          "start": 43.57,
+          "end": 43.65
+        },
+        {
+          "text": "typo",
+          "start": 43.65,
+          "end": 43.73
+        },
+        {
+          "text": "in",
+          "start": 43.73,
+          "end": 43.82
+        },
+        {
+          "text": "the",
+          "start": 43.82,
+          "end": 44.15
+        },
+        {
+          "text": "destination",
+          "start": 44.15,
+          "end": 44.48
+        },
+        {
+          "text": "IP",
+          "start": 44.48,
+          "end": 44.970001
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 6.03,
+          "end": 9.31
+        },
+        {
+          "start": 18.370001,
+          "end": 21.01
+        },
+        {
+          "start": 34.889999,
+          "end": 36.5
+        }
+      ]
+    },
+    "dial-out-vs-dial-in": {
+      "words": [
+        {
+          "text": "Two",
+          "start": 0.14,
+          "end": 0.33
+        },
+        {
+          "text": "deployment",
+          "start": 0.33,
+          "end": 0.8900000000000001
+        },
+        {
+          "text": "patterns",
+          "start": 0.89,
+          "end": 1.4
+        },
+        {
+          "text": "appear",
+          "start": 1.4,
+          "end": 1.76
+        },
+        {
+          "text": "on",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "text": "exams",
+          "start": 1.92,
+          "end": 2.53
+        },
+        {
+          "text": "and",
+          "start": 2.82,
+          "end": 3.01
+        },
+        {
+          "text": "in",
+          "start": 3.01,
+          "end": 3.18
+        },
+        {
+          "text": "production",
+          "start": 3.18,
+          "end": 3.8
+        },
+        {
+          "text": "Dial-out",
+          "start": 4.55,
+          "end": 4.83
+        },
+        {
+          "text": "-",
+          "start": 4.83,
+          "end": 5.01
+        },
+        {
+          "text": "sometimes",
+          "start": 5.01,
+          "end": 5.58
+        },
+        {
+          "text": "called",
+          "start": 5.58,
+          "end": 5.91
+        },
+        {
+          "text": "sensor-driven",
+          "start": 5.91,
+          "end": 6.31
+        },
+        {
+          "text": "or",
+          "start": 6.31,
+          "end": 6.81
+        },
+        {
+          "text": "push",
+          "start": 7.1,
+          "end": 7.26
+        },
+        {
+          "text": "-",
+          "start": 7.26,
+          "end": 7.75
+        },
+        {
+          "text": "means",
+          "start": 8.12,
+          "end": 8.41
+        },
+        {
+          "text": "the",
+          "start": 8.41,
+          "end": 8.51
+        },
+        {
+          "text": "device",
+          "start": 8.51,
+          "end": 8.9
+        },
+        {
+          "text": "initiates",
+          "start": 8.9,
+          "end": 9.45
+        },
+        {
+          "text": "the",
+          "start": 9.45,
+          "end": 9.56
+        },
+        {
+          "text": "gRPC",
+          "start": 10.25,
+          "end": 10.81
+        },
+        {
+          "text": "connection",
+          "start": 10.84,
+          "end": 10.89
+        },
+        {
+          "text": "to",
+          "start": 10.89,
+          "end": 10.99
+        },
+        {
+          "text": "the",
+          "start": 10.99,
+          "end": 11.54
+        },
+        {
+          "text": "collector",
+          "start": 11.85,
+          "end": 12.06
+        },
+        {
+          "text": "when",
+          "start": 12.06,
+          "end": 12.12
+        },
+        {
+          "text": "a",
+          "start": 12.12,
+          "end": 12.84
+        },
+        {
+          "text": "subscription",
+          "start": 12.84,
+          "end": 12.97
+        },
+        {
+          "text": "is",
+          "start": 12.97,
+          "end": 13.31
+        },
+        {
+          "text": "active",
+          "start": 13.76,
+          "end": 14.21
+        },
+        {
+          "text": "Dial-in",
+          "start": 14.24,
+          "end": 14.54
+        },
+        {
+          "text": "means",
+          "start": 14.73,
+          "end": 15.23
+        },
+        {
+          "text": "the",
+          "start": 15.26,
+          "end": 15.37
+        },
+        {
+          "text": "collector",
+          "start": 15.37,
+          "end": 15.8
+        },
+        {
+          "text": "connects",
+          "start": 15.8,
+          "end": 16.15
+        },
+        {
+          "text": "to",
+          "start": 16.200001,
+          "end": 16.26
+        },
+        {
+          "text": "the",
+          "start": 16.26,
+          "end": 16.370001
+        },
+        {
+          "text": "device",
+          "start": 16.370001,
+          "end": 17.02
+        },
+        {
+          "text": "and",
+          "start": 17.370001,
+          "end": 17.549999
+        },
+        {
+          "text": "establishes",
+          "start": 17.549999,
+          "end": 18.360001
+        },
+        {
+          "text": "subscriptions",
+          "start": 18.360001,
+          "end": 19.27
+        },
+        {
+          "text": "remotely",
+          "start": 19.27,
+          "end": 19.809999
+        },
+        {
+          "text": "IOS",
+          "start": 21.379999,
+          "end": 21.77
+        },
+        {
+          "text": "XE",
+          "start": 21.77,
+          "end": 22.16
+        },
+        {
+          "text": "model-driven",
+          "start": 22.16,
+          "end": 22.91
+        },
+        {
+          "text": "telemetry",
+          "start": 23.09,
+          "end": 23.530001
+        },
+        {
+          "text": "commonly",
+          "start": 23.530001,
+          "end": 24.030001
+        },
+        {
+          "text": "uses",
+          "start": 24.030001,
+          "end": 24.35
+        },
+        {
+          "text": "dial-out",
+          "start": 24.35,
+          "end": 24.59
+        },
+        {
+          "text": "to",
+          "start": 24.700001,
+          "end": 24.83
+        },
+        {
+          "text": "a",
+          "start": 24.83,
+          "end": 24.860001
+        },
+        {
+          "text": "receiver",
+          "start": 24.860001,
+          "end": 25.280001
+        },
+        {
+          "text": "IP",
+          "start": 25.309999,
+          "end": 25.85
+        },
+        {
+          "text": "and",
+          "start": 26.01,
+          "end": 26.190001
+        },
+        {
+          "text": "port",
+          "start": 26.25,
+          "end": 26.49
+        },
+        {
+          "text": "you",
+          "start": 26.49,
+          "end": 26.59
+        },
+        {
+          "text": "configure",
+          "start": 26.620001,
+          "end": 27.18
+        },
+        {
+          "text": "under",
+          "start": 27.25,
+          "end": 27.549999
+        },
+        {
+          "text": "telemetry",
+          "start": 27.549999,
+          "end": 28.16
+        },
+        {
+          "text": "ietf",
+          "start": 28.969999,
+          "end": 29.790001
+        },
+        {
+          "text": "subscription",
+          "start": 31,
+          "end": 31.530001
+        },
+        {
+          "text": "gNMI",
+          "start": 31.57,
+          "end": 31.98
+        },
+        {
+          "text": "clients",
+          "start": 31.98,
+          "end": 32.27
+        },
+        {
+          "text": "often",
+          "start": 32.27,
+          "end": 32.540001
+        },
+        {
+          "text": "dial",
+          "start": 32.610001,
+          "end": 32.68
+        },
+        {
+          "text": "in",
+          "start": 32.720001,
+          "end": 32.93
+        },
+        {
+          "text": "to",
+          "start": 32.93,
+          "end": 33.279999
+        },
+        {
+          "text": "port",
+          "start": 33.279999,
+          "end": 33.700001
+        },
+        {
+          "text": "five",
+          "start": 33.700001,
+          "end": 33.950001
+        },
+        {
+          "text": "seven",
+          "start": 33.950001,
+          "end": 34.259998
+        },
+        {
+          "text": "four",
+          "start": 34.259998,
+          "end": 34.619999
+        },
+        {
+          "text": "zero",
+          "start": 34.619999,
+          "end": 34.779999
+        },
+        {
+          "text": "zero",
+          "start": 34.779999,
+          "end": 34.860001
+        },
+        {
+          "text": "on",
+          "start": 34.860001,
+          "end": 35.380001
+        },
+        {
+          "text": "the",
+          "start": 35.529999,
+          "end": 36.200001
+        },
+        {
+          "text": "device",
+          "start": 36.23,
+          "end": 36.389999
+        },
+        {
+          "text": "Firewalls",
+          "start": 36.880001,
+          "end": 37.389999
+        },
+        {
+          "text": "and",
+          "start": 37.389999,
+          "end": 37.700001
+        },
+        {
+          "text": "TLS",
+          "start": 37.700001,
+          "end": 38.09
+        },
+        {
+          "text": "policies",
+          "start": 38.09,
+          "end": 38.200001
+        },
+        {
+          "text": "differ",
+          "start": 38.27,
+          "end": 38.529999
+        },
+        {
+          "text": "between",
+          "start": 38.75,
+          "end": 39
+        },
+        {
+          "text": "the",
+          "start": 39,
+          "end": 39.259998
+        },
+        {
+          "text": "two",
+          "start": 39.259998,
+          "end": 39.91
+        },
+        {
+          "text": "know",
+          "start": 39.939999,
+          "end": 40.16
+        },
+        {
+          "text": "which",
+          "start": 40.16,
+          "end": 40.380001
+        },
+        {
+          "text": "direction",
+          "start": 40.380001,
+          "end": 40.490002
+        },
+        {
+          "text": "opens",
+          "start": 40.490002,
+          "end": 40.75
+        },
+        {
+          "text": "the",
+          "start": 40.75,
+          "end": 41.009998
+        },
+        {
+          "text": "session",
+          "start": 41.009998,
+          "end": 41.150002
+        },
+        {
+          "text": "in",
+          "start": 41.150002,
+          "end": 41.210001000000005
+        },
+        {
+          "text": "your",
+          "start": 41.210001000000005,
+          "end": 41.27
+        },
+        {
+          "text": "design",
+          "start": 41.27,
+          "end": 41.82
+        }
+      ],
+      "leftPhraseTimes": [
+        {
+          "start": 8.51,
+          "end": 10.99
+        },
+        {
+          "start": 1.76,
+          "end": 4.83
+        },
+        {
+          "start": 1.76,
+          "end": 4.83
+        }
+      ],
+      "rightPhraseTimes": [
+        {
+          "start": 15.37,
+          "end": 19.27
+        },
+        {
+          "start": 31.98,
+          "end": 33.700001
+        },
+        {
+          "start": 12.12,
+          "end": 15.23
+        }
+      ]
+    },
+    "story-beat-recap-telemetry": {
+      "words": [
+        {
+          "text": "Pause",
+          "start": 0.1,
+          "end": 0.51
+        },
+        {
+          "text": "You",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "text": "have",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "text": "seen",
+          "start": 1.1,
+          "end": 1.56
+        },
+        {
+          "text": "why",
+          "start": 1.79,
+          "end": 2.05
+        },
+        {
+          "text": "polling",
+          "start": 2.05,
+          "end": 2.48
+        },
+        {
+          "text": "misses",
+          "start": 2.48,
+          "end": 2.88
+        },
+        {
+          "text": "real",
+          "start": 2.88,
+          "end": 3.05
+        },
+        {
+          "text": "problems",
+          "start": 3.05,
+          "end": 3.72
+        },
+        {
+          "text": "what",
+          "start": 4.14,
+          "end": 4.36
+        },
+        {
+          "text": "model-driven",
+          "start": 4.36,
+          "end": 4.7
+        },
+        {
+          "text": "telemetry",
+          "start": 4.7,
+          "end": 5.11
+        },
+        {
+          "text": "means",
+          "start": 5.11,
+          "end": 5.63
+        },
+        {
+          "text": "SNMP",
+          "start": 5.63,
+          "end": 6.15
+        },
+        {
+          "text": "versus",
+          "start": 7.16,
+          "end": 7.66
+        },
+        {
+          "text": "gNMI",
+          "start": 8.4,
+          "end": 9.1
+        },
+        {
+          "text": "subscribe",
+          "start": 9.27,
+          "end": 9.36
+        },
+        {
+          "text": "the",
+          "start": 9.36,
+          "end": 9.65
+        },
+        {
+          "text": "four",
+          "start": 9.65,
+          "end": 10.14
+        },
+        {
+          "text": "architecture",
+          "start": 10.14,
+          "end": 10.87
+        },
+        {
+          "text": "components",
+          "start": 11.2,
+          "end": 11.45
+        },
+        {
+          "text": "how",
+          "start": 11.45,
+          "end": 11.75
+        },
+        {
+          "text": "YANG",
+          "start": 11.75,
+          "end": 12.27
+        },
+        {
+          "text": "models",
+          "start": 12.27,
+          "end": 12.71
+        },
+        {
+          "text": "define",
+          "start": 13.27,
+          "end": 13.69
+        },
+        {
+          "text": "streamable",
+          "start": 14.07,
+          "end": 14.3
+        },
+        {
+          "text": "data",
+          "start": 14.3,
+          "end": 14.58
+        },
+        {
+          "text": "and",
+          "start": 14.58,
+          "end": 14.97
+        },
+        {
+          "text": "dial-out",
+          "start": 15.12,
+          "end": 15.53
+        },
+        {
+          "text": "versus",
+          "start": 15.53,
+          "end": 15.82
+        },
+        {
+          "text": "dial-in",
+          "start": 15.82,
+          "end": 16.02
+        },
+        {
+          "text": "patterns",
+          "start": 16.02,
+          "end": 16.700001
+        },
+        {
+          "text": "Next",
+          "start": 17.059999,
+          "end": 17.42
+        },
+        {
+          "text": "we",
+          "start": 17.42,
+          "end": 17.530001
+        },
+        {
+          "text": "stand",
+          "start": 17.530001,
+          "end": 17.809999
+        },
+        {
+          "text": "up",
+          "start": 17.809999,
+          "end": 17.99
+        },
+        {
+          "text": "netops_ops_lab",
+          "start": 18.870001,
+          "end": 19.08
+        },
+        {
+          "text": "with",
+          "start": 19.59,
+          "end": 19.91
+        },
+        {
+          "text": "a",
+          "start": 20.209999,
+          "end": 20.719999
+        },
+        {
+          "text": "collector",
+          "start": 20.719999,
+          "end": 21.5
+        },
+        {
+          "text": "container",
+          "start": 21.91,
+          "end": 22.360001
+        },
+        {
+          "text": "enable",
+          "start": 22.360001,
+          "end": 22.540001
+        },
+        {
+          "text": "an",
+          "start": 23.629999,
+          "end": 23.98
+        },
+        {
+          "text": "IOS",
+          "start": 23.98,
+          "end": 24.82
+        },
+        {
+          "text": "XE",
+          "start": 25.09,
+          "end": 25.24
+        },
+        {
+          "text": "style",
+          "start": 25.24,
+          "end": 25.299999
+        },
+        {
+          "text": "subscription",
+          "start": 25.299999,
+          "end": 25.629999
+        },
+        {
+          "text": "on",
+          "start": 25.629999,
+          "end": 26.049999
+        },
+        {
+          "text": "a",
+          "start": 26.280001,
+          "end": 26.440001
+        },
+        {
+          "text": "lab",
+          "start": 26.440001,
+          "end": 27.209999
+        },
+        {
+          "text": "router",
+          "start": 27.59,
+          "end": 27.75
+        },
+        {
+          "text": "or",
+          "start": 27.75,
+          "end": 28.26
+        },
+        {
+          "text": "simulator",
+          "start": 28.26,
+          "end": 28.85
+        },
+        {
+          "text": "and",
+          "start": 28.85,
+          "end": 29.23
+        },
+        {
+          "text": "verify",
+          "start": 29.23,
+          "end": 29.41
+        },
+        {
+          "text": "counters",
+          "start": 29.41,
+          "end": 30.129999
+        },
+        {
+          "text": "arrive",
+          "start": 30.440001,
+          "end": 30.709999
+        },
+        {
+          "text": "at",
+          "start": 30.709999,
+          "end": 30.76
+        },
+        {
+          "text": "Prometheus",
+          "start": 30.76,
+          "end": 31.280001
+        },
+        {
+          "text": "Open",
+          "start": 31.280001,
+          "end": 31.879999
+        },
+        {
+          "text": "a",
+          "start": 32.66,
+          "end": 32.970001
+        },
+        {
+          "text": "terminal",
+          "start": 32.970001,
+          "end": 33.360001
+        },
+        {
+          "text": "-",
+          "start": 33.360001,
+          "end": 33.91
+        },
+        {
+          "text": "same",
+          "start": 34.27,
+          "end": 34.439999
+        },
+        {
+          "text": "WSL",
+          "start": 34.439999,
+          "end": 34.91
+        },
+        {
+          "text": "or",
+          "start": 34.91,
+          "end": 35.16
+        },
+        {
+          "text": "Linux",
+          "start": 35.16,
+          "end": 35.41
+        },
+        {
+          "text": "workflow",
+          "start": 35.549999,
+          "end": 35.779999
+        },
+        {
+          "text": "as",
+          "start": 35.810001,
+          "end": 35.9400005
+        },
+        {
+          "text": "courses",
+          "start": 35.9400005,
+          "end": 36.07
+        },
+        {
+          "text": "one",
+          "start": 36.34,
+          "end": 36.639999
+        },
+        {
+          "text": "and",
+          "start": 36.639999,
+          "end": 36.729999500000005
+        },
+        {
+          "text": "two",
+          "start": 36.729999500000005,
+          "end": 36.82
+        },
+        {
+          "text": "Pause",
+          "start": 36.82,
+          "end": 36.900002
+        },
+        {
+          "text": "when",
+          "start": 36.900002,
+          "end": 37.030001
+        },
+        {
+          "text": "you",
+          "start": 37.030001,
+          "end": 37.16
+        },
+        {
+          "text": "need",
+          "start": 37.16,
+          "end": 37.189999
+        },
+        {
+          "text": "to",
+          "start": 37.25,
+          "end": 37.385000000000005
+        },
+        {
+          "text": "catch",
+          "start": 37.385000000000005,
+          "end": 37.52
+        },
+        {
+          "text": "up",
+          "start": 37.52,
+          "end": 37.66
+        }
+      ]
+    },
+    "lab-setup-telemetry": {
+      "words": [
+        {
+          "text": "Welcome",
+          "start": 0.07,
+          "end": 0.45
+        },
+        {
+          "text": "to",
+          "start": 0.49,
+          "end": 0.56
+        },
+        {
+          "text": "the",
+          "start": 0.56,
+          "end": 0.69
+        },
+        {
+          "text": "telemetry",
+          "start": 0.69,
+          "end": 1.27
+        },
+        {
+          "text": "lab",
+          "start": 1.27,
+          "end": 1.6
+        },
+        {
+          "text": "Create",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "text": "a",
+          "start": 2.41,
+          "end": 2.48
+        },
+        {
+          "text": "folder",
+          "start": 2.48,
+          "end": 2.88
+        },
+        {
+          "text": "named",
+          "start": 2.88,
+          "end": 3.21
+        },
+        {
+          "text": "netops_ops_lab",
+          "start": 4.37,
+          "end": 4.82
+        },
+        {
+          "text": "beside",
+          "start": 5.3,
+          "end": 5.51
+        },
+        {
+          "text": "your",
+          "start": 5.51,
+          "end": 5.63
+        },
+        {
+          "text": "course",
+          "start": 5.63,
+          "end": 5.7
+        },
+        {
+          "text": "two",
+          "start": 6.16,
+          "end": 6.63
+        },
+        {
+          "text": "netops_iac_lab",
+          "start": 7.05,
+          "end": 7.43
+        },
+        {
+          "text": "-",
+          "start": 7.48,
+          "end": 7.87
+        },
+        {
+          "text": "course",
+          "start": 8.33,
+          "end": 8.6
+        },
+        {
+          "text": "three",
+          "start": 8.76,
+          "end": 9.02
+        },
+        {
+          "text": "focuses",
+          "start": 9.44,
+          "end": 9.54
+        },
+        {
+          "text": "on",
+          "start": 9.54,
+          "end": 10.16
+        },
+        {
+          "text": "operate",
+          "start": 10.75,
+          "end": 11.01
+        },
+        {
+          "text": "and",
+          "start": 11.01,
+          "end": 11.31
+        },
+        {
+          "text": "observe",
+          "start": 11.31,
+          "end": 11.4
+        },
+        {
+          "text": "not",
+          "start": 11.4,
+          "end": 11.49
+        },
+        {
+          "text": "replace",
+          "start": 12.41,
+          "end": 12.85
+        },
+        {
+          "text": "your",
+          "start": 14.66,
+          "end": 14.83
+        },
+        {
+          "text": "Git",
+          "start": 15.06,
+          "end": 15.12
+        },
+        {
+          "text": "repo",
+          "start": 15.12,
+          "end": 15.42
+        },
+        {
+          "text": "Inside",
+          "start": 15.42,
+          "end": 15.75
+        },
+        {
+          "text": "netops_ops_lab",
+          "start": 15.75,
+          "end": 15.97
+        },
+        {
+          "text": "add",
+          "start": 16.51,
+          "end": 16.85
+        },
+        {
+          "text": "a",
+          "start": 17.370001,
+          "end": 17.780001
+        },
+        {
+          "text": "docker-compose",
+          "start": 17.950001,
+          "end": 18.389999
+        },
+        {
+          "text": "dot",
+          "start": 18.389999,
+          "end": 18.450001
+        },
+        {
+          "text": "yaml",
+          "start": 18.450001,
+          "end": 18.48
+        },
+        {
+          "text": "that",
+          "start": 19.83,
+          "end": 19.92
+        },
+        {
+          "text": "runs",
+          "start": 21.23,
+          "end": 21.68
+        },
+        {
+          "text": "Prometheus",
+          "start": 21.68,
+          "end": 22.18
+        },
+        {
+          "text": "and",
+          "start": 22.34,
+          "end": 22.5
+        },
+        {
+          "text": "a",
+          "start": 22.530001,
+          "end": 23.08
+        },
+        {
+          "text": "gNMI",
+          "start": 23.08,
+          "end": 23.23
+        },
+        {
+          "text": "or",
+          "start": 23.23,
+          "end": 23.41
+        },
+        {
+          "text": "MDT",
+          "start": 23.41,
+          "end": 23.83
+        },
+        {
+          "text": "collector",
+          "start": 24.389999,
+          "end": 24.5
+        },
+        {
+          "text": "image",
+          "start": 24.5,
+          "end": 24.75
+        },
+        {
+          "text": "the",
+          "start": 24.92,
+          "end": 25.309999
+        },
+        {
+          "text": "exact",
+          "start": 25.459999,
+          "end": 25.709999
+        },
+        {
+          "text": "file",
+          "start": 25.709999,
+          "end": 26.01
+        },
+        {
+          "text": "is",
+          "start": 26.83,
+          "end": 26.950001
+        },
+        {
+          "text": "on",
+          "start": 26.950001,
+          "end": 26.99
+        },
+        {
+          "text": "the",
+          "start": 26.99,
+          "end": 27.280001
+        },
+        {
+          "text": "next",
+          "start": 27.33,
+          "end": 27.59
+        },
+        {
+          "text": "slides",
+          "start": 27.59,
+          "end": 27.65
+        },
+        {
+          "text": "You",
+          "start": 29.27,
+          "end": 29.459999
+        },
+        {
+          "text": "need",
+          "start": 29.6,
+          "end": 30.34
+        },
+        {
+          "text": "reachability",
+          "start": 30.57,
+          "end": 30.77
+        },
+        {
+          "text": "from",
+          "start": 30.799999,
+          "end": 31.24
+        },
+        {
+          "text": "a",
+          "start": 31.24,
+          "end": 31.620001
+        },
+        {
+          "text": "lab",
+          "start": 31.620001,
+          "end": 31.83
+        },
+        {
+          "text": "router",
+          "start": 31.83,
+          "end": 32.080002
+        },
+        {
+          "text": "or",
+          "start": 32.080002,
+          "end": 32.240002000000004
+        },
+        {
+          "text": "CML",
+          "start": 32.240002000000004,
+          "end": 32.400002
+        },
+        {
+          "text": "node",
+          "start": 32.400002,
+          "end": 32.84
+        },
+        {
+          "text": "to",
+          "start": 32.84,
+          "end": 33.0149995
+        },
+        {
+          "text": "the",
+          "start": 33.0149995,
+          "end": 33.189999
+        },
+        {
+          "text": "collector",
+          "start": 33.189999,
+          "end": 33.529999
+        },
+        {
+          "text": "IP",
+          "start": 33.529999,
+          "end": 33.6749995
+        },
+        {
+          "text": "on",
+          "start": 33.6749995,
+          "end": 33.82
+        },
+        {
+          "text": "port",
+          "start": 33.82,
+          "end": 34.029999
+        },
+        {
+          "text": "five",
+          "start": 35.09,
+          "end": 35.43000000000001
+        },
+        {
+          "text": "seven",
+          "start": 35.43000000000001,
+          "end": 35.77
+        },
+        {
+          "text": "five",
+          "start": 35.77,
+          "end": 36.32
+        },
+        {
+          "text": "zero",
+          "start": 36.490002,
+          "end": 36.7600005
+        },
+        {
+          "text": "zero",
+          "start": 36.7600005,
+          "end": 37.029999
+        },
+        {
+          "text": "for",
+          "start": 37.029999,
+          "end": 37.52
+        },
+        {
+          "text": "gRPC",
+          "start": 37.619999,
+          "end": 38.0149995
+        },
+        {
+          "text": "Confirm",
+          "start": 38.0149995,
+          "end": 38.41
+        },
+        {
+          "text": "docker",
+          "start": 38.919998,
+          "end": 39.23
+        },
+        {
+          "text": "compose",
+          "start": 39.23,
+          "end": 39.41
+        },
+        {
+          "text": "version",
+          "start": 39.41,
+          "end": 39.59
+        },
+        {
+          "text": "succeeds",
+          "start": 39.740002,
+          "end": 40.07
+        },
+        {
+          "text": "This",
+          "start": 40.07,
+          "end": 40.334998999999996
+        },
+        {
+          "text": "lab",
+          "start": 40.334998999999996,
+          "end": 40.599998
+        },
+        {
+          "text": "never",
+          "start": 40.650002,
+          "end": 41.41
+        },
+        {
+          "text": "touches",
+          "start": 41.849998,
+          "end": 41.9949985
+        },
+        {
+          "text": "production",
+          "start": 41.9949985,
+          "end": 42.139999
+        },
+        {
+          "text": "use",
+          "start": 42.139999,
+          "end": 42.720001
+        },
+        {
+          "text": "sandbox",
+          "start": 42.720001,
+          "end": 43.18000000000001
+        },
+        {
+          "text": "credentials",
+          "start": 43.18000000000001,
+          "end": 43.639999
+        },
+        {
+          "text": "only",
+          "start": 43.77,
+          "end": 44.240002
+        }
+      ],
+      "phraseTimes": [
+        null,
+        {
+          "start": 38.919998,
+          "end": 41.41
+        },
+        null
+      ]
+    },
+    "docker-compose-telemetry-stack": {
+      "words": [
+        {
+          "text": "Line",
+          "start": 0.08,
+          "end": 0.39
+        },
+        {
+          "text": "one",
+          "start": 0.39,
+          "end": 0.66
+        },
+        {
+          "text": "creates",
+          "start": 0.66,
+          "end": 1.08
+        },
+        {
+          "text": "the",
+          "start": 1.08,
+          "end": 1.17
+        },
+        {
+          "text": "project",
+          "start": 1.17,
+          "end": 1.58
+        },
+        {
+          "text": "folder",
+          "start": 1.58,
+          "end": 2.01
+        },
+        {
+          "text": "Line",
+          "start": 2.35,
+          "end": 2.67
+        },
+        {
+          "text": "two",
+          "start": 2.67,
+          "end": 2.88
+        },
+        {
+          "text": "moves",
+          "start": 2.88,
+          "end": 3.27
+        },
+        {
+          "text": "into",
+          "start": 3.3,
+          "end": 3.62
+        },
+        {
+          "text": "it",
+          "start": 3.62,
+          "end": 3.9
+        },
+        {
+          "text": "Lines",
+          "start": 4.36,
+          "end": 4.67
+        },
+        {
+          "text": "four",
+          "start": 4.67,
+          "end": 4.92
+        },
+        {
+          "text": "through",
+          "start": 4.92,
+          "end": 5.18
+        },
+        {
+          "text": "twenty",
+          "start": 5.18,
+          "end": 5.76
+        },
+        {
+          "text": "define",
+          "start": 6.01,
+          "end": 6.5
+        },
+        {
+          "text": "docker-compose",
+          "start": 6.5,
+          "end": 6.81
+        },
+        {
+          "text": "dot",
+          "start": 6.81,
+          "end": 7.4
+        },
+        {
+          "text": "yaml",
+          "start": 7.4,
+          "end": 7.58
+        },
+        {
+          "text": "with",
+          "start": 8.36,
+          "end": 8.61
+        },
+        {
+          "text": "Prometheus",
+          "start": 8.61,
+          "end": 9.33
+        },
+        {
+          "text": "on",
+          "start": 9.33,
+          "end": 9.56
+        },
+        {
+          "text": "port",
+          "start": 9.56,
+          "end": 9.9
+        },
+        {
+          "text": "nine",
+          "start": 9.9,
+          "end": 10.16
+        },
+        {
+          "text": "zero",
+          "start": 10.16,
+          "end": 10.45
+        },
+        {
+          "text": "nine",
+          "start": 10.45,
+          "end": 10.74
+        },
+        {
+          "text": "zero",
+          "start": 10.74,
+          "end": 11.12
+        },
+        {
+          "text": "and",
+          "start": 11.39,
+          "end": 11.55
+        },
+        {
+          "text": "a",
+          "start": 11.55,
+          "end": 11.64
+        },
+        {
+          "text": "collector",
+          "start": 11.64,
+          "end": 12.11
+        },
+        {
+          "text": "service",
+          "start": 12.11,
+          "end": 12.54
+        },
+        {
+          "text": "that",
+          "start": 12.58,
+          "end": 12.79
+        },
+        {
+          "text": "listens",
+          "start": 12.79,
+          "end": 13.21
+        },
+        {
+          "text": "for",
+          "start": 13.21,
+          "end": 13.38
+        },
+        {
+          "text": "gRPC",
+          "start": 14.48,
+          "end": 14.73
+        },
+        {
+          "text": "dial-out",
+          "start": 14.73,
+          "end": 15
+        },
+        {
+          "text": "on",
+          "start": 15.06,
+          "end": 15.28
+        },
+        {
+          "text": "five",
+          "start": 15.28,
+          "end": 15.71
+        },
+        {
+          "text": "seven",
+          "start": 15.71,
+          "end": 16.18
+        },
+        {
+          "text": "five",
+          "start": 16.18,
+          "end": 16.549999
+        },
+        {
+          "text": "zero",
+          "start": 16.549999,
+          "end": 16.860001
+        },
+        {
+          "text": "zero",
+          "start": 16.860001,
+          "end": 17.24
+        },
+        {
+          "text": "Line",
+          "start": 17.530001,
+          "end": 17.799999
+        },
+        {
+          "text": "twenty-two",
+          "start": 17.799999,
+          "end": 18.120001
+        },
+        {
+          "text": "starts",
+          "start": 18.120001,
+          "end": 18.290001
+        },
+        {
+          "text": "the",
+          "start": 18.290001,
+          "end": 18.709999
+        },
+        {
+          "text": "stack",
+          "start": 18.709999,
+          "end": 18.809999
+        },
+        {
+          "text": "in",
+          "start": 18.809999,
+          "end": 19.17
+        },
+        {
+          "text": "detached",
+          "start": 19.219999,
+          "end": 19.35
+        },
+        {
+          "text": "mode",
+          "start": 19.35,
+          "end": 19.83
+        },
+        {
+          "text": "After",
+          "start": 19.83,
+          "end": 20.17
+        },
+        {
+          "text": "this",
+          "start": 20.48,
+          "end": 20.719999
+        },
+        {
+          "text": "slide",
+          "start": 20.719999,
+          "end": 20.91
+        },
+        {
+          "text": "Prometheus",
+          "start": 20.91,
+          "end": 21.34
+        },
+        {
+          "text": "UI",
+          "start": 21.34,
+          "end": 21.92
+        },
+        {
+          "text": "is",
+          "start": 22.219999,
+          "end": 22.469999
+        },
+        {
+          "text": "available",
+          "start": 22.469999,
+          "end": 23.040001
+        },
+        {
+          "text": "at",
+          "start": 23.040001,
+          "end": 23.26
+        },
+        {
+          "text": "localhost",
+          "start": 23.26,
+          "end": 23.889999
+        },
+        {
+          "text": "colon",
+          "start": 23.889999,
+          "end": 24.26
+        },
+        {
+          "text": "nine",
+          "start": 24.26,
+          "end": 24.49
+        },
+        {
+          "text": "zero",
+          "start": 24.49,
+          "end": 24.77
+        },
+        {
+          "text": "nine",
+          "start": 24.77,
+          "end": 25.049999
+        },
+        {
+          "text": "zero",
+          "start": 25.049999,
+          "end": 25.389999
+        },
+        {
+          "text": "and",
+          "start": 25.530001,
+          "end": 25.639999
+        },
+        {
+          "text": "the",
+          "start": 25.639999,
+          "end": 25.719999
+        },
+        {
+          "text": "collector",
+          "start": 25.719999,
+          "end": 26.219999
+        },
+        {
+          "text": "waits",
+          "start": 26.219999,
+          "end": 26.549999
+        },
+        {
+          "text": "for",
+          "start": 26.549999,
+          "end": 26.68
+        },
+        {
+          "text": "the",
+          "start": 26.68,
+          "end": 26.780001
+        },
+        {
+          "text": "device",
+          "start": 26.780001,
+          "end": 27.280001
+        },
+        {
+          "text": "to",
+          "start": 27.32,
+          "end": 27.379999
+        },
+        {
+          "text": "connect",
+          "start": 27.379999,
+          "end": 27.780001
+        },
+        {
+          "text": "Adjust",
+          "start": 27.93,
+          "end": 28.5
+        },
+        {
+          "text": "image",
+          "start": 28.540001,
+          "end": 28.870001
+        },
+        {
+          "text": "names",
+          "start": 28.9,
+          "end": 29.27
+        },
+        {
+          "text": "to",
+          "start": 29.34,
+          "end": 29.389999
+        },
+        {
+          "text": "match",
+          "start": 29.389999,
+          "end": 29.700001
+        },
+        {
+          "text": "your",
+          "start": 29.700001,
+          "end": 29.790001
+        },
+        {
+          "text": "lab",
+          "start": 29.790001,
+          "end": 30.059999
+        },
+        {
+          "text": "registry",
+          "start": 30.059999,
+          "end": 30.719999
+        },
+        {
+          "text": "if",
+          "start": 30.77,
+          "end": 31
+        },
+        {
+          "text": "needed",
+          "start": 31,
+          "end": 31.389999
+        }
+      ]
+    },
+    "iosxe-telemetry-subscription": {
+      "words": [
+        {
+          "text": "These",
+          "start": 0.08,
+          "end": 0.39
+        },
+        {
+          "text": "lines",
+          "start": 0.39,
+          "end": 0.74
+        },
+        {
+          "text": "belong",
+          "start": 0.74,
+          "end": 1.25
+        },
+        {
+          "text": "on",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "text": "a",
+          "start": 1.37,
+          "end": 1.44
+        },
+        {
+          "text": "lab",
+          "start": 1.44,
+          "end": 1.82
+        },
+        {
+          "text": "IOS",
+          "start": 2.87,
+          "end": 3.33
+        },
+        {
+          "text": "XE",
+          "start": 3.33,
+          "end": 3.95
+        },
+        {
+          "text": "device",
+          "start": 4.47,
+          "end": 4.64
+        },
+        {
+          "text": "-",
+          "start": 4.67,
+          "end": 5.32
+        },
+        {
+          "text": "console",
+          "start": 5.32,
+          "end": 5.89
+        },
+        {
+          "text": "or",
+          "start": 6.29,
+          "end": 6.58
+        },
+        {
+          "text": "automation",
+          "start": 6.62,
+          "end": 6.76
+        },
+        {
+          "text": "session",
+          "start": 6.76,
+          "end": 6.89
+        },
+        {
+          "text": "-",
+          "start": 6.89,
+          "end": 7.29
+        },
+        {
+          "text": "not",
+          "start": 7.99,
+          "end": 8.3
+        },
+        {
+          "text": "on",
+          "start": 8.3,
+          "end": 8.53
+        },
+        {
+          "text": "your",
+          "start": 8.53,
+          "end": 9.05
+        },
+        {
+          "text": "laptop",
+          "start": 9.05,
+          "end": 10.02
+        },
+        {
+          "text": "Line",
+          "start": 10.02,
+          "end": 10.2
+        },
+        {
+          "text": "one",
+          "start": 10.75,
+          "end": 11.17
+        },
+        {
+          "text": "enters",
+          "start": 11.2,
+          "end": 11.43
+        },
+        {
+          "text": "configuration",
+          "start": 11.51,
+          "end": 11.94
+        },
+        {
+          "text": "mode",
+          "start": 12.07,
+          "end": 12.58
+        },
+        {
+          "text": "Lines",
+          "start": 12.83,
+          "end": 13.31
+        },
+        {
+          "text": "two",
+          "start": 13.31,
+          "end": 13.46
+        },
+        {
+          "text": "through",
+          "start": 14.04,
+          "end": 14.63
+        },
+        {
+          "text": "nine",
+          "start": 14.63,
+          "end": 15.47
+        },
+        {
+          "text": "define",
+          "start": 15.61,
+          "end": 16.15
+        },
+        {
+          "text": "an",
+          "start": 16.209999,
+          "end": 16.709999
+        },
+        {
+          "text": "IETF",
+          "start": 16.75,
+          "end": 17.290001
+        },
+        {
+          "text": "telemetry",
+          "start": 17.459999,
+          "end": 17.950001
+        },
+        {
+          "text": "subscription",
+          "start": 18.16,
+          "end": 18.34
+        },
+        {
+          "text": "numbered",
+          "start": 18.34,
+          "end": 18.629999
+        },
+        {
+          "text": "one",
+          "start": 18.629999,
+          "end": 19.09
+        },
+        {
+          "text": "zero",
+          "start": 19.15,
+          "end": 19.780001
+        },
+        {
+          "text": "one",
+          "start": 19.969999,
+          "end": 20.049999
+        },
+        {
+          "text": "with",
+          "start": 20.049999,
+          "end": 20.469999
+        },
+        {
+          "text": "yang-push",
+          "start": 20.469999,
+          "end": 20.66
+        },
+        {
+          "text": "encoding",
+          "start": 20.66,
+          "end": 20.73
+        },
+        {
+          "text": "a",
+          "start": 20.73,
+          "end": 21.379999
+        },
+        {
+          "text": "filter",
+          "start": 21.379999,
+          "end": 21.809999
+        },
+        {
+          "text": "on",
+          "start": 21.809999,
+          "end": 22.059999
+        },
+        {
+          "text": "the",
+          "start": 22.059999,
+          "end": 22.35
+        },
+        {
+          "text": "interfaces-state",
+          "start": 22.629999,
+          "end": 23.110001
+        },
+        {
+          "text": "YANG",
+          "start": 23.110001,
+          "end": 23.65
+        },
+        {
+          "text": "path",
+          "start": 23.68,
+          "end": 23.940001
+        },
+        {
+          "text": "periodic",
+          "start": 23.940001,
+          "end": 24.190001
+        },
+        {
+          "text": "updates",
+          "start": 24.190001,
+          "end": 24.66
+        },
+        {
+          "text": "every",
+          "start": 25.700001,
+          "end": 25.99
+        },
+        {
+          "text": "one",
+          "start": 26.059999,
+          "end": 26.17
+        },
+        {
+          "text": "thousand",
+          "start": 27.33,
+          "end": 27.98
+        },
+        {
+          "text": "milliseconds",
+          "start": 28.129999,
+          "end": 28.66
+        },
+        {
+          "text": "and",
+          "start": 28.700001,
+          "end": 28.92
+        },
+        {
+          "text": "a",
+          "start": 28.92,
+          "end": 29.030001
+        },
+        {
+          "text": "gRPC",
+          "start": 29.059999,
+          "end": 29.549999
+        },
+        {
+          "text": "receiver",
+          "start": 29.549999,
+          "end": 30.1
+        },
+        {
+          "text": "pointing",
+          "start": 30.33,
+          "end": 30.610001
+        },
+        {
+          "text": "at",
+          "start": 30.610001,
+          "end": 30.860001
+        },
+        {
+          "text": "your",
+          "start": 30.860001,
+          "end": 31.49
+        },
+        {
+          "text": "collector",
+          "start": 31.799999,
+          "end": 32.209999
+        },
+        {
+          "text": "IP",
+          "start": 32.209999,
+          "end": 32.450001
+        },
+        {
+          "text": "Line",
+          "start": 32.450001,
+          "end": 32.610001
+        },
+        {
+          "text": "ten",
+          "start": 32.700001,
+          "end": 33.110001
+        },
+        {
+          "text": "commits",
+          "start": 33.27,
+          "end": 33.400002
+        },
+        {
+          "text": "Replace",
+          "start": 33.470001,
+          "end": 33.689999
+        },
+        {
+          "text": "ten",
+          "start": 33.689999,
+          "end": 33.849998
+        },
+        {
+          "text": "dot",
+          "start": 33.849998,
+          "end": 34.34
+        },
+        {
+          "text": "ten",
+          "start": 34.509998,
+          "end": 34.630001
+        },
+        {
+          "text": "dot",
+          "start": 34.630001,
+          "end": 34.709999
+        },
+        {
+          "text": "ten",
+          "start": 34.709999,
+          "end": 34.990002
+        },
+        {
+          "text": "dot",
+          "start": 34.990002,
+          "end": 35.310001
+        },
+        {
+          "text": "five",
+          "start": 35.310001,
+          "end": 35.82
+        },
+        {
+          "text": "with",
+          "start": 36.029999,
+          "end": 36.139999
+        },
+        {
+          "text": "the",
+          "start": 36.139999,
+          "end": 36.41
+        },
+        {
+          "text": "docker",
+          "start": 36.41,
+          "end": 36.66
+        },
+        {
+          "text": "host",
+          "start": 36.66,
+          "end": 36.900002
+        },
+        {
+          "text": "address",
+          "start": 36.900002,
+          "end": 37.120001
+        },
+        {
+          "text": "your",
+          "start": 37.120001,
+          "end": 37.34
+        },
+        {
+          "text": "lab",
+          "start": 37.509998,
+          "end": 37.779999
+        },
+        {
+          "text": "router",
+          "start": 37.779999,
+          "end": 38.035
+        },
+        {
+          "text": "can",
+          "start": 38.035,
+          "end": 38.290001
+        },
+        {
+          "text": "reach",
+          "start": 38.439999,
+          "end": 38.52
+        },
+        {
+          "text": "After",
+          "start": 38.52,
+          "end": 38.715
+        },
+        {
+          "text": "commit",
+          "start": 38.715,
+          "end": 38.91
+        },
+        {
+          "text": "the",
+          "start": 38.91,
+          "end": 39.279999
+        },
+        {
+          "text": "device",
+          "start": 39.279999,
+          "end": 39.3999995
+        },
+        {
+          "text": "dials",
+          "start": 39.3999995,
+          "end": 39.52
+        },
+        {
+          "text": "out",
+          "start": 39.52,
+          "end": 39.549999
+        },
+        {
+          "text": "to",
+          "start": 39.549999,
+          "end": 39.6099985
+        },
+        {
+          "text": "the",
+          "start": 39.6099985,
+          "end": 39.669998
+        },
+        {
+          "text": "collector",
+          "start": 39.669998,
+          "end": 40.310001
+        }
+      ]
+    },
+    "gnmi-path-and-sample-interval": {
+      "words": [
+        {
+          "text": "If",
+          "start": 0.1,
+          "end": 0.3
+        },
+        {
+          "text": "your",
+          "start": 0.3,
+          "end": 0.42
+        },
+        {
+          "text": "lab",
+          "start": 0.42,
+          "end": 0.74
+        },
+        {
+          "text": "uses",
+          "start": 0.74,
+          "end": 1.32
+        },
+        {
+          "text": "gNMI",
+          "start": 2.12,
+          "end": 2.4
+        },
+        {
+          "text": "dial-in",
+          "start": 2.4,
+          "end": 2.75
+        },
+        {
+          "text": "instead",
+          "start": 2.94,
+          "end": 3.36
+        },
+        {
+          "text": "of",
+          "start": 3.36,
+          "end": 3.61
+        },
+        {
+          "text": "dial-out",
+          "start": 3.61,
+          "end": 3.92
+        },
+        {
+          "text": "configure",
+          "start": 3.92,
+          "end": 4.38
+        },
+        {
+          "text": "the",
+          "start": 4.62,
+          "end": 5.1
+        },
+        {
+          "text": "collector",
+          "start": 5.1,
+          "end": 5.25
+        },
+        {
+          "text": "side",
+          "start": 5.25,
+          "end": 5.71
+        },
+        {
+          "text": "Lines",
+          "start": 5.71,
+          "end": 6.11
+        },
+        {
+          "text": "one",
+          "start": 6.41,
+          "end": 6.78
+        },
+        {
+          "text": "through",
+          "start": 6.78,
+          "end": 6.98
+        },
+        {
+          "text": "twelve",
+          "start": 6.98,
+          "end": 7.24
+        },
+        {
+          "text": "write",
+          "start": 7.24,
+          "end": 7.61
+        },
+        {
+          "text": "gnmic",
+          "start": 7.84,
+          "end": 8.14
+        },
+        {
+          "text": "dot",
+          "start": 8.87,
+          "end": 9.14
+        },
+        {
+          "text": "yaml",
+          "start": 9.74,
+          "end": 10.5
+        },
+        {
+          "text": "subscribing",
+          "start": 10.53,
+          "end": 10.59
+        },
+        {
+          "text": "to",
+          "start": 10.59,
+          "end": 11.12
+        },
+        {
+          "text": "interface",
+          "start": 11.12,
+          "end": 11.74
+        },
+        {
+          "text": "counters",
+          "start": 11.9,
+          "end": 12.18
+        },
+        {
+          "text": "every",
+          "start": 12.18,
+          "end": 12.47
+        },
+        {
+          "text": "five",
+          "start": 12.47,
+          "end": 13.06
+        },
+        {
+          "text": "seconds",
+          "start": 13.24,
+          "end": 13.37
+        },
+        {
+          "text": "and",
+          "start": 13.37,
+          "end": 13.88
+        },
+        {
+          "text": "forwarding",
+          "start": 13.93,
+          "end": 14
+        },
+        {
+          "text": "to",
+          "start": 14,
+          "end": 14.8
+        },
+        {
+          "text": "Prometheus",
+          "start": 15.08,
+          "end": 15.36
+        },
+        {
+          "text": "Line",
+          "start": 15.36,
+          "end": 15.9
+        },
+        {
+          "text": "fourteen",
+          "start": 16.110001,
+          "end": 16.709999
+        },
+        {
+          "text": "reloads",
+          "start": 16.870001,
+          "end": 16.959999
+        },
+        {
+          "text": "the",
+          "start": 16.959999,
+          "end": 17.389999
+        },
+        {
+          "text": "collector",
+          "start": 17.389999,
+          "end": 17.99
+        },
+        {
+          "text": "container",
+          "start": 18.26,
+          "end": 18.34
+        },
+        {
+          "text": "The",
+          "start": 18.34,
+          "end": 18.74
+        },
+        {
+          "text": "path",
+          "start": 18.74,
+          "end": 19.17
+        },
+        {
+          "text": "uses",
+          "start": 20.030001,
+          "end": 21.040001
+        },
+        {
+          "text": "OpenConfig",
+          "start": 21.110001,
+          "end": 21.58
+        },
+        {
+          "text": "interfaces",
+          "start": 21.58,
+          "end": 22.27
+        },
+        {
+          "text": "model",
+          "start": 22.27,
+          "end": 22.299999
+        },
+        {
+          "text": "-",
+          "start": 22.299999,
+          "end": 22.76
+        },
+        {
+          "text": "adjust",
+          "start": 22.76,
+          "end": 23.129999
+        },
+        {
+          "text": "to",
+          "start": 23.190001,
+          "end": 23.6
+        },
+        {
+          "text": "Cisco",
+          "start": 23.690001,
+          "end": 23.92
+        },
+        {
+          "text": "native",
+          "start": 23.92,
+          "end": 24.030001
+        },
+        {
+          "text": "paths",
+          "start": 24.030001,
+          "end": 24.51
+        },
+        {
+          "text": "if",
+          "start": 24.51,
+          "end": 25.059999
+        },
+        {
+          "text": "your",
+          "start": 25.059999,
+          "end": 25.280001
+        },
+        {
+          "text": "device",
+          "start": 25.59,
+          "end": 26.040001
+        },
+        {
+          "text": "requires",
+          "start": 26.040001,
+          "end": 26.629999
+        },
+        {
+          "text": "them",
+          "start": 26.91,
+          "end": 27.139999
+        },
+        {
+          "text": "Sample",
+          "start": 27.23,
+          "end": 27.43
+        },
+        {
+          "text": "interval",
+          "start": 27.43,
+          "end": 27.799999
+        },
+        {
+          "text": "and",
+          "start": 27.799999,
+          "end": 28.52
+        },
+        {
+          "text": "on-change",
+          "start": 28.799999,
+          "end": 29.1
+        },
+        {
+          "text": "policies",
+          "start": 29.18,
+          "end": 29.6
+        },
+        {
+          "text": "are",
+          "start": 29.6,
+          "end": 30.379999
+        },
+        {
+          "text": "exam",
+          "start": 30.57,
+          "end": 31.1
+        },
+        {
+          "text": "vocabulary",
+          "start": 31.1,
+          "end": 31.549999
+        },
+        {
+          "text": "periodic",
+          "start": 31.9,
+          "end": 32.310001
+        },
+        {
+          "text": "means",
+          "start": 32.34,
+          "end": 32.68
+        },
+        {
+          "text": "send",
+          "start": 32.68,
+          "end": 32.83
+        },
+        {
+          "text": "every",
+          "start": 32.83,
+          "end": 32.98
+        },
+        {
+          "text": "N",
+          "start": 33.860001,
+          "end": 34.209999
+        },
+        {
+          "text": "milliseconds",
+          "start": 34.209999,
+          "end": 34.305000500000006
+        },
+        {
+          "text": "even",
+          "start": 34.305000500000006,
+          "end": 34.400002
+        },
+        {
+          "text": "when",
+          "start": 34.400002,
+          "end": 34.82
+        },
+        {
+          "text": "values",
+          "start": 34.82,
+          "end": 34.860001
+        },
+        {
+          "text": "are",
+          "start": 34.860001,
+          "end": 34.900002
+        },
+        {
+          "text": "flat",
+          "start": 34.900002,
+          "end": 35.369999
+        }
+      ]
+    },
+    "collect-interface-counters": {
+      "words": [
+        {
+          "text": "Line",
+          "start": 0.08,
+          "end": 0.37
+        },
+        {
+          "text": "one",
+          "start": 0.37,
+          "end": 0.62
+        },
+        {
+          "text": "queries",
+          "start": 0.62,
+          "end": 1.1
+        },
+        {
+          "text": "Prometheus",
+          "start": 1.1,
+          "end": 1.67
+        },
+        {
+          "text": "for",
+          "start": 1.67,
+          "end": 1.8
+        },
+        {
+          "text": "a",
+          "start": 1.8,
+          "end": 1.86
+        },
+        {
+          "text": "metric",
+          "start": 1.86,
+          "end": 2.34
+        },
+        {
+          "text": "your",
+          "start": 2.58,
+          "end": 2.71
+        },
+        {
+          "text": "collector",
+          "start": 2.71,
+          "end": 3.14
+        },
+        {
+          "text": "exported",
+          "start": 3.14,
+          "end": 3.73
+        },
+        {
+          "text": "-",
+          "start": 3.73,
+          "end": 3.96
+        },
+        {
+          "text": "name",
+          "start": 3.96,
+          "end": 4.38
+        },
+        {
+          "text": "varies",
+          "start": 4.38,
+          "end": 4.55
+        },
+        {
+          "text": "by",
+          "start": 4.55,
+          "end": 5.06
+        },
+        {
+          "text": "model",
+          "start": 5.26,
+          "end": 5.48
+        },
+        {
+          "text": "in-in-octets",
+          "start": 5.51,
+          "end": 5.8
+        },
+        {
+          "text": "or",
+          "start": 7.31,
+          "end": 7.41
+        },
+        {
+          "text": "similar",
+          "start": 7.41,
+          "end": 7.87
+        },
+        {
+          "text": "interface",
+          "start": 7.87,
+          "end": 8.4
+        },
+        {
+          "text": "counter",
+          "start": 8.4,
+          "end": 8.92
+        },
+        {
+          "text": "Line",
+          "start": 9.46,
+          "end": 9.76
+        },
+        {
+          "text": "two",
+          "start": 9.76,
+          "end": 10
+        },
+        {
+          "text": "uses",
+          "start": 10,
+          "end": 10.46
+        },
+        {
+          "text": "curl",
+          "start": 10.46,
+          "end": 10.82
+        },
+        {
+          "text": "against",
+          "start": 10.85,
+          "end": 11.24
+        },
+        {
+          "text": "the",
+          "start": 11.24,
+          "end": 11.32
+        },
+        {
+          "text": "Prometheus",
+          "start": 11.32,
+          "end": 11.9
+        },
+        {
+          "text": "HTTP",
+          "start": 11.95,
+          "end": 12.59
+        },
+        {
+          "text": "API",
+          "start": 12.59,
+          "end": 13.21
+        },
+        {
+          "text": "with",
+          "start": 13.48,
+          "end": 13.63
+        },
+        {
+          "text": "a",
+          "start": 13.63,
+          "end": 13.72
+        },
+        {
+          "text": "query",
+          "start": 13.72,
+          "end": 14.04
+        },
+        {
+          "text": "parameter",
+          "start": 14.04,
+          "end": 14.7
+        },
+        {
+          "text": "You",
+          "start": 14.93,
+          "end": 15.12
+        },
+        {
+          "text": "should",
+          "start": 15.12,
+          "end": 15.4
+        },
+        {
+          "text": "see",
+          "start": 15.4,
+          "end": 15.87
+        },
+        {
+          "text": "non-zero",
+          "start": 16.23,
+          "end": 16.67
+        },
+        {
+          "text": "time",
+          "start": 16.67,
+          "end": 16.93
+        },
+        {
+          "text": "series",
+          "start": 16.93,
+          "end": 17.26
+        },
+        {
+          "text": "when",
+          "start": 17.26,
+          "end": 17.879999
+        },
+        {
+          "text": "traffic",
+          "start": 17.93,
+          "end": 18.23
+        },
+        {
+          "text": "crosses",
+          "start": 18.23,
+          "end": 18.639999
+        },
+        {
+          "text": "the",
+          "start": 18.639999,
+          "end": 19.280001
+        },
+        {
+          "text": "lab",
+          "start": 19.4,
+          "end": 19.540001
+        },
+        {
+          "text": "link",
+          "start": 19.540001,
+          "end": 19.9
+        },
+        {
+          "text": "Line",
+          "start": 19.9,
+          "end": 20.379999
+        },
+        {
+          "text": "four",
+          "start": 20.83,
+          "end": 21.09
+        },
+        {
+          "text": "runs",
+          "start": 21.09,
+          "end": 21.459999
+        },
+        {
+          "text": "tcpdump",
+          "start": 21.459999,
+          "end": 21.790001
+        },
+        {
+          "text": "briefly",
+          "start": 22.49,
+          "end": 23.02
+        },
+        {
+          "text": "on",
+          "start": 23.02,
+          "end": 23.139999
+        },
+        {
+          "text": "the",
+          "start": 23.139999,
+          "end": 23.24
+        },
+        {
+          "text": "collector",
+          "start": 23.27,
+          "end": 23.67
+        },
+        {
+          "text": "host",
+          "start": 23.67,
+          "end": 24
+        },
+        {
+          "text": "to",
+          "start": 24,
+          "end": 24.040001
+        },
+        {
+          "text": "confirm",
+          "start": 24.040001,
+          "end": 24.5
+        },
+        {
+          "text": "gRPC",
+          "start": 25.110001,
+          "end": 25.6
+        },
+        {
+          "text": "packets",
+          "start": 25.629999,
+          "end": 25.799999
+        },
+        {
+          "text": "on",
+          "start": 25.799999,
+          "end": 26.07
+        },
+        {
+          "text": "five",
+          "start": 26.07,
+          "end": 26.43
+        },
+        {
+          "text": "seven",
+          "start": 26.43,
+          "end": 26.690001
+        },
+        {
+          "text": "five",
+          "start": 26.690001,
+          "end": 26.950001
+        },
+        {
+          "text": "zero",
+          "start": 26.950001,
+          "end": 27.33
+        },
+        {
+          "text": "zero",
+          "start": 27.629999,
+          "end": 27.809999
+        },
+        {
+          "text": "if",
+          "start": 27.809999,
+          "end": 28.27
+        },
+        {
+          "text": "metrics",
+          "start": 28.27,
+          "end": 28.32
+        },
+        {
+          "text": "are",
+          "start": 28.32,
+          "end": 28.799999
+        },
+        {
+          "text": "empty",
+          "start": 28.799999,
+          "end": 29.299999
+        },
+        {
+          "text": "-",
+          "start": 29.33,
+          "end": 29.780001
+        },
+        {
+          "text": "transport",
+          "start": 29.780001,
+          "end": 29.969999
+        },
+        {
+          "text": "problems",
+          "start": 29.969999,
+          "end": 30.18
+        },
+        {
+          "text": "show",
+          "start": 30.49,
+          "end": 30.860001
+        },
+        {
+          "text": "up",
+          "start": 30.860001,
+          "end": 31.440001
+        },
+        {
+          "text": "before",
+          "start": 31.440001,
+          "end": 32
+        },
+        {
+          "text": "application",
+          "start": 31.440001,
+          "end": 32
+        },
+        {
+          "text": "problems",
+          "start": 31.440001,
+          "end": 32
+        }
+      ]
+    },
+    "export-telemetry-prometheus": {
+      "words": [
+        {
+          "text": "Prometheus",
+          "start": 0.13,
+          "end": 0.67
+        },
+        {
+          "text": "scrapes",
+          "start": 0.67,
+          "end": 1.3
+        },
+        {
+          "text": "the",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "text": "collector",
+          "start": 1.45,
+          "end": 1.96
+        },
+        {
+          "text": "exporter",
+          "start": 1.96,
+          "end": 2.72
+        },
+        {
+          "text": "not",
+          "start": 3.01,
+          "end": 3.29
+        },
+        {
+          "text": "the",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "text": "router",
+          "start": 3.46,
+          "end": 4
+        },
+        {
+          "text": "directly",
+          "start": 4.1,
+          "end": 4.8
+        },
+        {
+          "text": "Lines",
+          "start": 4.96,
+          "end": 5.31
+        },
+        {
+          "text": "one",
+          "start": 5.31,
+          "end": 5.61
+        },
+        {
+          "text": "through",
+          "start": 5.61,
+          "end": 5.84
+        },
+        {
+          "text": "eight",
+          "start": 5.91,
+          "end": 6.32
+        },
+        {
+          "text": "add",
+          "start": 6.59,
+          "end": 6.77
+        },
+        {
+          "text": "a",
+          "start": 6.77,
+          "end": 6.82
+        },
+        {
+          "text": "scrape",
+          "start": 6.82,
+          "end": 7.21
+        },
+        {
+          "text": "job",
+          "start": 7.21,
+          "end": 7.55
+        },
+        {
+          "text": "pointing",
+          "start": 7.6,
+          "end": 8.09
+        },
+        {
+          "text": "at",
+          "start": 8.09,
+          "end": 8.21
+        },
+        {
+          "text": "gnmic-collector",
+          "start": 9.25,
+          "end": 9.71
+        },
+        {
+          "text": "port",
+          "start": 9.71,
+          "end": 10.17
+        },
+        {
+          "text": "nine",
+          "start": 10.43,
+          "end": 10.83
+        },
+        {
+          "text": "eight",
+          "start": 10.88,
+          "end": 11.32
+        },
+        {
+          "text": "zero",
+          "start": 11.44,
+          "end": 11.76
+        },
+        {
+          "text": "four",
+          "start": 11.76,
+          "end": 12.2
+        },
+        {
+          "text": "on",
+          "start": 12.42,
+          "end": 12.54
+        },
+        {
+          "text": "the",
+          "start": 12.54,
+          "end": 12.63
+        },
+        {
+          "text": "docker",
+          "start": 12.63,
+          "end": 12.93
+        },
+        {
+          "text": "network",
+          "start": 12.93,
+          "end": 13.51
+        },
+        {
+          "text": "Line",
+          "start": 13.74,
+          "end": 14.23
+        },
+        {
+          "text": "ten",
+          "start": 14.23,
+          "end": 14.7
+        },
+        {
+          "text": "reloads",
+          "start": 14.74,
+          "end": 15.38
+        },
+        {
+          "text": "Prometheus",
+          "start": 15.45,
+          "end": 16.01
+        },
+        {
+          "text": "configuration",
+          "start": 16.01,
+          "end": 17.040001
+        },
+        {
+          "text": "with",
+          "start": 17.17,
+          "end": 17.4
+        },
+        {
+          "text": "curl",
+          "start": 17.4,
+          "end": 17.65
+        },
+        {
+          "text": "post",
+          "start": 17.65,
+          "end": 18.16
+        },
+        {
+          "text": "to",
+          "start": 18.290001,
+          "end": 18.35
+        },
+        {
+          "text": "the",
+          "start": 18.35,
+          "end": 18.52
+        },
+        {
+          "text": "reload",
+          "start": 18.52,
+          "end": 19.08
+        },
+        {
+          "text": "endpoint",
+          "start": 20.02,
+          "end": 20.23
+        },
+        {
+          "text": "-",
+          "start": 20.23,
+          "end": 20.790001
+        },
+        {
+          "text": "or",
+          "start": 20.82,
+          "end": 20.959999
+        },
+        {
+          "text": "restart",
+          "start": 20.959999,
+          "end": 21.65
+        },
+        {
+          "text": "the",
+          "start": 21.75,
+          "end": 22.01
+        },
+        {
+          "text": "container",
+          "start": 22.01,
+          "end": 22.35
+        },
+        {
+          "text": "if",
+          "start": 22.35,
+          "end": 22.49
+        },
+        {
+          "text": "reload",
+          "start": 22.49,
+          "end": 23.17
+        },
+        {
+          "text": "is",
+          "start": 23.540001,
+          "end": 23.82
+        },
+        {
+          "text": "disabled",
+          "start": 23.82,
+          "end": 24.16
+        },
+        {
+          "text": "Line",
+          "start": 24.59,
+          "end": 25.02
+        },
+        {
+          "text": "twelve",
+          "start": 25.02,
+          "end": 25.459999
+        },
+        {
+          "text": "opens",
+          "start": 25.74,
+          "end": 26.200001
+        },
+        {
+          "text": "the",
+          "start": 26.200001,
+          "end": 26.610001
+        },
+        {
+          "text": "Prometheus",
+          "start": 26.610001,
+          "end": 27.040001
+        },
+        {
+          "text": "targets",
+          "start": 27.309999,
+          "end": 28.059999
+        },
+        {
+          "text": "page",
+          "start": 28.17,
+          "end": 28.34
+        },
+        {
+          "text": "conceptually",
+          "start": 28.34,
+          "end": 28.9
+        },
+        {
+          "text": "-",
+          "start": 29,
+          "end": 29.27
+        },
+        {
+          "text": "all",
+          "start": 29.27,
+          "end": 29.73
+        },
+        {
+          "text": "targets",
+          "start": 29.73,
+          "end": 29.809999
+        },
+        {
+          "text": "should",
+          "start": 29.809999,
+          "end": 30.2049995
+        },
+        {
+          "text": "show",
+          "start": 30.2049995,
+          "end": 30.6
+        },
+        {
+          "text": "UP",
+          "start": 30.6,
+          "end": 30.73
+        },
+        {
+          "text": "before",
+          "start": 30.73,
+          "end": 30.9250005
+        },
+        {
+          "text": "you",
+          "start": 30.9250005,
+          "end": 31.120001
+        },
+        {
+          "text": "declare",
+          "start": 31.120001,
+          "end": 31.23
+        },
+        {
+          "text": "the",
+          "start": 31.23,
+          "end": 31.3449995
+        },
+        {
+          "text": "lab",
+          "start": 31.3449995,
+          "end": 31.459999
+        },
+        {
+          "text": "success",
+          "start": 31.459999,
+          "end": 31.99
+        }
+      ]
+    },
+    "verify-streaming-metrics": {
+      "words": [
+        {
+          "text": "Verification",
+          "start": 0.16,
+          "end": 1.09
+        },
+        {
+          "text": "belongs",
+          "start": 1.09,
+          "end": 1.58
+        },
+        {
+          "text": "on",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "text": "the",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "text": "device",
+          "start": 1.84,
+          "end": 2.41
+        },
+        {
+          "text": "and",
+          "start": 2.45,
+          "end": 2.62
+        },
+        {
+          "text": "the",
+          "start": 2.62,
+          "end": 2.74
+        },
+        {
+          "text": "collector",
+          "start": 2.77,
+          "end": 3.37
+        },
+        {
+          "text": "Line",
+          "start": 3.92,
+          "end": 4.25
+        },
+        {
+          "text": "one",
+          "start": 4.25,
+          "end": 4.47
+        },
+        {
+          "text": "shows",
+          "start": 4.47,
+          "end": 4.85
+        },
+        {
+          "text": "active",
+          "start": 4.85,
+          "end": 5.46
+        },
+        {
+          "text": "telemetry",
+          "start": 5.46,
+          "end": 6.04
+        },
+        {
+          "text": "subscriptions",
+          "start": 6.04,
+          "end": 6.93
+        },
+        {
+          "text": "on",
+          "start": 6.93,
+          "end": 7.05
+        },
+        {
+          "text": "IOS",
+          "start": 8.63,
+          "end": 8.98
+        },
+        {
+          "text": "XE",
+          "start": 8.98,
+          "end": 9.18
+        },
+        {
+          "text": "Line",
+          "start": 9.18,
+          "end": 9.58
+        },
+        {
+          "text": "two",
+          "start": 9.58,
+          "end": 9.69
+        },
+        {
+          "text": "shows",
+          "start": 10.47,
+          "end": 11.08
+        },
+        {
+          "text": "the",
+          "start": 11.08,
+          "end": 11.47
+        },
+        {
+          "text": "gRPC",
+          "start": 11.47,
+          "end": 12.05
+        },
+        {
+          "text": "connection",
+          "start": 12.05,
+          "end": 12.48
+        },
+        {
+          "text": "state",
+          "start": 12.48,
+          "end": 12.93
+        },
+        {
+          "text": "-",
+          "start": 12.93,
+          "end": 13.18
+        },
+        {
+          "text": "connected",
+          "start": 13.18,
+          "end": 13.98
+        },
+        {
+          "text": "means",
+          "start": 14.44,
+          "end": 14.71
+        },
+        {
+          "text": "dial-out",
+          "start": 14.71,
+          "end": 14.97
+        },
+        {
+          "text": "succeeded",
+          "start": 14.97,
+          "end": 15.55
+        },
+        {
+          "text": "Line",
+          "start": 16.030001,
+          "end": 16.639999
+        },
+        {
+          "text": "three",
+          "start": 16.639999,
+          "end": 17.120001
+        },
+        {
+          "text": "lists",
+          "start": 17.120001,
+          "end": 17.620001
+        },
+        {
+          "text": "Prometheus",
+          "start": 17.67,
+          "end": 18.27
+        },
+        {
+          "text": "series",
+          "start": 18.27,
+          "end": 18.469999
+        },
+        {
+          "text": "count",
+          "start": 18.469999,
+          "end": 18.889999
+        },
+        {
+          "text": "-",
+          "start": 18.889999,
+          "end": 19.26
+        },
+        {
+          "text": "increasing",
+          "start": 19.26,
+          "end": 19.83
+        },
+        {
+          "text": "over",
+          "start": 19.93,
+          "end": 20.200001
+        },
+        {
+          "text": "time",
+          "start": 20.200001,
+          "end": 20.24
+        },
+        {
+          "text": "proves",
+          "start": 20.24,
+          "end": 20.440001
+        },
+        {
+          "text": "streaming",
+          "start": 20.440001,
+          "end": 20.690001
+        },
+        {
+          "text": "not",
+          "start": 20.780001,
+          "end": 21.15
+        },
+        {
+          "text": "a",
+          "start": 21.84,
+          "end": 22.049999
+        },
+        {
+          "text": "one-shot",
+          "start": 22.049999,
+          "end": 22.620001
+        },
+        {
+          "text": "poll",
+          "start": 22.65,
+          "end": 22.809999
+        },
+        {
+          "text": "If",
+          "start": 22.809999,
+          "end": 23.370001
+        },
+        {
+          "text": "connected",
+          "start": 23.540001,
+          "end": 23.84
+        },
+        {
+          "text": "is",
+          "start": 23.84,
+          "end": 24.43
+        },
+        {
+          "text": "false",
+          "start": 25.440001,
+          "end": 25.620001
+        },
+        {
+          "text": "check",
+          "start": 25.620001,
+          "end": 26.299999
+        },
+        {
+          "text": "routing",
+          "start": 26.299999,
+          "end": 26.879999
+        },
+        {
+          "text": "ACLs",
+          "start": 27.33,
+          "end": 27.52
+        },
+        {
+          "text": "and",
+          "start": 27.52,
+          "end": 27.969999
+        },
+        {
+          "text": "destination",
+          "start": 27.969999,
+          "end": 28.120001
+        },
+        {
+          "text": "IP",
+          "start": 28.120001,
+          "end": 28.450001
+        },
+        {
+          "text": "If",
+          "start": 28.5,
+          "end": 28.67
+        },
+        {
+          "text": "connected",
+          "start": 28.67,
+          "end": 29.219999
+        },
+        {
+          "text": "is",
+          "start": 29.219999,
+          "end": 29.295
+        },
+        {
+          "text": "true",
+          "start": 29.295,
+          "end": 29.370001
+        },
+        {
+          "text": "but",
+          "start": 29.370001,
+          "end": 29.82
+        },
+        {
+          "text": "Prometheus",
+          "start": 30.049999,
+          "end": 30.1849995
+        },
+        {
+          "text": "is",
+          "start": 30.1849995,
+          "end": 30.32
+        },
+        {
+          "text": "empty",
+          "start": 30.32,
+          "end": 30.620001
+        },
+        {
+          "text": "check",
+          "start": 30.620001,
+          "end": 30.770000500000002
+        },
+        {
+          "text": "YANG",
+          "start": 30.770000500000002,
+          "end": 30.92
+        },
+        {
+          "text": "path",
+          "start": 30.98,
+          "end": 31.16
+        },
+        {
+          "text": "and",
+          "start": 31.16,
+          "end": 31.405
+        },
+        {
+          "text": "encoding",
+          "start": 31.405,
+          "end": 31.65
+        },
+        {
+          "text": "mismatch",
+          "start": 31.65,
+          "end": 32.209999
+        }
+      ]
+    },
+    "troubleshoot-no-telemetry-data": {
+      "words": [
+        {
+          "text": "When",
+          "start": 0.08,
+          "end": 0.25
+        },
+        {
+          "text": "the",
+          "start": 0.25,
+          "end": 0.34
+        },
+        {
+          "text": "stream",
+          "start": 0.34,
+          "end": 0.63
+        },
+        {
+          "text": "is",
+          "start": 0.63,
+          "end": 0.74
+        },
+        {
+          "text": "silent",
+          "start": 0.74,
+          "end": 1.32
+        },
+        {
+          "text": "work",
+          "start": 1.58,
+          "end": 1.93
+        },
+        {
+          "text": "the",
+          "start": 1.97,
+          "end": 2.08
+        },
+        {
+          "text": "architecture",
+          "start": 2.08,
+          "end": 2.62
+        },
+        {
+          "text": "stack",
+          "start": 2.62,
+          "end": 3.01
+        },
+        {
+          "text": "top",
+          "start": 3.08,
+          "end": 3.3
+        },
+        {
+          "text": "to",
+          "start": 3.37,
+          "end": 3.43
+        },
+        {
+          "text": "bottom",
+          "start": 3.43,
+          "end": 3.96
+        },
+        {
+          "text": "Subscription",
+          "start": 4.23,
+          "end": 5
+        },
+        {
+          "text": "not",
+          "start": 5,
+          "end": 5.2
+        },
+        {
+          "text": "committed",
+          "start": 5.2,
+          "end": 5.82
+        },
+        {
+          "text": "or",
+          "start": 5.91,
+          "end": 6.07
+        },
+        {
+          "text": "wrong",
+          "start": 6.07,
+          "end": 6.37
+        },
+        {
+          "text": "path",
+          "start": 6.37,
+          "end": 6.59
+        },
+        {
+          "text": "-",
+          "start": 6.66,
+          "end": 7.08
+        },
+        {
+          "text": "device",
+          "start": 7.08,
+          "end": 7.4
+        },
+        {
+          "text": "sends",
+          "start": 7.4,
+          "end": 7.85
+        },
+        {
+          "text": "nothing",
+          "start": 8.78,
+          "end": 8.9
+        },
+        {
+          "text": "ACL",
+          "start": 8.9,
+          "end": 9.18
+        },
+        {
+          "text": "or",
+          "start": 9.18,
+          "end": 9.58
+        },
+        {
+          "text": "NAT",
+          "start": 10.19,
+          "end": 10.81
+        },
+        {
+          "text": "blocks",
+          "start": 10.81,
+          "end": 11.04
+        },
+        {
+          "text": "gRPC",
+          "start": 11.04,
+          "end": 11.33
+        },
+        {
+          "text": "-",
+          "start": 11.33,
+          "end": 11.96
+        },
+        {
+          "text": "connection",
+          "start": 12.17,
+          "end": 12.8
+        },
+        {
+          "text": "never",
+          "start": 12.8,
+          "end": 13.35
+        },
+        {
+          "text": "shows",
+          "start": 13.35,
+          "end": 13.85
+        },
+        {
+          "text": "connected",
+          "start": 13.85,
+          "end": 14.33
+        },
+        {
+          "text": "Encoding",
+          "start": 14.33,
+          "end": 14.95
+        },
+        {
+          "text": "mismatch",
+          "start": 14.98,
+          "end": 15.11
+        },
+        {
+          "text": "-",
+          "start": 15.11,
+          "end": 15.86
+        },
+        {
+          "text": "collector",
+          "start": 16.18,
+          "end": 16.74
+        },
+        {
+          "text": "receives",
+          "start": 16.74,
+          "end": 17.209999
+        },
+        {
+          "text": "garbage",
+          "start": 18.200001,
+          "end": 18.530001
+        },
+        {
+          "text": "it",
+          "start": 18.530001,
+          "end": 18.860001
+        },
+        {
+          "text": "drops",
+          "start": 19.01,
+          "end": 19.52
+        },
+        {
+          "text": "Prometheus",
+          "start": 19.559999,
+          "end": 19.6449995
+        },
+        {
+          "text": "scrape",
+          "start": 19.6449995,
+          "end": 19.73
+        },
+        {
+          "text": "misconfigured",
+          "start": 19.73,
+          "end": 20.41
+        },
+        {
+          "text": "-",
+          "start": 20.57,
+          "end": 20.6800005
+        },
+        {
+          "text": "metrics",
+          "start": 20.6800005,
+          "end": 20.790001
+        },
+        {
+          "text": "exist",
+          "start": 20.790001,
+          "end": 21.07
+        },
+        {
+          "text": "on",
+          "start": 21.07,
+          "end": 21.15
+        },
+        {
+          "text": "collector",
+          "start": 21.15,
+          "end": 21.23
+        },
+        {
+          "text": "but",
+          "start": 22.25,
+          "end": 22.360001
+        },
+        {
+          "text": "not",
+          "start": 22.360001,
+          "end": 22.575001
+        },
+        {
+          "text": "in",
+          "start": 22.575001,
+          "end": 22.790001
+        },
+        {
+          "text": "PromQL",
+          "start": 22.790001,
+          "end": 22.940001
+        },
+        {
+          "text": "The",
+          "start": 22.940001,
+          "end": 23.125
+        },
+        {
+          "text": "exam",
+          "start": 23.125,
+          "end": 23.309999
+        },
+        {
+          "text": "may",
+          "start": 23.5,
+          "end": 23.76
+        },
+        {
+          "text": "give",
+          "start": 24.66,
+          "end": 24.835
+        },
+        {
+          "text": "log",
+          "start": 24.835,
+          "end": 25.01
+        },
+        {
+          "text": "snippets",
+          "start": 25.09,
+          "end": 25.290001
+        },
+        {
+          "text": "map",
+          "start": 25.290001,
+          "end": 25.5300005
+        },
+        {
+          "text": "each",
+          "start": 25.5300005,
+          "end": 25.77
+        },
+        {
+          "text": "symptom",
+          "start": 25.77,
+          "end": 25.799999
+        },
+        {
+          "text": "to",
+          "start": 25.91,
+          "end": 26.035
+        },
+        {
+          "text": "one",
+          "start": 26.035,
+          "end": 26.16
+        },
+        {
+          "text": "layer",
+          "start": 26.16,
+          "end": 26.469999
+        }
+      ]
+    },
+    "certification-alignment-telemetry": {
+      "words": [
+        {
+          "text": "Module",
+          "start": 0.18,
+          "end": 0.57
+        },
+        {
+          "text": "one",
+          "start": 0.57,
+          "end": 0.91
+        },
+        {
+          "text": "maps",
+          "start": 1.19,
+          "end": 1.61
+        },
+        {
+          "text": "to",
+          "start": 1.67,
+          "end": 1.74
+        },
+        {
+          "text": "exam",
+          "start": 1.74,
+          "end": 2.19
+        },
+        {
+          "text": "objective",
+          "start": 2.27,
+          "end": 2.87
+        },
+        {
+          "text": "three",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "text": "point",
+          "start": 3.11,
+          "end": 3.44
+        },
+        {
+          "text": "one",
+          "start": 3.44,
+          "end": 3.73
+        },
+        {
+          "text": "-",
+          "start": 4.01,
+          "end": 4.61
+        },
+        {
+          "text": "describe",
+          "start": 4.69,
+          "end": 5.41
+        },
+        {
+          "text": "architectural",
+          "start": 5.41,
+          "end": 6.13
+        },
+        {
+          "text": "components",
+          "start": 6.19,
+          "end": 6.34
+        },
+        {
+          "text": "of",
+          "start": 6.4,
+          "end": 6.83
+        },
+        {
+          "text": "model-driven",
+          "start": 6.83,
+          "end": 7.25
+        },
+        {
+          "text": "telemetry",
+          "start": 7.25,
+          "end": 7.97
+        },
+        {
+          "text": "You",
+          "start": 8.33,
+          "end": 8.44
+        },
+        {
+          "text": "should",
+          "start": 8.44,
+          "end": 8.64
+        },
+        {
+          "text": "explain",
+          "start": 8.64,
+          "end": 9.13
+        },
+        {
+          "text": "producer",
+          "start": 9.13,
+          "end": 9.73
+        },
+        {
+          "text": "transport",
+          "start": 10.07,
+          "end": 10.75
+        },
+        {
+          "text": "subscription",
+          "start": 10.92,
+          "end": 11.81
+        },
+        {
+          "text": "and",
+          "start": 11.99,
+          "end": 12.18
+        },
+        {
+          "text": "consumer",
+          "start": 12.18,
+          "end": 12.77
+        },
+        {
+          "text": "without",
+          "start": 12.9,
+          "end": 13.3
+        },
+        {
+          "text": "notes",
+          "start": 13.3,
+          "end": 13.79
+        },
+        {
+          "text": "Compare",
+          "start": 14.29,
+          "end": 14.9
+        },
+        {
+          "text": "SNMP",
+          "start": 15.46,
+          "end": 15.92
+        },
+        {
+          "text": "polling",
+          "start": 15.98,
+          "end": 16.280001
+        },
+        {
+          "text": "to",
+          "start": 17.190001,
+          "end": 17.700001
+        },
+        {
+          "text": "gNMI",
+          "start": 18.120001,
+          "end": 18.549999
+        },
+        {
+          "text": "streaming",
+          "start": 18.549999,
+          "end": 18.809999
+        },
+        {
+          "text": "Describe",
+          "start": 18.809999,
+          "end": 19.040001
+        },
+        {
+          "text": "dial-out",
+          "start": 19.08,
+          "end": 19.48
+        },
+        {
+          "text": "versus",
+          "start": 19.48,
+          "end": 19.73
+        },
+        {
+          "text": "dial-in",
+          "start": 19.73,
+          "end": 20.02
+        },
+        {
+          "text": "Sketch",
+          "start": 20.27,
+          "end": 20.790001
+        },
+        {
+          "text": "how",
+          "start": 20.790001,
+          "end": 21.049999
+        },
+        {
+          "text": "YANG",
+          "start": 21.049999,
+          "end": 21.459999
+        },
+        {
+          "text": "paths",
+          "start": 21.459999,
+          "end": 21.93
+        },
+        {
+          "text": "appear",
+          "start": 21.969999,
+          "end": 22.559999
+        },
+        {
+          "text": "in",
+          "start": 22.620001,
+          "end": 22.74
+        },
+        {
+          "text": "a",
+          "start": 22.74,
+          "end": 22.809999
+        },
+        {
+          "text": "subscription",
+          "start": 22.809999,
+          "end": 23.66
+        },
+        {
+          "text": "Exam",
+          "start": 24.08,
+          "end": 24.49
+        },
+        {
+          "text": "scenarios",
+          "start": 24.49,
+          "end": 25.280001
+        },
+        {
+          "text": "may",
+          "start": 25.360001,
+          "end": 25.58
+        },
+        {
+          "text": "show",
+          "start": 25.58,
+          "end": 25.83
+        },
+        {
+          "text": "a",
+          "start": 25.83,
+          "end": 26.01
+        },
+        {
+          "text": "broken",
+          "start": 26.01,
+          "end": 26.530001
+        },
+        {
+          "text": "diagram",
+          "start": 26.530001,
+          "end": 27.09
+        },
+        {
+          "text": "and",
+          "start": 27.18,
+          "end": 27.370001
+        },
+        {
+          "text": "ask",
+          "start": 27.49,
+          "end": 27.75
+        },
+        {
+          "text": "which",
+          "start": 27.889999,
+          "end": 28.16
+        },
+        {
+          "text": "component",
+          "start": 28.16,
+          "end": 28.76
+        },
+        {
+          "text": "is",
+          "start": 28.809999,
+          "end": 29.01
+        },
+        {
+          "text": "missing",
+          "start": 29.01,
+          "end": 29.4
+        },
+        {
+          "text": "-",
+          "start": 29.4,
+          "end": 30.049999
+        },
+        {
+          "text": "practice",
+          "start": 30.459999,
+          "end": 30.65
+        },
+        {
+          "text": "by",
+          "start": 30.65,
+          "end": 31.18
+        },
+        {
+          "text": "covering",
+          "start": 31.18,
+          "end": 31.77
+        },
+        {
+          "text": "labels",
+          "start": 31.799999,
+          "end": 31.940001
+        },
+        {
+          "text": "on",
+          "start": 31.940001,
+          "end": 32.130001
+        },
+        {
+          "text": "your",
+          "start": 32.16,
+          "end": 32.389999
+        },
+        {
+          "text": "own",
+          "start": 32.389999,
+          "end": 32.860001
+        },
+        {
+          "text": "drawings",
+          "start": 32.860001,
+          "end": 33.169998
+        },
+        {
+          "text": "from",
+          "start": 33.169998,
+          "end": 33.41
+        },
+        {
+          "text": "this",
+          "start": 33.41,
+          "end": 33.799999
+        },
+        {
+          "text": "module",
+          "start": 33.41,
+          "end": 33.799999
+        }
+      ],
+      "phraseTimes": [
+        null,
+        {
+          "start": 15.98,
+          "end": 19.48
+        },
+        null
+      ]
+    },
+    "telemetry-ready-for-logging": {
+      "words": [
+        {
+          "text": "You",
+          "start": 0.1,
+          "end": 0.44999999999999996
+        },
+        {
+          "text": "started",
+          "start": 0.48,
+          "end": 1.01
+        },
+        {
+          "text": "this",
+          "start": 1.01,
+          "end": 1.22
+        },
+        {
+          "text": "module",
+          "start": 1.22,
+          "end": 1.57
+        },
+        {
+          "text": "with",
+          "start": 1.57,
+          "end": 1.89
+        },
+        {
+          "text": "show",
+          "start": 1.89,
+          "end": 2.21
+        },
+        {
+          "text": "commands",
+          "start": 2.21,
+          "end": 2.7
+        },
+        {
+          "text": "and",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "text": "five-minute",
+          "start": 2.82,
+          "end": 3.09
+        },
+        {
+          "text": "polls",
+          "start": 3.09,
+          "end": 3.43
+        },
+        {
+          "text": "You",
+          "start": 3.43,
+          "end": 3.89
+        },
+        {
+          "text": "finish",
+          "start": 4.2,
+          "end": 4.37
+        },
+        {
+          "text": "it",
+          "start": 4.37,
+          "end": 4.87
+        },
+        {
+          "text": "with",
+          "start": 4.87,
+          "end": 5.07
+        },
+        {
+          "text": "a",
+          "start": 5.07,
+          "end": 5.24
+        },
+        {
+          "text": "modeled",
+          "start": 5.24,
+          "end": 5.3
+        },
+        {
+          "text": "subscription",
+          "start": 5.3,
+          "end": 5.78
+        },
+        {
+          "text": "pushing",
+          "start": 5.78,
+          "end": 6.59
+        },
+        {
+          "text": "interface",
+          "start": 6.63,
+          "end": 7.11
+        },
+        {
+          "text": "counters",
+          "start": 7.16,
+          "end": 7.66
+        },
+        {
+          "text": "into",
+          "start": 7.66,
+          "end": 8.19
+        },
+        {
+          "text": "Prometheus",
+          "start": 8.19,
+          "end": 8.44
+        },
+        {
+          "text": "through",
+          "start": 8.44,
+          "end": 9.16
+        },
+        {
+          "text": "a",
+          "start": 9.16,
+          "end": 9.59
+        },
+        {
+          "text": "gRPC",
+          "start": 9.59,
+          "end": 9.65
+        },
+        {
+          "text": "collector",
+          "start": 10.37,
+          "end": 10.95
+        },
+        {
+          "text": "That",
+          "start": 11.22,
+          "end": 11.49
+        },
+        {
+          "text": "stream",
+          "start": 11.49,
+          "end": 12.17
+        },
+        {
+          "text": "is",
+          "start": 12.44,
+          "end": 12.67
+        },
+        {
+          "text": "evidence",
+          "start": 12.72,
+          "end": 13.36
+        },
+        {
+          "text": "-",
+          "start": 13.58,
+          "end": 13.67
+        },
+        {
+          "text": "the",
+          "start": 13.67,
+          "end": 13.96
+        },
+        {
+          "text": "same",
+          "start": 13.96,
+          "end": 14.19
+        },
+        {
+          "text": "kind",
+          "start": 14.19,
+          "end": 14.33
+        },
+        {
+          "text": "of",
+          "start": 14.33,
+          "end": 14.77
+        },
+        {
+          "text": "evidence",
+          "start": 14.77,
+          "end": 15.17
+        },
+        {
+          "text": "module",
+          "start": 15.33,
+          "end": 15.48
+        },
+        {
+          "text": "two",
+          "start": 15.48,
+          "end": 16.059999
+        },
+        {
+          "text": "uses",
+          "start": 16.32,
+          "end": 16.530001
+        },
+        {
+          "text": "when",
+          "start": 17.27,
+          "end": 17.41
+        },
+        {
+          "text": "syslog",
+          "start": 17.92,
+          "end": 18.23
+        },
+        {
+          "text": "and",
+          "start": 18.23,
+          "end": 18.76
+        },
+        {
+          "text": "webhooks",
+          "start": 18.76,
+          "end": 19.290001
+        },
+        {
+          "text": "capture",
+          "start": 19.620001,
+          "end": 19.85
+        },
+        {
+          "text": "automation",
+          "start": 21,
+          "end": 21.200001
+        },
+        {
+          "text": "events",
+          "start": 21.809999,
+          "end": 22.42
+        },
+        {
+          "text": "Keep",
+          "start": 22.93,
+          "end": 23.030001
+        },
+        {
+          "text": "netops_ops_lab",
+          "start": 23.030001,
+          "end": 23.110001
+        },
+        {
+          "text": "running",
+          "start": 23.110001,
+          "end": 23.530001
+        },
+        {
+          "text": "module",
+          "start": 23.530001,
+          "end": 23.690001
+        },
+        {
+          "text": "two",
+          "start": 24.049999,
+          "end": 24.49
+        },
+        {
+          "text": "adds",
+          "start": 24.969999,
+          "end": 25.07
+        },
+        {
+          "text": "structured",
+          "start": 25.07,
+          "end": 25.41
+        },
+        {
+          "text": "logging",
+          "start": 25.41,
+          "end": 25.52
+        },
+        {
+          "text": "targets",
+          "start": 25.52,
+          "end": 25.610001
+        },
+        {
+          "text": "and",
+          "start": 25.610001,
+          "end": 25.809999
+        },
+        {
+          "text": "teaches",
+          "start": 25.809999,
+          "end": 26.190001
+        },
+        {
+          "text": "you",
+          "start": 26.790001,
+          "end": 26.969999
+        },
+        {
+          "text": "to",
+          "start": 27.18,
+          "end": 27.360001
+        },
+        {
+          "text": "diagnose",
+          "start": 27.48,
+          "end": 27.73
+        },
+        {
+          "text": "pipeline",
+          "start": 28.120001,
+          "end": 28.25
+        },
+        {
+          "text": "failures",
+          "start": 28.25,
+          "end": 28.66
+        },
+        {
+          "text": "from",
+          "start": 28.790001,
+          "end": 29.02
+        },
+        {
+          "text": "log",
+          "start": 29.02,
+          "end": 29.59
+        },
+        {
+          "text": "output",
+          "start": 30.18,
+          "end": 30.42
+        },
+        {
+          "text": "Never",
+          "start": 30.42,
+          "end": 30.66
+        },
+        {
+          "text": "point",
+          "start": 30.66,
+          "end": 30.889999
+        },
+        {
+          "text": "telemetry",
+          "start": 30.889999,
+          "end": 31.09
+        },
+        {
+          "text": "collectors",
+          "start": 31.09,
+          "end": 31.290001
+        },
+        {
+          "text": "at",
+          "start": 31.57,
+          "end": 32.009998
+        },
+        {
+          "text": "production",
+          "start": 32.060001,
+          "end": 32.1900005
+        },
+        {
+          "text": "without",
+          "start": 32.1900005,
+          "end": 32.32
+        },
+        {
+          "text": "change",
+          "start": 32.360001,
+          "end": 32.66
+        },
+        {
+          "text": "control",
+          "start": 32.66,
+          "end": 32.69499999999999
+        },
+        {
+          "text": "and",
+          "start": 32.69499999999999,
+          "end": 32.73
+        },
+        {
+          "text": "TLS",
+          "start": 34.91,
+          "end": 35.139999
+        },
+        {
+          "text": "planning",
+          "start": 35.220001,
+          "end": 35.3550015
+        },
+        {
+          "text": "-",
+          "start": 35.3550015,
+          "end": 35.490002
+        },
+        {
+          "text": "module",
+          "start": 35.810001,
+          "end": 35.900002
+        },
+        {
+          "text": "four",
+          "start": 36.049999,
+          "end": 36.2849995
+        },
+        {
+          "text": "covers",
+          "start": 36.2849995,
+          "end": 36.52
+        },
+        {
+          "text": "that",
+          "start": 36.59,
+          "end": 36.779999
+        }
+      ]
+    }
+  },
+  "lineMappings": {
+    "docker-compose-telemetry-stack": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          0,
+          5
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          6,
+          10
+        ]
+      },
+      {
+        "id": "line-4",
+        "line": 4,
+        "wordRange": [
+          11,
+          41
+        ]
+      },
+      {
+        "id": "image",
+        "line": 5,
+        "wordRange": [
+          74,
+          74
+        ]
+      },
+      {
+        "id": "image",
+        "line": 11,
+        "wordRange": [
+          74,
+          74
+        ]
+      },
+      {
+        "id": "yaml",
+        "line": 16,
+        "wordRange": [
+          18,
+          18
+        ]
+      }
+    ],
+    "iosxe-telemetry-subscription": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          19,
+          23
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          24,
+          61
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          24,
+          61
+        ]
+      },
+      {
+        "id": "line-4",
+        "line": 4,
+        "wordRange": [
+          24,
+          61
+        ]
+      },
+      {
+        "id": "line-5",
+        "line": 5,
+        "wordRange": [
+          24,
+          61
+        ]
+      },
+      {
+        "id": "line-6",
+        "line": 6,
+        "wordRange": [
+          24,
+          61
+        ]
+      },
+      {
+        "id": "line-7",
+        "line": 7,
+        "wordRange": [
+          24,
+          61
+        ]
+      },
+      {
+        "id": "line-8",
+        "line": 8,
+        "wordRange": [
+          24,
+          61
+        ]
+      },
+      {
+        "id": "line-9",
+        "line": 9,
+        "wordRange": [
+          24,
+          61
+        ]
+      },
+      {
+        "id": "line-10",
+        "line": 10,
+        "wordRange": [
+          62,
+          91
+        ]
+      }
+    ],
+    "gnmi-path-and-sample-interval": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          13,
+          31
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          13,
+          31
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          13,
+          31
+        ]
+      },
+      {
+        "id": "line-4",
+        "line": 4,
+        "wordRange": [
+          13,
+          31
+        ]
+      },
+      {
+        "id": "line-5",
+        "line": 5,
+        "wordRange": [
+          13,
+          31
+        ]
+      },
+      {
+        "id": "line-6",
+        "line": 6,
+        "wordRange": [
+          13,
+          31
+        ]
+      },
+      {
+        "id": "line-7",
+        "line": 7,
+        "wordRange": [
+          13,
+          31
+        ]
+      },
+      {
+        "id": "line-8",
+        "line": 8,
+        "wordRange": [
+          13,
+          31
+        ]
+      },
+      {
+        "id": "line-9",
+        "line": 9,
+        "wordRange": [
+          13,
+          31
+        ]
+      },
+      {
+        "id": "line-10",
+        "line": 10,
+        "wordRange": [
+          13,
+          31
+        ]
+      },
+      {
+        "id": "line-11",
+        "line": 11,
+        "wordRange": [
+          13,
+          31
+        ]
+      },
+      {
+        "id": "line-12",
+        "line": 12,
+        "wordRange": [
+          13,
+          31
+        ]
+      },
+      {
+        "id": "line-14",
+        "line": 14,
+        "wordRange": [
+          32,
+          73
+        ]
+      }
+    ],
+    "collect-interface-counters": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          0,
+          19
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          20,
+          44
+        ]
+      }
+    ],
+    "export-telemetry-prometheus": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          9,
+          28
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          9,
+          28
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          9,
+          28
+        ]
+      },
+      {
+        "id": "line-4",
+        "line": 4,
+        "wordRange": [
+          9,
+          28
+        ]
+      },
+      {
+        "id": "line-5",
+        "line": 5,
+        "wordRange": [
+          9,
+          28
+        ]
+      },
+      {
+        "id": "line-6",
+        "line": 6,
+        "wordRange": [
+          9,
+          28
+        ]
+      },
+      {
+        "id": "line-7",
+        "line": 7,
+        "wordRange": [
+          9,
+          28
+        ]
+      },
+      {
+        "id": "line-8",
+        "line": 8,
+        "wordRange": [
+          9,
+          28
+        ]
+      },
+      {
+        "id": "curl",
+        "line": 9,
+        "wordRange": [
+          35,
+          35
+        ]
+      }
+    ],
+    "verify-streaming-metrics": [
+      {
+        "id": "line-1",
+        "line": 1,
+        "wordRange": [
+          8,
+          16
+        ]
+      },
+      {
+        "id": "line-2",
+        "line": 2,
+        "wordRange": [
+          17,
+          28
+        ]
+      },
+      {
+        "id": "line-3",
+        "line": 3,
+        "wordRange": [
+          29,
+          68
+        ]
+      }
+    ]
+  }
+}

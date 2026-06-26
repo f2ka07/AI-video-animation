@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Module handoff">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    
+    <text x="48" y="58" fill="#049FD9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" letter-spacing="0.14em">CHECKPOINT</text>
+    <text x="48" y="84" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="800">Ready for next module</text>
+    
+    <g id="viz-done">
+      <rect x="80" y="150" width="200" height="120" rx="14" fill="#112115" stroke="#6CC04A" stroke-width="2"/>
+      <text x="180" y="190" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="800" text-anchor="middle">Module complete</text>
+      <text x="180" y="218" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">Lab verified</text>
+    </g>
+    <line id="viz-arrow" x1="280" y1="210" x2="360" y2="210" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <g id="viz-next">
+      <rect x="360" y="150" width="280" height="120" rx="14" fill="#0b2237" stroke="#12b5e5" stroke-width="2"/>
+      <text x="500" y="190" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="800" text-anchor="middle">Module 5: Ops capstone</text>
+      <text x="500" y="218" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">Same lab folder pattern</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,49 @@
+{
+  "diagram": "mcp-architecture-components.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-client"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-client"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-client",
+        "viz-mcp"
+      ],
+      "dim": [
+        "viz-client"
+      ],
+      "highlight": [
+        "viz-mcp"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-client",
+        "viz-mcp",
+        "viz-tools"
+      ],
+      "dim": [
+        "viz-client",
+        "viz-mcp"
+      ],
+      "highlight": [
+        "viz-tools"
+      ]
+    }
+  ]
+}

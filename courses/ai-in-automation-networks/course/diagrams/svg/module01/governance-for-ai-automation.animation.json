@@ -1,0 +1,17 @@
+{
+  "diagram": "governance-for-ai-automation.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-policy"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-policy"
+      ]
+    }
+  ]
+}

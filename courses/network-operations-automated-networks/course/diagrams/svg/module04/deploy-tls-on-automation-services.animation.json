@@ -1,0 +1,68 @@
+{
+  "diagram": "deploy-tls-on-automation-services.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-ansible"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-ansible"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-ansible",
+        "viz-restconf"
+      ],
+      "dim": [
+        "viz-ansible"
+      ],
+      "highlight": [
+        "viz-restconf"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-ansible",
+        "viz-restconf",
+        "viz-gnmi"
+      ],
+      "dim": [
+        "viz-ansible",
+        "viz-restconf"
+      ],
+      "highlight": [
+        "viz-gnmi"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-ansible",
+        "viz-restconf",
+        "viz-gnmi",
+        "viz-gitlab"
+      ],
+      "dim": [
+        "viz-ansible",
+        "viz-restconf",
+        "viz-gnmi"
+      ],
+      "highlight": [
+        "viz-gitlab"
+      ]
+    }
+  ]
+}

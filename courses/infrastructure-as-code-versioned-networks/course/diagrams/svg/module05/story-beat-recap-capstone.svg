@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="Capstone recap">
+  <rect width="800" height="900" fill="#071525"/>
+  <text x="40" y="52" fill="#6CC04A" font-family="Inter,sans-serif" font-size="13" font-weight="800" letter-spacing=".16em">RECAP</text>
+  <text x="40" y="96" fill="#fff" font-family="Inter,sans-serif" font-size="32" font-weight="800">Lab next</text>
+  <circle cx="400" cy="480" r="80" fill="none" stroke="#049FD9" stroke-width="4"/>
+  <text x="400" y="488" text-anchor="middle" fill="#bae6fd" font-family="Inter,sans-serif" font-size="18" font-weight="700">Line by line</text>
+</svg>

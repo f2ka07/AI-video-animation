@@ -1,0 +1,1270 @@
+{
+  "courseName": "Network Operations: Operate, Validate and Secure Automated Networks",
+  "courseId": "network-operations-automated-networks",
+  "modules": [
+    {
+      "moduleNumber": 1,
+      "title": "Telemetry and Observability",
+      "subtitle": "Streaming Network State with Model-Driven Telemetry",
+      "slides": [
+        {
+          "name": "snapshots-arent-enough",
+          "type": "title",
+          "script": "Courses one and two taught you to automate VLANs, store intent in Git, run CI/CD pipelines, simulate in containers, and treat a source of truth as golden. Course three asks a different question: once the right config is deployed, how do you know the network is healthy right now — not five minutes ago when someone ran show commands? Polling devices on a timer misses spikes, brownouts, and silent drift. Model-driven telemetry streams structured metrics and state changes continuously from the device to collectors your automation stack can read. Exam objective three point one lives here. You do not need to be a Grafana expert on day one — you need to understand the architecture and run one lab stream end to end.",
+          "title": "Why Snapshots Are Not Enough",
+          "imageSrc": "assets/network-operations-automated-networks/module01/snapshots-arent-enough.svg"
+        },
+        {
+          "name": "polling-vs-streaming",
+          "type": "content-two-card",
+          "script": "Traditional monitoring often polls: every five minutes an NMS sends SNMP get requests and stores whatever counters happened to be at that instant. That works for slow-moving links but misses a thirty-second CPU spike or a flap that cleared before the next poll. Streaming telemetry pushes updates on a schedule you define — every second, or on change — over a persistent gRPC session. The device is the publisher; your collector listens. For automation, streaming data feeds validation scripts, dashboards, and anomaly detectors without pretending the network stands still between polls.",
+          "title": "Polling vs Streaming Telemetry",
+          "points": [
+            "Traditional monitoring often polls every five minutes an NMS",
+            "SNMP get requests and stores whatever counters happened",
+            "That works for slow — moving links but misses"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module01/polling-vs-streaming.svg"
+        },
+        {
+          "name": "what-model-driven-telemetry-means",
+          "type": "content-single",
+          "script": "Model-driven telemetry, often shortened to MDT, means the data leaving the device follows YANG models the platform already understands — not random text you parse by hand. A path like interfaces-state slash interface slash statistics tells you exactly which counters exist and their types. The model is the contract between producer and consumer. When your collector requests or receives that path, both sides agree on field names and units. That is why exam three point one focuses on architectural components — producer, transport, subscription, and consumer — rather than memorizing every OID from legacy SNMP.",
+          "title": "Model-Driven Telemetry in Plain Language",
+          "points": [
+            "Model — driven telemetry often shortened to MDT",
+            "YANG models the platform already understands — not random",
+            "The model is the contract between"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module01/what-model-driven-telemetry-means.svg"
+        },
+        {
+          "name": "snmp-poll-vs-gnmi-subscribe",
+          "type": "comparison",
+          "script": "SNMP polling asks the device for values on a schedule the NMS controls. The device answers and forgets until the next poll. gNMI subscribe — part of the gRPC Network Management Interface — lets a collector open a subscription: give me this YANG path every N milliseconds, or when it changes. The session stays open; updates flow as events. SNMP remains on many networks for legacy gear. Modern IOS XE, NX-OS, and automation labs lean on gRPC and gNMI for structured streaming. The exam expects you to describe both patterns and when streaming wins.",
+          "title": "SNMP Poll vs gNMI Subscribe",
+          "leftTitle": "SNMP poll",
+          "leftItems": [
+            "NMS pulls on a timer",
+            "Unstructured or MIB-based OIDs",
+            "Gaps between samples"
+          ],
+          "rightTitle": "gNMI subscribe",
+          "rightItems": [
+            "Collector subscribes to YANG paths",
+            "Structured typed data",
+            "Continuous or on-change stream"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module01/snmp-poll-vs-gnmi-subscribe.svg"
+        },
+        {
+          "name": "mdt-architecture-components",
+          "type": "content-two-card",
+          "script": "Exam three point one names four architectural pieces you should sketch from memory. The data producer is the network device — router or switch — running a telemetry agent that reads modeled data. The transport is usually gRPC over TCP, sometimes with TLS. A subscription ties a YANG path or sensor group to an update policy — periodic or on change — and a destination address. The consumer is anything that ingests the stream: Prometheus with a gNMI exporter, Telegraf, Kafka, or your own Python client. Missing any piece means silence on the collector side even when config looks correct.",
+          "title": "Four MDT Architecture Components",
+          "points": [
+            "Exam three point one names",
+            "Four architectural pieces you should sketch from memory",
+            "The data producer is the network device — router"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module01/mdt-architecture-components.svg"
+        },
+        {
+          "name": "yang-models-in-telemetry",
+          "type": "content-single",
+          "script": "YANG models from module four of course two reappear here as the vocabulary of telemetry. Cisco publishes models such as Cisco-IOS-XE-interfaces-oper for interface counters and Cisco-IOS-XE-platform-oper for CPU and memory. A subscription references these paths — either native XPath or OpenConfig equivalents depending on platform. The collector does not invent field names; it decodes what the model defines. When troubleshooting empty streams, verify the path exists on your software version with show platform software yang-management process. Wrong model or wrong path is the most common lab mistake after a typo in the destination IP.",
+          "title": "YANG Models Define What You Can Stream",
+          "points": [
+            "YANG models from module four of course two reappear",
+            "Cisco — IOS — XE — platform — oper",
+            "CPU and memory A subscription references these paths —"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module01/yang-models-in-telemetry.svg"
+        },
+        {
+          "name": "dial-out-vs-dial-in",
+          "type": "comparison",
+          "script": "Two deployment patterns appear on exams and in production. Dial-out — sometimes called sensor-driven or push — means the device initiates the gRPC connection to the collector when a subscription is active. Dial-in means the collector connects to the device and establishes subscriptions remotely. IOS XE model-driven telemetry commonly uses dial-out to a receiver IP and port you configure under telemetry ietf subscription. gNMI clients often dial in to port five seven four zero zero on the device. Firewalls and TLS policies differ between the two; know which direction opens the session in your design.",
+          "title": "Dial-Out vs Dial-In Telemetry",
+          "leftTitle": "Dial-out (push)",
+          "leftItems": [
+            "Device connects to collector",
+            "Configured destination IP and port",
+            "Common in IOS XE MDT subscriptions"
+          ],
+          "rightTitle": "Dial-in (subscribe)",
+          "rightItems": [
+            "Collector connects to device gRPC",
+            "Client opens gNMI subscription",
+            "Firewall must allow inbound to device"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module01/dial-out-vs-dial-in.svg"
+        },
+        {
+          "name": "story-beat-recap-telemetry",
+          "type": "story-beat",
+          "script": "Pause. You have seen why polling misses real problems, what model-driven telemetry means, SNMP versus gNMI subscribe, the four architecture components, how YANG models define streamable data, and dial-out versus dial-in patterns. Next we stand up netops_ops_lab with a collector container, enable an IOS XE style subscription on a lab router or simulator, and verify counters arrive at Prometheus. Open a terminal — same WSL or Linux workflow as courses one and two. Pause when you need to catch up.",
+          "beat": "recap",
+          "title": "Theory Complete — Telemetry Lab Next",
+          "points": [
+            "Why polling misses real problems what model — driven",
+            "YANG models",
+            "Stand up"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module01/story-beat-recap-telemetry.svg"
+        },
+        {
+          "name": "lab-setup-telemetry",
+          "type": "content-single",
+          "script": "Welcome to the telemetry lab. Create a folder named netops_ops_lab beside your course two netops_iac_lab — course three focuses on operate and observe, not replace your Git repo. Inside netops_ops_lab add a docker-compose dot yaml that runs Prometheus and a gNMI or MDT collector image; the exact file is on the next slides. You need reachability from a lab router or CML node to the collector IP on port five seven five zero zero for gRPC. Confirm docker compose version succeeds. This lab never touches production; use sandbox credentials only.",
+          "title": "Start the Telemetry Lab",
+          "points": [
+            "Telemetry lab",
+            "Create a folder named netops_ops_lab beside your course",
+            "Operate and observe not replace your"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module01/lab-setup-telemetry.svg"
+        },
+        {
+          "name": "docker-compose-telemetry-stack",
+          "type": "code",
+          "script": "Line one creates the project folder. Line two moves into it. Lines four through twenty define docker-compose dot yaml with Prometheus on port nine zero nine zero and a collector service that listens for gRPC dial-out on five seven five zero zero. Line twenty-two starts the stack in detached mode. After this slide Prometheus UI is available at localhost colon nine zero nine zero and the collector waits for the device to connect. Adjust image names to match your lab registry if needed.",
+          "title": "Start Collector and Prometheus",
+          "code": "mkdir netops_ops_lab && cd netops_ops_lab\ncat > docker-compose.yml << 'EOF'\nservices:\n  prometheus:\n    image: prom/prometheus:latest\n    ports:\n      - \"9090:9090\"\n    volumes:\n      - ./prometheus.yml:/etc/prometheus/prometheus.yml\n  gnmic-collector:\n    image: ghcr.io/openconfig/gnmic:latest\n    command: subscribe --config /cfg/gnmic.yaml\n    ports:\n      - \"57500:57500\"\n    volumes:\n      - ./gnmic.yaml:/cfg/gnmic.yaml\nEOF\ndocker compose up -d",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/"
+        },
+        {
+          "name": "iosxe-telemetry-subscription",
+          "type": "code",
+          "script": "These lines belong on a lab IOS XE device — console or automation session — not on your laptop. Line one enters configuration mode. Lines two through nine define an IETF telemetry subscription numbered one zero one with yang-push encoding, a filter on the interfaces-state YANG path, periodic updates every one thousand milliseconds, and a gRPC receiver pointing at your collector IP. Line ten commits. Replace ten dot ten dot ten dot five with the docker host address your lab router can reach. After commit, the device dials out to the collector.",
+          "title": "Configure IOS XE MDT Subscription",
+          "code": "configure terminal\ntelemetry ietf subscription 101\n encoding encode-kvgpb\n filter xpath-native /Cisco-IOS-XE-interfaces-oper:interfaces-state/interface\n stream yang-push\n update-policy periodic 1000\n receiver ip address 10.10.10.5 57500 protocol grpc-tcp\n exit\n exit\ncommit",
+          "language": "bash",
+          "codeContext": "lab-router#"
+        },
+        {
+          "name": "gnmi-path-and-sample-interval",
+          "type": "code",
+          "script": "If your lab uses gNMI dial-in instead of dial-out, configure the collector side. Lines one through twelve write gnmic dot yaml subscribing to interface counters every five seconds and forwarding to Prometheus. Line fourteen reloads the collector container. The path uses OpenConfig interfaces model — adjust to Cisco native paths if your device requires them. Sample interval and on-change policies are exam vocabulary; periodic means send every N milliseconds even when values are flat.",
+          "title": "Collector gNMI Subscription File",
+          "code": "cat > gnmic.yaml << 'EOF'\nsubscriptions:\n  iosxe-if-stats:\n    paths:\n      - path: /interfaces/interface/state/counters\n        stream-mode: sample\n        sample-interval: 5s\n    stream-mode: sample\noutputs:\n  prom:\n    type: prometheus\n    listen: :9804\nEOF\ndocker compose restart gnmic-collector",
+          "language": "yaml",
+          "codeContext": "netops_ops_lab/",
+          "visibleLineRange": [
+            1,
+            12
+          ]
+        },
+        {
+          "name": "collect-interface-counters",
+          "type": "code",
+          "script": "Line one queries Prometheus for a metric your collector exported — name varies by model; in-in-octets or similar interface counter. Line two uses curl against the Prometheus HTTP API with a query parameter. You should see non-zero time series when traffic crosses the lab link. Line four runs tcpdump briefly on the collector host to confirm gRPC packets on five seven five zero zero if metrics are empty — transport problems show up before application problems.",
+          "title": "Query Interface Counters",
+          "code": "curl -s 'http://localhost:9090/api/v1/query?query=if_in_octets' | jq .\n# optional: confirm gRPC on collector\nsudo tcpdump -ni any port 57500 -c 10",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/"
+        },
+        {
+          "name": "export-telemetry-prometheus",
+          "type": "code",
+          "script": "Prometheus scrapes the collector exporter, not the router directly. Lines one through eight add a scrape job pointing at gnmic-collector port nine eight zero four on the docker network. Line ten reloads Prometheus configuration with curl post to the reload endpoint — or restart the container if reload is disabled. Line twelve opens the Prometheus targets page conceptually — all targets should show UP before you declare the lab success.",
+          "title": "Wire Prometheus to the Collector",
+          "code": "cat > prometheus.yml << 'EOF'\nglobal:\n  scrape_interval: 15s\nscrape_configs:\n  - job_name: gnmic\n    static_configs:\n      - targets: ['gnmic-collector:9804']\nEOF\ncurl -X POST http://localhost:9090/-/reload",
+          "language": "yaml",
+          "codeContext": "netops_ops_lab/"
+        },
+        {
+          "name": "verify-streaming-metrics",
+          "type": "code",
+          "script": "Verification belongs on the device and the collector. Line one shows active telemetry subscriptions on IOS XE. Line two shows the gRPC connection state — connected means dial-out succeeded. Line three lists Prometheus series count — increasing over time proves streaming, not a one-shot poll. If connected is false, check routing, ACLs, and destination IP. If connected is true but Prometheus is empty, check YANG path and encoding mismatch.",
+          "title": "Verify End-to-End Streaming",
+          "code": "show telemetry ietf subscription 101 detail\nshow telemetry connection\ncurl -s 'http://localhost:9090/api/v1/series?match[]={__name__=~\"if.*\"}' | jq '.data | length'",
+          "language": "bash",
+          "codeContext": "lab-router# / netops_ops_lab/"
+        },
+        {
+          "name": "troubleshoot-no-telemetry-data",
+          "type": "bullets-code",
+          "script": "When the stream is silent, work the architecture stack top to bottom. Subscription not committed or wrong path — device sends nothing. ACL or NAT blocks gRPC — connection never shows connected. Encoding mismatch — collector receives garbage it drops. Prometheus scrape misconfigured — metrics exist on collector but not in PromQL. The exam may give log snippets; map each symptom to one layer.",
+          "title": "Troubleshoot Empty Telemetry",
+          "points": [
+            "Check subscription and YANG path on device",
+            "Confirm gRPC connected and port open",
+            "Validate collector output and Prom scrape"
+          ],
+          "code": "show telemetry internal subscription\nshow platform software yang-management process\nping 10.10.10.5 source <router-loopback>",
+          "language": "bash",
+          "codeContext": "lab-router#",
+          "visibleLineRange": [
+            1,
+            3
+          ]
+        },
+        {
+          "name": "certification-alignment-telemetry",
+          "type": "content-single",
+          "script": "Module one maps to exam objective three point one — describe architectural components of model-driven telemetry. You should explain producer, transport, subscription, and consumer without notes. Compare SNMP polling to gNMI streaming. Describe dial-out versus dial-in. Sketch how YANG paths appear in a subscription. Exam scenarios may show a broken diagram and ask which component is missing — practice by covering labels on your own drawings from this module.",
+          "title": "Exam Objective 3.1 Coverage",
+          "points": [
+            "Module one maps to exam objective three point one",
+            "Compare SNMP polling to gNMI streaming Describe dial —",
+            "Exam scenarios may show a broken diagram and ask"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module01/certification-alignment-telemetry.svg"
+        },
+        {
+          "name": "telemetry-ready-for-logging",
+          "type": "story-beat",
+          "script": "You started this module with show commands and five-minute polls. You finish it with a modeled subscription pushing interface counters into Prometheus through a gRPC collector. That stream is evidence — the same kind of evidence module two uses when syslog and webhooks capture automation events. Keep netops_ops_lab running; module two adds structured logging targets and teaches you to diagnose pipeline failures from log output. Never point telemetry collectors at production without change control and TLS planning — module four covers that.",
+          "beat": "resolution",
+          "title": "Telemetry Complete — Logging Next",
+          "points": [
+            "You started this module with show commands and five",
+            "That stream is evidence",
+            "— the same kind of evidence module two uses"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module01/telemetry-ready-for-logging.svg"
+        }
+      ]
+    },
+    {
+      "moduleNumber": 2,
+      "title": "Logging and Diagnostics",
+      "subtitle": "Syslog, Webhooks, and Root Cause Analysis",
+      "slides": [
+        {
+          "name": "telemetry-to-logging-bridge",
+          "type": "title",
+          "script": "Module one gave you a telemetry stream — interface counters flowing into Prometheus through gRPC. That answers how busy the network is. It does not answer why last night's Ansible job failed on switch three, or who triggered a rollback at two AM. Metrics without logs leave you guessing. Module two implements a logging strategy for network automation — exam objective three point two — and teaches you to diagnose failures from log output related to an event — objective three point three. Syslog captures device and platform events. Webhooks push pipeline and application events to your automation stack. Together they form the evidence trail validation and security modules build on.",
+          "title": "From Metrics to Event Logs",
+          "imageSrc": "assets/network-operations-automated-networks/module02/telemetry-to-logging-bridge.svg"
+        },
+        {
+          "name": "metrics-without-logs-blind-spots",
+          "type": "content-two-card",
+          "script": "Prometheus may show interface errors climbing while your playbook log sits on one engineer's laptop. GitLab shows a red pipeline X but not the Ansible traceback unless you configured job artifacts and logging. A syslog gap means you cannot correlate a BGP flap timestamp with a config push. Logging strategy means deciding what to record, at which severity, where to send it, and how long to retain it — before an incident, not during one. Network automation multiplies actors: devices, runners, playbooks, APIs, and webhooks. Each layer must emit events to shared sinks your team can search.",
+          "title": "What Metrics Alone Cannot Tell You",
+          "points": [
+            "Prometheus may show interface errors climbing while your",
+            "Playbook log sits on one engineer's laptop",
+            "GitLab shows a red pipeline X but not"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module02/metrics-without-logs-blind-spots.svg"
+        },
+        {
+          "name": "what-logging-strategy-means",
+          "type": "content-single",
+          "script": "Exam three point two asks you to implement a logging strategy targeting destinations such as syslog or webhooks. In plain language: choose log sources — Python scripts, Ansible, GitLab jobs, IOS XE — pick a format — structured JSON beats unparsed text for search — select transports — UDP or TCP syslog, HTTPS webhook POST — and define retention and access control. A strategy document lists severity levels, required fields like timestamp and request ID, and which destination receives which event class. Device config changes might go to syslog. Pipeline failures might hit a webhook that opens a ticket. One size does not fit all destinations.",
+          "title": "Logging Strategy in Plain Language",
+          "points": [
+            "Exam three point two asks you to implement",
+            "In plain language choose log sources",
+            "Python scripts Ansible"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module02/what-logging-strategy-means.svg"
+        },
+        {
+          "name": "syslog-vs-application-logs",
+          "type": "comparison",
+          "script": "Syslog is the decades-old standard network devices speak — RFC five four two four style messages with facility, severity, and hostname. Routers send link up, BGP neighbor down, and login events to a syslog server. Application logs come from your Python validator, Ansible callback plugins, or GitLab runner shell — often JSON with custom keys like playbook name and inventory host. Both belong in a network automation logging strategy. Syslog covers the underlay and control plane. Application logs cover intent, pipeline stages, and API calls. The exam expects you to wire both destination types, not pick one.",
+          "title": "Syslog vs Application Logs",
+          "leftTitle": "Syslog (devices)",
+          "leftItems": [
+            "Facility and severity fields",
+            "UDP or TCP to syslog server",
+            "Link, BGP, auth events"
+          ],
+          "rightTitle": "Application logs",
+          "rightItems": [
+            "Python, Ansible, CI output",
+            "JSON with custom keys",
+            "Pipeline and intent events"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module02/syslog-vs-application-logs.svg"
+        },
+        {
+          "name": "logging-architecture-components",
+          "type": "content-two-card",
+          "script": "Mirror the telemetry mental model with four logging pieces. The event producer emits a record — a switch syslog line or a Python log dot info call. The format encodes fields — plain syslog text or JSON. The transport delivers — syslog forwarder, HTTPS webhook, or file shipper. The sink stores and indexes — rsyslog files, Elasticsearch, Splunk, or a webhook handler database. A broken strategy usually omits correlation IDs — you cannot tie a pipeline job to a device config change without a shared request or change ticket ID in both log streams.",
+          "title": "Four Logging Architecture Pieces",
+          "points": [
+            "Mirror the telemetry mental model with four logging pieces",
+            "Python log dot",
+            "The format encodes fields — plain syslog text"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module02/logging-architecture-components.svg"
+        },
+        {
+          "name": "structured-vs-unstructured-logs",
+          "type": "content-single",
+          "script": "Unstructured logs read well to humans — Ansible failed on host sw1 — but grep and SIEM queries struggle. Structured logs use key value or JSON fields: timestamp, level, request_id, host, playbook, task, error. Automation teams standardize on JSON lines — one JSON object per line — so jq and log aggregators filter fast. Exam scenarios may show a log snippet and ask what field proves which device failed; structured fields make that trivial. Python logging dot basicConfig with a JSON formatter is enough for lab work; production adds schema versioning.",
+          "title": "Structured Logs for Automation",
+          "points": [
+            "Unstructured logs read well",
+            "Ansible failed on host sw1 — but grep",
+            "JSON fields timestamp level request_id host playbook task error"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module02/structured-vs-unstructured-logs.svg"
+        },
+        {
+          "name": "event-workflows-for-automation",
+          "type": "content-two-card",
+          "script": "Event workflow means what happens after something is logged — not just storing text. A typical automation flow: trigger — merge to main starts pipeline — emit — each stage logs start and end with job ID — correlate — same change ID in GitLab, Ansible, and syslog — alert — webhook fires on ERROR level — act — engineer or runbook responds. Module one telemetry might trigger an alert on threshold; module two logging explains why the threshold moved. Design workflows so noisy INFO logs do not page on-call while CRITICAL webhook failures do.",
+          "title": "Event Workflows",
+          "points": [
+            "Event workflow means what happens after something is logged",
+            "And end with job ID —",
+            "ID in GitLab Ansible"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module02/event-workflows-for-automation.svg"
+        },
+        {
+          "name": "root-cause-analysis-plain-language",
+          "type": "content-single",
+          "script": "Root cause analysis, RCA, is not blame — it is reconstructing a timeline from evidence. Exam three point three gives you logs and output related to an event and asks what failed and why. Start at the symptom — pipeline red, VLAN missing — walk backward through timestamps — prevalidation passed at ten oh two, deploy failed at ten oh four — compare layers — was intent wrong, inventory wrong, or device unreachable? Hypothesis, test with one log query, confirm or eliminate. The wrong answer picks the first error line without reading context above it.",
+          "title": "Root Cause Analysis Steps",
+          "points": [
+            "Root cause analysis RCA is not blame —",
+            "Event and asks what failed and why Start",
+            "VLAN missing — walk backward through timestamps — prevalidation"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module02/root-cause-analysis-plain-language.svg"
+        },
+        {
+          "name": "diagnose-automation-from-logs",
+          "type": "content-two-card",
+          "script": "Three failure patterns repeat on the AUTOCOR exam for three point three. Missing dependency — job log shows ModuleNotFoundError or command not found — fix requirements or image. Wrong inventory — Ansible skips hosts or targets production — log shows UNREACHABLE or wrong IP. Assertion or validation failure — post-validation script exits one — log shows assert VLAN two hundred missing though deploy reported ok. Webhook not received — pipeline succeeded locally but SIEM empty — check URL, TLS, and firewall. Always read the first ERROR in context, not the last line alone.",
+          "title": "Diagnose From Log Output",
+          "points": [
+            "Three failure patterns repeat",
+            "AUTOCOR exam for three point",
+            "Missing dependency — job"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module02/diagnose-automation-from-logs.svg"
+        },
+        {
+          "name": "story-beat-recap-logging",
+          "type": "story-beat",
+          "script": "Pause. You have seen why metrics need logs, what a logging strategy covers for syslog and webhooks, syslog versus application logs, the four architecture pieces, structured JSON for search, event workflows, RCA steps, and common exam failure patterns. Next we extend netops_ops_lab with a Python script that emits JSON logs, an rsyslog receiver for syslog, and a small webhook handler for pipeline events — then trace one failed run by request ID. Keep your module one Prometheus stack if it still runs; logging adds a parallel evidence path.",
+          "beat": "recap",
+          "title": "Theory Complete — Logging Lab Next",
+          "points": [
+            "Why metrics need logs what a logging strategy covers",
+            "Structured",
+            "JSON for search event workflows RCA steps and common"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module02/story-beat-recap-logging.svg"
+        },
+        {
+          "name": "lab-setup-logging",
+          "type": "content-single",
+          "script": "In netops_ops_lab create a logging subfolder. Add scripts slash run_deploy dot py — a Python deploy simulator that logs in JSON and can fail on purpose. Add docker-compose override or extend compose with an rsyslog container listening on UDP five one four. Add webhook slash handler dot py — a Flask or http dot server listener on port eight zero eight zero for GitLab pipeline webhooks. No production secrets in webhook URLs; use lab tokens only. Confirm ports five one four and eight zero eight zero are free before starting containers.",
+          "title": "Extend netops_ops_lab for Logging",
+          "points": [
+            "In netops_ops_lab create a logging subfolder Add scripts slash",
+            "Add docker — compose override",
+            "Or extend compose with an rsyslog container listening"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module02/lab-setup-logging.svg"
+        },
+        {
+          "name": "python-structured-logging",
+          "type": "code",
+          "script": "Lines one through twenty create run_deploy dot py with JSON logging. Each log line includes timestamp, level, request_id from environment variable REQUEST_ID, and message. Line twenty-two sets REQUEST_ID and runs the script — success path logs INFO. Line twenty-three sets SIMULATE_FAILURE equals one to trigger ERROR and exit code one — simulates a failed deploy for RCA practice. This pattern satisfies application-side logging for exam three point two.",
+          "title": "JSON Logging in Python",
+          "code": "mkdir -p scripts webhook\ncat > scripts/run_deploy.py << 'EOF'\nimport json, logging, os, sys, datetime\nclass JsonFormatter(logging.Formatter):\n    def format(self, record):\n        return json.dumps({\n            \"ts\": datetime.datetime.utcnow().isoformat() + \"Z\",\n            \"level\": record.levelname,\n            \"request_id\": os.environ.get(\"REQUEST_ID\", \"none\"),\n            \"msg\": record.getMessage(),\n        })\nlog = logging.getLogger(\"deploy\")\nlog.handlers = [logging.StreamHandler()]\nlog.handlers[0].setFormatter(JsonFormatter())\nlog.setLevel(logging.INFO)\nif os.environ.get(\"SIMULATE_FAILURE\"):\n    log.error(\"deploy failed: vlan apply timeout on sw1\")\n    sys.exit(1)\nlog.info(\"deploy ok: vlans applied from intent\")\nEOF\nREQUEST_ID=chg-4421 python scripts/run_deploy.py\nSIMULATE_FAILURE=1 REQUEST_ID=chg-4421 python scripts/run_deploy.py || true",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/"
+        },
+        {
+          "name": "configure-syslog-destination",
+          "type": "code",
+          "script": "Lines one through twelve add an rsyslog service to docker-compose dot yaml listening on UDP five one four and writing to a host-mounted logs folder. Line fourteen starts the stack. Lines sixteen through eighteen send a test logger message into the container — you should see a line in logs slash syslog dot log. On a lab IOS XE device you would configure logging host pointing at this collector IP — exam three point two syslog destination. Replace ten dot ten dot ten dot ten with your docker host address reachable from the lab router.",
+          "title": "Syslog Collector in Docker",
+          "code": "cat >> docker-compose.yml << 'EOF'\n  rsyslog:\n    image: rsyslog/syslog_appliance_alpine:latest\n    ports:\n      - \"514:514/udp\"\n    volumes:\n      - ./logs:/var/log\nEOF\ndocker compose up -d rsyslog\nlogger -n 127.0.0.1 -P 514 -t netops-lab \"test syslog from automation host\"\ntail -3 logs/messages 2>/dev/null || tail -3 logs/syslog",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/"
+        },
+        {
+          "name": "webhook-receiver-for-pipeline",
+          "type": "code",
+          "script": "Lines one through eighteen create a minimal webhook handler. It accepts POST JSON, logs the payload with timestamp and object_kind field from GitLab webhooks, and returns two hundred. Line twenty starts the server on port eight zero eight zero. In GitLab project settings add a webhook URL http colon slash slash your-host colon eight zero eight zero slash hook for pipeline events — lab use HTTP only. Exam three point two explicitly mentions webhooks as a logging destination for automation solutions.",
+          "title": "Webhook Handler for Pipeline Events",
+          "code": "cat > webhook/handler.py << 'EOF'\nfrom http.server import HTTPServer, BaseHTTPRequestHandler\nimport json, datetime\nclass Hook(BaseHTTPRequestHandler):\n    def do_POST(self):\n        n = int(self.headers.get(\"Content-Length\", 0))\n        body = json.loads(self.rfile.read(n) or b\"{}\")\n        rec = {\"ts\": datetime.datetime.utcnow().isoformat()+\"Z\",\n               \"kind\": body.get(\"object_kind\"), \"status\": body.get(\"build_status\")}\n        print(json.dumps(rec), flush=True)\n        self.send_response(200); self.end_headers()\nHTTPServer((\"0.0.0.0\", 8080), Hook).serve_forever()\nEOF\npython webhook/handler.py",
+          "language": "python",
+          "codeContext": "netops_ops_lab/",
+          "visibleLineRange": [
+            1,
+            12
+          ]
+        },
+        {
+          "name": "emit-correlated-log-events",
+          "type": "code",
+          "script": "Correlation requires the same request_id everywhere. Line one exports REQUEST_ID matching a change ticket. Line two runs the deploy script and pipes JSON logs to a file. Line three sends a syslog line embedding that request_id in the message text so device and app logs join in SIEM search. Line four curls the webhook handler with a fake pipeline failure payload including the same request_id in custom fields. Practice searching logs slash deploy dot json and syslog for chg-4421.",
+          "title": "Correlate Logs With request_id",
+          "code": "export REQUEST_ID=chg-4421\nSIMULATE_FAILURE=1 python scripts/run_deploy.py 2>&1 | tee logs/deploy.json\nlogger -n 127.0.0.1 -P 514 -t netops \"request_id=chg-4421 interface Gi1/0/1 down\"\ncurl -s -X POST http://127.0.0.1:8080/hook \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"object_kind\":\"pipeline\",\"build_status\":\"failed\",\"request_id\":\"chg-4421\"}'",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/"
+        },
+        {
+          "name": "trace-failure-by-request-id",
+          "type": "code",
+          "script": "Exam three point three — given these outputs, what failed? Line one greps deploy JSON for ERROR lines. Line two filters syslog for the same request_id. Line three uses jq to print level and msg fields only — readable timeline. From the evidence: deploy failed on VLAN apply timeout while interface down syslog suggests link problem — root cause is layer one on sw1, not bad YAML. Document your timeline before reading the answer key in your head.",
+          "title": "RCA Lab — Trace One Failure",
+          "code": "grep chg-4421 logs/deploy.json\ngrep chg-4421 logs/messages 2>/dev/null || grep chg-4421 logs/syslog\ngrep chg-4421 logs/deploy.json | jq -c '{level,msg}'",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/"
+        },
+        {
+          "name": "troubleshoot-webhook-and-syslog",
+          "type": "bullets-code",
+          "script": "When logs never arrive, check transport before blaming the script. Syslog silent — UDP blocked, wrong collector IP, device vrf not reaching server. Webhook silent — GitLab cannot reach your laptop, HTTP blocked, handler not running. JSON empty — script exits before log call. Exam trick: show successful deploy log but failed validation — root cause is post-validation assertion not deploy. Map symptom to layer: producer, transport, sink.",
+          "title": "Troubleshoot Missing Logs",
+          "points": [
+            "Syslog — IP, UDP 514, routing/VRF",
+            "Webhook — reachable URL, TLS, handler up",
+            "Search by request_id across all sinks"
+          ],
+          "code": "docker compose ps rsyslog\ncurl -v -X POST http://127.0.0.1:8080/hook -d '{}'\nss -ulnp | grep 514",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/",
+          "visibleLineRange": [
+            1,
+            3
+          ]
+        },
+        {
+          "name": "certification-alignment-logging",
+          "type": "content-single",
+          "script": "Module two maps to exam objectives three point two and three point three. Three point two — implement logging strategy with syslog and webhook destinations; explain sources, format, and retention. Three point three — diagnose automation problems given log snippets; build timeline, identify missing dependency, wrong inventory, failed validation, or missing webhook. Practice explaining RCA out loud using your chg-4421 lab trace. Module three adds pyATS change validation before you trust deploy logs that say success.",
+          "title": "Exam Objectives 3.2 and 3.3",
+          "points": [
+            "Module two maps to exam objectives three",
+            "With syslog and webhook destinations explain sources format",
+            "Three point three — diagnose"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module02/certification-alignment-logging.svg"
+        },
+        {
+          "name": "logging-ready-for-validation",
+          "type": "story-beat",
+          "script": "You started module two with Prometheus counters that could not explain a failed playbook. You finish with JSON application logs, syslog collection, webhook pipeline events, and a request_id trail you can search under pressure. Logs tell you something broke; they do not always prove the network matches intent. Module three adds pyATS CLI validation and automated rollback — exam three point four — so success in logs is backed by tested state. Keep netops_ops_lab logging running; validation jobs should emit the same request_id for one continuous audit chain.",
+          "beat": "resolution",
+          "title": "Logging Complete — Validation Next",
+          "points": [
+            "You started module two with Prometheus counters that could",
+            "You finish with JSON application",
+            "Logs syslog collection webhook pipeline"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module02/logging-ready-for-validation.svg"
+        }
+      ]
+    },
+    {
+      "moduleNumber": 3,
+      "title": "Validation and Testing",
+      "subtitle": "pyATS Change Validation and Automated Rollback",
+      "slides": [
+        {
+          "name": "logging-to-validation-bridge",
+          "type": "title",
+          "script": "Module two left you with logs and webhooks that explain why a job failed — or claimed success. Success in a deploy log is not proof the network matches intent. A playbook can return zero without applying every VLAN. Post-validation in course two checked a YAML file on disk, not live device state. Module three implements change validation with pyATS CLI tools — exam objective three point four — and ties validation failure to automated rollback. pyATS is Cisco's automation test framework: testbed files describe devices, jobs run test cases, and learn plus diff capture before-and-after state. You will run validation in netops_ops_lab after a simulated deploy, then roll back when assertions fail.",
+          "title": "Logs Are Not Validation",
+          "imageSrc": "assets/network-operations-automated-networks/module03/logging-to-validation-bridge.svg"
+        },
+        {
+          "name": "deploy-success-without-proof",
+          "type": "content-two-card",
+          "script": "Three false confidence traps appear in network automation incidents. Ansible recap shows ok equals three changed equals zero — but check mode was never off on the right host. GitLab post-validation passed — but the Python script only parsed intent files, not running config. Syslog shows config commit — but the wrong feature was edited. Change validation means testing network state against expected outcomes after the change window — not trusting green UI alone. pyATS adds device-side test cases and structured learn snapshots the exam expects you to invoke from the CLI.",
+          "title": "When Deploy Looks Successful",
+          "points": [
+            "Three false confidence traps appear in network automation incidents",
+            "Ansible recap shows ok equals three changed equals zero",
+            "GitLab post — validation passed —"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module03/deploy-success-without-proof.svg"
+        },
+        {
+          "name": "what-change-validation-means",
+          "type": "content-single",
+          "script": "Exam three point four — implement change validation using pyATS CLI tools. Change validation is the gate that asks: after automation ran, does the network actually match what we intended? It includes pre-change baseline capture, post-change test execution, and a documented pass or fail. pyATS supplies the CLI entry points — pyats run job, pyats learn, pyats diff — and Python test cases under the aetest framework. Validation runs in CI/CD post-validation stage or as a manual gate before you close a change ticket. Fail validation and you do not celebrate — you rollback or fix forward with evidence.",
+          "title": "Change Validation in Plain Language",
+          "points": [
+            "Exam three point four — implement change validation",
+            "CLI tools Change validation",
+            "Gate that asks after automation ran does"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module03/what-change-validation-means.svg"
+        },
+        {
+          "name": "testing-strategy-for-automation",
+          "type": "content-two-card",
+          "script": "A testing strategy layers gates before and after deploy. Pre-change — lint intent, dry-run playbook, capture pyATS learn snapshot as baseline. Change window — apply automation with request_id in logs from module two. Post-change — pyats run job with test cases for VLANs, routing neighbors, or API responses. Regression — optional nightly jobs on lab testbed. The exam cares that you can place pyATS in the post-change slot and interpret job output — passed, failed, errored — not that you built a full enterprise test pyramid.",
+          "title": "Testing Strategy Layers",
+          "points": [
+            "A testing strategy layers gates before and after deploy",
+            "Pre — change — lint intent dry — run",
+            "Change window — apply"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module03/testing-strategy-for-automation.svg"
+        },
+        {
+          "name": "pyats-plain-language",
+          "type": "content-single",
+          "script": "pyATS — Python Automated Test System — is Cisco's framework for network test automation. A testbed YAML file lists devices, addresses, credentials, and OS types. A job file orchestrates sections — common setup connects devices, test cases assert state, common cleanup disconnects. Easypy wraps jobs for reporting. The CLI you need for AUTOCOR: pyats version shows install; pyats run job executes a job against a testbed; pyats learn captures device state to files; pyats diff compares snapshots. Install with pip install pyats pyats dot contrib in a virtualenv on your runner — same machine as Ansible is fine.",
+          "title": "pyATS in Plain Language",
+          "points": [
+            "Python Automated Test System — is Cisco's framework",
+            "A testbed YAML file lists devices addresses credentials",
+            "Job file orchestrates sections — common setup connects devices"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module03/pyats-plain-language.svg"
+        },
+        {
+          "name": "pyats-architecture-components",
+          "type": "content-two-card",
+          "script": "Four pyATS pieces mirror telemetry and logging architecture. Testbed — inventory of devices under test — like Ansible inventory but pyATS native. Job — Python file with aetest sections and test cases. Runtime — pyats run job invokes Easypy to execute and log results. Artifacts — learn snapshots, diff output, and job reports stored on disk for audit. In GitLab post-validation stage you call pyats run job and fail the pipeline if exit code is non-zero. Keep testbed credentials in CI variables — module four covers secret management properly.",
+          "title": "Four pyATS Components",
+          "points": [
+            "Four pyATS pieces mirror telemetry and logging",
+            "Testbed — inventory of devices",
+            "Under test"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module03/pyats-architecture-components.svg"
+        },
+        {
+          "name": "pre-change-vs-post-change-validation",
+          "type": "comparison",
+          "script": "Pre-change validation prevents bad intent from touching devices — yamllint, ansible minus minus check, pyats learn before the window opens. Post-change validation proves the live network — pyats run job asserting VLAN one hundred exists, BGP neighbor is Established, or HTTP API returns two hundred. The exam may ask where pyATS fits — answer post-change device validation unless the question explicitly describes baseline capture. Learn before, run job after, diff if you need to prove only intended deltas landed.",
+          "title": "Pre-Change vs Post-Change",
+          "leftTitle": "Pre-change",
+          "leftItems": [
+            "Lint and schema checks",
+            "ansible-playbook --check",
+            "pyats learn baseline snapshot"
+          ],
+          "rightTitle": "Post-change",
+          "rightItems": [
+            "pyats run job test cases",
+            "Assert live config and state",
+            "Fail pipeline on non-zero exit"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module03/pre-change-vs-post-change-validation.svg"
+        },
+        {
+          "name": "change-assurance-workflow",
+          "type": "content-two-card",
+          "script": "Change assurance is the end-to-end story your capstone will reuse. Step one — baseline with pyats learn or Git tag on intent. Step two — deploy with request_id logged. Step three — pyats run job post-validation. Step four — pass closes the change; fail triggers rollback. Step five — pyats learn again or diff proves rollback restored state. Modules one and two supply telemetry and logs for timeline; module three supplies the pass-fail gate. Document each step in the change ticket — exam scenarios expect you to order them correctly.",
+          "title": "Change Assurance Workflow",
+          "points": [
+            "Change assurance is the end — to — end",
+            "Git tag on intent Step two — deploy",
+            "With request_id logged"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module03/change-assurance-workflow.svg"
+        },
+        {
+          "name": "automated-rollback-when-validation-fails",
+          "type": "content-single",
+          "script": "Automated rollback means validation failure starts a scripted undo — not a panicked SSH session. Common patterns: git revert the merge that triggered deploy, re-run ansible-playbook with previous intent, or push last-known-good from source of truth. pyATS re-run confirms rollback — second pyats run job should pass. Wire rollback in GitLab as a manual job or a failed-post-validation trigger with strict rules so it never runs on flaky tests. Same request_id from module two ties validation logs to rollback logs. Fail closed — if validation is unreachable, do not mark the change complete.",
+          "title": "Rollback When Validation Fails",
+          "points": [
+            "Automated rollback means validation failure starts a scripted undo",
+            "Ansible — playbook",
+            "With previous intent or push last — known —"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module03/automated-rollback-when-validation-fails.svg"
+        },
+        {
+          "name": "story-beat-recap-validation",
+          "type": "story-beat",
+          "script": "Pause. You have seen why deploy success is not enough, what change validation and testing strategy mean, pyATS components and CLI tools, pre versus post-change gates, change assurance workflow, and rollback when pyATS fails. Next we add a pyats folder to netops_ops_lab — testbed YAML, a minimal validation job, pyats learn baseline, simulated deploy, pyats run job, and a rollback script when the job fails. Use lab device credentials only; never point pyATS at production without approval.",
+          "beat": "recap",
+          "title": "Theory Complete — pyATS Lab Next",
+          "points": [
+            "Why deploy success is not enough what change validation",
+            "CLI tools pre versus post — change gates",
+            "Change assurance workflow and rollback when pyATS fails Next"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module03/story-beat-recap-validation.svg"
+        },
+        {
+          "name": "lab-setup-pyats",
+          "type": "content-single",
+          "script": "Inside netops_ops_lab create pyats slash testbed dot yaml, pyats slash jobs slash validate_vlans dot py, and a requirements-pyats dot txt with pinned pyats and genie versions. Activate the same Python virtualenv you used for Ansible or create venv dot pyats. Your testbed needs at least one lab router or switch reachable by SSH — CML, VIRL, or a sandbox from course one. If you have no live device today, the job includes a localhost mock section so you can practice CLI flow; swap in real hostnames before the exam lab.",
+          "title": "Extend netops_ops_lab for pyATS",
+          "points": [
+            "Inside netops_ops_lab create pyats slash testbed dot yaml pyats",
+            "Requirements — pyats dot txt with pinned pyats",
+            "Activate the same Python virtualenv you used"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module03/lab-setup-pyats.svg"
+        },
+        {
+          "name": "install-pyats-toolchain",
+          "type": "code",
+          "script": "Line one creates a dedicated virtualenv for pyATS to avoid clashing with Ansible deps. Line two activates it. Lines four through six pin pyats, genie, and pyats dot contrib versions in requirements-pyats dot txt. Line eight installs. Line nine confirms CLI — pyats version must print a version string. Genie bundles parsers pyATS uses for show command output on Cisco platforms.",
+          "title": "Install pyATS and Genie",
+          "code": "cd netops_ops_lab\npython3 -m venv venv-pyats\nsource venv-pyats/bin/activate  # Windows: venv-pyats\\Scripts\\activate\ncat > requirements-pyats.txt << 'EOF'\npyats[full]==24.11\npyats.contrib==24.11\ngenie==24.11\nEOF\npip install -r requirements-pyats.txt\npyats version",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/"
+        },
+        {
+          "name": "define-testbed-yaml",
+          "type": "code",
+          "script": "Lines one through sixteen write testbed dot yaml. Device lab-sw1 uses IOS XE with SSH — replace the IP and credentials with your sandbox. The testbed is the inventory pyATS run job reads — exam three point four expects you to know testbed structure, not memorize every optional key. Never commit production passwords; use environment variables or vault in real repos — module four covers secrets.",
+          "title": "Create pyATS Testbed",
+          "code": "mkdir -p pyats/jobs pyats/snapshots\ncat > pyats/testbed.yaml << 'EOF'\ntestbed:\n  name: netops_ops_lab\n  devices:\n    lab-sw1:\n      type: switch\n      os: iosxe\n      credentials:\n        default:\n          username: admin\n          password: \"${LAB_SSH_PASSWORD}\"\n      connections:\n        cli:\n          protocol: ssh\n          ip: 192.168.100.11\nEOF",
+          "language": "yaml",
+          "codeContext": "netops_ops_lab/pyats/",
+          "visibleLineRange": [
+            1,
+            16
+          ]
+        },
+        {
+          "name": "pyats-learn-baseline",
+          "type": "code",
+          "script": "Before the change window, capture baseline state. Line one exports the lab password from your shell — same pattern as module four preview. Line two runs pyats learn on lab-sw1 for the vlan brief feature — output lands under pyats slash snapshots slash pre. Line three lists files created. Learn snapshots are evidence if someone asks what changed during the window. On platforms without learn support in your lab, skip to run job with a parse of show vlan brief inside the test case instead.",
+          "title": "Baseline With pyats learn",
+          "code": "export LAB_SSH_PASSWORD='lab-only'\npyats learn vlan brief --devices lab-sw1 \\\n  --testbed pyats/testbed.yaml \\\n  --output pyats/snapshots/pre\nls pyats/snapshots/pre/",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/"
+        },
+        {
+          "name": "write-validation-job",
+          "type": "code",
+          "script": "Lines one through twenty four create validate_vlans dot py — a minimal aetest job. CommonSetup connects lab-sw1. Test case parses show vlan brief and asserts VLAN one hundred appears in output. CommonCleanup disconnects. This is the post-change validation the exam describes — pyats run job against a testbed. Adjust the VLAN ID to match your intent file from course two.",
+          "title": "Validation Job Test Case",
+          "code": "cat > pyats/jobs/validate_vlans.py << 'EOF'\nfrom pyats import aetest\nfrom genie.utils import Dq\n\nclass CommonSetup(aetest.CommonSetup):\n    @aetest.subsection\n    def connect(self, testbed):\n        testbed.devices['lab-sw1'].connect()\n\nclass ValidateVlans(aetest.Testcase):\n    @aetest.test\n    def vlan_100_present(self, testbed):\n        out = testbed.devices['lab-sw1'].parse('show vlan brief')\n        vlans = Dq(out).contains('vlan_id').get_values('vlan_id')\n        assert 100 in vlans, f\"VLAN 100 missing, saw {vlans}\"\n\nclass CommonCleanup(aetest.CommonCleanup):\n    @aetest.subsection\n    def disconnect(self, testbed):\n        testbed.devices['lab-sw1'].disconnect()\nEOF",
+          "language": "python",
+          "codeContext": "netops_ops_lab/pyats/jobs/",
+          "visibleLineRange": [
+            1,
+            18
+          ]
+        },
+        {
+          "name": "pyats-run-job",
+          "type": "code",
+          "script": "After your deploy script or ansible-playbook runs, execute post-change validation. Line one sets request_id for log correlation from module two. Line two runs pyats run job — the primary three point four CLI. Exit code zero means all test cases passed. Non-zero means failed or errored — do not close the change. Line four archives job output under logs slash validation dot json if your easypy job writes reports — check the job log path printed in the terminal.",
+          "title": "Post-Change pyats run job",
+          "code": "export REQUEST_ID=chg-5501\nexport LAB_SSH_PASSWORD='lab-only'\npyats run job pyats/jobs/validate_vlans.py \\\n  --testbed pyats/testbed.yaml \\\n  --archive-dir logs/pyats/\necho \"exit code: $?\"",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/"
+        },
+        {
+          "name": "pyats-diff-after-change",
+          "type": "code",
+          "script": "When validation fails or you need proof of delta, compare snapshots. Line one runs learn again into pyats slash snapshots slash post. Line two runs pyats diff between pre and post directories — output highlights what changed on lab-sw1. Use diff output in RCA from module two — attach request_id chg-5501 in your ticket. The exam may show diff snippets and ask whether the change matched intent.",
+          "title": "Compare With pyats diff",
+          "code": "pyats learn vlan brief --devices lab-sw1 \\\n  --testbed pyats/testbed.yaml \\\n  --output pyats/snapshots/post\npyats diff pyats/snapshots/pre pyats/snapshots/post",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/"
+        },
+        {
+          "name": "rollback-on-validation-failure",
+          "type": "bullets-code",
+          "script": "When pyats run job exits non-zero, run rollback before manual CLI heroics. Line one logs rollback start with the same request_id. Line two checks out previous intent from Git — course two netops_iac_lab or a tagged release. Line three re-runs ansible-playbook or your deploy script. Line four re-runs pyats run job — must pass before you mark rollback complete. Wire this sequence as a GitLab manual job triggered on post-validation failure.",
+          "title": "Automated Rollback Sequence",
+          "points": [
+            "Validation fail — stop the change ticket",
+            "Revert intent in Git and re-deploy",
+            "Re-run pyats run job to confirm"
+          ],
+          "code": "export REQUEST_ID=chg-5501\ngit -C ../netops_iac_lab checkout main -- intended/vlans.yaml\nansible-playbook ../netops_iac_lab/playbooks/deploy_vlans.yml\npyats run job pyats/jobs/validate_vlans.py --testbed pyats/testbed.yaml",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/",
+          "visibleLineRange": [
+            1,
+            4
+          ]
+        },
+        {
+          "name": "troubleshoot-pyats-failures",
+          "type": "bullets-code",
+          "script": "pyATS failures cluster into four exam-friendly buckets. Connection failed — wrong IP, credential, or SSH blocked — fix testbed and firewalls. Parser failed — show command output changed between IOS XE versions — pin image or adjust test case. Assertion failed — network state wrong — real validation catch; investigate deploy not pyATS install. Job error — Python typo in test case — read traceback in easypy log. Always read the first failed test case section name in the report.",
+          "title": "Troubleshoot pyATS Job Output",
+          "points": [
+            "Connection — testbed IP, creds, SSH",
+            "Parser — IOS version vs genie parser",
+            "Assertion — intent did not land on device"
+          ],
+          "code": "pyats run job pyats/jobs/validate_vlans.py --testbed pyats/testbed.yaml --no-archive\n# read: FAILED >> ValidateVlans.vlan_100_present",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/",
+          "visibleLineRange": [
+            1,
+            2
+          ]
+        },
+        {
+          "name": "certification-alignment-validation",
+          "type": "content-single",
+          "script": "Module three maps to exam objective three point four — implement change validation using pyATS CLI tools. You should run pyats run job with a testbed, interpret pass and fail, use pyats learn for baseline and pyats diff for comparison, and describe rollback when validation fails. Practice explaining each CLI without reading notes. Module four adds TLS certificate deployment and secure coding for secrets — so your testbed passwords move out of plain YAML.",
+          "title": "Exam Objective 3.4 Coverage",
+          "points": [
+            "Module three maps to exam objective three point four",
+            "CLI tools You should run pyats run",
+            "Job with a testbed interpret pass and fail"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module03/certification-alignment-validation.svg"
+        },
+        {
+          "name": "validation-ready-for-security",
+          "type": "story-beat",
+          "script": "You started module three with green deploy logs that lied by omission. You finish with pyATS test cases, learn baselines, diff evidence, and a rollback sequence tied to request_id. Validation proves state; it does not encrypt your SSH passwords or sign your gRPC sessions. Module four covers CA-signed TLS deployment and secure coding — input validation, authentication, secret management — exam objectives three point five and three point six. Keep pyats slash testbed dot yaml free of committed production secrets before you push to GitLab.",
+          "beat": "resolution",
+          "title": "Validation Complete — Security Next",
+          "points": [
+            "You started module three with green deploy logs",
+            "PyATS test cases learn baselines diff evidence",
+            "Validation proves state"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module03/validation-ready-for-security.svg"
+        }
+      ]
+    },
+    {
+      "moduleNumber": 4,
+      "title": "Security Operations",
+      "subtitle": "TLS, PKI, and Secure Automation Coding",
+      "slides": [
+        {
+          "name": "validation-to-security-bridge",
+          "type": "title",
+          "script": "Module three proved VLAN intent landed on the device with pyATS. Module four asks what an attacker sees if they sniff your lab traffic or clone your Git repo. Plaintext SSH passwords in testbed YAML, HTTP webhooks on port eight zero eight zero, and gRPC telemetry without TLS are acceptable only in isolated sandboxes. Production automation needs CA-signed certificates, authenticated APIs, validated inputs, and secrets stored outside code. Exam objectives three point five and three point six live here — describe obtaining and deploying CA-signed TLS certificates, and implement secure coding for input validation, authentication, and secret management. You will harden netops_ops_lab and tie secrets into your GitLab pipeline from course two.",
+          "title": "Validation Proves State — Security Protects Access",
+          "imageSrc": "assets/network-operations-automated-networks/module04/validation-to-security-bridge.svg"
+        },
+        {
+          "name": "plaintext-secrets-risk",
+          "type": "content-two-card",
+          "script": "Two habits from earlier modules must not reach production. First — credentials in Git. pyATS testbed YAML with a literal password, Ansible inventory with admin slash password one two three, API tokens in playbooks. Anyone with repo read access owns your network. Second — cleartext transports. Module one telemetry with grpc-tcp no TLS, module two HTTP webhooks, unencrypted syslog across untrusted links. Attackers replay tokens or inject fake webhook events. Security operations means encrypting sensitive channels and removing secrets from files developers commit daily.",
+          "title": "What Must Leave the Lab",
+          "points": [
+            "Two habits from earlier modules must not reach production",
+            "Git pyATS testbed YAML with a literal password",
+            "API tokens in playbooks Anyone with repo read access"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module04/plaintext-secrets-risk.svg"
+        },
+        {
+          "name": "what-tls-protects-in-automation",
+          "type": "content-single",
+          "script": "TLS — Transport Layer Security — encrypts data in flight and proves you reached the intended server. For network automation that covers HTTPS GitLab webhooks, gRPC telemetry with TLS, REST APIs on controllers, and HTTPS downloads of intent files. TLS does not replace authentication — it protects credentials and payloads on the wire. It does not validate network config — that is pyATS from module three. Pair TLS on the transport with token or certificate authentication on the application. Exam three point five focuses on how you obtain and install the server certificate, not every cipher suite name.",
+          "title": "TLS in Plain Language",
+          "points": [
+            "TLS — Transport Layer Security — encrypts data",
+            "For network automation that covers HTTPS GitLab",
+            "TLS REST APIs on controllers and HTTPS downloads of"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module04/what-tls-protects-in-automation.svg"
+        },
+        {
+          "name": "pki-plain-language",
+          "type": "content-single",
+          "script": "Public Key Infrastructure, PKI, is the trust system behind TLS. A Certificate Authority, CA, signs certificates that bind a public key to a hostname or organization. Your server holds the certificate and private key. Clients trust the CA root or intermediate chain installed in their trust store. In enterprise networks an internal CA — Microsoft AD CS, OpenSSL private CA, or Cisco PKI — issues certs for devices and automation services. Self-signed certs work in lab but clients must manually trust them; CA-signed certs chain to a root your devices already trust — exam three point five expects you to describe that obtain-and-deploy flow.",
+          "title": "PKI Building Blocks",
+          "points": [
+            "Public Key Infrastructure PKI is the trust system",
+            "TLS A Certificate Authority CA signs certificates that bind",
+            "Your server"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module04/pki-plain-language.svg"
+        },
+        {
+          "name": "obtain-ca-signed-cert-process",
+          "type": "content-two-card",
+          "script": "Exam three point five — describe the process to obtain and deploy CA-signed TLS certificates. Step one — generate a private key on the server or secure enrollment host. Step two — create a Certificate Signing Request, CSR, with subject common name matching the DNS name clients use. Step three — submit CSR to the CA — internal portal or public CA for lab. Step four — receive signed certificate plus intermediate chain files. Step five — install cert and key on the service — nginx, GitLab runner, IOS XE trustpoint for gRPC. Step six — configure clients to trust the CA or full chain. Step seven — verify with openssl s_client or curl minus v before pointing production automation.",
+          "title": "Obtain and Deploy CA-Signed Certs",
+          "points": [
+            "Exam three point five — describe the process",
+            "Certificate Signing Request CSR with subject",
+            "DNS name clients use Step three — submit CSR"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module04/obtain-ca-signed-cert-process.svg"
+        },
+        {
+          "name": "self-signed-vs-ca-signed",
+          "type": "comparison",
+          "script": "Self-signed certificates sign themselves — fast for lab, but every client must import your custom trust anchor or disable verification — never in production. CA-signed certificates chain to an enterprise or public root already in the trust store — browsers and IOS trustpoints accept them when hostname matches. Lab module four uses a local CA you create with openssl to mimic enterprise flow without buying a public cert. Production uses your organization's CA process and change control. The exam contrasts when each is appropriate — lab versus production, not which openssl flag to memorize.",
+          "title": "Self-Signed vs CA-Signed",
+          "leftTitle": "Self-signed",
+          "leftItems": [
+            "Quick for isolated lab",
+            "Manual trust on every client",
+            "Not for production automation"
+          ],
+          "rightTitle": "CA-signed",
+          "rightItems": [
+            "Chains to trusted root CA",
+            "Standard enterprise process",
+            "Required for exam 3.5 production story"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module04/self-signed-vs-ca-signed.svg"
+        },
+        {
+          "name": "deploy-tls-on-automation-services",
+          "type": "content-two-card",
+          "script": "Deploy means matching certificate to the service clients actually call. Webhook handler — terminate TLS in nginx or Python with cert and key files, GitLab webhook URL becomes https. gRPC telemetry — IOS XE trustpoint references CA cert, telemetry receiver uses server cert on port five seven five zero zero. GitLab runner to device APIs — runner trusts device cert or presents client cert if mutual TLS required. Ansible over HTTPS network APIs — verify equals yes with a custom CA bundle. Document which file is cert, which is key, which is chain — exam questions show a folder of PEM files and ask installation order.",
+          "title": "Where TLS Lands in Your Stack",
+          "points": [
+            "Deploy means matching certificate to the service clients actually",
+            "Webhook handler — terminate TLS",
+            "Python with cert"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module04/deploy-tls-on-automation-services.svg"
+        },
+        {
+          "name": "secure-coding-three-pillars",
+          "type": "content-single",
+          "script": "Exam three point six — implement secure coding practices for input validation, authentication, and secret management. Input validation — never trust YAML, JSON, or API parameters without schema checks — reject VLAN IDs outside policy before ansible runs. Authentication — prove who calls your script or webhook — tokens, mutual TLS, or SSH keys, not shared passwords in code. Secret management — load credentials from environment variables, vaults, or GitLab masked CI variables — never commit them. These three pillars apply to every Python deploy script, pipeline job, and webhook handler you built in courses one through three.",
+          "title": "Secure Coding — Three Pillars",
+          "points": [
+            "Exam three point six — implement secure coding practices",
+            "Input validation — never trust YAML JSON or API",
+            "VLAN IDs outside policy before ansible runs"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module04/secure-coding-three-pillars.svg"
+        },
+        {
+          "name": "input-validation-for-automation",
+          "type": "content-two-card",
+          "script": "Input validation blocks malicious or accidental bad intent early. Parse YAML with safe_load, not load. Validate against JSON Schema or YANG models from course two — VLAN ID range one to four zero nine four, names match regex. Reject path traversal in file arguments — no dot dot slash in user-supplied paths. Sanitize data before shell commands — never os dot system with f-strings from webhook JSON. GitLab prevalidation stage runs yamllint and schema checks — secure coding extends that with explicit Python asserts before deploy. Exam three point six may show a webhook payload and ask what validation is missing.",
+          "title": "Input Validation",
+          "points": [
+            "Input validation blocks malicious or accidental bad intent early",
+            "Parse YAML with safe_load not load Validate against JSON",
+            "From course two — VLAN"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module04/input-validation-for-automation.svg"
+        },
+        {
+          "name": "authentication-vs-secret-storage",
+          "type": "comparison",
+          "script": "Authentication proves identity — API bearer token in Authorization header, client certificate in mutual TLS, SSH public key on the device. Secret management stores credentials safely — HashiCorp Vault dynamic secrets, Ansible Vault encrypted files, GitLab CI masked variables injected at runtime. Confusing the two fails audits: encrypting a password file without rotation is weak secret management; putting a token in Git is neither auth nor management done right. pyATS testbed should reference os dot environ for passwords; GitLab injects LAB_SSH_PASSWORD as a protected variable.",
+          "title": "Authentication vs Secret Management",
+          "leftTitle": "Authentication",
+          "leftItems": [
+            "Proves who is calling",
+            "Tokens, certs, SSH keys",
+            "Short-lived where possible"
+          ],
+          "rightTitle": "Secret management",
+          "rightItems": [
+            "Stores credentials safely",
+            "Vault, CI variables, env at runtime",
+            "Never in committed plaintext"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module04/authentication-vs-secret-storage.svg"
+        },
+        {
+          "name": "secret-management-practices",
+          "type": "content-single",
+          "script": "Practical secret management for AUTOCOR labs and exams. One — dot gitignore for local env files and keys. Two — GitLab Settings CI slash CD Variables with masked and protected flags for LAB_SSH_PASSWORD and WEBHOOK_SECRET. Three — rotate after any leak — new token, revoke old. Four — least privilege — automation account changes VLANs only, not enable secret. Five — audit access to variable settings. Ansible Vault encrypts files you may commit — password in CI variable only. Module four lab refactors pyats testbed and webhook handler to read secrets from environment, then adds TLS to the webhook listener.",
+          "title": "Secret Management Practices",
+          "points": [
+            "Practical secret management for AUTOCOR labs and exams One",
+            "— dot gitignore for local env",
+            "Two — GitLab Settings CI slash"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module04/secret-management-practices.svg"
+        },
+        {
+          "name": "story-beat-recap-security",
+          "type": "story-beat",
+          "script": "Pause. You have seen TLS and PKI basics, the CA-signed obtain-and-deploy process, self-signed versus CA-signed, where TLS lands on webhooks and gRPC, secure coding pillars, input validation, authentication versus secret storage, and CI variable practices. Next we create a lab CA with openssl, sign a cert for the webhook service, enable HTTPS, refactor pyats testbed credentials to environment variables, add a validation gate on VLAN intent, and configure GitLab masked variables. Remove any plaintext production passwords you may have committed during earlier modules before pushing this lab.",
+          "beat": "recap",
+          "title": "Theory Complete — Security Lab Next",
+          "points": [
+            "TLS and PKI basics the CA — signed obtain",
+            "CA — signed where TLS lands",
+            "Validation"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module04/story-beat-recap-security.svg"
+        },
+        {
+          "name": "lab-setup-security",
+          "type": "content-single",
+          "script": "In netops_ops_lab add tls slash with ca, server cert, and key PEM files generated in the next slides. Update webhook handler to support HTTPS or place nginx in front with ssl_certificate paths. Copy pyats slash testbed dot yaml to testbed dot yaml dot example without secrets — commit only the example. Create dot env dot example listing LAB_SSH_PASSWORD and WEBHOOK_SECRET — real dot env stays local and gitignored. You need openssl on your runner — standard on Linux and WSL.",
+          "title": "Extend netops_ops_lab for TLS",
+          "points": [
+            "In netops_ops_lab add tls slash with ca server cert",
+            "Update webhook handler",
+            "HTTPS or place nginx"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module04/lab-setup-security.svg"
+        },
+        {
+          "name": "create-lab-ca-and-csr",
+          "type": "code",
+          "script": "Lines one through eight create a lab root CA — not for production, but mirrors enterprise CSR flow for exam three point five. Lines ten through fourteen generate a server private key and CSR with common name localhost — add subjectAltName DNS localhost for modern TLS clients. You submit server dot csr to the CA; in lab you sign it yourself on the next slide. Protect ca-key dot pem — if leaked, attackers mint trusted certs for your lab.",
+          "title": "Generate CA, Key, and CSR",
+          "code": "mkdir -p tls\ncd tls\nopenssl genrsa -out ca-key.pem 4096\nopenssl req -x509 -new -nodes -key ca-key.pem -sha256 -days 365 \\\n  -subj \"/CN=NetOps Lab CA\" -out ca-cert.pem\nopenssl genrsa -out server-key.pem 2048\nopenssl req -new -key server-key.pem -out server.csr \\\n  -subj \"/CN=localhost\"",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/tls/"
+        },
+        {
+          "name": "sign-and-verify-server-cert",
+          "type": "code",
+          "script": "Line one signs the CSR with your lab CA — output server-cert dot pem. Line two builds a chain file for nginx. Lines four through six verify the certificate against the CA and test TLS with openssl s_client against a listener you start on port eight four four three. Exam three point five asks you to describe this deploy-and-verify sequence; you should recognize each artifact — key, cert, chain, CA root for client trust.",
+          "title": "Sign CSR and Verify TLS",
+          "code": "openssl x509 -req -in server.csr -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial \\\n  -out server-cert.pem -days 365 -sha256\ncat server-cert.pem ca-cert.pem > server-chain.pem\nopenssl verify -CAfile ca-cert.pem server-cert.pem\nopenssl s_client -connect localhost:8443 -CAfile ca-cert.pem </dev/null",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/tls/"
+        },
+        {
+          "name": "deploy-https-webhook",
+          "type": "code",
+          "script": "Lines one through sixteen replace the module two HTTP handler with an SSL-wrapped HTTPServer on port eight four four three using server-cert and server-key. GitLab webhook URL becomes https colon slash slash your-host colon eight four four three slash hook — upload ca-cert to GitLab or use a cert GitLab trusts. Line eighteen curls with minus k only in lab if trust is not configured — production must verify CA. WEBHOOK_SECRET from environment validates caller on line ten — secure coding three point six authentication.",
+          "title": "HTTPS Webhook With TLS",
+          "code": "cat > webhook/handler_tls.py << 'EOF'\nimport json, os, ssl, datetime\nfrom http.server import HTTPServer, BaseHTTPRequestHandler\nSECRET = os.environ.get(\"WEBHOOK_SECRET\", \"\")\nclass Hook(BaseHTTPRequestHandler):\n    def do_POST(self):\n        if SECRET and self.headers.get(\"X-Gitlab-Token\") != SECRET:\n            self.send_response(401); self.end_headers(); return\n        n = int(self.headers.get(\"Content-Length\", 0))\n        body = json.loads(self.rfile.read(n) or b\"{}\")\n        print(json.dumps({\"ts\": datetime.datetime.utcnow().isoformat()+\"Z\",\n               \"kind\": body.get(\"object_kind\")}), flush=True)\n        self.send_response(200); self.end_headers()\nctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)\nctx.load_cert_chain(\"tls/server-cert.pem\", \"tls/server-key.pem\")\nHTTPServer((\"0.0.0.0\", 8443), Hook).socket = ctx.wrap_socket(\n    HTTPServer((\"0.0.0.0\", 8443), Hook).socket, server_side=True)\nEOF\nWEBHOOK_SECRET=lab-token python webhook/handler_tls.py",
+          "language": "python",
+          "codeContext": "netops_ops_lab/",
+          "visibleLineRange": [
+            1,
+            16
+          ]
+        },
+        {
+          "name": "refactor-secrets-to-environment",
+          "type": "code",
+          "script": "Remove literal passwords from pyats testbed — exam three point six secret management. Lines one through four write testbed dot yaml dot example with dollar brace LAB_SSH_PASSWORD placeholder documented. Lines six through eight load dot env locally — file gitignored. Line ten runs pyats with variables exported. GitLab pipeline uses Settings CI slash CD Variables with masked LAB_SSH_PASSWORD instead of dot env on the runner.",
+          "title": "Externalize pyATS Credentials",
+          "code": "cat > pyats/testbed.yaml.example << 'EOF'\n# Copy to testbed.yaml locally; set LAB_SSH_PASSWORD in .env\ntestbed:\n  devices:\n    lab-sw1:\n      credentials:\n        default:\n          username: admin\n          password: \"${LAB_SSH_PASSWORD}\"\nEOF\ncat > .env.example << 'EOF'\nLAB_SSH_PASSWORD=change-me\nWEBHOOK_SECRET=change-me\nEOF\necho \".env\" >> .gitignore\nset -a && source .env && set +a && pyats run job pyats/jobs/validate_vlans.py --testbed pyats/testbed.yaml",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/",
+          "visibleLineRange": [
+            1,
+            12
+          ]
+        },
+        {
+          "name": "validate-intent-before-deploy",
+          "type": "code",
+          "script": "Secure coding input validation — lines one through twenty create validate_intent dot py that loads vlans dot yaml, asserts each VLAN ID is integer between one and four zero nine four, and name matches alphanumeric pattern. Exit code one on violation — wire as GitLab prevalidation job before deploy from course two. Reject webhook-supplied VLAN IDs through this script instead of trusting JSON blindly.",
+          "title": "Input Validation Script",
+          "code": "cat > scripts/validate_intent_secure.py << 'EOF'\nimport re, sys, yaml\nMAX_VLAN = 4094\nNAME_RE = re.compile(r\"^[A-Za-z0-9_]{1,32}$\")\ndata = yaml.safe_load(open(sys.argv[1]))\nfor v in data.get(\"vlans\", []):\n    vid = v.get(\"id\")\n    if not isinstance(vid, int) or not 1 <= vid <= MAX_VLAN:\n        sys.exit(f\"invalid vlan id: {vid}\")\n    if not NAME_RE.match(v.get(\"name\", \"\")):\n        sys.exit(f\"invalid vlan name: {v.get('name')}\")\nprint(\"intent valid\")\nEOF\npython scripts/validate_intent_secure.py ../netops_iac_lab/intended/vlans.yaml",
+          "language": "python",
+          "codeContext": "netops_ops_lab/",
+          "visibleLineRange": [
+            1,
+            12
+          ]
+        },
+        {
+          "name": "gitlab-masked-ci-variables",
+          "type": "bullets-code",
+          "script": "Wire secrets into course two pipeline without committing them. In GitLab project Settings CI slash CD Variables add LAB_SSH_PASSWORD masked and protected, WEBHOOK_SECRET masked, and TLS paths if jobs call HTTPS services. Reference in dot gitlab-ci dot yml as dollar LAB_SSH_PASSWORD — GitLab injects at runtime. Never echo secrets in job logs — exam three point six. Rotate variables when anyone leaves the team or a laptop is lost.",
+          "title": "GitLab Masked Variables",
+          "points": [
+            "Masked + protected CI variables",
+            "Reference as $VAR in job script",
+            "Never print secrets in job logs"
+          ],
+          "code": "# .gitlab-ci.yml snippet\nvariables:\n  REQUEST_ID: $CI_PIPELINE_ID\ndeploy:dry-run:\n  script:\n    - python scripts/validate_intent_secure.py intended/vlans.yaml\n    - ansible-playbook playbooks/deploy_vlans.yml --check",
+          "language": "yaml",
+          "codeContext": "netops_iac_lab/.gitlab-ci.yml",
+          "visibleLineRange": [
+            1,
+            6
+          ]
+        },
+        {
+          "name": "troubleshoot-tls-handshake",
+          "type": "bullets-code",
+          "script": "TLS failures on exams and in lab map to familiar symptoms. Certificate verify failed — wrong CA file, expired cert, or hostname mismatch — CN localhost but client uses IP. Handshake failure — key does not match cert or wrong file order in nginx. GitLab webhook SSL verification failed — upload CA or use publicly trusted cert. Client still sends HTTP to HTTPS port — update webhook URL scheme. Use openssl s_client and curl minus v for evidence before changing configs randomly.",
+          "title": "Troubleshoot TLS Handshake",
+          "points": [
+            "Hostname must match CN or SAN",
+            "Key pairs with correct cert file",
+            "Client trusts CA in chain"
+          ],
+          "code": "openssl x509 -in tls/server-cert.pem -noout -dates -subject\nopenssl s_client -connect localhost:8443 -servername localhost -CAfile tls/ca-cert.pem",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/",
+          "visibleLineRange": [
+            1,
+            2
+          ]
+        },
+        {
+          "name": "certification-alignment-security",
+          "type": "content-single",
+          "script": "Module four maps to exam objectives three point five and three point six. Three point five — describe obtaining and deploying CA-signed TLS certificates: generate key, CSR, CA sign, install on service, verify handshake. Three point six — secure coding: validate automation inputs, authenticate webhook and API callers, manage secrets via env and CI variables not Git. Practice narrating the openssl flow and pointing to where each PEM file installs. Capstone module five ties telemetry, logging, pyATS validation, and TLS into one secure zero-touch operations pipeline.",
+          "title": "Exam Objectives 3.5 and 3.6",
+          "points": [
+            "Module four maps to exam objectives three point five",
+            "TLS certificates generate key CSR CA",
+            "Three point six"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module04/certification-alignment-security.svg"
+        },
+        {
+          "name": "security-ready-for-capstone",
+          "type": "story-beat",
+          "script": "You started module four with plaintext passwords and HTTP webhooks. You finish with a lab CA, signed server certificate, HTTPS webhook with token authentication, environment-based pyATS credentials, input validation on VLAN intent, and GitLab masked variables. Course three capstone runs the full operate-validate-secure chain — telemetry stream, structured logs, pyATS post-change gate, TLS-protected webhooks — on the repos you built across three courses. Review netops_ops_lab and netops_iac_lab for stray secrets before the capstone merge.",
+          "beat": "resolution",
+          "title": "Security Complete — Capstone Next",
+          "points": [
+            "You started module four with plaintext passwords and HTTP",
+            "CA signed server certificate HTTPS",
+            "Webhook with token"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module04/security-ready-for-capstone.svg"
+        }
+      ]
+    },
+    {
+      "moduleNumber": 5,
+      "title": "Secure Zero-Touch Operations Capstone",
+      "subtitle": "Telemetry, Logs, pyATS, and TLS in One Pipeline",
+      "slides": [
+        {
+          "name": "ops-capstone-intro",
+          "type": "title",
+          "script": "Welcome to the course three capstone. You have two lab roots — netops_iac_lab from course two with Git, GitLab CI/CD, and VLAN intent, and netops_ops_lab from course three with telemetry, logging, pyATS validation, and TLS-hardened webhooks. The capstone is not a new toolchain. You merge a small intent change on netops_iac_lab, let the pipeline run secure prevalidation, deploy with a request_id logged to netops_ops_lab, confirm telemetry still streams, run pyats run job post-validation, and receive an HTTPS webhook event when the pipeline finishes. Zero-touch means no manual SSH heroics in the change window — the automated chain operates, validates, and secures itself. If modules one through four made sense, you can follow this section.",
+          "title": "Capstone: Secure Zero-Touch Ops",
+          "imageSrc": "assets/network-operations-automated-networks/module05/ops-capstone-intro.svg"
+        },
+        {
+          "name": "capstone-integrates-four-modules",
+          "type": "content-two-card",
+          "script": "Module four ended with HTTPS webhooks and secrets in CI variables. The capstone runs the full operate-validate-secure story in order. Module one — telemetry stream still healthy in Prometheus during the change. Module two — JSON deploy logs and syslog lines share request_id chg-capstone. Module three — pyats run job must pass after deploy. Module four — webhook uses TLS and WEBHOOK_SECRET; pyATS reads LAB_SSH_PASSWORD from env not Git. You add VLAN three fifty to intended slash vlans dot yaml in netops_iac_lab — same pattern as course two capstone — but the pass criteria include ops gates, not only green GitLab stages.",
+          "title": "What the Capstone Adds",
+          "points": [
+            "Module four ended with HTTPS webhooks and secrets",
+            "Module one — telemetry stream still healthy in Prometheus",
+            "JSON deploy logs"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module05/capstone-integrates-four-modules.svg"
+        },
+        {
+          "name": "capstone-two-repo-layout",
+          "type": "content-single",
+          "script": "Know which repo owns which concern before the lab. netops_iac_lab — intended slash vlans dot yaml, dot gitlab-ci dot yml, playbooks slash deploy_vlans dot yml from course two. netops_ops_lab — docker-compose for Prometheus and rsyslog, pyats slash jobs slash validate_vlans dot py, webhook slash handler_tls dot py, tls slash PEM files from module four. The pipeline runs in iac repo; ops repo supplies validation, observability, and secure notification. CI jobs call across directories with relative paths or clone both repos on the runner — this capstone uses sibling folders on one runner.",
+          "title": "Two Repos, One Pipeline Story",
+          "points": [
+            "Know which repo owns which concern before",
+            "Lab netops_iac_lab — intended slash",
+            "Deploy_vlans"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module05/capstone-two-repo-layout.svg"
+        },
+        {
+          "name": "zero-touch-vs-manual-ops",
+          "type": "comparison",
+          "script": "Manual operations — engineer merges, SSHs to switches, runs show commands, pastes logs in chat, hopes nothing broke. Zero-touch operations — merge triggers pipeline, prevalidation runs validate_intent_secure dot py, deploy emits structured logs, pyATS asserts device state, telemetry dashboards show no silent regression, HTTPS webhook posts result to your handler with authentication. The exam does not use the marketing phrase zero-touch; it tests the components — logging strategy, pyATS validation, TLS, secure secrets — wired in sequence. This capstone is that sequence.",
+          "title": "Manual Ops vs Zero-Touch",
+          "leftTitle": "Manual change window",
+          "leftItems": [
+            "SSH and ad-hoc show commands",
+            "Logs scattered on laptops",
+            "No automated rollback gate"
+          ],
+          "rightTitle": "Zero-touch pipeline",
+          "rightItems": [
+            "GitLab stages plus pyATS gate",
+            "Telemetry and structured logs",
+            "TLS webhook plus rollback path"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module05/zero-touch-vs-manual-ops.svg"
+        },
+        {
+          "name": "seven-steps-ops-runbook",
+          "type": "content-two-card",
+          "script": "Run the capstone in this order. One — start ops stack: Prometheus, rsyslog, HTTPS webhook handler. Two — edit VLAN three fifty in netops_iac_lab on a feature branch. Three — local validate_intent_secure and pipeline prevalidation green. Four — merge to main; deploy job runs with REQUEST_ID chg-capstone. Five — confirm telemetry metrics still flow and grep logs for request_id. Six — pyats run job post-validation from netops_ops_lab. Seven — read HTTPS webhook payload and pipeline post-validation; rollback if pyATS fails. Stop at the first red gate and use module two RCA on the logs.",
+          "title": "Seven Steps in Order",
+          "points": [
+            "Run the capstone in this order One — start",
+            "Prometheus rsyslog HTTPS webhook handler",
+            "Two — edit VLAN three fifty"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module05/seven-steps-ops-runbook.svg"
+        },
+        {
+          "name": "four-pillars-capstone-chain",
+          "type": "content-single",
+          "script": "Four pillars carry the capstone evidence chain — maps to exam objectives three point one through three point six. Telemetry — Prometheus query shows interface counters during change — three point one. Logging — deploy dot json and syslog with chg-capstone — three point two and three point three. Validation — pyats run job exit code zero — three point four. Security — HTTPS webhook with token and secrets from CI variables — three point five and three point six. When a code slide appears, know which pillar you are exercising.",
+          "title": "Four Pillars of Evidence",
+          "points": [
+            "Four pillars carry the capstone evidence chain — maps",
+            "Telemetry — Prometheus query shows interface counters during change",
+            "Logging — deploy dot json and syslog with chg"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module05/four-pillars-capstone-chain.svg"
+        },
+        {
+          "name": "verify-ops-pipeline-before-close",
+          "type": "content-single",
+          "script": "Do not close the capstone when git merge succeeds alone. GitLab post-validation job must pass. pyats run job must show PASSED for validate_vlans. Prometheus must return non-zero series for interface metrics — telemetry did not die mid-change. logs slash deploy dot json must contain chg-capstone with deploy ok or a documented rollback. HTTPS webhook handler must print a pipeline event JSON line. If any pillar is missing, the change is not zero-touch complete — return to the module that owns that gap.",
+          "title": "Verify All Four Pillars",
+          "points": [
+            "Do not close the capstone when git merge succeeds",
+            "GitLab post — validation job must pass",
+            "PASSED for validate_vlans Prometheus"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module05/verify-ops-pipeline-before-close.svg"
+        },
+        {
+          "name": "capstone-nothing-new-ops",
+          "type": "content-two-card",
+          "script": "You already built every tool this capstone needs. Module one — docker compose telemetry stack. Module two — run_deploy dot py and rsyslog. Module three — pyats testbed and validate_vlans dot py. Module four — tls certs and handler_tls dot py. Course two — netops_iac_lab pipeline. If pyats connection fails, fix module three testbed. If webhook returns four zero one, fix WEBHOOK_SECRET in module four. If Prometheus empty, fix module one subscription. The capstone passes when one VLAN intent change flows through all gates without new installs.",
+          "title": "Nothing New to Install",
+          "points": [
+            "You already built every tool this capstone needs",
+            "Module one — docker compose telemetry stack Module",
+            "Two — run_deploy dot py"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module05/capstone-nothing-new-ops.svg"
+        },
+        {
+          "name": "story-beat-recap-ops-capstone",
+          "type": "story-beat",
+          "script": "Pause. The capstone is course two intent change plus course three operate-validate-secure gates in seven steps. You know the two-repo layout, the four evidence pillars, and what verify means before you call it done. Next slides walk commands line by line — start stacks, branch, validate, merge, log correlation, pyATS, webhook, optional rollback drill — the same way module one walked telemetry commands. Open both netops_iac_lab and netops_ops_lab. Lab and simulation targets only.",
+          "beat": "recap",
+          "title": "Ready for the Capstone Lab",
+          "points": [
+            "The capstone is course two intent change plus course",
+            "Gates in seven steps You",
+            "Know the two — repo layout the four evidence"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module05/story-beat-recap-ops-capstone.svg"
+        },
+        {
+          "name": "lab-setup-ops-capstone",
+          "type": "content-single",
+          "script": "Capstone lab setup checklist. In netops_ops_lab run docker compose up minus d for Prometheus, rsyslog, and collector. Start webhook handler_tls dot py in a second terminal with WEBHOOK_SECRET from dot env. In netops_iac_lab run git status on main — clean tree. Confirm GitLab CI variables LAB_SSH_PASSWORD and WEBHOOK_SECRET are set masked. Export REQUEST_ID equals chg-capstone for this run. Pause before editing intent.",
+          "title": "Capstone Lab Setup",
+          "points": [
+            "Capstone lab setup checklist In netops_ops_lab run docker compose",
+            "Prometheus rsyslog and collector Start webhook handler_tls dot py",
+            "WEBHOOK_SECRET from dot env"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module05/lab-setup-ops-capstone.svg"
+        },
+        {
+          "name": "resume-ops-capstone-prerequisites",
+          "type": "content-two-card",
+          "script": "Sixty-second readiness across course three modules. Module one — curl Prometheus query returns data. Module two — logger test line appears in rsyslog files. Module three — pyats version works and testbed loads from env. Module four — openssl s_client to localhost colon eight four four three succeeds with lab CA. Course two — ansible-playbook check mode against intended slash vlans dot yaml passes. If any step fails, repair that module before capstone merge.",
+          "title": "Resume Modules One Through Four",
+          "points": [
+            "Sixty — second readiness across course three modules",
+            "Module two — logger test line",
+            "Appears in rsyslog"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module05/resume-ops-capstone-prerequisites.svg"
+        },
+        {
+          "name": "capstone-start-ops-stack",
+          "type": "code",
+          "script": "Lines one through three start the observability and notification stack from modules one, two, and four. Line four verifies Prometheus answers. Line five sends a test syslog line with capstone request_id. Line six curls the HTTPS webhook with the GitLab token header — expect two hundred from handler_tls dot py. Do not merge intent until these health checks pass.",
+          "title": "Step 1: Start Ops Stack",
+          "code": "cd netops_ops_lab\ndocker compose up -d\nsource venv-pyats/bin/activate 2>/dev/null || true\nWEBHOOK_SECRET=lab-token python webhook/handler_tls.py &\ncurl -s 'http://localhost:9090/api/v1/query?query=up' | jq '.status'\nlogger -n 127.0.0.1 -P 514 -t capstone \"request_id=chg-capstone stack ready\"\ncurl -sk -X POST https://localhost:8443/hook -H 'X-Gitlab-Token: lab-token' -d '{\"object_kind\":\"pipeline\",\"build_status\":\"running\"}'",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/"
+        },
+        {
+          "name": "capstone-branch-and-edit-intent",
+          "type": "code",
+          "script": "Lines one through nine add VLAN three fifty to intended slash vlans dot yaml in netops_iac_lab — course two Git pattern. Line ten commits on feature branch feature-vlan-350. Line eleven runs secure validation from ops repo before push. Line twelve pushes branch. This intent change is what triggers the deploy stage after merge.",
+          "title": "Step 2: Branch and Edit Intent",
+          "code": "cd ../netops_iac_lab\ngit checkout -b feature-vlan-350\ncat >> intended/vlans.yaml << 'EOF'\n  - id: 350\n    name: OPS_CAPSTONE\nEOF\npython ../netops_ops_lab/scripts/validate_intent_secure.py intended/vlans.yaml\ngit add intended/vlans.yaml\ngit commit -m \"Add VLAN 350 for course 3 capstone\"\ngit push origin feature-vlan-350",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "capstone-local-prevalidation",
+          "type": "code",
+          "script": "Same checks GitLab prevalidation will run — module two pipeline plus module four secure validation. Line one yamllints intended folder. Line two runs validate_intent_secure dot py. Line three ansible-playbook check mode. Line four optional compose smoke if docker folder exists from course two module three. Fix errors before opening merge request.",
+          "title": "Step 3: Local Prevalidation",
+          "code": "yamllint intended/\npython ../netops_ops_lab/scripts/validate_intent_secure.py intended/vlans.yaml\nansible-playbook playbooks/deploy_vlans.yml --check --diff",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "capstone-merge-and-deploy",
+          "type": "code",
+          "script": "Lines one through five squash merge feature-vlan-350 to main and push — triggers GitLab pipeline deploy stage from course two. Line six runs deploy locally with REQUEST_ID for labs without GitLab runner — logs to netops_ops_lab. Line seven tees JSON logs for module two correlation. Watch GitLab UI for build, prevalidation, deploy, post-validation if using CI.",
+          "title": "Step 4: Merge and Deploy",
+          "code": "git checkout main && git pull origin main\ngit merge --squash feature-vlan-350\ngit commit -m \"Add VLAN 350 intent (course 3 capstone)\"\ngit push origin main\nexport REQUEST_ID=chg-capstone\ncd ../netops_ops_lab\nREQUEST_ID=chg-capstone ansible-playbook ../netops_iac_lab/playbooks/deploy_vlans.yml 2>&1 | tee logs/deploy.json",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/ + netops_ops_lab/"
+        },
+        {
+          "name": "capstone-verify-telemetry-and-logs",
+          "type": "code",
+          "script": "Pillar one and two — telemetry still up, logs correlated. Line one queries Prometheus for interface metrics. Line two greps deploy JSON for chg-capstone. Line three greps syslog for the same id. Line four sends syslog note that deploy stage completed — simulates device-side event during change window.",
+          "title": "Step 5: Telemetry and Logs",
+          "code": "curl -s 'http://localhost:9090/api/v1/query?query=if_in_octets' | jq '.data.result | length'\ngrep chg-capstone logs/deploy.json\ngrep chg-capstone logs/messages 2>/dev/null || grep chg-capstone logs/syslog\nlogger -n 127.0.0.1 -P 514 -t capstone \"request_id=chg-capstone deploy stage complete\"",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/"
+        },
+        {
+          "name": "capstone-pyats-post-validation",
+          "type": "code",
+          "script": "Pillar three — exam three point four gate. Line one exports lab password from env. Line two runs pyats run job with archive under logs slash pyats. Line three prints exit code — zero required to proceed. Update validate_vlans dot py assertion if your lab uses VLAN three fifty instead of one hundred for the capstone check.",
+          "title": "Step 6: pyATS Post-Validation",
+          "code": "export LAB_SSH_PASSWORD=\"${LAB_SSH_PASSWORD}\"\nexport REQUEST_ID=chg-capstone\npyats run job pyats/jobs/validate_vlans.py \\\n  --testbed pyats/testbed.yaml \\\n  --archive-dir logs/pyats/\necho \"pyats exit: $?\"",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/"
+        },
+        {
+          "name": "capstone-https-webhook-notify",
+          "type": "code",
+          "script": "Pillar four — secure notification. Line one posts pipeline success to HTTPS webhook with X-Gitlab-Token — module four authentication. Line two verifies handler printed JSON with build_status success. Configure GitLab project webhook URL to https colon slash slash your-runner colon eight four four three slash hook for real pipelines — upload tls slash ca-cert dot pem for SSL verification in GitLab settings.",
+          "title": "Step 7: HTTPS Webhook Close",
+          "code": "curl -sk -X POST https://localhost:8443/hook \\\n  -H 'Content-Type: application/json' \\\n  -H 'X-Gitlab-Token: lab-token' \\\n  -d '{\"object_kind\":\"pipeline\",\"build_status\":\"success\",\"request_id\":\"chg-capstone\"}'\n# handler terminal should print: {\"kind\":\"pipeline\",\"status\":\"success\",...}",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/"
+        },
+        {
+          "name": "capstone-simulate-validation-failure",
+          "type": "code",
+          "script": "Optional drill — exam three point three and four together. Line one runs deploy with SIMULATE_FAILURE so logs show ERROR. Line two pyats should still run — may fail assertion if device state wrong. Line three demonstrates rollback from module three — revert intent and re-deploy. Line four re-run pyats — must pass after rollback. Treat as RCA practice not required for first pass.",
+          "title": "Drill: Fail, Rollback, Re-Validate",
+          "code": "export REQUEST_ID=chg-capstone-fail\nSIMULATE_FAILURE=1 python scripts/run_deploy.py 2>&1 | tee logs/deploy-fail.json\ngit -C ../netops_iac_lab checkout main -- intended/vlans.yaml\nREQUEST_ID=chg-capstone-fail ansible-playbook ../netops_iac_lab/playbooks/deploy_vlans.yml\npyats run job pyats/jobs/validate_vlans.py --testbed pyats/testbed.yaml",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/"
+        },
+        {
+          "name": "capstone-final-verification",
+          "type": "code",
+          "script": "Line one confirms VLAN three fifty in intent file. Line two greps rendered or deploy log for OPS_CAPSTONE or id three fifty. Line three confirms pyats archive exists for chg-capstone run. Line four tags ops capstone complete — optional. You walked telemetry, logging, pyATS validation, and TLS webhook on one change covering objectives three point one through three point six.",
+          "title": "Confirm Capstone Complete",
+          "code": "grep -E \"350|OPS_CAPSTONE\" ../netops_iac_lab/intended/vlans.yaml\ngrep chg-capstone logs/deploy.json\nls logs/pyats/\ngit -C ../netops_iac_lab tag -a course3-capstone -m \"Course 3 zero-touch ops complete\"",
+          "language": "bash",
+          "codeContext": "netops_ops_lab/ + netops_iac_lab/"
+        },
+        {
+          "name": "course-three-objectives-complete",
+          "type": "content-single",
+          "script": "Course three capstone maps AUTOCOR network operations objectives three point one through three point six in one zero-touch story. Three point one — telemetry stream monitored during change. Three point two and three point three — logging and diagnosis with request_id. Three point four — pyATS post-change validation. Three point five and three point six — TLS webhook and secure secrets in CI. You ran them across netops_ops_lab and netops_iac_lab — not as separate demos. The CCNP AUTOCOR track continues beyond section three in your certification path.",
+          "title": "Course Three Objectives Complete",
+          "points": [
+            "Course three capstone maps AUTOCOR network operations objectives three",
+            "Three point two and three point three",
+            "Request_id"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module05/course-three-objectives-complete.svg"
+        },
+        {
+          "name": "ops-capstone-complete",
+          "type": "story-beat",
+          "script": "You started course three asking how to know the network is healthy after automation deploys. You finish with streaming telemetry, correlated syslog and JSON logs, pyATS proof that VLAN intent landed, TLS-protected webhooks, and secrets kept out of Git — wired into one merge-to-validate pipeline. That is secure zero-touch network operations for the AUTOCOR section three story. Keep netops_ops_lab beside netops_iac_lab as your reference pair. Observe first, validate before close, secure every transport.",
+          "beat": "resolution",
+          "title": "Network Operations — Complete",
+          "points": [
+            "You started course three asking how to know",
+            "You finish with streaming",
+            "Telemetry correlated syslog and JSON logs"
+          ],
+          "imageSrc": "assets/network-operations-automated-networks/module05/ops-capstone-complete.svg"
+        }
+      ]
+    }
+  ]
+}

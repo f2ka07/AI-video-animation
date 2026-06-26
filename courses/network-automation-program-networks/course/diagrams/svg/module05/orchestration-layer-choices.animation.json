@@ -1,0 +1,32 @@
+{
+  "diagram": "orchestration-layer-choices.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-apply-side"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-apply-side"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-apply-side",
+        "viz-verify-side"
+      ],
+      "dim": [
+        "viz-apply-side"
+      ],
+      "highlight": [
+        "viz-verify-side"
+      ]
+    }
+  ]
+}

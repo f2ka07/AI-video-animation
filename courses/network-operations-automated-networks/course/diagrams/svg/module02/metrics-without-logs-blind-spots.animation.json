@@ -1,0 +1,49 @@
+{
+  "diagram": "metrics-without-logs-blind-spots.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-metrics"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-metrics"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-metrics",
+        "viz-blind"
+      ],
+      "dim": [
+        "viz-metrics"
+      ],
+      "highlight": [
+        "viz-blind"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-metrics",
+        "viz-blind",
+        "viz-objective"
+      ],
+      "dim": [
+        "viz-metrics",
+        "viz-blind"
+      ],
+      "highlight": [
+        "viz-objective"
+      ]
+    }
+  ]
+}

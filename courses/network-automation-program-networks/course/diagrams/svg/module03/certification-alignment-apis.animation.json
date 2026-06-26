@@ -1,0 +1,112 @@
+{
+  "diagram": "certification-alignment-apis.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-badge"
+      ]
+    },
+    {
+      "start": 2,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge",
+        "viz-yang"
+      ],
+      "dim": [
+        "viz-badge"
+      ],
+      "highlight": [
+        "viz-yang"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge",
+        "viz-yang",
+        "viz-http"
+      ],
+      "dim": [
+        "viz-badge",
+        "viz-yang"
+      ],
+      "highlight": [
+        "viz-http"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge",
+        "viz-yang",
+        "viz-http",
+        "viz-auth"
+      ],
+      "dim": [
+        "viz-badge",
+        "viz-yang",
+        "viz-http"
+      ],
+      "highlight": [
+        "viz-auth"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge",
+        "viz-yang",
+        "viz-http",
+        "viz-auth",
+        "viz-page"
+      ],
+      "dim": [
+        "viz-badge",
+        "viz-yang",
+        "viz-http",
+        "viz-auth"
+      ],
+      "highlight": [
+        "viz-page"
+      ]
+    },
+    {
+      "start": 10,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-badge",
+        "viz-yang",
+        "viz-http",
+        "viz-auth",
+        "viz-page",
+        "viz-skill"
+      ],
+      "dim": [
+        "viz-badge",
+        "viz-yang",
+        "viz-http",
+        "viz-auth",
+        "viz-page"
+      ],
+      "highlight": [
+        "viz-skill"
+      ]
+    }
+  ]
+}

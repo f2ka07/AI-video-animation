@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="YANG plain language">
+  <rect width="800" height="900" fill="#071525"/>
+  <text x="40" y="52" fill="#f59e0b" font-family="Inter,sans-serif" font-size="13" font-weight="800" letter-spacing=".16em">YANG</text>
+  <text x="40" y="96" fill="#fff" font-family="Inter,sans-serif" font-size="28" font-weight="800">Tree structure</text>
+  <g transform="translate(400 400)">
+    <rect x="-240" y="-100" width="480" height="200" rx="14" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+    <text x="-200" y="-50" fill="#fcd34d" font-family="monospace" font-size="14">container vlans</text>
+    <text x="-180" y="-15" fill="#94a3b8" font-family="monospace" font-size="13">  list vlan [key id]</text>
+    <text x="-160" y="20" fill="#64748b" font-family="monospace" font-size="13">    leaf id</text>
+    <text x="-160" y="55" fill="#64748b" font-family="monospace" font-size="13">    leaf name</text>
+  </g>
+</svg>

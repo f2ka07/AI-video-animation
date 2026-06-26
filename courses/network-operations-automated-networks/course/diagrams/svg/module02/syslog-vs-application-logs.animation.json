@@ -1,0 +1,32 @@
+{
+  "diagram": "syslog-vs-application-logs.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-syslog"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-syslog"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-syslog",
+        "viz-app"
+      ],
+      "dim": [
+        "viz-syslog"
+      ],
+      "highlight": [
+        "viz-app"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "diagram": "toolchains-beyond-single-scripts.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-scripts"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-scripts"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-scripts",
+        "viz-toolchain"
+      ],
+      "dim": [
+        "viz-scripts"
+      ],
+      "highlight": [
+        "viz-toolchain"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-scripts",
+        "viz-toolchain",
+        "viz-fleet"
+      ],
+      "dim": [
+        "viz-scripts",
+        "viz-toolchain"
+      ],
+      "highlight": [
+        "viz-fleet"
+      ]
+    }
+  ]
+}

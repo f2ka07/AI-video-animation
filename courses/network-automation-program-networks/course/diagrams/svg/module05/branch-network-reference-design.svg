@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Branch reference design">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+
+    <text x="360" y="72" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Branch office</text>
+    <line x1="248" y1="148" x2="472" y2="148" stroke="#35536f" stroke-width="2" stroke-dasharray="6 4"/>
+
+    <g id="viz-sw1">
+      <rect x="152" y="108" width="96" height="60" rx="10" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+      <path d="M176 148h48M200 128v40" stroke="#12b5e5" stroke-width="2" stroke-linecap="round"/>
+      <text x="200" y="188" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">branch-sw1</text>
+      <text x="200" y="204" fill="#64748b" font-family="monospace" font-size="10" text-anchor="middle">192.168.1.10</text>
+    </g>
+
+    <g id="viz-sw2">
+      <rect x="472" y="108" width="96" height="60" rx="10" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+      <path d="M496 148h48M520 128v40" stroke="#12b5e5" stroke-width="2" stroke-linecap="round"/>
+      <text x="520" y="188" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">branch-sw2</text>
+      <text x="520" y="204" fill="#64748b" font-family="monospace" font-size="10" text-anchor="middle">192.168.1.11</text>
+    </g>
+
+    <line x1="360" y1="214" x2="360" y2="252" stroke="#35536f" stroke-width="2" stroke-linecap="round"/>
+    <rect x="200" y="252" width="320" height="40" rx="10" fill="#0b2237" stroke="#35536f" stroke-width="1"/>
+    <text x="360" y="277" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">branch_site.yml applies the same four tasks to both switches</text>
+
+    <g id="viz-vlan">
+      <rect x="120" y="312" width="480" height="56" rx="12" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+      <rect x="120" y="312" width="6" height="56" rx="3" fill="#12b5e5"/>
+      <text x="156" y="336" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800">VLAN 100</text>
+      <text x="156" y="354" fill="#9fb3c8" font-family="monospace" font-size="10">name DATA_VLAN</text>
+    </g>
+
+    <g id="viz-port">
+      <rect x="120" y="384" width="480" height="56" rx="12" fill="#081827" stroke="#6CC04A" stroke-width="2"/>
+      <rect x="120" y="384" width="6" height="56" rx="3" fill="#6CC04A"/>
+      <text x="156" y="408" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800">Gi1/0/1</text>
+      <text x="156" y="426" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10">access port in VLAN 100</text>
+    </g>
+
+    <g id="viz-ospf">
+      <rect x="120" y="456" width="480" height="56" rx="12" fill="#081827" stroke="#f59e0b" stroke-width="2"/>
+      <rect x="120" y="456" width="6" height="56" rx="3" fill="#f59e0b"/>
+      <text x="156" y="480" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800">OSPF process 1</text>
+      <text x="156" y="498" fill="#9fb3c8" font-family="monospace" font-size="10">area 0 · network 10.1.1.0/24</text>
+    </g>
+
+    <g id="viz-acl">
+      <rect x="120" y="528" width="480" height="56" rx="12" fill="#081827" stroke="#ef4444" stroke-width="2"/>
+      <rect x="120" y="528" width="6" height="56" rx="3" fill="#ef4444"/>
+      <text x="156" y="552" fill="#ef4444" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800">BLOCK_TELNET</text>
+      <text x="156" y="570" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10">extended ACL · deny TCP port 23</text>
+    </g>
+
+    <text x="360" y="612" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">Standard CCNA work — replace IPs and interface names for your lab</text>
+  </g>
+</svg>

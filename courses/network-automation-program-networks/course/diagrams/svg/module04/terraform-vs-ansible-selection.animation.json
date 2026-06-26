@@ -1,0 +1,89 @@
+{
+  "diagram": "terraform-vs-ansible-selection.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-tf-layer"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-tf-layer"
+      ]
+    },
+    {
+      "start": 2.4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-tf-layer",
+        "viz-cloud"
+      ],
+      "dim": [
+        "viz-tf-layer"
+      ],
+      "highlight": [
+        "viz-cloud"
+      ]
+    },
+    {
+      "start": 4.8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-tf-layer",
+        "viz-cloud",
+        "viz-divider"
+      ],
+      "dim": [
+        "viz-tf-layer",
+        "viz-cloud"
+      ],
+      "highlight": [
+        "viz-divider"
+      ]
+    },
+    {
+      "start": 7.199999999999999,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-tf-layer",
+        "viz-cloud",
+        "viz-divider",
+        "viz-ansible-layer"
+      ],
+      "dim": [
+        "viz-tf-layer",
+        "viz-cloud",
+        "viz-divider"
+      ],
+      "highlight": [
+        "viz-ansible-layer"
+      ]
+    },
+    {
+      "start": 9.6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-tf-layer",
+        "viz-cloud",
+        "viz-divider",
+        "viz-ansible-layer",
+        "viz-combo"
+      ],
+      "dim": [
+        "viz-tf-layer",
+        "viz-cloud",
+        "viz-divider",
+        "viz-ansible-layer"
+      ],
+      "highlight": [
+        "viz-combo"
+      ]
+    }
+  ]
+}

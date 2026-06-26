@@ -1,0 +1,32 @@
+{
+  "diagram": "agentless-vs-controller.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-agentless"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-agentless"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-agentless",
+        "viz-controller"
+      ],
+      "dim": [
+        "viz-agentless"
+      ],
+      "highlight": [
+        "viz-controller"
+      ]
+    }
+  ]
+}

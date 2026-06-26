@@ -1,0 +1,68 @@
+{
+  "diagram": "why-ansible-for-networks.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-inventory"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-inventory"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-inventory",
+        "viz-playbook"
+      ],
+      "dim": [
+        "viz-inventory"
+      ],
+      "highlight": [
+        "viz-playbook"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-inventory",
+        "viz-playbook",
+        "viz-modules"
+      ],
+      "dim": [
+        "viz-inventory",
+        "viz-playbook"
+      ],
+      "highlight": [
+        "viz-modules"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-inventory",
+        "viz-playbook",
+        "viz-modules",
+        "viz-agentless"
+      ],
+      "dim": [
+        "viz-inventory",
+        "viz-playbook",
+        "viz-modules"
+      ],
+      "highlight": [
+        "viz-agentless"
+      ]
+    }
+  ]
+}

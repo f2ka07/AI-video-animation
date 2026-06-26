@@ -1,0 +1,89 @@
+{
+  "diagram": "toolchains-ready-capstone-next.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-git"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-git"
+      ]
+    },
+    {
+      "start": 2.4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-git",
+        "viz-ansible"
+      ],
+      "dim": [
+        "viz-git"
+      ],
+      "highlight": [
+        "viz-ansible"
+      ]
+    },
+    {
+      "start": 4.8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-git",
+        "viz-ansible",
+        "viz-api"
+      ],
+      "dim": [
+        "viz-git",
+        "viz-ansible"
+      ],
+      "highlight": [
+        "viz-api"
+      ]
+    },
+    {
+      "start": 7.199999999999999,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-git",
+        "viz-ansible",
+        "viz-api",
+        "viz-cap"
+      ],
+      "dim": [
+        "viz-git",
+        "viz-ansible",
+        "viz-api"
+      ],
+      "highlight": [
+        "viz-cap"
+      ]
+    },
+    {
+      "start": 9.6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-git",
+        "viz-ansible",
+        "viz-api",
+        "viz-cap",
+        "viz-habits"
+      ],
+      "dim": [
+        "viz-git",
+        "viz-ansible",
+        "viz-api",
+        "viz-cap"
+      ],
+      "highlight": [
+        "viz-habits"
+      ]
+    }
+  ]
+}

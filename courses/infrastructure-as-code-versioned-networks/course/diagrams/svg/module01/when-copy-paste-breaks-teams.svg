@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="What breaks without version control">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+
+    <line id="viz-divider" x1="360" y1="88" x2="360" y2="500" stroke="#35536f" stroke-width="2"/>
+    <text x="360" y="300" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="700" text-anchor="middle">vs</text>
+
+    <g id="viz-without">
+      <text x="196" y="88" fill="#ef4444" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Without version control</text>
+      <rect x="56" y="108" width="280" height="72" rx="12" fill="#1a1215" stroke="#ef4444" stroke-width="2"/>
+      <text x="76" y="136" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10">Email: config snippet attached</text>
+      <text x="76" y="158" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10">Copy-paste into switches</text>
+      <rect x="56" y="196" width="280" height="88" rx="12" fill="#081827" stroke="#f59e0b" stroke-width="2"/>
+      <text x="76" y="224" fill="#f8fafc" font-family="monospace" font-size="10">switch-final.yaml</text>
+      <text x="76" y="244" fill="#f8fafc" font-family="monospace" font-size="10">switch-final-v2.yaml</text>
+      <text x="76" y="264" fill="#f59e0b" font-family="monospace" font-size="10">switch-final-v3.yaml</text>
+      <rect x="56" y="300" width="280" height="88" rx="12" fill="#081827" stroke="#35536f" stroke-width="1.5"/>
+      <text x="76" y="328" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10">Deployed where?</text>
+      <text x="76" y="350" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10">Who changed the OSPF line?</text>
+      <text x="76" y="372" fill="#ef4444" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700">Undo = hand-edit files</text>
+    </g>
+
+    <g id="viz-with-git">
+      <text x="524" y="88" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">With Git</text>
+      <rect x="384" y="108" width="280" height="280" rx="12" fill="#112115" stroke="#6CC04A" stroke-width="2"/>
+      <text x="404" y="136" fill="#6CC04A" font-family="monospace" font-size="10">git log --oneline</text>
+      <line x1="404" y1="152" x2="644" y2="152" stroke="#35536f" stroke-width="1"/>
+      <circle cx="420" cy="176" r="5" fill="#6CC04A"/>
+      <text x="436" y="180" fill="#f8fafc" font-family="monospace" font-size="10">c4a91e Add VLAN 100 to branch</text>
+      <circle cx="420" cy="208" r="5" fill="#12b5e5"/>
+      <text x="436" y="212" fill="#f8fafc" font-family="monospace" font-size="10">b2d803 Fix OSPF network stmt</text>
+      <circle cx="420" cy="240" r="5" fill="#a78bfa"/>
+      <text x="436" y="244" fill="#f8fafc" font-family="monospace" font-size="10">9f1c22 Merge feature/vlan</text>
+      <circle cx="420" cy="272" r="5" fill="#f59e0b"/>
+      <text x="436" y="276" fill="#f8fafc" font-family="monospace" font-size="10">7e0aa1 Revert bad ACL commit</text>
+      <text x="524" y="318" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">Labeled snapshots</text>
+      <text x="524" y="338" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">Compare · merge · revert</text>
+      <text x="524" y="368" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">Foundation for CI/CD</text>
+    </g>
+
+    <g id="viz-cap">
+      <rect x="120" y="420" width="480" height="56" rx="12" fill="#0b2237" stroke="#12b5e5" stroke-width="1.5"/>
+      <text x="360" y="446" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">Git commits are save points you can trust</text>
+      <text x="360" y="466" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">The lab stores VLAN YAML in Git and walks every command on screen</text>
+    </g>
+  </g>
+</svg>

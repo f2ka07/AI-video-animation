@@ -1,0 +1,17 @@
+{
+  "diagram": "what-mcp-means-plain-language.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-contract"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-contract"
+      ]
+    }
+  ]
+}

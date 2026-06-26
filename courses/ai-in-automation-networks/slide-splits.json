@@ -1,0 +1,3555 @@
+{
+  "_comment": "Auto-bootstrapped from content + audio durations. Run derive-boundaries-from-script after timings.",
+  "ai-coding-workflows-plain-language": {
+    "splitAt": [
+      12.4,
+      24.79
+    ],
+    "segments": [
+      {
+        "points": [
+          "Before we open a model",
+          "You describe the task and constraints in a structured",
+          "Platform idempotency forbidden"
+        ],
+        "keyWords": [
+          [
+            "open",
+            "model"
+          ],
+          [
+            "ai",
+            "describe",
+            "task",
+            "constraints"
+          ],
+          [
+            "platform",
+            "idempotency",
+            "forbidden"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 1.57
+          },
+          {
+            "start": 2.05,
+            "end": 9.22
+          },
+          {
+            "start": 10.75,
+            "end": 12.51
+          }
+        ]
+      },
+      {
+        "points": [
+          "The model returns a draft A human engineer reads",
+          "Only after that review do"
+        ],
+        "keyWords": [
+          [
+            "model",
+            "returns",
+            "draft",
+            "human"
+          ],
+          [
+            "review"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 12.51,
+            "end": 20.91
+          },
+          {
+            "start": 21.57,
+            "end": 24.68
+          }
+        ]
+      },
+      {
+        "points": [
+          "Treat those steps as non — optional Skipping review",
+          "YAML reaches production and breaks"
+        ],
+        "keyWords": [
+          [
+            "Treat",
+            "steps",
+            "non-optional",
+            "Skipping"
+          ],
+          [
+            "YAML",
+            "reaches",
+            "production",
+            "breaks"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 25.959999,
+            "end": 33.290001
+          },
+          {
+            "start": 34.049999,
+            "end": 36.950001
+          }
+        ]
+      }
+    ]
+  },
+  "benefits-of-ai-assisted-coding": {
+    "splitAt": [
+      11.75,
+      23.5
+    ],
+    "segments": [
+      {
+        "points": [
+          "Used well a model is a fast first pair",
+          "It can draft the repetitive skeleton",
+          "VLAN playbook suggest Ansible task structure"
+        ],
+        "keyWords": [
+          [
+            "ai",
+            "well",
+            "model",
+            "fast"
+          ],
+          [
+            "draft",
+            "repetitive",
+            "skeleton"
+          ],
+          [
+            "VLAN",
+            "playbook",
+            "suggest",
+            "Ansible"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.13,
+            "end": 4.81
+          },
+          {
+            "start": 5.32,
+            "end": 7.78
+          },
+          {
+            "start": 9.18,
+            "end": 11.96
+          }
+        ]
+      },
+      {
+        "points": [
+          "You are new to a module or translate between",
+          "JSON intent and YAML",
+          "You are tired of indentation errors None of",
+          "That removes"
+        ],
+        "keyWords": [
+          [
+            "new",
+            "module",
+            "translate"
+          ],
+          [
+            "JSON",
+            "intent",
+            "YAML"
+          ],
+          [
+            "tired",
+            "indentation",
+            "errors",
+            "None"
+          ],
+          [
+            "removes"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 12.04,
+            "end": 15.51
+          },
+          {
+            "start": 16.09,
+            "end": 17.16
+          },
+          {
+            "start": 17.959999,
+            "end": 21.73
+          },
+          {
+            "start": 22.290001,
+            "end": 23.49
+          }
+        ]
+      },
+      {
+        "points": [
+          "The VLAN numbers",
+          "The target devices still must come from inventory AI"
+        ],
+        "keyWords": [
+          [
+            "VLAN",
+            "numbers"
+          ],
+          [
+            "AI",
+            "target",
+            "devices",
+            "still"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 23.639999,
+            "end": 26.129999
+          },
+          {
+            "start": 26.700001,
+            "end": 35.07
+          }
+        ]
+      }
+    ]
+  },
+  "risks-privacy-ip-ownership": {
+    "splitAt": [
+      13.25,
+      26.5
+    ],
+    "segments": [
+      {
+        "points": [
+          "Speed without guardrails creates exposure you may not see",
+          "CCNA lab Pasting a production running — config",
+          "VPN details or credentials in comments Your"
+        ],
+        "keyWords": [
+          [
+            "Speed",
+            "creates",
+            "exposure",
+            "without"
+          ],
+          [
+            "CCNA",
+            "lab",
+            "Pasting",
+            "production"
+          ],
+          [
+            "VPN",
+            "details",
+            "credentials",
+            "comments"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.09,
+            "end": 3.36
+          },
+          {
+            "start": 3.99,
+            "end": 9.02
+          },
+          {
+            "start": 9.52,
+            "end": 13.61
+          }
+        ]
+      },
+      {
+        "points": [
+          "Employer may have rules about who owns generated code",
+          "Models also invent APIs that sound"
+        ],
+        "keyWords": [
+          [
+            "employer",
+            "rules",
+            "about",
+            "owns"
+          ],
+          [
+            "Models",
+            "also",
+            "invent",
+            "APIs"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.91,
+            "end": 19.450001
+          },
+          {
+            "start": 20.059999,
+            "end": 26.469999
+          }
+        ]
+      },
+      {
+        "points": [
+          "The fix is the same",
+          "Discipline you already practice validate before merge",
+          "Correctness"
+        ],
+        "keyWords": [
+          [
+            "fix"
+          ],
+          [
+            "discipline",
+            "already",
+            "practice",
+            "validate"
+          ],
+          [
+            "correctness"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 26.780001,
+            "end": 32.439999
+          },
+          {
+            "start": 33.73,
+            "end": 37.209999
+          },
+          {
+            "start": 37.66,
+            "end": 39.43
+          }
+        ]
+      }
+    ]
+  },
+  "code-validation-after-generation": {
+    "splitAt": [
+      12.08,
+      24.15
+    ],
+    "segments": [
+      {
+        "points": [
+          "Here is the habit that separates a demo",
+          "Run the same gates on AI output",
+          "That you run on human — written playbooks",
+          "Ansible — lint"
+        ],
+        "keyWords": [
+          [
+            "Here",
+            "habit",
+            "separates",
+            "demo"
+          ],
+          [
+            "Run",
+            "gates",
+            "AI",
+            "output"
+          ],
+          [
+            "run",
+            "human-written",
+            "playbooks"
+          ],
+          [
+            "ansible-lint"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.1,
+            "end": 4.58
+          },
+          {
+            "start": 5.11,
+            "end": 7.8
+          },
+          {
+            "start": 8.29,
+            "end": 10.09
+          },
+          {
+            "start": 11.47,
+            "end": 12.13
+          }
+        ]
+      },
+      {
+        "points": [
+          "Yamllint schema checks on intent files",
+          "Store the prompt and the generated file"
+        ],
+        "keyWords": [
+          [
+            "yamllint",
+            "schema",
+            "checks",
+            "intent"
+          ],
+          [
+            "Store",
+            "prompt",
+            "generated",
+            "file"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.36,
+            "end": 16.41
+          },
+          {
+            "start": 17.5,
+            "end": 24.52
+          }
+        ]
+      },
+      {
+        "points": [
+          "If check mode fails you re — prompt",
+          "YAML just to make the pipeline green"
+        ],
+        "keyWords": [
+          [
+            "If",
+            "check",
+            "mode",
+            "fails"
+          ],
+          [
+            "YAML",
+            "make",
+            "pipeline",
+            "green"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 24.52,
+            "end": 33.290001
+          },
+          {
+            "start": 34.169998,
+            "end": 36
+          }
+        ]
+      }
+    ]
+  },
+  "security-risks-ai-automation": {
+    "splitAt": [
+      11.87,
+      23.74
+    ],
+    "segments": [
+      {
+        "points": [
+          "New attack surfaces appear when models and tools enter",
+          "Prompt injection tries to override your instructions inside user",
+          "Over — privileged tools let an assistant"
+        ],
+        "keyWords": [
+          [
+            "New",
+            "attack",
+            "surfaces",
+            "appear"
+          ],
+          [
+            "Prompt",
+            "injection",
+            "tries",
+            "override"
+          ],
+          [
+            "Over-privileged",
+            "tools",
+            "let",
+            "assistant"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.13,
+            "end": 4.13
+          },
+          {
+            "start": 4.63,
+            "end": 8.62
+          },
+          {
+            "start": 9.18,
+            "end": 11.93
+          }
+        ]
+      },
+      {
+        "points": [
+          "Sensitive context sent to the wrong",
+          "Generated scripts sometimes disable TLS verification"
+        ],
+        "keyWords": [
+          [
+            "Sensitive",
+            "context",
+            "sent",
+            "wrong"
+          ],
+          [
+            "Generated",
+            "scripts",
+            "sometimes",
+            "disable"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 11.93,
+            "end": 16.719999
+          },
+          {
+            "start": 17.35,
+            "end": 23.92
+          }
+        ]
+      },
+      {
+        "points": [
+          "API keys because the model pattern — matched insecure",
+          "New attack surfaces appear when models and tools enter",
+          "Prompt injection tries to override your instructions inside user",
+          "Over — privileged tools let an assistant push configuration"
+        ],
+        "keyWords": [
+          [
+            "API",
+            "keys",
+            "because",
+            "model"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 23.92,
+            "end": 35.439999
+          }
+        ]
+      }
+    ]
+  },
+  "governance-for-ai-automation": {
+    "splitAt": [
+      8.95,
+      17.89
+    ],
+    "segments": [
+      {
+        "points": [
+          "Governance is how policy survives contact with a busy",
+          "Publish which models and endpoints are approved, which data",
+          "Align that with secret management from course three —",
+          "The assistant is a power tool; your change process"
+        ],
+        "keyWords": [
+          [
+            "Governance",
+            "policy",
+            "survives",
+            "contact"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.1,
+            "end": 9.12
+          }
+        ]
+      },
+      {
+        "points": [
+          "Align that with secret management from course three —",
+          "Governance is how policy survives contact with a busy",
+          "Publish which models and endpoints are approved, which data",
+          "The assistant is a power tool; your change process"
+        ],
+        "keyWords": [
+          [
+            "Align",
+            "secret",
+            "management",
+            "course"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 9.12,
+            "end": 18.34
+          }
+        ]
+      },
+      {
+        "points": [
+          "The assistant is a power tool your change process",
+          "Governance is how policy survives contact with a busy",
+          "Publish which models and endpoints are approved, which data",
+          "Align that with secret management from course three —"
+        ],
+        "keyWords": [
+          [
+            "assistant",
+            "power",
+            "tool",
+            "your"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 18.34,
+            "end": 26.76
+          }
+        ]
+      }
+    ]
+  },
+  "story-beat-recap-ai-assisted": {
+    "splitAt": [
+      9.86,
+      19.71
+    ],
+    "segments": [
+      {
+        "points": [
+          "Before the lab You have seen why teams reach",
+          "Before the lab.",
+          "Why teams reach for models, what can go wrong,",
+          "Next you will live the workflow in netops_ai_lab: write"
+        ],
+        "keyWords": [
+          [
+            "lab",
+            "Pause",
+            "seen",
+            "teams"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 9.91
+          }
+        ]
+      },
+      {
+        "points": [
+          "Next you will live the workflow",
+          "VLAN playbook"
+        ],
+        "keyWords": [
+          [
+            "Next",
+            "live",
+            "workflow"
+          ],
+          [
+            "VLAN",
+            "playbook"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 9.91,
+            "end": 13.42
+          },
+          {
+            "start": 14.33,
+            "end": 19.41
+          }
+        ]
+      },
+      {
+        "points": [
+          "Save the draft lint it and run",
+          "Use lab topology only in prompts If a step"
+        ],
+        "keyWords": [
+          [
+            "save",
+            "draft",
+            "lint",
+            "run"
+          ],
+          [
+            "lab",
+            "ai",
+            "Use",
+            "topology"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 19.77,
+            "end": 21.77
+          },
+          {
+            "start": 22.360001,
+            "end": 29.379999
+          }
+        ]
+      }
+    ]
+  },
+  "lab-setup-ai-lab": {
+    "splitAt": [
+      10.18,
+      20.37
+    ],
+    "segments": [
+      {
+        "points": [
+          "Lab portion",
+          "Today you will not touch production devices",
+          "Create netops_ai_lab beside"
+        ],
+        "keyWords": [
+          [
+            "Welcome",
+            "lab",
+            "portion"
+          ],
+          [
+            "Today",
+            "touch",
+            "production",
+            "devices"
+          ],
+          [
+            "netops_ai_lab",
+            "Create",
+            "beside"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 2.23
+          },
+          {
+            "start": 2.95,
+            "end": 6.06
+          },
+          {
+            "start": 6.55,
+            "end": 9.17
+          }
+        ]
+      },
+      {
+        "points": [
+          "IaC and ops repos with three folders prompts",
+          "Today you will not touch production devices.",
+          "Create netops_ai_lab beside your IaC and ops repos",
+          "That separation mirrors how mature teams keep untrusted drafts"
+        ],
+        "keyWords": [
+          [
+            "IaC",
+            "ops",
+            "repos",
+            "three"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 10.26,
+            "end": 20.42
+          }
+        ]
+      },
+      {
+        "points": [
+          "Separation mirrors how mature teams keep untrusted",
+          "Every command appears on screen pause when you need"
+        ],
+        "keyWords": [
+          [
+            "separation",
+            "mirrors",
+            "mature",
+            "teams"
+          ],
+          [
+            "command",
+            "appears",
+            "screen",
+            "pause"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 20.42,
+            "end": 24.049999
+          },
+          {
+            "start": 25,
+            "end": 30.41
+          }
+        ]
+      }
+    ]
+  },
+  "ai-assisted-ready-for-mcp": {
+    "splitAt": [
+      9.56,
+      19.11
+    ],
+    "segments": [
+      {
+        "points": [
+          "You now have a defensible AI drafting workflow",
+          "File generated draft lint"
+        ],
+        "keyWords": [
+          [
+            "AI",
+            "review",
+            "now",
+            "defensible"
+          ],
+          [
+            "file",
+            "generated",
+            "draft",
+            "lint"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 7.07
+          },
+          {
+            "start": 7.54,
+            "end": 9.89
+          }
+        ]
+      },
+      {
+        "points": [
+          "Results check mode output and approval",
+          "That is the foundation intelligent automation builds"
+        ],
+        "keyWords": [
+          [
+            "results",
+            "check",
+            "mode",
+            "output"
+          ],
+          [
+            "foundation",
+            "intelligent",
+            "automation",
+            "builds"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 10.21,
+            "end": 12.64
+          },
+          {
+            "start": 13.28,
+            "end": 19.139999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Tackles the next problem models have on their own",
+          "VLANs unless you give them safe read access through"
+        ],
+        "keyWords": [
+          [
+            "next",
+            "tackles",
+            "problem",
+            "models"
+          ],
+          [
+            "MCP",
+            "VLANs",
+            "unless",
+            "give"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 19.42,
+            "end": 23.73
+          },
+          {
+            "start": 24.469999,
+            "end": 27.879999
+          }
+        ]
+      }
+    ]
+  },
+  "what-mcp-means-plain-language": {
+    "splitAt": [
+      9.29,
+      18.57
+    ],
+    "segments": [
+      {
+        "points": [
+          "MCP stands for Model Context Protocol In everyday terms",
+          "MCP stands for Model Context Protocol.",
+          "In everyday terms it is a standard way",
+          "FastMCP is a Python library that turns ordinary functions"
+        ],
+        "keyWords": [
+          [
+            "MCP",
+            "stands",
+            "Model",
+            "Context"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.65,
+            "end": 9.62
+          }
+        ]
+      },
+      {
+        "points": [
+          "FastMCP is a Python library that turns ordinary functions",
+          "MCP stands for Model Context Protocol.",
+          "In everyday terms it is a standard way",
+          "You focus on what the tool should return —"
+        ],
+        "keyWords": [
+          [
+            "MCP",
+            "FastMCP",
+            "Python",
+            "library"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 9.9,
+            "end": 18.620001
+          }
+        ]
+      },
+      {
+        "points": [
+          "You focus on what the tool should",
+          "VLAN list device inventory — not on reinventing",
+          "RPC glue for every integration"
+        ],
+        "keyWords": [
+          [
+            "focus",
+            "tool"
+          ],
+          [
+            "VLAN",
+            "list",
+            "device",
+            "inventory"
+          ],
+          [
+            "RPC",
+            "glue",
+            "integration"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 18.860001,
+            "end": 21.91
+          },
+          {
+            "start": 22.42,
+            "end": 26.32
+          },
+          {
+            "start": 26.32,
+            "end": 27.76
+          }
+        ]
+      }
+    ]
+  },
+  "mcp-architecture-components": {
+    "splitAt": [
+      9.42,
+      18.83
+    ],
+    "segments": [
+      {
+        "points": [
+          "Three pieces work together The host runs the LLM",
+          "The MCP server registers tools"
+        ],
+        "keyWords": [
+          [
+            "Three",
+            "pieces",
+            "work",
+            "together"
+          ],
+          [
+            "MCP",
+            "server",
+            "registers",
+            "tools"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.09,
+            "end": 5.73
+          },
+          {
+            "start": 6.29,
+            "end": 8.83
+          }
+        ]
+      },
+      {
+        "points": [
+          "JSON the model can parse",
+          "Transport is often stdio in a lab or HTTP"
+        ],
+        "keyWords": [
+          [
+            "JSON",
+            "model",
+            "parse"
+          ],
+          [
+            "Transport",
+            "often",
+            "stdio",
+            "lab"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 9.97,
+            "end": 13.94
+          },
+          {
+            "start": 15.2,
+            "end": 18.66
+          }
+        ]
+      },
+      {
+        "points": [
+          "When each piece is clear troubleshooting is easier",
+          "The wrong tool or is the server returning bad"
+        ],
+        "keyWords": [
+          [
+            "piece",
+            "clear",
+            "troubleshooting",
+            "easier"
+          ],
+          [
+            "wrong",
+            "tool",
+            "server",
+            "returning"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 19.09,
+            "end": 24.610001
+          },
+          {
+            "start": 25.07,
+            "end": 27.940001
+          }
+        ]
+      }
+    ]
+  },
+  "tool-orchestration-patterns": {
+    "splitAt": [
+      9.09,
+      18.18
+    ],
+    "segments": [
+      {
+        "points": [
+          "Design tools the way you design",
+          "Return intent slices inventory"
+        ],
+        "keyWords": [
+          [
+            "tool",
+            "Design",
+            "tools",
+            "way"
+          ],
+          [
+            "Return",
+            "intent",
+            "slices",
+            "inventory"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 1.71
+          },
+          {
+            "start": 2.39,
+            "end": 9.43
+          }
+        ]
+      },
+      {
+        "points": [
+          "Rows or telemetry summaries as JSON",
+          "Defer push_config until module three and keep writes behind"
+        ],
+        "keyWords": [
+          [
+            "rows",
+            "telemetry",
+            "summaries",
+            "JSON"
+          ],
+          [
+            "tool",
+            "Defer",
+            "push_config",
+            "until"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 9.7,
+            "end": 12.8
+          },
+          {
+            "start": 13.51,
+            "end": 17.73
+          }
+        ]
+      },
+      {
+        "points": [
+          "Are easier to test easier to benchmark later",
+          "Design tools the way you design firewall rules: start",
+          "Return intent slices, inventory rows, or telemetry summaries",
+          "Defer push_config until module three and keep writes behind"
+        ],
+        "keyWords": [
+          [
+            "easier",
+            "test",
+            "benchmark",
+            "later"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 18.33,
+            "end": 25.76
+          }
+        ]
+      }
+    ]
+  },
+  "expose-network-data-safely": {
+    "splitAt": [
+      8.33,
+      16.66
+    ],
+    "segments": [
+      {
+        "points": [
+          "Expose the minimum data the assistant needs — not",
+          "In this lab"
+        ],
+        "keyWords": [
+          [
+            "Expose",
+            "data",
+            "minimum",
+            "assistant"
+          ],
+          [
+            "lab"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.11,
+            "end": 4.05
+          },
+          {
+            "start": 4.9,
+            "end": 8.15
+          }
+        ]
+      },
+      {
+        "points": [
+          "YAML and a simple inventory",
+          "In production"
+        ],
+        "keyWords": [
+          [
+            "YAML",
+            "simple",
+            "inventory"
+          ],
+          [
+            "production"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 9.99,
+            "end": 13.04
+          },
+          {
+            "start": 15.3,
+            "end": 16.74
+          }
+        ]
+      },
+      {
+        "points": [
+          "MCP transport rate — limit calls and log which",
+          "Expose the minimum data the assistant needs — not",
+          "In this lab, tools read netops_iac_lab",
+          "In production you authenticate MCP transport, rate — limit"
+        ],
+        "keyWords": [
+          [
+            "MCP",
+            "transport",
+            "rate-limit",
+            "calls"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.74,
+            "end": 24.870001
+          }
+        ]
+      }
+    ]
+  },
+  "story-beat-recap-mcp": {
+    "splitAt": [
+      9.13,
+      18.25
+    ],
+    "segments": [
+      {
+        "points": [
+          "You understand why MCP exists and how to expose",
+          "Next you build netops_ai_lab/mcp/server.",
+          "Py with list_vlans and get_lab_inventory.",
+          "Keep both tools read — only so the agent"
+        ],
+        "keyWords": [
+          [
+            "understand",
+            "MCP",
+            "exists",
+            "expose"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.07,
+            "end": 8.98
+          }
+        ]
+      },
+      {
+        "points": [
+          "Keep both tools read — only so the agent",
+          "You understand why MCP exists and how to expose",
+          "Next you build netops_ai_lab/mcp/server.",
+          "Py with list_vlans and get_lab_inventory."
+        ],
+        "keyWords": [
+          [
+            "Keep",
+            "tools",
+            "read-only",
+            "agent"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 10.21,
+            "end": 16.700001
+          }
+        ]
+      },
+      {
+        "points": [
+          "Three can answer questions without pushing configuration on its",
+          "You understand why MCP exists and how to expose",
+          "Next you build netops_ai_lab/mcp/server.",
+          "Py with list_vlans and get_lab_inventory."
+        ],
+        "keyWords": [
+          [
+            "three",
+            "answer",
+            "questions",
+            "without"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 18.27,
+            "end": 21.77
+          }
+        ]
+      }
+    ]
+  },
+  "lab-setup-mcp": {
+    "splitAt": [
+      7.76,
+      15.53
+    ],
+    "segments": [
+      {
+        "points": [
+          "Extend netops_ai_lab with an mcp folder serverpy",
+          "Extend netops_ai_lab with an mcp folder: server.",
+          "Py and requirements — mcp.",
+          "Use a dedicated virtualenv so MCP package versions do"
+        ],
+        "keyWords": [
+          [
+            "Extend",
+            "netops_ai_lab",
+            "mcp",
+            "folder"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.13,
+            "end": 4.71
+          }
+        ]
+      },
+      {
+        "points": [
+          "Use a dedicated virtualenv so MCP package versions do",
+          "Extend netops_ai_lab with an mcp folder: server.",
+          "Py and requirements — mcp.",
+          "Isolated environments are boring until an upgrade breaks one"
+        ],
+        "keyWords": [
+          [
+            "MCP",
+            "Use",
+            "dedicated",
+            "virtualenv"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 9.22,
+            "end": 13.99
+          }
+        ]
+      },
+      {
+        "points": [
+          "Ansible or ops tooling Isolated environments are boring until",
+          "Extend netops_ai_lab with an mcp folder: server.",
+          "Py and requirements — mcp.",
+          "Use a dedicated virtualenv so MCP package versions do"
+        ],
+        "keyWords": [
+          [
+            "Ansible",
+            "ops",
+            "tooling",
+            "Isolated"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 15.88,
+            "end": 23.059999
+          }
+        ]
+      }
+    ]
+  },
+  "mcp-ready-for-agents": {
+    "splitAt": [
+      6.79,
+      13.59
+    ],
+    "segments": [
+      {
+        "points": [
+          "Your MCP server returns real VLAN and inventory data",
+          "Module three puts a conversational layer on top so",
+          "Writes still wait for human approval — we"
+        ],
+        "keyWords": [
+          [
+            "MCP",
+            "Your",
+            "server",
+            "returns"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.16,
+            "end": 6.68
+          }
+        ]
+      },
+      {
+        "points": [
+          "Module three puts a conversational layer on top so",
+          "VLANs exist"
+        ],
+        "keyWords": [
+          [
+            "Module",
+            "three",
+            "puts",
+            "conversational"
+          ],
+          [
+            "VLANs",
+            "exist"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 6.83,
+            "end": 11.45
+          },
+          {
+            "start": 11.92,
+            "end": 13.61
+          }
+        ]
+      },
+      {
+        "points": [
+          "Python Writes still wait for human approval — we",
+          "Your MCP server returns real VLAN and inventory data",
+          "Module three puts a conversational layer on top so",
+          "Writes still wait for human approval — we"
+        ],
+        "keyWords": [
+          [
+            "Python",
+            "Writes",
+            "still",
+            "wait"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.61,
+            "end": 18.629999
+          }
+        ]
+      }
+    ]
+  },
+  "conversational-agent-plain-language": {
+    "splitAt": [
+      7.79,
+      15.59
+    ],
+    "segments": [
+      {
+        "points": [
+          "A conversational agent is not magic chat",
+          "Get_lab_inventory"
+        ],
+        "keyWords": [
+          [
+            "conversational",
+            "agent",
+            "magic",
+            "chat"
+          ],
+          [
+            "get_lab_inventory"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.09,
+            "end": 5.63
+          },
+          {
+            "start": 6.29,
+            "end": 7.44
+          }
+        ]
+      },
+      {
+        "points": [
+          "JSON to context and summarize",
+          "Write actions stay blocked until"
+        ],
+        "keyWords": [
+          [
+            "JSON",
+            "context",
+            "summarize"
+          ],
+          [
+            "Write",
+            "actions",
+            "stay",
+            "blocked"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 8.09,
+            "end": 13.08
+          },
+          {
+            "start": 13.54,
+            "end": 16.57
+          }
+        ]
+      },
+      {
+        "points": [
+          "That pattern keeps the helpful parts of natural language",
+          "A conversational agent is not magic chat.",
+          "It is orchestration: route the question, call list_vlans",
+          "Write actions stay blocked until a human types approve."
+        ],
+        "keyWords": [
+          [
+            "language",
+            "pattern",
+            "keeps",
+            "helpful"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.57,
+            "end": 23.09
+          }
+        ]
+      }
+    ]
+  },
+  "llm-orchestration-patterns": {
+    "splitAt": [
+      7.97,
+      15.95
+    ],
+    "segments": [
+      {
+        "points": [
+          "In this lab one agent loop is enough plan",
+          "MCP observe"
+        ],
+        "keyWords": [
+          [
+            "lab",
+            "one",
+            "agent",
+            "loop"
+          ],
+          [
+            "MCP",
+            "observe"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.09,
+            "end": 6.24
+          },
+          {
+            "start": 7.13,
+            "end": 8.42
+          }
+        ]
+      },
+      {
+        "points": [
+          "Larger deployments sometimes split planner",
+          "And executor roles the idea"
+        ],
+        "keyWords": [
+          [
+            "Larger",
+            "deployments",
+            "sometimes",
+            "split"
+          ],
+          [
+            "executor",
+            "roles",
+            "idea"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 8.67,
+            "end": 13.74
+          },
+          {
+            "start": 14.35,
+            "end": 16.02
+          }
+        ]
+      },
+      {
+        "points": [
+          "The model proposes steps your tool registry and approval",
+          "In this lab one agent loop is enough: plan",
+          "Larger deployments sometimes split planner and executor roles;"
+        ],
+        "keyWords": [
+          [
+            "model",
+            "proposes",
+            "steps",
+            "your"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.370001,
+            "end": 23.700001
+          }
+        ]
+      }
+    ]
+  },
+  "agent-loop-think-act-observe": {
+    "splitAt": [
+      8.86,
+      17.71
+    ],
+    "segments": [
+      {
+        "points": [
+          "Think is the model deciding the next step",
+          "Act is invoking an MCP tool with concrete arguments.",
+          "Observe is feeding tool output back into context before",
+          "Loop until you have an answer or until"
+        ],
+        "keyWords": [
+          [
+            "Think",
+            "Act",
+            "model",
+            "deciding"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.17,
+            "end": 8.12
+          }
+        ]
+      },
+      {
+        "points": [
+          "Observe is feeding tool output back into context before",
+          "Think is the model deciding the next step",
+          "Act is invoking an MCP tool with concrete arguments.",
+          "Loop until you have an answer or until"
+        ],
+        "keyWords": [
+          [
+            "Observe",
+            "feeding",
+            "tool",
+            "output"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 9.05,
+            "end": 17.889999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Have an answer or until a proposed write needs",
+          "Skipping observe is how agents answer from memory instead"
+        ],
+        "keyWords": [
+          [
+            "answer",
+            "until",
+            "proposed",
+            "write"
+          ],
+          [
+            "observe",
+            "Skipping",
+            "agents",
+            "answer"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 17.889999,
+            "end": 21.4
+          },
+          {
+            "start": 21.860001,
+            "end": 26.32
+          }
+        ]
+      }
+    ]
+  },
+  "network-operator-agent-design": {
+    "splitAt": [
+      8.19,
+      16.38
+    ],
+    "segments": [
+      {
+        "points": [
+          "Scope the agent like you scope",
+          "Allow VLAN and inventory queries"
+        ],
+        "keyWords": [
+          [
+            "Scope",
+            "agent",
+            "like"
+          ],
+          [
+            "Allow",
+            "VLAN",
+            "inventory",
+            "queries"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 2.68
+          },
+          {
+            "start": 3.29,
+            "end": 8.37
+          }
+        ]
+      },
+      {
+        "points": [
+          "Put lab topology in the system prompt so",
+          "Scope the agent like you scope a firewall policy.",
+          "Allow VLAN and inventory queries; refuse arbitrary shell commands",
+          "A narrow agent is easier to test, easier"
+        ],
+        "keyWords": [
+          [
+            "Put",
+            "lab",
+            "topology",
+            "system"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 8.37,
+            "end": 16.530001
+          }
+        ]
+      },
+      {
+        "points": [
+          "A narrow agent is easier to test easier",
+          "Scope the agent like you scope a firewall policy.",
+          "Allow VLAN and inventory queries; refuse arbitrary shell commands",
+          "Put lab topology in the system prompt so"
+        ],
+        "keyWords": [
+          [
+            "agent",
+            "narrow",
+            "easier",
+            "test"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.690001,
+            "end": 24.450001
+          }
+        ]
+      }
+    ]
+  },
+  "story-beat-recap-agents": {
+    "splitAt": [
+      7.37,
+      14.74
+    ],
+    "segments": [
+      {
+        "points": [
+          "How agents plan",
+          "Next you wire"
+        ],
+        "keyWords": [
+          [
+            "agent",
+            "seen",
+            "agents",
+            "plan"
+          ],
+          [
+            "Next",
+            "wire"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.09,
+            "end": 2.24
+          },
+          {
+            "start": 2.74,
+            "end": 7.36
+          }
+        ]
+      },
+      {
+        "points": [
+          "MCP server from module two and walk through",
+          "VLAN question a proposed change and an explicit"
+        ],
+        "keyWords": [
+          [
+            "MCP",
+            "server",
+            "module",
+            "two"
+          ],
+          [
+            "VLAN",
+            "question",
+            "proposed",
+            "change"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 7.39,
+            "end": 11.58
+          },
+          {
+            "start": 12.4,
+            "end": 14.82
+          }
+        ]
+      },
+      {
+        "points": [
+          "Keep API keys in the environment",
+          "Not in Git"
+        ],
+        "keyWords": [
+          [
+            "Keep",
+            "API",
+            "keys",
+            "environment"
+          ],
+          [
+            "Git"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.88,
+            "end": 18.219999
+          },
+          {
+            "start": 18.85,
+            "end": 19.59
+          }
+        ]
+      }
+    ]
+  },
+  "lab-setup-agent": {
+    "splitAt": [
+      7.38,
+      14.75
+    ],
+    "segments": [
+      {
+        "points": [
+          "Create netops_ai_labagent with agentpy and configyaml",
+          "Create netops_ai_lab/agent with agent.",
+          "Py and config.",
+          "Yaml for the model endpoint."
+        ],
+        "keyWords": [
+          [
+            "agent",
+            "lab",
+            "Create",
+            "netops_ai_labagent"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 7.42
+          }
+        ]
+      },
+      {
+        "points": [
+          "Secrets live in env loaded at runtime",
+          "Create netops_ai_lab/agent with agent.",
+          "Py and config.",
+          "Yaml for the model endpoint."
+        ],
+        "keyWords": [
+          [
+            "Secrets",
+            "live",
+            "env",
+            "loaded"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 9.23,
+            "end": 14.78
+          }
+        ]
+      },
+      {
+        "points": [
+          "Use an approved enterprise endpoint or a local sandbox",
+          "Create netops_ai_lab/agent with agent.",
+          "Py and config.",
+          "Yaml for the model endpoint."
+        ],
+        "keyWords": [
+          [
+            "lab",
+            "Use",
+            "approved",
+            "enterprise"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.81,
+            "end": 21.59
+          }
+        ]
+      }
+    ]
+  },
+  "agents-ready-for-evaluation": {
+    "splitAt": [
+      4.92,
+      9.84
+    ],
+    "segments": [
+      {
+        "points": [
+          "You have a conversational agent grounded",
+          "MCP with approval on writes"
+        ],
+        "keyWords": [
+          [
+            "conversational",
+            "agent",
+            "grounded"
+          ],
+          [
+            "MCP",
+            "approval",
+            "writes"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.17,
+            "end": 2.35
+          },
+          {
+            "start": 2.93,
+            "end": 5.24
+          }
+        ]
+      },
+      {
+        "points": [
+          "Remaining question is quantitative how often",
+          "Module four builds"
+        ],
+        "keyWords": [
+          [
+            "remaining",
+            "question",
+            "quantitative",
+            "often"
+          ],
+          [
+            "Module",
+            "builds"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 5.24,
+            "end": 8.06
+          },
+          {
+            "start": 8.67,
+            "end": 10.08
+          }
+        ]
+      },
+      {
+        "points": [
+          "Golden questions and a score you can track",
+          "You have a conversational agent grounded in MCP",
+          "The remaining question is quantitative: how often",
+          "Module four builds golden questions and a score"
+        ],
+        "keyWords": [
+          [
+            "golden",
+            "questions",
+            "score",
+            "track"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 10.08,
+            "end": 14.54
+          }
+        ]
+      }
+    ]
+  },
+  "why-evaluate-ai-recommendations": {
+    "splitAt": [
+      7.84,
+      15.67
+    ],
+    "segments": [
+      {
+        "points": [
+          "Operators trust tools that fail predictably",
+          "Measurably not tools that fail"
+        ],
+        "keyWords": [
+          [
+            "ai",
+            "Operators",
+            "trust",
+            "tools"
+          ],
+          [
+            "ai",
+            "measurably",
+            "tools",
+            "fail"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.17,
+            "end": 4.44
+          },
+          {
+            "start": 5.42,
+            "end": 7.99
+          }
+        ]
+      },
+      {
+        "points": [
+          "A benchmark suite turns trust into data Run",
+          "Operators trust tools that fail predictably and measurably, not",
+          "A benchmark suite turns trust into data.",
+          "Run it when you change prompts, swap models,"
+        ],
+        "keyWords": [
+          [
+            "benchmark",
+            "suite",
+            "turns",
+            "trust"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 8.07,
+            "end": 16.139999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Models or add a new",
+          "Regression should show up in scores before it shows"
+        ],
+        "keyWords": [
+          [
+            "models",
+            "add",
+            "new"
+          ],
+          [
+            "Regression",
+            "show",
+            "up",
+            "scores"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.610001,
+            "end": 17.719999
+          },
+          {
+            "start": 18.18,
+            "end": 23.290001
+          }
+        ]
+      }
+    ]
+  },
+  "hallucinations-in-network-context": {
+    "splitAt": [
+      7.01,
+      14.02
+    ],
+    "segments": [
+      {
+        "points": [
+          "In networking hallucination is not abstract —",
+          "MCP grounding reduces guesses but does not eliminate them.",
+          "Count what remains after grounding so you know whether"
+        ],
+        "keyWords": [
+          [
+            "networking",
+            "hallucination",
+            "abstract",
+            "VLAN"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 6.6
+          }
+        ]
+      },
+      {
+        "points": [
+          "IOS command",
+          "MCP grounding"
+        ],
+        "keyWords": [
+          [
+            "IOS",
+            "command"
+          ],
+          [
+            "MCP",
+            "grounding"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 7.97,
+            "end": 9.41
+          },
+          {
+            "start": 10.1,
+            "end": 14.32
+          }
+        ]
+      },
+      {
+        "points": [
+          "Count what remains after grounding so you know whether",
+          "In networking, hallucination is not abstract —",
+          "MCP grounding reduces guesses but does not eliminate them."
+        ],
+        "keyWords": [
+          [
+            "Count",
+            "remains",
+            "grounding",
+            "know"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.37,
+            "end": 20.83
+          }
+        ]
+      }
+    ]
+  },
+  "accuracy-metrics-plain-language": {
+    "splitAt": [
+      6.53,
+      13.05
+    ],
+    "segments": [
+      {
+        "points": [
+          "Start simple For structured answers check whether the VLAN",
+          "For structured answers, check whether the VLAN list",
+          "Track how often the agent calls the right tool",
+          "Optional human rubrics help judge explanation quality, but field"
+        ],
+        "keyWords": [
+          [
+            "Start",
+            "simple",
+            "structured",
+            "answers"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.17,
+            "end": 6.6
+          }
+        ]
+      },
+      {
+        "points": [
+          "Track how often the agent calls the right tool",
+          "For structured answers, check whether the VLAN list",
+          "Optional human rubrics help judge explanation quality, but field"
+        ],
+        "keyWords": [
+          [
+            "Track",
+            "often",
+            "agent",
+            "calls"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 7.18,
+            "end": 11.97
+          }
+        ]
+      },
+      {
+        "points": [
+          "Rubrics help judge explanation quality but field match",
+          "For structured answers, check whether the VLAN list",
+          "Track how often the agent calls the right tool",
+          "Optional human rubrics help judge explanation quality, but field"
+        ],
+        "keyWords": [
+          [
+            "rubrics",
+            "help",
+            "judge",
+            "explanation"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 13.34,
+            "end": 19.379999
+          }
+        ]
+      }
+    ]
+  },
+  "benchmark-dataset-design": {
+    "splitAt": [
+      7.93,
+      15.87
+    ],
+    "segments": [
+      {
+        "points": [
+          "Build ten to twenty questions from files you already",
+          "JSON Include"
+        ],
+        "keyWords": [
+          [
+            "Build",
+            "ten",
+            "twenty",
+            "questions"
+          ],
+          [
+            "JSON",
+            "Include"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.13,
+            "end": 3.69
+          },
+          {
+            "start": 5.87,
+            "end": 8.32
+          }
+        ]
+      },
+      {
+        "points": [
+          "Negative cases false premises the agent should",
+          "Refuse or questions that require a tool",
+          "Call instead of memory Version"
+        ],
+        "keyWords": [
+          [
+            "negative",
+            "cases",
+            "false",
+            "premises"
+          ],
+          [
+            "refuse",
+            "questions",
+            "require",
+            "tool"
+          ],
+          [
+            "call",
+            "instead",
+            "memory",
+            "Version"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 8.78,
+            "end": 10.9
+          },
+          {
+            "start": 11.53,
+            "end": 13.83
+          },
+          {
+            "start": 14.35,
+            "end": 16.209999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Git like any test fixture so scores are comparable",
+          "Build ten to twenty questions from files you already",
+          "Yaml, inventory JSON.",
+          "Include negative cases: false premises the agent should refuse,"
+        ],
+        "keyWords": [
+          [
+            "Git",
+            "like",
+            "any",
+            "test"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.209999,
+            "end": 21.469999
+          }
+        ]
+      }
+    ]
+  },
+  "safety-guardrails-for-agents": {
+    "splitAt": [
+      8.29,
+      16.58
+    ],
+    "segments": [
+      {
+        "points": [
+          "Guardrails are the policies you already believe enforced",
+          "Code no writes without approval refuse out — of"
+        ],
+        "keyWords": [
+          [
+            "Guardrails",
+            "policies",
+            "already",
+            "believe"
+          ],
+          [
+            "out-of-scope",
+            "scope",
+            "code",
+            "writes"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.68,
+            "end": 4.4
+          },
+          {
+            "start": 5.09,
+            "end": 8.43
+          }
+        ]
+      },
+      {
+        "points": [
+          "They connect back",
+          "TLS and secret handling"
+        ],
+        "keyWords": [
+          [
+            "connect",
+            "back"
+          ],
+          [
+            "TLS",
+            "secret",
+            "handling"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 8.47,
+            "end": 13.55
+          },
+          {
+            "start": 14.84,
+            "end": 16.82
+          }
+        ]
+      },
+      {
+        "points": [
+          "From earlier courses — intelligent automation still sits",
+          "Guardrails are the policies you already believe, enforced",
+          "They connect back to TLS and secret handling"
+        ],
+        "keyWords": [
+          [
+            "earlier",
+            "courses",
+            "intelligent",
+            "automation"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 16.99,
+            "end": 24.639999
+          }
+        ]
+      }
+    ]
+  },
+  "story-beat-recap-evaluation": {
+    "splitAt": [
+      7.03,
+      14.05
+    ],
+    "segments": [
+      {
+        "points": [
+          "You know why benchmarks matter and how to design",
+          "Next you create benchmarks/golden_qa.",
+          "Jsonl and run_eval.",
+          "Py against your agent."
+        ],
+        "keyWords": [
+          [
+            "Next",
+            "benchmark",
+            "know",
+            "benchmarks"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.09,
+            "end": 5.6
+          }
+        ]
+      },
+      {
+        "points": [
+          "And run_evalpy against your agent Treat",
+          "Failed rows as engineering work"
+        ],
+        "keyWords": [
+          [
+            "run_evalpy",
+            "against",
+            "your",
+            "agent"
+          ],
+          [
+            "failed",
+            "rows",
+            "engineering",
+            "work"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 7.05,
+            "end": 11.86
+          },
+          {
+            "start": 12.35,
+            "end": 14.61
+          }
+        ]
+      },
+      {
+        "points": [
+          "Mandatory tool calls path fixes or stronger system prompts",
+          "You know why benchmarks matter and how to design",
+          "Next you create benchmarks/golden_qa.",
+          "Jsonl and run_eval."
+        ],
+        "keyWords": [
+          [
+            "mandatory",
+            "tool",
+            "calls",
+            "path"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 15.38,
+            "end": 19.23
+          }
+        ]
+      }
+    ]
+  },
+  "lab-setup-benchmark": {
+    "splitAt": [
+      6,
+      12
+    ],
+    "segments": [
+      {
+        "points": [
+          "Add netops_ai_labbenchmarks with golden_qajsonl and run_evalpy Store",
+          "Add netops_ai_lab/benchmarks with golden_qa.",
+          "Jsonl and run_eval.",
+          "Store results under results so you can compare runs"
+        ],
+        "keyWords": [
+          [
+            "benchmark",
+            "lab",
+            "Add",
+            "netops_ai_labbenchmarks"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.12,
+            "end": 6.17
+          }
+        ]
+      },
+      {
+        "points": [
+          "Results under results so you can compare runs after",
+          "Add netops_ai_lab/benchmarks with golden_qa.",
+          "Jsonl and run_eval.",
+          "Store results under results so you can compare runs"
+        ],
+        "keyWords": [
+          [
+            "results",
+            "compare",
+            "runs",
+            "prompt"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 6.36,
+            "end": 11.49
+          }
+        ]
+      },
+      {
+        "points": [
+          "Add netops_ai_lab/benchmarks with golden_qa.",
+          "Jsonl and run_eval.",
+          "Store results under results so you can compare runs"
+        ],
+        "phraseTimes": []
+      }
+    ]
+  },
+  "evaluation-ready-for-capstone": {
+    "splitAt": [
+      4.78,
+      9.55
+    ],
+    "segments": [
+      {
+        "points": [
+          "You can score the agent against golden questions",
+          "The capstone runs the full pipeline — draft, tools,"
+        ],
+        "keyWords": [
+          [
+            "score",
+            "agent",
+            "against",
+            "golden"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 4.51
+          }
+        ]
+      },
+      {
+        "points": [
+          "The capstone runs the full pipeline — draft tools",
+          "You can score the agent against golden questions"
+        ],
+        "keyWords": [
+          [
+            "capstone",
+            "runs",
+            "full",
+            "pipeline"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 4.98,
+            "end": 9.34
+          }
+        ]
+      },
+      {
+        "points": [
+          "Conversation measurement — in one operator session you could",
+          "You can score the agent against golden questions",
+          "The capstone runs the full pipeline — draft, tools,"
+        ],
+        "keyWords": [
+          [
+            "conversation",
+            "measurement",
+            "one",
+            "operator"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 9.77,
+            "end": 14.09
+          }
+        ]
+      }
+    ]
+  },
+  "capstone-integrates-four-modules": {
+    "splitAt": [
+      8.12,
+      16.24
+    ],
+    "segments": [
+      {
+        "points": [
+          "Module one gave you reviewed AI — generated code",
+          "Two grounded answers in real intent Module",
+          "Three let operators ask"
+        ],
+        "keyWords": [
+          [
+            "Module",
+            "one",
+            "gave",
+            "reviewed"
+          ],
+          [
+            "two",
+            "grounded",
+            "answers",
+            "real"
+          ],
+          [
+            "three",
+            "let",
+            "operators",
+            "ask"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.23,
+            "end": 2.8
+          },
+          {
+            "start": 3.26,
+            "end": 6.33
+          },
+          {
+            "start": 6.78,
+            "end": 8.57
+          }
+        ]
+      },
+      {
+        "points": [
+          "Module four measures accuracy Courses",
+          "One through three still supply the IaC"
+        ],
+        "keyWords": [
+          [
+            "Module",
+            "measures",
+            "accuracy",
+            "Courses"
+          ],
+          [
+            "one",
+            "three",
+            "still",
+            "supply"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 8.57,
+            "end": 12.97
+          },
+          {
+            "start": 13.45,
+            "end": 15.98
+          }
+        ]
+      },
+      {
+        "points": [
+          "The capstone proves those pieces work together not",
+          "Module one gave you reviewed AI — generated code.",
+          "Module two grounded answers in real intent.",
+          "Module three let operators ask questions in plain language."
+        ],
+        "keyWords": [
+          [
+            "capstone",
+            "proves",
+            "pieces",
+            "work"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 17.15,
+            "end": 24.129999
+          }
+        ]
+      }
+    ]
+  },
+  "capstone-lab-layout": {
+    "splitAt": [
+      8.48,
+      16.96
+    ],
+    "segments": [
+      {
+        "points": [
+          "Know where artifacts live before you start",
+          "Netops_ai_lab holds prompts generated drafts"
+        ],
+        "keyWords": [
+          [
+            "Know",
+            "artifacts",
+            "live",
+            "start"
+          ],
+          [
+            "lab",
+            "netops_ai_lab",
+            "holds",
+            "prompts"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 2.78
+          },
+          {
+            "start": 3.8,
+            "end": 7.28
+          }
+        ]
+      },
+      {
+        "points": [
+          "Netops_iac_lab",
+          "YAML and validation scripts"
+        ],
+        "keyWords": [
+          [
+            "lab",
+            "netops_iac_lab"
+          ],
+          [
+            "YAML",
+            "validation",
+            "scripts"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 8.94,
+            "end": 12.4
+          },
+          {
+            "start": 13.16,
+            "end": 17.110001
+          }
+        ]
+      },
+      {
+        "points": [
+          "Something fails you fix the owning folder instead of",
+          "Know where artifacts live before you start.",
+          "Netops_ai_lab holds prompts, generated drafts, reviews, mcp, agent,",
+          "Netops_iac_lab and netops_ops_lab supply intent YAML and validation scripts."
+        ],
+        "keyWords": [
+          [
+            "capstone",
+            "something",
+            "fails",
+            "fix"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 17.209999,
+            "end": 20.540001
+          }
+        ]
+      }
+    ]
+  },
+  "six-steps-ai-capstone-runbook": {
+    "splitAt": [
+      7.18,
+      14.35
+    ],
+    "segments": [
+      {
+        "points": [
+          "Run six steps in order start",
+          "MCP and agent record a benchmark",
+          "Baseline ask"
+        ],
+        "keyWords": [
+          [
+            "six",
+            "steps",
+            "order",
+            "six steps in order"
+          ],
+          [
+            "MCP",
+            "agent",
+            "record",
+            "benchmark"
+          ],
+          [
+            "baseline",
+            "ask"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 2.35
+          },
+          {
+            "start": 3.07,
+            "end": 5.73
+          },
+          {
+            "start": 6.2,
+            "end": 7.6
+          }
+        ]
+      },
+      {
+        "points": [
+          "VLAN question let the agent propose a change",
+          "Approve and validate then record the final score"
+        ],
+        "keyWords": [
+          [
+            "VLAN",
+            "question",
+            "let",
+            "agent"
+          ],
+          [
+            "approve",
+            "validate",
+            "then",
+            "record"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 7.79,
+            "end": 10.79
+          },
+          {
+            "start": 11.58,
+            "end": 14.46
+          }
+        ]
+      },
+      {
+        "points": [
+          "Skipping a step breaks the story you would tell",
+          "Run six steps in order: start MCP and agent,"
+        ],
+        "keyWords": [
+          [
+            "Skipping",
+            "step",
+            "breaks",
+            "story"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 14.64,
+            "end": 21.35
+          }
+        ]
+      }
+    ]
+  },
+  "five-objectives-capstone-chain": {
+    "splitAt": [
+      9.01,
+      18.03
+    ],
+    "segments": [
+      {
+        "points": [
+          "One session chains every skill you built governed code",
+          "Log shows who approved what; results/score.",
+          "Txt shows whether the assistant still passes after"
+        ],
+        "keyWords": [
+          [
+            "One",
+            "session",
+            "chains",
+            "skill"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 9.04
+          }
+        ]
+      },
+      {
+        "points": [
+          "measured accuracy reviewsreviewlog shows who approved what resultsscoretxt shows",
+          "One session chains every skill you built: governed code",
+          "Log shows who approved what; results/score.",
+          "Txt shows whether the assistant still passes after"
+        ],
+        "keyWords": [
+          [
+            "measured",
+            "accuracy",
+            "reviewsreviewlog",
+            "shows"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 9.04,
+            "end": 17.110001
+          }
+        ]
+      },
+      {
+        "points": [
+          "The assistant still passes after the full workflow",
+          "One session chains every skill you built: governed code",
+          "Log shows who approved what; results/score.",
+          "Txt shows whether the assistant still passes after"
+        ],
+        "keyWords": [
+          [
+            "full",
+            "assistant",
+            "still",
+            "passes"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 18.77,
+            "end": 25.02
+          }
+        ]
+      }
+    ]
+  },
+  "verify-capstone-before-close": {
+    "splitAt": [
+      6.47,
+      12.95
+    ],
+    "segments": [
+      {
+        "points": [
+          "Before you close the lab confirm",
+          "MCP returns live intent data your benchmark meets"
+        ],
+        "keyWords": [
+          [
+            "close",
+            "lab",
+            "confirm"
+          ],
+          [
+            "MCP",
+            "returns",
+            "live",
+            "intent"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.14,
+            "end": 2.08
+          },
+          {
+            "start": 2.63,
+            "end": 6.8
+          }
+        ]
+      },
+      {
+        "points": [
+          "Set and approval is logged before",
+          "IaC edit These checks mirror"
+        ],
+        "keyWords": [
+          [
+            "set",
+            "approval",
+            "logged"
+          ],
+          [
+            "IaC",
+            "edit",
+            "checks",
+            "mirror"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 7.12,
+            "end": 9.01
+          },
+          {
+            "start": 9.61,
+            "end": 12.96
+          }
+        ]
+      },
+      {
+        "points": [
+          "Production readiness review — proof the system is safe",
+          "To rely on not a formality to rush through"
+        ],
+        "keyWords": [
+          [
+            "production",
+            "readiness",
+            "review",
+            "proof"
+          ],
+          [
+            "rely",
+            "formality",
+            "rush"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 12.99,
+            "end": 16.129999
+          },
+          {
+            "start": 16.66,
+            "end": 19.049999
+          }
+        ]
+      }
+    ]
+  },
+  "capstone-nothing-new-ai": {
+    "splitAt": [
+      5.47,
+      10.95
+    ],
+    "segments": [
+      {
+        "points": [
+          "If MCP agent or benchmark fails here return",
+          "The capstone is integration, not a second chance",
+          "Reuse what you built; repair what is broken."
+        ],
+        "keyWords": [
+          [
+            "If",
+            "MCP",
+            "agent",
+            "benchmark"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.11,
+            "end": 5.39
+          }
+        ]
+      },
+      {
+        "points": [
+          "The capstone is integration not a second chance",
+          "If MCP, agent, or benchmark fails here, return",
+          "Reuse what you built; repair what is broken."
+        ],
+        "keyWords": [
+          [
+            "capstone",
+            "integration",
+            "chance"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 5.48,
+            "end": 10.76
+          }
+        ]
+      },
+      {
+        "points": [
+          "FastMCP from scratch Reuse what you built repair what",
+          "If MCP, agent, or benchmark fails here, return",
+          "The capstone is integration, not a second chance",
+          "Reuse what you built; repair what is broken."
+        ],
+        "keyWords": [
+          [
+            "FastMCP",
+            "scratch",
+            "Reuse",
+            "built"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 11.71,
+            "end": 16.15
+          }
+        ]
+      }
+    ]
+  },
+  "story-beat-recap-ai-capstone": {
+    "splitAt": [
+      4.45,
+      8.91
+    ],
+    "segments": [
+      {
+        "points": [
+          "The following code slides walk the six — step",
+          "Line by line Keep both"
+        ],
+        "keyWords": [
+          [
+            "following",
+            "code",
+            "slides",
+            "walk"
+          ],
+          [
+            "line",
+            "Keep"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.11,
+            "end": 2.58
+          },
+          {
+            "start": 3.15,
+            "end": 4.82
+          }
+        ]
+      },
+      {
+        "points": [
+          "AI and IaC repos open use sandbox",
+          "The following code slides walk the six — step",
+          "Keep both AI and IaC repos open, use sandbox"
+        ],
+        "keyWords": [
+          [
+            "AI",
+            "IaC",
+            "repos",
+            "open"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 4.91,
+            "end": 9.02
+          }
+        ]
+      },
+      {
+        "points": [
+          "Models only and treat the runbook as evidence",
+          "The following code slides walk the six — step",
+          "Keep both AI and IaC repos open, use sandbox"
+        ],
+        "keyWords": [
+          [
+            "models",
+            "treat",
+            "runbook",
+            "evidence"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 9.18,
+            "end": 13.27
+          }
+        ]
+      }
+    ]
+  },
+  "lab-setup-ai-capstone": {
+    "splitAt": [
+      5.25,
+      10.5
+    ],
+    "segments": [
+      {
+        "points": [
+          "Start the MCP server in the background launch",
+          "Log so approvals appear as you go.",
+          "Baseline the benchmark before you change prompts mid —"
+        ],
+        "keyWords": [
+          [
+            "Start",
+            "MCP",
+            "server",
+            "background"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.15,
+            "end": 4.79
+          }
+        ]
+      },
+      {
+        "points": [
+          "Tail reviewslog",
+          "Start the MCP server in the background, launch",
+          "Log so approvals appear as you go.",
+          "Baseline the benchmark before you change prompts mid —"
+        ],
+        "keyWords": [
+          [
+            "Tail",
+            "reviewslog"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 6.53,
+            "end": 9.23
+          }
+        ]
+      },
+      {
+        "points": [
+          "Baseline the benchmark before you change prompts mid —",
+          "Start the MCP server in the background, launch",
+          "Log so approvals appear as you go."
+        ],
+        "keyWords": [
+          [
+            "Baseline",
+            "benchmark",
+            "change",
+            "prompts"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 10.63,
+            "end": 15.61
+          }
+        ]
+      }
+    ]
+  },
+  "resume-ai-capstone-prerequisites": {
+    "splitAt": [
+      9.64,
+      19.29
+    ],
+    "segments": [
+      {
+        "points": [
+          "Confirm modules one through four are green governed",
+          "List_vlans"
+        ],
+        "keyWords": [
+          [
+            "modules",
+            "Confirm",
+            "one",
+            "green"
+          ],
+          [
+            "list_vlans"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.08,
+            "end": 4.2
+          },
+          {
+            "start": 4.76,
+            "end": 9.21
+          }
+        ]
+      },
+      {
+        "points": [
+          "Activate venv — mcp",
+          "Confirm modules one through four are green: governed playbook",
+          "Py prints a score.",
+          "Activate venv — mcp and verify netops_iac_lab/intended/vlans."
+        ],
+        "keyWords": [
+          [
+            "Activate",
+            "venv-mcp"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 11.82,
+            "end": 19.375
+          }
+        ]
+      },
+      {
+        "points": [
+          "Starting the capstone on a broken foundation wastes",
+          "Confirm modules one through four are green: governed playbook",
+          "Py prints a score.",
+          "Activate venv — mcp and verify netops_iac_lab/intended/vlans."
+        ],
+        "keyWords": [
+          [
+            "Starting",
+            "capstone",
+            "broken",
+            "foundation"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 19.375,
+            "end": 24.18
+          }
+        ]
+      }
+    ]
+  },
+  "ai-capstone-complete": {
+    "splitAt": [
+      8.45,
+      16.89
+    ],
+    "segments": [
+      {
+        "points": [
+          "You finish course four with something concrete an auditable",
+          "MCP guarded by human approval"
+        ],
+        "keyWords": [
+          [
+            "finish",
+            "course",
+            "something",
+            "concrete"
+          ],
+          [
+            "MCP",
+            "guarded",
+            "human",
+            "approval"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 0.2,
+            "end": 5.58
+          },
+          {
+            "start": 6.49,
+            "end": 8.69
+          }
+        ]
+      },
+      {
+        "points": [
+          "And measured by benchmarks — built on automate version",
+          "You finish course four with something concrete: an auditable",
+          "Intelligent automation here means safer operations with a paper"
+        ],
+        "keyWords": [
+          [
+            "measured",
+            "benchmarks",
+            "built",
+            "automate"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 8.69,
+            "end": 17.219999
+          }
+        ]
+      },
+      {
+        "points": [
+          "Intelligent automation here means safer operations with a paper",
+          "You finish course four with something concrete: an auditable"
+        ],
+        "keyWords": [
+          [
+            "automation",
+            "ai",
+            "Intelligent",
+            "here"
+          ]
+        ],
+        "phraseTimes": [
+          {
+            "start": 17.219999,
+            "end": 25.040001
+          }
+        ]
+      }
+    ]
+  }
+}

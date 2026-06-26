@@ -1,0 +1,68 @@
+{
+  "diagram": "restconf-urls-and-methods.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-path"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-path"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-path",
+        "viz-get-flow"
+      ],
+      "dim": [
+        "viz-path"
+      ],
+      "highlight": [
+        "viz-get-flow"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-path",
+        "viz-get-flow",
+        "viz-patch-flow"
+      ],
+      "dim": [
+        "viz-path",
+        "viz-get-flow"
+      ],
+      "highlight": [
+        "viz-patch-flow"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-path",
+        "viz-get-flow",
+        "viz-patch-flow",
+        "viz-headers"
+      ],
+      "dim": [
+        "viz-path",
+        "viz-get-flow",
+        "viz-patch-flow"
+      ],
+      "highlight": [
+        "viz-headers"
+      ]
+    }
+  ]
+}

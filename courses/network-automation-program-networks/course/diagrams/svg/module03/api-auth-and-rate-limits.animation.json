@@ -1,0 +1,68 @@
+{
+  "diagram": "api-auth-and-rate-limits.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-script"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-script"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-script",
+        "viz-gate"
+      ],
+      "dim": [
+        "viz-script"
+      ],
+      "highlight": [
+        "viz-gate"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-script",
+        "viz-gate",
+        "viz-device"
+      ],
+      "dim": [
+        "viz-script",
+        "viz-gate"
+      ],
+      "highlight": [
+        "viz-device"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-script",
+        "viz-gate",
+        "viz-device",
+        "viz-rate"
+      ],
+      "dim": [
+        "viz-script",
+        "viz-gate",
+        "viz-device"
+      ],
+      "highlight": [
+        "viz-rate"
+      ]
+    }
+  ]
+}

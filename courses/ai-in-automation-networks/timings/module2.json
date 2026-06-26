@@ -1,0 +1,4107 @@
+{
+  "moduleNumber": 2,
+  "title": "MCP and AI Integration",
+  "slides": {
+    "mcp-bridge-from-module-one": {
+      "words": [
+        {
+          "text": "A",
+          "start": 0.17,
+          "end": 0.25
+        },
+        {
+          "text": "draft",
+          "start": 0.25,
+          "end": 0.72
+        },
+        {
+          "text": "playbook",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "is",
+          "start": 1.51,
+          "end": 2.04
+        },
+        {
+          "text": "only",
+          "start": 2.07,
+          "end": 2.35
+        },
+        {
+          "text": "half",
+          "start": 2.39,
+          "end": 2.52
+        },
+        {
+          "text": "the",
+          "start": 2.52,
+          "end": 2.98
+        },
+        {
+          "text": "story",
+          "start": 3.41,
+          "end": 3.66
+        },
+        {
+          "text": "Ask",
+          "start": 3.66,
+          "end": 3.77
+        },
+        {
+          "text": "a",
+          "start": 3.77,
+          "end": 4.3
+        },
+        {
+          "text": "model",
+          "start": 4.42,
+          "end": 4.65
+        },
+        {
+          "text": "which",
+          "start": 5.19,
+          "end": 5.71
+        },
+        {
+          "text": "VLANs",
+          "start": 5.75,
+          "end": 5.95
+        },
+        {
+          "text": "exist",
+          "start": 7.31,
+          "end": 7.75
+        },
+        {
+          "text": "on",
+          "start": 7.75,
+          "end": 7.99
+        },
+        {
+          "text": "SW2",
+          "start": 7.99,
+          "end": 8.43
+        },
+        {
+          "text": "without",
+          "start": 8.85,
+          "end": 9.02
+        },
+        {
+          "text": "live",
+          "start": 9.02,
+          "end": 9.18
+        },
+        {
+          "text": "data",
+          "start": 9.18,
+          "end": 9.39
+        },
+        {
+          "text": "and",
+          "start": 9.39,
+          "end": 9.67
+        },
+        {
+          "text": "it",
+          "start": 9.67,
+          "end": 10.7
+        },
+        {
+          "text": "will",
+          "start": 11.11,
+          "end": 11.55
+        },
+        {
+          "text": "guess",
+          "start": 11.65,
+          "end": 12
+        },
+        {
+          "text": "convincingly",
+          "start": 12.18,
+          "end": 12.68
+        },
+        {
+          "text": "Module",
+          "start": 12.68,
+          "end": 12.86
+        },
+        {
+          "text": "two",
+          "start": 12.92,
+          "end": 13.36
+        },
+        {
+          "text": "solves",
+          "start": 13.36,
+          "end": 13.91
+        },
+        {
+          "text": "that",
+          "start": 14.24,
+          "end": 14.42
+        },
+        {
+          "text": "grounding",
+          "start": 14.42,
+          "end": 14.62
+        },
+        {
+          "text": "problem",
+          "start": 14.62,
+          "end": 15.01
+        },
+        {
+          "text": "You",
+          "start": 15.07,
+          "end": 15.26
+        },
+        {
+          "text": "will",
+          "start": 15.87,
+          "end": 16.41
+        },
+        {
+          "text": "build",
+          "start": 16.620001,
+          "end": 16.790001
+        },
+        {
+          "text": "an",
+          "start": 16.790001,
+          "end": 17.41
+        },
+        {
+          "text": "MCP",
+          "start": 17.790001,
+          "end": 18.08
+        },
+        {
+          "text": "server",
+          "start": 19.23,
+          "end": 19.309999
+        },
+        {
+          "text": "in",
+          "start": 19.309999,
+          "end": 19.66
+        },
+        {
+          "text": "Python",
+          "start": 19.66,
+          "end": 20.25
+        },
+        {
+          "text": "with",
+          "start": 20.5,
+          "end": 20.67
+        },
+        {
+          "text": "FastMCP",
+          "start": 20.67,
+          "end": 21.32
+        },
+        {
+          "text": "-",
+          "start": 21.32,
+          "end": 21.530001
+        },
+        {
+          "text": "a",
+          "start": 21.58,
+          "end": 21.85
+        },
+        {
+          "text": "small",
+          "start": 21.85,
+          "end": 22.32
+        },
+        {
+          "text": "program",
+          "start": 22.6,
+          "end": 23.23
+        },
+        {
+          "text": "that",
+          "start": 23.23,
+          "end": 23.5
+        },
+        {
+          "text": "exposes",
+          "start": 23.5,
+          "end": 24.01
+        },
+        {
+          "text": "read-only",
+          "start": 24.27,
+          "end": 24.6
+        },
+        {
+          "text": "tools",
+          "start": 25.440001,
+          "end": 25.595000499999998
+        },
+        {
+          "text": "returning",
+          "start": 25.595000499999998,
+          "end": 25.75
+        },
+        {
+          "text": "real",
+          "start": 26.530001,
+          "end": 27.09
+        },
+        {
+          "text": "data",
+          "start": 27.16,
+          "end": 27.3900005
+        },
+        {
+          "text": "from",
+          "start": 27.3900005,
+          "end": 27.620001
+        },
+        {
+          "text": "netops_iac_lab",
+          "start": 27.620001,
+          "end": 28.18
+        },
+        {
+          "text": "The",
+          "start": 28.18,
+          "end": 28.555
+        },
+        {
+          "text": "model",
+          "start": 28.555,
+          "end": 28.93
+        },
+        {
+          "text": "stops",
+          "start": 29.23,
+          "end": 29.389999
+        },
+        {
+          "text": "inventing",
+          "start": 29.389999,
+          "end": 29.5699995
+        },
+        {
+          "text": "inventory",
+          "start": 29.5699995,
+          "end": 29.75
+        },
+        {
+          "text": "and",
+          "start": 29.75,
+          "end": 30.34
+        },
+        {
+          "text": "starts",
+          "start": 30.469999,
+          "end": 30.634999
+        },
+        {
+          "text": "citing",
+          "start": 30.634999,
+          "end": 30.799999
+        },
+        {
+          "text": "what",
+          "start": 30.799999,
+          "end": 30.91
+        },
+        {
+          "text": "your",
+          "start": 30.950001,
+          "end": 31.1500005
+        },
+        {
+          "text": "tools",
+          "start": 31.1500005,
+          "end": 31.35
+        },
+        {
+          "text": "return",
+          "start": 31.35,
+          "end": 31.84
+        }
+      ]
+    },
+    "what-mcp-means-plain-language": {
+      "words": [
+        {
+          "text": "MCP",
+          "start": 0.65,
+          "end": 1
+        },
+        {
+          "text": "stands",
+          "start": 1,
+          "end": 1.18
+        },
+        {
+          "text": "for",
+          "start": 1.18,
+          "end": 1.65
+        },
+        {
+          "text": "Model",
+          "start": 1.65,
+          "end": 2.27
+        },
+        {
+          "text": "Context",
+          "start": 2.27,
+          "end": 2.76
+        },
+        {
+          "text": "Protocol",
+          "start": 3.11,
+          "end": 3.32
+        },
+        {
+          "text": "In",
+          "start": 3.32,
+          "end": 3.67
+        },
+        {
+          "text": "everyday",
+          "start": 3.67,
+          "end": 4.15
+        },
+        {
+          "text": "terms",
+          "start": 4.2,
+          "end": 4.36
+        },
+        {
+          "text": "it",
+          "start": 4.36,
+          "end": 4.5
+        },
+        {
+          "text": "is",
+          "start": 4.5,
+          "end": 4.56
+        },
+        {
+          "text": "a",
+          "start": 4.56,
+          "end": 5.08
+        },
+        {
+          "text": "standard",
+          "start": 5.08,
+          "end": 5.28
+        },
+        {
+          "text": "way",
+          "start": 5.28,
+          "end": 5.6
+        },
+        {
+          "text": "for",
+          "start": 5.6,
+          "end": 5.81
+        },
+        {
+          "text": "an",
+          "start": 5.84,
+          "end": 6.13
+        },
+        {
+          "text": "AI",
+          "start": 6.13,
+          "end": 6.66
+        },
+        {
+          "text": "client",
+          "start": 6.75,
+          "end": 6.81
+        },
+        {
+          "text": "to",
+          "start": 6.81,
+          "end": 7.34
+        },
+        {
+          "text": "discover",
+          "start": 7.37,
+          "end": 7.78
+        },
+        {
+          "text": "tools",
+          "start": 8.05,
+          "end": 8.26
+        },
+        {
+          "text": "call",
+          "start": 8.26,
+          "end": 8.45
+        },
+        {
+          "text": "them",
+          "start": 8.45,
+          "end": 8.61
+        },
+        {
+          "text": "with",
+          "start": 8.61,
+          "end": 9.03
+        },
+        {
+          "text": "JSON",
+          "start": 9.03,
+          "end": 9.62
+        },
+        {
+          "text": "arguments",
+          "start": 9.9,
+          "end": 10.04
+        },
+        {
+          "text": "and",
+          "start": 10.04,
+          "end": 10.42
+        },
+        {
+          "text": "receive",
+          "start": 10.42,
+          "end": 11
+        },
+        {
+          "text": "structured",
+          "start": 11,
+          "end": 11.57
+        },
+        {
+          "text": "results",
+          "start": 12.89,
+          "end": 13.05
+        },
+        {
+          "text": "FastMCP",
+          "start": 13.05,
+          "end": 13.12
+        },
+        {
+          "text": "is",
+          "start": 13.12,
+          "end": 13.6
+        },
+        {
+          "text": "a",
+          "start": 13.6,
+          "end": 14.16
+        },
+        {
+          "text": "Python",
+          "start": 14.38,
+          "end": 14.52
+        },
+        {
+          "text": "library",
+          "start": 14.58,
+          "end": 15.01
+        },
+        {
+          "text": "that",
+          "start": 15.07,
+          "end": 15.47
+        },
+        {
+          "text": "turns",
+          "start": 15.47,
+          "end": 16.16
+        },
+        {
+          "text": "ordinary",
+          "start": 16.209999,
+          "end": 16.48
+        },
+        {
+          "text": "functions",
+          "start": 16.48,
+          "end": 16.700001
+        },
+        {
+          "text": "into",
+          "start": 16.700001,
+          "end": 17.139999
+        },
+        {
+          "text": "those",
+          "start": 17.51,
+          "end": 17.68
+        },
+        {
+          "text": "tools",
+          "start": 17.68,
+          "end": 17.91
+        },
+        {
+          "text": "with",
+          "start": 17.91,
+          "end": 18.620001
+        },
+        {
+          "text": "less",
+          "start": 18.860001,
+          "end": 19
+        },
+        {
+          "text": "boilerplate",
+          "start": 19,
+          "end": 19.690001
+        },
+        {
+          "text": "You",
+          "start": 19.940001,
+          "end": 20.17
+        },
+        {
+          "text": "focus",
+          "start": 20.17,
+          "end": 20.440001
+        },
+        {
+          "text": "on",
+          "start": 20.469999,
+          "end": 20.65
+        },
+        {
+          "text": "what",
+          "start": 20.690001,
+          "end": 20.93
+        },
+        {
+          "text": "the",
+          "start": 20.93,
+          "end": 21.1149995
+        },
+        {
+          "text": "tool",
+          "start": 21.1149995,
+          "end": 21.299999
+        },
+        {
+          "text": "should",
+          "start": 21.299999,
+          "end": 21.91
+        },
+        {
+          "text": "return",
+          "start": 22.42,
+          "end": 22.675
+        },
+        {
+          "text": "-",
+          "start": 22.675,
+          "end": 22.93
+        },
+        {
+          "text": "VLAN",
+          "start": 23.120001,
+          "end": 23.58
+        },
+        {
+          "text": "list",
+          "start": 23.58,
+          "end": 23.9750005
+        },
+        {
+          "text": "device",
+          "start": 23.9750005,
+          "end": 24.370001
+        },
+        {
+          "text": "inventory",
+          "start": 24.4,
+          "end": 24.709999
+        },
+        {
+          "text": "-",
+          "start": 24.709999,
+          "end": 24.839999
+        },
+        {
+          "text": "not",
+          "start": 24.839999,
+          "end": 24.969999
+        },
+        {
+          "text": "on",
+          "start": 25.030001,
+          "end": 25.67
+        },
+        {
+          "text": "reinventing",
+          "start": 26.23,
+          "end": 26.32
+        },
+        {
+          "text": "RPC",
+          "start": 26.32,
+          "end": 26.41
+        },
+        {
+          "text": "glue",
+          "start": 26.41,
+          "end": 26.67
+        },
+        {
+          "text": "for",
+          "start": 26.700001,
+          "end": 26.8150005
+        },
+        {
+          "text": "every",
+          "start": 26.8150005,
+          "end": 26.93
+        },
+        {
+          "text": "integration",
+          "start": 26.93,
+          "end": 27.76
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 6.75,
+          "end": 8.61
+        },
+        null,
+        null
+      ]
+    },
+    "mcp-architecture-components": {
+      "words": [
+        {
+          "text": "Three",
+          "start": 0.09,
+          "end": 0.32
+        },
+        {
+          "text": "pieces",
+          "start": 0.32,
+          "end": 0.81
+        },
+        {
+          "text": "work",
+          "start": 0.81,
+          "end": 1.12
+        },
+        {
+          "text": "together",
+          "start": 1.12,
+          "end": 1.57
+        },
+        {
+          "text": "The",
+          "start": 2.12,
+          "end": 2.21
+        },
+        {
+          "text": "host",
+          "start": 2.21,
+          "end": 2.67
+        },
+        {
+          "text": "runs",
+          "start": 2.67,
+          "end": 2.98
+        },
+        {
+          "text": "the",
+          "start": 2.98,
+          "end": 3.31
+        },
+        {
+          "text": "LLM",
+          "start": 3.56,
+          "end": 4
+        },
+        {
+          "text": "client",
+          "start": 4.04,
+          "end": 4.21
+        },
+        {
+          "text": "that",
+          "start": 4.21,
+          "end": 4.65
+        },
+        {
+          "text": "decides",
+          "start": 4.65,
+          "end": 4.86
+        },
+        {
+          "text": "when",
+          "start": 4.86,
+          "end": 4.89
+        },
+        {
+          "text": "to",
+          "start": 5.03,
+          "end": 5.29
+        },
+        {
+          "text": "call",
+          "start": 5.29,
+          "end": 5.37
+        },
+        {
+          "text": "a",
+          "start": 5.42,
+          "end": 5.73
+        },
+        {
+          "text": "tool",
+          "start": 6.29,
+          "end": 6.4
+        },
+        {
+          "text": "The",
+          "start": 6.9,
+          "end": 7.36
+        },
+        {
+          "text": "MCP",
+          "start": 7.36,
+          "end": 7.96
+        },
+        {
+          "text": "server",
+          "start": 7.96,
+          "end": 8.33
+        },
+        {
+          "text": "registers",
+          "start": 8.33,
+          "end": 8.68
+        },
+        {
+          "text": "tools",
+          "start": 8.68,
+          "end": 8.83
+        },
+        {
+          "text": "such",
+          "start": 9.97,
+          "end": 10.12
+        },
+        {
+          "text": "as",
+          "start": 10.12,
+          "end": 10.53
+        },
+        {
+          "text": "list_vlans",
+          "start": 10.53,
+          "end": 10.68
+        },
+        {
+          "text": "and",
+          "start": 10.75,
+          "end": 11.32
+        },
+        {
+          "text": "answers",
+          "start": 11.44,
+          "end": 11.54
+        },
+        {
+          "text": "with",
+          "start": 11.54,
+          "end": 11.93
+        },
+        {
+          "text": "JSON",
+          "start": 11.93,
+          "end": 12.21
+        },
+        {
+          "text": "the",
+          "start": 12.21,
+          "end": 12.55
+        },
+        {
+          "text": "model",
+          "start": 12.87,
+          "end": 13.34
+        },
+        {
+          "text": "can",
+          "start": 13.34,
+          "end": 13.48
+        },
+        {
+          "text": "parse",
+          "start": 13.48,
+          "end": 13.94
+        },
+        {
+          "text": "Transport",
+          "start": 15.2,
+          "end": 15.34
+        },
+        {
+          "text": "is",
+          "start": 15.34,
+          "end": 15.42
+        },
+        {
+          "text": "often",
+          "start": 15.42,
+          "end": 15.78
+        },
+        {
+          "text": "stdio",
+          "start": 15.95,
+          "end": 16.33
+        },
+        {
+          "text": "in",
+          "start": 16.41,
+          "end": 17.23
+        },
+        {
+          "text": "a",
+          "start": 17.42,
+          "end": 17.690001
+        },
+        {
+          "text": "lab",
+          "start": 17.690001,
+          "end": 17.809999
+        },
+        {
+          "text": "or",
+          "start": 17.809999,
+          "end": 18.26
+        },
+        {
+          "text": "HTTP",
+          "start": 18.26,
+          "end": 18.66
+        },
+        {
+          "text": "when",
+          "start": 19.09,
+          "end": 19.25
+        },
+        {
+          "text": "you",
+          "start": 19.25,
+          "end": 19.549999
+        },
+        {
+          "text": "deploy",
+          "start": 19.549999,
+          "end": 19.790001
+        },
+        {
+          "text": "further",
+          "start": 19.790001,
+          "end": 19.91
+        },
+        {
+          "text": "When",
+          "start": 19.91,
+          "end": 20.41
+        },
+        {
+          "text": "each",
+          "start": 21.440001,
+          "end": 21.639999
+        },
+        {
+          "text": "piece",
+          "start": 21.639999,
+          "end": 22.1
+        },
+        {
+          "text": "is",
+          "start": 22.77,
+          "end": 22.940001
+        },
+        {
+          "text": "clear",
+          "start": 22.940001,
+          "end": 23.040001
+        },
+        {
+          "text": "troubleshooting",
+          "start": 23.040001,
+          "end": 23.48
+        },
+        {
+          "text": "is",
+          "start": 23.48,
+          "end": 23.860001
+        },
+        {
+          "text": "easier",
+          "start": 23.860001,
+          "end": 23.9200005
+        },
+        {
+          "text": "is",
+          "start": 23.9200005,
+          "end": 23.98
+        },
+        {
+          "text": "the",
+          "start": 23.98,
+          "end": 24.24
+        },
+        {
+          "text": "client",
+          "start": 24.24,
+          "end": 24.4250005
+        },
+        {
+          "text": "calling",
+          "start": 24.4250005,
+          "end": 24.610001
+        },
+        {
+          "text": "the",
+          "start": 25.07,
+          "end": 25.450001
+        },
+        {
+          "text": "wrong",
+          "start": 25.610001,
+          "end": 25.700001
+        },
+        {
+          "text": "tool",
+          "start": 25.700001,
+          "end": 25.790001
+        },
+        {
+          "text": "or",
+          "start": 25.790001,
+          "end": 25.879999
+        },
+        {
+          "text": "is",
+          "start": 25.879999,
+          "end": 26.165
+        },
+        {
+          "text": "the",
+          "start": 26.165,
+          "end": 26.450001
+        },
+        {
+          "text": "server",
+          "start": 26.67,
+          "end": 27.23
+        },
+        {
+          "text": "returning",
+          "start": 27.23,
+          "end": 27.375
+        },
+        {
+          "text": "bad",
+          "start": 27.375,
+          "end": 27.52
+        },
+        {
+          "text": "data",
+          "start": 27.52,
+          "end": 27.940001
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 2.21,
+          "end": 4.65
+        },
+        {
+          "start": 7.96,
+          "end": 10.68
+        },
+        null
+      ]
+    },
+    "fastmcp-vs-ad-hoc-api": {
+      "words": [
+        {
+          "text": "Teams",
+          "start": 0.09,
+          "end": 0.55
+        },
+        {
+          "text": "often",
+          "start": 0.64,
+          "end": 0.95
+        },
+        {
+          "text": "start",
+          "start": 0.95,
+          "end": 1.34
+        },
+        {
+          "text": "with",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "text": "one-off",
+          "start": 1.56,
+          "end": 1.93
+        },
+        {
+          "text": "REST",
+          "start": 1.93,
+          "end": 2.24
+        },
+        {
+          "text": "scripts",
+          "start": 2.48,
+          "end": 3.03
+        },
+        {
+          "text": "per",
+          "start": 3.08,
+          "end": 3.7
+        },
+        {
+          "text": "integration",
+          "start": 3.75,
+          "end": 3.84
+        },
+        {
+          "text": "That",
+          "start": 3.84,
+          "end": 4.66
+        },
+        {
+          "text": "works",
+          "start": 4.93,
+          "end": 5.14
+        },
+        {
+          "text": "once",
+          "start": 5.14,
+          "end": 5.53
+        },
+        {
+          "text": "then",
+          "start": 5.53,
+          "end": 6.04
+        },
+        {
+          "text": "every",
+          "start": 6.36,
+          "end": 6.64
+        },
+        {
+          "text": "new",
+          "start": 6.7,
+          "end": 7.06
+        },
+        {
+          "text": "assistant",
+          "start": 7.06,
+          "end": 7.25
+        },
+        {
+          "text": "needs",
+          "start": 7.25,
+          "end": 7.96
+        },
+        {
+          "text": "custom",
+          "start": 7.96,
+          "end": 8.31
+        },
+        {
+          "text": "glue",
+          "start": 8.35,
+          "end": 8.82
+        },
+        {
+          "text": "and",
+          "start": 8.82,
+          "end": 9.12
+        },
+        {
+          "text": "nobody",
+          "start": 9.55,
+          "end": 9.72
+        },
+        {
+          "text": "agrees",
+          "start": 9.72,
+          "end": 10.11
+        },
+        {
+          "text": "on",
+          "start": 10.11,
+          "end": 10.55
+        },
+        {
+          "text": "schemas",
+          "start": 10.55,
+          "end": 10.71
+        },
+        {
+          "text": "MCP",
+          "start": 12.1,
+          "end": 12.41
+        },
+        {
+          "text": "gives",
+          "start": 12.49,
+          "end": 13.01
+        },
+        {
+          "text": "you",
+          "start": 13.04,
+          "end": 13.16
+        },
+        {
+          "text": "a",
+          "start": 13.16,
+          "end": 13.83
+        },
+        {
+          "text": "catalog",
+          "start": 13.88,
+          "end": 14.08
+        },
+        {
+          "text": "of",
+          "start": 14.14,
+          "end": 14.59
+        },
+        {
+          "text": "tools",
+          "start": 14.87,
+          "end": 14.97
+        },
+        {
+          "text": "the",
+          "start": 14.97,
+          "end": 15.37
+        },
+        {
+          "text": "client",
+          "start": 15.37,
+          "end": 15.54
+        },
+        {
+          "text": "can",
+          "start": 15.54,
+          "end": 16.040001
+        },
+        {
+          "text": "discover",
+          "start": 16.040001,
+          "end": 17.049999
+        },
+        {
+          "text": "automatically",
+          "start": 17.33,
+          "end": 17.610001
+        },
+        {
+          "text": "One",
+          "start": 17.610001,
+          "end": 18.1
+        },
+        {
+          "text": "server",
+          "start": 18.290001,
+          "end": 18.469999
+        },
+        {
+          "text": "can",
+          "start": 18.469999,
+          "end": 18.77
+        },
+        {
+          "text": "serve",
+          "start": 18.77,
+          "end": 19.34
+        },
+        {
+          "text": "multiple",
+          "start": 19.34,
+          "end": 19.92
+        },
+        {
+          "text": "clients",
+          "start": 20.450001,
+          "end": 20.66
+        },
+        {
+          "text": "and",
+          "start": 20.66,
+          "end": 20.98
+        },
+        {
+          "text": "you",
+          "start": 21.1,
+          "end": 21.51
+        },
+        {
+          "text": "audit",
+          "start": 21.549999,
+          "end": 21.780001
+        },
+        {
+          "text": "tool",
+          "start": 21.780001,
+          "end": 22.57
+        },
+        {
+          "text": "definitions",
+          "start": 22.66,
+          "end": 22.85
+        },
+        {
+          "text": "in",
+          "start": 22.85,
+          "end": 23.09
+        },
+        {
+          "text": "one",
+          "start": 23.09,
+          "end": 23.52
+        },
+        {
+          "text": "place",
+          "start": 24.049999,
+          "end": 24.280001
+        },
+        {
+          "text": "That",
+          "start": 24.280001,
+          "end": 24.42
+        },
+        {
+          "text": "is",
+          "start": 24.42,
+          "end": 24.82
+        },
+        {
+          "text": "why",
+          "start": 24.91,
+          "end": 25.02
+        },
+        {
+          "text": "we",
+          "start": 25.02,
+          "end": 25.68
+        },
+        {
+          "text": "standardize",
+          "start": 25.68,
+          "end": 25.92
+        },
+        {
+          "text": "on",
+          "start": 26.98,
+          "end": 27.549999
+        },
+        {
+          "text": "MCP",
+          "start": 27.620001,
+          "end": 27.83
+        },
+        {
+          "text": "instead",
+          "start": 27.83,
+          "end": 28.23
+        },
+        {
+          "text": "of",
+          "start": 28.23,
+          "end": 28.49
+        },
+        {
+          "text": "copying",
+          "start": 28.49,
+          "end": 29.23
+        },
+        {
+          "text": "curl",
+          "start": 29.290001,
+          "end": 29.6
+        },
+        {
+          "text": "examples",
+          "start": 29.629999,
+          "end": 29.959999
+        },
+        {
+          "text": "into",
+          "start": 29.959999,
+          "end": 30.450001
+        },
+        {
+          "text": "every",
+          "start": 29.959999,
+          "end": 30.450001
+        },
+        {
+          "text": "prompt",
+          "start": 29.959999,
+          "end": 30.450001
+        }
+      ],
+      "leftPhraseTimes": [
+        {
+          "start": 8.82,
+          "end": 12.41
+        },
+        {
+          "start": 13.16,
+          "end": 15.54
+        },
+        {
+          "start": 17.610001,
+          "end": 20.98
+        }
+      ],
+      "rightPhraseTimes": [
+        {
+          "start": 7.96,
+          "end": 10.55
+        },
+        {
+          "start": 13.16,
+          "end": 15.54
+        },
+        {
+          "start": 9.55,
+          "end": 13.01
+        }
+      ]
+    },
+    "tool-orchestration-patterns": {
+      "words": [
+        {
+          "text": "Design",
+          "start": 0.15,
+          "end": 0.54
+        },
+        {
+          "text": "tools",
+          "start": 0.54,
+          "end": 0.83
+        },
+        {
+          "text": "the",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "text": "way",
+          "start": 0.97,
+          "end": 1.18
+        },
+        {
+          "text": "you",
+          "start": 1.18,
+          "end": 1.31
+        },
+        {
+          "text": "design",
+          "start": 1.31,
+          "end": 1.71
+        },
+        {
+          "text": "firewall",
+          "start": 2.39,
+          "end": 2.88
+        },
+        {
+          "text": "rules",
+          "start": 3.16,
+          "end": 3.57
+        },
+        {
+          "text": "start",
+          "start": 3.57,
+          "end": 4.08
+        },
+        {
+          "text": "permissive",
+          "start": 4.11,
+          "end": 4.38
+        },
+        {
+          "text": "for",
+          "start": 4.38,
+          "end": 4.87
+        },
+        {
+          "text": "reads",
+          "start": 5.03,
+          "end": 5.59
+        },
+        {
+          "text": "strict",
+          "start": 5.59,
+          "end": 5.86
+        },
+        {
+          "text": "for",
+          "start": 5.86,
+          "end": 6.36
+        },
+        {
+          "text": "writes",
+          "start": 6.62,
+          "end": 7.12
+        },
+        {
+          "text": "Return",
+          "start": 7.12,
+          "end": 7.53
+        },
+        {
+          "text": "intent",
+          "start": 7.53,
+          "end": 8.2
+        },
+        {
+          "text": "slices",
+          "start": 8.36,
+          "end": 9.02
+        },
+        {
+          "text": "inventory",
+          "start": 9.02,
+          "end": 9.43
+        },
+        {
+          "text": "rows",
+          "start": 9.7,
+          "end": 9.81
+        },
+        {
+          "text": "or",
+          "start": 9.81,
+          "end": 10.44
+        },
+        {
+          "text": "telemetry",
+          "start": 10.44,
+          "end": 11.14
+        },
+        {
+          "text": "summaries",
+          "start": 11.24,
+          "end": 11.46
+        },
+        {
+          "text": "as",
+          "start": 11.46,
+          "end": 11.98
+        },
+        {
+          "text": "JSON",
+          "start": 12.39,
+          "end": 12.8
+        },
+        {
+          "text": "Defer",
+          "start": 13.51,
+          "end": 13.87
+        },
+        {
+          "text": "push_config",
+          "start": 13.87,
+          "end": 14.06
+        },
+        {
+          "text": "until",
+          "start": 14.06,
+          "end": 14.19
+        },
+        {
+          "text": "module",
+          "start": 14.19,
+          "end": 14.47
+        },
+        {
+          "text": "three",
+          "start": 14.47,
+          "end": 14.65
+        },
+        {
+          "text": "and",
+          "start": 14.82,
+          "end": 15.03
+        },
+        {
+          "text": "keep",
+          "start": 15.25,
+          "end": 15.52
+        },
+        {
+          "text": "writes",
+          "start": 15.52,
+          "end": 15.69
+        },
+        {
+          "text": "behind",
+          "start": 15.69,
+          "end": 15.99
+        },
+        {
+          "text": "human",
+          "start": 15.99,
+          "end": 16.25
+        },
+        {
+          "text": "approval",
+          "start": 16.25,
+          "end": 16.700001
+        },
+        {
+          "text": "Small",
+          "start": 17,
+          "end": 17.379999
+        },
+        {
+          "text": "focused",
+          "start": 17.450001,
+          "end": 17.51
+        },
+        {
+          "text": "tools",
+          "start": 17.51,
+          "end": 17.73
+        },
+        {
+          "text": "are",
+          "start": 18.33,
+          "end": 18.870001
+        },
+        {
+          "text": "easier",
+          "start": 18.9,
+          "end": 19.309999
+        },
+        {
+          "text": "to",
+          "start": 20.08,
+          "end": 20.450001
+        },
+        {
+          "text": "test",
+          "start": 20.709999,
+          "end": 20.83
+        },
+        {
+          "text": "easier",
+          "start": 21.469999,
+          "end": 21.83
+        },
+        {
+          "text": "to",
+          "start": 21.860001,
+          "end": 22.5
+        },
+        {
+          "text": "benchmark",
+          "start": 22.530001,
+          "end": 22.67
+        },
+        {
+          "text": "later",
+          "start": 22.67,
+          "end": 23.049999
+        },
+        {
+          "text": "and",
+          "start": 23.360001,
+          "end": 23.42
+        },
+        {
+          "text": "harder",
+          "start": 23.42,
+          "end": 23.559999
+        },
+        {
+          "text": "for",
+          "start": 23.559999,
+          "end": 24.030001
+        },
+        {
+          "text": "an",
+          "start": 24.030001,
+          "end": 24.120001
+        },
+        {
+          "text": "attacker",
+          "start": 24.120001,
+          "end": 24.34
+        },
+        {
+          "text": "or",
+          "start": 24.389999,
+          "end": 24.76
+        },
+        {
+          "text": "a",
+          "start": 25.01,
+          "end": 25.23
+        },
+        {
+          "text": "confused",
+          "start": 25.23,
+          "end": 25.26
+        },
+        {
+          "text": "model",
+          "start": 25.34,
+          "end": 25.76
+        },
+        {
+          "text": "to",
+          "start": 25.34,
+          "end": 25.76
+        },
+        {
+          "text": "abuse",
+          "start": 25.34,
+          "end": 25.76
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 5.03,
+          "end": 8.2
+        },
+        null,
+        {
+          "start": 11.46,
+          "end": 14.47
+        }
+      ]
+    },
+    "expose-network-data-safely": {
+      "words": [
+        {
+          "text": "Expose",
+          "start": 0.11,
+          "end": 0.62
+        },
+        {
+          "text": "the",
+          "start": 0.62,
+          "end": 0.72
+        },
+        {
+          "text": "minimum",
+          "start": 0.72,
+          "end": 1.19
+        },
+        {
+          "text": "data",
+          "start": 1.19,
+          "end": 1.69
+        },
+        {
+          "text": "the",
+          "start": 1.69,
+          "end": 1.82
+        },
+        {
+          "text": "assistant",
+          "start": 1.82,
+          "end": 2.49
+        },
+        {
+          "text": "needs",
+          "start": 2.49,
+          "end": 3.01
+        },
+        {
+          "text": "-",
+          "start": 3.09,
+          "end": 3.37
+        },
+        {
+          "text": "not",
+          "start": 3.37,
+          "end": 3.61
+        },
+        {
+          "text": "full",
+          "start": 3.61,
+          "end": 4.05
+        },
+        {
+          "text": "running",
+          "start": 4.9,
+          "end": 5.21
+        },
+        {
+          "text": "configs",
+          "start": 5.21,
+          "end": 5.88
+        },
+        {
+          "text": "not",
+          "start": 6.33,
+          "end": 6.51
+        },
+        {
+          "text": "secrets",
+          "start": 6.51,
+          "end": 6.78
+        },
+        {
+          "text": "In",
+          "start": 6.78,
+          "end": 7.14
+        },
+        {
+          "text": "this",
+          "start": 7.39,
+          "end": 7.82
+        },
+        {
+          "text": "lab",
+          "start": 7.82,
+          "end": 8.15
+        },
+        {
+          "text": "tools",
+          "start": 9.99,
+          "end": 10.13
+        },
+        {
+          "text": "read",
+          "start": 10.13,
+          "end": 10.35
+        },
+        {
+          "text": "netops_iac_lab",
+          "start": 10.35,
+          "end": 10.89
+        },
+        {
+          "text": "YAML",
+          "start": 10.99,
+          "end": 11.46
+        },
+        {
+          "text": "and",
+          "start": 11.46,
+          "end": 11.67
+        },
+        {
+          "text": "a",
+          "start": 11.67,
+          "end": 11.89
+        },
+        {
+          "text": "simple",
+          "start": 11.89,
+          "end": 12.69
+        },
+        {
+          "text": "inventory",
+          "start": 12.97,
+          "end": 13.04
+        },
+        {
+          "text": "file",
+          "start": 15.3,
+          "end": 15.95
+        },
+        {
+          "text": "In",
+          "start": 16.129999,
+          "end": 16.42
+        },
+        {
+          "text": "production",
+          "start": 16.42,
+          "end": 16.74
+        },
+        {
+          "text": "you",
+          "start": 16.74,
+          "end": 17.200001
+        },
+        {
+          "text": "authenticate",
+          "start": 17.42,
+          "end": 17.639999
+        },
+        {
+          "text": "MCP",
+          "start": 17.639999,
+          "end": 17.959999
+        },
+        {
+          "text": "transport",
+          "start": 18.08,
+          "end": 18.360001
+        },
+        {
+          "text": "rate-limit",
+          "start": 18.360001,
+          "end": 18.57
+        },
+        {
+          "text": "calls",
+          "start": 18.57,
+          "end": 19
+        },
+        {
+          "text": "and",
+          "start": 19,
+          "end": 19.370001
+        },
+        {
+          "text": "log",
+          "start": 19.59,
+          "end": 19.92
+        },
+        {
+          "text": "which",
+          "start": 19.92,
+          "end": 20.34
+        },
+        {
+          "text": "tool",
+          "start": 20.4,
+          "end": 20.549999
+        },
+        {
+          "text": "returned",
+          "start": 20.549999,
+          "end": 20.639999
+        },
+        {
+          "text": "what",
+          "start": 20.639999,
+          "end": 20.959999
+        },
+        {
+          "text": "Narrow",
+          "start": 21.02,
+          "end": 21.33
+        },
+        {
+          "text": "scope",
+          "start": 21.33,
+          "end": 21.4
+        },
+        {
+          "text": "in",
+          "start": 21.4,
+          "end": 21.799999
+        },
+        {
+          "text": "the",
+          "start": 21.799999,
+          "end": 21.854999499999998
+        },
+        {
+          "text": "lab",
+          "start": 21.854999499999998,
+          "end": 21.91
+        },
+        {
+          "text": "trains",
+          "start": 21.91,
+          "end": 22.049999
+        },
+        {
+          "text": "the",
+          "start": 22.049999,
+          "end": 22.2249995
+        },
+        {
+          "text": "habit",
+          "start": 22.2249995,
+          "end": 22.4
+        },
+        {
+          "text": "you",
+          "start": 22.530001,
+          "end": 22.77
+        },
+        {
+          "text": "will",
+          "start": 22.77,
+          "end": 22.810000000000002
+        },
+        {
+          "text": "need",
+          "start": 22.810000000000002,
+          "end": 22.85
+        },
+        {
+          "text": "when",
+          "start": 22.85,
+          "end": 23.139999
+        },
+        {
+          "text": "the",
+          "start": 23.139999,
+          "end": 23.3649995
+        },
+        {
+          "text": "same",
+          "start": 23.3649995,
+          "end": 23.59
+        },
+        {
+          "text": "pattern",
+          "start": 23.59,
+          "end": 24.059999
+        },
+        {
+          "text": "touches",
+          "start": 24.059999,
+          "end": 24.1499995
+        },
+        {
+          "text": "real",
+          "start": 24.1499995,
+          "end": 24.24
+        },
+        {
+          "text": "devices",
+          "start": 24.24,
+          "end": 24.870001
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 6.78,
+          "end": 10.89
+        },
+        null,
+        {
+          "start": 11.67,
+          "end": 16.74
+        }
+      ]
+    },
+    "story-beat-recap-mcp": {
+      "words": [
+        {
+          "text": "You",
+          "start": 0.07,
+          "end": 0.23
+        },
+        {
+          "text": "understand",
+          "start": 0.23,
+          "end": 0.76
+        },
+        {
+          "text": "why",
+          "start": 0.76,
+          "end": 1.2
+        },
+        {
+          "text": "MCP",
+          "start": 2.12,
+          "end": 2.64
+        },
+        {
+          "text": "exists",
+          "start": 2.71,
+          "end": 2.84
+        },
+        {
+          "text": "and",
+          "start": 2.84,
+          "end": 3.09
+        },
+        {
+          "text": "how",
+          "start": 3.17,
+          "end": 3.24
+        },
+        {
+          "text": "to",
+          "start": 3.24,
+          "end": 3.65
+        },
+        {
+          "text": "expose",
+          "start": 3.65,
+          "end": 4.06
+        },
+        {
+          "text": "data",
+          "start": 4.36,
+          "end": 4.77
+        },
+        {
+          "text": "without",
+          "start": 4.77,
+          "end": 5.25
+        },
+        {
+          "text": "handing",
+          "start": 5.25,
+          "end": 5.34
+        },
+        {
+          "text": "the",
+          "start": 5.34,
+          "end": 5.8
+        },
+        {
+          "text": "model",
+          "start": 6,
+          "end": 6.13
+        },
+        {
+          "text": "the",
+          "start": 6.16,
+          "end": 6.6
+        },
+        {
+          "text": "keys",
+          "start": 6.83,
+          "end": 6.9
+        },
+        {
+          "text": "to",
+          "start": 6.9,
+          "end": 7.02
+        },
+        {
+          "text": "the",
+          "start": 7.02,
+          "end": 7.5
+        },
+        {
+          "text": "kingdom",
+          "start": 7.9,
+          "end": 8.47
+        },
+        {
+          "text": "Next",
+          "start": 8.54,
+          "end": 8.68
+        },
+        {
+          "text": "you",
+          "start": 8.68,
+          "end": 8.98
+        },
+        {
+          "text": "build",
+          "start": 10.21,
+          "end": 10.33
+        },
+        {
+          "text": "netops_ai_labmcpserverpy",
+          "start": 10.94,
+          "end": 11.04
+        },
+        {
+          "text": "with",
+          "start": 11.71,
+          "end": 11.86
+        },
+        {
+          "text": "list_vlans",
+          "start": 12.1,
+          "end": 12.36
+        },
+        {
+          "text": "and",
+          "start": 12.79,
+          "end": 13.19
+        },
+        {
+          "text": "get_lab_inventory",
+          "start": 13.42,
+          "end": 13.64
+        },
+        {
+          "text": "Keep",
+          "start": 13.76,
+          "end": 14.15
+        },
+        {
+          "text": "both",
+          "start": 14.54,
+          "end": 14.92
+        },
+        {
+          "text": "tools",
+          "start": 14.92,
+          "end": 15.07
+        },
+        {
+          "text": "read-only",
+          "start": 15.43,
+          "end": 15.61
+        },
+        {
+          "text": "so",
+          "start": 15.61,
+          "end": 16.049999
+        },
+        {
+          "text": "the",
+          "start": 16.34,
+          "end": 16.450001
+        },
+        {
+          "text": "agent",
+          "start": 16.450001,
+          "end": 16.700001
+        },
+        {
+          "text": "in",
+          "start": 17.360001,
+          "end": 17.450001
+        },
+        {
+          "text": "module",
+          "start": 17.450001,
+          "end": 17.75
+        },
+        {
+          "text": "three",
+          "start": 18.27,
+          "end": 18.860001
+        },
+        {
+          "text": "can",
+          "start": 19.200001,
+          "end": 19.459999
+        },
+        {
+          "text": "answer",
+          "start": 19.52,
+          "end": 19.959999
+        },
+        {
+          "text": "questions",
+          "start": 19.959999,
+          "end": 20.440001
+        },
+        {
+          "text": "without",
+          "start": 20.52,
+          "end": 21.219999
+        },
+        {
+          "text": "pushing",
+          "start": 21.219999,
+          "end": 21.280001
+        },
+        {
+          "text": "configuration",
+          "start": 21.280001,
+          "end": 21.620001
+        },
+        {
+          "text": "on",
+          "start": 21.620001,
+          "end": 21.77
+        },
+        {
+          "text": "its",
+          "start": 21.620001,
+          "end": 21.77
+        },
+        {
+          "text": "own",
+          "start": 21.620001,
+          "end": 21.77
+        }
+      ]
+    },
+    "lab-setup-mcp": {
+      "words": [
+        {
+          "text": "Extend",
+          "start": 0.13,
+          "end": 0.67
+        },
+        {
+          "text": "netops_ai_lab",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "text": "with",
+          "start": 1.87,
+          "end": 2.24
+        },
+        {
+          "text": "an",
+          "start": 3.24,
+          "end": 3.39
+        },
+        {
+          "text": "mcp",
+          "start": 3.39,
+          "end": 3.54
+        },
+        {
+          "text": "folder",
+          "start": 3.98,
+          "end": 4.05
+        },
+        {
+          "text": "serverpy",
+          "start": 4.14,
+          "end": 4.71
+        },
+        {
+          "text": "and",
+          "start": 9.22,
+          "end": 9.47
+        },
+        {
+          "text": "requirements-mcptxt",
+          "start": 9.47,
+          "end": 9.56
+        },
+        {
+          "text": "Use",
+          "start": 9.56,
+          "end": 10.28
+        },
+        {
+          "text": "a",
+          "start": 11.31,
+          "end": 11.53
+        },
+        {
+          "text": "dedicated",
+          "start": 12.13,
+          "end": 12.52
+        },
+        {
+          "text": "virtualenv",
+          "start": 12.52,
+          "end": 13.02
+        },
+        {
+          "text": "so",
+          "start": 13.02,
+          "end": 13.13
+        },
+        {
+          "text": "MCP",
+          "start": 13.13,
+          "end": 13.35
+        },
+        {
+          "text": "package",
+          "start": 13.35,
+          "end": 13.7
+        },
+        {
+          "text": "versions",
+          "start": 13.7,
+          "end": 13.87
+        },
+        {
+          "text": "do",
+          "start": 13.87,
+          "end": 13.99
+        },
+        {
+          "text": "not",
+          "start": 14.63,
+          "end": 14.8
+        },
+        {
+          "text": "fight",
+          "start": 15.88,
+          "end": 16.440001
+        },
+        {
+          "text": "with",
+          "start": 16.440001,
+          "end": 17.16
+        },
+        {
+          "text": "your",
+          "start": 17.24,
+          "end": 17.32
+        },
+        {
+          "text": "Ansible",
+          "start": 17.32,
+          "end": 17.4
+        },
+        {
+          "text": "or",
+          "start": 17.4,
+          "end": 17.969999
+        },
+        {
+          "text": "ops",
+          "start": 18.25,
+          "end": 18.6000005
+        },
+        {
+          "text": "tooling",
+          "start": 18.6000005,
+          "end": 18.950001
+        },
+        {
+          "text": "Isolated",
+          "start": 18.99,
+          "end": 19.219999
+        },
+        {
+          "text": "environments",
+          "start": 19.280001,
+          "end": 19.510000499999997
+        },
+        {
+          "text": "are",
+          "start": 19.510000499999997,
+          "end": 19.74
+        },
+        {
+          "text": "boring",
+          "start": 19.74,
+          "end": 20.129999
+        },
+        {
+          "text": "until",
+          "start": 20.129999,
+          "end": 20.229999499999998
+        },
+        {
+          "text": "an",
+          "start": 20.229999499999998,
+          "end": 20.33
+        },
+        {
+          "text": "upgrade",
+          "start": 20.33,
+          "end": 20.700001
+        },
+        {
+          "text": "breaks",
+          "start": 21.040001,
+          "end": 21.1550005
+        },
+        {
+          "text": "one",
+          "start": 21.1550005,
+          "end": 21.27
+        },
+        {
+          "text": "stack",
+          "start": 21.27,
+          "end": 21.379999
+        },
+        {
+          "text": "-",
+          "start": 21.379999,
+          "end": 21.4449995
+        },
+        {
+          "text": "then",
+          "start": 21.4449995,
+          "end": 21.51
+        },
+        {
+          "text": "you",
+          "start": 21.51,
+          "end": 21.66
+        },
+        {
+          "text": "will",
+          "start": 21.66,
+          "end": 21.8500005
+        },
+        {
+          "text": "be",
+          "start": 21.8500005,
+          "end": 22.040001
+        },
+        {
+          "text": "glad",
+          "start": 22.040001,
+          "end": 22.120001
+        },
+        {
+          "text": "you",
+          "start": 22.120001,
+          "end": 22.4750005
+        },
+        {
+          "text": "separated",
+          "start": 22.4750005,
+          "end": 22.83
+        },
+        {
+          "text": "them",
+          "start": 22.83,
+          "end": 23.059999
+        }
+      ],
+      "phraseTimes": [
+        {
+          "start": 3.39,
+          "end": 10.28
+        },
+        {
+          "start": 9.47,
+          "end": 13.13
+        },
+        {
+          "start": 11.31,
+          "end": 13.7
+        }
+      ]
+    },
+    "install-fastmcp-dependencies": {
+      "words": [
+        {
+          "text": "Create",
+          "start": 0.06,
+          "end": 0.49
+        },
+        {
+          "text": "venv-mcp",
+          "start": 1.25,
+          "end": 1.65
+        },
+        {
+          "text": "inside",
+          "start": 1.83,
+          "end": 1.89
+        },
+        {
+          "text": "netops_ai_lab",
+          "start": 2.1,
+          "end": 2.41
+        },
+        {
+          "text": "and",
+          "start": 2.77,
+          "end": 3.19
+        },
+        {
+          "text": "install",
+          "start": 4.01,
+          "end": 4.07
+        },
+        {
+          "text": "FastMCP",
+          "start": 4.23,
+          "end": 4.39
+        },
+        {
+          "text": "plus",
+          "start": 4.39,
+          "end": 4.87
+        },
+        {
+          "text": "PyYAML",
+          "start": 4.87,
+          "end": 5.15
+        },
+        {
+          "text": "for",
+          "start": 5.2,
+          "end": 5.31
+        },
+        {
+          "text": "reading",
+          "start": 5.31,
+          "end": 5.6
+        },
+        {
+          "text": "intent",
+          "start": 5.67,
+          "end": 5.86
+        },
+        {
+          "text": "files",
+          "start": 6.32,
+          "end": 6.9
+        },
+        {
+          "text": "Pin",
+          "start": 8.2,
+          "end": 8.37
+        },
+        {
+          "text": "versions",
+          "start": 8.58,
+          "end": 8.62
+        },
+        {
+          "text": "in",
+          "start": 8.62,
+          "end": 8.85
+        },
+        {
+          "text": "requirements-mcptxt",
+          "start": 8.85,
+          "end": 8.98
+        },
+        {
+          "text": "so",
+          "start": 11.11,
+          "end": 11.29
+        },
+        {
+          "text": "a",
+          "start": 11.4,
+          "end": 11.54
+        },
+        {
+          "text": "teammate",
+          "start": 11.54,
+          "end": 11.68
+        },
+        {
+          "text": "or",
+          "start": 11.68,
+          "end": 11.89
+        },
+        {
+          "text": "CI",
+          "start": 12.37,
+          "end": 12.52
+        },
+        {
+          "text": "job",
+          "start": 12.52,
+          "end": 12.67
+        },
+        {
+          "text": "gets",
+          "start": 12.75,
+          "end": 12.93
+        },
+        {
+          "text": "the",
+          "start": 12.93,
+          "end": 13.01
+        },
+        {
+          "text": "same",
+          "start": 13.01,
+          "end": 13.09
+        },
+        {
+          "text": "behavior",
+          "start": 13.27,
+          "end": 13.88
+        },
+        {
+          "text": "you",
+          "start": 13.88,
+          "end": 14.245000000000001
+        },
+        {
+          "text": "tested",
+          "start": 14.245000000000001,
+          "end": 14.61
+        },
+        {
+          "text": "Activate",
+          "start": 14.71,
+          "end": 14.95
+        },
+        {
+          "text": "this",
+          "start": 16.85,
+          "end": 17.01
+        },
+        {
+          "text": "venv",
+          "start": 17.01,
+          "end": 17.17
+        },
+        {
+          "text": "before",
+          "start": 17.17,
+          "end": 17.360001
+        },
+        {
+          "text": "every",
+          "start": 18.719999,
+          "end": 18.9499995
+        },
+        {
+          "text": "MCP",
+          "start": 18.9499995,
+          "end": 19.18
+        },
+        {
+          "text": "command",
+          "start": 19.27,
+          "end": 19.43
+        },
+        {
+          "text": "in",
+          "start": 19.65,
+          "end": 19.705
+        },
+        {
+          "text": "the",
+          "start": 19.705,
+          "end": 19.76
+        },
+        {
+          "text": "module",
+          "start": 19.76,
+          "end": 20.85
+        }
+      ]
+    },
+    "build-fastmcp-server-skeleton": {
+      "words": [
+        {
+          "text": "Start",
+          "start": 0.09,
+          "end": 0.55
+        },
+        {
+          "text": "with",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "the",
+          "start": 0.71,
+          "end": 0.81
+        },
+        {
+          "text": "smallest",
+          "start": 0.81,
+          "end": 1.33
+        },
+        {
+          "text": "server",
+          "start": 1.33,
+          "end": 1.79
+        },
+        {
+          "text": "that",
+          "start": 1.79,
+          "end": 1.98
+        },
+        {
+          "text": "runs",
+          "start": 1.98,
+          "end": 2.44
+        },
+        {
+          "text": "instantiate",
+          "start": 4.86,
+          "end": 5.42
+        },
+        {
+          "text": "FastMCP",
+          "start": 5.42,
+          "end": 5.5
+        },
+        {
+          "text": "register",
+          "start": 5.55,
+          "end": 5.81
+        },
+        {
+          "text": "a",
+          "start": 5.84,
+          "end": 6.15
+        },
+        {
+          "text": "ping",
+          "start": 6.36,
+          "end": 6.49
+        },
+        {
+          "text": "tool",
+          "start": 6.49,
+          "end": 6.91
+        },
+        {
+          "text": "and",
+          "start": 6.95,
+          "end": 7.06
+        },
+        {
+          "text": "start",
+          "start": 7.06,
+          "end": 7.47
+        },
+        {
+          "text": "the",
+          "start": 7.5,
+          "end": 7.95
+        },
+        {
+          "text": "entry",
+          "start": 8.33,
+          "end": 8.79
+        },
+        {
+          "text": "point",
+          "start": 8.79,
+          "end": 8.89
+        },
+        {
+          "text": "Confirm",
+          "start": 8.89,
+          "end": 9.37
+        },
+        {
+          "text": "the",
+          "start": 9.37,
+          "end": 9.72
+        },
+        {
+          "text": "process",
+          "start": 9.72,
+          "end": 10.06
+        },
+        {
+          "text": "stays",
+          "start": 10.14,
+          "end": 10.51
+        },
+        {
+          "text": "up",
+          "start": 10.51,
+          "end": 10.67
+        },
+        {
+          "text": "before",
+          "start": 10.67,
+          "end": 10.9
+        },
+        {
+          "text": "you",
+          "start": 10.9,
+          "end": 11.33
+        },
+        {
+          "text": "add",
+          "start": 11.33,
+          "end": 11.8
+        },
+        {
+          "text": "network",
+          "start": 12.07,
+          "end": 12.17
+        },
+        {
+          "text": "logic",
+          "start": 12.17,
+          "end": 12.44
+        },
+        {
+          "text": "The",
+          "start": 12.44,
+          "end": 13.04
+        },
+        {
+          "text": "same",
+          "start": 13.04,
+          "end": 13.55
+        },
+        {
+          "text": "incremental",
+          "start": 13.55,
+          "end": 13.61
+        },
+        {
+          "text": "approach",
+          "start": 13.61,
+          "end": 13.92
+        },
+        {
+          "text": "you",
+          "start": 13.92,
+          "end": 14.08
+        },
+        {
+          "text": "used",
+          "start": 14.08,
+          "end": 14.49
+        },
+        {
+          "text": "for",
+          "start": 14.49,
+          "end": 15.02
+        },
+        {
+          "text": "Python",
+          "start": 15.06,
+          "end": 15.2
+        },
+        {
+          "text": "scripts",
+          "start": 15.2,
+          "end": 15.51
+        },
+        {
+          "text": "in",
+          "start": 15.51,
+          "end": 15.68
+        },
+        {
+          "text": "course",
+          "start": 15.68,
+          "end": 16.1
+        },
+        {
+          "text": "one",
+          "start": 16.1,
+          "end": 16.2849995
+        },
+        {
+          "text": "applies",
+          "start": 16.2849995,
+          "end": 16.469999
+        },
+        {
+          "text": "here",
+          "start": 16.52,
+          "end": 16.77
+        },
+        {
+          "text": "-",
+          "start": 16.77,
+          "end": 16.8150005
+        },
+        {
+          "text": "prove",
+          "start": 16.8150005,
+          "end": 16.860001
+        },
+        {
+          "text": "the",
+          "start": 16.860001,
+          "end": 17.18
+        },
+        {
+          "text": "pipe",
+          "start": 17.18,
+          "end": 17.409999499999998
+        },
+        {
+          "text": "works",
+          "start": 17.409999499999998,
+          "end": 17.639999
+        },
+        {
+          "text": "then",
+          "start": 17.76,
+          "end": 18.049999
+        },
+        {
+          "text": "add",
+          "start": 18.1,
+          "end": 18.1999995
+        },
+        {
+          "text": "VLAN",
+          "start": 18.1999995,
+          "end": 18.299999
+        },
+        {
+          "text": "data",
+          "start": 18.84,
+          "end": 19.23
+        }
+      ]
+    },
+    "add-list-vlans-tool": {
+      "words": [
+        {
+          "text": "list_vlans",
+          "start": 0.2,
+          "end": 0.46
+        },
+        {
+          "text": "reads",
+          "start": 2.14,
+          "end": 2.86
+        },
+        {
+          "text": "VLAN",
+          "start": 2.86,
+          "end": 3.26
+        },
+        {
+          "text": "intent",
+          "start": 3.97,
+          "end": 4.33
+        },
+        {
+          "text": "from",
+          "start": 4.76,
+          "end": 5.22
+        },
+        {
+          "text": "netops_iac_lab",
+          "start": 5.4,
+          "end": 5.72
+        },
+        {
+          "text": "and",
+          "start": 5.72,
+          "end": 6.47
+        },
+        {
+          "text": "returns",
+          "start": 6.58,
+          "end": 6.82
+        },
+        {
+          "text": "structured",
+          "start": 6.82,
+          "end": 6.98
+        },
+        {
+          "text": "data",
+          "start": 6.98,
+          "end": 7.05
+        },
+        {
+          "text": "Point",
+          "start": 7.59,
+          "end": 7.8
+        },
+        {
+          "text": "at",
+          "start": 8.97,
+          "end": 9.37
+        },
+        {
+          "text": "the",
+          "start": 9.4,
+          "end": 9.61
+        },
+        {
+          "text": "real",
+          "start": 9.61,
+          "end": 10.07
+        },
+        {
+          "text": "YAML",
+          "start": 10.12,
+          "end": 10.36
+        },
+        {
+          "text": "file",
+          "start": 10.36,
+          "end": 10.97
+        },
+        {
+          "text": "on",
+          "start": 11.3,
+          "end": 11.54
+        },
+        {
+          "text": "disk",
+          "start": 11.54,
+          "end": 11.76
+        },
+        {
+          "text": "so",
+          "start": 11.87,
+          "end": 11.93
+        },
+        {
+          "text": "answers",
+          "start": 11.93,
+          "end": 12.3
+        },
+        {
+          "text": "trace",
+          "start": 12.54,
+          "end": 12.75
+        },
+        {
+          "text": "back",
+          "start": 12.75,
+          "end": 12.86
+        },
+        {
+          "text": "to",
+          "start": 12.86,
+          "end": 12.99
+        },
+        {
+          "text": "ground",
+          "start": 12.99,
+          "end": 13.035
+        },
+        {
+          "text": "truth",
+          "start": 13.035,
+          "end": 13.08
+        },
+        {
+          "text": "This",
+          "start": 13.08,
+          "end": 13.58
+        },
+        {
+          "text": "is",
+          "start": 13.58,
+          "end": 13.74
+        },
+        {
+          "text": "the",
+          "start": 13.74,
+          "end": 13.9
+        },
+        {
+          "text": "difference",
+          "start": 13.9,
+          "end": 14.05
+        },
+        {
+          "text": "between",
+          "start": 14.05,
+          "end": 14.405000000000001
+        },
+        {
+          "text": "an",
+          "start": 14.405000000000001,
+          "end": 14.76
+        },
+        {
+          "text": "assistant",
+          "start": 14.88,
+          "end": 15.06
+        },
+        {
+          "text": "that",
+          "start": 15.06,
+          "end": 15.24
+        },
+        {
+          "text": "cites",
+          "start": 15.24,
+          "end": 15.42
+        },
+        {
+          "text": "inventory",
+          "start": 15.42,
+          "end": 16.040001
+        },
+        {
+          "text": "and",
+          "start": 16.4,
+          "end": 16.485
+        },
+        {
+          "text": "one",
+          "start": 16.485,
+          "end": 16.57
+        },
+        {
+          "text": "that",
+          "start": 16.57,
+          "end": 16.84
+        },
+        {
+          "text": "improvises",
+          "start": 16.84,
+          "end": 16.915
+        },
+        {
+          "text": "VLAN",
+          "start": 16.915,
+          "end": 16.99
+        },
+        {
+          "text": "IDs",
+          "start": 19.549999,
+          "end": 19.809999
+        },
+        {
+          "text": "from",
+          "start": 19.809999,
+          "end": 20.005000000000003
+        },
+        {
+          "text": "training",
+          "start": 20.005000000000003,
+          "end": 20.200001
+        },
+        {
+          "text": "data",
+          "start": 20.200001,
+          "end": 20.549999
+        }
+      ]
+    },
+    "add-inventory-tool": {
+      "words": [
+        {
+          "text": "get_lab_inventory",
+          "start": 1.12,
+          "end": 1.59
+        },
+        {
+          "text": "tells",
+          "start": 1.59,
+          "end": 1.68
+        },
+        {
+          "text": "the",
+          "start": 2.02,
+          "end": 2.67
+        },
+        {
+          "text": "client",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "text": "which",
+          "start": 2.81,
+          "end": 3.32
+        },
+        {
+          "text": "devices",
+          "start": 3.55,
+          "end": 4.18
+        },
+        {
+          "text": "exist",
+          "start": 4.49,
+          "end": 4.62
+        },
+        {
+          "text": "in",
+          "start": 4.62,
+          "end": 4.76
+        },
+        {
+          "text": "the",
+          "start": 4.76,
+          "end": 5.18
+        },
+        {
+          "text": "sandbox",
+          "start": 5.18,
+          "end": 5.62
+        },
+        {
+          "text": "Return",
+          "start": 5.62,
+          "end": 5.91
+        },
+        {
+          "text": "plain",
+          "start": 6.45,
+          "end": 6.5
+        },
+        {
+          "text": "dicts",
+          "start": 6.5,
+          "end": 6.66
+        },
+        {
+          "text": "and",
+          "start": 6.66,
+          "end": 6.75
+        },
+        {
+          "text": "lists",
+          "start": 7.35,
+          "end": 7.62
+        },
+        {
+          "text": "so",
+          "start": 9.83,
+          "end": 10.08
+        },
+        {
+          "text": "MCP",
+          "start": 10.27,
+          "end": 10.61
+        },
+        {
+          "text": "can",
+          "start": 10.67,
+          "end": 10.78
+        },
+        {
+          "text": "serialize",
+          "start": 10.78,
+          "end": 11.16
+        },
+        {
+          "text": "them",
+          "start": 11.38,
+          "end": 11.55
+        },
+        {
+          "text": "Start",
+          "start": 11.59,
+          "end": 12.02
+        },
+        {
+          "text": "the",
+          "start": 12.02,
+          "end": 12.165
+        },
+        {
+          "text": "server",
+          "start": 12.165,
+          "end": 12.31
+        },
+        {
+          "text": "and",
+          "start": 12.31,
+          "end": 12.75
+        },
+        {
+          "text": "confirm",
+          "start": 12.83,
+          "end": 13.08
+        },
+        {
+          "text": "both",
+          "start": 13.08,
+          "end": 13.33
+        },
+        {
+          "text": "tools",
+          "start": 13.33,
+          "end": 13.7
+        },
+        {
+          "text": "register",
+          "start": 13.7,
+          "end": 13.93
+        },
+        {
+          "text": "without",
+          "start": 13.93,
+          "end": 14.16
+        },
+        {
+          "text": "import",
+          "start": 14.2,
+          "end": 14.66
+        },
+        {
+          "text": "errors",
+          "start": 14.82,
+          "end": 14.955
+        },
+        {
+          "text": "before",
+          "start": 14.955,
+          "end": 15.09
+        },
+        {
+          "text": "you",
+          "start": 15.09,
+          "end": 15.19
+        },
+        {
+          "text": "connect",
+          "start": 15.19,
+          "end": 15.39
+        },
+        {
+          "text": "an",
+          "start": 15.39,
+          "end": 15.59
+        },
+        {
+          "text": "LLM",
+          "start": 15.59,
+          "end": 15.73
+        }
+      ]
+    },
+    "test-mcp-tools-manually": {
+      "words": [
+        {
+          "text": "Test",
+          "start": 0.1,
+          "end": 0.43999999999999995
+        },
+        {
+          "text": "tools",
+          "start": 0.44,
+          "end": 0.81
+        },
+        {
+          "text": "before",
+          "start": 0.81,
+          "end": 1.19
+        },
+        {
+          "text": "you",
+          "start": 1.19,
+          "end": 1.3
+        },
+        {
+          "text": "test",
+          "start": 1.3,
+          "end": 1.61
+        },
+        {
+          "text": "the",
+          "start": 1.61,
+          "end": 1.68
+        },
+        {
+          "text": "model",
+          "start": 1.68,
+          "end": 2.09
+        },
+        {
+          "text": "Verify",
+          "start": 2.35,
+          "end": 2.91
+        },
+        {
+          "text": "imports",
+          "start": 2.91,
+          "end": 3.48
+        },
+        {
+          "text": "inside",
+          "start": 3.51,
+          "end": 3.98
+        },
+        {
+          "text": "venv-mcp",
+          "start": 5.44,
+          "end": 5.6
+        },
+        {
+          "text": "and",
+          "start": 5.65,
+          "end": 6.08
+        },
+        {
+          "text": "confirm",
+          "start": 6.08,
+          "end": 6.18
+        },
+        {
+          "text": "the",
+          "start": 6.18,
+          "end": 6.53
+        },
+        {
+          "text": "server",
+          "start": 6.53,
+          "end": 6.97
+        },
+        {
+          "text": "starts",
+          "start": 7.89,
+          "end": 8.13
+        },
+        {
+          "text": "cleanly",
+          "start": 8.84,
+          "end": 9.54
+        },
+        {
+          "text": "If",
+          "start": 9.7,
+          "end": 9.94
+        },
+        {
+          "text": "list_vlans",
+          "start": 10.12,
+          "end": 10.52
+        },
+        {
+          "text": "returns",
+          "start": 10.52,
+          "end": 10.68
+        },
+        {
+          "text": "an",
+          "start": 10.68,
+          "end": 11.1
+        },
+        {
+          "text": "empty",
+          "start": 11.84,
+          "end": 12.27
+        },
+        {
+          "text": "list",
+          "start": 12.51,
+          "end": 12.65
+        },
+        {
+          "text": "fix",
+          "start": 13.31,
+          "end": 13.8
+        },
+        {
+          "text": "paths",
+          "start": 13.8,
+          "end": 13.96
+        },
+        {
+          "text": "and",
+          "start": 13.96,
+          "end": 14.16
+        },
+        {
+          "text": "YAML",
+          "start": 14.16,
+          "end": 14.36
+        },
+        {
+          "text": "before",
+          "start": 14.36,
+          "end": 14.49
+        },
+        {
+          "text": "you",
+          "start": 14.49,
+          "end": 14.875
+        },
+        {
+          "text": "blame",
+          "start": 14.875,
+          "end": 15.26
+        },
+        {
+          "text": "the",
+          "start": 15.57,
+          "end": 15.99
+        },
+        {
+          "text": "assistant",
+          "start": 15.99,
+          "end": 16.2200005
+        },
+        {
+          "text": "-",
+          "start": 16.2200005,
+          "end": 16.450001
+        },
+        {
+          "text": "most",
+          "start": 16.450001,
+          "end": 17.120001
+        },
+        {
+          "text": "grounding",
+          "start": 17.379999,
+          "end": 17.469999
+        },
+        {
+          "text": "failures",
+          "start": 17.469999,
+          "end": 17.559999
+        },
+        {
+          "text": "are",
+          "start": 17.6,
+          "end": 18.09
+        },
+        {
+          "text": "plumbing",
+          "start": 18.280001,
+          "end": 18.450001
+        },
+        {
+          "text": "not",
+          "start": 18.450001,
+          "end": 18.620001
+        },
+        {
+          "text": "intelligence",
+          "start": 18.66,
+          "end": 19.51
+        }
+      ]
+    },
+    "troubleshoot-mcp-server": {
+      "words": [
+        {
+          "text": "Import",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "text": "errors",
+          "start": 0.59,
+          "end": 1.04
+        },
+        {
+          "text": "usually",
+          "start": 1.11,
+          "end": 1.54
+        },
+        {
+          "text": "mean",
+          "start": 1.54,
+          "end": 1.9
+        },
+        {
+          "text": "the",
+          "start": 2.01,
+          "end": 2.16
+        },
+        {
+          "text": "wrong",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "text": "virtualenv",
+          "start": 2.94,
+          "end": 3.23
+        },
+        {
+          "text": "is",
+          "start": 3.3,
+          "end": 3.72
+        },
+        {
+          "text": "active",
+          "start": 4.08,
+          "end": 4.55
+        },
+        {
+          "text": "Empty",
+          "start": 4.77,
+          "end": 5.22
+        },
+        {
+          "text": "VLAN",
+          "start": 5.26,
+          "end": 5.65
+        },
+        {
+          "text": "lists",
+          "start": 5.65,
+          "end": 5.94
+        },
+        {
+          "text": "often",
+          "start": 6.03,
+          "end": 6.58
+        },
+        {
+          "text": "mean",
+          "start": 7.05,
+          "end": 7.45
+        },
+        {
+          "text": "serverpy",
+          "start": 7.69,
+          "end": 8.1
+        },
+        {
+          "text": "points",
+          "start": 8.32,
+          "end": 8.45
+        },
+        {
+          "text": "at",
+          "start": 8.45,
+          "end": 8.64
+        },
+        {
+          "text": "the",
+          "start": 8.64,
+          "end": 9.12
+        },
+        {
+          "text": "wrong",
+          "start": 9.21,
+          "end": 9.41
+        },
+        {
+          "text": "relative",
+          "start": 9.66,
+          "end": 9.73
+        },
+        {
+          "text": "path",
+          "start": 10.54,
+          "end": 10.82
+        },
+        {
+          "text": "to",
+          "start": 10.93,
+          "end": 11.1
+        },
+        {
+          "text": "netops_iac_lab",
+          "start": 11.1,
+          "end": 11.16
+        },
+        {
+          "text": "Serialization",
+          "start": 11.37,
+          "end": 11.78
+        },
+        {
+          "text": "errors",
+          "start": 12.31,
+          "end": 12.37
+        },
+        {
+          "text": "mean",
+          "start": 12.37,
+          "end": 13.03
+        },
+        {
+          "text": "you",
+          "start": 13.03,
+          "end": 13.81
+        },
+        {
+          "text": "returned",
+          "start": 14.15,
+          "end": 14.54
+        },
+        {
+          "text": "a",
+          "start": 14.54,
+          "end": 14.92
+        },
+        {
+          "text": "custom",
+          "start": 14.95,
+          "end": 15.2
+        },
+        {
+          "text": "Python",
+          "start": 15.2,
+          "end": 15.41
+        },
+        {
+          "text": "object",
+          "start": 15.41,
+          "end": 15.7
+        },
+        {
+          "text": "instead",
+          "start": 16.440001,
+          "end": 16.67
+        },
+        {
+          "text": "of",
+          "start": 16.67,
+          "end": 16.809999
+        },
+        {
+          "text": "JSON-friendly",
+          "start": 16.809999,
+          "end": 16.98
+        },
+        {
+          "text": "dicts",
+          "start": 17.08,
+          "end": 17.17
+        },
+        {
+          "text": "Fix",
+          "start": 17.17,
+          "end": 17.51
+        },
+        {
+          "text": "the",
+          "start": 17.51,
+          "end": 18.34
+        },
+        {
+          "text": "tool",
+          "start": 18.85,
+          "end": 18.93
+        },
+        {
+          "text": "layer",
+          "start": 19.299999,
+          "end": 19.58
+        },
+        {
+          "text": "first",
+          "start": 19.58,
+          "end": 19.6400005
+        },
+        {
+          "text": "agents",
+          "start": 19.6400005,
+          "end": 19.700001
+        },
+        {
+          "text": "are",
+          "start": 19.809999,
+          "end": 20.26
+        },
+        {
+          "text": "only",
+          "start": 20.66,
+          "end": 20.744999999999997
+        },
+        {
+          "text": "as",
+          "start": 20.744999999999997,
+          "end": 20.83
+        },
+        {
+          "text": "honest",
+          "start": 20.83,
+          "end": 21
+        },
+        {
+          "text": "as",
+          "start": 21,
+          "end": 21.25
+        },
+        {
+          "text": "the",
+          "start": 21.25,
+          "end": 21.5
+        },
+        {
+          "text": "data",
+          "start": 21.5,
+          "end": 21.549999
+        },
+        {
+          "text": "you",
+          "start": 21.549999,
+          "end": 21.67
+        },
+        {
+          "text": "give",
+          "start": 21.67,
+          "end": 21.790001
+        },
+        {
+          "text": "them",
+          "start": 21.870001,
+          "end": 22.139999
+        }
+      ]
+    },
+    "mcp-ready-for-agents": {
+      "words": [
+        {
+          "text": "Your",
+          "start": 0.16,
+          "end": 0.35
+        },
+        {
+          "text": "MCP",
+          "start": 0.9,
+          "end": 1.37
+        },
+        {
+          "text": "server",
+          "start": 1.57,
+          "end": 2.14
+        },
+        {
+          "text": "returns",
+          "start": 2.28,
+          "end": 2.56
+        },
+        {
+          "text": "real",
+          "start": 3.32,
+          "end": 3.56
+        },
+        {
+          "text": "VLAN",
+          "start": 3.56,
+          "end": 4.11
+        },
+        {
+          "text": "and",
+          "start": 4.11,
+          "end": 4.61
+        },
+        {
+          "text": "inventory",
+          "start": 4.83,
+          "end": 5.19
+        },
+        {
+          "text": "data",
+          "start": 5.19,
+          "end": 5.29
+        },
+        {
+          "text": "from",
+          "start": 5.29,
+          "end": 5.62
+        },
+        {
+          "text": "the",
+          "start": 5.89,
+          "end": 6.22
+        },
+        {
+          "text": "lab",
+          "start": 6.22,
+          "end": 6.68
+        },
+        {
+          "text": "Module",
+          "start": 6.83,
+          "end": 7.08
+        },
+        {
+          "text": "three",
+          "start": 7.08,
+          "end": 7.15
+        },
+        {
+          "text": "puts",
+          "start": 7.15,
+          "end": 7.94
+        },
+        {
+          "text": "a",
+          "start": 7.94,
+          "end": 8.2
+        },
+        {
+          "text": "conversational",
+          "start": 8.2,
+          "end": 8.45
+        },
+        {
+          "text": "layer",
+          "start": 8.45,
+          "end": 8.78
+        },
+        {
+          "text": "on",
+          "start": 9.02,
+          "end": 9.45
+        },
+        {
+          "text": "top",
+          "start": 9.48,
+          "end": 9.63
+        },
+        {
+          "text": "so",
+          "start": 9.63,
+          "end": 10.28
+        },
+        {
+          "text": "an",
+          "start": 10.41,
+          "end": 10.63
+        },
+        {
+          "text": "operator",
+          "start": 10.67,
+          "end": 10.96
+        },
+        {
+          "text": "can",
+          "start": 11.22,
+          "end": 11.45
+        },
+        {
+          "text": "ask",
+          "start": 11.92,
+          "end": 12.5
+        },
+        {
+          "text": "which",
+          "start": 12.55,
+          "end": 12.98
+        },
+        {
+          "text": "VLANs",
+          "start": 12.98,
+          "end": 13.35
+        },
+        {
+          "text": "exist",
+          "start": 13.35,
+          "end": 13.61
+        },
+        {
+          "text": "without",
+          "start": 13.61,
+          "end": 13.87
+        },
+        {
+          "text": "writing",
+          "start": 14.2,
+          "end": 14.54
+        },
+        {
+          "text": "Python",
+          "start": 14.54,
+          "end": 14.844999999999999
+        },
+        {
+          "text": "Writes",
+          "start": 14.844999999999999,
+          "end": 15.15
+        },
+        {
+          "text": "still",
+          "start": 15.15,
+          "end": 15.41
+        },
+        {
+          "text": "wait",
+          "start": 15.41,
+          "end": 15.49
+        },
+        {
+          "text": "for",
+          "start": 15.49,
+          "end": 15.57
+        },
+        {
+          "text": "human",
+          "start": 15.57,
+          "end": 15.95
+        },
+        {
+          "text": "approval",
+          "start": 15.95,
+          "end": 16.209999500000002
+        },
+        {
+          "text": "-",
+          "start": 16.209999500000002,
+          "end": 16.469999
+        },
+        {
+          "text": "we",
+          "start": 16.58,
+          "end": 16.73
+        },
+        {
+          "text": "are",
+          "start": 16.73,
+          "end": 16.75
+        },
+        {
+          "text": "building",
+          "start": 16.75,
+          "end": 16.77
+        },
+        {
+          "text": "an",
+          "start": 16.77,
+          "end": 17.219999
+        },
+        {
+          "text": "assistant",
+          "start": 17.219999,
+          "end": 17.2849995
+        },
+        {
+          "text": "not",
+          "start": 17.2849995,
+          "end": 17.35
+        },
+        {
+          "text": "an",
+          "start": 17.35,
+          "end": 18
+        },
+        {
+          "text": "unsupervised",
+          "start": 18.120001,
+          "end": 18.255
+        },
+        {
+          "text": "config",
+          "start": 18.255,
+          "end": 18.389999
+        },
+        {
+          "text": "pusher",
+          "start": 18.389999,
+          "end": 18.629999
+        }
+      ]
+    }
+  },
+  "lineMappings": {
+    "install-fastmcp-dependencies": [
+      {
+        "id": "mcp",
+        "line": 5,
+        "wordRange": [
+          34,
+          34
+        ]
+      },
+      {
+        "id": "fastmcp",
+        "line": 6,
+        "wordRange": [
+          6,
+          6
+        ]
+      },
+      {
+        "id": "pyyaml",
+        "line": 7,
+        "wordRange": [
+          8,
+          8
+        ]
+      }
+    ],
+    "add-list-vlans-tool": [
+      {
+        "id": "data",
+        "line": 8,
+        "wordRange": [
+          9,
+          9
+        ]
+      }
+    ],
+    "add-inventory-tool": [
+      {
+        "id": "return",
+        "line": 5,
+        "wordRange": [
+          10,
+          10
+        ]
+      }
+    ]
+  }
+}

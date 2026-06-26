@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="What the Capstone Integrates">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    
+    <text x="48" y="52" fill="#049FD9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" letter-spacing="0.14em">INTEGRATE</text>
+    <text x="48" y="74" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="800">M1-M4 in one pipeline</text>
+    <line id="viz-flow" x1="120" y1="200" x2="560" y2="200" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <g id="viz-code"><rect x="60" y="170" width="110" height="60" rx="10" fill="#081827" stroke="#a78bfa" stroke-width="2"/>
+      <text x="115" y="205" fill="#a78bfa" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">Reviewed code</text></g>
+    <g id="viz-mcp"><rect x="190" y="170" width="110" height="60" rx="10" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+      <text x="245" y="205" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">MCP data</text></g>
+    <g id="viz-agent"><rect x="320" y="170" width="110" height="60" rx="10" fill="#081827" stroke="#6CC04A" stroke-width="2"/>
+      <text x="375" y="205" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">Agent query</text></g>
+    <g id="viz-eval"><rect x="450" y="170" width="110" height="60" rx="10" fill="#081827" stroke="#f59e0b" stroke-width="2"/>
+      <text x="505" y="205" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">Measure</text></g>
+    <g id="viz-cap"><rect x="570" y="170" width="90" height="60" rx="10" fill="#112115" stroke="#6CC04A" stroke-width="2"/>
+      <text x="615" y="205" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" font-weight="700" text-anchor="middle">Evidence</text></g>
+  </g>
+</svg>

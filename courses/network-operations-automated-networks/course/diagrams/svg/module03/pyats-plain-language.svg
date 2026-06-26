@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="pyATS plain language">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    
+    <text x="48" y="58" fill="#049FD9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" letter-spacing="0.14em">pyATS</text>
+    <text x="48" y="84" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="800">Learn snapshot → compare → diff</text>
+    
+    <g id="viz-learn"><rect x="80" y="130" width="240" height="100" rx="10" fill="#020617" stroke="#35536f" stroke-width="1.5"/><text x="96" y="154" fill="#9fb3c8" font-family="monospace" font-size="9">pyats learn device</text><text x="96" y="172" fill="#64748b" font-family="monospace" font-size="9"># captures structured state</text><text x="96" y="190" fill="#9fb3c8" font-family="monospace" font-size="9">testbed.yaml</text></g>
+    <g id="viz-diff"><rect x="400" y="130" width="240" height="100" rx="10" fill="#020617" stroke="#35536f" stroke-width="1.5"/><text x="416" y="154" fill="#9fb3c8" font-family="monospace" font-size="9">pyats diff learn1 learn2</text><text x="416" y="172" fill="#64748b" font-family="monospace" font-size="9"># highlights drift</text><text x="416" y="190" fill="#9fb3c8" font-family="monospace" font-size="9">JSON / text report</text></g>
+    <text x="360" y="280" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">Same tool before and after change</text>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="When pipeline runs">
+  <rect width="800" height="900" fill="#071525"/>
+  <text x="40" y="52" fill="#f59e0b" font-family="Inter,sans-serif" font-size="13" font-weight="800" letter-spacing=".16em">TRIGGERS</text>
+  <text x="40" y="96" fill="#fff" font-family="Inter,sans-serif" font-size="28" font-weight="800">Branch rules</text>
+  <g transform="translate(200 360)">
+    <rect x="-150" y="-80" width="300" height="160" rx="14" fill="#422006" stroke="#f59e0b" stroke-width="2"/>
+    <text y="-20" text-anchor="middle" fill="#fcd34d" font-family="Inter,sans-serif" font-size="15" font-weight="700">feature push</text>
+    <text y="15" text-anchor="middle" fill="#94a3b8" font-family="Inter,sans-serif" font-size="13">build + prevalidation</text>
+  </g>
+  <g transform="translate(600 360)">
+    <rect x="-150" y="-80" width="300" height="160" rx="14" fill="#14532d" stroke="#6CC04A" stroke-width="2"/>
+    <text y="-20" text-anchor="middle" fill="#bbf7d0" font-family="Inter,sans-serif" font-size="15" font-weight="700">merge to main</text>
+    <text y="15" text-anchor="middle" fill="#94a3b8" font-family="Inter,sans-serif" font-size="13">all four stages</text>
+  </g>
+</svg>

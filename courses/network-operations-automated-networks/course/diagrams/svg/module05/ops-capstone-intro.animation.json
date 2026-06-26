@@ -1,0 +1,89 @@
+{
+  "diagram": "ops-capstone-intro.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-c1"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-c1"
+      ]
+    },
+    {
+      "start": 2.4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-c1",
+        "viz-c2"
+      ],
+      "dim": [
+        "viz-c1"
+      ],
+      "highlight": [
+        "viz-c2"
+      ]
+    },
+    {
+      "start": 4.8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-c1",
+        "viz-c2",
+        "viz-c3"
+      ],
+      "dim": [
+        "viz-c1",
+        "viz-c2"
+      ],
+      "highlight": [
+        "viz-c3"
+      ]
+    },
+    {
+      "start": 7.199999999999999,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-c1",
+        "viz-c2",
+        "viz-c3",
+        "viz-c4"
+      ],
+      "dim": [
+        "viz-c1",
+        "viz-c2",
+        "viz-c3"
+      ],
+      "highlight": [
+        "viz-c4"
+      ]
+    },
+    {
+      "start": 9.6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-c1",
+        "viz-c2",
+        "viz-c3",
+        "viz-c4",
+        "viz-objective"
+      ],
+      "dim": [
+        "viz-c1",
+        "viz-c2",
+        "viz-c3",
+        "viz-c4"
+      ],
+      "highlight": [
+        "viz-objective"
+      ]
+    }
+  ]
+}

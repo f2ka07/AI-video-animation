@@ -1,0 +1,49 @@
+{
+  "diagram": "rest-for-network-engineers.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-get-map"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-get-map"
+      ]
+    },
+    {
+      "start": 4,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-get-map",
+        "viz-patch-map"
+      ],
+      "dim": [
+        "viz-get-map"
+      ],
+      "highlight": [
+        "viz-patch-map"
+      ]
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-get-map",
+        "viz-patch-map",
+        "viz-judgment"
+      ],
+      "dim": [
+        "viz-get-map",
+        "viz-patch-map"
+      ],
+      "highlight": [
+        "viz-judgment"
+      ]
+    }
+  ]
+}

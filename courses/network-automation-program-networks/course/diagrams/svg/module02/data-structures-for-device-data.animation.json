@@ -1,0 +1,32 @@
+{
+  "diagram": "data-structures-for-device-data.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-list"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-list"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-list",
+        "viz-dict"
+      ],
+      "dim": [
+        "viz-list"
+      ],
+      "highlight": [
+        "viz-dict"
+      ]
+    }
+  ]
+}

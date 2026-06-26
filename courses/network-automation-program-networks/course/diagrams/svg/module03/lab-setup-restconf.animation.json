@@ -1,0 +1,137 @@
+{
+  "diagram": "lab-setup-restconf.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-arrows"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-arrows"
+      ]
+    },
+    {
+      "start": 1.7142857142857142,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-arrows",
+        "viz-switch"
+      ],
+      "dim": [
+        "viz-arrows"
+      ],
+      "highlight": [
+        "viz-switch"
+      ]
+    },
+    {
+      "start": 3.4285714285714284,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-arrows",
+        "viz-switch",
+        "viz-step-1"
+      ],
+      "dim": [
+        "viz-arrows",
+        "viz-switch"
+      ],
+      "highlight": [
+        "viz-step-1"
+      ]
+    },
+    {
+      "start": 5.142857142857142,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-arrows",
+        "viz-switch",
+        "viz-step-1",
+        "viz-step-2"
+      ],
+      "dim": [
+        "viz-arrows",
+        "viz-switch",
+        "viz-step-1"
+      ],
+      "highlight": [
+        "viz-step-2"
+      ]
+    },
+    {
+      "start": 6.857142857142857,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-arrows",
+        "viz-switch",
+        "viz-step-1",
+        "viz-step-2",
+        "viz-step-3"
+      ],
+      "dim": [
+        "viz-arrows",
+        "viz-switch",
+        "viz-step-1",
+        "viz-step-2"
+      ],
+      "highlight": [
+        "viz-step-3"
+      ]
+    },
+    {
+      "start": 8.571428571428571,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-arrows",
+        "viz-switch",
+        "viz-step-1",
+        "viz-step-2",
+        "viz-step-3",
+        "viz-script"
+      ],
+      "dim": [
+        "viz-arrows",
+        "viz-switch",
+        "viz-step-1",
+        "viz-step-2",
+        "viz-step-3"
+      ],
+      "highlight": [
+        "viz-script"
+      ]
+    },
+    {
+      "start": 10.285714285714285,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-arrows",
+        "viz-switch",
+        "viz-step-1",
+        "viz-step-2",
+        "viz-step-3",
+        "viz-script",
+        "viz-caption"
+      ],
+      "dim": [
+        "viz-arrows",
+        "viz-switch",
+        "viz-step-1",
+        "viz-step-2",
+        "viz-step-3",
+        "viz-script"
+      ],
+      "highlight": [
+        "viz-caption"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="gitlab-ci.yml anatomy">
+  <rect width="800" height="900" fill="#071525"/>
+  <text x="40" y="52" fill="#049FD9" font-family="Inter,sans-serif" font-size="13" font-weight="800" letter-spacing=".16em">YAML</text>
+  <text x="40" y="96" fill="#fff" font-family="Inter,sans-serif" font-size="28" font-weight="800">.gitlab-ci.yml</text>
+  <g transform="translate(400 380)">
+    <rect x="-280" y="-140" width="560" height="280" rx="16" fill="#0f172a" stroke="#049FD9" stroke-width="2"/>
+    <text x="-240" y="-90" fill="#6CC04A" font-family="monospace" font-size="14">stages:</text>
+    <text x="-240" y="-60" fill="#94a3b8" font-family="monospace" font-size="14">job_name:</text>
+    <text x="-220" y="-30" fill="#64748b" font-family="monospace" font-size="13">  stage: build</text>
+    <text x="-220" y="0" fill="#64748b" font-family="monospace" font-size="13">  image: python:3.11-slim</text>
+    <text x="-220" y="30" fill="#64748b" font-family="monospace" font-size="13">  script:</text>
+    <text x="-200" y="60" fill="#64748b" font-family="monospace" font-size="13">    - pip install ...</text>
+    <text x="-220" y="100" fill="#64748b" font-family="monospace" font-size="13">  rules: / only:</text>
+  </g>
+</svg>

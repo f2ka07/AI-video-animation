@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Resume module 1 lab">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    <g id="viz-term">
+      <rect x="100" y="90" width="472" height="280" rx="16" fill="#020617" stroke="#12b5e5" stroke-width="2"/>
+      <circle cx="128" cy="118" r="6" fill="#ef4444"/><circle cx="148" cy="118" r="6" fill="#f59e0b"/><circle cx="168" cy="118" r="6" fill="#6CC04A"/>
+      <text x="120" y="158" fill="#9fb3c8" font-family="monospace" font-size="13">$ cd automation_project</text>
+      <text x="120" y="186" fill="#6CC04A" font-family="monospace" font-size="13">$ source env/bin/activate</text>
+      <text x="120" y="214" fill="#64748b" font-family="monospace" font-size="12">(env) $ pip show netmiko</text>
+      <text x="120" y="242" fill="#9fb3c8" font-family="monospace" font-size="11">Name: netmiko</text>
+      <text x="120" y="262" fill="#9fb3c8" font-family="monospace" font-size="11">Version: 4.x</text>
+    </g>
+    <g id="viz-ready">
+      <circle cx="336" cy="410" r="22" fill="#112115" stroke="#6CC04A" stroke-width="2"/>
+      <path d="M326 410l6 6 14-16" fill="none" stroke="#6CC04A" stroke-width="3" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

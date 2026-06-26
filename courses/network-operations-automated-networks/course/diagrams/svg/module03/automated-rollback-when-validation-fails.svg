@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Automated rollback on validation fail">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    
+    <text x="48" y="58" fill="#049FD9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" letter-spacing="0.14em">ROLLBACK</text>
+    <text x="48" y="84" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="800">Fail closed — revert intent</text>
+    
+    <g id="viz-fail"><rect x="100" y="150" width="180" height="80" rx="12" fill="#1a1215" stroke="#ef4444" stroke-width="2"/>
+      <text x="190" y="195" fill="#ef4444" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">pyATS diff: FAIL</text></g>
+    <line x1="280" y1="190" x2="340" y2="190" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <g id="viz-rollback"><rect x="340" y="150" width="180" height="80" rx="12" fill="#112115" stroke="#f59e0b" stroke-width="2"/>
+      <text x="430" y="195" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">git revert + apply</text></g>
+    <line x1="520" y1="190" x2="580" y2="190" stroke="#049FD9" stroke-width="3" stroke-linecap="round"/>
+    <g id="viz-verify"><rect x="500" y="260" width="180" height="80" rx="12" fill="#112115" stroke="#6CC04A" stroke-width="2"/>
+      <text x="590" y="305" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Re-learn: OK</text></g>
+  </g>
+</svg>

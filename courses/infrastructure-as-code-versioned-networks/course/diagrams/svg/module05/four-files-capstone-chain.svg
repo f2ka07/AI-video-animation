@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="Four artifacts">
+  <rect width="800" height="900" fill="#071525"/>
+  <text x="40" y="52" fill="#049FD9" font-family="Inter,sans-serif" font-size="13" font-weight="800" letter-spacing=".16em">ARTIFACTS</text>
+  <text x="40" y="96" fill="#fff" font-family="Inter,sans-serif" font-size="28" font-weight="800">Four files to inspect</text>
+  <g transform="translate(400 360)">
+    <rect x="-240" y="-90" width="480" height="180" rx="14" fill="#0f172a" stroke="#049FD9" stroke-width="2"/>
+    <text x="-200" y="-40" fill="#bbf7d0" font-family="monospace" font-size="13">models/intent/vlans.json</text>
+    <text x="-200" y="-5" fill="#94a3b8" font-family="monospace" font-size="13">.gitlab-ci.yml</text>
+    <text x="-200" y="30" fill="#94a3b8" font-family="monospace" font-size="13">inventory/cml.yml</text>
+    <text x="-200" y="65" fill="#6CC04A" font-family="monospace" font-size="13">rendered/vlans.cfg</text>
+  </g>
+</svg>

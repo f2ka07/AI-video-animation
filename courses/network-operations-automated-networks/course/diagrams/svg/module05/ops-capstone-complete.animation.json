@@ -1,0 +1,17 @@
+{
+  "diagram": "ops-capstone-complete.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-done"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-done"
+      ]
+    }
+  ]
+}

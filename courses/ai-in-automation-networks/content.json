@@ -1,0 +1,941 @@
+{
+  "courseName": "AI in Automation: Build Intelligent and Agent Driven Network Automation",
+  "courseId": "ai-in-automation-networks",
+  "modules": [
+    {
+      "moduleNumber": 1,
+      "title": "AI Assisted Automation",
+      "subtitle": "Use LLMs to Draft Playbooks Without Bypassing Review",
+      "slides": [
+        {
+          "name": "secure-ops-to-ai-bridge",
+          "type": "title",
+          "title": "From Secure Ops to AI Assistance",
+          "script": "Picture a Tuesday night change window. A VLAN standardization request lands in your queue and someone pastes the ask into a chat model. Ten minutes later you have an Ansible playbook that looks almost right. That is the moment this course addresses. Courses one through three taught you to automate, version intent, observe the network, validate changes, and secure your toolchain. Course four adds large language models as a drafting assistant — not as a replacement for your judgment. We will build a workflow you can defend in a real change review: prompt, human review, lint, check mode, and an audit trail before any device touch.",
+          "imageSrc": "assets/ai-in-automation-networks/module01/secure-ops-to-ai-bridge.svg"
+        },
+        {
+          "name": "ai-coding-workflows-plain-language",
+          "type": "content-two-card",
+          "title": "AI Coding Workflows",
+          "script": "Before we open a model, define the workflow in plain language. You describe the task and constraints in a structured prompt — platform, idempotency, forbidden patterns like embedded passwords. The model returns a draft. A human engineer reads the diff the same way they would review a colleague's pull request. Only after that review do you run ansible-lint, yamllint, and ansible-playbook in check mode. Treat those steps as non-optional. Skipping review is how plausible-looking YAML reaches production and breaks at two in the morning.",
+          "points": [
+            "Before we open a model",
+            "You describe the task and constraints in a structured",
+            "Platform idempotency forbidden"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module01/ai-coding-workflows-plain-language.svg"
+        },
+        {
+          "name": "benefits-of-ai-assisted-coding",
+          "type": "content-single",
+          "title": "When AI Helps Network Engineers",
+          "script": "Used well, a model is a fast first pair of hands for boilerplate. It can draft the repetitive skeleton of a VLAN playbook, suggest Ansible task structure when you are new to a module, or translate between JSON intent and YAML when you are tired of indentation errors. None of that removes your networking judgment. The VLAN numbers still must match your design standard. The target devices still must come from inventory. AI accelerates the blank page; you still own the change ticket.",
+          "points": [
+            "Used well a model is a fast first pair",
+            "It can draft the repetitive skeleton",
+            "VLAN playbook suggest Ansible task structure"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module01/benefits-of-ai-assisted-coding.svg"
+        },
+        {
+          "name": "risks-privacy-ip-ownership",
+          "type": "content-two-card",
+          "title": "When Speed Creates Exposure",
+          "script": "Speed without guardrails creates exposure you may not see on a CCNA lab. Pasting a production running-config into a public model can leak customer addressing, VPN details, or credentials in comments. Your employer may have rules about who owns generated code and which providers you may use. Models also invent APIs that sound real — iosxe_restconf.push_vlan might read convincingly even when no such call exists. The fix is the same discipline you already practice: validate before merge, and never treat fluent prose as proof of correctness.",
+          "points": [
+            "Speed without guardrails creates exposure you may not see",
+            "CCNA lab Pasting a production running — config",
+            "VPN details or credentials in comments Your"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module01/risks-privacy-ip-ownership.svg"
+        },
+        {
+          "name": "code-validation-after-generation",
+          "type": "content-single",
+          "title": "Validate AI-Generated Code",
+          "script": "Here is the habit that separates a demo from production practice. Run the same gates on AI output that you run on human-written playbooks: ansible-lint, yamllint, schema checks on intent files, then ansible-playbook with check and diff. Store the prompt and the generated file in the change ticket so an auditor can reconstruct what the model was asked and what it returned. If check mode fails, you re-prompt with tighter constraints — you do not hand-patch unsafe YAML just to make the pipeline green.",
+          "points": [
+            "Here is the habit that separates a demo",
+            "Run the same gates on AI output",
+            "That you run on human — written playbooks"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module01/code-validation-after-generation.svg"
+        },
+        {
+          "name": "security-risks-ai-automation",
+          "type": "content-two-card",
+          "title": "New Threats in AI Workflows",
+          "script": "New attack surfaces appear when models and tools enter the workflow. Prompt injection tries to override your instructions inside user text. Over-privileged tools let an assistant push configuration you never approved. Sensitive context sent to the wrong endpoint becomes a data leak. Generated scripts sometimes disable TLS verification or embed API keys because the model pattern-matched insecure examples from the internet. Design for least privilege, sandbox tool access, and explicit human approval before any write.",
+          "points": [
+            "New attack surfaces appear when models and tools enter",
+            "Prompt injection tries to override your instructions inside user",
+            "Over — privileged tools let an assistant"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module01/security-risks-ai-automation.svg"
+        },
+        {
+          "name": "governance-for-ai-automation",
+          "type": "content-single",
+          "title": "Governance and Policy",
+          "script": "Governance is how policy survives contact with a busy team. Publish which models and endpoints are approved, which data classes must never appear in prompts, and how long you retain prompt logs. Align that with secret management from course three — configuration in Git, credentials from the environment, not from chat history. The assistant is a power tool; your change process still owns the blast radius.",
+          "points": [
+            "Governance is how policy survives contact with a busy",
+            "Align that with secret management from course three —",
+            "The assistant is a power tool your change process"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module01/governance-for-ai-automation.svg"
+        },
+        {
+          "name": "human-review-vs-auto-merge",
+          "type": "comparison",
+          "title": "Human Review vs Auto-Merge",
+          "script": "A green linter result is not a network design review. Linters catch syntax and many style problems; they do not catch applying VLAN 400 to the wrong site or trusting a hallucinated module name. A human reviewer reads the diff, runs check mode, and confirms the change matches intent from netops_iac_lab. Auto-merging AI output to main might save five minutes in a lab and cost hours in an outage when the model guessed wrong.",
+          "leftTitle": "Human in review",
+          "leftItems": [
+            "Diff and check mode",
+            "Meets policy",
+            "Production safe"
+          ],
+          "rightTitle": "Auto-merge AI",
+          "rightItems": [
+            "Skips judgment",
+            "Logic bugs slip through",
+            "Fails governance"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module01/human-review-vs-auto-merge.svg"
+        },
+        {
+          "name": "story-beat-recap-ai-assisted",
+          "type": "story-beat",
+          "beat": "recap",
+          "title": "Theory Complete — AI Code Lab Next",
+          "script": "Pause before the lab. You have seen why teams reach for models, what can go wrong, how validation and governance keep speed safe, and why human review stays in the loop. Next you will live the workflow in netops_ai_lab: write a prompt for a VLAN playbook, save the draft, lint it, and run check mode. Use lab topology only in prompts. If a step fails, fix it before continuing — the habit matters more than the speed.",
+          "points": [
+            "Before the lab You have seen why teams reach",
+            "Next you will live the workflow",
+            "VLAN playbook"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module01/story-beat-recap-ai-assisted.svg"
+        },
+        {
+          "name": "lab-setup-ai-lab",
+          "type": "content-single",
+          "title": "Start netops_ai_lab",
+          "script": "Welcome to the lab portion. Today you will not touch production devices. Create netops_ai_lab beside your IaC and ops repos with three folders: prompts for what you ask the model, generated for raw output, and reviews for human sign-off. That separation mirrors how mature teams keep untrusted drafts away from merged playbooks until review passes. Every command appears on screen; pause when you need to catch up.",
+          "points": [
+            "Lab portion",
+            "Today you will not touch production devices",
+            "Create netops_ai_lab beside"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module01/lab-setup-ai-lab.svg"
+        },
+        {
+          "name": "save-network-automation-prompt",
+          "type": "code",
+          "title": "Step 1: Write the Prompt",
+          "script": "Step one writes the prompt as a file, not as a disposable chat message. State the task, target platform, idempotency requirement, and constraints such as ansible-lint clean and no credentials in output. Saving under prompts lets you diff prompt versions, re-run generation after a failure, and show auditors exactly what you asked the model during a change review.",
+          "code": "mkdir -p netops_ai_lab/{prompts,generated,reviews}\ncat > netops_ai_lab/prompts/vlan_playbook.md << 'EOF'\nTask: Idempotent IOS XE VLAN playbook from intended/vlans.yaml\nConstraints: ansible-lint clean, check mode safe, no credentials\nEOF",
+          "language": "bash",
+          "codeContext": "netops_ai_lab/"
+        },
+        {
+          "name": "generate-playbook-with-llm",
+          "type": "code",
+          "title": "Step 2: Save Generated Draft",
+          "script": "Step two saves model output into generated and logs ai-draft in reviews. That log line matters: it proves generation happened before a human signed off. Treat everything in generated as untrusted until lint and check mode pass. Do not copy it straight into your production playbooks folder without the validation steps that follow.",
+          "code": "cat > netops_ai_lab/generated/ai_deploy_vlans.yml << 'EOF'\n---\n- hosts: localhost\n  connection: local\n  tasks:\n    - ansible.builtin.debug: { msg: \"check mode VLAN apply\" }\nEOF\necho ai-draft >> netops_ai_lab/reviews/review.log",
+          "language": "yaml",
+          "codeContext": "netops_ai_lab/generated/"
+        },
+        {
+          "name": "lint-generated-playbook",
+          "type": "code",
+          "title": "Step 3: Lint Generated Code",
+          "script": "Step three copies the draft into your IaC playbooks path only for validation, then runs ansible-lint and the secure intent validator from course three. These gates catch unsafe modules, style violations, and intent mismatches while failure is still cheap. If lint fails, tighten the prompt constraints and generate again rather than arguing with the linter.",
+          "code": "cp netops_ai_lab/generated/ai_deploy_vlans.yml ../netops_iac_lab/playbooks/\nansible-lint ../netops_iac_lab/playbooks/ai_deploy_vlans.yml\npython ../netops_ops_lab/scripts/validate_intent_secure.py ../netops_iac_lab/intended/vlans.yaml",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "check-mode-ai-playbook",
+          "type": "code",
+          "title": "Step 4: Check Mode",
+          "script": "Step four runs ansible-playbook with check and diff so you see planned changes without applying them. Read the output the way you would read a dry-run on a real change. When the plan matches intent, log human-approved in reviews. That single log entry is evidence your governance workflow was followed.",
+          "code": "ansible-playbook playbooks/ai_deploy_vlans.yml --check --diff\necho human-approved >> ../netops_ai_lab/reviews/review.log",
+          "language": "bash",
+          "codeContext": "netops_iac_lab/"
+        },
+        {
+          "name": "troubleshoot-unsafe-ai-output",
+          "type": "bullets-code",
+          "title": "Troubleshoot Bad AI Output",
+          "script": "When a draft fails review, search before you discard. Grep for passwords, API keys, and disabled TLS settings. Reject hallucinated module names and destructive tasks without guards. The model is not malicious — it pattern-completes from training data that included bad examples. Fix the prompt, regenerate, and validate again.",
+          "code": "grep -E \"password:|api_key|disable.*tls\" netops_ai_lab/generated/*.yml",
+          "language": "bash",
+          "codeContext": "netops_ai_lab/",
+          "visibleLineRange": [
+            1,
+            1
+          ],
+          "points": [
+            "Hallucinated APIs",
+            "Secrets in output — reject",
+            "Re-prompt with constraints"
+          ]
+        },
+        {
+          "name": "ai-assisted-ready-for-mcp",
+          "type": "story-beat",
+          "beat": "resolution",
+          "title": "AI Code Review Complete — MCP Next",
+          "script": "You now have a defensible AI drafting workflow with artifacts to show in a review: prompt file, generated draft, lint results, check mode output, and approval log. That is the foundation intelligent automation builds on. Module two tackles the next problem models have on their own: they do not know your VLANs unless you give them safe read access through MCP.",
+          "points": [
+            "You now have a defensible AI drafting workflow",
+            "File generated draft lint",
+            "Results check mode output and approval"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module01/ai-assisted-ready-for-mcp.svg"
+        }
+      ]
+    },
+    {
+      "moduleNumber": 2,
+      "title": "MCP and AI Integration",
+      "subtitle": "Connect Models to Live Lab Intent with MCP",
+      "slides": [
+        {
+          "name": "mcp-bridge-from-module-one",
+          "type": "title",
+          "title": "From Reviewed Code to MCP Tools",
+          "script": "A draft playbook is only half the story. Ask a model which VLANs exist on SW2 without live data and it will guess convincingly. Module two solves that grounding problem. You will build an MCP server in Python with FastMCP — a small program that exposes read-only tools returning real data from netops_iac_lab. The model stops inventing inventory and starts citing what your tools return.",
+          "imageSrc": "assets/ai-in-automation-networks/module02/mcp-bridge-from-module-one.svg"
+        },
+        {
+          "name": "what-mcp-means-plain-language",
+          "type": "content-single",
+          "title": "MCP in Plain Language",
+          "script": "MCP stands for Model Context Protocol. In everyday terms it is a standard way for an AI client to discover tools, call them with JSON arguments, and receive structured results. FastMCP is a Python library that turns ordinary functions into those tools with less boilerplate. You focus on what the tool should return — VLAN list, device inventory — not on reinventing RPC glue for every integration.",
+          "points": [
+            "MCP stands for Model Context Protocol In everyday terms",
+            "FastMCP is a Python library that turns ordinary functions",
+            "You focus on what the tool should"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module02/what-mcp-means-plain-language.svg"
+        },
+        {
+          "name": "mcp-architecture-components",
+          "type": "content-two-card",
+          "title": "MCP Architecture",
+          "script": "Three pieces work together. The host runs the LLM client that decides when to call a tool. The MCP server registers tools such as list_vlans and answers with JSON the model can parse. Transport is often stdio in a lab or HTTP when you deploy further. When each piece is clear, troubleshooting is easier: is the client calling the wrong tool, or is the server returning bad data?",
+          "points": [
+            "Three pieces work together The host runs the LLM",
+            "The MCP server registers tools",
+            "JSON the model can parse"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module02/mcp-architecture-components.svg"
+        },
+        {
+          "name": "fastmcp-vs-ad-hoc-api",
+          "type": "comparison",
+          "title": "FastMCP vs Ad-Hoc API",
+          "script": "Teams often start with one-off REST scripts per integration. That works once, then every new assistant needs custom glue and nobody agrees on schemas. MCP gives you a catalog of tools the client can discover automatically. One server can serve multiple clients, and you audit tool definitions in one place. That is why we standardize on MCP instead of copying curl examples into every prompt.",
+          "leftTitle": "FastMCP MCP server",
+          "leftItems": [
+            "Standard tool schema",
+            "Reusable across clients",
+            "One server to maintain"
+          ],
+          "rightTitle": "Ad-hoc scripts",
+          "rightItems": [
+            "Custom per integration",
+            "Harder for agents",
+            "No standard discovery"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module02/fastmcp-vs-ad-hoc-api.svg"
+        },
+        {
+          "name": "tool-orchestration-patterns",
+          "type": "content-two-card",
+          "title": "Tool Orchestration",
+          "script": "Design tools the way you design firewall rules: start permissive for reads, strict for writes. Return intent slices, inventory rows, or telemetry summaries as JSON. Defer push_config until module three and keep writes behind human approval. Small, focused tools are easier to test, easier to benchmark later, and harder for an attacker or a confused model to abuse.",
+          "points": [
+            "Design tools the way you design",
+            "Return intent slices inventory",
+            "Rows or telemetry summaries as JSON"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module02/tool-orchestration-patterns.svg"
+        },
+        {
+          "name": "expose-network-data-safely",
+          "type": "content-single",
+          "title": "Expose Network Data Safely",
+          "script": "Expose the minimum data the assistant needs — not full running configs, not secrets. In this lab, tools read netops_iac_lab YAML and a simple inventory file. In production you authenticate MCP transport, rate-limit calls, and log which tool returned what. Narrow scope in the lab trains the habit you will need when the same pattern touches real devices.",
+          "points": [
+            "Expose the minimum data the assistant needs — not",
+            "In this lab",
+            "YAML and a simple inventory"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module02/expose-network-data-safely.svg"
+        },
+        {
+          "name": "story-beat-recap-mcp",
+          "type": "story-beat",
+          "beat": "recap",
+          "title": "Theory Complete — FastMCP Lab Next",
+          "script": "You understand why MCP exists and how to expose data without handing the model the keys to the kingdom. Next you build netops_ai_lab/mcp/server.py with list_vlans and get_lab_inventory. Keep both tools read-only so the agent in module three can answer questions without pushing configuration on its own.",
+          "points": [
+            "You understand why MCP exists and how to expose",
+            "Keep both tools read — only so the agent",
+            "Three can answer questions without pushing configuration on its"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module02/story-beat-recap-mcp.svg"
+        },
+        {
+          "name": "lab-setup-mcp",
+          "type": "content-single",
+          "title": "Extend netops_ai_lab for MCP",
+          "script": "Extend netops_ai_lab with an mcp folder: server.py and requirements-mcp.txt. Use a dedicated virtualenv so MCP package versions do not fight with your Ansible or ops tooling. Isolated environments are boring until an upgrade breaks one stack — then you will be glad you separated them.",
+          "points": [
+            "Extend netops_ai_lab with an mcp folder serverpy",
+            "Use a dedicated virtualenv so MCP package versions do",
+            "Ansible or ops tooling Isolated environments are boring until"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module02/lab-setup-mcp.svg"
+        },
+        {
+          "name": "install-fastmcp-dependencies",
+          "type": "code",
+          "title": "Install FastMCP",
+          "script": "Create venv-mcp inside netops_ai_lab and install FastMCP plus PyYAML for reading intent files. Pin versions in requirements-mcp.txt so a teammate or CI job gets the same behavior you tested. Activate this venv before every MCP command in the module.",
+          "code": "cd netops_ai_lab\npython3 -m venv venv-mcp\nsource venv-mcp/bin/activate\ncat > requirements-mcp.txt << 'EOF'\nmcp>=1.0.0\nfastmcp>=0.1.0\npyyaml>=6.0\nEOF\npip install -r requirements-mcp.txt",
+          "language": "bash",
+          "codeContext": "netops_ai_lab/"
+        },
+        {
+          "name": "build-fastmcp-server-skeleton",
+          "type": "code",
+          "title": "FastMCP Server Skeleton",
+          "script": "Start with the smallest server that runs: instantiate FastMCP, register a ping tool, and start the entry point. Confirm the process stays up before you add network logic. The same incremental approach you used for Python scripts in course one applies here — prove the pipe works, then add VLAN data.",
+          "code": "cat > mcp/server.py << 'EOF'\nfrom mcp.server.fastmcp import FastMCP\nmcp = FastMCP(\"netops-lab\")\n\n@mcp.tool()\ndef ping() -> str:\n    return \"netops mcp server ready\"\n\nif __name__ == \"__main__\":\n    mcp.run()\nEOF",
+          "language": "python",
+          "codeContext": "netops_ai_lab/mcp/"
+        },
+        {
+          "name": "add-list-vlans-tool",
+          "type": "code",
+          "title": "Tool: list_vlans",
+          "script": "list_vlans reads VLAN intent from netops_iac_lab and returns structured data. Point at the real YAML file on disk so answers trace back to ground truth. This is the difference between an assistant that cites inventory and one that improvises VLAN IDs from training data.",
+          "code": "cat >> mcp/server.py << 'EOF'\nimport yaml\nfrom pathlib import Path\n\n@mcp.tool()\ndef list_vlans() -> list:\n    p = Path(\"../netops_iac_lab/intended/vlans.yaml\")\n    data = yaml.safe_load(p.read_text())\n    return data.get(\"vlans\", [])\nEOF",
+          "language": "python",
+          "codeContext": "netops_ai_lab/mcp/"
+        },
+        {
+          "name": "add-inventory-tool",
+          "type": "code",
+          "title": "Tool: get_lab_inventory",
+          "script": "get_lab_inventory tells the client which devices exist in the sandbox. Return plain dicts and lists so MCP can serialize them. Start the server and confirm both tools register without import errors before you connect an LLM.",
+          "code": "cat >> mcp/server.py << 'EOF'\n\n@mcp.tool()\ndef get_lab_inventory() -> list:\n    return [{\"name\": \"lab-sw1\", \"role\": \"access\", \"os\": \"iosxe\"}]\nEOF\npython mcp/server.py",
+          "language": "python",
+          "codeContext": "netops_ai_lab/mcp/"
+        },
+        {
+          "name": "test-mcp-tools-manually",
+          "type": "code",
+          "title": "Verify MCP Tools",
+          "script": "Test tools before you test the model. Verify imports inside venv-mcp and confirm the server starts cleanly. If list_vlans returns an empty list, fix paths and YAML before you blame the assistant — most grounding failures are plumbing, not intelligence.",
+          "code": "source venv-mcp/bin/activate\npython -c \"from mcp.server import Server; print('mcp ok')\"\n# run server: python mcp/server.py",
+          "language": "bash",
+          "codeContext": "netops_ai_lab/"
+        },
+        {
+          "name": "troubleshoot-mcp-server",
+          "type": "bullets-code",
+          "title": "Troubleshoot MCP Server",
+          "script": "Import errors usually mean the wrong virtualenv is active. Empty VLAN lists often mean server.py points at the wrong relative path to netops_iac_lab. Serialization errors mean you returned a custom Python object instead of JSON-friendly dicts. Fix the tool layer first; agents are only as honest as the data you give them.",
+          "code": "python -c \"import yaml; print(yaml.safe_load(open('../netops_iac_lab/intended/vlans.yaml')))\"",
+          "language": "bash",
+          "codeContext": "netops_ai_lab/",
+          "visibleLineRange": [
+            1,
+            1
+          ],
+          "points": [
+            "Check venv and imports",
+            "Verify intent file path",
+            "JSON-serializable returns"
+          ]
+        },
+        {
+          "name": "mcp-ready-for-agents",
+          "type": "story-beat",
+          "beat": "resolution",
+          "title": "MCP Complete — Agents Next",
+          "script": "Your MCP server returns real VLAN and inventory data from the lab. Module three puts a conversational layer on top so an operator can ask which VLANs exist without writing Python. Writes still wait for human approval — we are building an assistant, not an unsupervised config pusher.",
+          "points": [
+            "Your MCP server returns real VLAN and inventory data",
+            "Module three puts a conversational layer on top so",
+            "VLANs exist"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module02/mcp-ready-for-agents.svg"
+        }
+      ]
+    },
+    {
+      "moduleNumber": 3,
+      "title": "Agentic Network Operations",
+      "subtitle": "Let Operators Ask Questions in Plain Language",
+      "slides": [
+        {
+          "name": "agents-bridge-from-mcp",
+          "type": "title",
+          "title": "From MCP Tools to Conversational Agent",
+          "script": "Tools alone do not help the on-call engineer at three in the morning if they still need to know Python to invoke them. Module three builds a conversational agent: the operator asks in plain language, the LLM plans tool calls, reads MCP results, and answers. When a change is proposed, the workflow stops for human approval — the same gate you used for AI-generated playbooks in module one.",
+          "imageSrc": "assets/ai-in-automation-networks/module03/agents-bridge-from-mcp.svg"
+        },
+        {
+          "name": "conversational-agent-plain-language",
+          "type": "content-single",
+          "title": "Conversational Agent in Plain Language",
+          "script": "A conversational agent is not magic chat. It is orchestration: route the question, call list_vlans or get_lab_inventory when needed, append tool JSON to context, and summarize for the engineer. Write actions stay blocked until a human types approve. That pattern keeps the helpful parts of natural language without giving up change control.",
+          "points": [
+            "A conversational agent is not magic chat",
+            "Get_lab_inventory",
+            "JSON to context and summarize"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module03/conversational-agent-plain-language.svg"
+        },
+        {
+          "name": "llm-orchestration-patterns",
+          "type": "content-two-card",
+          "title": "LLM Orchestration",
+          "script": "In this lab one agent loop is enough: plan which tool to call, execute through MCP, observe the result, respond or ask for approval. Larger deployments sometimes split planner and executor roles; the idea is the same. The model proposes steps; your tool registry and approval gates enforce what is actually allowed.",
+          "points": [
+            "In this lab one agent loop is enough plan",
+            "MCP observe",
+            "Larger deployments sometimes split planner"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module03/llm-orchestration-patterns.svg"
+        },
+        {
+          "name": "agent-loop-think-act-observe",
+          "type": "content-two-card",
+          "title": "Think, Act, Observe",
+          "script": "Think is the model deciding the next step from the user question and conversation so far. Act is invoking an MCP tool with concrete arguments. Observe is feeding tool output back into context before the model speaks again. Loop until you have an answer or until a proposed write needs a human. Skipping observe is how agents answer from memory instead of from your network.",
+          "points": [
+            "Think is the model deciding the next step",
+            "Observe is feeding tool output back into context before",
+            "Have an answer or until a proposed write needs"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module03/agent-loop-think-act-observe.svg"
+        },
+        {
+          "name": "human-in-loop-vs-full-auto",
+          "type": "comparison",
+          "title": "Human in Loop vs Full Auto",
+          "script": "Read-only questions — what VLANs are defined, is lab-sw1 in inventory — can run end to end in the lab. Pushing configuration without approval is a different class of risk. Production teams require explicit sign-off because prompt injection and model mistakes have real blast radius. Practice full automation only on reads until your benchmarks in module four prove the assistant is trustworthy.",
+          "leftTitle": "Human in loop",
+          "leftItems": [
+            "Approve writes",
+            "Audit trail",
+            "Production pattern"
+          ],
+          "rightTitle": "Full automation",
+          "rightItems": [
+            "No approval gate",
+            "Prompt injection risk",
+            "Lab read-only only"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module03/human-in-loop-vs-full-auto.svg"
+        },
+        {
+          "name": "network-operator-agent-design",
+          "type": "content-single",
+          "title": "Network Operator Agent Design",
+          "script": "Scope the agent like you scope a firewall policy. Allow VLAN and inventory queries; refuse arbitrary shell commands and out-of-scope requests. Put lab topology in the system prompt so the model knows which devices exist. A narrow agent is easier to test, easier to explain in a change review, and easier to sleep on when you are on call.",
+          "points": [
+            "Scope the agent like you scope",
+            "Allow VLAN and inventory queries",
+            "Put lab topology in the system prompt so"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module03/network-operator-agent-design.svg"
+        },
+        {
+          "name": "story-beat-recap-agents",
+          "type": "story-beat",
+          "beat": "recap",
+          "title": "Theory Complete — Agent Lab Next",
+          "script": "You have seen how agents plan, call tools, and pause for approval. Next you wire agent/agent.py to the MCP server from module two and walk through a VLAN question, a proposed change, and an explicit approve or reject step. Keep API keys in the environment, not in Git.",
+          "points": [
+            "How agents plan",
+            "Next you wire",
+            "MCP server from module two and walk through"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module03/story-beat-recap-agents.svg"
+        },
+        {
+          "name": "lab-setup-agent",
+          "type": "content-single",
+          "title": "Agent Lab Setup",
+          "script": "Create netops_ai_lab/agent with agent.py and config.yaml for the model endpoint. Secrets live in .env, loaded at runtime. Use an approved enterprise endpoint or a local sandbox model — the lab is for learning workflow, not for leaking production keys into a repo.",
+          "points": [
+            "Create netops_ai_labagent with agentpy and configyaml",
+            "Secrets live in env loaded at runtime",
+            "Use an approved enterprise endpoint or a local sandbox"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module03/lab-setup-agent.svg"
+        },
+        {
+          "name": "agent-config-llm-client",
+          "type": "code",
+          "title": "Agent Config and LLM Client",
+          "script": "config.yaml holds non-secret settings: model name and how to launch the MCP server. .env holds LLM_API_KEY. That split is the same pattern course three used for automation credentials: version the recipe, inject the secrets.",
+          "code": "mkdir -p agent\ncat > agent/config.yaml << 'EOF'\nmodel: ${LLM_MODEL:-gpt-4o-mini}\nmcp_command: python ../mcp/server.py\nEOF\ncat > .env.example << 'EOF'\nLLM_API_KEY=change-me\nLLM_MODEL=gpt-4o-mini\nEOF",
+          "language": "yaml",
+          "codeContext": "netops_ai_lab/agent/"
+        },
+        {
+          "name": "wire-mcp-tools-to-agent",
+          "type": "code",
+          "title": "Wire MCP Tools",
+          "script": "At startup the agent discovers which MCP tools exist and binds them to the LLM client. The pseudocode lists list_vlans and get_lab_inventory so you see the allowed surface area before you add real orchestration. If a tool is not registered, the model should not be able to call it.",
+          "code": "cat > agent/agent.py << 'EOF'\nimport os\n# Pseudocode: connect MCP client, list tools, bind to LLM\nTOOLS = [\"list_vlans\", \"get_lab_inventory\"]\ndef run_turn(user_msg: str) -> str:\n    return f\"plan tools for: {user_msg}\"\nEOF",
+          "language": "python",
+          "codeContext": "netops_ai_lab/agent/"
+        },
+        {
+          "name": "conversational-network-query",
+          "type": "code",
+          "title": "Query: List VLANs",
+          "script": "Ask which VLANs exist in intent and watch the trace: the agent should plan a list_vlans call, not invent IDs. Compare the answer to netops_iac_lab YAML. This is your first proof that grounding works end to end.",
+          "code": "python -c \"\nfrom agent.agent import run_turn\nprint(run_turn('What VLANs are in intent?'))\n\"",
+          "language": "python",
+          "codeContext": "netops_ai_lab/"
+        },
+        {
+          "name": "agent-proposes-change",
+          "type": "code",
+          "title": "Agent Proposes Change",
+          "script": "When the operator asks for a new VLAN, the agent prints a proposal and stops. Nothing writes to Git automatically. Separating recommendation from execution is how you keep automation fast without making it irreversible.",
+          "code": "python -c \"\nprint('PROPOSAL: add VLAN 400 OPS_AGENT — awaiting human approve')\n\"",
+          "language": "python",
+          "codeContext": "netops_ai_lab/"
+        },
+        {
+          "name": "human-approval-gate",
+          "type": "code",
+          "title": "Human Approval Gate",
+          "script": "The engineer types approve or reject and the choice lands in reviews.log. That log is evidence for auditors and for your future self when debugging why a file changed. Treat it as required, not ceremonial.",
+          "code": "read -p \"Approve agent proposal? [y/N] \" ans\n[[ \"$ans\" == \"y\" ]] && echo approved >> reviews/review.log || echo rejected >> reviews/review.log",
+          "language": "bash",
+          "codeContext": "netops_ai_lab/"
+        },
+        {
+          "name": "troubleshoot-agent-hallucination",
+          "type": "bullets-code",
+          "title": "Troubleshoot Agent Hallucination",
+          "script": "If the agent cites VLANs that never appeared in tool output, force a tool call before answering or tighten the system prompt. Compare responses to YAML ground truth. Module four adds benchmarks so you can measure how often hallucinations still slip through instead of arguing from one bad example.",
+          "code": "# compare agent answer to: python -c \"import yaml; print(yaml.safe_load(open('../netops_iac_lab/intended/vlans.yaml')))\"",
+          "language": "bash",
+          "codeContext": "netops_ai_lab/",
+          "visibleLineRange": [
+            1,
+            1
+          ],
+          "points": [
+            "Force tool call first",
+            "Compare to MCP output",
+            "Module 4 benchmarks accuracy"
+          ]
+        },
+        {
+          "name": "agents-ready-for-evaluation",
+          "type": "story-beat",
+          "beat": "resolution",
+          "title": "Agents Complete — Evaluation Next",
+          "script": "You have a conversational agent grounded in MCP with approval on writes. The remaining question is quantitative: how often is it right? Module four builds golden questions and a score you can track when prompts or models change.",
+          "points": [
+            "You have a conversational agent grounded",
+            "MCP with approval on writes",
+            "Remaining question is quantitative how often"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module03/agents-ready-for-evaluation.svg"
+        }
+      ]
+    },
+    {
+      "moduleNumber": 4,
+      "title": "AI Evaluation",
+      "subtitle": "Prove the Assistant Gets Answers Right",
+      "slides": [
+        {
+          "name": "evaluation-bridge-from-agents",
+          "type": "title",
+          "title": "From Agents to Measured Accuracy",
+          "script": "An assistant that sounds confident is not the same as one that is correct. Module four teaches measurement: golden questions with known answers, pass-fail scoring, and prompt tuning from failed rows. You will stop debating whether the model feels smart and start showing whether it returns the same VLANs your intent files contain.",
+          "imageSrc": "assets/ai-in-automation-networks/module04/evaluation-bridge-from-agents.svg"
+        },
+        {
+          "name": "why-evaluate-ai-recommendations",
+          "type": "content-single",
+          "title": "Why Evaluate AI Output",
+          "script": "Operators trust tools that fail predictably and measurably, not tools that fail rarely but spectacularly. A benchmark suite turns trust into data. Run it when you change prompts, swap models, or add a new tool. Regression should show up in scores before it shows up in a production ticket.",
+          "points": [
+            "Operators trust tools that fail predictably",
+            "Measurably not tools that fail",
+            "A benchmark suite turns trust into data Run"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module04/why-evaluate-ai-recommendations.svg"
+        },
+        {
+          "name": "hallucinations-in-network-context",
+          "type": "content-two-card",
+          "title": "Hallucinations in NetOps",
+          "script": "In networking, hallucination is not abstract — it is VLAN 999 on an interface that does not exist, or an IOS command from the wrong platform. MCP grounding reduces guesses but does not eliminate them. Count what remains after grounding so you know whether to widen the agent's scope.",
+          "points": [
+            "In networking hallucination is not abstract —",
+            "IOS command",
+            "MCP grounding"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module04/hallucinations-in-network-context.svg"
+        },
+        {
+          "name": "accuracy-metrics-plain-language",
+          "type": "content-single",
+          "title": "Accuracy Metrics",
+          "script": "Start simple. For structured answers, check whether the VLAN list or device name matches ground truth. Track how often the agent calls the right tool before answering. Optional human rubrics help judge explanation quality, but field match and tool success are enough for the lab baseline.",
+          "points": [
+            "Start simple For structured answers check whether the VLAN",
+            "Track how often the agent calls the right tool",
+            "Rubrics help judge explanation quality but field match"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module04/accuracy-metrics-plain-language.svg"
+        },
+        {
+          "name": "benchmark-dataset-design",
+          "type": "content-two-card",
+          "title": "Golden Dataset Design",
+          "script": "Build ten to twenty questions from files you already trust — vlans.yaml, inventory JSON. Include negative cases: false premises the agent should refuse, or questions that require a tool call instead of memory. Version the dataset in Git like any test fixture so scores are comparable over time.",
+          "points": [
+            "Build ten to twenty questions from files you already",
+            "JSON Include",
+            "Negative cases false premises the agent should"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module04/benchmark-dataset-design.svg"
+        },
+        {
+          "name": "safety-guardrails-for-agents",
+          "type": "content-single",
+          "title": "Safety Guardrails",
+          "script": "Guardrails are the policies you already believe, enforced in code: no writes without approval, refuse out-of-scope commands, strip secrets from eval logs. They connect back to TLS and secret handling from earlier courses — intelligent automation still sits on secure operations, not beside it.",
+          "points": [
+            "Guardrails are the policies you already believe enforced",
+            "Code no writes without approval refuse out — of",
+            "They connect back"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module04/safety-guardrails-for-agents.svg"
+        },
+        {
+          "name": "story-beat-recap-evaluation",
+          "type": "story-beat",
+          "beat": "recap",
+          "title": "Theory Complete — Benchmark Lab Next",
+          "script": "You know why benchmarks matter and how to design them. Next you create benchmarks/golden_qa.jsonl and run_eval.py against your agent. Treat failed rows as engineering work: mandatory tool calls, path fixes, or stronger system prompts.",
+          "points": [
+            "You know why benchmarks matter and how to design",
+            "And run_evalpy against your agent Treat",
+            "Failed rows as engineering work"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module04/story-beat-recap-evaluation.svg"
+        },
+        {
+          "name": "lab-setup-benchmark",
+          "type": "content-single",
+          "title": "Benchmark Lab Setup",
+          "script": "Add netops_ai_lab/benchmarks with golden_qa.jsonl and run_eval.py. Store results under results so you can compare runs after prompt tuning and again in the capstone.",
+          "points": [
+            "Add netops_ai_labbenchmarks with golden_qajsonl and run_evalpy Store",
+            "Results under results so you can compare runs after"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module04/lab-setup-benchmark.svg"
+        },
+        {
+          "name": "create-golden-qa-pairs",
+          "type": "code",
+          "title": "Create Golden Q&A",
+          "script": "Each line pairs a natural language question with expect_contains text from lab intent. Ground truth comes from YAML you trust, not from whatever the model answered yesterday. That keeps the benchmark honest when you upgrade models.",
+          "code": "mkdir -p benchmarks results\ncat > benchmarks/golden_qa.jsonl << 'EOF'\n{\"q\":\"How many VLANs in intent?\",\"expect_contains\":\"100\"}\n{\"q\":\"Name lab switch?\",\"expect_contains\":\"lab-sw1\"}\nEOF",
+          "language": "bash",
+          "codeContext": "netops_ai_lab/benchmarks/"
+        },
+        {
+          "name": "run-agent-benchmark",
+          "type": "code",
+          "title": "Run Benchmark Script",
+          "script": "run_eval.py calls run_turn for each question and checks for expected substrings. A simple pass count is enough to start; production teams often log per-question detail. Save output to results for the capstone evidence pack.",
+          "code": "cat > benchmarks/run_eval.py << 'EOF'\nimport json, sys\nfrom agent.agent import run_turn\nok=0\nfor line in open(\"golden_qa.jsonl\"):\n    row=json.loads(line)\n    ans=run_turn(row[\"q\"])\n    ok+=1 if row[\"expect_contains\"] in ans else 0\nprint(f\"score {ok}\")\nEOF\npython benchmarks/run_eval.py | tee results/score.txt",
+          "language": "python",
+          "codeContext": "netops_ai_lab/benchmarks/"
+        },
+        {
+          "name": "review-failed-benchmark-cases",
+          "type": "code",
+          "title": "Review Failures",
+          "script": "Read failed questions beside raw answers. Decide whether you need a mandatory tool call, a corrected MCP path, or a stronger system prompt. Change one thing, re-run, and compare — the same scientific habit you use for flaky automation jobs.",
+          "code": "grep -v score results/score.txt\n# re-run after prompt fix",
+          "language": "bash",
+          "codeContext": "netops_ai_lab/"
+        },
+        {
+          "name": "tune-prompt-from-eval",
+          "type": "code",
+          "title": "Tune Prompt from Results",
+          "script": "Add instructions such as always call list_vlans before answering VLAN questions and cite only tool-returned data. Prompt tuning often beats model swapping for grounding failures and costs less operational risk.",
+          "code": "cat >> agent/system_prompt.txt << 'EOF'\nAlways call list_vlans MCP tool before answering VLAN questions.\nCite only data returned by tools.\nEOF",
+          "language": "bash",
+          "codeContext": "netops_ai_lab/agent/"
+        },
+        {
+          "name": "troubleshoot-low-accuracy",
+          "type": "bullets-code",
+          "title": "Troubleshoot Low Scores",
+          "script": "Low scores usually trace to skipped tool calls, wrong file paths, or weak system prompts. Fix grounding before you blame the model. Re-run on the same golden set after each change so improvement is visible.",
+          "code": "python benchmarks/run_eval.py",
+          "language": "bash",
+          "codeContext": "netops_ai_lab/benchmarks/",
+          "visibleLineRange": [
+            1,
+            1
+          ],
+          "points": [
+            "Mandatory tool call",
+            "Verify MCP data path",
+            "Tune system prompt first"
+          ]
+        },
+        {
+          "name": "evaluation-ready-for-capstone",
+          "type": "story-beat",
+          "beat": "resolution",
+          "title": "Evaluation Complete — Capstone Next",
+          "script": "You can score the agent against golden questions and tune from failures. The capstone runs the full pipeline — draft, tools, conversation, measurement — in one operator session you could demonstrate to a teammate.",
+          "points": [
+            "You can score the agent against golden questions",
+            "The capstone runs the full pipeline — draft tools",
+            "Conversation measurement — in one operator session you could"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module04/evaluation-ready-for-capstone.svg"
+        }
+      ]
+    },
+    {
+      "moduleNumber": 5,
+      "title": "AI Powered Network Assistant Capstone",
+      "subtitle": "Run the Full Network Assistant in One Session",
+      "slides": [
+        {
+          "name": "ai-capstone-intro",
+          "type": "title",
+          "title": "Capstone: AI Network Assistant",
+          "script": "This is the integration lab. netops_ai_lab already contains governed AI drafting, an MCP server, a conversational agent with approval gates, and a benchmark suite. You will run one realistic operator session: ask about VLAN intent, receive a grounded answer, let the agent propose a lab change, approve it explicitly, validate, and record scores. Nothing new to install — only the discipline to run the steps in order.",
+          "imageSrc": "assets/ai-in-automation-networks/module05/ai-capstone-intro.svg"
+        },
+        {
+          "name": "capstone-integrates-four-modules",
+          "type": "content-two-card",
+          "title": "What the Capstone Integrates",
+          "script": "Module one gave you reviewed AI-generated code. Module two grounded answers in real intent. Module three let operators ask questions in plain language. Module four measures accuracy. Courses one through three still supply the IaC and validation scripts underneath. The capstone proves those pieces work together, not in isolation.",
+          "points": [
+            "Module one gave you reviewed AI — generated code",
+            "Two grounded answers in real intent Module",
+            "Three let operators ask"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module05/capstone-integrates-four-modules.svg"
+        },
+        {
+          "name": "capstone-lab-layout",
+          "type": "content-single",
+          "title": "Capstone Lab Layout",
+          "script": "Know where artifacts live before you start. netops_ai_lab holds prompts, generated drafts, reviews, mcp, agent, and benchmarks. netops_iac_lab and netops_ops_lab supply intent YAML and validation scripts. When something fails, you fix the owning folder instead of patching the capstone script.",
+          "points": [
+            "Know where artifacts live before you start",
+            "Netops_ai_lab holds prompts generated drafts",
+            "Netops_iac_lab"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module05/capstone-lab-layout.svg"
+        },
+        {
+          "name": "assistant-vs-chatbot",
+          "type": "comparison",
+          "title": "Assistant vs Raw Chatbot",
+          "script": "A generic chatbot guesses from training data. Your network assistant calls MCP tools, logs approvals, and passes benchmarks you defined. That difference is what makes the workflow auditable — an auditor can follow tool calls and review.log, not just read a polished paragraph.",
+          "leftTitle": "AI network assistant",
+          "leftItems": [
+            "MCP grounded",
+            "Benchmarked",
+            "Human approval"
+          ],
+          "rightTitle": "Raw LLM chat",
+          "rightItems": [
+            "Hallucination risk",
+            "No tool audit",
+            "Fails exam story"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module05/assistant-vs-chatbot.svg"
+        },
+        {
+          "name": "six-steps-ai-capstone-runbook",
+          "type": "content-two-card",
+          "title": "Six Steps in Order",
+          "script": "Run six steps in order: start MCP and agent, record a benchmark baseline, ask a VLAN question, let the agent propose a change, approve and validate, then record the final score. Skipping a step breaks the story you would tell in a change review about how the assistant was used safely.",
+          "points": [
+            "Run six steps in order start",
+            "MCP and agent record a benchmark",
+            "Baseline ask"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module05/six-steps-ai-capstone-runbook.svg"
+        },
+        {
+          "name": "five-objectives-capstone-chain",
+          "type": "content-single",
+          "title": "The Full Pipeline in One Session",
+          "script": "One session chains every skill you built: governed code generation, safe tool exposure, conversational queries with approval, and measured accuracy. reviews/review.log shows who approved what; results/score.txt shows whether the assistant still passes after the full workflow.",
+          "points": [
+            "One session chains every skill you built governed code",
+            "measured accuracy reviewsreviewlog shows who approved what resultsscoretxt shows",
+            "The assistant still passes after the full workflow"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module05/five-objectives-capstone-chain.svg"
+        },
+        {
+          "name": "verify-capstone-before-close",
+          "type": "content-single",
+          "title": "Verify Before You Close",
+          "script": "Before you close the lab, confirm MCP returns live intent data, your benchmark meets the threshold you set, and approval is logged before any IaC edit. These checks mirror a production readiness review — proof the system is safe to rely on, not a formality to rush through.",
+          "points": [
+            "Before you close the lab confirm",
+            "MCP returns live intent data your benchmark meets",
+            "Set and approval is logged before"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module05/verify-capstone-before-close.svg"
+        },
+        {
+          "name": "capstone-nothing-new-ai",
+          "type": "content-two-card",
+          "title": "Nothing New to Install",
+          "script": "If MCP, agent, or benchmark fails here, return to the module that owns that component. The capstone is integration, not a second chance to learn FastMCP from scratch. Reuse what you built; repair what is broken.",
+          "points": [
+            "If MCP agent or benchmark fails here return",
+            "The capstone is integration not a second chance",
+            "FastMCP from scratch Reuse what you built repair what"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module05/capstone-nothing-new-ai.svg"
+        },
+        {
+          "name": "story-beat-recap-ai-capstone",
+          "type": "story-beat",
+          "beat": "recap",
+          "title": "Ready for Capstone Lab",
+          "script": "The following code slides walk the six-step runbook line by line. Keep both AI and IaC repos open, use sandbox models only, and treat the runbook as evidence you could attach to a real change ticket.",
+          "points": [
+            "The following code slides walk the six — step",
+            "Line by line Keep both",
+            "AI and IaC repos open use sandbox"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module05/story-beat-recap-ai-capstone.svg"
+        },
+        {
+          "name": "lab-setup-ai-capstone",
+          "type": "content-single",
+          "title": "Capstone Lab Setup",
+          "script": "Start the MCP server in the background, launch the agent, and confirm golden_qa.jsonl exists. Tail reviews.log so approvals appear as you go. Baseline the benchmark before you change prompts mid-session.",
+          "points": [
+            "Start the MCP server in the background launch",
+            "Tail reviewslog",
+            "Baseline the benchmark before you change prompts mid —"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module05/lab-setup-ai-capstone.svg"
+        },
+        {
+          "name": "resume-ai-capstone-prerequisites",
+          "type": "content-two-card",
+          "title": "Resume Modules 1–4",
+          "script": "Confirm modules one through four are green: governed playbook exists, list_vlans works, run_turn responds, run_eval.py prints a score. Activate venv-mcp and verify netops_iac_lab/intended/vlans.yaml is present. Starting the capstone on a broken foundation wastes time.",
+          "points": [
+            "Confirm modules one through four are green governed",
+            "List_vlans",
+            "Activate venv — mcp"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module05/resume-ai-capstone-prerequisites.svg"
+        },
+        {
+          "name": "capstone-start-mcp-and-agent",
+          "type": "code",
+          "title": "Step 1: Start Stack",
+          "script": "Step one launches MCP and sanity-checks the agent with a simple query. Both processes must stay healthy before operator questions or benchmarks in later steps.",
+          "code": "cd netops_ai_lab\nsource venv-mcp/bin/activate\npython mcp/server.py &\npython -c \"from agent.agent import run_turn; print(run_turn('ping'))\"",
+          "language": "bash",
+          "codeContext": "netops_ai_lab/"
+        },
+        {
+          "name": "capstone-run-benchmark-baseline",
+          "type": "code",
+          "title": "Step 2: Benchmark Baseline",
+          "script": "Step two records accuracy before the session changes behavior. capstone-baseline.txt gives you a before picture when you compare final scores.",
+          "code": "python benchmarks/run_eval.py | tee results/capstone-baseline.txt",
+          "language": "bash",
+          "codeContext": "netops_ai_lab/benchmarks/"
+        },
+        {
+          "name": "capstone-operator-vlan-query",
+          "type": "code",
+          "title": "Step 3: Operator Query",
+          "script": "Step three is the operator moment: a natural language VLAN question that should trigger MCP grounding. The answer must match intent files, not model memory.",
+          "code": "python -c \"\nfrom agent.agent import run_turn\nprint(run_turn('List VLANs defined in intent and their names'))\n\"",
+          "language": "python",
+          "codeContext": "netops_ai_lab/"
+        },
+        {
+          "name": "capstone-propose-and-approve",
+          "type": "code",
+          "title": "Step 4: Propose and Approve",
+          "script": "Step four logs a VLAN proposal and waits for explicit approval. Nothing in netops_iac_lab changes until you type yes and append capstone-approved to reviews.",
+          "code": "echo 'PROPOSAL: VLAN 400 AI_CAPSTONE' | tee -a reviews/review.log\nread -p \"Approve? [y/N] \" a\n[[ \"$a\" == \"y\" ]] && echo capstone-approved >> reviews/review.log",
+          "language": "bash",
+          "codeContext": "netops_ai_lab/"
+        },
+        {
+          "name": "capstone-validate-proposed-change",
+          "type": "code",
+          "title": "Step 5: Validate After Approval",
+          "script": "Step five runs secure validation from course three and ansible-lint on the AI-generated playbook. Validation after approval shows you still enforce gates even when the assistant drafted the change.",
+          "code": "python ../netops_ops_lab/scripts/validate_intent_secure.py ../netops_iac_lab/intended/vlans.yaml\nansible-lint ../netops_iac_lab/playbooks/ai_deploy_vlans.yml",
+          "language": "bash",
+          "codeContext": "netops_ai_lab/"
+        },
+        {
+          "name": "capstone-final-benchmark-and-tag",
+          "type": "code",
+          "title": "Step 6: Final Score and Tag",
+          "script": "Step six re-runs the benchmark, saves capstone-final.txt, and optionally tags the IaC repo to mark completion. Compare final score to baseline — that delta is part of your evidence pack.",
+          "code": "python benchmarks/run_eval.py | tee results/capstone-final.txt\ngit -C ../netops_iac_lab tag -a course4-capstone -m \"AI in Automation capstone\"",
+          "language": "bash",
+          "codeContext": "netops_ai_lab/"
+        },
+        {
+          "name": "ai-capstone-complete",
+          "type": "story-beat",
+          "beat": "resolution",
+          "title": "AI in Automation — Complete",
+          "script": "You finish course four with something concrete: an auditable assistant workflow grounded in MCP, guarded by human approval, and measured by benchmarks — built on automate, version, and secure operations from courses one through three. Intelligent automation here means safer operations with a paper trail, not shortcuts around the judgment you already earned as a network engineer.",
+          "points": [
+            "You finish course four with something concrete an auditable",
+            "MCP guarded by human approval",
+            "And measured by benchmarks — built on automate version"
+          ],
+          "imageSrc": "assets/ai-in-automation-networks/module05/ai-capstone-complete.svg"
+        }
+      ]
+    }
+  ]
+}

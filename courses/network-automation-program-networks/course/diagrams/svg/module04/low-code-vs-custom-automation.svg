@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-label="Low-code vs custom automation">
+  <rect width="720" height="640" fill="#0b1f33"/>
+  <circle cx="620" cy="80" r="120" fill="#049FD9" opacity="0.07"/>
+  <circle cx="90" cy="560" r="130" fill="#6CC04A" opacity="0.06"/>
+  <g id="viz-main">
+    <rect x="24" y="24" width="672" height="592" rx="24" fill="#0b1728" stroke="#203a56" stroke-width="1.5"/>
+    
+    <g id="viz-lowcode">
+      <rect x="56" y="110" width="260" height="160" rx="14" fill="#081827" stroke="#12b5e5" stroke-width="2"/>
+      <text x="186" y="140" fill="#12b5e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Low-code / GUI</text>
+      <text x="186" y="172" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">Fast guarded templates</text>
+      <text x="186" y="196" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">Vendor workflows</text>
+      <text x="186" y="220" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">Teams without Python staff</text>
+      <text x="186" y="252" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">Speed over flexibility</text>
+    </g>
+    <g id="viz-custom">
+      <rect x="356" y="110" width="260" height="160" rx="14" fill="#112115" stroke="#6CC04A" stroke-width="2"/>
+      <text x="486" y="140" fill="#6CC04A" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Custom code</text>
+      <text x="486" y="172" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">Exact fit for your process</text>
+      <text x="486" y="196" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">Git + CI tests</text>
+      <text x="486" y="220" fill="#9fb3c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" text-anchor="middle">Audit via pull requests</text>
+      <text x="486" y="252" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">Enterprise with compliance</text>
+    </g>
+    <g id="viz-decide">
+      <rect x="160" y="300" width="352" height="50" rx="12" fill="#0b2237" stroke="#f59e0b" stroke-width="2"/>
+      <text x="336" y="322" fill="#f59e0b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" text-anchor="middle">Decide from business requirements</text>
+      <text x="336" y="340" fill="#64748b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="10" text-anchor="middle">Time, skills, audit — not buzzwords</text>
+    </g>
+  </g>
+</svg>

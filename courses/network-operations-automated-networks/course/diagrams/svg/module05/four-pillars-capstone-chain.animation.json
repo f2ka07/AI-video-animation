@@ -1,0 +1,68 @@
+{
+  "diagram": "four-pillars-capstone-chain.svg",
+  "phases": [
+    {
+      "start": 0,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-intent"
+      ],
+      "dim": [],
+      "highlight": [
+        "viz-intent"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-intent",
+        "viz-apply"
+      ],
+      "dim": [
+        "viz-intent"
+      ],
+      "highlight": [
+        "viz-apply"
+      ]
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-intent",
+        "viz-apply",
+        "viz-observe"
+      ],
+      "dim": [
+        "viz-intent",
+        "viz-apply"
+      ],
+      "highlight": [
+        "viz-observe"
+      ]
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "show": [
+        "viz-main",
+        "viz-intent",
+        "viz-apply",
+        "viz-observe",
+        "viz-prove"
+      ],
+      "dim": [
+        "viz-intent",
+        "viz-apply",
+        "viz-observe"
+      ],
+      "highlight": [
+        "viz-prove"
+      ]
+    }
+  ]
+}
